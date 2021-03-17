@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.databinding.ActivityMainBinding
 import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
+import com.heinika.pokeg.utils.RecyclerViewPaginator
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -27,8 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         adapter = MultiTypeAdapter()
         adapter.register(PokemonItemDelegate())
+        val layoutManager = GridLayoutManager(this, 2)
         binding.recyclerView.let {
-            it.layoutManager = GridLayoutManager(this, 2)
+            it.layoutManager = layoutManager
             it.adapter = adapter
         }
 
@@ -45,5 +47,14 @@ class MainActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this, { isLoading ->
             binding.progressbar.isVisible = isLoading
         })
+
+        RecyclerViewPaginator(
+            recyclerView = binding.recyclerView,
+            isLoading = { if (viewModel.isLoading.value == null) true else viewModel.isLoading.value!! },
+            loadMore = { viewModel.fetchNextPokemonList() },
+            onLast = { false }
+        ).run {
+            threshold = 8
+        }
     }
 }

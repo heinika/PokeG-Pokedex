@@ -152,6 +152,5 @@ dependencies {
 
     // recyclerView
     implementation "androidx.recyclerview:recyclerview:1.2.0-beta02"
-    implementation "com.github.skydoves:baserecyclerviewadapter:1.0.4"
     implementation 'com.drakeet.multitype:multitype:4.2.0'
 }
