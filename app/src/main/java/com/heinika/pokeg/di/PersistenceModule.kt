@@ -20,6 +20,7 @@ import android.app.Application
 import androidx.room.Room
 import com.heinika.pokeg.persistence.AppDatabase
 import com.heinika.pokeg.persistence.PokemonDao
+import com.heinika.pokeg.persistence.PokemonInfoDao
 import com.heinika.pokeg.persistence.TypeResponseConverter
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -55,6 +56,12 @@ object PersistenceModule {
   @Singleton
   fun providePokemonDao(appDatabase: AppDatabase): PokemonDao {
     return appDatabase.pokemonDao()
+  }
+
+  @Provides
+  @Singleton
+  fun providePokemonInfoDao(appDatabase: AppDatabase):PokemonInfoDao{
+    return appDatabase.pokemonInfoDao()
   }
 
   @Provides

@@ -1,6 +1,7 @@
 package com.heinika.pokeg.ui.main
 
 import android.os.Bundle
+import android.view.Window
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity

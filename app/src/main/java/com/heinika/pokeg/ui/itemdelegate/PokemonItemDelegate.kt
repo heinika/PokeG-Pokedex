@@ -1,6 +1,7 @@
 package com.heinika.pokeg.ui.itemdelegate
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,11 @@ import com.bumptech.glide.Glide
 import com.drakeet.multitype.ItemViewDelegate
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.CurPokemon
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.ui.detail.DetailActivity
 
 class PokemonItemDelegate : ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
 
@@ -31,7 +34,8 @@ class PokemonItemDelegate : ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHo
 
         init {
             binding.root.setOnClickListener {
-                
+                CurPokemon.name = name
+                it.context.startActivity(Intent(it.context,DetailActivity::class.java))
             }
         }
 
