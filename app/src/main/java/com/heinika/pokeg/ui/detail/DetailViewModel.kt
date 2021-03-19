@@ -2,8 +2,6 @@ package com.heinika.pokeg.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.heinika.pokeg.CurPokemon
 import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.PokemonInfo
@@ -22,18 +20,15 @@ class DetailViewModel @Inject constructor(
     private val _isLoading = MutableLiveData<Boolean>().apply { value = true }
     val isLoading: LiveData<Boolean> = _isLoading
 
-    val pokemonInfoLiveData: LiveData<PokemonInfo>
+    val pokemonInfoLiveData: LiveData<PokemonInfo> = detailRepository.fetchPokemonList(
+        CurPokemon.name,
+        onSuccess = {
+            _isLoading.postValue(false)
+        },
+        onError = {
+            _isLoading.postValue(false)
+            _toastMessage.postValue(it)
+        }
+    ).asLiveDataOnViewModelScope()
 
-    init {
-        pokemonInfoLiveData = detailRepository.fetchPokemonList(
-            CurPokemon.name,
-            onSuccess = {
-                _isLoading.postValue(false)
-            },
-            onError = {
-                _isLoading.postValue(false)
-                _toastMessage.postValue(it)
-            }
-        ).asLiveDataOnViewModelScope()
-    }
 }

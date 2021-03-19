@@ -18,10 +18,7 @@ package com.heinika.pokeg.di
 
 import android.app.Application
 import androidx.room.Room
-import com.heinika.pokeg.persistence.AppDatabase
-import com.heinika.pokeg.persistence.PokemonDao
-import com.heinika.pokeg.persistence.PokemonInfoDao
-import com.heinika.pokeg.persistence.TypeResponseConverter
+import com.heinika.pokeg.persistence.*
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -43,12 +40,14 @@ object PersistenceModule {
   @Singleton
   fun provideAppDatabase(
     application: Application,
-    typeResponseConverter: TypeResponseConverter
+    typeResponseConverter: TypeResponseConverter,
+    statResponseConverter: StatResponseConverter
   ): AppDatabase {
     return Room
       .databaseBuilder(application, AppDatabase::class.java, "PokeG.db")
       .fallbackToDestructiveMigration()
       .addTypeConverter(typeResponseConverter)
+      .addTypeConverter(statResponseConverter)
       .build()
   }
 
@@ -68,5 +67,11 @@ object PersistenceModule {
   @Singleton
   fun provideTypeResponseConverter(moshi: Moshi): TypeResponseConverter {
     return TypeResponseConverter(moshi)
+  }
+
+  @Provides
+  @Singleton
+  fun provideStatResponseConverter(moshi: Moshi): StatResponseConverter {
+    return StatResponseConverter(moshi)
   }
 }

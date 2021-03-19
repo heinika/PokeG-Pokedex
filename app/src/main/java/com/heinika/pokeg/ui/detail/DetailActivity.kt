@@ -5,9 +5,8 @@ import android.view.Window
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.heinika.pokeg.CurPokemon
+import com.heinika.pokeg.R
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
@@ -18,11 +17,10 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
         super.onCreate(savedInstanceState)
-        val textview = TextView(this)
-        setContentView(textview)
+        setContentView(R.layout.activity_detail)
 
         viewModel.pokemonInfoLiveData.observe(this) {
-            textview.text = it.toString()
+
         }
     }
 }

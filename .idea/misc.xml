@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_arrow.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2777777777777778" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/drawable/scrollbar.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.11979166666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34646739130434784" />
         <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.19484240687679083" />
         <entry key="app/src/main/res/layout/toolbar_home.xml" value="0.20260416666666667" />

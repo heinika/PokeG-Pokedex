@@ -34,7 +34,9 @@ class MainRepository @Inject constructor(
             response.suspendOnSuccess {
                 data.whatIfNotNull { response ->
                     pokemons = response.results
-                    pokemons.forEach { pokemon -> pokemon.page = page }
+                    pokemons.forEach { pokemon ->
+                        pokemon.page = page
+                    }
                     pokemonDao.insertPokemonList(pokemons)
                     emit(pokemonDao.getAllPokemonList(page))
                     onSuccess()
