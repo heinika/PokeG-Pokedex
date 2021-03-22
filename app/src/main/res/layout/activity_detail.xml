@@ -208,6 +208,7 @@
             app:layout_constraintTop_toBottomOf="@id/hp" />
 
         <com.skydoves.progressview.ProgressView
+            android:id="@+id/progress_attach"
             android:layout_width="0dp"
             android:layout_height="18dp"
             android:layout_marginEnd="32dp"
@@ -235,6 +236,7 @@
             app:layout_constraintTop_toBottomOf="@id/attack" />
 
         <com.skydoves.progressview.ProgressView
+            android:id="@+id/progress_defense"
             android:layout_width="0dp"
             android:layout_height="18dp"
             android:layout_marginEnd="32dp"
@@ -250,25 +252,26 @@
             app:progressView_radius="12dp" />
 
         <TextView
-            android:id="@+id/speed"
+            android:id="@+id/sp_attack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
-            android:text="@string/spd"
+            android:text="@string/sp_atk"
             android:textColor="@color/white_70"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/defense" />
 
         <com.skydoves.progressview.ProgressView
+            android:id="@+id/progress_sp_attack"
             android:layout_width="0dp"
             android:layout_height="18dp"
             android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toBottomOf="@id/speed"
+            app:layout_constraintBottom_toBottomOf="@id/sp_attack"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/progress_hp"
-            app:layout_constraintTop_toTopOf="@id/speed"
+            app:layout_constraintTop_toTopOf="@id/sp_attack"
             app:progressView_colorBackground="@color/white"
             app:progressView_colorProgress="@color/flying"
             app:progressView_labelColorInner="@color/white"
@@ -277,25 +280,54 @@
             app:progressView_radius="12dp" />
 
         <TextView
-            android:id="@+id/exp"
+            android:id="@+id/sp_defense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="12dp"
-            android:text="@string/exp"
+            android:text="@string/sp_def"
             android:textColor="@color/white_70"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/speed" />
+            app:layout_constraintTop_toBottomOf="@id/sp_attack" />
 
         <com.skydoves.progressview.ProgressView
+            android:id="@+id/progress_sp_defense"
             android:layout_width="0dp"
             android:layout_height="18dp"
             android:layout_marginEnd="32dp"
-            app:layout_constraintBottom_toBottomOf="@id/exp"
+            app:layout_constraintBottom_toBottomOf="@id/sp_defense"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/progress_hp"
-            app:layout_constraintTop_toTopOf="@id/exp"
+            app:layout_constraintTop_toTopOf="@id/sp_defense"
+            app:progressView_colorBackground="@color/white"
+            app:progressView_colorProgress="@color/md_green_200"
+            app:progressView_labelColorInner="@color/white"
+            app:progressView_labelColorOuter="@color/black"
+            app:progressView_labelSize="12sp"
+            app:progressView_radius="12dp" />
+
+        <TextView
+            android:id="@+id/spd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/spd"
+            android:textColor="@color/white_70"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sp_defense" />
+
+        <com.skydoves.progressview.ProgressView
+            android:id="@+id/progress_spd"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/spd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/progress_hp"
+            app:layout_constraintTop_toTopOf="@id/spd"
             app:progressView_colorBackground="@color/white"
             app:progressView_colorProgress="@color/md_green_200"
             app:progressView_labelColorInner="@color/white"

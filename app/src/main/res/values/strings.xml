@@ -6,6 +6,7 @@
     <string name="hp">HP</string>
     <string name="atk">ATK</string>
     <string name="def">DEF</string>
+    <string name="sp_atk">SATK</string>
+    <string name="sp_def">SDEF</string>
     <string name="spd">SPD</string>
-    <string name="exp">EXP</string>
 </resources>
