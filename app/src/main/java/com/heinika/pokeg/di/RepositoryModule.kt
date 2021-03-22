@@ -13,12 +13,12 @@ import dagger.hilt.android.scopes.ViewModelScoped
 @InstallIn(ViewModelComponent::class)
 object RepositoryModule {
 
-    @Provides
-    @ViewModelScoped
-    fun provideMainRepository(
-        pokeGClient: PokeGClient,
-        pokemonDao: PokemonDao
-    ): MainRepository {
-        return MainRepository(pokeGClient, pokemonDao)
-    }
+  @Provides
+  @ViewModelScoped
+  fun provideMainRepository(
+    pokeGClient: PokeGClient,
+    pokemonDao: PokemonDao
+  ): MainRepository {
+    return MainRepository(pokeGClient, pokemonDao)
+  }
 }

@@ -30,7 +30,11 @@ class RecyclerViewPaginator(
       val lastVisibleItemPosition = when (it) {
         is LinearLayoutManager -> it.findLastVisibleItemPosition()
         is GridLayoutManager -> it.findLastVisibleItemPosition()
-        is StaggeredGridLayoutManager -> findLastVisibleItemPosition(it.findLastVisibleItemPositions(null))
+        is StaggeredGridLayoutManager -> findLastVisibleItemPosition(
+          it.findLastVisibleItemPositions(
+            null
+          )
+        )
         else -> return
       }
 

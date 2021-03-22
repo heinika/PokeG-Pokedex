@@ -23,9 +23,9 @@ import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 
 @Database(entities = [Pokemon::class, PokemonInfo::class], version = 1, exportSchema = true)
-@TypeConverters(value = [TypeResponseConverter::class,StatResponseConverter::class])
+@TypeConverters(value = [TypeResponseConverter::class, StatResponseConverter::class])
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun pokemonDao(): PokemonDao
-    abstract fun pokemonInfoDao(): PokemonInfoDao
+  abstract fun pokemonDao(): PokemonDao
+  abstract fun pokemonInfoDao(): PokemonInfoDao
 }

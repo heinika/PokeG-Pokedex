@@ -13,34 +13,34 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
-    private val pokeGClient: PokeGClient,
-    private val pokemonInfoDao: PokemonInfoDao
+  private val pokeGClient: PokeGClient,
+  private val pokemonInfoDao: PokemonInfoDao
 ) : Repository {
 
-    @WorkerThread
-    fun fetchPokemonList(
-        name: String,
-        onSuccess: () -> Unit,
-        onError: (String?) -> Unit
-    ) = flow {
-        val pokemonInfo = pokemonInfoDao.getPokemonInfo(name)
-        if (pokemonInfo == null) {
-            val response = pokeGClient.fetchPokemonInfo(name)
-            response.suspendOnSuccess {
-                data.whatIfNotNull { response ->
-                    pokemonInfoDao.insertPokemonInfo(response)
-                    emit(response)
-                    onSuccess()
-                }
-            }
-                .onError {
-                    map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
-                }
-                .onException { onError(message) }
-        } else {
-            emit(pokemonInfo)
-            onSuccess()
+  @WorkerThread
+  fun fetchPokemonList(
+    name: String,
+    onSuccess: () -> Unit,
+    onError: (String?) -> Unit
+  ) = flow {
+    val pokemonInfo = pokemonInfoDao.getPokemonInfo(name)
+    if (pokemonInfo == null) {
+      val response = pokeGClient.fetchPokemonInfo(name)
+      response.suspendOnSuccess {
+        data.whatIfNotNull { response ->
+          pokemonInfoDao.insertPokemonInfo(response)
+          emit(response)
+          onSuccess()
         }
+      }
+        .onError {
+          map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
+        }
+        .onException { onError(message) }
+    } else {
+      emit(pokemonInfo)
+      onSuccess()
     }
+  }
 
 }

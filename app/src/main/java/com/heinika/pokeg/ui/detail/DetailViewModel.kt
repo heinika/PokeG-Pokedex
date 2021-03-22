@@ -11,24 +11,24 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    detailRepository: DetailRepository,
+  detailRepository: DetailRepository,
 ) : LiveCoroutinesViewModel() {
 
-    private val _toastMessage = MutableLiveData<String?>()
-    val toastMessage: LiveData<String?> = _toastMessage
+  private val _toastMessage = MutableLiveData<String?>()
+  val toastMessage: LiveData<String?> = _toastMessage
 
-    private val _isLoading = MutableLiveData<Boolean>().apply { value = true }
-    val isLoading: LiveData<Boolean> = _isLoading
+  private val _isLoading = MutableLiveData<Boolean>().apply { value = true }
+  val isLoading: LiveData<Boolean> = _isLoading
 
-    val pokemonInfoLiveData: LiveData<PokemonInfo> = detailRepository.fetchPokemonList(
-        CurPokemon.name,
-        onSuccess = {
-            _isLoading.postValue(false)
-        },
-        onError = {
-            _isLoading.postValue(false)
-            _toastMessage.postValue(it)
-        }
-    ).asLiveDataOnViewModelScope()
+  val pokemonInfoLiveData: LiveData<PokemonInfo> = detailRepository.fetchPokemonList(
+    CurPokemon.name,
+    onSuccess = {
+      _isLoading.postValue(false)
+    },
+    onError = {
+      _isLoading.postValue(false)
+      _toastMessage.postValue(it)
+    }
+  ).asLiveDataOnViewModelScope()
 
 }

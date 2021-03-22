@@ -1,6 +1,9 @@
 package com.heinika.pokeg.ui.detail
 
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
@@ -18,6 +21,9 @@ import com.heinika.pokeg.model.PokemonInfo.Companion.maxHp
 import com.heinika.pokeg.model.PokemonInfo.Companion.maxSpecialAttack
 import com.heinika.pokeg.model.PokemonInfo.Companion.maxSpecialDefense
 import com.heinika.pokeg.model.PokemonInfo.Companion.maxSpeed
+import com.heinika.pokeg.utils.PokemonTypeUtils
+import com.heinika.pokeg.utils.SpacesItemDecoration
+import com.skydoves.androidribbon.ribbonView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -71,6 +77,31 @@ class DetailActivity : AppCompatActivity() {
               }
             }.crossfade(true)
         ).into(binding.image)
+
+      for (type in it.types) {
+        with(binding.ribbonRecyclerView) {
+          addRibbon(
+            ribbonView(context) {
+              setText(type.type.name)
+              setTextColor(Color.WHITE)
+              setPaddingLeft(84f)
+              setPaddingRight(84f)
+              setPaddingTop(2f)
+              setPaddingBottom(10f)
+              setTextSize(16f)
+              setRibbonRadius(120f)
+              setTextStyle(Typeface.BOLD)
+              setRibbonBackgroundColorResource(
+                PokemonTypeUtils.getTypeColor(type.type.name)
+              )
+            }.apply {
+              maxLines = 1
+              gravity = Gravity.CENTER
+            }
+          )
+          addItemDecoration(SpacesItemDecoration())
+        }
+      }
     }
 
     viewModel.isLoading.observe(this) { isLoading ->
