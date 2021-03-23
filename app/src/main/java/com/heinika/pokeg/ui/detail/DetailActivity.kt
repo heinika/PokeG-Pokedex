@@ -24,6 +24,9 @@ import com.heinika.pokeg.model.PokemonInfo.Companion.maxSpeed
 import com.heinika.pokeg.utils.PokemonTypeUtils
 import com.heinika.pokeg.utils.SpacesItemDecoration
 import com.skydoves.androidribbon.ribbonView
+import com.skydoves.rainbow.Rainbow
+import com.skydoves.rainbow.RainbowOrientation
+import com.skydoves.rainbow.color
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,6 +40,32 @@ class DetailActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     binding = ActivityDetailBinding.inflate(layoutInflater)
     setContentView(binding.root)
+
+    Glide.with(binding.image)
+      .load(CurPokemon.imageUrl)
+      .listener(
+        GlidePalette.with(CurPokemon.imageUrl)
+          .use(BitmapPalette.Profile.MUTED_LIGHT)
+          .intoCallBack { palette ->
+            val light = palette?.lightVibrantSwatch?.rgb
+            val domain = palette?.dominantSwatch?.rgb
+            if (domain != null) {
+              if (light != null) {
+                Rainbow(binding.header).palette {
+                  +color(domain)
+                  +color(light)
+                }.background(orientation = RainbowOrientation.TOP_BOTTOM)
+              } else {
+                binding.header.setBackgroundColor(domain)
+              }
+
+              window.apply {
+                addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                statusBarColor = domain
+              }
+            }
+          }.crossfade(true)
+      ).into(binding.image)
 
     binding.progressHp.max = maxHp
     binding.progressAttach.max = maxAttack
@@ -62,21 +91,6 @@ class DetailActivity : AppCompatActivity() {
       binding.progressSpDefense.labelText = it.specialDefense.toString()
       binding.progressSpd.progress = it.speed.toFloat()
       binding.progressSpd.labelText = it.speed.toString()
-
-      Glide.with(binding.image)
-        .load(CurPokemon.imageUrl)
-        .listener(
-          GlidePalette.with(CurPokemon.imageUrl)
-            .use(BitmapPalette.Profile.MUTED_LIGHT)
-            .intoCallBack { palette ->
-              val rgb = palette?.dominantSwatch?.rgb
-              if (rgb != null) {
-                binding.header.setBackgroundColor(rgb)
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-                window.statusBarColor = rgb
-              }
-            }.crossfade(true)
-        ).into(binding.image)
 
       for (type in it.types) {
         with(binding.ribbonRecyclerView) {

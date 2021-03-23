@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
-import com.heinika.pokeg.databinding.ActivityMainBinding
 import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.utils.RecyclerViewPaginator
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,18 +18,18 @@ class MainActivity : AppCompatActivity() {
 
   private val viewModel: MainViewModel by viewModels()
 
-  private lateinit var binding: ActivityMainBinding
   private lateinit var adapter: MultiTypeAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
+    window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
     super.onCreate(savedInstanceState)
-    binding = ActivityMainBinding.inflate(layoutInflater)
-    setContentView(binding.root)
+    val mainPage = MainPage(this)
+    setContentView(mainPage)
 
     adapter = MultiTypeAdapter()
     adapter.register(PokemonItemDelegate())
     val layoutManager = GridLayoutManager(this, 2)
-    binding.recyclerView.let {
+    mainPage.recyclerView.let {
       it.layoutManager = layoutManager
       it.adapter = adapter
     }
@@ -46,11 +45,11 @@ class MainActivity : AppCompatActivity() {
     })
 
     viewModel.isLoading.observe(this, { isLoading ->
-      binding.progressbar.isVisible = isLoading
+      mainPage.progressBar.isVisible = isLoading
     })
 
     RecyclerViewPaginator(
-      recyclerView = binding.recyclerView,
+      recyclerView = mainPage.recyclerView,
       isLoading = { if (viewModel.isLoading.value == null) true else viewModel.isLoading.value!! },
       loadMore = { viewModel.fetchNextPokemonList() },
       onLast = { false }

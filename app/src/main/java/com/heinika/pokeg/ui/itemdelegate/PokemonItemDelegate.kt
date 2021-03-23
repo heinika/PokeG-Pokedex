@@ -34,10 +34,12 @@ class PokemonItemDelegate : ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHo
     private lateinit var imageUrl: String
 
     init {
-      binding.root.setOnClickListener {
+      binding.root.setOnClickListener { view ->
         CurPokemon.name = name
         CurPokemon.imageUrl = imageUrl
-        it.context.startActivity(Intent(it.context, DetailActivity::class.java))
+//        view.z = 1f
+//        view.animate().translationX((view.parent as ViewGroup).width.toFloat()/2 - (view.left + view.right)/2)
+        view.context.startActivity(Intent(view.context,DetailActivity::class.java))
       }
     }
 
