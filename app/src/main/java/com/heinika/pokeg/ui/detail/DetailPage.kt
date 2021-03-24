@@ -32,7 +32,7 @@ class DetailPage(
   private val pokemon: Pokemon,
   private val shareView: AppCompatImageView,
   pageStack: Stack<BasePage>
-) : BasePage(activity,pageStack) {
+) : BasePage(activity, pageStack) {
 
   private val detailViewModel: DetailViewModel by activity.viewModels()
 
@@ -135,39 +135,44 @@ class DetailPage(
       ValueAnimator.ofFloat(0f, 1f).apply {
         val startLocation = IntArray(2)
         shareView.getLocationInWindow(startLocation)
-        val endLocation = IntArray(2)
-        binding.image.getLocationInWindow(endLocation)
-        val startCenterX = startLocation[0] + shareView.width / 2
-        val startCenterY = startLocation[1] + shareView.height / 2
-        val endCenterX = endLocation[0] + binding.image.width / 2
-        val endCenterY = endLocation[1] + binding.image.height / 2
-        val startScale = shareView.width / binding.image.width.toFloat()
+        val endImageLocation = IntArray(2)
+        binding.image.getLocationInWindow(endImageLocation)
+        val endRootLocation = IntArray(2)
+        binding.root.getLocationInWindow(endRootLocation)
+
+        val startRootScale = shareView.height / binding.image.height.toFloat()
+        val startRootCenterX = startLocation[0] + shareView.width / 2
+        val startRootCenterY = startLocation[1] + binding.root.height.toFloat() / 2 * startRootScale - endImageLocation[1] * startRootScale
+        val endRootCenterX = endRootLocation[0] + binding.root.width / 2
+        val endRootCenterY = endRootLocation[1] + binding.root.height / 2
+
+
         doOnStart {
+          shareView.visibility = View.INVISIBLE
           binding.image.alpha = 1f
           binding.image.isVisible = true
           binding.root.isVisible = true
         }
         addUpdateListener { valueAnimator ->
-          binding.image.translationX =
-            (startCenterX - endCenterX) * (1 - valueAnimator.animatedFraction)
-          binding.image.translationY =
-            (startCenterY - endCenterY) * (1 - valueAnimator.animatedFraction)
-          binding.image.scaleX = startScale + (1 - startScale) * valueAnimator.animatedFraction
-          binding.image.scaleY = startScale + (1 - startScale) * valueAnimator.animatedFraction
-
           binding.root.background.alpha = (valueAnimator.animatedFraction * 255).toInt()
+
+
+          val rootTranslationX = (startRootCenterX - endRootCenterX) * (1 - valueAnimator.animatedFraction)
+          val rootTranslationY = (startRootCenterY - endRootCenterY) * (1 - valueAnimator.animatedFraction)
+          val rootScale = startRootScale + (1 - startRootScale) * valueAnimator.animatedFraction
+
+          binding.root.translationX = rootTranslationX
+          binding.root.translationY = rootTranslationY
+          binding.root.scaleX = rootScale
+          binding.root.scaleY = rootScale
+
           binding.constraintLayout.children.forEach { view ->
             if (view != binding.image) {
               view.alpha = valueAnimator.animatedFraction
-              view.translationX =
-                (startCenterX - endCenterX) * (1 - valueAnimator.animatedFraction)
-              view.translationY =
-                (startCenterY - endCenterY) * (1 - valueAnimator.animatedFraction)
-              view.scaleX = startScale + (1 - startScale) * valueAnimator.animatedFraction
-              view.scaleY = startScale + (1 - startScale) * valueAnimator.animatedFraction
             }
           }
         }
+
         duration = 500L
         start()
       }
@@ -178,36 +183,32 @@ class DetailPage(
     super.exitPage()
 
     ValueAnimator.ofFloat(0f, 1f).apply {
-
-      duration = 500L
-
-      val startLocation = IntArray(2)
-      binding.image.getLocationInWindow(startLocation)
       val endLocation = IntArray(2)
       shareView.getLocationInWindow(endLocation)
-      val startCenterX = startLocation[0] + binding.image.width / 2
-      val startCenterY = startLocation[1] + binding.image.height / 2
-      val endCenterX = endLocation[0] + shareView.width / 2
-      val endCenterY = endLocation[1] + shareView.height / 2
-      val endScale = shareView.width / binding.image.width.toFloat()
+      val startImageLocation = IntArray(2)
+      binding.image.getLocationInWindow(startImageLocation)
+      val startRootLocation = IntArray(2)
+      binding.root.getLocationInWindow(startRootLocation)
+
+      val endRootScale = shareView.height / binding.image.height.toFloat()
+      val endRootCenterX = endLocation[0] + shareView.width / 2
+      val endRootCenterY = endLocation[1] + binding.root.height.toFloat() / 2 * endRootScale - startImageLocation[1] * endRootScale
+      val startRootCenterX = startRootLocation[0] + binding.root.width / 2
+      val startRootCenterY = startRootLocation[1] + binding.root.height / 2
 
       addUpdateListener { valueAnimator ->
-        val translateX = 0 + (endCenterX - startCenterX) * valueAnimator.animatedFraction
-        val translateY = 0 + (endCenterY - startCenterY) * valueAnimator.animatedFraction
-        val scale = 1 - (1 - endScale) * valueAnimator.animatedFraction
-        binding.image.translationX = translateX
-        binding.image.translationY = translateY
-        binding.image.scaleX = scale
-        binding.image.scaleY = scale
+        val translateX = 0 + (endRootCenterX - startRootCenterX) * valueAnimator.animatedFraction
+        val translateY = 0 + (endRootCenterY - startRootCenterY) * valueAnimator.animatedFraction
+        val scale = 1 - (1 - endRootScale) * valueAnimator.animatedFraction
+        binding.root.translationX = translateX
+        binding.root.translationY = translateY
+        binding.root.scaleX = scale
+        binding.root.scaleY = scale
 
         binding.root.background.alpha = ((1 - valueAnimator.animatedFraction) * 255).toInt()
         binding.constraintLayout.children.forEach { view ->
           if (view != binding.image) {
             view.alpha = 1 - valueAnimator.animatedFraction
-            view.translationX = translateX
-            view.translationY = translateY
-            view.scaleX = scale
-            view.scaleY = scale
           }
         }
       }
@@ -218,8 +219,11 @@ class DetailPage(
         binding.image.translationY = 0f
         binding.image.scaleX = 1f
         binding.image.scaleY = 1f
+
+        shareView.visibility = View.VISIBLE
       }
 
+      duration = 500L
       start()
     }
   }
