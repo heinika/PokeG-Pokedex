@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeG"
         tools:ignore="AllowBackup">
-        <activity android:name=".ui.main.MainActivity"
+        <activity android:name=".PokeGActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.detail.DetailActivity"/>
     </application>
 
 </manifest>

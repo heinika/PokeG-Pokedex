@@ -1,22 +1,21 @@
 package com.heinika.pokeg.ui.itemdelegate
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.drakeet.multitype.ItemViewDelegate
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
-import com.heinika.pokeg.CurPokemon
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
-import com.heinika.pokeg.ui.detail.DetailActivity
 
-class PokemonItemDelegate : ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
+class PokemonItemDelegate(private val onItemClick: (AppCompatImageView, Pokemon) -> Unit) :
+  ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
 
   override fun onCreateViewHolder(context: Context, parent: ViewGroup): ViewHolder {
     return ViewHolder(
@@ -28,24 +27,18 @@ class PokemonItemDelegate : ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHo
     holder.setData(item)
   }
 
-  class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+  inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val binding = ItemPokemonBinding.bind(itemView)
-    private lateinit var name: String
-    private lateinit var imageUrl: String
+    private lateinit var item: Pokemon
 
     init {
-      binding.root.setOnClickListener { view ->
-        CurPokemon.name = name
-        CurPokemon.imageUrl = imageUrl
-//        view.z = 1f
-//        view.animate().translationX((view.parent as ViewGroup).width.toFloat()/2 - (view.left + view.right)/2)
-        view.context.startActivity(Intent(view.context,DetailActivity::class.java))
+      binding.root.setOnClickListener {
+        onItemClick(binding.imageView, item)
       }
     }
 
     fun setData(item: Pokemon) {
-      name = item.name
-      imageUrl = item.getImageUrl()
+      this.item = item
 
       with(binding) {
         nameLabel.text = item.name

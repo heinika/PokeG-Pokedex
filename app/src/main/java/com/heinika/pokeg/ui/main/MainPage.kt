@@ -1,63 +1,62 @@
 package com.heinika.pokeg.ui.main
 
-import android.content.Context
-import android.graphics.Color
-import android.graphics.Typeface
-import android.view.Gravity
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.LinearLayout.VERTICAL
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.core.view.setPadding
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.heinika.pokeg.R
-import com.heinika.pokeg.base.CustomLayout
+import com.drakeet.multitype.MultiTypeAdapter
+import com.heinika.pokeg.base.BasePage
+import com.heinika.pokeg.ui.detail.DetailPage
+import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
+import com.heinika.pokeg.utils.RecyclerViewPaginator
+import timber.log.Timber
+import java.util.*
 
-class MainPage(context: Context) : CustomLayout(context) {
+class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePage>) :
+  BasePage(activity, pageStack) {
+  private val mainViewModel: MainViewModel by activity.viewModels()
 
-  private val toolbarTitle = TextView(context).apply {
-    layoutParams = LayoutParams(MATCH_PARENT, 56.dp)
-    text = R.string.app_name.resString
-    setBackgroundColor(R.color.colorPrimary.resColor)
-    setTextColor(R.color.white.resColor)
-    textSize = 21f
-    gravity = Gravity.CENTER_VERTICAL
-    maxEms = 15
-    setTypeface(typeface, Typeface.BOLD)
-    setPadding(10.dp)
-    addView(this)
+  private var adapter: MultiTypeAdapter = MultiTypeAdapter()
+
+  private val mainPageView = MainPageView(activity)
+
+  override fun showPage() {
+    super.showPage()
+    content.addView(mainPageView)
+
+    adapter.register(PokemonItemDelegate(onItemClick = { imageView, pokemon ->
+      DetailPage(activity, pokemon, imageView,pageStack).also {
+        it.showPage()
+      }
+    }))
+    val layoutManager = GridLayoutManager(activity, 2)
+    mainPageView.recyclerView.let {
+      it.layoutManager = layoutManager
+      it.adapter = adapter
+    }
+
+    mainViewModel.pokemonListLiveData.observe(activity, {
+      Timber.d("${it.size}")
+      adapter.items = it
+      adapter.notifyItemRangeChanged(0, it.size - 1)
+    })
+
+    mainViewModel.toastMessage.observe(activity, { toastMessage ->
+      Toast.makeText(activity, toastMessage, Toast.LENGTH_LONG).show()
+    })
+
+    mainViewModel.isLoading.observe(activity, { isLoading ->
+      mainPageView.progressBar.isVisible = isLoading
+    })
+
+    RecyclerViewPaginator(
+      recyclerView = mainPageView.recyclerView,
+      isLoading = { if (mainViewModel.isLoading.value == null) true else mainViewModel.isLoading.value!! },
+      loadMore = { mainViewModel.fetchNextPokemonList() },
+      onLast = { false }
+    ).run {
+      threshold = 8
+    }
   }
-
-  val recyclerView = RecyclerView(context).apply {
-    setBackgroundColor(Color.RED)
-    layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-    layoutManager = GridLayoutManager(context, 2, VERTICAL, false)
-    setBackgroundColor(R.color.background.resColor)
-    this@MainPage.addView(this)
-  }
-
-  val progressBar = ProgressBar(context).apply {
-    layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-    addView(this)
-  }
-
-  override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-    super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-    toolbarTitle.autoMeasure()
-    progressBar.autoMeasure()
-    recyclerView.measure(
-      defaultWidthMeasureSpec(),
-      (height - toolbarTitle.measuredHeightWithMargins).toExactlyMeasureSpec()
-    )
-  }
-
-
-  override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-    toolbarTitle.layout(0, 0)
-    recyclerView.layout(0, toolbarTitle.bottom)
-    progressBar.let { it.layout(width/2 - it.measuredWidth / 2, height/2 - it.measuredHeight / 2) }
-  }
-
 }

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/background"
+  >
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="32dp"
+    android:descendantFocusability="blocksDescendants"
+    >
+
+    <ProgressBar
+      android:id="@+id/progressbar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:visibility="gone" />
+
+    <TextView
+      android:id="@+id/hp"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:layout_marginStart="32dp"
+      android:text="@string/hp"
+      android:textColor="@color/white_70"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/stats_title" />
+
+    <TextView
+      android:id="@+id/attack"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_marginStart="32dp"
+      android:text="@string/atk"
+      android:textColor="@color/white_70"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/hp" />
+
+    <TextView
+      android:id="@+id/defense"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_marginStart="32dp"
+      android:text="@string/def"
+      android:textColor="@color/white_70"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/attack" />
+
+    <TextView
+      android:id="@+id/sp_attack"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_marginStart="32dp"
+      android:text="@string/sp_atk"
+      android:textColor="@color/white_70"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/defense" />
+
+    <TextView
+      android:id="@+id/sp_defense"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_marginStart="32dp"
+      android:text="@string/sp_def"
+      android:textColor="@color/white_70"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/sp_attack" />
+
+    <TextView
+      android:id="@+id/spd"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_marginStart="32dp"
+      android:text="@string/spd"
+      android:textColor="@color/white_70"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/sp_defense" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/arrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingTop="12dp"
+      android:paddingStart="12dp"
+      android:paddingEnd="6dp"
+      android:translationZ="100dp"
+      app:layout_constraintStart_toStartOf="parent"
+      android:layout_marginTop="24dp"
+      app:layout_constraintTop_toTopOf="@id/header"
+      app:srcCompat="@drawable/ic_arrow" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/image"
+      android:layout_width="190dp"
+      android:layout_height="190dp"
+      android:layout_marginBottom="20dp"
+      android:scaleType="center"
+      android:translationZ="100dp"
+      app:layout_constraintBottom_toBottomOf="@id/header"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/app_name"
+      style="@style/TextStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/app_name"
+      android:textColor="@color/white"
+      android:textSize="18sp"
+      android:translationZ="100dp"
+      app:layout_constraintStart_toEndOf="@id/arrow"
+      app:layout_constraintTop_toTopOf="@id/arrow" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/index"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="12dp"
+      android:textColor="@color/white"
+      android:textSize="18sp"
+      android:translationZ="100dp"
+      android:layout_marginTop="36dp"
+      android:layout_marginEnd="12dp"
+      app:layout_constraintEnd_toEndOf="@id/header"
+      app:layout_constraintTop_toTopOf="@id/header"
+      tools:text="#001" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/name"
+      android:textStyle="bold"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:layout_marginBottom="36dp"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+      android:textColor="@color/white"
+      android:textSize="36sp"
+      android:translationZ="100dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/header" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/weight"
+      style="@style/TextStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:textSize="21sp"
+      app:layout_constraintEnd_toStartOf="@id/height"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/ribbonRecyclerView"
+      tools:text="24.0 KG" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/height"
+      style="@style/TextStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="21sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/weight"
+      app:layout_constraintTop_toTopOf="@id/weight"
+      tools:text="11 M" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/weight_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/weight"
+      android:textColor="@color/white_56"
+      app:layout_constraintEnd_toStartOf="@id/height"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/weight"
+      tools:text="Weight" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/height_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/height"
+      android:textColor="@color/white_56"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/weight"
+      app:layout_constraintTop_toBottomOf="@id/height" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/stats_title"
+      style="@style/TextStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:text="@string/base_stats"
+      android:textColor="@color/white_93"
+      android:textSize="21sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/weight_title" />
+
+    <com.skydoves.androidribbon.RibbonRecyclerView
+      android:id="@+id/ribbonRecyclerView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/name"
+      app:ribbon_recycler_orientation="horizontal"
+      tools:listitem="@layout/item_ribbon" />
+
+    <com.skydoves.progressview.ProgressView
+      android:id="@+id/progress_hp"
+      android:layout_width="0dp"
+      android:layout_height="18dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintBottom_toBottomOf="@id/hp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/hp"
+      app:layout_constraintTop_toTopOf="@id/hp"
+      app:progressView_colorBackground="@color/white"
+      app:progressView_colorProgress="@color/colorPrimary"
+      app:progressView_labelColorInner="@color/white"
+      app:progressView_labelColorOuter="@color/black"
+      app:progressView_labelSize="12sp"
+      app:progressView_progress="0"
+      app:progressView_radius="12dp" />
+
+    <com.skydoves.progressview.ProgressView
+      android:id="@+id/progress_attach"
+      android:layout_width="0dp"
+      android:layout_height="18dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintBottom_toBottomOf="@id/attack"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/progress_hp"
+      app:layout_constraintTop_toTopOf="@id/attack"
+      app:progressView_colorBackground="@color/white"
+      app:progressView_colorProgress="@color/md_orange_100"
+      app:progressView_labelColorInner="@color/white"
+      app:progressView_labelColorOuter="@color/black"
+      app:progressView_labelSize="12sp"
+      app:progressView_radius="12dp" />
+
+    <com.skydoves.progressview.ProgressView
+      android:id="@+id/progress_defense"
+      android:layout_width="0dp"
+      android:layout_height="18dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintBottom_toBottomOf="@id/defense"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/progress_hp"
+      app:layout_constraintTop_toTopOf="@id/defense"
+      app:progressView_colorBackground="@color/white"
+      app:progressView_colorProgress="@color/md_blue_200"
+      app:progressView_labelColorInner="@color/white"
+      app:progressView_labelColorOuter="@color/black"
+      app:progressView_labelSize="12sp"
+      app:progressView_radius="12dp" />
+
+    <com.skydoves.progressview.ProgressView
+      android:id="@+id/progress_sp_attack"
+      android:layout_width="0dp"
+      android:layout_height="18dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintBottom_toBottomOf="@id/sp_attack"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/progress_hp"
+      app:layout_constraintTop_toTopOf="@id/sp_attack"
+      app:progressView_colorBackground="@color/white"
+      app:progressView_colorProgress="@color/flying"
+      app:progressView_labelColorInner="@color/white"
+      app:progressView_labelColorOuter="@color/black"
+      app:progressView_labelSize="12sp"
+      app:progressView_radius="12dp" />
+
+    <com.skydoves.progressview.ProgressView
+      android:id="@+id/progress_sp_defense"
+      android:layout_width="0dp"
+      android:layout_height="18dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintBottom_toBottomOf="@id/sp_defense"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/progress_hp"
+      app:layout_constraintTop_toTopOf="@id/sp_defense"
+      app:progressView_colorBackground="@color/white"
+      app:progressView_colorProgress="@color/md_green_200"
+      app:progressView_labelColorInner="@color/white"
+      app:progressView_labelColorOuter="@color/black"
+      app:progressView_labelSize="12sp"
+      app:progressView_radius="12dp" />
+
+    <com.skydoves.progressview.ProgressView
+      android:id="@+id/progress_spd"
+      android:layout_width="0dp"
+      android:layout_height="18dp"
+      android:layout_marginEnd="32dp"
+      app:layout_constraintBottom_toBottomOf="@id/spd"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/progress_hp"
+      app:layout_constraintTop_toTopOf="@id/spd"
+      app:progressView_colorBackground="@color/white"
+      app:progressView_colorProgress="@color/md_green_200"
+      app:progressView_labelColorInner="@color/white"
+      app:progressView_labelColorOuter="@color/black"
+      app:progressView_labelSize="12sp"
+      app:progressView_radius="12dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/header"
+      android:layout_width="match_parent"
+      android:layout_height="284dp"
+      android:background="@color/colorPrimary"
+      android:elevation="9dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

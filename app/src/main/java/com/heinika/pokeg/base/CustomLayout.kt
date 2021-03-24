@@ -72,4 +72,17 @@ abstract class CustomLayout(context: Context) : ViewGroup(context) {
   protected fun Context.toTheme(themeResId: Int) = ContextThemeWrapper(this, themeResId)
 
   protected class LayoutParams(width: Int, height: Int) : MarginLayoutParams(width, height)
+
+  protected val statusBarHeight: Int
+    get() {
+      var result = 0
+      val resId = resources.getIdentifier("status_bar_height", "dimen", "android");
+      if (resId > 0) {
+        result = context.resources.getDimensionPixelOffset(resId);
+      }
+      if (result <= 0) {
+        result = 25.dp
+      }
+      return result
+    }
 }
