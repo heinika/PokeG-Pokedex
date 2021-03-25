@@ -38,6 +38,8 @@ class DetailPage(
 
   private val binding: PageDetailBinding = PageDetailBinding.inflate(activity.layoutInflater)
 
+  private val animatorDuration = 500L
+
   override fun showPage() {
     super.showPage()
 
@@ -173,7 +175,7 @@ class DetailPage(
           }
         }
 
-        duration = 500L
+        duration = animatorDuration
         start()
       }
     }
@@ -223,7 +225,7 @@ class DetailPage(
         shareView.visibility = View.VISIBLE
       }
 
-      duration = 500L
+      duration = animatorDuration
       start()
     }
   }
