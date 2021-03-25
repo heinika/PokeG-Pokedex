@@ -40,7 +40,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
   val recyclerView = RecyclerView(context).apply {
     setBackgroundColor(Color.RED)
     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-    layoutManager = GridLayoutManager(context, 2, VERTICAL, false)
+    layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
     setBackgroundColor(R.color.background.resColor)
     this@MainPageView.addView(this)
   }

@@ -30,11 +30,8 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
         it.showPage()
       }
     }))
-    val layoutManager = GridLayoutManager(activity, 2)
-    mainPageView.recyclerView.let {
-      it.layoutManager = layoutManager
-      it.adapter = adapter
-    }
+
+    mainPageView.recyclerView.adapter = adapter
 
     mainViewModel.pokemonListLiveData.observe(activity, {
       Timber.d("${it.size}")
