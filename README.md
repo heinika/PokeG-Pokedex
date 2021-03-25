@@ -1,4 +1,5 @@
 <h1 align="center">PokeG</h1>
+![](https://github.com/heinika/PokeG/workflows/Android%20CI/badge.svg)
 
 It's fork from [Pokedex](https://github.com/skydoves/Pokedex),I create PokeG becase of Pokedex pokemon's status is fake data(radom).
 
