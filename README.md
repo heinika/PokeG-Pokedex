@@ -6,13 +6,13 @@
   <a href="https://github.com/heinika"><img alt="Profile" src="https://heinika.github.io/badges/heinika.svg"/></a> 
 </p>
 
-It's fork from [Pokedex](https://github.com/skydoves/Pokedex),I create PokeG becase of Pokedex pokemon's status is fake data(radom).
+<img src="/previews/preview.gif" align="right" width="32%"/>
+
+It's fork from [Pokedex](https://github.com/skydoves/Pokedex),I create PokeG becase of Pokedex pokemon's status is radom data.
 
 I want to use PokeG to simple glance pokemon's status with happy mood.
 
 So I focus on Smooth. I use view to replace activity which make page switch more smooth.
-
-<img src="/previews/preview.gif" align="right" width="32%"/>
 
 ## Download
 Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
