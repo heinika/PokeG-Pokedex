@@ -12,7 +12,7 @@ It's fork from [Pokedex](https://github.com/skydoves/Pokedex),I create PokeG bec
 
 I want to use PokeG to simple glance pokemon's status with happy mood.
 
-So I focus on Smooth. I use view to replace activity which make page switch more smooth.
+I use view to replace activity which make page switch more smooth.
 
 ## Download
 Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
