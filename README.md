@@ -14,6 +14,8 @@ I want to use PokeG to simple glance pokemon's status with happy mood.
 
 I use view to replace activity which make page switch more smooth.
 
+Data binding replace by view binding.(I hate it!)
+
 ## Download
 Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
 
