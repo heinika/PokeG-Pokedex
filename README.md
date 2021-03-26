@@ -19,7 +19,7 @@ Data binding replace by view binding.(I hate it!)
 ## Download
 Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
 
-## fork from
+## Fork from
 It's fork from https://github.com/skydoves/Pokedex.
 
 Pokedex is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>This project is for focusing especially on the new library Hilt of implementing dependency injection.<br>
