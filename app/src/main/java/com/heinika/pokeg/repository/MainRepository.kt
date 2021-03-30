@@ -62,7 +62,7 @@ class MainRepository @Inject constructor(
     }
   }.onStart { onStart() }.flowOn(Dispatchers.IO)
 
-  @WorkerThread
+
   fun fetchUpdatePokemon(
     pokemon: Pokemon,
     onError: (String?) -> Unit

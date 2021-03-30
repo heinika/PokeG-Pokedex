@@ -40,7 +40,6 @@ class MainViewModel @Inject constructor(
     }
   }
 
-  @MainThread
   fun fetchUpdatePokemonLiveData(pokemon: Pokemon): LiveData<Pokemon> = mainRepository.fetchUpdatePokemon(pokemon,
     onError = {}).asLiveDataOnViewModelScope()
 
