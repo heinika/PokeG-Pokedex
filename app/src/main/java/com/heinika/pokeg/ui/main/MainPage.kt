@@ -28,7 +28,7 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     super.showPage()
     content.addView(mainPageView)
 
-    adapter.register(PokemonItemDelegate(onItemClick = { imageView, pokemon ->
+    adapter.register(PokemonItemDelegate(activity, mainViewModel, onItemClick = { imageView, pokemon ->
       DetailPage(activity, pokemon, imageView, pageStack).also {
         it.showPage()
       }
@@ -37,7 +37,7 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     mainPageView.recyclerView.adapter = adapter
 
     mainViewModel.pokemonListLiveData.observe(activity, {
-      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items as List<Pokemon>,it),true)
+      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items as List<Pokemon>, it), true)
       adapter.items = it
       diffResult.dispatchUpdatesTo(adapter)
     })
@@ -60,7 +60,7 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     }
   }
 
-  private class AdapterDiffUtils(val oldList:List<Pokemon>,val newList: List<Pokemon>): DiffUtil.Callback() {
+  private class AdapterDiffUtils(val oldList: List<Pokemon>, val newList: List<Pokemon>) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 
     override fun getNewListSize(): Int = newList.size

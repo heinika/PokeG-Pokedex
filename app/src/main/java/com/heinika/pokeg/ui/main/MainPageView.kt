@@ -3,6 +3,8 @@ package com.heinika.pokeg.ui.main
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.text.InputType
+import android.text.method.PasswordTransformationMethod
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -44,22 +46,24 @@ class MainPageView(context: Context) : CustomLayout(context) {
   private val searchButton = Button(context).apply {
     layoutParams = LayoutParams(36.dp, 36.dp).apply {
       topMargin = 10.dp
+      marginEnd = 12.dp
     }
     setPadding(0)
     text = "GO"
     setOnClickListener {
       val position = inputText.text.toString().toInt()
-      (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(position - 1,0)
+      (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(position - 1, 0)
     }
     addView(this)
   }
 
   private val inputText = EditText(context).apply {
     layoutParams = LayoutParams(60.dp, 36.dp).apply {
-      marginEnd = 16.dp
+      marginEnd = 56.dp
       topMargin = 10.dp
     }
     maxLines = 1
+    inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_NORMAL
     setPadding(8.dp, 0, 8.dp, 0)
     gravity = Gravity.END or Gravity.CENTER_VERTICAL
     setText("150")
@@ -88,8 +92,8 @@ class MainPageView(context: Context) : CustomLayout(context) {
     searchButton.autoMeasure()
     inputText.autoMeasure()
     recyclerView.measure(
-        defaultWidthMeasureSpec(),
-        (height - toolbarTitle.measuredHeightWithMargins).toExactlyMeasureSpec()
+      defaultWidthMeasureSpec(),
+      (height - toolbarTitle.measuredHeightWithMargins).toExactlyMeasureSpec()
     )
   }
 
@@ -97,13 +101,13 @@ class MainPageView(context: Context) : CustomLayout(context) {
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
     statusBarBackground.layout(0, 0)
     toolbarTitle.layout(0, statusBarBackground.bottom)
-    searchButton.layout(0, inputText.top, true)
-    inputText.let { it.layout( searchButton.left - it.marginEnd - it.width, statusBarBackground.bottom + it.marginTop) }
+    searchButton.let { it.layout(it.marginEnd, statusBarBackground.bottom + it.marginTop, true) }
+    inputText.let { it.layout(it.marginEnd, statusBarBackground.bottom + it.marginTop, true) }
     recyclerView.layout(0, toolbarTitle.bottom)
     progressBar.let {
       it.layout(
-          width / 2 - it.measuredWidth / 2,
-          height / 2 - it.measuredHeight / 2
+        width / 2 - it.measuredWidth / 2,
+        height / 2 - it.measuredHeight / 2
       )
     }
   }

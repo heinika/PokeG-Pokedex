@@ -81,7 +81,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/idText"
+            android:id="@+id/totalStatText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
@@ -94,7 +94,7 @@
             />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/totalStatText"
+            android:id="@+id/idText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"

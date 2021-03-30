@@ -63,8 +63,7 @@ class MainRepository @Inject constructor(
   }.onStart { onStart() }.flowOn(Dispatchers.IO)
 
   @WorkerThread
-  fun fetchPokemonInfo(
-    page: Int,
+  fun fetchUpdatePokemon(
     pokemon: Pokemon,
     onError: (String?) -> Unit
   ) = flow {
@@ -75,7 +74,7 @@ class MainRepository @Inject constructor(
         data.whatIfNotNull { response ->
           pokemonInfoDao.insertPokemonInfo(response)
           updatePokemon(pokemon,response)
-          emit(pokemonDao.getAllPokemonList(page))
+          emit(pokemon)
         }
       }
         .onError {
@@ -84,7 +83,7 @@ class MainRepository @Inject constructor(
         .onException { onError(message) }
     } else {
       updatePokemon(pokemon, pokemonInfo)
-      emit(pokemonDao.getAllPokemonList(page))
+      emit(pokemon)
     }
   }.flowOn(Dispatchers.IO)
 
