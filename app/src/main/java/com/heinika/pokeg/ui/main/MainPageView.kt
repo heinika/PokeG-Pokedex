@@ -43,34 +43,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
-  private val searchButton = Button(context).apply {
-    layoutParams = LayoutParams(36.dp, 36.dp).apply {
-      topMargin = 10.dp
-      marginEnd = 12.dp
-    }
-    setPadding(0)
-    text = "GO"
-    setOnClickListener {
-      val position = inputText.text.toString().toInt()
-      (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(position - 1, 0)
-    }
-    addView(this)
-  }
-
-  private val inputText = EditText(context).apply {
-    layoutParams = LayoutParams(60.dp, 36.dp).apply {
-      marginEnd = 56.dp
-      topMargin = 10.dp
-    }
-    maxLines = 1
-    inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_NORMAL
-    setPadding(8.dp, 0, 8.dp, 0)
-    gravity = Gravity.END or Gravity.CENTER_VERTICAL
-    setText("150")
-    setBackgroundResource(R.drawable.input_background)
-    addView(this)
-  }
-
   val recyclerView = RecyclerView(context).apply {
     setBackgroundColor(Color.RED)
     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
@@ -89,8 +61,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     statusBarBackground.autoMeasure()
     toolbarTitle.autoMeasure()
     progressBar.autoMeasure()
-    searchButton.autoMeasure()
-    inputText.autoMeasure()
     recyclerView.measure(
       defaultWidthMeasureSpec(),
       (height - toolbarTitle.measuredHeightWithMargins).toExactlyMeasureSpec()
@@ -101,8 +71,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
     statusBarBackground.layout(0, 0)
     toolbarTitle.layout(0, statusBarBackground.bottom)
-    searchButton.let { it.layout(it.marginEnd, statusBarBackground.bottom + it.marginTop, true) }
-    inputText.let { it.layout(it.marginEnd, statusBarBackground.bottom + it.marginTop, true) }
     recyclerView.layout(0, toolbarTitle.bottom)
     progressBar.let {
       it.layout(
