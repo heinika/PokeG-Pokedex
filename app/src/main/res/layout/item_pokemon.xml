@@ -1,59 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.skydoves.transformationlayout.TransformationLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/transformationLayout"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:transformation_duration="550">
+    android:layout_marginTop="12dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:background="#162544"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#162544"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="6dp"
-        android:background="@color/background800"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/white_12"
-        app:cardCornerRadius="14dp"
-        app:cardElevation="4dp">
+        tools:background="#162544"
+        tools:ignore="UnusedAttribute">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageView"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="4dp"
+            android:layout_margin="12dp"
+            android:scaleType="center"
+            android:background="@drawable/item_image_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameLabel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:foreground="?attr/selectableItemBackground"
-            tools:background="@color/background800"
-            tools:ignore="UnusedAttribute">
+            android:elevation="4dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@id/imageView"
+            app:layout_constraintBottom_toTopOf="@id/type1Text"
+            tools:text="Bulbasaur" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imageView"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="20dp"
-                android:scaleType="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/type1Text"
+            android:layout_width="66dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="grass"
+            android:background="@drawable/item_type_background"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/nameLabel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/nameLabel"
+            />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/nameLabel"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView"
-                tools:text="Bulbasaur" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/type2Text"
+            android:layout_width="66dp"
+            android:layout_height="25dp"
+            android:gravity="center"
+            android:layout_marginStart="6dp"
+            android:text="poison"
+            android:background="@drawable/item_type_background"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@+id/type1Text"
+            app:layout_constraintStart_toEndOf="@+id/type1Text"
+            />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/idText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="12sp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="22dp"
+            />
 
-    </com.google.android.material.card.MaterialCardView>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/totalStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="12sp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="22dp"
+            />
 
-</com.skydoves.transformationlayout.TransformationLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+

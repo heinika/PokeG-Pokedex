@@ -7,11 +7,15 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.LinearLayout.VERTICAL
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.view.marginEnd
+import androidx.core.view.marginTop
 import androidx.core.view.setPadding
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
@@ -37,10 +41,36 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val searchButton = Button(context).apply {
+    layoutParams = LayoutParams(36.dp, 36.dp).apply {
+      topMargin = 10.dp
+    }
+    setPadding(0)
+    text = "GO"
+    setOnClickListener {
+      val position = inputText.text.toString().toInt()
+      (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(position - 1,0)
+    }
+    addView(this)
+  }
+
+  private val inputText = EditText(context).apply {
+    layoutParams = LayoutParams(60.dp, 36.dp).apply {
+      marginEnd = 16.dp
+      topMargin = 10.dp
+    }
+    maxLines = 1
+    setPadding(8.dp, 0, 8.dp, 0)
+    gravity = Gravity.END or Gravity.CENTER_VERTICAL
+    setText("150")
+    setBackgroundResource(R.drawable.input_background)
+    addView(this)
+  }
+
   val recyclerView = RecyclerView(context).apply {
     setBackgroundColor(Color.RED)
     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-    layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+    layoutManager = LinearLayoutManager(context)
     setBackgroundColor(R.color.background.resColor)
     this@MainPageView.addView(this)
   }
@@ -55,21 +85,25 @@ class MainPageView(context: Context) : CustomLayout(context) {
     statusBarBackground.autoMeasure()
     toolbarTitle.autoMeasure()
     progressBar.autoMeasure()
+    searchButton.autoMeasure()
+    inputText.autoMeasure()
     recyclerView.measure(
-      defaultWidthMeasureSpec(),
-      (height - toolbarTitle.measuredHeightWithMargins).toExactlyMeasureSpec()
+        defaultWidthMeasureSpec(),
+        (height - toolbarTitle.measuredHeightWithMargins).toExactlyMeasureSpec()
     )
   }
 
 
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-    statusBarBackground.layout(0,0)
+    statusBarBackground.layout(0, 0)
     toolbarTitle.layout(0, statusBarBackground.bottom)
+    searchButton.layout(0, inputText.top, true)
+    inputText.let { it.layout( searchButton.left - it.marginEnd - it.width, statusBarBackground.bottom + it.marginTop) }
     recyclerView.layout(0, toolbarTitle.bottom)
     progressBar.let {
       it.layout(
-        width / 2 - it.measuredWidth / 2,
-        height / 2 - it.measuredHeight / 2
+          width / 2 - it.measuredWidth / 2,
+          height / 2 - it.measuredHeight / 2
       )
     }
   }

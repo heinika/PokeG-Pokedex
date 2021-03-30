@@ -4,15 +4,18 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
+import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.ui.detail.DetailPage
 import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.utils.RecyclerViewPaginator
 import timber.log.Timber
 import java.util.*
 
+
+@Suppress("UNCHECKED_CAST")
 class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePage>) :
   BasePage(activity, pageStack) {
   private val mainViewModel: MainViewModel by activity.viewModels()
@@ -26,7 +29,7 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     content.addView(mainPageView)
 
     adapter.register(PokemonItemDelegate(onItemClick = { imageView, pokemon ->
-      DetailPage(activity, pokemon, imageView,pageStack).also {
+      DetailPage(activity, pokemon, imageView, pageStack).also {
         it.showPage()
       }
     }))
@@ -34,9 +37,9 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     mainPageView.recyclerView.adapter = adapter
 
     mainViewModel.pokemonListLiveData.observe(activity, {
-      Timber.d("${it.size}")
+      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items as List<Pokemon>,it),true)
       adapter.items = it
-      adapter.notifyItemRangeChanged(0, it.size - 1)
+      diffResult.dispatchUpdatesTo(adapter)
     })
 
     mainViewModel.toastMessage.observe(activity, { toastMessage ->
@@ -55,5 +58,20 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     ).run {
       threshold = 8
     }
+  }
+
+  private class AdapterDiffUtils(val oldList:List<Pokemon>,val newList: List<Pokemon>): DiffUtil.Callback() {
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+      return oldList[oldItemPosition]::class == newList[newItemPosition]::class
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+      return oldList[oldItemPosition] == newList[newItemPosition]
+    }
+
   }
 }

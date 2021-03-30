@@ -16,24 +16,35 @@
 
 package com.heinika.pokeg.model
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import kotlinx.parcelize.Parcelize
 
 @Entity
-@Parcelize
 @JsonClass(generateAdapter = true)
 data class Pokemon(
   var page: Int = 0,
   @field:Json(name = "name") @PrimaryKey val name: String,
-  @field:Json(name = "url") val url: String
-) : Parcelable {
+  @field:Json(name = "url") val url: String,
+  var types: List<PokemonInfo.TypeResponse> = emptyList(),
+  var totalBaseStat: Int = 0,
+  var id: Int = 0
+) {
 
   fun getImageUrl(): String {
     val index = url.split("/".toRegex()).dropLast(1).last()
     return "https://pokeres.bastionbot.org/images/pokemon/$index.png"
   }
+
+  fun updatePokemonInfo(pokemonInfo: PokemonInfo):Pokemon{
+    types = pokemonInfo.types
+    totalBaseStat = pokemonInfo.getTotalStat()
+    id = pokemonInfo.id
+    return this
+  }
+
+  fun getIdString(): String = String.format("#%03d", id)
 }
+
+

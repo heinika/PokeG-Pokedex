@@ -31,6 +31,7 @@ data class PokemonInfo(
   fun getDefenseString(): String = "$defense/$maxDefense"
   fun getSpDefenseString(): String = "$specialDefense/$maxSpecialDefense"
   fun getSpeedString(): String = "$speed/$maxSpeed"
+  fun getTotalStat():Int = hp + attack + defense + specialAttack + specialDefense + speed
 
   @JsonClass(generateAdapter = true)
   data class TypeResponse(

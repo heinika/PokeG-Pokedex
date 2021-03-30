@@ -2,8 +2,11 @@ package com.heinika.pokeg.repository
 
 import androidx.annotation.WorkerThread
 import com.heinika.pokeg.mapper.ErrorResponseMapper
+import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.network.PokeGClient
 import com.heinika.pokeg.persistence.PokemonDao
+import com.heinika.pokeg.persistence.PokemonInfoDao
 import com.skydoves.sandwich.*
 import com.skydoves.whatif.whatIfNotNull
 import kotlinx.coroutines.Dispatchers
@@ -13,8 +16,9 @@ import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
-  private val pokedexClient: PokeGClient,
-  private val pokemonDao: PokemonDao
+  private val pokeGClient: PokeGClient,
+  private val pokemonDao: PokemonDao,
+  private val pokemonInfoDao: PokemonInfoDao
 ) : Repository {
 
   @WorkerThread
@@ -30,16 +34,16 @@ class MainRepository @Inject constructor(
        * fetches a list of [Pokemon] from the network and getting [ApiResponse] asynchronously.
        * @see [suspendOnSuccess](https://github.com/skydoves/sandwich#suspendonsuccess-suspendonerror-suspendonexception)
        */
-      val response = pokedexClient.fetchPokemonList(page = page)
+      val response = pokeGClient.fetchPokemonList(page = page)
       response.suspendOnSuccess {
         data.whatIfNotNull { response ->
           pokemons = response.results
           pokemons.forEach { pokemon ->
             pokemon.page = page
+            pokemonDao.insertPokemonList(pokemons)
+            onSuccess()
+            emit(pokemonDao.getAllPokemonList(page))
           }
-          pokemonDao.insertPokemonList(pokemons)
-          emit(pokemonDao.getAllPokemonList(page))
-          onSuccess()
         }
       }
         // handles the case when the API request gets an error response.
@@ -52,9 +56,40 @@ class MainRepository @Inject constructor(
         // e.g., network connection error.
         .onException { onError(message) }
     } else {
-      emit(pokemonDao.getAllPokemonList(page))
+      val pokemonList = pokemonDao.getAllPokemonList(page)
       onSuccess()
+      emit(pokemonList)
     }
   }.onStart { onStart() }.flowOn(Dispatchers.IO)
+
+  @WorkerThread
+  fun fetchPokemonInfo(
+    page: Int,
+    pokemon: Pokemon,
+    onError: (String?) -> Unit
+  ) = flow {
+    val pokemonInfo = pokemonInfoDao.getPokemonInfo(pokemon.name)
+    if (pokemonInfo == null) {
+      val response = pokeGClient.fetchPokemonInfo(pokemon.name)
+      response.suspendOnSuccess {
+        data.whatIfNotNull { response ->
+          pokemonInfoDao.insertPokemonInfo(response)
+          updatePokemon(pokemon,response)
+          emit(pokemonDao.getAllPokemonList(page))
+        }
+      }
+        .onError {
+          map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
+        }
+        .onException { onError(message) }
+    } else {
+      updatePokemon(pokemon, pokemonInfo)
+      emit(pokemonDao.getAllPokemonList(page))
+    }
+  }.flowOn(Dispatchers.IO)
+
+  private suspend fun updatePokemon(pokemon: Pokemon, pokemonInfo: PokemonInfo) {
+    pokemonDao.updatePokemon(pokemon.updatePokemonInfo(pokemonInfo))
+  }
 }
 

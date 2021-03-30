@@ -6,7 +6,11 @@ import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -29,12 +33,25 @@ class MainViewModel @Inject constructor(
     Timber.d("init MainViewModel")
 
     pokemonListLiveData = pokemonFetchingIndex.asLiveData().switchMap { page ->
-      mainRepository.fetchPokemonList(
-        page = page,
-        onStart = { _isLoading.postValue(true) },
-        onSuccess = { _isLoading.postValue(false) },
-        onError = { _toastMessage.postValue(it) }
-      ).asLiveDataOnViewModelScope()
+      liveData(viewModelScope.coroutineContext + Dispatchers.IO, 5000L) {
+        mainRepository.fetchPokemonList(
+          page = page,
+          onStart = { _isLoading.postValue(true) },
+          onSuccess = { _isLoading.postValue(false) },
+          onError = { _toastMessage.postValue(it) }
+        ).collect {
+          emit(it)
+          it.forEach { pokemon ->
+            if (pokemon.types.isEmpty()){
+              mainRepository.fetchPokemonInfo(page, pokemon,
+                onError = {}).collect { pokemonList ->
+                Timber.i("Thread name: %s", Thread.currentThread().name)
+                emit(pokemonList)
+              }
+            }
+          }
+        }
+      }
     }
   }
 

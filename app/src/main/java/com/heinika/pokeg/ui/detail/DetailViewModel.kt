@@ -22,8 +22,8 @@ class DetailViewModel @Inject constructor(
 
   fun getPokemonInfoLiveData(pokemon: Pokemon): LiveData<PokemonInfo> {
     _isLoading.postValue(true)
-    return detailRepository.fetchPokemonList(
-      pokemon.name,
+    return detailRepository.fetchPokemonInfo(
+      pokemon,
       onSuccess = {
         _isLoading.postValue(false)
       },
