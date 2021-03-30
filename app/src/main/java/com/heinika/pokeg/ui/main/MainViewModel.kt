@@ -6,9 +6,7 @@ import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
 import timber.log.Timber
 import javax.inject.Inject
 
