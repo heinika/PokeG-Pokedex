@@ -34,6 +34,9 @@ class MainPageView(context: Context) : CustomLayout(context) {
     setPadding(10.dp)
     setTypeface(typeface, Typeface.BOLD)
     addView(this)
+    setOnClickListener {
+      (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(1000,0)
+    }
   }
 
   val recyclerView = RecyclerView(context).apply {

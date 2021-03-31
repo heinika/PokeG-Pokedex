@@ -50,14 +50,14 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
       mainPageView.progressBar.isVisible = isLoading
     })
 
-    RecyclerViewPaginator(
-      recyclerView = mainPageView.recyclerView,
-      isLoading = { if (mainViewModel.isLoading.value == null) true else mainViewModel.isLoading.value!! },
-      loadMore = { mainViewModel.fetchNextPokemonList() },
-      onLast = { false }
-    ).run {
-      threshold = 8
-    }
+//    RecyclerViewPaginator(
+//      recyclerView = mainPageView.recyclerView,
+//      isLoading = { if (mainViewModel.isLoading.value == null) true else mainViewModel.isLoading.value!! },
+//      loadMore = { mainViewModel.fetchNextPokemonList() },
+//      onLast = { false }
+//    ).run {
+//      threshold = 8
+//    }
   }
 
   private class AdapterDiffUtils(val oldList: List<Pokemon>, val newList: List<Pokemon>) : DiffUtil.Callback() {

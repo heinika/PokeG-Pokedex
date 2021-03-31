@@ -22,6 +22,6 @@ class PokeGClient @Inject constructor(private val pokeGService: PokeGService) {
     )
 
   companion object {
-    private const val PAGING_SIZE = 890
+    private const val PAGING_SIZE = 2000
   }
 }
