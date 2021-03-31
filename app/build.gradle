@@ -153,4 +153,7 @@ dependencies {
     // recyclerView
     implementation "androidx.recyclerview:recyclerview:1.2.0-rc01"
     implementation 'com.drakeet.multitype:multitype:4.2.0'
+
+    //startup
+    implementation "androidx.startup:startup-runtime:1.0.0"
 }

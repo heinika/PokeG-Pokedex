@@ -21,6 +21,16 @@
             </intent-filter>
         </activity>
 
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="com.heinika.pokeg.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <!-- This entry makes WorkManagerInitializer discoverable. -->
+            <meta-data android:name="com.heinika.pokeg.init.TimberInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
     </application>
 
 </manifest>
