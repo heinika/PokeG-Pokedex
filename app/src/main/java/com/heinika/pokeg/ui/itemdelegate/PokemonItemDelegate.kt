@@ -18,6 +18,7 @@ import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.ui.main.MainViewModel
 import com.heinika.pokeg.utils.PokemonTypeUtils
+import timber.log.Timber
 
 class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private val mainViewModel: MainViewModel, private val onItemClick: (AppCompatImageView, Pokemon) -> Unit) :
   ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
@@ -68,7 +69,7 @@ class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private va
 
         refreshInfo(pokemon)
         mainViewModel.fetchUpdatePokemonLiveData(pokemon).observe(lifecycleOwner) {
-          if (pokemon.name == it.name){
+          if (layoutPosition == it.id - 1){
             refreshInfo(it)
           }
         }
