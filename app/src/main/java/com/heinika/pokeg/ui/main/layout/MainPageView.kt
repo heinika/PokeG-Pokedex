@@ -31,6 +31,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = 8.dp
     }
+    setImageResource(R.drawable.search)
     addView(this)
   }
 
