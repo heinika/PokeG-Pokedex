@@ -38,7 +38,7 @@ class DetailPage(
 
   private val binding: PageDetailBinding = PageDetailBinding.inflate(activity.layoutInflater)
 
-  private val animatorDuration = 1000L
+  private val animatorDuration = 200L
 
   override fun showPage() {
     super.showPage()
