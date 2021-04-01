@@ -7,11 +7,11 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
-import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.ui.detail.DetailPage
+import com.heinika.pokeg.ui.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
-import com.heinika.pokeg.utils.RecyclerViewPaginator
-import timber.log.Timber
+import com.heinika.pokeg.ui.itemdelegate.model.Header
+import com.heinika.pokeg.ui.main.layout.MainPageView
 import java.util.*
 
 
@@ -28,6 +28,7 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     super.showPage()
     content.addView(mainPageView)
 
+    adapter.register(HeaderItemDelegate())
     adapter.register(PokemonItemDelegate(activity, mainViewModel, onItemClick = { imageView, pokemon ->
       DetailPage(activity, pokemon, imageView, pageStack).also {
         it.showPage()
@@ -36,9 +37,11 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
 
     mainPageView.recyclerView.adapter = adapter
 
+    val header = Header("图鉴")
     mainViewModel.pokemonListLiveData.observe(activity, {
-      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items as List<Pokemon>, it), true)
-      adapter.items = it
+      val itemList = arrayListOf<Any>(header) + it
+      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
+      adapter.items = itemList
       diffResult.dispatchUpdatesTo(adapter)
     })
 
@@ -50,17 +53,9 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
       mainPageView.progressBar.isVisible = isLoading
     })
 
-//    RecyclerViewPaginator(
-//      recyclerView = mainPageView.recyclerView,
-//      isLoading = { if (mainViewModel.isLoading.value == null) true else mainViewModel.isLoading.value!! },
-//      loadMore = { mainViewModel.fetchNextPokemonList() },
-//      onLast = { false }
-//    ).run {
-//      threshold = 8
-//    }
   }
 
-  private class AdapterDiffUtils(val oldList: List<Pokemon>, val newList: List<Pokemon>) : DiffUtil.Callback() {
+  private class AdapterDiffUtils(val oldList: List<Any>, val newList: List<Any>) : DiffUtil.Callback() {
     override fun getOldListSize(): Int = oldList.size
 
     override fun getNewListSize(): Int = newList.size

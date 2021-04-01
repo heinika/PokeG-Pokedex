@@ -6,13 +6,8 @@ import com.skydoves.sandwich.ApiResponse
 import javax.inject.Inject
 
 class PokeGClient @Inject constructor(private val pokeGService: PokeGService) {
-  suspend fun fetchPokemonList(
-    page: Int
-  ): ApiResponse<PokemonResponse> =
-    pokeGService.fetchPokemonList(
-      limit = PAGING_SIZE,
-      offset = page * PAGING_SIZE
-    )
+  suspend fun fetchPokemonList(): ApiResponse<PokemonResponse> =
+    pokeGService.fetchPokemonList()
 
   suspend fun fetchPokemonInfo(
     name: String
@@ -20,8 +15,4 @@ class PokeGClient @Inject constructor(private val pokeGService: PokeGService) {
     pokeGService.fetchPokemonInfo(
       name = name
     )
-
-  companion object {
-    private const val PAGING_SIZE = 2000
-  }
 }

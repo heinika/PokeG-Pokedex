@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface PokeGService {
   @GET("pokemon")
   suspend fun fetchPokemonList(
-    @Query("limit") limit: Int = 20,
+    @Query("limit") limit: Int = 2000,
     @Query("offset") offset: Int = 0
   ): ApiResponse<PokemonResponse>
 

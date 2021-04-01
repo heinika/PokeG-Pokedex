@@ -1,19 +1,3 @@
-/*
- * Designed and developed by 2020 skydoves (Jaewoong Eum)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.heinika.pokeg.model
 
 import androidx.room.Entity
@@ -42,13 +26,12 @@ data class Pokemon(
     return when {
       index == 875 -> "https://media.52poke.com/wiki/thumb/e/e3/875Eiscue.png/600px-875Eiscue.png"
       index == 877 -> "https://media.52poke.com/wiki/thumb/5/51/877Morpeko.png/600px-877Morpeko.png"
-      index <= 887 -> {
+      index == 888 -> "https://cdn.bulbagarden.net/upload/thumb/c/ca/888Zacian.png/600px-888Zacian.png"
+      index == 889 -> "https://cdn.bulbagarden.net/upload/thumb/7/72/889Zamazenta.png/600px-889Zamazenta.png"
+      index <= 890 -> {
 //          "https://img.pokemondb.net/artwork/${name}.jpg"
         "https://pokeres.bastionbot.org/images/pokemon/$index.png"
       }
-      index == 890 -> "https://pokeres.bastionbot.org/images/pokemon/$index.png"
-      index == 888 -> "https://cdn.bulbagarden.net/upload/thumb/c/ca/888Zacian.png/600px-888Zacian.png"
-      index == 889 -> "https://cdn.bulbagarden.net/upload/thumb/7/72/889Zamazenta.png/600px-889Zamazenta.png"
       index == 891 -> "https://cdn.bulbagarden.net/upload/4/47/891Kubfu.png"
       index == 892 -> "https://cdn.bulbagarden.net/upload/thumb/e/e7/892Urshifu-Single_Strike.png/600px-892Urshifu-Single_Strike.png"
       index == 893 -> "https://cdn.bulbagarden.net/upload/thumb/a/a5/893Zarude.png/250px-893Zarude.png"
@@ -62,7 +45,12 @@ data class Pokemon(
       index == 10091 -> "https://cdn.bulbagarden.net/upload/thumb/9/91/019Rattata-Alola.png/600px-019Rattata-Alola.png"
       index == 10092 -> "https://archives.bulbagarden.net/media/upload/thumb/7/71/020Raticate-Alola.png/600px-020Raticate-Alola.png"
       index == 10093 -> "https://veekun.com/dex/media/pokemon/main-sprites/ultra-sun-ultra-moon/20-totem-alola.png"
-      index in 10094..10099 -> "https://veekun.com/dex/media/pokemon/main-sprites/ultra-sun-ultra-moon/25${name.substringAfter("pikachu")}.png"
+      index == 10094 -> "https://cdn.bulbagarden.net/upload/thumb/1/17/025Pikachu-Original.png/600px-025Pikachu-Original.png"
+      index == 10095 -> "https://cdn.bulbagarden.net/upload/thumb/4/44/025Pikachu-Hoenn.png/600px-025Pikachu-Hoenn.png"
+      index == 10096 -> "https://cdn.bulbagarden.net/upload/thumb/a/a4/025Pikachu-Sinnoh.png/600px-025Pikachu-Sinnoh.png"
+      index == 10097 -> "https://cdn.bulbagarden.net/upload/thumb/e/e6/025Pikachu-Unova.png/600px-025Pikachu-Unova.png"
+      index == 10098 -> "https://cdn.bulbagarden.net/upload/thumb/4/44/025Pikachu-Kalos.png/600px-025Pikachu-Kalos.png"
+      index == 10099 -> "https://cdn.bulbagarden.net/upload/thumb/e/e3/025Pikachu-Alola.png/600px-025Pikachu-Alola.png"
       index == 10100 -> "https://s1.52poke.wiki/wiki/thumb/3/3a/026Raichu-Alola.png/600px-026Raichu-Alola.png"
       index == 10101 -> "https://s1.52poke.wiki/wiki/thumb/c/c9/027Sandshrew-Alola.png/600px-027Sandshrew-Alola.png"
       index == 10102 -> "https://s1.52poke.wiki/wiki/thumb/b/bd/028Sandslash-Alola.png/600px-028Sandslash-Alola.png"
@@ -82,6 +70,7 @@ data class Pokemon(
       index == 10116 -> "https://cdn.bulbagarden.net/upload/thumb/6/67/658Greninja.png/600px-658Greninja.png"
       index == 10121 -> "https://cdn.bulbagarden.net/upload/thumb/b/ba/735Gumshoos.png/600px-735Gumshoos.png"
       index == 10122 -> "https://cdn.bulbagarden.net/upload/thumb/4/4e/738Vikavolt.png/600px-738Vikavolt.png"
+      index == 10127 -> "https://www.pikpng.com/pngl/b/431-4317690_wishiwashi-regular-and-school-form-now-complete-wishiwashi.png"
       index == 10128 -> "https://static.miraheze.org/atrociousgameplaywiki/thumb/c/c5/Lurantis.png/600px-Lurantis.png"
       index == 10129 -> "https://cdn.bulbagarden.net/upload/thumb/7/72/758Salazzle.png/600px-758Salazzle.png"
       index == 10130 -> "https://cdn.bulbagarden.net/upload/d/da/HOME774O.png"
@@ -97,6 +86,22 @@ data class Pokemon(
       index == 10140 -> "https://cdn.bulbagarden.net/upload/b/bb/HOME774B.png"
       index == 10141 -> "https://cdn.bulbagarden.net/upload/6/6e/HOME774I.png"
       index == 10142 -> "https://cdn.bulbagarden.net/upload/f/f9/HOME774V.png"
+      index == 10144 -> "https://cdn.bulbagarden.net/upload/thumb/9/9b/778Mimikyu.png/600px-778Mimikyu.png"
+      index == 10145 -> "https://cdn.bulbagarden.net/upload/3/35/HOME778B.png"
+      index == 10147 -> "https://cdn.bulbagarden.net/upload/4/4c/HOME801O.png"
+      index == 10148 -> "https://cdn.bulbagarden.net/upload/thumb/7/75/025Pikachu-Partner.png/600px-025Pikachu-Partner.png"
+      index == 10151 -> "https://cdn.bulbagarden.net/upload/thumb/5/51/744Rockruff.png/600px-744Rockruff.png"
+      index == 10155 -> "https://cdn.bulbagarden.net/upload/8/80/800Necrozma-Dusk_Mane.png"
+      index == 10156 -> "https://cdn.bulbagarden.net/upload/7/7a/800Necrozma-Dawn_Wings.png"
+      index == 10157 -> "https://cdn.bulbagarden.net/upload/thumb/8/8b/800Necrozma-Ultra.png/600px-800Necrozma-Ultra.png"
+      index == 10158 -> "https://cdn.bulbagarden.net/upload/0/09/052Meowth-Galar.png"
+      index == 10159 -> "https://cdn.bulbagarden.net/upload/9/92/077Ponyta-Galar.png"
+      index == 10160 -> "https://cdn.bulbagarden.net/upload/e/e0/078Rapidash-Galar.png"
+      index == 10161 -> "https://cdn.bulbagarden.net/upload/9/9f/079Slowpoke-Galar.png"
+      index == 10162 -> "https://cdn.bulbagarden.net/upload/8/8b/080Slowbro-Galar.png"
+      index == 10163 -> "https://cdn.bulbagarden.net/upload/7/7d/083Farfetch%27d-Galar.png"
+      index == 10164 -> "https://cdn.bulbagarden.net/upload/thumb/3/38/110Weezing-Galar.png/600px-110Weezing-Galar.png"
+      name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
       else -> "https://img.pokemondb.net/artwork/vector/${name}.png"
     }
   }

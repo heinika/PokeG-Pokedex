@@ -28,38 +28,27 @@ class MainRepository @Inject constructor(
     onSuccess: () -> Unit,
     onError: (String?) -> Unit
   ) = flow {
-    var pokemons = pokemonDao.getPokemonList(page)
-    if (pokemons.isEmpty()) {
-      /**
-       * fetches a list of [Pokemon] from the network and getting [ApiResponse] asynchronously.
-       * @see [suspendOnSuccess](https://github.com/skydoves/sandwich#suspendonsuccess-suspendonerror-suspendonexception)
-       */
-      val response = pokeGClient.fetchPokemonList(page = page)
-      response.suspendOnSuccess {
-        data.whatIfNotNull { response ->
-          pokemons = response.results
-          pokemons.forEach { pokemon ->
-            pokemon.page = page
-            pokemonDao.insertPokemonList(pokemons)
-            onSuccess()
-            emit(pokemonDao.getAllPokemonList(page))
-          }
+    val pokemonList = pokemonDao.getAllPokemonList(page)
+    onSuccess()
+    emit(pokemonList)
+    val response = pokeGClient.fetchPokemonList()
+    response.suspendOnSuccess {
+      data.whatIfNotNull { response ->
+        if (pokemonList.size < response.results.size) {
+          pokemonDao.insertPokemonList(response.results.subList(pokemonList.size, response.results.size))
         }
       }
-        // handles the case when the API request gets an error response.
-        // e.g., internal server error.
-        .onError {
-          map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
-        }
-        // handles the case when the API request gets an exception response.
-        // e.g., network connection error.
-        .onException { onError(message) }
-    } else {
-      val pokemonList = pokemonDao.getAllPokemonList(page)
-      onSuccess()
-      emit(pokemonList)
     }
-  }.onStart { onStart() }.flowOn(Dispatchers.IO)
+      // handles the case when the API request gets an error response.
+      // e.g., internal server error.
+      .onError {
+        map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
+      }
+      // handles the case when the API request gets an exception response.
+      // e.g., network connection error.
+      .onException { onError(message) }
+  }
+    .onStart { onStart() }.flowOn(Dispatchers.IO)
 
 
   fun fetchUpdatePokemon(
@@ -72,7 +61,7 @@ class MainRepository @Inject constructor(
       response.suspendOnSuccess {
         data.whatIfNotNull { response ->
           pokemonInfoDao.insertPokemonInfo(response)
-          updatePokemon(pokemon,response)
+          updatePokemon(pokemon, response)
           emit(pokemon)
         }
       }

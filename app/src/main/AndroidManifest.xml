@@ -27,7 +27,7 @@
             android:exported="false"
             tools:node="merge">
             <!-- This entry makes WorkManagerInitializer discoverable. -->
-            <meta-data android:name="com.heinika.pokeg.init.TimberInitializer"
+            <meta-data android:name="com.heinika.pokeg.init.PokeGInitializer"
                 android:value="androidx.startup" />
         </provider>
 
