@@ -6,19 +6,57 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ProgressBar
 import androidx.core.view.marginBottom
+import androidx.dynamicanimation.animation.DynamicAnimation
+import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
+import timber.log.Timber
 
 class MainPageView(context: Context) : CustomLayout(context) {
+
 
   val recyclerView = RecyclerView(context).apply {
     setBackgroundColor(Color.RED)
     layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT)
     layoutManager = LinearLayoutManager(context)
     setBackgroundColor(R.color.background.resColor)
+
+    post{
+      addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        var hideSearchAnimator= SpringAnimation(floatButton, DynamicAnimation.TRANSLATION_Y, 70.dp.toFloat())
+        var showSearchAnimator= SpringAnimation(floatButton, DynamicAnimation.TRANSLATION_Y, 0f)
+
+
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+          super.onScrollStateChanged(recyclerView, newState)
+          Timber.i("$scrollState")
+          if (scrollState == SCROLL_STATE_IDLE) {
+            showSearchAnimator.start()
+          }
+        }
+
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+          super.onScrolled(recyclerView, dx, dy)
+          if (scrollState != SCROLL_STATE_IDLE) {
+            if (dy > 0) {
+              if (!hideSearchAnimator.isRunning && floatButton.translationY == 0f) {
+                hideSearchAnimator.start()
+              }
+            } else {
+              if (!showSearchAnimator.isRunning) {
+                showSearchAnimator.start()
+              }
+            }
+          }
+        }
+
+      })
+    }
+
     this@MainPageView.addView(this)
   }
 
@@ -41,7 +79,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
     recyclerView.autoMeasure()
     floatButton.autoMeasure()
 
-    setMeasuredDimension(measuredWidth,measuredHeight)
+    setMeasuredDimension(measuredWidth, measuredHeight)
   }
 
 
