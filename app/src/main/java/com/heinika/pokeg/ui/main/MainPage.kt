@@ -12,6 +12,7 @@ import com.heinika.pokeg.ui.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.ui.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
+import timber.log.Timber
 import java.util.*
 
 
@@ -53,6 +54,15 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
       mainPageView.progressBar.isVisible = isLoading
     })
 
+  }
+
+  override fun onBackPressed() {
+    Timber.i("onBackPressed ${mainPageView.canScrollUp()}")
+    if (mainPageView.canScrollUp()){
+      mainPageView.scrollToTop()
+    }else{
+      activity.finish()
+    }
   }
 
   private class AdapterDiffUtils(val oldList: List<Any>, val newList: List<Any>) : DiffUtil.Callback() {

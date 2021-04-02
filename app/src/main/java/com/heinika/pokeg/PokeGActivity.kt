@@ -16,14 +16,10 @@ class PokeGActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     super.onCreate(savedInstanceState)
-    MainPage(this,pageStack).showPage()
+    MainPage(this, pageStack).showPage()
   }
 
   override fun onBackPressed() {
-    if (pageStack.size > 1){
-      pageStack.peek().exitPage()
-    }else{
-      super.onBackPressed()
-    }
+    pageStack.peek().onBackPressed()
   }
 }

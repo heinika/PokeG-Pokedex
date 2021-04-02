@@ -125,7 +125,7 @@ class DetailPage(
     }
 
     binding.arrow.setOnClickListener {
-      exitPage()
+      onBackPressed()
     }
 
     content.addView(binding.root)
@@ -181,8 +181,8 @@ class DetailPage(
     }
   }
 
-  override fun exitPage() {
-    super.exitPage()
+  override fun onBackPressed() {
+    super.onBackPressed()
 
     ValueAnimator.ofFloat(0f, 1f).apply {
       val endLocation = IntArray(2)

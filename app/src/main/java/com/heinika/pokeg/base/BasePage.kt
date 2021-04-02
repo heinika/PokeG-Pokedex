@@ -11,7 +11,7 @@ abstract class BasePage(activity: AppCompatActivity, val pageStack: Stack<BasePa
     pageStack.push(this)
   }
 
-  open fun exitPage(){
+  open fun onBackPressed(){
     pageStack.pop()
   }
 }
