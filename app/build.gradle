@@ -7,6 +7,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('/home/chenlijin/AndroidStudioProjects/PokeG/PokeG.jks')
+            storePassword '111111'
+            keyAlias 'heinika'
+            keyPassword '111111'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -28,7 +36,11 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        dataBinding true
+    }
+
+    viewBinding {
+        enabled = true
     }
 
     compileOptions {

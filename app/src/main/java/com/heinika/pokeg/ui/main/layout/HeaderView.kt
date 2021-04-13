@@ -8,7 +8,6 @@ import androidx.core.view.marginStart
 import androidx.core.view.marginTop
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
-import timber.log.Timber
 
 class HeaderView(context: Context) : CustomLayout(context) {
   private val titleLabel = TextView(context).apply {
@@ -29,7 +28,6 @@ class HeaderView(context: Context) : CustomLayout(context) {
   }
 
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-    Timber.i("HeaderView ${titleLabel.measuredHeight}")
     titleLabel.let { it.layout(it.marginStart, it.marginTop) }
   }
 }
