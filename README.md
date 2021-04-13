@@ -18,6 +18,7 @@ Data binding replace by view binding.(I hate it!)
 
 ## Download
 Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
+Download from market: https://www.coolapk.com/apk/283809
 
 ## Fork from
 It's fork from https://github.com/skydoves/Pokedex.
