@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">宝可梦G</string>
-    <string name="weight">体重</string>
-    <string name="height">身高</string>
-    <string name="base_stats">种族值</string>
-    <string name="hp">血量</string>
-    <string name="atk">攻击</string>
-    <string name="def">防御</string>
-    <string name="sp_atk">特攻</string>
-    <string name="sp_def">特防</string>
-    <string name="spd">速度</string>
+    <string name="app_name">PokeG</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="base_stats">Base Stats</string>
+    <string name="hp">HP</string>
+    <string name="atk">ATK</string>
+    <string name="def">DEF</string>
+    <string name="sp_atk">SATK</string>
+    <string name="sp_def">SDEF</string>
+    <string name="spd">SPD</string>
 
     <string name="pkoemon_name_1">妙蛙种子</string>
     <string name="pkoemon_name_2">妙蛙草</string>
@@ -909,23 +909,23 @@
     <string name="pkoemon_name_897">灵幽马</string>
     <string name="pkoemon_name_898">蕾冠王</string>
 
-    <string name="type_fighting">格斗</string>
-    <string name="type_flying">飞行</string>
-    <string name="type_poison">毒</string>
-    <string name="type_ground">地面</string>
-    <string name="type_rock">岩石</string>
-    <string name="type_bug">虫</string>
-    <string name="type_ghost">鬼</string>
-    <string name="type_steel">钢</string>
-    <string name="type_fire">火</string>
-    <string name="type_water">水</string>
-    <string name="type_grass">草</string>
-    <string name="type_electric">电</string>
-    <string name="type_psychic">超能</string>
-    <string name="type_ice">冰</string>
-    <string name="type_dragon">龙</string>
-    <string name="type_fairy">妖精</string>
-    <string name="type_dark">恶</string>
-    <string name="type_normal">正常</string>
+    <string name="type_fighting">fighting</string>
+    <string name="type_flying">flying</string>
+    <string name="type_poison">poison</string>
+    <string name="type_ground">ground</string>
+    <string name="type_rock">rock</string>
+    <string name="type_bug">bug</string>
+    <string name="type_ghost">ghost</string>
+    <string name="type_steel">steel</string>
+    <string name="type_fire">fire</string>
+    <string name="type_water">water</string>
+    <string name="type_grass">grass</string>
+    <string name="type_electric">electric</string>
+    <string name="type_psychic">psychic</string>
+    <string name="type_ice">ice</string>
+    <string name="type_dragon">dragon</string>
+    <string name="type_fairy">fairy</string>
+    <string name="type_dark">dark</string>
+    <string name="type_normal">normal</string>
 
 </resources>

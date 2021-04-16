@@ -19,7 +19,7 @@ import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
-import com.heinika.pokeg.utils.PokemonTypeUtils
+import com.heinika.pokeg.utils.PokemonUtils
 import com.heinika.pokeg.utils.SpacesItemDecoration
 import com.skydoves.androidribbon.ribbonView
 import com.skydoves.rainbow.Rainbow
@@ -73,7 +73,7 @@ class DetailPage(
 
     detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) {
       binding.index.text = it.getIdString()
-      binding.name.text = it.name
+      binding.name.text = PokemonUtils.getNameById(activity, it.id, it.name)
       binding.weight.text = it.getWeightString()
       binding.height.text = it.getHeightString()
       binding.progressHp.progress = it.hp.toFloat()
@@ -94,7 +94,7 @@ class DetailPage(
         with(binding.ribbonRecyclerView) {
           addRibbon(
             ribbonView(context) {
-              setText(type.type.name)
+              setText(PokemonUtils.getTypeString(context, type.type.name))
               setTextColor(Color.WHITE)
               setPaddingLeft(84f)
               setPaddingRight(84f)
@@ -104,7 +104,7 @@ class DetailPage(
               setRibbonRadius(120f)
               setTextStyle(Typeface.BOLD)
               setRibbonBackgroundColorResource(
-                PokemonTypeUtils.getTypeColor(type.type.name)
+                PokemonUtils.getTypeColor(type.type.name)
               )
             }.apply {
               maxLines = 1

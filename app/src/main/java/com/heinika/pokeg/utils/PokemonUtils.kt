@@ -1,9 +1,11 @@
 package com.heinika.pokeg.utils
 
+import android.content.Context
 import com.heinika.pokeg.R
+import timber.log.Timber
 
 
-object PokemonTypeUtils {
+object PokemonUtils {
 
   fun getTypeColor(type: String): Int {
     return when (type) {
@@ -24,7 +26,30 @@ object PokemonTypeUtils {
       "dragon" -> R.color.dragon
       "fairy" -> R.color.fairy
       "dark" -> R.color.dark
+      "normal" -> R.color.gray_21
       else -> R.color.gray_21
     }
   }
+
+  fun getNameById(context: Context, id: Int, name: String): String =
+    if (id <= 898) {
+      getResString(context, "pkoemon_name_$id")
+    } else {
+      name
+    }
+
+
+  fun getTypeString(context: Context, type: String): String {
+    return getResString(context, "type_$type")
+  }
+
+  private fun getResString(context: Context, name: String): String {
+    return try {
+      context.resources.getString(context.resources.getIdentifier(name, "string", context.packageName))
+    } catch (e: Exception) {
+      Timber.e("no resource name $name")
+      ""
+    }
+  }
+
 }

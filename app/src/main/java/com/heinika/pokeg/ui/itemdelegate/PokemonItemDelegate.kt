@@ -17,8 +17,7 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.ui.main.MainViewModel
-import com.heinika.pokeg.utils.PokemonTypeUtils
-import timber.log.Timber
+import com.heinika.pokeg.utils.PokemonUtils
 
 class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private val mainViewModel: MainViewModel, private val onItemClick: (AppCompatImageView, Pokemon) -> Unit) :
   ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
@@ -51,7 +50,7 @@ class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private va
       this.item = pokemon
 
       with(binding) {
-        nameLabel.text = pokemon.name
+        nameLabel.text = PokemonUtils.getNameById(nameLabel.context, pokemon.id, pokemon.name)
 
         val imageUrl = pokemon.getImageUrl()
         Glide.with(imageView)
@@ -69,7 +68,7 @@ class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private va
 
         refreshInfo(pokemon)
         mainViewModel.fetchUpdatePokemonLiveData(pokemon).observe(lifecycleOwner) {
-          if (layoutPosition == it.id - 1){
+          if (layoutPosition == it.id - 1) {
             refreshInfo(it)
           }
         }
@@ -77,6 +76,7 @@ class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private va
     }
 
     private fun ItemPokemonBinding.refreshInfo(pokemon: Pokemon) {
+      val context = type1Text.context
       when (pokemon.types.size) {
         0 -> {
           type1Text.visibility = View.INVISIBLE
@@ -86,18 +86,18 @@ class PokemonItemDelegate(private val lifecycleOwner: LifecycleOwner, private va
           type1Text.isVisible = true
           type2Text.visibility = View.INVISIBLE
           val typeName1 = pokemon.types[0].type.name
-          type1Text.text = typeName1
-          type1Text.background.setTint(ContextCompat.getColor(type1Text.context, PokemonTypeUtils.getTypeColor(typeName1)))
+          type1Text.text = PokemonUtils.getTypeString(context, typeName1)
+          type1Text.background.setTint(ContextCompat.getColor(context, PokemonUtils.getTypeColor(typeName1)))
         }
         2 -> {
           type1Text.isVisible = true
           type2Text.isVisible = true
           val typeName1 = pokemon.types[0].type.name
-          type1Text.text = typeName1
-          type1Text.background.setTint(ContextCompat.getColor(type1Text.context, PokemonTypeUtils.getTypeColor(typeName1)))
+          type1Text.text = PokemonUtils.getTypeString(context, typeName1)
+          type1Text.background.setTint(ContextCompat.getColor(context, PokemonUtils.getTypeColor(typeName1)))
           val typeName2 = pokemon.types[1].type.name
-          type2Text.text = typeName2
-          type2Text.background.setTint(ContextCompat.getColor(type2Text.context, PokemonTypeUtils.getTypeColor(typeName2)))
+          type2Text.text = PokemonUtils.getTypeString(context, typeName2)
+          type2Text.background.setTint(ContextCompat.getColor(context, PokemonUtils.getTypeColor(typeName2)))
         }
       }
 
