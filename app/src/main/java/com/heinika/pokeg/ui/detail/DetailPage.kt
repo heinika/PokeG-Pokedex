@@ -69,38 +69,52 @@ class DetailPage(
     binding.progressSpDefense.max = PokemonInfo.maxSpecialDefense
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
-    detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) {
-      binding.index.text = it.getIdString()
-      binding.name.text = pokemonRes.getNameById(it.id, it.name)
-      binding.weight.text = it.getWeightString()
-      binding.height.text = it.getHeightString()
-      binding.progressHp.progress = it.hp.toFloat()
-      binding.progressHp.labelText = it.hp.toString()
-      binding.progressAttach.progress = it.attack.toFloat()
-      binding.progressAttach.labelText = it.attack.toString()
-      binding.progressDefense.progress = it.defense.toFloat()
-      binding.progressDefense.labelText = it.defense.toString()
-      binding.progressSpAttack.progress = it.specialAttack.toFloat()
-      binding.progressSpAttack.labelText = it.specialAttack.toString()
-      binding.progressSpDefense.progress = it.specialDefense.toFloat()
-      binding.progressSpDefense.labelText = it.specialDefense.toString()
-      binding.progressSpd.progress = it.speed.toFloat()
-      binding.progressSpd.labelText = it.speed.toString()
-      binding.race.text = it.race
-      binding.description.text = it.description
+    detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) { pokemonInfo ->
+      binding.index.text = pokemonInfo.getIdString()
+      binding.name.text = pokemonRes.getNameById(pokemonInfo.id, pokemonInfo.name)
+      binding.weight.text = pokemonInfo.getWeightString()
+      binding.height.text = pokemonInfo.getHeightString()
+      binding.progressHp.progress = pokemonInfo.hp.toFloat()
+      binding.progressHp.labelText = pokemonInfo.hp.toString()
+      binding.progressAttach.progress = pokemonInfo.attack.toFloat()
+      binding.progressAttach.labelText = pokemonInfo.attack.toString()
+      binding.progressDefense.progress = pokemonInfo.defense.toFloat()
+      binding.progressDefense.labelText = pokemonInfo.defense.toString()
+      binding.progressSpAttack.progress = pokemonInfo.specialAttack.toFloat()
+      binding.progressSpAttack.labelText = pokemonInfo.specialAttack.toString()
+      binding.progressSpDefense.progress = pokemonInfo.specialDefense.toFloat()
+      binding.progressSpDefense.labelText = pokemonInfo.specialDefense.toString()
+      binding.progressSpd.progress = pokemonInfo.speed.toFloat()
+      binding.progressSpd.labelText = pokemonInfo.speed.toString()
+      binding.race.text = pokemonInfo.race
+      binding.description.text = pokemonInfo.description
 
-      setAbility(binding.ability1, it.ability1)
-      setAbility(binding.ability2, it.ability2)
-      setAbility(binding.ability3, it.ability3)
+      setAbility(binding.ability1, pokemonInfo.ability1)
+      setAbility(binding.ability2, pokemonInfo.ability2)
+      setAbility(binding.ability3, pokemonInfo.ability3)
 
-      val type1Name = it.types[0].type.name
+      pokemonRes.getMegaDrawable(pokemonInfo.id).let { drawableList ->
+        if (drawableList.size == 1){
+          drawableList[0]?.let {
+            binding.image1.isVisible = true
+            binding.image1.setImageDrawable(it)
+          }
+        }else{
+          binding.image1.isVisible = true
+          binding.image1.setImageDrawable(drawableList[0])
+          binding.image2.isVisible = true
+          binding.image2.setImageDrawable(drawableList[1])
+        }
+      }
+
+      val type1Name = pokemonInfo.types[0].type.name
       binding.type1Text.text = pokemonRes.getTypeString(type1Name)
       binding.type1Text.background.let {
         it.setTint(pokemonRes.getTypeColor(type1Name))
         it.alpha = 155
       }
-      if (it.types.size == 2) {
-        val type2Name = it.types[1].type.name
+      if (pokemonInfo.types.size == 2) {
+        val type2Name = pokemonInfo.types[1].type.name
         binding.type2Text.isVisible = true
         binding.type2Text.text = pokemonRes.getTypeString(type2Name)
         binding.type2Text.background.let {

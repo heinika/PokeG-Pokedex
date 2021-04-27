@@ -1,6 +1,8 @@
 package com.heinika.pokeg.utils
 
+import android.annotation.SuppressLint
 import android.app.Application
+import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import com.heinika.pokeg.R
 import com.heinika.pokeg.model.Ability
@@ -67,6 +69,23 @@ class PokemonRes @Inject constructor(private val context: Application) {
     }
   }
 
+  fun getMegaDrawable(id: Int) : List<Drawable?> {
+    if (id == 6){
+      return listOf(getResDrawableId("a006megax"),getResDrawableId("a006megay"))
+    }
+    return listOf(getResDrawableId(String.format("a%03dmega", id)))
+  }
+
+  @SuppressLint("UseCompatLoadingForDrawables")
+  private fun getResDrawableId(name: String): Drawable? {
+    return try {
+      context.resources.getDrawable(context.resources.getIdentifier(name, "drawable", context.packageName), context.theme)
+    } catch (e: java.lang.Exception) {
+      Timber.e("no resource name $name")
+      null
+    }
+  }
+
   private val abilityList: List<Ability> by lazy {
     val abilityList: MutableList<Ability> = mutableListOf()
     try {
@@ -82,10 +101,10 @@ class PokemonRes @Inject constructor(private val context: Application) {
   }
 
   fun getAbilityName(id: Int): String {
-    return if (id == 0){
+    return if (id == 0) {
       ""
-    }else{
-      abilityList[id -1].cname
+    } else {
+      abilityList[id - 1].cname
     }
   }
 
