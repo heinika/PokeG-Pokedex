@@ -1,13 +1,12 @@
 package com.heinika.pokeg.ui.detail
 
 import android.animation.ValueAnimator
-import android.graphics.Color
-import android.graphics.Typeface
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.core.view.children
@@ -19,15 +18,14 @@ import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
-import com.heinika.pokeg.utils.PokemonUtils
-import com.heinika.pokeg.utils.SpacesItemDecoration
-import com.skydoves.androidribbon.ribbonView
+import com.heinika.pokeg.utils.PokemonRes
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
 import java.util.*
 
 class DetailPage(
+  private val pokemonRes: PokemonRes,
   private val activity: AppCompatActivity,
   private val pokemon: Pokemon,
   private val shareView: AppCompatImageView,
@@ -73,7 +71,7 @@ class DetailPage(
 
     detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) {
       binding.index.text = it.getIdString()
-      binding.name.text = PokemonUtils.getNameById(activity, it.id, it.name)
+      binding.name.text = pokemonRes.getNameById(it.id, it.name)
       binding.weight.text = it.getWeightString()
       binding.height.text = it.getHeightString()
       binding.progressHp.progress = it.hp.toFloat()
@@ -88,30 +86,26 @@ class DetailPage(
       binding.progressSpDefense.labelText = it.specialDefense.toString()
       binding.progressSpd.progress = it.speed.toFloat()
       binding.progressSpd.labelText = it.speed.toString()
+      binding.race.text = it.race
+      binding.description.text = it.description
 
-      binding.ribbonRecyclerView.clear()
-      for (type in it.types) {
-        with(binding.ribbonRecyclerView) {
-          addRibbon(
-            ribbonView(context) {
-              setText(PokemonUtils.getTypeString(context, type.type.name))
-              setTextColor(Color.WHITE)
-              setPaddingLeft(84f)
-              setPaddingRight(84f)
-              setPaddingTop(2f)
-              setPaddingBottom(10f)
-              setTextSize(16f)
-              setRibbonRadius(120f)
-              setTextStyle(Typeface.BOLD)
-              setRibbonBackgroundColorResource(
-                PokemonUtils.getTypeColor(type.type.name)
-              )
-            }.apply {
-              maxLines = 1
-              gravity = android.view.Gravity.CENTER
-            }
-          )
-          addItemDecoration(SpacesItemDecoration())
+      setAbility(binding.ability1, it.ability1)
+      setAbility(binding.ability2, it.ability2)
+      setAbility(binding.ability3, it.ability3)
+
+      val type1Name = it.types[0].type.name
+      binding.type1Text.text = pokemonRes.getTypeString(type1Name)
+      binding.type1Text.background.let {
+        it.setTint(pokemonRes.getTypeColor(type1Name))
+        it.alpha = 155
+      }
+      if (it.types.size == 2) {
+        val type2Name = it.types[1].type.name
+        binding.type2Text.isVisible = true
+        binding.type2Text.text = pokemonRes.getTypeString(type2Name)
+        binding.type2Text.background.let {
+          it.setTint(pokemonRes.getTypeColor(type2Name))
+          it.alpha = 155
         }
       }
     }
@@ -178,6 +172,14 @@ class DetailPage(
         duration = animatorDuration
         start()
       }
+    }
+  }
+
+  private fun setAbility(abilityView: AppCompatTextView,abilityNum: Int) {
+    if (abilityNum == 0) {
+      abilityView.isVisible = false
+    } else {
+      abilityView.text = pokemonRes.getAbilityName(abilityNum)
     }
   }
 

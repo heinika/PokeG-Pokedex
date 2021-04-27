@@ -20,7 +20,16 @@ data class PokemonInfo(
   val defense: Int = statResponses[2].baseStat,
   val specialAttack: Int = statResponses[3].baseStat,
   val specialDefense: Int = statResponses[4].baseStat,
-  val speed: Int = statResponses[5].baseStat
+  val speed: Int = statResponses[5].baseStat,
+  val race: String = "",
+  val description: String = "",
+  val ability1: Int = 0,
+  val ability2: Int = 0,
+  val ability3: Int = 0,
+  val megaNum: Int = 0,
+  val alolaNum: Int = 0,
+  val galarNum: Int = 0,
+  val gmaxNum: Int = 0,
 ) {
   fun getIdString(): String = String.format("#%03d", id)
   fun getWeightString(): String = String.format("%.1f KG", weight.toFloat() / 10)

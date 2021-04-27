@@ -12,12 +12,13 @@ import com.heinika.pokeg.ui.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.ui.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
+import com.heinika.pokeg.utils.PokemonRes
 import timber.log.Timber
 import java.util.*
 
 
 @Suppress("UNCHECKED_CAST")
-class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePage>) :
+class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePage>,private val pokemonRes: PokemonRes) :
   BasePage(activity, pageStack) {
   private val mainViewModel: MainViewModel by activity.viewModels()
 
@@ -30,8 +31,8 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     content.addView(mainPageView)
 
     adapter.register(HeaderItemDelegate())
-    adapter.register(PokemonItemDelegate(activity, mainViewModel, onItemClick = { imageView, pokemon ->
-      DetailPage(activity, pokemon, imageView, pageStack).also {
+    adapter.register(PokemonItemDelegate(pokemonRes,activity, mainViewModel, onItemClick = { imageView, pokemon ->
+      DetailPage(pokemonRes,activity, pokemon, imageView, pageStack).also {
         it.showPage()
       }
     }))

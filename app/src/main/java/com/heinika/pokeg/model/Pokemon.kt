@@ -13,7 +13,7 @@ data class Pokemon(
   @field:Json(name = "url") val url: String,
   var types: List<PokemonInfo.TypeResponse> = emptyList(),
   var totalBaseStat: Int = 0,
-  var id: Int = 0
+  var id: Int = url.split("/".toRegex()).dropLast(1).last().toInt()
 ) {
 
 //  fun getImageUrl(): String {

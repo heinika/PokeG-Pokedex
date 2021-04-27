@@ -12,9 +12,9 @@ class PokeGInitializer : Initializer<Unit> {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-        val file = context.getDatabasePath("PokeG.db")
+        val file = context.getDatabasePath("PokeG_Base.db")
         if (!file.exists()){
-            context.assets.open("PokeG.db").copyTo(FileOutputStream(context.getDatabasePath("PokeG.db")))
+            context.assets.open("PokeG_Base.db").copyTo(FileOutputStream(context.getDatabasePath("PokeG.db")))
         }
     }
 
