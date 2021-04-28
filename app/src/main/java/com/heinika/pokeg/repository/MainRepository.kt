@@ -71,23 +71,23 @@ class MainRepository @Inject constructor(
     onError: (String?) -> Unit
   ) = flow {
     val pokemonInfo = pokemonInfoDao.getPokemonInfo(pokemon.name)!!
-//    if (pokemonInfo == null) {
-//      val response = pokeGClient.fetchPokemonInfo(pokemon.name)
-//      response.suspendOnSuccess {
-//        data.whatIfNotNull { response ->
-//          pokemonInfoDao.insertPokemonInfo(response)
-//          updatePokemon(pokemon, response)
-//          emit(pokemon)
-//        }
-//      }
-//        .onError {
-//          map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
-//        }
-//        .onException { onError(message) }
-//    } else {
+    if (pokemonInfo == null) {
+      val response = pokeGClient.fetchPokemonInfo(pokemon.name)
+      response.suspendOnSuccess {
+        data.whatIfNotNull { response ->
+          pokemonInfoDao.insertPokemonInfo(response)
+          updatePokemon(pokemon, response)
+          emit(pokemon)
+        }
+      }
+        .onError {
+          map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
+        }
+        .onException { onError(message) }
+    } else {
       updatePokemon(pokemon, pokemonInfo)
       emit(pokemon)
-//    }
+    }
   }.flowOn(Dispatchers.IO)
 
   private suspend fun updatePokemon(pokemon: Pokemon, pokemonInfo: PokemonInfo) {

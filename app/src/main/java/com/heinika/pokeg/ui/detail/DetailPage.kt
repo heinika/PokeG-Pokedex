@@ -107,6 +107,11 @@ class DetailPage(
         }
       }
 
+      pokemonRes.getMaxDrawable(pokemonInfo.id)?.let {
+        binding.image3.isVisible = true
+        binding.image3.setImageDrawable(it)
+      }
+
       val type1Name = pokemonInfo.types[0].type.name
       binding.type1Text.text = pokemonRes.getTypeString(type1Name)
       binding.type1Text.background.let {

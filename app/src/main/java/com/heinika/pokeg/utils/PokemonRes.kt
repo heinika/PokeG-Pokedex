@@ -70,10 +70,14 @@ class PokemonRes @Inject constructor(private val context: Application) {
   }
 
   fun getMegaDrawable(id: Int) : List<Drawable?> {
-    if (id == 6){
-      return listOf(getResDrawableId("a006megax"),getResDrawableId("a006megay"))
+    if (id == 6 || id == 150){
+      return listOf(getResDrawableId(String.format("a%03dmegax", id)),getResDrawableId(String.format("a%03dmegay", id)))
     }
     return listOf(getResDrawableId(String.format("a%03dmega", id)))
+  }
+
+  fun getMaxDrawable(id: Int) : Drawable? {
+    return getResDrawableId(String.format("max%03d", id))
   }
 
   @SuppressLint("UseCompatLoadingForDrawables")
