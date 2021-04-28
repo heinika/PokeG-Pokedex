@@ -21,7 +21,7 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:background="@color/grass"
+            android:background="@color/colorPrimary"
             android:elevation="9dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -209,9 +209,9 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:translationZ="10dp"
-            app:layout_constraintBottom_toBottomOf="@id/name"
-            app:layout_constraintStart_toEndOf="@id/name"
-            app:layout_constraintTop_toTopOf="@id/name"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="grass" />
 
@@ -225,9 +225,9 @@
             android:textColor="@color/white"
             android:translationZ="10dp"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintBottom_toBottomOf="@id/type1Text"
             app:layout_constraintStart_toEndOf="@id/type1Text"
-            app:layout_constraintTop_toTopOf="@id/name"
+            app:layout_constraintTop_toTopOf="@id/type1Text"
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="grass" />
 
@@ -235,7 +235,6 @@
             android:id="@+id/race"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_margin="16dp"
             android:background="@drawable/item_race_background"
             android:gravity="center"
             android:paddingEnd="8dp"
@@ -243,8 +242,9 @@
             android:text="种子宝可梦"
             android:textColor="@color/white"
             android:translationZ="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name" />
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintStart_toEndOf="@id/name"
+            app:layout_constraintTop_toTopOf="@id/name" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability1"
@@ -257,7 +257,7 @@
             android:textColor="@color/white"
             android:translationZ="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/race" />
+            app:layout_constraintTop_toBottomOf="@id/type1Text" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability2"
