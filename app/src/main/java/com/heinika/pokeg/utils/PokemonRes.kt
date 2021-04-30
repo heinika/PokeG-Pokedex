@@ -112,6 +112,14 @@ class PokemonRes @Inject constructor(private val context: Application) {
     }
   }
 
+  fun getAbilityDesc(id: Int): String {
+    return if (id == 0) {
+      ""
+    } else {
+      abilityList[id - 1].synopsis
+    }
+  }
+
   fun getCommonDrawable(id: Int): Drawable = when (id) {
     in 1..898 -> getResDrawable(String.format("a%03d", id))!!
     else -> getResDrawable("ic_launcher_foreground")!!

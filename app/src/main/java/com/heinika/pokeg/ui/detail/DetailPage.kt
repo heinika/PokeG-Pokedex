@@ -20,6 +20,10 @@ import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.utils.PokemonRes
+import com.skydoves.balloon.ArrowOrientation
+import com.skydoves.balloon.BalloonAnimation
+import com.skydoves.balloon.BalloonSizeSpec
+import com.skydoves.balloon.createBalloon
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
@@ -44,7 +48,6 @@ class DetailPage(
 
     Glide.with(binding.image)
       .load(pokemon.getImageUrl())
-      .placeholder(R.drawable.ic_launcher_foreground)
       .listener(
         GlidePalette.with(pokemon.getImageUrl())
           .use(BitmapPalette.Profile.MUTED_LIGHT)
@@ -201,6 +204,27 @@ class DetailPage(
       abilityView.isVisible = false
     } else {
       abilityView.text = pokemonRes.getAbilityName(abilityNum)
+      val balloon = createBalloon(activity) {
+        setArrowSize(10)
+        setWidth(BalloonSizeSpec.WRAP)
+        setHeight(BalloonSizeSpec.WRAP)
+        setPadding(16)
+        setArrowOrientation(ArrowOrientation.LEFT)
+        setCornerRadius(4f)
+        setAlpha(0.9f)
+        setText(pokemonRes.getAbilityDesc(abilityNum))
+        setTextColorResource(R.color.white_93)
+        setBackgroundColorResource(R.color.background)
+        setBalloonAnimation(BalloonAnimation.FADE)
+        setLifecycleOwner(lifecycleOwner)
+      }
+      abilityView.setOnClickListener {
+        if (!balloon.isShowing){
+          balloon.showAlignRight(it)
+        }else{
+          balloon.dismiss()
+        }
+      }
     }
   }
 

@@ -54,7 +54,6 @@ class PokemonItemDelegate(private val pokemonRes: PokemonRes, val lifecycleOwner
         val imageUrl = pokemon.getImageUrl()
         Glide.with(imageView)
           .load(imageUrl)
-          .placeholder(pokemonRes.getCommonDrawable(pokemon.id))
           .listener(
             GlidePalette.with(imageUrl)
               .use(BitmapPalette.Profile.MUTED_LIGHT)
