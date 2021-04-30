@@ -34,7 +34,7 @@ class MainRepository @Inject constructor(
   ) = flow {
     try {
       val pokemonList = pokemonDao.getAllPokemonList(page)
-      if (pokemonList.isNotEmpty()){
+      if (pokemonList.isNotEmpty()) {
         onSuccess()
         emit(pokemonList)
       }
@@ -42,7 +42,7 @@ class MainRepository @Inject constructor(
       val response = pokeGClient.fetchPokemonList()
       response.suspendOnSuccess {
         data.whatIfNotNull { response ->
-          pokemonDao.insertPokemonList(response.results)
+          pokemonDao.insertPokemonList(response.results.subList(pokemonList.size, response.results.size))
           onSuccess()
           emit(pokemonList)
 //          if (pokemonList.size < response.results.size) {
@@ -58,7 +58,7 @@ class MainRepository @Inject constructor(
         // handles the case when the API request gets an exception response.
         // e.g., network connection error.
         .onException { onError(message) }
-    }catch (e:Exception){
+    } catch (e: Exception) {
       Timber.i(e)
     }
 
@@ -70,7 +70,7 @@ class MainRepository @Inject constructor(
     pokemon: Pokemon,
     onError: (String?) -> Unit
   ) = flow {
-    val pokemonInfo = pokemonInfoDao.getPokemonInfo(pokemon.name)!!
+    val pokemonInfo = pokemonInfoDao.getPokemonInfo(pokemon.name)
     if (pokemonInfo == null) {
       val response = pokeGClient.fetchPokemonInfo(pokemon.name)
       response.suspendOnSuccess {

@@ -54,6 +54,7 @@ class PokemonItemDelegate(private val pokemonRes: PokemonRes, val lifecycleOwner
         val imageUrl = pokemon.getImageUrl()
         Glide.with(imageView)
           .load(imageUrl)
+          .placeholder(pokemonRes.getCommonDrawable(pokemon.id))
           .listener(
             GlidePalette.with(imageUrl)
               .use(BitmapPalette.Profile.MUTED_LIGHT)
@@ -75,7 +76,6 @@ class PokemonItemDelegate(private val pokemonRes: PokemonRes, val lifecycleOwner
     }
 
     private fun ItemPokemonBinding.refreshInfo(pokemon: Pokemon) {
-      val context = type1Text.context
       when (pokemon.types.size) {
         0 -> {
           type1Text.visibility = View.INVISIBLE

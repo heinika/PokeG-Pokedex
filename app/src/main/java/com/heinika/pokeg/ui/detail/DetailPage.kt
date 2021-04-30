@@ -14,6 +14,7 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Pokemon
@@ -43,6 +44,7 @@ class DetailPage(
 
     Glide.with(binding.image)
       .load(pokemon.getImageUrl())
+      .placeholder(R.drawable.ic_launcher_foreground)
       .listener(
         GlidePalette.with(pokemon.getImageUrl())
           .use(BitmapPalette.Profile.MUTED_LIGHT)

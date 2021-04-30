@@ -69,19 +69,19 @@ class PokemonRes @Inject constructor(private val context: Application) {
     }
   }
 
-  fun getMegaDrawable(id: Int) : List<Drawable?> {
-    if (id == 6 || id == 150){
-      return listOf(getResDrawableId(String.format("a%03dmegax", id)),getResDrawableId(String.format("a%03dmegay", id)))
+  fun getMegaDrawable(id: Int): List<Drawable?> {
+    if (id == 6 || id == 150) {
+      return listOf(getResDrawable(String.format("a%03dmegax", id)), getResDrawable(String.format("a%03dmegay", id)))
     }
-    return listOf(getResDrawableId(String.format("a%03dmega", id)))
+    return listOf(getResDrawable(String.format("a%03dmega", id)))
   }
 
-  fun getMaxDrawable(id: Int) : Drawable? {
-    return getResDrawableId(String.format("max%03d", id))
+  fun getMaxDrawable(id: Int): Drawable? {
+    return getResDrawable(String.format("max%03d", id))
   }
 
   @SuppressLint("UseCompatLoadingForDrawables")
-  private fun getResDrawableId(name: String): Drawable? {
+  private fun getResDrawable(name: String): Drawable? {
     return try {
       context.resources.getDrawable(context.resources.getIdentifier(name, "drawable", context.packageName), context.theme)
     } catch (e: java.lang.Exception) {
@@ -110,6 +110,11 @@ class PokemonRes @Inject constructor(private val context: Application) {
     } else {
       abilityList[id - 1].cname
     }
+  }
+
+  fun getCommonDrawable(id: Int): Drawable = when (id) {
+    in 1..898 -> getResDrawable(String.format("a%03d", id))!!
+    else -> getResDrawable("ic_launcher_foreground")!!
   }
 
 }
