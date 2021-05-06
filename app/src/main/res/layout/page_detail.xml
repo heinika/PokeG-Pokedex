@@ -17,16 +17,6 @@
         android:descendantFocusability="blocksDescendants"
         android:paddingBottom="32dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/colorPrimary"
-            android:elevation="9dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,28 +31,28 @@
                 android:id="@+id/image1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:visibility="gone"
                 android:layout_marginBottom="20dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/a006megax" />
+                android:src="@drawable/a006megax"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:visibility="gone"
                 android:layout_marginBottom="20dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/a006megay" />
+                android:src="@drawable/a006megay"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image3"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:visibility="gone"
                 android:layout_marginBottom="20dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/max006" />
+                android:src="@drawable/max006"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -167,7 +157,6 @@
             android:layout_height="190dp"
             android:layout_marginBottom="20dp"
             android:scaleType="center"
-            android:src="@drawable/a001"
             android:translationZ="10dp"
             app:layout_constraintBottom_toBottomOf="@id/header"
             app:layout_constraintEnd_toEndOf="parent"
@@ -185,7 +174,6 @@
             app:layout_constraintStart_toEndOf="@id/arrow"
             app:layout_constraintTop_toTopOf="@id/arrow" />
 
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/index"
             android:layout_width="wrap_content"
@@ -201,15 +189,16 @@
             app:layout_constraintTop_toTopOf="@id/header"
             tools:text="#001" />
 
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/type1Text"
             android:layout_width="46dp"
             android:layout_height="20dp"
+            android:layout_marginLeft="16dp"
             android:background="@drawable/item_type_background"
             android:gravity="center"
             android:textColor="@color/white"
             android:translationZ="10dp"
-            android:layout_marginLeft="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintVertical_chainStyle="packed"
@@ -248,42 +237,45 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability1"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/item_ability_background"
-            android:gravity="center"
-            android:text="茂盛"
-            android:textColor="@color/white"
-            android:translationZ="10dp"
+            style="@style/AbilityStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/type1Text" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ability1Desc"
+            style="@style/AbilityDescStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/ability1"
+            app:layout_constraintLeft_toRightOf="@+id/ability1"
+            app:layout_constraintRight_toLeftOf="@+id/index"
+            app:layout_constraintTop_toTopOf="@+id/ability1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability2"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/item_ability_background"
-            android:gravity="center"
-            android:text="叶绿素"
-            android:textColor="@color/white"
-            android:translationZ="10dp"
+            style="@style/AbilityStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ability1" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ability2Desc"
+            style="@style/AbilityDescStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/ability2"
+            app:layout_constraintLeft_toRightOf="@+id/ability2"
+            app:layout_constraintRight_toLeftOf="@+id/index"
+            app:layout_constraintTop_toTopOf="@+id/ability2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability3"
-            android:layout_width="60dp"
-            android:layout_height="20dp"
-            android:layout_margin="16dp"
-            android:background="@drawable/item_ability_background"
-            android:gravity="center"
-            android:text="叶绿素"
-            android:textColor="@color/white"
-            android:translationZ="10dp"
+            style="@style/AbilityStyle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ability2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ability3Desc"
+            style="@style/AbilityDescStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/ability3"
+            app:layout_constraintLeft_toRightOf="@+id/ability3"
+            app:layout_constraintRight_toLeftOf="@+id/index"
+            app:layout_constraintTop_toTopOf="@+id/ability3" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/height"
@@ -325,6 +317,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/header" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/colorPrimary"
+            android:elevation="9dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
 
 
         <com.skydoves.progressview.ProgressView

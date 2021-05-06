@@ -14,16 +14,11 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
-import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.utils.PokemonRes
-import com.skydoves.balloon.ArrowOrientation
-import com.skydoves.balloon.BalloonAnimation
-import com.skydoves.balloon.BalloonSizeSpec
-import com.skydoves.balloon.createBalloon
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
@@ -94,17 +89,17 @@ class DetailPage(
       binding.race.text = pokemonInfo.race
       binding.description.text = pokemonInfo.description
 
-      setAbility(binding.ability1, pokemonInfo.ability1)
-      setAbility(binding.ability2, pokemonInfo.ability2)
-      setAbility(binding.ability3, pokemonInfo.ability3)
+      setAbility(binding.ability1, binding.ability1Desc, pokemonInfo.ability1)
+      setAbility(binding.ability2, binding.ability2Desc, pokemonInfo.ability2)
+      setAbility(binding.ability3, binding.ability3Desc, pokemonInfo.ability3)
 
       pokemonRes.getMegaDrawable(pokemonInfo.id).let { drawableList ->
-        if (drawableList.size == 1){
+        if (drawableList.size == 1) {
           drawableList[0]?.let {
             binding.image1.isVisible = true
             binding.image1.setImageDrawable(it)
           }
-        }else{
+        } else {
           binding.image1.isVisible = true
           binding.image1.setImageDrawable(drawableList[0])
           binding.image2.isVisible = true
@@ -162,13 +157,13 @@ class DetailPage(
 
         val startRootScale = shareView.height / binding.image.height.toFloat()
         val startRootCenterX = startLocation[0] + shareView.width / 2
-        val startRootCenterY = startLocation[1] + binding.root.height.toFloat() / 2 * startRootScale - endImageLocation[1] * startRootScale
+        val startRootCenterY =
+          startLocation[1] + binding.root.height.toFloat() / 2 * startRootScale - endImageLocation[1] * startRootScale
         val endRootCenterX = endRootLocation[0] + binding.root.width / 2
         val endRootCenterY = endRootLocation[1] + binding.root.height / 2
 
 
         doOnStart {
-//          shareView.visibility = View.INVISIBLE
           binding.image.alpha = 1f
           binding.image.isVisible = true
           binding.root.isVisible = true
@@ -177,8 +172,10 @@ class DetailPage(
           binding.root.background.alpha = (valueAnimator.animatedFraction * 255).toInt()
 
 
-          val rootTranslationX = (startRootCenterX - endRootCenterX) * (1 - valueAnimator.animatedFraction)
-          val rootTranslationY = (startRootCenterY - endRootCenterY) * (1 - valueAnimator.animatedFraction)
+          val rootTranslationX =
+            (startRootCenterX - endRootCenterX) * (1 - valueAnimator.animatedFraction)
+          val rootTranslationY =
+            (startRootCenterY - endRootCenterY) * (1 - valueAnimator.animatedFraction)
           val rootScale = startRootScale + (1 - startRootScale) * valueAnimator.animatedFraction
 
           binding.root.translationX = rootTranslationX
@@ -199,31 +196,18 @@ class DetailPage(
     }
   }
 
-  private fun setAbility(abilityView: AppCompatTextView,abilityNum: Int) {
+  private fun setAbility(
+    abilityView: AppCompatTextView,
+    descView: AppCompatTextView,
+    abilityNum: Int
+  ) {
     if (abilityNum == 0) {
       abilityView.isVisible = false
     } else {
       abilityView.text = pokemonRes.getAbilityName(abilityNum)
-      val balloon = createBalloon(activity) {
-        setArrowSize(10)
-        setWidth(BalloonSizeSpec.WRAP)
-        setHeight(BalloonSizeSpec.WRAP)
-        setPadding(16)
-        setArrowOrientation(ArrowOrientation.LEFT)
-        setCornerRadius(4f)
-        setAlpha(0.9f)
-        setText(pokemonRes.getAbilityDesc(abilityNum))
-        setTextColorResource(R.color.white_93)
-        setBackgroundColorResource(R.color.background)
-        setBalloonAnimation(BalloonAnimation.FADE)
-        setLifecycleOwner(lifecycleOwner)
-      }
+      descView.text = pokemonRes.getAbilityDesc(abilityNum)
       abilityView.setOnClickListener {
-        if (!balloon.isShowing){
-          balloon.showAlignRight(it)
-        }else{
-          balloon.dismiss()
-        }
+        descView.isVisible = !descView.isVisible
       }
     }
   }
@@ -241,7 +225,8 @@ class DetailPage(
 
       val endRootScale = shareView.height / binding.image.height.toFloat()
       val endRootCenterX = endLocation[0] + shareView.width / 2
-      val endRootCenterY = endLocation[1] + binding.root.height.toFloat() / 2 * endRootScale - startImageLocation[1] * endRootScale
+      val endRootCenterY =
+        endLocation[1] + binding.root.height.toFloat() / 2 * endRootScale - startImageLocation[1] * endRootScale
       val startRootCenterX = startRootLocation[0] + binding.root.width / 2
       val startRootCenterY = startRootLocation[1] + binding.root.height / 2
 
@@ -268,8 +253,6 @@ class DetailPage(
         binding.image.translationY = 0f
         binding.image.scaleX = 1f
         binding.image.scaleY = 1f
-
-//        shareView.visibility = View.VISIBLE
       }
 
       duration = animatorDuration
