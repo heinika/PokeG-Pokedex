@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.ui.detail.DetailPage
-import com.heinika.pokeg.ui.itemdelegate.HeaderItemDelegate
-import com.heinika.pokeg.ui.itemdelegate.PokemonItemDelegate
-import com.heinika.pokeg.ui.itemdelegate.model.Header
+import com.heinika.pokeg.ui.main.itemdelegate.HeaderItemDelegate
+import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
+import com.heinika.pokeg.ui.main.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
+import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.PokemonRes
 import timber.log.Timber
 import java.util.*
@@ -64,20 +65,5 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     }else{
       activity.finish()
     }
-  }
-
-  private class AdapterDiffUtils(val oldList: List<Any>, val newList: List<Any>) : DiffUtil.Callback() {
-    override fun getOldListSize(): Int = oldList.size
-
-    override fun getNewListSize(): Int = newList.size
-
-    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-      return oldList[oldItemPosition]::class == newList[newItemPosition]::class
-    }
-
-    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-      return oldList[oldItemPosition] == newList[newItemPosition]
-    }
-
   }
 }

@@ -1,9 +1,9 @@
-package com.heinika.getpokeinfo.model.movecsv
+package com.heinika.pokeg.model
 
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class PokemonAndMoveCvsX(
+data class PokemonMoveResult(
   val id: Int,
-  val moves: MutableList<PokemonMoveCsvX>,
+  val moves: MutableList<PokemonMove>,
 )

@@ -1,4 +1,4 @@
-package com.heinika.getpokeinfo.model.movecsv
+package com.heinika.pokeg.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

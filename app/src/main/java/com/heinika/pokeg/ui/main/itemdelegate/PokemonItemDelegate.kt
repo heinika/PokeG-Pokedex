@@ -1,4 +1,4 @@
-package com.heinika.pokeg.ui.itemdelegate
+package com.heinika.pokeg.ui.main.itemdelegate
 
 import android.content.Context
 import android.view.LayoutInflater

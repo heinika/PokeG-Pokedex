@@ -20,6 +20,7 @@ import android.app.Application
 import androidx.room.Room
 import com.heinika.pokeg.persistence.*
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +34,7 @@ object PersistenceModule {
   @Provides
   @Singleton
   fun provideMoshi(): Moshi {
-    return Moshi.Builder().build()
+    return Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
   }
 
   @Provides
@@ -59,7 +60,7 @@ object PersistenceModule {
 
   @Provides
   @Singleton
-  fun providePokemonInfoDao(appDatabase: AppDatabase):PokemonInfoDao{
+  fun providePokemonInfoDao(appDatabase: AppDatabase): PokemonInfoDao {
     return appDatabase.pokemonInfoDao()
   }
 

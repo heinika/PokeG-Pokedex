@@ -11,13 +11,19 @@ import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
+import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
+import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
+import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.PokemonRes
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
@@ -35,6 +41,8 @@ class DetailPage(
   private val detailViewModel: DetailViewModel by activity.viewModels()
 
   private val binding: PageDetailBinding = PageDetailBinding.inflate(activity.layoutInflater)
+
+  private var adapter: MultiTypeAdapter = MultiTypeAdapter()
 
   private val animatorDuration = 200L
 
@@ -141,6 +149,11 @@ class DetailPage(
       onBackPressed()
     }
 
+    adapter.register(MoveItemDelegate(pokemonRes))
+    binding.moveRecyclerView.layoutManager = LinearLayoutManager(activity)
+    binding.moveRecyclerView.adapter = adapter
+
+
     content.addView(binding.root)
 
     binding.image.visibility = View.INVISIBLE
@@ -168,6 +181,26 @@ class DetailPage(
           binding.image.isVisible = true
           binding.root.isVisible = true
         }
+        doOnEnd {
+          detailViewModel.getPokemonMoveVersionLiveData(pokemon.id).observe(activity) { versions ->
+            binding.moveVersionText.text = versions.joinToString { pokemonRes.getVersionName(it) }
+
+            detailViewModel.getPokemonMoveLiveData(pokemon.id, versions.last())
+              .observe(activity) { pokemonMoveMap ->
+                binding.moveMethodText.text =
+                  pokemonMoveMap.keys.sorted().joinToString { pokemonRes.getMoveMethodName(it) }
+
+                if (binding.progressSpDefense.isAnimating){
+                  binding.moveRecyclerView.postDelayed({
+                    refreshMoveItem(pokemonMoveMap)
+                  },binding.progressSpDefense.duration)
+                }else {
+                  refreshMoveItem(pokemonMoveMap)
+                }
+              }
+          }
+        }
+
         addUpdateListener { valueAnimator ->
           binding.root.background.alpha = (valueAnimator.animatedFraction * 255).toInt()
 
@@ -193,6 +226,16 @@ class DetailPage(
         duration = animatorDuration
         start()
       }
+    }
+  }
+
+  private fun refreshMoveItem(pokemonMoveMap: Map<Int, List<MoveItem>>) {
+    pokemonMoveMap[1]?.let { moveItemList ->
+      val diffResult =
+        DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, moveItemList), true)
+      adapter.items = moveItemList
+      adapter.notifyDataSetChanged()
+      diffResult.dispatchUpdatesTo(adapter)
     }
   }
 

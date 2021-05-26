@@ -22,7 +22,7 @@ import androidx.room.TypeConverters
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 
-@Database(entities = [Pokemon::class, PokemonInfo::class], version = 1, exportSchema = true)
+@Database(entities = [Pokemon::class, PokemonInfo::class], version = 1, exportSchema = false)
 @TypeConverters(value = [TypeResponseConverter::class, StatResponseConverter::class])
 abstract class AppDatabase : RoomDatabase() {
 

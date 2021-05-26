@@ -1,6 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="12dp"
+    android:background="#162544"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#162544"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/moveNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="撞击"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/moveLevelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1级"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/guideline0"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/moveTypeText"
+            android:layout_width="46dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/item_type_background"
+            android:gravity="center"
+            tools:text="一般"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1" />
+
+        <TextView
+            android:id="@+id/moveDamageClassText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="物理"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/guideline0"
+            app:layout_constraintTop_toTopOf="@+id/moveTypeText" />
+
+        <TextView
+            android:id="@+id/movePowerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/power"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/moveAccuracyTitle"
+            app:layout_constraintStart_toEndOf="@+id/guideline0"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/movePowerText"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            tools:text="40"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/movePowerTitle"
+            app:layout_constraintStart_toStartOf="@+id/movePowerTitle"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1" />
+
+        <TextView
+            android:id="@+id/moveAccuracyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accuracy"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/movePPTitle"
+            app:layout_constraintStart_toEndOf="@+id/movePowerTitle"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/moveAccuracyText"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            tools:text="40"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/moveAccuracyTitle"
+            app:layout_constraintStart_toStartOf="@+id/moveAccuracyTitle"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1" />
+
+        <TextView
+            android:id="@+id/movePPTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/moveAccuracyTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/movePPText"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            tools:text="40"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/movePPTitle"
+            app:layout_constraintStart_toStartOf="@+id/movePPTitle"
+            app:layout_constraintTop_toBottomOf="@+id/guideline1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

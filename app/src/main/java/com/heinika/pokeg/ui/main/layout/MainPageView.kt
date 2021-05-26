@@ -146,7 +146,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
       }
 
       searchEditText.let {
-        it.setOnEditorActionListener { v, actionId, _ ->
+        it.setOnEditorActionListener { _, actionId, _ ->
           return@setOnEditorActionListener when (actionId) {
             EditorInfo.IME_ACTION_DONE -> {
               if (it.text.toString().isNotEmpty()) {

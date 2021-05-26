@@ -6,12 +6,13 @@ import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.repository.DetailRepository
+import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-  private val detailRepository: DetailRepository,
+  private val detailRepository: DetailRepository
 ) : LiveCoroutinesViewModel() {
 
   private val _toastMessage = MutableLiveData<String?>()
@@ -33,4 +34,10 @@ class DetailViewModel @Inject constructor(
       }
     ).asLiveDataOnViewModelScope()
   }
+
+  fun getPokemonMoveVersionLiveData(id: Int): LiveData<List<Int>> =
+    detailRepository.fetchPokemonMoveVersions(id).asLiveDataOnViewModelScope()
+
+  fun getPokemonMoveLiveData(id: Int, version: Int): LiveData<Map<Int, List<MoveItem>>> =
+    detailRepository.fetchPokemonMoves(id, version).asLiveDataOnViewModelScope()
 }

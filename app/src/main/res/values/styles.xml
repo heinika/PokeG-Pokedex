@@ -24,4 +24,15 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/item_ability_desc_background</item>
     </style>
+
+    <style name="BaseStatusProgressStyle">
+        <item name="progressView_duration">300</item>
+        <item name="progressView_radius">12dp</item>
+        <item name="progressView_labelSize">12sp</item>
+        <item name="progressView_labelColorInner">@color/white</item>
+        <item name="progressView_labelColorOuter">@color/black</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">18dp</item>
+        <item name="android:layout_marginEnd">32dp</item>
+    </style>
 </resources>

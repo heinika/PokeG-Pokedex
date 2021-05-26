@@ -1,5 +1,6 @@
 package com.heinika.pokeg.model
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 
@@ -7,8 +8,10 @@ import com.squareup.moshi.JsonClass
 data class Move(
     val accuracy: String,
     val contest_effect_id: String,
-    val contest_type_id: String,
-    val damage_class_id: Int,
+    @Json(name = "contest_type_id")
+    val contestTypeId: String,
+    @Json(name = "damage_class_id")
+    val damageClassId: Int,
     val effect_chance: String,
     val effect_id: Int,
     val generation_id: Int,
@@ -19,5 +22,6 @@ data class Move(
     val priority: Int,
     val super_contest_effect_id: String,
     val target_id: Int,
-    val type_id: Int
+    @Json(name = "type_id")
+    val typeId: Int
 )

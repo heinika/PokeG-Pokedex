@@ -6,6 +6,8 @@ import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.network.PokeGClient
 import com.heinika.pokeg.persistence.PokemonDao
 import com.heinika.pokeg.persistence.PokemonInfoDao
+import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
+import com.heinika.pokeg.utils.PokemonRes
 import com.skydoves.sandwich.map
 import com.skydoves.sandwich.onError
 import com.skydoves.sandwich.onException
@@ -19,7 +21,8 @@ import javax.inject.Inject
 class DetailRepository @Inject constructor(
   private val pokeGClient: PokeGClient,
   private val pokemonInfoDao: PokemonInfoDao,
-  private val pokemonDao: PokemonDao
+  private val pokemonDao: PokemonDao,
+  private val pokemonRes: PokemonRes
 ) : Repository {
 
   @WorkerThread
@@ -47,6 +50,32 @@ class DetailRepository @Inject constructor(
       emit(pokemonInfo)
       onSuccess()
     }
+  }.flowOn(Dispatchers.IO)
+
+  fun fetchPokemonMoveVersions(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonMoveVersionList(id))
+  }.flowOn(Dispatchers.IO)
+
+  fun fetchPokemonMoves(id: Int, version: Int) = flow {
+    val pokemonMoveList = pokemonRes.fetchPokemonMoveList(id, version)
+    val moveList = pokemonRes.fetchMovesDetail(pokemonMoveList.map { it.moveId })
+    emit(
+      pokemonMoveList.map { pokemonMove ->
+        val move = moveList.first { it.id == pokemonMove.moveId }
+        MoveItem(
+          id = pokemonMove.moveId,
+          methodId = pokemonMove.methodId,
+          name = pokemonRes.getMoveName(pokemonMove.moveId),
+          level = pokemonMove.level,
+          type = pokemonRes.getTypeString(move.typeId),
+          pp = move.pp,
+          power = move.power,
+          accuracy = move.accuracy,
+          damageClass = pokemonRes.getDamageClassName(move.damageClassId),
+          typeColor = pokemonRes.getTypeColor(move.typeId),
+        )
+      }.sortedBy { it.level }.groupBy { it.methodId }
+    )
   }.flowOn(Dispatchers.IO)
 
 }
