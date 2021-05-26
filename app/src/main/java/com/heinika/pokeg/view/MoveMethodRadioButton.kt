@@ -15,7 +15,7 @@ class MoveMethodRadioButton @JvmOverloads constructor(
   init {
     setTextColor(Color.WHITE)
     textSize = 15f
-    layoutParams = RadioGroup.LayoutParams(0, 24.dp).apply {
+    layoutParams = RadioGroup.LayoutParams(0, 36.dp).apply {
       weight = 1f
     }
     gravity = Gravity.CENTER

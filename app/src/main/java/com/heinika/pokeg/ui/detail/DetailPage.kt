@@ -1,6 +1,7 @@
 package com.heinika.pokeg.ui.detail
 
 import android.animation.ValueAnimator
+import android.app.AlertDialog
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -186,34 +187,19 @@ class DetailPage(
           detailViewModel.getPokemonMoveVersionLiveData(pokemon.id).observe(activity) { versions ->
             binding.moveVersionText.text = pokemonRes.getVersionName(versions.last())
 
-            detailViewModel.getPokemonMoveLiveData(pokemon.id, versions.last())
-              .observe(activity) { pokemonMoveMap ->
-                pokemonMoveMap.keys.sortedBy {
-                  when (it) {
-                    2 -> 3
-                    3 -> 4
-                    4 -> 2
-                    else -> it
-                  }
-                }.forEach { methodId ->
-                  binding.moveMethodRadioGroup.addView(MoveMethodRadioButton(activity).apply {
-                    text = pokemonRes.getMoveMethodName(methodId)
-                    setOnClickListener {
-                      refreshMoveItem(pokemonMoveMap, methodId)
-                    }
-                  }
-                  )
-                }
-                binding.moveMethodRadioGroup.check(binding.moveMethodRadioGroup.children.first().id)
+            val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
+              .setItems(
+                versions.map { pokemonRes.getVersionName(it) }.toTypedArray()
+              ) { dialog, index ->
+                binding.moveVersionText.text = pokemonRes.getVersionName(versions[index])
+                refreshMoveTable(versions[index])
+                dialog.dismiss()
+              }.create()
+            binding.moveVersionText.setOnClickListener {
+              selectVersionDialog.show()
+            }
 
-                if (binding.progressSpDefense.isAnimating) {
-                  binding.moveRecyclerView.postDelayed({
-                    refreshMoveItem(pokemonMoveMap, 1)
-                  }, binding.progressSpDefense.duration)
-                } else {
-                  refreshMoveItem(pokemonMoveMap, 1)
-                }
-              }
+            refreshMoveTable(versions.last())
           }
         }
 
@@ -243,6 +229,38 @@ class DetailPage(
         start()
       }
     }
+  }
+
+  private fun refreshMoveTable(version: Int) {
+    binding.moveMethodRadioGroup.removeAllViews()
+    detailViewModel.getPokemonMoveLiveData(pokemon.id, version)
+      .observe(activity) { pokemonMoveMap ->
+        pokemonMoveMap.keys.sortedBy {
+          when (it) {
+            2 -> 3
+            3 -> 4
+            4 -> 2
+            else -> it
+          }
+        }.forEach { methodId ->
+          binding.moveMethodRadioGroup.addView(MoveMethodRadioButton(activity).apply {
+            text = pokemonRes.getMoveMethodName(methodId)
+            setOnClickListener {
+              refreshMoveItem(pokemonMoveMap, methodId)
+            }
+          }
+          )
+        }
+        binding.moveMethodRadioGroup.check(binding.moveMethodRadioGroup.children.first().id)
+
+        if (binding.progressSpDefense.isAnimating) {
+          binding.moveRecyclerView.postDelayed({
+            refreshMoveItem(pokemonMoveMap, 1)
+          }, binding.progressSpDefense.duration)
+        } else {
+          refreshMoveItem(pokemonMoveMap, 1)
+        }
+      }
   }
 
   private fun refreshMoveItem(pokemonMoveMap: Map<Int, List<MoveItem>>, methodId: Int) {
