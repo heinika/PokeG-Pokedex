@@ -36,8 +36,11 @@ class DetailViewModel @Inject constructor(
   }
 
   fun getPokemonMoveVersionLiveData(id: Int): LiveData<List<Int>> =
-    detailRepository.fetchPokemonMoveVersions(id).asLiveDataOnViewModelScope()
+    detailRepository.pokemonMoveVersionsFlow(id).asLiveDataOnViewModelScope()
 
   fun getPokemonMoveLiveData(id: Int, version: Int): LiveData<Map<Int, List<MoveItem>>> =
-    detailRepository.fetchPokemonMoves(id, version).asLiveDataOnViewModelScope()
+    detailRepository.pokemonMovesFlow(id, version).asLiveDataOnViewModelScope()
+
+  fun getPokemonSpecieLiveData(id: Int) =
+    detailRepository.pokemonSpecieFlow(id).asLiveDataOnViewModelScope()
 }

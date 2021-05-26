@@ -52,11 +52,11 @@ class DetailRepository @Inject constructor(
     }
   }.flowOn(Dispatchers.IO)
 
-  fun fetchPokemonMoveVersions(id: Int) = flow {
+  fun pokemonMoveVersionsFlow(id: Int) = flow {
     emit(pokemonRes.fetchPokemonMoveVersionList(id))
   }.flowOn(Dispatchers.IO)
 
-  fun fetchPokemonMoves(id: Int, version: Int) = flow {
+  fun pokemonMovesFlow(id: Int, version: Int) = flow {
     val pokemonMoveList = pokemonRes.fetchPokemonMoveList(id, version)
     val moveList = pokemonRes.fetchMovesDetail(pokemonMoveList.map { it.moveId })
     emit(
@@ -78,4 +78,7 @@ class DetailRepository @Inject constructor(
     )
   }.flowOn(Dispatchers.IO)
 
+  fun pokemonSpecieFlow(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
+  }.flowOn(Dispatchers.IO)
 }

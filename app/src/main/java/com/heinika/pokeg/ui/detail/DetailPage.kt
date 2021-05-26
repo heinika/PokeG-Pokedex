@@ -139,6 +139,10 @@ class DetailPage(
       }
     }
 
+//    detailViewModel.getPokemonSpecieLiveData(pokemon.id).observe(activity) { specie ->
+//
+//    }
+
     detailViewModel.isLoading.observe(activity) { isLoading ->
       binding.progressbar.isVisible = isLoading
     }

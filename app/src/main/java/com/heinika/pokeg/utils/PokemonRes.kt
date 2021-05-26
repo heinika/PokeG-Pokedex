@@ -19,6 +19,7 @@ import javax.inject.Singleton
 @Singleton
 class PokemonRes @Inject constructor(private val context: Application, private val moshi: Moshi) {
   private val pokemonMoveVersionList: MutableList<PokemonMoveVersion> = mutableListOf()
+  private val pokemonSpecieList: MutableList<PokemonSpecie> = mutableListOf()
 
   fun getTypeColor(type: String): Int {
     val resId = when (type) {
@@ -1085,18 +1086,9 @@ class PokemonRes @Inject constructor(private val context: Application, private v
   }
 
 
-  fun fetchPokemonMoveVersionList(id: Int): List<Int>{
-    val pokemonMoveVersionData: Type =
-      Types.newParameterizedType(MutableList::class.java, PokemonMoveVersion::class.java)
-    val pokemonMoveVersionAdapter: JsonAdapter<List<PokemonMoveVersion>> =
-      moshi.adapter(pokemonMoveVersionData)
+  fun fetchPokemonMoveVersionList(id: Int): List<Int> {
     if (pokemonMoveVersionList.isEmpty()) {
-      pokemonMoveVersionList.addAll(
-        pokemonMoveVersionAdapter.fromJson(
-          context.assets.open("pokemon_move_version_list.json").bufferedReader().use {
-            it.readText()
-          })!!
-      )
+      pokemonMoveVersionList.addAll(fetchListByJson("pokemon_move_version_list.json"))
     }
     return pokemonMoveVersionList.first { it.id == id }.versionList
   }
@@ -1104,25 +1096,30 @@ class PokemonRes @Inject constructor(private val context: Application, private v
 
   @WorkerThread
   fun fetchPokemonMoveList(pokemonId: Int, version: Int): List<PokemonMove> {
-    val pokemonMoveResultData: Type =
-      Types.newParameterizedType(MutableList::class.java, PokemonMoveResult::class.java)
-    val pokemonMoveAdapter: JsonAdapter<List<PokemonMoveResult>> =
-      moshi.adapter(pokemonMoveResultData)
-
-    return pokemonMoveAdapter.fromJson(
-      context.assets.open("pokemon_move_$version.json").bufferedReader().use {
-        it.readText()
-      })!!.first { it.id == pokemonId }.moves.toList()
+    return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+      .first { it.id == pokemonId }.moves.toList()
   }
 
 
   @WorkerThread
   fun fetchMovesDetail(moveIds: List<Int>): List<Move> {
-    val movesData: Type = Types.newParameterizedType(MutableList::class.java, Move::class.java)
-    val movesAdapter: JsonAdapter<List<Move>> = moshi.adapter(movesData)
-
-    return movesAdapter
-      .fromJson(context.assets.open("moves.json").bufferedReader().use { it.readText() })!!
-      .filter { moveIds.contains(it.id) }
+    return fetchListByJson<Move>("moves.json").filter { moveIds.contains(it.id) }
   }
+
+  @WorkerThread
+  fun fetchPokemonSpecie(): List<PokemonSpecie> {
+    if (pokemonSpecieList.isEmpty()){
+      pokemonSpecieList.addAll(fetchListByJson("pokemon_species.json"))
+    }
+    return pokemonSpecieList
+  }
+
+  @WorkerThread
+  private inline fun <reified T> fetchListByJson(jsonFileName: String): List<T> {
+    val type = Types.newParameterizedType(MutableList::class.java, T::class.java)
+    val adapter: JsonAdapter<List<T>> = moshi.adapter(type)
+    return adapter.fromJson(
+      context.assets.open(jsonFileName).bufferedReader().use { it.readText() })!!
+  }
+
 }
