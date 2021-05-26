@@ -1815,5 +1815,6 @@
     <string name="pp">PP</string>
     <string name="accuracy">命中</string>
     <string name="power">威力</string>
+    <string name="move_table">技能表</string>
 
 </resources>

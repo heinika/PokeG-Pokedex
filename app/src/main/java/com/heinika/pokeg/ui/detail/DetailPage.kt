@@ -25,6 +25,7 @@ import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.view.MoveMethodRadioButton
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
@@ -183,19 +184,34 @@ class DetailPage(
         }
         doOnEnd {
           detailViewModel.getPokemonMoveVersionLiveData(pokemon.id).observe(activity) { versions ->
-            binding.moveVersionText.text = versions.joinToString { pokemonRes.getVersionName(it) }
+            binding.moveVersionText.text = pokemonRes.getVersionName(versions.last())
 
             detailViewModel.getPokemonMoveLiveData(pokemon.id, versions.last())
               .observe(activity) { pokemonMoveMap ->
-                binding.moveMethodText.text =
-                  pokemonMoveMap.keys.sorted().joinToString { pokemonRes.getMoveMethodName(it) }
+                pokemonMoveMap.keys.sortedBy {
+                  when (it) {
+                    2 -> 3
+                    3 -> 4
+                    4 -> 2
+                    else -> it
+                  }
+                }.forEach { methodId ->
+                  binding.moveMethodRadioGroup.addView(MoveMethodRadioButton(activity).apply {
+                    text = pokemonRes.getMoveMethodName(methodId)
+                    setOnClickListener {
+                      refreshMoveItem(pokemonMoveMap, methodId)
+                    }
+                  }
+                  )
+                }
+                binding.moveMethodRadioGroup.check(binding.moveMethodRadioGroup.children.first().id)
 
-                if (binding.progressSpDefense.isAnimating){
+                if (binding.progressSpDefense.isAnimating) {
                   binding.moveRecyclerView.postDelayed({
-                    refreshMoveItem(pokemonMoveMap)
-                  },binding.progressSpDefense.duration)
-                }else {
-                  refreshMoveItem(pokemonMoveMap)
+                    refreshMoveItem(pokemonMoveMap, 1)
+                  }, binding.progressSpDefense.duration)
+                } else {
+                  refreshMoveItem(pokemonMoveMap, 1)
                 }
               }
           }
@@ -229,8 +245,8 @@ class DetailPage(
     }
   }
 
-  private fun refreshMoveItem(pokemonMoveMap: Map<Int, List<MoveItem>>) {
-    pokemonMoveMap[1]?.let { moveItemList ->
+  private fun refreshMoveItem(pokemonMoveMap: Map<Int, List<MoveItem>>, methodId: Int) {
+    pokemonMoveMap[methodId]?.let { moveItemList ->
       val diffResult =
         DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, moveItemList), true)
       adapter.items = moveItemList
