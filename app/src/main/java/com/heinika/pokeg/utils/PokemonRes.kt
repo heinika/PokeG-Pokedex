@@ -1,9 +1,7 @@
 package com.heinika.pokeg.utils
 
 import androidx.annotation.WorkerThread
-import com.heinika.pokeg.model.Move
-import com.heinika.pokeg.model.PokemonMove
-import com.heinika.pokeg.model.PokemonSpecie
+import com.heinika.pokeg.model.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,6 +17,16 @@ class PokemonRes @Inject constructor(
   fun getTypeColor(type: Int): Int = colorRes.getTypeColor(type)
 
   fun getVersionName(id: Int) = stringRes.getVersionName(id)
+
+  fun getEggGroupName(name: Int) = stringRes.getEggGroupName(name)
+
+  fun getGrowRate(id: Int) = stringRes.getGrowRate(id)
+
+  fun getGeneration(id: Int) = stringRes.getGeneration(id)
+
+  fun getShape(id: Int) = stringRes.getShape(id)
+
+  fun getHabitat(id: Int) = stringRes.getHabitat(id)
 
   fun getMoveMethodName(id: Int) = stringRes.getMoveMethodName(id)
 
@@ -45,6 +53,12 @@ class PokemonRes @Inject constructor(
 
   @WorkerThread
   fun fetchMovesDetail(moveIds: List<Int>): List<Move> = jsonRes.fetchMovesDetail(moveIds)
+
+  @WorkerThread
+  fun fetchSpeciesEggGroup(speciesId: Int): List<SpeciesEggGroup> = jsonRes.fetchSpeciesEggGroup(speciesId)
+
+  @WorkerThread
+  fun fetchPokemonName(): List<PokemonName> = jsonRes.fetchPokemonName()
 
   @WorkerThread
   fun fetchPokemonSpecie(): List<PokemonSpecie> = jsonRes.fetchPokemonSpecie()

@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="12dp"
-    android:layout_marginStart="12dp"
+    style="@style/PokemonCardViewStyle"
     android:layout_marginTop="12dp"
-    android:background="#162544"
     android:clipChildren="false"
-    android:clipToPadding="false"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardBackgroundColor="#162544"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    android:clipToPadding="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

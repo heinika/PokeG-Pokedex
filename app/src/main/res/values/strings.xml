@@ -1818,5 +1818,65 @@
     <string name="move_table">技能表</string>
     <string name="legendary">传奇</string>
     <string name="mythical">神话</string>
+    <string name="baby">婴儿</string>
+    <string name="egg_group">蛋组</string>
+    <string name="egg_steps">孵化步数</string>
+    <string name="grow_speed">生长速度</string>
 
+    <string name="monster">怪兽</string>
+    <string name="plant">植物</string>
+    <string name="water1">水1</string>
+    <string name="water2">水2</string>
+    <string name="water3">水3</string>
+    <string name="bug">虫</string>
+    <string name="flying">飞行</string>
+    <string name="ground">地面</string>
+    <string name="fairy">精灵</string>
+    <string name="humanshape">人形</string>
+    <string name="mineral">矿物</string>
+    <string name="indeterminate">不定</string>
+    <string name="ditto">重复</string>
+    <string name="dragon">龙</string>
+    <string name="no_eggs">没有蛋</string>
+    
+    <string name="slow">慢</string>
+    <string name="medium">中等</string>
+    <string name="fast">快</string>
+    <string name="medium_slow">中等慢</string>
+    <string name="slow_then_very_fast">比较快</string>
+    <string name="fast_then_very_slow">比较慢</string>
+
+    <string name="generation_i">第一世代</string>
+    <string name="generation_ii">第二世代</string>
+    <string name="generation_iii">第三世代</string>
+    <string name="generation_iv">第四世代</string>
+    <string name="generation_v">第五世代</string>
+    <string name="generation_vi">第六世代</string>
+    <string name="generation_vii">第七世代</string>
+    <string name="generation_viii">第八世代</string>
+
+    <string name="ball">球型</string>
+    <string name="squiggle">蛇形</string>
+    <string name="fish">鱼形</string>
+    <string name="arms">双手形</string>
+    <string name="blob">柱形</string>
+    <string name="upright">双足兽形</string>
+    <string name="legs">双腿形</string>
+    <string name="quadruped">四足兽形</string>
+    <string name="wings">双翅形</string>
+    <string name="tentacles">触手形</string>
+    <string name="heads">组合形</string>
+    <string name="humanoid">人形</string>
+    <string name="bug_wings">多翅形</string>
+    <string name="armor">虫形</string>
+
+    <string name="cave">洞穴</string>
+    <string name="forest">森林</string>
+    <string name="grassland">草原</string>
+    <string name="mountain">山丘</string>
+    <string name="rare">稀有的</string>
+    <string name="rough_terrain">崎岖的地形</string>
+    <string name="sea">海</string>
+    <string name="urban">城市</string>
+    <string name="waters_edge">水边</string>
 </resources>

@@ -26,6 +26,7 @@ import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.utils.toBoolean
 import com.heinika.pokeg.view.MoveMethodRadioButton
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
@@ -120,19 +121,29 @@ class DetailPage(
       }
     }
 
+    detailViewModel.getPokemonSpecieNameLiveData(pokemon.id).observe(activity) { names ->
+      binding.eNameText.text = names.first { it.localLanguageId == 9 }.name
+      binding.jNameText.text = names.first { it.localLanguageId == 1 }.name
+    }
+
     detailViewModel.getPokemonSpecieLiveData(pokemon.id).observe(activity) { specie ->
-      binding.eNameText.text = specie.eName
-      binding.jNameText.text = specie.jName
-      binding.shapeText.text = specie.shape
-      binding.generationText.text = specie.generation
-      specie.habitat?.let {
+      binding.eggStepsText.text = "${255 * (specie.hatchCounter + 1)}步"
+      binding.generationText.text = pokemonRes.getGeneration(specie.generationId)
+      binding.shapeText.text = pokemonRes.getShape(specie.shapeId)
+      if (specie.habitatId.isNotEmpty()) {
         binding.habitatText.isVisible = true
-        binding.habitatText.text = it
+        binding.habitatText.text = pokemonRes.getHabitat(specie.habitatId.toInt())
       }
-      binding.legendaryText.isVisible = specie.isLegendary
-      binding.mythicalText.isVisible = specie.isMythical
+      binding.growSpeedText.text = pokemonRes.getGrowRate(specie.growthRateId)
+      binding.babyText.isVisible = specie.isBaby.toBoolean
+      binding.legendaryText.isVisible = specie.isLegendary.toBoolean
+      binding.mythicalText.isVisible = specie.isMythical.toBoolean
+    }
 
-
+    detailViewModel.pokemonSpecieEggGroup(pokemon.id).observe(activity) { eggGroupList ->
+      binding.eggGroupText.text =
+        eggGroupList.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
+          .replace(",", " ")
     }
 
     detailViewModel.isLoading.observe(activity) { isLoading ->

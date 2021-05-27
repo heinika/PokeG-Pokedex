@@ -79,11 +79,20 @@ class DetailRepository @Inject constructor(
     )
   }.flowOn(Dispatchers.IO)
 
+  fun pokemonNameFlow(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonName().filter { it.pokemonSpeciesId == id })
+  }.flowOn(Dispatchers.IO)
+
   fun pokemonSpecieFlow(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
+  }.flowOn(Dispatchers.IO)
+
+  fun pokemonSpecieEggGroup(id: Int) = flow {
     try {
-      emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
-    } catch (e: Exception) {
+      emit(pokemonRes.fetchSpeciesEggGroup(id))
+    } catch (e : Exception){
       Timber.e(e)
     }
+
   }.flowOn(Dispatchers.IO)
 }

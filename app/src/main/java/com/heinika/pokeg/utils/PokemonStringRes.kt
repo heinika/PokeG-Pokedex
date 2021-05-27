@@ -74,6 +74,78 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "other"
   }
 
+  fun getEggGroupName(name: Int) = when (name) {
+    1 -> context.resources.getString(R.string.monster)
+    2 -> context.resources.getString(R.string.water1)
+    3 -> context.resources.getString(R.string.bug)
+    4 -> context.resources.getString(R.string.flying)
+    5 -> context.resources.getString(R.string.ground)
+    6 -> context.resources.getString(R.string.fairy)
+    7 -> context.resources.getString(R.string.plant)
+    8 -> context.resources.getString(R.string.humanshape)
+    9 -> context.resources.getString(R.string.water3)
+    10 -> context.resources.getString(R.string.mineral)
+    11 -> context.resources.getString(R.string.indeterminate)
+    12 -> context.resources.getString(R.string.water2)
+    13 -> context.resources.getString(R.string.ditto)
+    14 -> context.resources.getString(R.string.dragon)
+    15 -> context.resources.getString(R.string.no_eggs)
+    else -> context.resources.getString(R.string.no_eggs)
+  }
+
+  fun getGrowRate(id: Int) = when (id) {
+    1 -> context.resources.getString(R.string.slow)
+    2 -> context.resources.getString(R.string.medium)
+    3 -> context.resources.getString(R.string.fast)
+    4 -> context.resources.getString(R.string.medium_slow)
+    5 -> context.resources.getString(R.string.slow_then_very_fast)
+    6 -> context.resources.getString(R.string.fast_then_very_slow)
+    else -> "?"
+  }
+
+  fun getGeneration(id: Int) = when (id) {
+    1 -> context.resources.getString(R.string.generation_i)
+    2 -> context.resources.getString(R.string.generation_ii)
+    3 -> context.resources.getString(R.string.generation_iii)
+    4 -> context.resources.getString(R.string.generation_iv)
+    5 -> context.resources.getString(R.string.generation_v)
+    6 -> context.resources.getString(R.string.generation_vi)
+    7 -> context.resources.getString(R.string.generation_vii)
+    8 -> context.resources.getString(R.string.generation_viii)
+    else -> "?"
+  }
+
+  fun getShape(id: Int) = when (id) {
+    1 -> context.resources.getString(R.string.ball)
+    2 -> context.resources.getString(R.string.squiggle)
+    3 -> context.resources.getString(R.string.fish)
+    4 -> context.resources.getString(R.string.arms)
+    5 -> context.resources.getString(R.string.blob)
+    6 -> context.resources.getString(R.string.upright)
+    7 -> context.resources.getString(R.string.legs)
+    8 -> context.resources.getString(R.string.quadruped)
+    9 -> context.resources.getString(R.string.wings)
+    10 -> context.resources.getString(R.string.tentacles)
+    11 -> context.resources.getString(R.string.heads)
+    12 -> context.resources.getString(R.string.humanoid)
+    13 -> context.resources.getString(R.string.bug_wings)
+    14 -> context.resources.getString(R.string.armor)
+    else -> "?"
+  }
+
+  fun getHabitat(id: Int) = when (id) {
+    1 -> context.resources.getString(R.string.cave)
+    2 -> context.resources.getString(R.string.forest)
+    3 -> context.resources.getString(R.string.grassland)
+    4 -> context.resources.getString(R.string.mountain)
+    5 -> context.resources.getString(R.string.rare)
+    6 -> context.resources.getString(R.string.rough_terrain)
+    7 -> context.resources.getString(R.string.sea)
+    8 -> context.resources.getString(R.string.urban)
+    9 -> context.resources.getString(R.string.waters_edge)
+    else -> "?"
+  }
+
   fun getMoveName(id: Int) = when (id) {
     1 -> context.resources.getString(R.string.move_name_1)
     2 -> context.resources.getString(R.string.move_name_2)

@@ -17,12 +17,22 @@
         android:descendantFocusability="blocksDescendants"
         android:paddingBottom="32dp">
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/colorPrimary"
+            android:elevation="9dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:translationZ="10dp"
-            android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="@id/header"
             app:layout_constraintEnd_toEndOf="@id/index"
             app:layout_constraintStart_toEndOf="@id/image"
@@ -30,15 +40,15 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/jNameText"
-                android:textIsSelectable="true"
                 style="@style/TagTextStyle"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:textIsSelectable="true" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/eNameText"
                 style="@style/TagTextStyle"
-                android:textIsSelectable="true"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:textIsSelectable="true" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/generationText"
@@ -48,18 +58,23 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/legendaryText"
                 style="@style/TagTextStyle"
-                android:visibility="gone"
                 android:layout_marginBottom="20dp"
                 android:text="@string/legendary"
-                />
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/babyText"
+                style="@style/TagTextStyle"
+                android:layout_marginBottom="20dp"
+                android:text="@string/baby"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/mythicalText"
                 style="@style/TagTextStyle"
-                android:visibility="gone"
                 android:layout_marginBottom="20dp"
                 android:text="@string/mythical"
-                />
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/shapeText"
@@ -69,8 +84,8 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/habitatText"
                 style="@style/TagTextStyle"
-                android:visibility="gone"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="20dp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -132,7 +147,7 @@
             android:textColor="@color/white_70"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description" />
+            app:layout_constraintTop_toBottomOf="@id/eggCard" />
 
         <TextView
             android:id="@+id/attack"
@@ -346,39 +361,164 @@
             app:layout_constraintTop_toBottomOf="@id/height"
             tools:text="24.0 KG" />
 
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
-            android:layout_marginTop="24dp"
-            android:paddingEnd="24dp"
-            android:paddingStart="24dp"
-            android:textIsSelectable="true"
-            android:text="妙蛙种子，种子神奇宝贝，出生后有一段期间会从被上的种子得到营养并且长大。"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header"
-            tools:ignore="HardcodedText" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/moveRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/moveMethodRadioGroup" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/colorPrimary"
-            android:elevation="9dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/descriptionCard"
+            style="@style/PokemonCardViewStyle"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="@color/white"
+                android:textIsSelectable="true"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText"
+                tools:text="妙蛙种子，种子神奇宝贝，出生后有一段期间会从被上的种子得到营养并且长大。" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/eggCard"
+            style="@style/PokemonCardViewStyle"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionCard">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/eggGroupTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/egg_group"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/eggGuideLineH"
+                    app:layout_constraintEnd_toEndOf="@id/eggGuideLineV1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/eggStepsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/egg_steps"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/eggGuideLineH"
+                    app:layout_constraintEnd_toEndOf="@id/eggGuideLineV2"
+                    app:layout_constraintStart_toStartOf="@id/eggGuideLineV1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/growSpeedTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/grow_speed"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/eggGuideLineH"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/eggGuideLineV2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/eggGroupText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/eggGuideLineV1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/eggGuideLineH"
+                    tools:text="@string/egg_group" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/eggStepsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/eggGuideLineV2"
+                    app:layout_constraintStart_toStartOf="@id/eggGuideLineV1"
+                    app:layout_constraintTop_toTopOf="@id/eggGuideLineH"
+                    tools:text="@string/egg_steps" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/growSpeedText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/eggGuideLineV2"
+                    app:layout_constraintTop_toTopOf="@id/eggGuideLineH"
+                    tools:text="@string/grow_speed" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/eggGuideLineH"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/eggGuideLineV1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/eggGuideLineV2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/statusCard"
+            style="@style/PokemonCardViewStyle"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionCard">
+
+        </com.google.android.material.card.MaterialCardView>
 
         <com.skydoves.progressview.ProgressView
             android:id="@+id/progress_hp"
