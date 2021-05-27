@@ -19,37 +19,58 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="vertical"
             android:translationZ="10dp"
+            android:gravity="center_horizontal"
             app:layout_constraintBottom_toBottomOf="@id/header"
             app:layout_constraintEnd_toEndOf="@id/index"
             app:layout_constraintStart_toEndOf="@id/image"
-            app:layout_constraintTop_toBottomOf="@id/index">
+            app:layout_constraintTop_toTopOf="@id/type1Text">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginBottom="20dp"
-                android:scaleType="centerInside"
-                android:visibility="gone" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/jNameText"
+                android:textIsSelectable="true"
+                style="@style/TagTextStyle"
+                android:layout_marginBottom="20dp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginBottom="20dp"
-                android:scaleType="centerInside"
-                android:visibility="gone" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/eNameText"
+                style="@style/TagTextStyle"
+                android:textIsSelectable="true"
+                android:layout_marginBottom="20dp" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/generationText"
+                style="@style/TagTextStyle"
+                android:layout_marginBottom="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/legendaryText"
+                style="@style/TagTextStyle"
+                android:visibility="gone"
                 android:layout_marginBottom="20dp"
-                android:scaleType="centerInside"
-                android:visibility="gone" />
+                android:text="@string/legendary"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mythicalText"
+                style="@style/TagTextStyle"
+                android:visibility="gone"
+                android:layout_marginBottom="20dp"
+                android:text="@string/mythical"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/shapeText"
+                style="@style/TagTextStyle"
+                android:layout_marginBottom="20dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/habitatText"
+                style="@style/TagTextStyle"
+                android:visibility="gone"
+                android:layout_marginBottom="20dp" />
 
         </LinearLayout>
 
@@ -70,26 +91,15 @@
 
             <TextView
                 android:id="@+id/moveVersionText"
-                android:padding="8dp"
-                android:background="@drawable/shape_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="版本名称"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/shape_radio_group"
+                android:padding="8dp"
                 android:textColor="@color/md_orange_100"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:text="版本名称" />
         </LinearLayout>
-
-        <RadioGroup
-            android:id="@+id/moveMethodRadioGroup"
-            android:background="@drawable/shape_radio_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/moveTable"/>
 
         <ProgressBar
             android:id="@+id/progressbar"
@@ -100,6 +110,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="gone" />
+
+        <RadioGroup
+            android:id="@+id/moveMethodRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_radio_group"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/moveTable" />
 
         <TextView
             android:id="@+id/hp"
@@ -197,7 +218,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/name"
             style="@style/TextStyle"
@@ -227,13 +247,10 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/type1Text"
+            style="@style/TagTextStyle"
             android:layout_width="46dp"
-            android:layout_height="20dp"
             android:layout_marginStart="16dp"
             android:background="@drawable/item_type_background"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:translationZ="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name"
             app:layout_constraintVertical_chainStyle="packed"
@@ -241,13 +258,10 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/type2Text"
+            style="@style/TagTextStyle"
             android:layout_width="46dp"
-            android:layout_height="20dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/item_type_background"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:translationZ="10dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/type1Text"
             app:layout_constraintStart_toEndOf="@id/type1Text"
@@ -257,19 +271,12 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/race"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            style="@style/TagTextStyle"
             android:background="@drawable/item_race_background"
-            android:gravity="center"
-            android:paddingEnd="8dp"
-            android:paddingStart="8dp"
-            android:text="种子宝可梦"
-            android:textColor="@color/white"
-            android:translationZ="10dp"
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintStart_toEndOf="@id/name"
             app:layout_constraintTop_toTopOf="@id/name"
-            tools:ignore="HardcodedText" />
+            tools:text="种子宝可梦" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability1"
@@ -348,6 +355,7 @@
             android:layout_marginTop="24dp"
             android:paddingEnd="24dp"
             android:paddingStart="24dp"
+            android:textIsSelectable="true"
             android:text="妙蛙种子，种子神奇宝贝，出生后有一段期间会从被上的种子得到营养并且长大。"
             android:textColor="@color/white"
             android:textSize="16sp"

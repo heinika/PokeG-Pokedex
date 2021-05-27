@@ -16,6 +16,7 @@ import com.skydoves.whatif.whatIfNotNull
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import timber.log.Timber
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
@@ -79,6 +80,10 @@ class DetailRepository @Inject constructor(
   }.flowOn(Dispatchers.IO)
 
   fun pokemonSpecieFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
+    try {
+      emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
+    } catch (e: Exception) {
+      Timber.e(e)
+    }
   }.flowOn(Dispatchers.IO)
 }

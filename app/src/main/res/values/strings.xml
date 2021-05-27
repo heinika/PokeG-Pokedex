@@ -1816,5 +1816,7 @@
     <string name="accuracy">命中</string>
     <string name="power">威力</string>
     <string name="move_table">技能表</string>
+    <string name="legendary">传奇</string>
+    <string name="mythical">神话</string>
 
 </resources>

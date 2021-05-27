@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="TextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="AbilityStyle">
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">20dp</item>
@@ -34,5 +42,16 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">18dp</item>
         <item name="android:layout_marginEnd">32dp</item>
+    </style>
+
+    <style name="TagTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:translationZ">10dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:background">@drawable/item_tag_background</item>
     </style>
 </resources>

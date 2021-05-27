@@ -103,25 +103,6 @@ class DetailPage(
       setAbility(binding.ability2, binding.ability2Desc, pokemonInfo.ability2)
       setAbility(binding.ability3, binding.ability3Desc, pokemonInfo.ability3)
 
-      pokemonRes.getMegaDrawable(pokemonInfo.id).let { drawableList ->
-        if (drawableList.size == 1) {
-          drawableList[0]?.let {
-            binding.image1.isVisible = true
-            binding.image1.setImageDrawable(it)
-          }
-        } else {
-          binding.image1.isVisible = true
-          binding.image1.setImageDrawable(drawableList[0])
-          binding.image2.isVisible = true
-          binding.image2.setImageDrawable(drawableList[1])
-        }
-      }
-
-      pokemonRes.getMaxDrawable(pokemonInfo.id)?.let {
-        binding.image3.isVisible = true
-        binding.image3.setImageDrawable(it)
-      }
-
       val type1Name = pokemonInfo.types[0].type.name
       binding.type1Text.text = pokemonRes.getTypeString(type1Name)
       binding.type1Text.background.let {
@@ -139,9 +120,20 @@ class DetailPage(
       }
     }
 
-//    detailViewModel.getPokemonSpecieLiveData(pokemon.id).observe(activity) { specie ->
-//
-//    }
+    detailViewModel.getPokemonSpecieLiveData(pokemon.id).observe(activity) { specie ->
+      binding.eNameText.text = specie.eName
+      binding.jNameText.text = specie.jName
+      binding.shapeText.text = specie.shape
+      binding.generationText.text = specie.generation
+      specie.habitat?.let {
+        binding.habitatText.isVisible = true
+        binding.habitatText.text = it
+      }
+      binding.legendaryText.isVisible = specie.isLegendary
+      binding.mythicalText.isVisible = specie.isMythical
+
+
+    }
 
     detailViewModel.isLoading.observe(activity) { isLoading ->
       binding.progressbar.isVisible = isLoading
