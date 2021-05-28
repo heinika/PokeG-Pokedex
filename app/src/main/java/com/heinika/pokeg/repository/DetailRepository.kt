@@ -2,6 +2,7 @@ package com.heinika.pokeg.repository
 
 import androidx.annotation.WorkerThread
 import com.heinika.pokeg.mapper.ErrorResponseMapper
+import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.network.PokeGClient
 import com.heinika.pokeg.persistence.PokemonDao
@@ -16,7 +17,6 @@ import com.skydoves.whatif.whatIfNotNull
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import timber.log.Timber
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
@@ -91,12 +91,21 @@ class DetailRepository @Inject constructor(
     emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
   }.flowOn(Dispatchers.IO)
 
-  fun pokemonSpecieEggGroup(id: Int) = flow {
-    try {
-      emit(pokemonRes.fetchSpeciesEggGroup(id))
-    } catch (e : Exception){
-      Timber.e(e)
-    }
+  fun pokemonNewFlow(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonNew().first { it.id == id })
+  }.flowOn(Dispatchers.IO)
 
+  fun pokemonAbilitiesFlow(id: Int) = flow {
+    emit(
+      arrayListOf<Ability>().apply {
+        pokemonRes.fetchPokemonAbilities().filter { it.pokemonId == id }.forEach { pokemonAbility ->
+          add(pokemonRes.fetchAbilities().first{ it.num == pokemonAbility.abilityId})
+        }
+      }.toList()
+    )
+  }.flowOn(Dispatchers.IO)
+
+  fun pokemonSpecieEggGroup(id: Int) = flow {
+    emit(pokemonRes.fetchSpeciesEggGroup(id))
   }.flowOn(Dispatchers.IO)
 }

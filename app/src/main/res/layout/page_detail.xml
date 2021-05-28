@@ -310,12 +310,14 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability2"
             style="@style/AbilityStyle"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ability1" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability2Desc"
             style="@style/AbilityDescStyle"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/ability2"
             app:layout_constraintLeft_toRightOf="@+id/ability2"
             app:layout_constraintRight_toLeftOf="@+id/index"
@@ -324,12 +326,14 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability3"
             style="@style/AbilityStyle"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ability2" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/ability3Desc"
             style="@style/AbilityDescStyle"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/ability3"
             app:layout_constraintLeft_toRightOf="@+id/ability3"
             app:layout_constraintRight_toLeftOf="@+id/index"

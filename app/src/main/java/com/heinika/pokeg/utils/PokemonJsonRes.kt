@@ -6,8 +6,6 @@ import com.heinika.pokeg.model.*
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
-import timber.log.Timber
-import java.lang.reflect.Type
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -21,40 +19,9 @@ class PokemonJsonRes @Inject constructor(
   private val pokemonSpecieList: MutableList<PokemonSpecie> = mutableListOf()
   private val pokemonNameList: MutableList<PokemonName> = mutableListOf()
   private val pokemonTypeList: MutableList<PokemonType> = mutableListOf()
-
-  private val abilityList: List<Ability> by lazy {
-    val abilityList: MutableList<Ability> = mutableListOf()
-    try {
-      val moshi = Moshi.Builder().build()
-      val listMyData: Type =
-        Types.newParameterizedType(MutableList::class.java, Ability::class.java)
-      val adapter: JsonAdapter<List<Ability>> = moshi.adapter(listMyData)
-
-      abilityList.addAll(
-        adapter.fromJson(
-          context.assets.open("abilitiesList.json").bufferedReader().use { it.readText() })!!
-      )
-    } catch (e: java.lang.Exception) {
-      Timber.i(e)
-    }
-    abilityList
-  }
-
-  fun getAbilityName(id: Int): String {
-    return if (id == 0) {
-      ""
-    } else {
-      abilityList[id - 1].cname
-    }
-  }
-
-  fun getAbilityDesc(id: Int): String {
-    return if (id == 0) {
-      ""
-    } else {
-      abilityList[id - 1].synopsis
-    }
-  }
+  private val pokemonNewList: MutableList<PokemonNew> = mutableListOf()
+  private val pokemonAbilityList: MutableList<PokemonAbility> = mutableListOf()
+  private val abilityList: MutableList<Ability> = mutableListOf()
 
 
   fun fetchPokemonMoveVersionList(id: Int): List<Int> {
@@ -91,6 +58,22 @@ class PokemonJsonRes @Inject constructor(
   }
 
   @WorkerThread
+  fun fetchPokemonNew(): List<PokemonNew> {
+    if (pokemonNewList.isEmpty()) {
+      pokemonNewList.addAll(fetchListByJson("pokemon.json"))
+    }
+    return pokemonNewList
+  }
+
+  @WorkerThread
+  fun fetchPokemonAbility(): List<PokemonAbility> {
+    if (pokemonAbilityList.isEmpty()) {
+      pokemonAbilityList.addAll(fetchListByJson("pokemon_abilities.json"))
+    }
+    return pokemonAbilityList
+  }
+
+  @WorkerThread
   fun fetchPokemonName(): List<PokemonName> {
     if (pokemonNameList.isEmpty()) {
       pokemonNameList.addAll(fetchListByJson("pokemon_names.json"))
@@ -104,6 +87,14 @@ class PokemonJsonRes @Inject constructor(
       pokemonTypeList.addAll(fetchListByJson("pokemon_types.json"))
     }
     return pokemonTypeList
+  }
+
+  @WorkerThread
+  fun fetchAbilities(): List<Ability> {
+    if (abilityList.isEmpty()) {
+      abilityList.addAll(fetchListByJson("abilities.json"))
+    }
+    return abilityList
   }
 
   @WorkerThread

@@ -40,10 +40,6 @@ class PokemonRes @Inject constructor(
 
   fun getTypeString(type: String): String = stringRes.getTypeString(type)
 
-  fun getAbilityName(id: Int): String = jsonRes.getAbilityName(id)
-
-  fun getAbilityDesc(id: Int): String = jsonRes.getAbilityDesc(id)
-
   @WorkerThread
   fun fetchPokemonMoveVersionList(id: Int): List<Int> = jsonRes.fetchPokemonMoveVersionList(id)
 
@@ -65,4 +61,13 @@ class PokemonRes @Inject constructor(
 
   @WorkerThread
   fun fetchPokemonSpecie(): List<PokemonSpecie> = jsonRes.fetchPokemonSpecie()
+
+  @WorkerThread
+  fun fetchPokemonNew(): List<PokemonNew> = jsonRes.fetchPokemonNew()
+
+  @WorkerThread
+  fun fetchPokemonAbilities(): List<PokemonAbility> = jsonRes.fetchPokemonAbility()
+
+  @WorkerThread
+  fun fetchAbilities(): List<Ability> = jsonRes.fetchAbilities()
 }

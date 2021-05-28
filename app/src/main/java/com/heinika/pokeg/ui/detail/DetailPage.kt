@@ -20,13 +20,12 @@ import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
+import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
-import com.heinika.pokeg.utils.AdapterDiffUtils
-import com.heinika.pokeg.utils.PokemonRes
-import com.heinika.pokeg.utils.toBoolean
+import com.heinika.pokeg.utils.*
 import com.heinika.pokeg.view.MoveMethodRadioButton
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
@@ -81,10 +80,6 @@ class DetailPage(
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
     detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) { pokemonInfo ->
-      binding.index.text = pokemonInfo.getIdString()
-      binding.name.text = pokemonRes.getNameById(pokemonInfo.id, pokemonInfo.name)
-      binding.weight.text = pokemonInfo.getWeightString()
-      binding.height.text = pokemonInfo.getHeightString()
       binding.progressHp.progress = pokemonInfo.hp.toFloat()
       binding.progressHp.labelText = pokemonInfo.hp.toString()
       binding.progressAttach.progress = pokemonInfo.attack.toFloat()
@@ -97,20 +92,20 @@ class DetailPage(
       binding.progressSpDefense.labelText = pokemonInfo.specialDefense.toString()
       binding.progressSpd.progress = pokemonInfo.speed.toFloat()
       binding.progressSpd.labelText = pokemonInfo.speed.toString()
-      binding.race.text = pokemonInfo.race
       binding.description.text = pokemonInfo.description
-
-      setAbility(binding.ability1, binding.ability1Desc, pokemonInfo.ability1)
-      setAbility(binding.ability2, binding.ability2Desc, pokemonInfo.ability2)
-      setAbility(binding.ability3, binding.ability3Desc, pokemonInfo.ability3)
     }
 
-    detailViewModel.getPokemonSpecieNameLiveData(pokemon.id).observe(activity) { names ->
-      binding.eNameText.text = names.first { it.localLanguageId == 9 }.name
-      binding.jNameText.text = names.first { it.localLanguageId == 1 }.name
+    detailViewModel.getPokemonAbilitiesLiveData(pokemon.id).observe(activity) { abilities ->
+      abilities.forEachIndexed { index, ability ->
+        when (index) {
+          0 -> setAbility(binding.ability1, binding.ability1Desc, ability)
+          1 -> setAbility(binding.ability2, binding.ability2Desc, ability)
+          2 -> setAbility(binding.ability3, binding.ability3Desc, ability)
+        }
+      }
     }
 
-    detailViewModel.getPokemonSpecieTypeLiveData(pokemon.id).observe(activity) { types ->
+    detailViewModel.getPokemonTypeLiveData(pokemon.id).observe(activity) { types ->
       val type1Id = types[0].typeId
       binding.type1Text.text = pokemonRes.getTypeString(type1Id)
       binding.type1Text.background.let {
@@ -128,25 +123,42 @@ class DetailPage(
       }
     }
 
-    detailViewModel.getPokemonSpecieLiveData(pokemon.id).observe(activity) { specie ->
-      binding.eggStepsText.text = "${255 * (specie.hatchCounter + 1)}步"
-      binding.generationText.text = pokemonRes.getGeneration(specie.generationId)
-      binding.shapeText.text = pokemonRes.getShape(specie.shapeId)
-      if (specie.habitatId.isNotEmpty()) {
-        binding.habitatText.isVisible = true
-        binding.habitatText.text = pokemonRes.getHabitat(specie.habitatId.toInt())
+    detailViewModel.getPokemonNewLiveData(pokemon.id).observe(activity) { pokemonNew ->
+      binding.name.text = pokemonRes.getNameById(pokemonNew.id, pokemonNew.identifier)
+      binding.index.text = pokemonNew.getFormatId()
+      binding.weight.text = pokemonNew.getFormatWeight()
+      binding.height.text = pokemonNew.getFormatHeight()
+
+      detailViewModel.getPokemonSpecieNameLiveData(pokemonNew.speciesId)
+        .observe(activity) { names ->
+          binding.eNameText.text = names.first { it.localLanguageId.isEnId }.name
+          binding.jNameText.text = names.first { it.localLanguageId.isJaId }.name
+          binding.race.text = names.first { it.localLanguageId.isCnId }.genus
+        }
+
+      detailViewModel.getPokemonSpecieLiveData(pokemonNew.speciesId).observe(activity) { specie ->
+        binding.eggStepsText.text = specie.getEggSteps()
+        binding.generationText.text = pokemonRes.getGeneration(specie.generationId)
+        binding.shapeText.text = pokemonRes.getShape(specie.shapeId)
+        if (specie.habitatId.isNotEmpty()) {
+          binding.habitatText.isVisible = true
+          binding.habitatText.text = pokemonRes.getHabitat(specie.habitatId.toInt())
+        }
+        binding.growSpeedText.text = pokemonRes.getGrowRate(specie.growthRateId)
+        binding.babyText.isVisible = specie.isBaby.toBoolean
+        binding.legendaryText.isVisible = specie.isLegendary.toBoolean
+        binding.mythicalText.isVisible = specie.isMythical.toBoolean
       }
-      binding.growSpeedText.text = pokemonRes.getGrowRate(specie.growthRateId)
-      binding.babyText.isVisible = specie.isBaby.toBoolean
-      binding.legendaryText.isVisible = specie.isLegendary.toBoolean
-      binding.mythicalText.isVisible = specie.isMythical.toBoolean
+
+      detailViewModel.pokemonSpecieEggGroup(pokemonNew.speciesId)
+        .observe(activity) { eggGroupList ->
+          binding.eggGroupText.text =
+            eggGroupList.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
+              .replace(",", " ")
+        }
     }
 
-    detailViewModel.pokemonSpecieEggGroup(pokemon.id).observe(activity) { eggGroupList ->
-      binding.eggGroupText.text =
-        eggGroupList.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
-          .replace(",", " ")
-    }
+
 
     detailViewModel.isLoading.observe(activity) { isLoading ->
       binding.progressbar.isVisible = isLoading
@@ -283,18 +295,15 @@ class DetailPage(
   }
 
   private fun setAbility(
-    abilityView: AppCompatTextView,
-    descView: AppCompatTextView,
-    abilityNum: Int
+    abilityText: AppCompatTextView,
+    descText: AppCompatTextView,
+    ability: Ability
   ) {
-    if (abilityNum == 0) {
-      abilityView.isVisible = false
-    } else {
-      abilityView.text = pokemonRes.getAbilityName(abilityNum)
-      descView.text = pokemonRes.getAbilityDesc(abilityNum)
-      abilityView.setOnClickListener {
-        descView.isVisible = !descView.isVisible
-      }
+    abilityText.isVisible = true
+    abilityText.text = ability.cname
+    descText.text = ability.effect
+    abilityText.setOnClickListener {
+      descText.isVisible = !descText.isVisible
     }
   }
 
