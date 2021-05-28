@@ -80,19 +80,22 @@ class DetailPage(
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
     detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) { pokemonInfo ->
-      binding.progressHp.progress = pokemonInfo.hp.toFloat()
       binding.progressHp.labelText = pokemonInfo.hp.toString()
-      binding.progressAttach.progress = pokemonInfo.attack.toFloat()
       binding.progressAttach.labelText = pokemonInfo.attack.toString()
-      binding.progressDefense.progress = pokemonInfo.defense.toFloat()
       binding.progressDefense.labelText = pokemonInfo.defense.toString()
-      binding.progressSpAttack.progress = pokemonInfo.specialAttack.toFloat()
       binding.progressSpAttack.labelText = pokemonInfo.specialAttack.toString()
-      binding.progressSpDefense.progress = pokemonInfo.specialDefense.toFloat()
       binding.progressSpDefense.labelText = pokemonInfo.specialDefense.toString()
-      binding.progressSpd.progress = pokemonInfo.speed.toFloat()
       binding.progressSpd.labelText = pokemonInfo.speed.toString()
       binding.description.text = pokemonInfo.description
+    }
+
+    detailViewModel.getPokemonBaseStatLiveData(pokemon.id).observe(activity) { baseStats ->
+      binding.progressHp.progress = baseStats.first { it.statId.isHPStat }.baseStat.toFloat()
+      binding.progressAttach.progress = baseStats.first { it.statId.isAttackStat }.baseStat.toFloat()
+      binding.progressDefense.progress = baseStats.first { it.statId.isDefenseStat }.baseStat.toFloat()
+      binding.progressSpAttack.progress = baseStats.first { it.statId.isSAttackStat }.baseStat.toFloat()
+      binding.progressSpDefense.progress = baseStats.first { it.statId.isSDefenseStat }.baseStat.toFloat()
+      binding.progressSpd.progress = baseStats.first { it.statId.isSPeedStat }.baseStat.toFloat()
     }
 
     detailViewModel.getPokemonAbilitiesLiveData(pokemon.id).observe(activity) { abilities ->

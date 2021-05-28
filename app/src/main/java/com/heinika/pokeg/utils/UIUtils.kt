@@ -16,3 +16,21 @@ val Int.isEnId: Boolean
 
 val Int.isJaId: Boolean
   get() = this == 1
+
+val Int.isHPStat: Boolean
+  get() = this == 1
+
+val Int.isAttackStat: Boolean
+  get() = this == 2
+
+val Int.isDefenseStat: Boolean
+  get() = this == 3
+
+val Int.isSAttackStat: Boolean
+  get() = this == 4
+
+val Int.isSDefenseStat: Boolean
+  get() = this == 5
+
+val Int.isSPeedStat: Boolean
+  get() = this == 6

@@ -87,6 +87,10 @@ class DetailRepository @Inject constructor(
     emit(pokemonRes.fetchPokemonType().filter { it.pokemonId == id })
   }.flowOn(Dispatchers.IO)
 
+  fun pokemonBaseStatFlow(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id })
+  }.flowOn(Dispatchers.IO)
+
   fun pokemonSpecieFlow(id: Int) = flow {
     emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
   }.flowOn(Dispatchers.IO)

@@ -60,6 +60,9 @@ class PokemonRes @Inject constructor(
   fun fetchPokemonType(): List<PokemonType> = jsonRes.fetchPokemonType()
 
   @WorkerThread
+  fun fetchPokemonBaseStat(): List<PokemonBaseStat> = jsonRes.fetchPokemonBaseStat()
+
+  @WorkerThread
   fun fetchPokemonSpecie(): List<PokemonSpecie> = jsonRes.fetchPokemonSpecie()
 
   @WorkerThread

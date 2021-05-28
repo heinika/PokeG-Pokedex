@@ -22,6 +22,7 @@ class PokemonJsonRes @Inject constructor(
   private val pokemonNewList: MutableList<PokemonNew> = mutableListOf()
   private val pokemonAbilityList: MutableList<PokemonAbility> = mutableListOf()
   private val abilityList: MutableList<Ability> = mutableListOf()
+  private val pokemonBaseStatList: MutableList<PokemonBaseStat> = mutableListOf()
 
 
   fun fetchPokemonMoveVersionList(id: Int): List<Int> {
@@ -37,7 +38,6 @@ class PokemonJsonRes @Inject constructor(
     return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
       .first { it.id == pokemonId }.moves.toList()
   }
-
 
   @WorkerThread
   fun fetchMovesDetail(moveIds: List<Int>): List<Move> {
@@ -87,6 +87,14 @@ class PokemonJsonRes @Inject constructor(
       pokemonTypeList.addAll(fetchListByJson("pokemon_types.json"))
     }
     return pokemonTypeList
+  }
+
+  @WorkerThread
+  fun fetchPokemonBaseStat(): List<PokemonBaseStat> {
+    if (pokemonBaseStatList.isEmpty()) {
+      pokemonBaseStatList.addAll(fetchListByJson("pokemon_base_stats.json"))
+    }
+    return pokemonBaseStatList
   }
 
   @WorkerThread
