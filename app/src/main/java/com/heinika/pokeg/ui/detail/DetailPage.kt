@@ -301,7 +301,7 @@ class DetailPage(
   ) {
     abilityText.isVisible = true
     abilityText.text = ability.cname
-    descText.text = ability.effect
+    descText.text = ability.synopsis
     abilityText.setOnClickListener {
       descText.isVisible = !descText.isVisible
     }
