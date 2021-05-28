@@ -3,7 +3,6 @@ package com.heinika.pokeg.ui.detail
 import android.animation.ValueAnimator
 import android.app.AlertDialog
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
@@ -27,6 +26,7 @@ import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.utils.*
 import com.heinika.pokeg.view.MoveMethodRadioButton
+import com.skydoves.progressview.ProgressView
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
@@ -79,23 +79,13 @@ class DetailPage(
     binding.progressSpDefense.max = PokemonInfo.maxSpecialDefense
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
-    detailViewModel.getPokemonInfoLiveData(pokemon).observe(activity) { pokemonInfo ->
-      binding.progressHp.labelText = pokemonInfo.hp.toString()
-      binding.progressAttach.labelText = pokemonInfo.attack.toString()
-      binding.progressDefense.labelText = pokemonInfo.defense.toString()
-      binding.progressSpAttack.labelText = pokemonInfo.specialAttack.toString()
-      binding.progressSpDefense.labelText = pokemonInfo.specialDefense.toString()
-      binding.progressSpd.labelText = pokemonInfo.speed.toString()
-      binding.description.text = pokemonInfo.description
-    }
-
     detailViewModel.getPokemonBaseStatLiveData(pokemon.id).observe(activity) { baseStats ->
-      binding.progressHp.progress = baseStats.first { it.statId.isHPStat }.baseStat.toFloat()
-      binding.progressAttach.progress = baseStats.first { it.statId.isAttackStat }.baseStat.toFloat()
-      binding.progressDefense.progress = baseStats.first { it.statId.isDefenseStat }.baseStat.toFloat()
-      binding.progressSpAttack.progress = baseStats.first { it.statId.isSAttackStat }.baseStat.toFloat()
-      binding.progressSpDefense.progress = baseStats.first { it.statId.isSDefenseStat }.baseStat.toFloat()
-      binding.progressSpd.progress = baseStats.first { it.statId.isSPeedStat }.baseStat.toFloat()
+      initProgress(binding.progressHp, baseStats.first { it.statId.isHPStat }.baseStat)
+      initProgress(binding.progressAttach, baseStats.first { it.statId.isAttackStat }.baseStat)
+      initProgress(binding.progressDefense, baseStats.first { it.statId.isDefenseStat }.baseStat)
+      initProgress(binding.progressSpAttack, baseStats.first { it.statId.isSAttackStat }.baseStat)
+      initProgress(binding.progressSpDefense, baseStats.first { it.statId.isSDefenseStat }.baseStat)
+      initProgress(binding.progressSpd, baseStats.first { it.statId.isSPeedStat }.baseStat)
     }
 
     detailViewModel.getPokemonAbilitiesLiveData(pokemon.id).observe(activity) { abilities ->
@@ -153,22 +143,14 @@ class DetailPage(
         binding.mythicalText.isVisible = specie.isMythical.toBoolean
       }
 
-      detailViewModel.pokemonSpecieEggGroup(pokemonNew.speciesId)
-        .observe(activity) { eggGroupList ->
-          binding.eggGroupText.text =
-            eggGroupList.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
-              .replace(",", " ")
-        }
-    }
+      detailViewModel.getSpecieEggGroupLiveData(pokemonNew.speciesId).observe(activity) {
+        binding.eggGroupText.text = it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
+          .replace(",", " ")
+      }
 
-
-
-    detailViewModel.isLoading.observe(activity) { isLoading ->
-      binding.progressbar.isVisible = isLoading
-    }
-
-    detailViewModel.toastMessage.observe(activity) { toastMessage ->
-      Toast.makeText(activity.applicationContext, toastMessage, Toast.LENGTH_LONG).show()
+      detailViewModel.getSpecieFlavorTextsLiveData(pokemonNew.speciesId).observe(activity) {
+        binding.description.text = it
+      }
     }
 
     binding.arrow.setOnClickListener {
@@ -178,7 +160,6 @@ class DetailPage(
     adapter.register(MoveItemDelegate(pokemonRes))
     binding.moveRecyclerView.layoutManager = LinearLayoutManager(activity)
     binding.moveRecyclerView.adapter = adapter
-
 
     content.addView(binding.root)
 
@@ -253,6 +234,11 @@ class DetailPage(
         start()
       }
     }
+  }
+
+  private fun initProgress(progressView: ProgressView, it: Int) {
+    progressView.progress = it.toFloat()
+    progressView.labelText = it.toString()
   }
 
   private fun refreshMoveTable(version: Int) {

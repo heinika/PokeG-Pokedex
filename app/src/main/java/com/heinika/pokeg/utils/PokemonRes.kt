@@ -51,7 +51,13 @@ class PokemonRes @Inject constructor(
   fun fetchMovesDetail(moveIds: List<Int>): List<Move> = jsonRes.fetchMovesDetail(moveIds)
 
   @WorkerThread
-  fun fetchSpeciesEggGroup(speciesId: Int): List<SpeciesEggGroup> = jsonRes.fetchSpeciesEggGroup(speciesId)
+  fun fetchSpeciesEggGroup(specieId: Int): List<SpeciesEggGroup> = jsonRes.fetchSpeciesEggGroup(specieId)
+
+  @WorkerThread
+  fun fetchSpecieFlavorText(specieId: Int): List<SpecieFlavorText> = jsonRes.fetchSpecieFlavorText(specieId)
+
+  @WorkerThread
+  fun fetchSpecieFlavorBaseText(specieId: Int): SpecieFlavorBaseText = jsonRes.fetchSpecieFlavorBaseText(specieId)
 
   @WorkerThread
   fun fetchPokemonName(): List<PokemonName> = jsonRes.fetchPokemonName()

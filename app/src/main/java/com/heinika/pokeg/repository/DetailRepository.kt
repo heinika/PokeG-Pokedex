@@ -1,57 +1,16 @@
 package com.heinika.pokeg.repository
 
-import androidx.annotation.WorkerThread
-import com.heinika.pokeg.mapper.ErrorResponseMapper
 import com.heinika.pokeg.model.Ability
-import com.heinika.pokeg.model.Pokemon
-import com.heinika.pokeg.network.PokeGClient
-import com.heinika.pokeg.persistence.PokemonDao
-import com.heinika.pokeg.persistence.PokemonInfoDao
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.utils.PokemonRes
-import com.skydoves.sandwich.map
-import com.skydoves.sandwich.onError
-import com.skydoves.sandwich.onException
-import com.skydoves.sandwich.suspendOnSuccess
-import com.skydoves.whatif.whatIfNotNull
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
-  private val pokeGClient: PokeGClient,
-  private val pokemonInfoDao: PokemonInfoDao,
-  private val pokemonDao: PokemonDao,
   private val pokemonRes: PokemonRes
 ) : Repository {
-
-  @WorkerThread
-  fun fetchPokemonInfo(
-    pokemon: Pokemon,
-    onSuccess: () -> Unit,
-    onError: (String?) -> Unit
-  ) = flow {
-    val pokemonInfo = pokemonInfoDao.getPokemonInfo(pokemon.name)
-    if (pokemonInfo == null) {
-      val response = pokeGClient.fetchPokemonInfo(pokemon.name)
-      response.suspendOnSuccess {
-        data.whatIfNotNull { response ->
-          pokemonInfoDao.insertPokemonInfo(response)
-          pokemonDao.updatePokemon(pokemon.updatePokemonInfo(response))
-          emit(response)
-          onSuccess()
-        }
-      }
-        .onError {
-          map(ErrorResponseMapper) { onError("[Code: $code]: $message") }
-        }
-        .onException { onError(message) }
-    } else {
-      emit(pokemonInfo)
-      onSuccess()
-    }
-  }.flowOn(Dispatchers.IO)
 
   fun pokemonMoveVersionsFlow(id: Int) = flow {
     emit(pokemonRes.fetchPokemonMoveVersionList(id))
@@ -103,7 +62,7 @@ class DetailRepository @Inject constructor(
     emit(
       arrayListOf<Ability>().apply {
         pokemonRes.fetchPokemonAbilities().filter { it.pokemonId == id }.forEach { pokemonAbility ->
-          add(pokemonRes.fetchAbilities().first{ it.num == pokemonAbility.abilityId})
+          add(pokemonRes.fetchAbilities().first { it.num == pokemonAbility.abilityId })
         }
       }.toList()
     )
@@ -111,5 +70,13 @@ class DetailRepository @Inject constructor(
 
   fun pokemonSpecieEggGroup(id: Int) = flow {
     emit(pokemonRes.fetchSpeciesEggGroup(id))
+  }.flowOn(Dispatchers.IO)
+
+  fun specieFlavorTextsFlow(id: Int) = flow {
+    if (pokemonRes.fetchSpecieFlavorText(id).isEmpty()) {
+      emit(pokemonRes.fetchSpecieFlavorBaseText(id).description)
+    } else {
+      emit(pokemonRes.fetchSpecieFlavorText(id).last().flavorText)
+    }
   }.flowOn(Dispatchers.IO)
 }

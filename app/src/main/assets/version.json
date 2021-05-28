@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "version_group_id": 1,
+    "identifier": "red"
+  },
+  {
+    "id": 2,
+    "version_group_id": 1,
+    "identifier": "blue"
+  },
+  {
+    "id": 3,
+    "version_group_id": 2,
+    "identifier": "yellow"
+  },
+  {
+    "id": 4,
+    "version_group_id": 3,
+    "identifier": "gold"
+  },
+  {
+    "id": 5,
+    "version_group_id": 3,
+    "identifier": "silver"
+  },
+  {
+    "id": 6,
+    "version_group_id": 4,
+    "identifier": "crystal"
+  },
+  {
+    "id": 7,
+    "version_group_id": 5,
+    "identifier": "ruby"
+  },
+  {
+    "id": 8,
+    "version_group_id": 5,
+    "identifier": "sapphire"
+  },
+  {
+    "id": 9,
+    "version_group_id": 6,
+    "identifier": "emerald"
+  },
+  {
+    "id": 10,
+    "version_group_id": 7,
+    "identifier": "firered"
+  },
+  {
+    "id": 11,
+    "version_group_id": 7,
+    "identifier": "leafgreen"
+  },
+  {
+    "id": 12,
+    "version_group_id": 8,
+    "identifier": "diamond"
+  },
+  {
+    "id": 13,
+    "version_group_id": 8,
+    "identifier": "pearl"
+  },
+  {
+    "id": 14,
+    "version_group_id": 9,
+    "identifier": "platinum"
+  },
+  {
+    "id": 15,
+    "version_group_id": 10,
+    "identifier": "heartgold"
+  },
+  {
+    "id": 16,
+    "version_group_id": 10,
+    "identifier": "soulsilver"
+  },
+  {
+    "id": 17,
+    "version_group_id": 11,
+    "identifier": "black"
+  },
+  {
+    "id": 18,
+    "version_group_id": 11,
+    "identifier": "white"
+  },
+  {
+    "id": 19,
+    "version_group_id": 12,
+    "identifier": "colosseum"
+  },
+  {
+    "id": 20,
+    "version_group_id": 13,
+    "identifier": "xd"
+  },
+  {
+    "id": 21,
+    "version_group_id": 14,
+    "identifier": "black-2"
+  },
+  {
+    "id": 22,
+    "version_group_id": 14,
+    "identifier": "white-2"
+  },
+  {
+    "id": 23,
+    "version_group_id": 15,
+    "identifier": "x"
+  },
+  {
+    "id": 24,
+    "version_group_id": 15,
+    "identifier": "y"
+  },
+  {
+    "id": 25,
+    "version_group_id": 16,
+    "identifier": "omega-ruby"
+  },
+  {
+    "id": 26,
+    "version_group_id": 16,
+    "identifier": "alpha-sapphire"
+  },
+  {
+    "id": 27,
+    "version_group_id": 17,
+    "identifier": "sun"
+  },
+  {
+    "id": 28,
+    "version_group_id": 17,
+    "identifier": "moon"
+  },
+  {
+    "id": 29,
+    "version_group_id": 18,
+    "identifier": "ultra-sun"
+  },
+  {
+    "id": 30,
+    "version_group_id": 18,
+    "identifier": "ultra-moon"
+  },
+  {
+    "id": 31,
+    "version_group_id": 19,
+    "identifier": "lets-go-pikachu"
+  },
+  {
+    "id": 32,
+    "version_group_id": 19,
+    "identifier": "lets-go-eevee"
+  },
+  {
+    "id": 33,
+    "version_group_id": 20,
+    "identifier": "sword"
+  },
+  {
+    "id": 34,
+    "version_group_id": 20,
+    "identifier": "shield"
+  }
+]

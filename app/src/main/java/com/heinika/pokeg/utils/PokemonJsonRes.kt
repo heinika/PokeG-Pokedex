@@ -27,7 +27,7 @@ class PokemonJsonRes @Inject constructor(
 
   fun fetchPokemonMoveVersionList(id: Int): List<Int> {
     if (pokemonMoveVersionList.isEmpty()) {
-      pokemonMoveVersionList.addAll(fetchListByJson("pokemon_move_version_list.json"))
+      pokemonMoveVersionList.addAll(fetchListByJson("pokemon_move_version_group_list.json"))
     }
     return pokemonMoveVersionList.first { it.id == id }.versionList
   }
@@ -47,6 +47,16 @@ class PokemonJsonRes @Inject constructor(
   @WorkerThread
   fun fetchSpeciesEggGroup(id: Int): List<SpeciesEggGroup> {
     return fetchListByJson<SpeciesEggGroup>("pokemon_egg_group.json").filter { it.speciesId == id }
+  }
+
+  @WorkerThread
+  fun fetchSpecieFlavorText(id: Int): List<SpecieFlavorText> {
+    return fetchListByJson<SpecieFlavorText>("pokemon_flavor_text.json").filter { it.speciesId == id }
+  }
+
+  @WorkerThread
+  fun fetchSpecieFlavorBaseText(id: Int): SpecieFlavorBaseText {
+    return fetchListByJson<SpecieFlavorBaseText>("species_flavor_base_text.json").first() { it.id == id }
   }
 
   @WorkerThread
