@@ -103,27 +103,29 @@ class DetailPage(
       setAbility(binding.ability1, binding.ability1Desc, pokemonInfo.ability1)
       setAbility(binding.ability2, binding.ability2Desc, pokemonInfo.ability2)
       setAbility(binding.ability3, binding.ability3Desc, pokemonInfo.ability3)
-
-      val type1Name = pokemonInfo.types[0].type.name
-      binding.type1Text.text = pokemonRes.getTypeString(type1Name)
-      binding.type1Text.background.let {
-        it.setTint(pokemonRes.getTypeColor(type1Name))
-        it.alpha = 155
-      }
-      if (pokemonInfo.types.size == 2) {
-        val type2Name = pokemonInfo.types[1].type.name
-        binding.type2Text.isVisible = true
-        binding.type2Text.text = pokemonRes.getTypeString(type2Name)
-        binding.type2Text.background.let {
-          it.setTint(pokemonRes.getTypeColor(type2Name))
-          it.alpha = 155
-        }
-      }
     }
 
     detailViewModel.getPokemonSpecieNameLiveData(pokemon.id).observe(activity) { names ->
       binding.eNameText.text = names.first { it.localLanguageId == 9 }.name
       binding.jNameText.text = names.first { it.localLanguageId == 1 }.name
+    }
+
+    detailViewModel.getPokemonSpecieTypeLiveData(pokemon.id).observe(activity) { types ->
+      val type1Id = types[0].typeId
+      binding.type1Text.text = pokemonRes.getTypeString(type1Id)
+      binding.type1Text.background.let {
+        it.setTint(pokemonRes.getTypeColor(type1Id))
+        it.alpha = 155
+      }
+      if (types.size == 2) {
+        val typeId = types[1].typeId
+        binding.type2Text.isVisible = true
+        binding.type2Text.text = pokemonRes.getTypeString(typeId)
+        binding.type2Text.background.let {
+          it.setTint(pokemonRes.getTypeColor(typeId))
+          it.alpha = 155
+        }
+      }
     }
 
     detailViewModel.getPokemonSpecieLiveData(pokemon.id).observe(activity) { specie ->

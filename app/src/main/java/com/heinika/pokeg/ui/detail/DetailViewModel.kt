@@ -44,6 +44,9 @@ class DetailViewModel @Inject constructor(
   fun getPokemonSpecieNameLiveData(id: Int) =
     detailRepository.pokemonNameFlow(id).asLiveDataOnViewModelScope()
 
+  fun getPokemonSpecieTypeLiveData(id: Int) =
+    detailRepository.pokemonTypeFlow(id).asLiveDataOnViewModelScope()
+
   fun getPokemonSpecieLiveData(id: Int) =
     detailRepository.pokemonSpecieFlow(id).asLiveDataOnViewModelScope()
 
