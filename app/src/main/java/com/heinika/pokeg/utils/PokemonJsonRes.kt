@@ -6,6 +6,7 @@ import com.heinika.pokeg.model.*
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
+import java.util.concurrent.CopyOnWriteArrayList
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -16,7 +17,7 @@ class PokemonJsonRes @Inject constructor(
   private val moshi: Moshi
 ) {
   private val pokemonMoveVersionList: MutableList<PokemonMoveVersion> = mutableListOf()
-  private val pokemonSpecieList: MutableList<PokemonSpecie> = mutableListOf()
+  private val pokemonSpecieList: CopyOnWriteArrayList<PokemonSpecie> = CopyOnWriteArrayList()
   private val pokemonNameList: MutableList<PokemonName> = mutableListOf()
   private val pokemonTypeList: MutableList<PokemonType> = mutableListOf()
   private val pokemonNewList: MutableList<PokemonNew> = mutableListOf()
@@ -50,6 +51,11 @@ class PokemonJsonRes @Inject constructor(
   }
 
   @WorkerThread
+  fun fetchSpeciesEvolutionChain(): List<SpeciesEvolutionChain> {
+    return fetchListByJson("species_evolution_chain.json")
+  }
+
+  @WorkerThread
   fun fetchSpecieFlavorText(id: Int): List<SpecieFlavorText> {
     return fetchListByJson<SpecieFlavorText>("pokemon_flavor_text.json").filter { it.speciesId == id }
   }
@@ -62,7 +68,10 @@ class PokemonJsonRes @Inject constructor(
   @WorkerThread
   fun fetchPokemonSpecie(): List<PokemonSpecie> {
     if (pokemonSpecieList.isEmpty()) {
-      pokemonSpecieList.addAll(fetchListByJson("pokemon_species.json"))
+      val list = fetchListByJson<PokemonSpecie> ("pokemon_species.json")
+      if (pokemonSpecieList.isEmpty()){
+        pokemonSpecieList.addAll(list)
+      }
     }
     return pokemonSpecieList
   }

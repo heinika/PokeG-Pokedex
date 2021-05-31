@@ -1,6 +1,7 @@
 package com.heinika.pokeg.repository
 
 import com.heinika.pokeg.model.Ability
+import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.utils.PokemonRes
 import kotlinx.coroutines.Dispatchers
@@ -51,7 +52,7 @@ class DetailRepository @Inject constructor(
   }.flowOn(Dispatchers.IO)
 
   fun pokemonSpecieFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonSpecie().first { it.id == id })
+    emit(pokemonRes.fetchPokemonSpecies().first { it.id == id })
   }.flowOn(Dispatchers.IO)
 
   fun pokemonNewFlow(id: Int) = flow {
@@ -68,8 +69,29 @@ class DetailRepository @Inject constructor(
     )
   }.flowOn(Dispatchers.IO)
 
-  fun pokemonSpecieEggGroup(id: Int) = flow {
+  fun specieEggGroupFlow(id: Int) = flow {
     emit(pokemonRes.fetchSpeciesEggGroup(id))
+  }.flowOn(Dispatchers.IO)
+
+  fun specieEvolutionChainFlow(id: Int) = flow {
+    val allSpecieList = pokemonRes.fetchPokemonSpecies()
+    val allChainList = pokemonRes.fetchSpeciesEvolutionChain()
+    val thisSpecie = allSpecieList.first { it.id == id }
+    val thisChainSpecies =
+      allSpecieList.filter { it.evolutionChainId == thisSpecie.evolutionChainId }
+    val thisChainList = arrayListOf<SpeciesEvolutionChain>().apply {
+      thisChainSpecies.forEach { specie ->
+        if (specie.evolvesFromSpeciesId != -1) {
+          add(allChainList.first { it.evolvedToSpeciesId == specie.id }.apply {
+            evolvedFromSpeciesId = specie.evolvesFromSpeciesId
+            evolvedFromName = thisChainSpecies.first { it.id == evolvedFromSpeciesId }.identifier
+            evolvedToName = thisChainSpecies.first { it.id == this.evolvedToSpeciesId }.identifier
+          })
+        }
+      }
+    }
+
+    emit(thisChainList)
   }.flowOn(Dispatchers.IO)
 
   fun specieFlavorTextsFlow(id: Int) = flow {

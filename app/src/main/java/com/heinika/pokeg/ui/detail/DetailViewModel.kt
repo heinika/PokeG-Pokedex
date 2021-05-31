@@ -37,7 +37,10 @@ class DetailViewModel @Inject constructor(
     detailRepository.pokemonAbilitiesFlow(id).asLiveDataOnViewModelScope()
 
   fun getSpecieEggGroupLiveData(id: Int) =
-    detailRepository.pokemonSpecieEggGroup(id).asLiveDataOnViewModelScope()
+    detailRepository.specieEggGroupFlow(id).asLiveDataOnViewModelScope()
+
+  fun getSpecieEvolutionChainLiveData(id: Int) =
+    detailRepository.specieEvolutionChainFlow(id).asLiveDataOnViewModelScope()
 
   fun getSpecieFlavorTextsLiveData(id: Int) =
     detailRepository.specieFlavorTextsFlow(id).asLiveDataOnViewModelScope()

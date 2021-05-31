@@ -2,6 +2,7 @@ package com.heinika.pokeg.ui.detail
 
 import android.animation.ValueAnimator
 import android.app.AlertDialog
+import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Ability
@@ -116,20 +118,20 @@ class DetailPage(
       }
     }
 
-    detailViewModel.getPokemonNewLiveData(pokemon.id).observe(activity) { pokemonNew ->
-      binding.name.text = pokemonRes.getNameById(pokemonNew.id, pokemonNew.identifier)
-      binding.index.text = pokemonNew.getFormatId()
-      binding.weight.text = pokemonNew.getFormatWeight()
-      binding.height.text = pokemonNew.getFormatHeight()
+    detailViewModel.getPokemonNewLiveData(pokemon.id).observe(activity) { pokemon ->
+      binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.identifier)
+      binding.index.text = pokemon.getFormatId()
+      binding.weight.text = pokemon.getFormatWeight()
+      binding.height.text = pokemon.getFormatHeight()
 
-      detailViewModel.getPokemonSpecieNameLiveData(pokemonNew.speciesId)
+      detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId)
         .observe(activity) { names ->
           binding.eNameText.text = names.first { it.localLanguageId.isEnId }.name
           binding.jNameText.text = names.first { it.localLanguageId.isJaId }.name
           binding.race.text = names.first { it.localLanguageId.isCnId }.genus
         }
 
-      detailViewModel.getPokemonSpecieLiveData(pokemonNew.speciesId).observe(activity) { specie ->
+      detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observe(activity) { specie ->
         binding.eggStepsText.text = specie.getEggSteps()
         binding.generationText.text = pokemonRes.getGeneration(specie.generationId)
         binding.shapeText.text = pokemonRes.getShape(specie.shapeId)
@@ -143,12 +145,67 @@ class DetailPage(
         binding.mythicalText.isVisible = specie.isMythical.toBoolean
       }
 
-      detailViewModel.getSpecieEggGroupLiveData(pokemonNew.speciesId).observe(activity) {
+      detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) {
         binding.eggGroupText.text = it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
           .replace(",", " ")
       }
 
-      detailViewModel.getSpecieFlavorTextsLiveData(pokemonNew.speciesId).observe(activity) {
+      detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId)
+        .observe(activity) { chainList ->
+
+          chainList.forEach {
+            binding.evolutionLinear.addView(LayoutInflater.from(activity)
+              .inflate(R.layout.item_evolution, binding.evolutionLinear, false).also { view ->
+                val fromImage = view.findViewById<AppCompatImageView>(R.id.fromImageView)
+                val toImage = view.findViewById<AppCompatImageView>(R.id.toImageView)
+
+                Glide.with(fromImage)
+                  .load(getPokemonImageUrl(it.evolvedFromSpeciesId,it.evolvedFromName))
+                  .listener(
+                    GlidePalette.with(getPokemonImageUrl(it.evolvedFromSpeciesId,it.evolvedFromName))
+                      .use(BitmapPalette.Profile.MUTED_LIGHT)
+                      .intoCallBack { palette ->
+                        val light = palette?.lightVibrantSwatch?.rgb
+                        val domain = palette?.dominantSwatch?.rgb
+                        if (domain != null) {
+                          if (light != null) {
+                            Rainbow(binding.header).palette {
+                              +color(domain)
+                              +color(light)
+                            }.background(orientation = RainbowOrientation.TOP_BOTTOM)
+                          } else {
+                            fromImage.setBackgroundColor(domain)
+                          }
+                        }
+                      }.crossfade(true)
+                  ).into(fromImage)
+
+                Glide.with(toImage)
+                  .load(getPokemonImageUrl(it.evolvedToSpeciesId,it.evolvedToName))
+                  .listener(
+                    GlidePalette.with(getPokemonImageUrl(it.evolvedToSpeciesId,it.evolvedToName))
+                      .use(BitmapPalette.Profile.MUTED_LIGHT)
+                      .intoCallBack { palette ->
+                        val light = palette?.lightVibrantSwatch?.rgb
+                        val domain = palette?.dominantSwatch?.rgb
+                        if (domain != null) {
+                          if (light != null) {
+                            Rainbow(binding.header).palette {
+                              +color(domain)
+                              +color(light)
+                            }.background(orientation = RainbowOrientation.TOP_BOTTOM)
+                          } else {
+                            toImage.setBackgroundColor(domain)
+                          }
+                        }
+                      }.crossfade(true)
+                  ).into(toImage)
+              })
+          }
+
+        }
+
+      detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observe(activity) {
         binding.description.text = it
       }
     }

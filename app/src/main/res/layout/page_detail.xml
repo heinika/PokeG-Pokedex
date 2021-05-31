@@ -17,16 +17,6 @@
         android:descendantFocusability="blocksDescendants"
         android:paddingBottom="32dp">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@color/colorPrimary"
-            android:elevation="9dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -137,7 +127,7 @@
             android:textColor="@color/white_70"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/eggCard" />
+            app:layout_constraintTop_toBottomOf="@id/evolutionCard" />
 
         <TextView
             android:id="@+id/attack"
@@ -383,7 +373,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/eggCard"
             style="@style/PokemonCardViewStyle"
@@ -502,6 +491,27 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/evolutionCard"
+            style="@style/PokemonCardViewStyle"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eggCard">
+
+            <LinearLayout
+                android:id="@+id/evolutionLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingEnd="12dp"
+                android:paddingStart="12dp"
+                android:paddingTop="12dp" />
+
+        </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/statusCard"
             style="@style/PokemonCardViewStyle"
@@ -513,6 +523,16 @@
             app:layout_constraintTop_toBottomOf="@id/descriptionCard">
 
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/colorPrimary"
+            android:elevation="9dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView" />
 
         <com.skydoves.progressview.ProgressView
             android:id="@+id/progress_hp"

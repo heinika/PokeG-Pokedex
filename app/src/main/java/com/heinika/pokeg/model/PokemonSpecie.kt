@@ -17,7 +17,7 @@ data class PokemonSpecie(
   @Json(name = "evolution_chain_id")
   val evolutionChainId: Int,
   @Json(name = "evolves_from_species_id")
-  val evolvesFromSpeciesId: String,
+  val evolvesFromSpeciesId: Int,
   @Json(name = "forms_switchable")
   val formsSwitchable: Int,
   @Json(name = "gender_rate")
