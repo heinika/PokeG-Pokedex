@@ -7,6 +7,7 @@ import com.heinika.pokeg.utils.PokemonRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import timber.log.Timber
 import javax.inject.Inject
 
 class DetailRepository @Inject constructor(
@@ -74,24 +75,29 @@ class DetailRepository @Inject constructor(
   }.flowOn(Dispatchers.IO)
 
   fun specieEvolutionChainFlow(id: Int) = flow {
-    val allSpecieList = pokemonRes.fetchPokemonSpecies()
-    val allChainList = pokemonRes.fetchSpeciesEvolutionChain()
-    val thisSpecie = allSpecieList.first { it.id == id }
-    val thisChainSpecies =
-      allSpecieList.filter { it.evolutionChainId == thisSpecie.evolutionChainId }
-    val thisChainList = arrayListOf<SpeciesEvolutionChain>().apply {
-      thisChainSpecies.forEach { specie ->
-        if (specie.evolvesFromSpeciesId != -1) {
-          add(allChainList.first { it.evolvedToSpeciesId == specie.id }.apply {
-            evolvedFromSpeciesId = specie.evolvesFromSpeciesId
-            evolvedFromName = thisChainSpecies.first { it.id == evolvedFromSpeciesId }.identifier
-            evolvedToName = thisChainSpecies.first { it.id == this.evolvedToSpeciesId }.identifier
-          })
+    try {
+      val allSpecieList = pokemonRes.fetchPokemonSpecies()
+      val allChainList = pokemonRes.fetchSpeciesEvolutionChain()
+      val thisSpecie = allSpecieList.first { it.id == id }
+      val thisChainSpecies =
+        allSpecieList.filter { it.evolutionChainId == thisSpecie.evolutionChainId }
+      val thisChainList = arrayListOf<SpeciesEvolutionChain>().apply {
+        thisChainSpecies.forEach { specie ->
+          if (specie.evolvesFromSpeciesId != -1) {
+            add(allChainList.first { it.evolvedToSpeciesId == specie.id }.apply {
+              evolvedFromSpeciesId = specie.evolvesFromSpeciesId
+              evolvedFromName = thisChainSpecies.first { it.id == evolvedFromSpeciesId }.identifier
+              evolvedToName = thisChainSpecies.first { it.id == this.evolvedToSpeciesId }.identifier
+            })
+          }
         }
       }
+
+      emit(thisChainList)
+    }catch (e: Exception){
+      Timber.e(e)
     }
 
-    emit(thisChainList)
   }.flowOn(Dispatchers.IO)
 
   fun specieFlavorTextsFlow(id: Int) = flow {

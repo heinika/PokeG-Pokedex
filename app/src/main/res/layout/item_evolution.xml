@@ -1,33 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/fromImageView"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:background="@drawable/item_image_background"
         android:layout_marginBottom="12dp"
+        android:background="@drawable/item_image_background"
         android:padding="4dp"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/toImageView"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/item_image_background"
         android:padding="4dp"
-        android:layout_marginBottom="12dp"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/descText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/fromImageView"
+        app:layout_constraintEnd_toStartOf="@id/toImageView"
+        app:layout_constraintStart_toEndOf="@id/fromImageView"
+        app:layout_constraintTop_toTopOf="@id/fromImageView"
+        tools:text="16级进化" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

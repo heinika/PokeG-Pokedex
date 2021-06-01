@@ -497,6 +497,7 @@
             style="@style/PokemonCardViewStyle"
             android:layout_marginBottom="12dp"
             android:layout_marginTop="12dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/eggCard">

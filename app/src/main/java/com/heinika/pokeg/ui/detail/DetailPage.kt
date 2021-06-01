@@ -152,57 +152,28 @@ class DetailPage(
 
       detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId)
         .observe(activity) { chainList ->
+          if (chainList.isNotEmpty()){
+            binding.evolutionCard.isVisible = true
+            chainList.forEach {
+              binding.evolutionLinear.addView(
+                LayoutInflater.from(activity)
+                .inflate(R.layout.item_evolution, binding.evolutionLinear, false).also { view ->
+                  val fromImage = view.findViewById<AppCompatImageView>(R.id.fromImageView)
+                  val toImage = view.findViewById<AppCompatImageView>(R.id.toImageView)
+                  val descText = view.findViewById<AppCompatTextView>(R.id.descText)
 
-          chainList.forEach {
-            binding.evolutionLinear.addView(LayoutInflater.from(activity)
-              .inflate(R.layout.item_evolution, binding.evolutionLinear, false).also { view ->
-                val fromImage = view.findViewById<AppCompatImageView>(R.id.fromImageView)
-                val toImage = view.findViewById<AppCompatImageView>(R.id.toImageView)
+                  descText.text = it.getDescText(pokemonRes)
 
-                Glide.with(fromImage)
-                  .load(getPokemonImageUrl(it.evolvedFromSpeciesId,it.evolvedFromName))
-                  .listener(
-                    GlidePalette.with(getPokemonImageUrl(it.evolvedFromSpeciesId,it.evolvedFromName))
-                      .use(BitmapPalette.Profile.MUTED_LIGHT)
-                      .intoCallBack { palette ->
-                        val light = palette?.lightVibrantSwatch?.rgb
-                        val domain = palette?.dominantSwatch?.rgb
-                        if (domain != null) {
-                          if (light != null) {
-                            Rainbow(binding.header).palette {
-                              +color(domain)
-                              +color(light)
-                            }.background(orientation = RainbowOrientation.TOP_BOTTOM)
-                          } else {
-                            fromImage.setBackgroundColor(domain)
-                          }
-                        }
-                      }.crossfade(true)
-                  ).into(fromImage)
+                  Glide.with(fromImage)
+                    .load(it.getSpeciesFromImageUrl())
+                    .into(fromImage)
 
-                Glide.with(toImage)
-                  .load(getPokemonImageUrl(it.evolvedToSpeciesId,it.evolvedToName))
-                  .listener(
-                    GlidePalette.with(getPokemonImageUrl(it.evolvedToSpeciesId,it.evolvedToName))
-                      .use(BitmapPalette.Profile.MUTED_LIGHT)
-                      .intoCallBack { palette ->
-                        val light = palette?.lightVibrantSwatch?.rgb
-                        val domain = palette?.dominantSwatch?.rgb
-                        if (domain != null) {
-                          if (light != null) {
-                            Rainbow(binding.header).palette {
-                              +color(domain)
-                              +color(light)
-                            }.background(orientation = RainbowOrientation.TOP_BOTTOM)
-                          } else {
-                            toImage.setBackgroundColor(domain)
-                          }
-                        }
-                      }.crossfade(true)
-                  ).into(toImage)
-              })
+                  Glide.with(toImage)
+                    .load(it.getSpeciesToImageUrl())
+                    .into(toImage)
+                })
+            }
           }
-
         }
 
       detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observe(activity) {
