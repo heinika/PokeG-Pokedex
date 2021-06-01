@@ -26,6 +26,7 @@ import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
+import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.utils.*
 import com.heinika.pokeg.view.MoveMethodRadioButton
 import com.skydoves.progressview.ProgressView
@@ -143,7 +144,26 @@ class DetailPage(
         binding.babyText.isVisible = specie.isBaby.toBoolean
         binding.legendaryText.isVisible = specie.isLegendary.toBoolean
         binding.mythicalText.isVisible = specie.isMythical.toBoolean
+
+
+        detailViewModel.speciesAllOtherFormsLiveData(specie.id, pokemon.id)
+          .observe(activity) { forms ->
+            if (forms.isNotEmpty()) {
+              binding.formsRecyclerView.isVisible = true
+              binding.formsRecyclerView.layoutManager = LinearLayoutManager(activity)
+              binding.formsRecyclerView.adapter = MultiTypeAdapter().apply {
+                register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
+                  DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
+                    it.showPage()
+                  }
+                }))
+                items = forms
+              }
+              adapter.notifyDataSetChanged()
+            }
+          }
       }
+
 
       detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) {
         binding.eggGroupText.text = it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
@@ -152,26 +172,26 @@ class DetailPage(
 
       detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId)
         .observe(activity) { chainList ->
-          if (chainList.isNotEmpty()){
+          if (chainList.isNotEmpty()) {
             binding.evolutionCard.isVisible = true
             chainList.forEach {
               binding.evolutionLinear.addView(
                 LayoutInflater.from(activity)
-                .inflate(R.layout.item_evolution, binding.evolutionLinear, false).also { view ->
-                  val fromImage = view.findViewById<AppCompatImageView>(R.id.fromImageView)
-                  val toImage = view.findViewById<AppCompatImageView>(R.id.toImageView)
-                  val descText = view.findViewById<AppCompatTextView>(R.id.descText)
+                  .inflate(R.layout.item_evolution, binding.evolutionLinear, false).also { view ->
+                    val fromImage = view.findViewById<AppCompatImageView>(R.id.fromImageView)
+                    val toImage = view.findViewById<AppCompatImageView>(R.id.toImageView)
+                    val descText = view.findViewById<AppCompatTextView>(R.id.descText)
 
-                  descText.text = it.getDescText(pokemonRes)
+                    descText.text = it.getDescText(pokemonRes)
 
-                  Glide.with(fromImage)
-                    .load(it.getSpeciesFromImageUrl())
-                    .into(fromImage)
+                    Glide.with(fromImage)
+                      .load(it.getSpeciesFromImageUrl())
+                      .into(fromImage)
 
-                  Glide.with(toImage)
-                    .load(it.getSpeciesToImageUrl())
-                    .into(toImage)
-                })
+                    Glide.with(toImage)
+                      .load(it.getSpeciesToImageUrl())
+                      .into(toImage)
+                  })
             }
           }
         }

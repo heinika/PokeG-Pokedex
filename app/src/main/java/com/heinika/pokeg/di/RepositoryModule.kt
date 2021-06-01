@@ -1,9 +1,8 @@
 package com.heinika.pokeg.di
 
 import com.heinika.pokeg.network.PokeGClient
-import com.heinika.pokeg.persistence.PokemonDao
-import com.heinika.pokeg.persistence.PokemonInfoDao
 import com.heinika.pokeg.repository.MainRepository
+import com.heinika.pokeg.utils.PokemonRes
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,9 +17,8 @@ object RepositoryModule {
   @ViewModelScoped
   fun provideMainRepository(
     pokeGClient: PokeGClient,
-    pokemonDao: PokemonDao,
-    pokemonInfoDao: PokemonInfoDao
+    pokemonRes: PokemonRes
   ): MainRepository {
-    return MainRepository(pokeGClient, pokemonDao, pokemonInfoDao)
+    return MainRepository(pokemonRes)
   }
 }

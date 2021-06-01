@@ -16,9 +16,6 @@
 
 package com.heinika.pokeg.di
 
-import android.app.Application
-import androidx.room.Room
-import com.heinika.pokeg.persistence.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -35,44 +32,5 @@ object PersistenceModule {
   @Singleton
   fun provideMoshi(): Moshi {
     return Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-  }
-
-  @Provides
-  @Singleton
-  fun provideAppDatabase(
-    application: Application,
-    typeResponseConverter: TypeResponseConverter,
-    statResponseConverter: StatResponseConverter
-  ): AppDatabase {
-    return Room
-      .databaseBuilder(application, AppDatabase::class.java, "PokeG.db")
-      .fallbackToDestructiveMigration()
-      .addTypeConverter(typeResponseConverter)
-      .addTypeConverter(statResponseConverter)
-      .build()
-  }
-
-  @Provides
-  @Singleton
-  fun providePokemonDao(appDatabase: AppDatabase): PokemonDao {
-    return appDatabase.pokemonDao()
-  }
-
-  @Provides
-  @Singleton
-  fun providePokemonInfoDao(appDatabase: AppDatabase): PokemonInfoDao {
-    return appDatabase.pokemonInfoDao()
-  }
-
-  @Provides
-  @Singleton
-  fun provideTypeResponseConverter(moshi: Moshi): TypeResponseConverter {
-    return TypeResponseConverter(moshi)
-  }
-
-  @Provides
-  @Singleton
-  fun provideStatResponseConverter(moshi: Moshi): StatResponseConverter {
-    return StatResponseConverter(moshi)
   }
 }

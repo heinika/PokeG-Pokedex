@@ -19,7 +19,11 @@ import java.util.*
 
 
 @Suppress("UNCHECKED_CAST")
-class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePage>,private val pokemonRes: PokemonRes) :
+class MainPage(
+  private val activity: AppCompatActivity,
+  pageStack: Stack<BasePage>,
+  private val pokemonRes: PokemonRes
+) :
   BasePage(activity, pageStack) {
   private val mainViewModel: MainViewModel by activity.viewModels()
 
@@ -32,8 +36,8 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
     content.addView(mainPageView)
 
     adapter.register(HeaderItemDelegate())
-    adapter.register(PokemonItemDelegate(pokemonRes,activity, mainViewModel, onItemClick = { imageView, pokemon ->
-      DetailPage(pokemonRes,activity, pokemon, imageView, pageStack).also {
+    adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
+      DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
         it.showPage()
       }
     }))
@@ -60,9 +64,9 @@ class MainPage(private val activity: AppCompatActivity, pageStack: Stack<BasePag
 
   override fun onBackPressed() {
     Timber.i("onBackPressed ${mainPageView.canScrollUp()}")
-    if (mainPageView.canScrollUp()){
+    if (mainPageView.canScrollUp()) {
       mainPageView.scrollToTop()
-    }else{
+    } else {
       activity.finish()
     }
   }

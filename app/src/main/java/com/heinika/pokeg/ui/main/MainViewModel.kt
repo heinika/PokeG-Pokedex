@@ -1,6 +1,5 @@
 package com.heinika.pokeg.ui.main
 
-import androidx.annotation.MainThread
 import androidx.lifecycle.*
 import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.Pokemon
@@ -30,21 +29,10 @@ class MainViewModel @Inject constructor(
 
     pokemonListLiveData = pokemonFetchingIndex.asLiveData().switchMap { page ->
       mainRepository.fetchPokemonList(
-        page = page,
         onStart = { _isLoading.postValue(true) },
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
       ).asLiveDataOnViewModelScope()
-    }
-  }
-
-  fun fetchUpdatePokemonLiveData(pokemon: Pokemon): LiveData<Pokemon> = mainRepository.fetchUpdatePokemon(pokemon,
-    onError = {}).asLiveDataOnViewModelScope()
-
-  @MainThread
-  fun fetchNextPokemonList() {
-    if (!_isLoading.value!!) {
-      pokemonFetchingIndex.value++
     }
   }
 }

@@ -1,6 +1,8 @@
 package com.heinika.pokeg.repository
 
 import com.heinika.pokeg.model.Ability
+import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.model.PokemonNew
 import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.utils.PokemonRes
@@ -60,6 +62,26 @@ class DetailRepository @Inject constructor(
     emit(pokemonRes.fetchPokemonNew().first { it.id == id })
   }.flowOn(Dispatchers.IO)
 
+  fun speciesAllOtherFormsFlow(specieId: Int, id: Int) = flow {
+    emit(pokemonRes.fetchPokemonNew().filter { it.speciesId == specieId && it.id != id }
+      .map { pokemonNew ->
+        toPokemon(pokemonNew)
+      })
+  }.flowOn(Dispatchers.IO)
+
+  private fun toPokemon(pokemon: PokemonNew): Pokemon {
+    var totalBaseStat = 0
+    pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == pokemon.id }.forEach {
+      totalBaseStat += it.baseStat
+    }
+    return Pokemon(
+      id = pokemon.id,
+      name = pokemon.identifier,
+      types = pokemonRes.fetchPokemonType().filter { it.pokemonId == pokemon.id },
+      totalBaseStat = totalBaseStat
+    )
+  }
+
   fun pokemonAbilitiesFlow(id: Int) = flow {
     emit(
       arrayListOf<Ability>().apply {
@@ -94,7 +116,7 @@ class DetailRepository @Inject constructor(
       }
 
       emit(thisChainList)
-    }catch (e: Exception){
+    } catch (e: Exception) {
       Timber.e(e)
     }
 

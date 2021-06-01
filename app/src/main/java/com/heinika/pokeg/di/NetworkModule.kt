@@ -3,7 +3,6 @@ package com.heinika.pokeg.di
 import com.heinika.pokeg.network.HttpRequestInterceptor
 import com.heinika.pokeg.network.PokeGClient
 import com.heinika.pokeg.network.PokeGService
-import com.skydoves.sandwich.coroutines.CoroutinesResponseCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,7 +31,6 @@ object NetworkModule {
       .client(okHttpClient)
       .baseUrl("https://pokeapi.co/api/v2/")
       .addConverterFactory(MoshiConverterFactory.create())
-      .addCallAdapterFactory(CoroutinesResponseCallAdapterFactory())
       .build()
   }
 
