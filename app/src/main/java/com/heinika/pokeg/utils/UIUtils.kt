@@ -1,7 +1,6 @@
 package com.heinika.pokeg.utils
 
 import android.content.res.Resources
-import timber.log.Timber
 
 val Number.dp: Int
   get() = (this.toInt() * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
@@ -50,8 +49,18 @@ val Int.isShed: Boolean
 
 fun getPokemonImageUrl(id: Int, name: String) = when {
   name.contains("gmax") -> {
-    Timber.i(gMaxImageUrls.first { it.contains(name.split("-")[0], true) })
-    gMaxImageUrls.first { it.contains(name.split("-")[0], true) }
+    if(gMaxImageUrls.any { it.contains(name.split("-")[0], true) }){
+      gMaxImageUrls.first { it.contains(name.split("-")[0], true) }
+    } else {
+      ""
+    }
+  }
+  name.contains("galar") -> {
+    if (galarImageUrls.any { it.contains(name.split("-")[0], true) }){
+      galarImageUrls.first { it.contains(name.split("-")[0], true) }
+    }else{
+      ""
+    }
   }
   id == 875 -> "https://media.52poke.com/wiki/thumb/e/e3/875Eiscue.png/600px-875Eiscue.png"
   id == 877 -> "https://media.52poke.com/wiki/thumb/5/51/877Morpeko.png/600px-877Morpeko.png"
@@ -166,3 +175,25 @@ private val gMaxImageUrls = setOf(
   "https://media.52poke.com/wiki/thumb/1/16/879Copperajah-Gigantamax.png/450px-879Copperajah-Gigantamax.png",
   "https://media.52poke.com/wiki/thumb/1/1b/884Duraludon-Gigantamax.png/450px-884Duraludon-Gigantamax.png",
 )
+
+private val galarImageUrls = listOf(
+  "https://media.52poke.com/wiki/thumb/9/92/077Ponyta-Galar.png/450px-077Ponyta-Galar.png",
+  "https://media.52poke.com/wiki/thumb/e/e0/078Rapidash-Galar.png/450px-078Rapidash-Galar.png",
+  "https://media.52poke.com/wiki/thumb/9/9f/079Slowpoke-Galar.png/450px-079Slowpoke-Galar.png",
+  "https://media.52poke.com/wiki/thumb/8/8b/080Slowbro-Galar.png/450px-080Slowbro-Galar.png",
+  "https://media.52poke.com/wiki/thumb/7/7d/083Farfetch%27d-Galar.png/450px-083Farfetch%27d-Galar.png",
+  "https://media.52poke.com/wiki/thumb/3/38/110Weezing-Galar.png/450px-110Weezing-Galar.png",
+  "https://media.52poke.com/wiki/thumb/d/d1/122Mr._Mime-Galar.png/450px-122Mr._Mime-Galar.png",
+  "https://media.52poke.com/wiki/thumb/d/df/144Articuno-Galar.png/450px-144Articuno-Galar.png",
+  "https://media.52poke.com/wiki/thumb/1/13/145Zapdos-Galar.png/450px-145Zapdos-Galar.png",
+  "https://media.52poke.com/wiki/thumb/f/f7/146Moltres-Galar.png/450px-146Moltres-Galar.png",
+  "https://media.52poke.com/wiki/thumb/c/ca/199Slowking-Galar.png/450px-199Slowking-Galar.png",
+  "https://media.52poke.com/wiki/thumb/c/ce/222Corsola-Galar.png/450px-222Corsola-Galar.png",
+  "https://media.52poke.com/wiki/thumb/8/8e/264Linoone-Galar.png/450px-264Linoone-Galar.png",
+  "https://media.52poke.com/wiki/thumb/b/b0/263Zigzagoon-Galar.png/450px-263Zigzagoon-Galar.png",
+  "https://media.52poke.com/wiki/thumb/c/c9/554Darumaka-Galar.png/450px-554Darumaka-Galar.png",
+  "https://media.52poke.com/wiki/thumb/6/60/555Darmanitan-Galar.png/450px-555Darmanitan-Galar.png",
+  "https://media.52poke.com/wiki/thumb/0/08/555Darmanitan-Galar_Zen_Mode.png/450px-555Darmanitan-Galar_Zen_Mode.png",
+  "https://media.52poke.com/wiki/thumb/4/46/562Yamask-Galar.png/450px-562Yamask-Galar.png",
+  "https://media.52poke.com/wiki/thumb/1/11/618Stunfisk-Galar.png/450px-618Stunfisk-Galar.png"
+  )
