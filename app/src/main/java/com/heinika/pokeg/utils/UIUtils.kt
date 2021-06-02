@@ -1,6 +1,7 @@
 package com.heinika.pokeg.utils
 
 import android.content.res.Resources
+import timber.log.Timber
 
 val Number.dp: Int
   get() = (this.toInt() * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
@@ -48,6 +49,10 @@ val Int.isShed: Boolean
   get() = this == 4
 
 fun getPokemonImageUrl(id: Int, name: String) = when {
+  name.contains("gmax") -> {
+    Timber.i(gMaxImageUrls.first { it.contains(name.split("-")[0], true) })
+    gMaxImageUrls.first { it.contains(name.split("-")[0], true) }
+  }
   id == 875 -> "https://media.52poke.com/wiki/thumb/e/e3/875Eiscue.png/600px-875Eiscue.png"
   id == 877 -> "https://media.52poke.com/wiki/thumb/5/51/877Morpeko.png/600px-877Morpeko.png"
   id == 888 -> "https://cdn.bulbagarden.net/upload/thumb/c/ca/888Zacian.png/600px-888Zacian.png"
@@ -128,3 +133,36 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
   else -> "https://img.pokemondb.net/artwork/vector/${name}.png"
 }
+
+private val gMaxImageUrls = setOf(
+  "https://media.52poke.com/wiki/thumb/8/8a/003Venusaur-Gigantamax.png/450px-003Venusaur-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/8/88/006Charizard-Gigantamax.png/450px-006Charizard-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/d/dc/009Blastoise-Gigantamax.png/450px-009Blastoise-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/f/fd/012Butterfree-Gigantamax.png/450px-012Butterfree-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/9/9f/052Meowth-Gigantamax.png/450px-052Meowth-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/c/c4/068Machamp-Gigantamax.png/450px-068Machamp-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/3/31/094Gengar-Gigantamax.png/450px-094Gengar-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/d/d3/099Kingler-Gigantamax.png/450px-099Kingler-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/1/15/131Lapras-Gigantamax.png/450px-131Lapras-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/2/2e/133Eevee-Gigantamax.png/450px-133Eevee-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/3/38/143Snorlax-Gigantamax.png/450px-143Snorlax-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/c/c9/569Garbodor-Gigantamax.png/450px-569Garbodor-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/5/5e/809Melmetal-Gigantamax.png/450px-809Melmetal-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/0/0b/812Rillaboom-Gigantamax.png/450px-812Rillaboom-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/1/1e/815Cinderace-Gigantamax.png/450px-815Cinderace-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/b/bf/818Inteleon-Gigantamax.png/450px-818Inteleon-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/2/2e/823Corviknight-Gigantamax.png/450px-823Corviknight-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/2/24/826Orbeetle-Gigantamax.png/450px-826Orbeetle-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/b/b4/834Drednaw-Gigantamax.png/450px-834Drednaw-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/b/b0/839Coalossal-Gigantamax.png/450px-839Coalossal-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/a/a2/841Flapple-Gigantamax.png/450px-841Flapple-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/a/a2/841Flapple-Gigantamax.png/450px-841Flapple-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/1/19/844Sandaconda-Gigantamax.png/450px-844Sandaconda-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/7/73/849Toxtricity-Gigantamax.png/450px-849Toxtricity-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/b/b4/851Centiskorch-Gigantamax.png/450px-851Centiskorch-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/6/6a/858Hatterene-Gigantamax.png/450px-858Hatterene-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/4/45/861Grimmsnarl-Gigantamax.png/450px-861Grimmsnarl-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/4/40/869Alcremie-Gigantamax.png/450px-869Alcremie-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/1/16/879Copperajah-Gigantamax.png/450px-879Copperajah-Gigantamax.png",
+  "https://media.52poke.com/wiki/thumb/1/1b/884Duraludon-Gigantamax.png/450px-884Duraludon-Gigantamax.png",
+)

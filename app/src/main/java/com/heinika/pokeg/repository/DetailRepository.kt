@@ -74,6 +74,7 @@ class DetailRepository @Inject constructor(
     pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == pokemon.id }.forEach {
       totalBaseStat += it.baseStat
     }
+    Timber.i(pokemon.identifier)
     return Pokemon(
       id = pokemon.id,
       name = pokemon.identifier,
