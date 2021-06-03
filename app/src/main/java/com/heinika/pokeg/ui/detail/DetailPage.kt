@@ -132,36 +132,18 @@ class DetailPage(
           binding.race.text = names.first { it.localLanguageId.isCnId }.genus
         }
 
-      detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observe(activity) { specie ->
-        binding.eggStepsText.text = specie.getEggSteps()
-        binding.generationText.text = pokemonRes.getGeneration(specie.generationId)
-        binding.shapeText.text = pokemonRes.getShape(specie.shapeId)
-        if (specie.habitatId.isNotEmpty()) {
+      detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observe(activity) { species ->
+        binding.eggStepsText.text = species.getEggSteps()
+        binding.generationText.text = pokemonRes.getGeneration(species.generationId)
+        binding.shapeText.text = pokemonRes.getShape(species.shapeId)
+        if (species.habitatId.isNotEmpty()) {
           binding.habitatText.isVisible = true
-          binding.habitatText.text = pokemonRes.getHabitat(specie.habitatId.toInt())
+          binding.habitatText.text = pokemonRes.getHabitat(species.habitatId.toInt())
         }
-        binding.growSpeedText.text = pokemonRes.getGrowRate(specie.growthRateId)
-        binding.babyText.isVisible = specie.isBaby.toBoolean
-        binding.legendaryText.isVisible = specie.isLegendary.toBoolean
-        binding.mythicalText.isVisible = specie.isMythical.toBoolean
-
-
-        detailViewModel.speciesAllOtherFormsLiveData(specie.id, pokemon.id)
-          .observe(activity) { forms ->
-            if (forms.isNotEmpty()) {
-              binding.formsRecyclerView.isVisible = true
-              binding.formsRecyclerView.layoutManager = LinearLayoutManager(activity)
-              binding.formsRecyclerView.adapter = MultiTypeAdapter().apply {
-                register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
-                  DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
-                    it.showPage()
-                  }
-                }))
-                items = forms
-              }
-              adapter.notifyDataSetChanged()
-            }
-          }
+        binding.growSpeedText.text = pokemonRes.getGrowRate(species.growthRateId)
+        binding.babyText.isVisible = species.isBaby.toBoolean
+        binding.legendaryText.isVisible = species.isLegendary.toBoolean
+        binding.mythicalText.isVisible = species.isMythical.toBoolean
       }
 
 
@@ -169,6 +151,23 @@ class DetailPage(
         binding.eggGroupText.text = it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
           .replace(",", " ")
       }
+
+      detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.id)
+        .observe(activity) { forms ->
+          if (forms.isNotEmpty()) {
+            binding.formsRecyclerView.isVisible = true
+            binding.formsRecyclerView.layoutManager = LinearLayoutManager(activity)
+            binding.formsRecyclerView.adapter = MultiTypeAdapter().apply {
+              register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
+                DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
+                  it.showPage()
+                }
+              }))
+              items = forms
+            }
+            adapter.notifyDataSetChanged()
+          }
+        }
 
       detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId)
         .observe(activity) { chainList ->
@@ -237,23 +236,24 @@ class DetailPage(
           binding.root.isVisible = true
         }
         doOnEnd {
-          detailViewModel.getPokemonMoveVersionLiveData(pokemon.id).observe(activity) { versions ->
-            binding.moveVersionText.text = pokemonRes.getVersionName(versions.last())
+          detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
+            .observe(activity) { versions ->
+              binding.moveVersionText.text = pokemonRes.getVersionName(versions.last())
 
-            val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
-              .setItems(
-                versions.map { pokemonRes.getVersionName(it) }.toTypedArray()
-              ) { dialog, index ->
-                binding.moveVersionText.text = pokemonRes.getVersionName(versions[index])
-                refreshMoveTable(versions[index])
-                dialog.dismiss()
-              }.create()
-            binding.moveVersionText.setOnClickListener {
-              selectVersionDialog.show()
+              val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
+                .setItems(
+                  versions.map { pokemonRes.getVersionName(it) }.toTypedArray()
+                ) { dialog, index ->
+                  binding.moveVersionText.text = pokemonRes.getVersionName(versions[index])
+                  refreshMoveTable(versions[index])
+                  dialog.dismiss()
+                }.create()
+              binding.moveVersionText.setOnClickListener {
+                selectVersionDialog.show()
+              }
+
+              refreshMoveTable(versions.last())
             }
-
-            refreshMoveTable(versions.last())
-          }
         }
 
         addUpdateListener { valueAnimator ->
@@ -291,7 +291,7 @@ class DetailPage(
 
   private fun refreshMoveTable(version: Int) {
     binding.moveMethodRadioGroup.removeAllViews()
-    detailViewModel.getPokemonMoveLiveData(pokemon.id, version)
+    detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, version)
       .observe(activity) { pokemonMoveMap ->
         pokemonMoveMap.keys.sortedBy {
           when (it) {

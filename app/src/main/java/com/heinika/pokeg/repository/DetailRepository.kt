@@ -16,30 +16,38 @@ class DetailRepository @Inject constructor(
   private val pokemonRes: PokemonRes
 ) : Repository {
 
-  fun pokemonMoveVersionsFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonMoveVersionList(id))
+  fun pokemonMoveVersionsFlow(id: Int, speciesId: Int) = flow {
+    try {
+      emit(pokemonRes.fetchPokemonMoveVersionList(id, speciesId))
+    } catch (e: Exception) {
+      Timber.e(e)
+    }
   }.flowOn(Dispatchers.IO)
 
-  fun pokemonMovesFlow(id: Int, version: Int) = flow {
-    val pokemonMoveList = pokemonRes.fetchPokemonMoveList(id, version)
-    val moveList = pokemonRes.fetchMovesDetail(pokemonMoveList.map { it.moveId })
-    emit(
-      pokemonMoveList.map { pokemonMove ->
-        val move = moveList.first { it.id == pokemonMove.moveId }
-        MoveItem(
-          id = pokemonMove.moveId,
-          methodId = pokemonMove.methodId,
-          name = pokemonRes.getMoveName(pokemonMove.moveId),
-          level = pokemonMove.level,
-          type = pokemonRes.getTypeString(move.typeId),
-          pp = move.pp,
-          power = move.power,
-          accuracy = move.accuracy,
-          damageClass = pokemonRes.getDamageClassName(move.damageClassId),
-          typeColor = pokemonRes.getTypeColor(move.typeId),
-        )
-      }.sortedBy { it.level }.groupBy { it.methodId }
-    )
+  fun pokemonMovesFlow(id: Int, speciesId: Int, version: Int) = flow {
+    try {
+      val pokemonMoveList = pokemonRes.fetchPokemonMoveList(id, speciesId, version)
+      val moveList = pokemonRes.fetchMovesDetail(pokemonMoveList.map { it.moveId })
+      emit(
+        pokemonMoveList.map { pokemonMove ->
+          val move = moveList.first { it.id == pokemonMove.moveId }
+          MoveItem(
+            id = pokemonMove.moveId,
+            methodId = pokemonMove.methodId,
+            name = pokemonRes.getMoveName(pokemonMove.moveId),
+            level = pokemonMove.level,
+            type = pokemonRes.getTypeString(move.typeId),
+            pp = move.pp,
+            power = move.power,
+            accuracy = move.accuracy,
+            damageClass = pokemonRes.getDamageClassName(move.damageClassId),
+            typeColor = pokemonRes.getTypeColor(move.typeId),
+          )
+        }.sortedBy { it.level }.groupBy { it.methodId }
+      )
+    } catch (e: Exception) {
+      Timber.e(e)
+    }
   }.flowOn(Dispatchers.IO)
 
   fun pokemonNameFlow(id: Int) = flow {
@@ -77,6 +85,7 @@ class DetailRepository @Inject constructor(
     Timber.i(pokemon.identifier)
     return Pokemon(
       id = pokemon.id,
+      speciesId = pokemon.speciesId,
       name = pokemon.identifier,
       types = pokemonRes.fetchPokemonType().filter { it.pokemonId == pokemon.id },
       totalBaseStat = totalBaseStat

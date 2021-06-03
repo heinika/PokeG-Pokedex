@@ -41,6 +41,7 @@ class MainRepository @Inject constructor(
     }
     return Pokemon(
       id = pokemon.id,
+      speciesId = pokemon.speciesId,
       name = pokemon.identifier,
       types = pokemonRes.fetchPokemonType().filter { it.pokemonId == pokemon.id },
       totalBaseStat = totalBaseStat

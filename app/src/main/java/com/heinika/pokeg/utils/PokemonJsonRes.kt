@@ -26,18 +26,28 @@ class PokemonJsonRes @Inject constructor(
   private val pokemonBaseStatList: MutableList<PokemonBaseStat> = mutableListOf()
 
 
-  fun fetchPokemonMoveVersionList(id: Int): List<Int> {
+  fun fetchPokemonMoveVersionList(id: Int, speciesId: Int): List<Int> {
     if (pokemonMoveVersionList.isEmpty()) {
       pokemonMoveVersionList.addAll(fetchListByJson("pokemon_move_version_group_list.json"))
     }
-    return pokemonMoveVersionList.first { it.id == id }.versionList
+    if (pokemonMoveVersionList.any { it.id == id }) {
+      return pokemonMoveVersionList.first { it.id == id }.versionList
+    } else {
+      return pokemonMoveVersionList.first { it.id == speciesId }.versionList
+    }
   }
 
 
   @WorkerThread
-  fun fetchPokemonMoveList(pokemonId: Int, version: Int): List<PokemonMove> {
-    return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
-      .first { it.id == pokemonId }.moves.toList()
+  fun fetchPokemonMoveList(pokemonId: Int,speciesId: Int, version: Int): List<PokemonMove> {
+    if (fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+        .any() { it.id == pokemonId }){
+      return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+        .first { it.id == pokemonId }.moves.toList()
+    }else {
+      return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+        .first { it.id == speciesId }.moves.toList()
+    }
   }
 
   @WorkerThread
@@ -68,8 +78,8 @@ class PokemonJsonRes @Inject constructor(
   @WorkerThread
   fun fetchPokemonSpecie(): List<PokemonSpecie> {
     if (pokemonSpecieList.isEmpty()) {
-      val list = fetchListByJson<PokemonSpecie> ("pokemon_species.json")
-      if (pokemonSpecieList.isEmpty()){
+      val list = fetchListByJson<PokemonSpecie>("pokemon_species.json")
+      if (pokemonSpecieList.isEmpty()) {
         pokemonSpecieList.addAll(list)
       }
     }

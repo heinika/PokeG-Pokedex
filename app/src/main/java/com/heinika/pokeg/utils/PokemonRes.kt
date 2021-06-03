@@ -41,11 +41,11 @@ class PokemonRes @Inject constructor(
   fun getTypeString(type: String): String = stringRes.getTypeString(type)
 
   @WorkerThread
-  fun fetchPokemonMoveVersionList(id: Int): List<Int> = jsonRes.fetchPokemonMoveVersionList(id)
+  fun fetchPokemonMoveVersionList(id: Int,speciesId:Int): List<Int> = jsonRes.fetchPokemonMoveVersionList(id,speciesId)
 
   @WorkerThread
-  fun fetchPokemonMoveList(pokemonId: Int, version: Int): List<PokemonMove> =
-    jsonRes.fetchPokemonMoveList(pokemonId, version)
+  fun fetchPokemonMoveList(pokemonId: Int, speciesId:Int,version: Int): List<PokemonMove> =
+    jsonRes.fetchPokemonMoveList(pokemonId,speciesId, version)
 
   @WorkerThread
   fun fetchMovesDetail(moveIds: List<Int>): List<Move> = jsonRes.fetchMovesDetail(moveIds)

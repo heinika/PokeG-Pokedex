@@ -4,6 +4,7 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 
 data class Pokemon(
   val id: Int,
+  val speciesId: Int,
   val name: String,
   val types: List<PokemonType>,
   val totalBaseStat: Int

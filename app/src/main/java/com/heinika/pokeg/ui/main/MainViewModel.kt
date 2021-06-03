@@ -1,11 +1,12 @@
 package com.heinika.pokeg.ui.main
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -15,7 +16,6 @@ class MainViewModel @Inject constructor(
   private val savedStateHandle: SavedStateHandle
 ) : LiveCoroutinesViewModel() {
 
-  private val pokemonFetchingIndex: MutableStateFlow<Int> = MutableStateFlow(0)
   val pokemonListLiveData: LiveData<List<Pokemon>>
 
   private val _toastMessage = MutableLiveData<String?>()
@@ -27,12 +27,11 @@ class MainViewModel @Inject constructor(
   init {
     Timber.d("init MainViewModel")
 
-    pokemonListLiveData = pokemonFetchingIndex.asLiveData().switchMap { page ->
+    pokemonListLiveData =
       mainRepository.fetchPokemonList(
         onStart = { _isLoading.postValue(true) },
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
       ).asLiveDataOnViewModelScope()
-    }
   }
 }

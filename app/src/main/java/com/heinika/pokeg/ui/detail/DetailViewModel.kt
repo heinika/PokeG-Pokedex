@@ -12,11 +12,11 @@ class DetailViewModel @Inject constructor(
   private val detailRepository: DetailRepository
 ) : LiveCoroutinesViewModel() {
 
-  fun getPokemonMoveVersionLiveData(id: Int): LiveData<List<Int>> =
-    detailRepository.pokemonMoveVersionsFlow(id).asLiveDataOnViewModelScope()
+  fun getPokemonMoveVersionLiveData(id: Int, speciesId: Int): LiveData<List<Int>> =
+    detailRepository.pokemonMoveVersionsFlow(id, speciesId).asLiveDataOnViewModelScope()
 
-  fun getPokemonMoveLiveData(id: Int, version: Int): LiveData<Map<Int, List<MoveItem>>> =
-    detailRepository.pokemonMovesFlow(id, version).asLiveDataOnViewModelScope()
+  fun getPokemonMoveLiveData(id: Int, speciesId: Int,version: Int): LiveData<Map<Int, List<MoveItem>>> =
+    detailRepository.pokemonMovesFlow(id, speciesId,version).asLiveDataOnViewModelScope()
 
   fun getPokemonSpecieNameLiveData(id: Int) =
     detailRepository.pokemonNameFlow(id).asLiveDataOnViewModelScope()
