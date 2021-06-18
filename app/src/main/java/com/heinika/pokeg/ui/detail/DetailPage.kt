@@ -326,7 +326,6 @@ class DetailPage(
       val diffResult =
         DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, moveItemList), true)
       adapter.items = moveItemList
-      adapter.notifyDataSetChanged()
       diffResult.dispatchUpdatesTo(adapter)
     }
   }

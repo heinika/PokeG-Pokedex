@@ -5,8 +5,9 @@
   <a href="https://github.com/heinika/PokeG/actions"><img alt="Build Status" src="https://github.com/heinika/PokeG/workflows/Android%20CI/badge.svg"/></a> 
   <a href="https://github.com/heinika"><img alt="Profile" src="https://heinika.github.io/badges/heinika.svg"/></a> 
 </p>
-
-<img src="/previews/preview.gif" align="right" width="32%"/>
+<img src="/previews/preview1.png" align="left" width="32%"/>
+<img src="/previews/preview2.png" align="center" width="32%"/>
+<img src="/previews/preview3.png" align="right" width="32%"/>
 
 It's fork from [Pokedex](https://github.com/skydoves/Pokedex),I create PokeG becase of Pokedex pokemon's status is radom data.
 
