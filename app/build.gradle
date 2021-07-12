@@ -9,7 +9,7 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('/home/chenlijin/AndroidStudioProjects/PokeG/PokeG.jks')
+            storeFile file('/home/chenlijin/D/AndroidStudioProjects/PokeG/PokeG.jks')
             storePassword '111111'
             keyAlias 'heinika'
             keyPassword '111111'
