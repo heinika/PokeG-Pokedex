@@ -66,10 +66,10 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 877 -> "https://media.52poke.com/wiki/thumb/5/51/877Morpeko.png/600px-877Morpeko.png"
   id == 888 -> "https://cdn.bulbagarden.net/upload/thumb/c/ca/888Zacian.png/600px-888Zacian.png"
   id == 889 -> "https://cdn.bulbagarden.net/upload/thumb/7/72/889Zamazenta.png/600px-889Zamazenta.png"
-  id <= 890 -> {
-//          "https://img.pokemondb.net/artwork/${name}.jpg"
-    "https://pokeres.bastionbot.org/images/pokemon/$id.png"
-  }
+//  id <= 890 -> {
+////          "https://img.pokemondb.net/artwork/${name}.jpg"
+//    "https://pokeres.bastionbot.org/images/pokemon/$id.png"
+//  }
   id == 891 -> "https://cdn.bulbagarden.net/upload/4/47/891Kubfu.png"
   id == 892 -> "https://cdn.bulbagarden.net/upload/thumb/e/e7/892Urshifu-Single_Strike.png/600px-892Urshifu-Single_Strike.png"
   id == 893 -> "https://cdn.bulbagarden.net/upload/thumb/a/a5/893Zarude.png/250px-893Zarude.png"
@@ -140,7 +140,13 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 10163 -> "https://cdn.bulbagarden.net/upload/7/7d/083Farfetch%27d-Galar.png"
   id == 10164 -> "https://cdn.bulbagarden.net/upload/thumb/3/38/110Weezing-Galar.png/600px-110Weezing-Galar.png"
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
-  else -> "https://img.pokemondb.net/artwork/vector/${name}.png"
+  id <= 649 -> "https://img.pokemondb.net/artwork/vector/large/${name}.png"
+  id == 773 ->""
+  id == 774 ->""
+  id == 808 ->""
+  id == 809 ->""
+//  else -> "https://img.pokemondb.net/artwork/vector/${name}.png"
+  else -> "https://img.pokemondb.net/artwork/large/${name}.jpg"
 }
 
 private val gMaxImageUrls = setOf(

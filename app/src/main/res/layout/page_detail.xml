@@ -288,7 +288,7 @@
             android:layout_width="190dp"
             android:layout_height="190dp"
             android:layout_marginBottom="20dp"
-            android:scaleType="center"
+            android:scaleType="fitCenter"
             android:translationZ="10dp"
             app:layout_constraintBottom_toBottomOf="@id/header"
             app:layout_constraintEnd_toEndOf="parent"
