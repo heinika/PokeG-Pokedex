@@ -141,11 +141,7 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 10164 -> "https://cdn.bulbagarden.net/upload/thumb/3/38/110Weezing-Galar.png/600px-110Weezing-Galar.png"
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
   id <= 649 -> "https://img.pokemondb.net/artwork/vector/large/${name}.png"
-  id == 773 ->""
-  id == 774 ->""
-  id == 808 ->""
-  id == 809 ->""
-//  else -> "https://img.pokemondb.net/artwork/vector/${name}.png"
+  id <= 807 -> "https://img.pokemondb.net/artwork/vector/${name}.png"
   else -> "https://img.pokemondb.net/artwork/large/${name}.jpg"
 }
 
