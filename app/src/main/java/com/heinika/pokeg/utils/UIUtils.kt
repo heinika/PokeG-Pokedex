@@ -48,20 +48,6 @@ val Int.isShed: Boolean
   get() = this == 4
 
 fun getPokemonImageUrl(id: Int, name: String) = when {
-  name.contains("gmax") -> {
-    if (gMaxImageUrls.any { it.contains(name.split("-")[0], true) }) {
-      gMaxImageUrls.first { it.contains(name.split("-")[0], true) }
-    } else {
-      ""
-    }
-  }
-  name.contains("galar") -> {
-    if (galarImageUrls.any { it.contains(name.split("-")[0], true) }) {
-      galarImageUrls.first { it.contains(name.split("-")[0], true) }
-    } else {
-      ""
-    }
-  }
   id == 1 -> "https://s1.52poke.wiki/wiki/thumb/2/21/001Bulbasaur.png/450px-001Bulbasaur.png"
   id == 2 -> "https://s1.52poke.wiki/wiki/thumb/7/73/002Ivysaur.png/450px-002Ivysaur.png"
   id == 3 -> "https://s1.52poke.wiki/wiki/thumb/a/ae/003Venusaur.png/450px-003Venusaur.png"
@@ -961,16 +947,21 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 897 -> "https://s1.52poke.wiki/wiki/thumb/7/7e/897Spectrier.png/375px-897Spectrier.png"
   id == 898 -> "https://s1.52poke.wiki/wiki/thumb/3/3c/898Calyrex.png/450px-898Calyrex.png"
   id == 10061 -> "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2d7bbc09-b889-4fb5-89c5-390e7aa64cb4/d8dgmj3-5d2a1529-7a92-4a5b-bdfa-456dfea107c6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMmQ3YmJjMDktYjg4OS00ZmI1LTg5YzUtMzkwZTdhYTY0Y2I0XC9kOGRnbWozLTVkMmExNTI5LTdhOTItNGE1Yi1iZGZhLTQ1NmRmZWExMDdjNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.BG07eG91ph0S-A3yaWSKGOZ9n1P7EpTkaNePukVFiv4"
-  id == 10085 -> "https://cdn.bulbagarden.net/upload/2/28/Spr_6o_025_C.png"
-  id == 10091 -> "https://cdn.bulbagarden.net/upload/thumb/9/91/019Rattata-Alola.png/600px-019Rattata-Alola.png"
-  id == 10092 -> "https://archives.bulbagarden.net/media/upload/thumb/7/71/020Raticate-Alola.png/600px-020Raticate-Alola.png"
+  id == 10080 -> "https://s1.52poke.wiki/wiki/thumb/d/d8/025Pikachu-Rock_Star_Dream.png/120px-025Pikachu-Rock_Star_Dream.png"
+  id == 10081 -> "https://s1.52poke.wiki/wiki/thumb/7/77/025Pikachu-Belle_Dream.png/120px-025Pikachu-Belle_Dream.png"
+  id == 10082 -> "https://s1.52poke.wiki/wiki/thumb/7/7b/025Pikachu-Pop_Star_Dream.png/120px-025Pikachu-Pop_Star_Dream.png"
+  id == 10083 -> "https://s1.52poke.wiki/wiki/thumb/b/b5/025Pikachu-PhD_Dream.png/120px-025Pikachu-PhD_Dream.png"
+  id == 10084 -> "https://s1.52poke.wiki/wiki/thumb/9/94/025Pikachu-Libre_Dream.png/120px-025Pikachu-Libre_Dream.png"
+  id == 10085 -> "https://s1.52poke.wiki/wiki/thumb/c/cf/025Pikachu-cosplay.png/150px-025Pikachu-cosplay.png"
+  id == 10091 -> "https://s1.52poke.wiki/wiki/thumb/9/91/019Rattata-Alola.png/600px-019Rattata-Alola.png"
+  id == 10092 -> "https://s1.52poke.wiki/wiki/thumb/7/71/020Raticate-Alola.png/600px-020Raticate-Alola.png"
   id == 10093 -> "https://veekun.com/dex/media/pokemon/main-sprites/ultra-sun-ultra-moon/20-totem-alola.png"
-  id == 10094 -> "https://cdn.bulbagarden.net/upload/thumb/1/17/025Pikachu-Original.png/600px-025Pikachu-Original.png"
-  id == 10095 -> "https://cdn.bulbagarden.net/upload/thumb/4/44/025Pikachu-Hoenn.png/600px-025Pikachu-Hoenn.png"
-  id == 10096 -> "https://cdn.bulbagarden.net/upload/thumb/a/a4/025Pikachu-Sinnoh.png/600px-025Pikachu-Sinnoh.png"
-  id == 10097 -> "https://cdn.bulbagarden.net/upload/thumb/e/e6/025Pikachu-Unova.png/600px-025Pikachu-Unova.png"
-  id == 10098 -> "https://cdn.bulbagarden.net/upload/thumb/4/44/025Pikachu-Kalos.png/600px-025Pikachu-Kalos.png"
-  id == 10099 -> "https://cdn.bulbagarden.net/upload/thumb/e/e3/025Pikachu-Alola.png/600px-025Pikachu-Alola.png"
+  id == 10094 -> "https://s1.52poke.wiki/wiki/thumb/1/17/025Pikachu-Original.png/150px-025Pikachu-Original.png"
+  id == 10095 -> "https://s1.52poke.wiki/wiki/thumb/4/44/025Pikachu-Hoenn.png/150px-025Pikachu-Hoenn.png"
+  id == 10096 -> "https://s1.52poke.wiki/wiki/thumb/a/a4/025Pikachu-Sinnoh.png/150px-025Pikachu-Sinnoh.png"
+  id == 10097 -> "https://s1.52poke.wiki/wiki/thumb/e/e6/025Pikachu-Unova.png/150px-025Pikachu-Unova.png"
+  id == 10098 -> "https://s1.52poke.wiki/wiki/thumb/4/44/025Pikachu-Kalos.png/150px-025Pikachu-Kalos.png"
+  id == 10099 -> "https://s1.52poke.wiki/wiki/thumb/e/e3/025Pikachu-Alola.png/150px-025Pikachu-Alola.png"
   id == 10100 -> "https://s1.52poke.wiki/wiki/thumb/3/3a/026Raichu-Alola.png/600px-026Raichu-Alola.png"
   id == 10101 -> "https://s1.52poke.wiki/wiki/thumb/c/c9/027Sandshrew-Alola.png/600px-027Sandshrew-Alola.png"
   id == 10102 -> "https://s1.52poke.wiki/wiki/thumb/b/bd/028Sandslash-Alola.png/600px-028Sandslash-Alola.png"
@@ -987,51 +978,63 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 10113 -> "https://s1.52poke.wiki/wiki/thumb/1/15/089Muk-Alola.png/600px-089Muk-Alola.png"
   id == 10114 -> "https://s1.52poke.wiki/wiki/thumb/7/74/103Exeggutor-Alola.png/600px-103Exeggutor-Alola.png"
   id == 10115 -> "https://s1.52poke.wiki/wiki/thumb/0/06/105Marowak-Alola.png/600px-105Marowak-Alola.png"
-  id == 10116 -> "https://cdn.bulbagarden.net/upload/thumb/6/67/658Greninja.png/600px-658Greninja.png"
-  id == 10121 -> "https://cdn.bulbagarden.net/upload/thumb/b/ba/735Gumshoos.png/600px-735Gumshoos.png"
-  id == 10122 -> "https://cdn.bulbagarden.net/upload/thumb/4/4e/738Vikavolt.png/600px-738Vikavolt.png"
+  id == 10116 -> "https://s1.52poke.wiki/wiki/8/84/658Greninja-Ash_Dream.png"
+  id == 10117 -> "https://s1.52poke.wiki/wiki/thumb/0/0e/658Greninja-Ash.png/600px-658Greninja-Ash.png"
   id == 10127 -> "https://www.pikpng.com/pngl/b/431-4317690_wishiwashi-regular-and-school-form-now-complete-wishiwashi.png"
   id == 10128 -> "https://static.miraheze.org/atrociousgameplaywiki/thumb/c/c5/Lurantis.png/600px-Lurantis.png"
-  id == 10129 -> "https://cdn.bulbagarden.net/upload/thumb/7/72/758Salazzle.png/600px-758Salazzle.png"
-  id == 10130 -> "https://cdn.bulbagarden.net/upload/d/da/HOME774O.png"
-  id == 10131 -> "https://cdn.bulbagarden.net/upload/5/58/HOME774Y.png"
-  id == 10132 -> "https://cdn.bulbagarden.net/upload/0/01/HOME774G.png"
-  id == 10133 -> "https://cdn.bulbagarden.net/upload/b/bb/HOME774B.png"
-  id == 10134 -> "https://cdn.bulbagarden.net/upload/6/6e/HOME774I.png"
-  id == 10135 -> "https://cdn.bulbagarden.net/upload/f/f9/HOME774V.png"
-  id == 10136 -> "https://cdn.bulbagarden.net/upload/8/80/HOME774R.png"
-  id == 10137 -> "https://cdn.bulbagarden.net/upload/d/da/HOME774O.png"
-  id == 10138 -> "https://cdn.bulbagarden.net/upload/5/58/HOME774Y.png"
-  id == 10139 -> "https://cdn.bulbagarden.net/upload/0/01/HOME774G.png"
-  id == 10140 -> "https://cdn.bulbagarden.net/upload/b/bb/HOME774B.png"
-  id == 10141 -> "https://cdn.bulbagarden.net/upload/6/6e/HOME774I.png"
-  id == 10142 -> "https://cdn.bulbagarden.net/upload/f/f9/HOME774V.png"
-  id == 10144 -> "https://cdn.bulbagarden.net/upload/thumb/9/9b/778Mimikyu.png/600px-778Mimikyu.png"
-  id == 10145 -> "https://cdn.bulbagarden.net/upload/3/35/HOME778B.png"
-  id == 10147 -> "https://cdn.bulbagarden.net/upload/4/4c/HOME801O.png"
-  id == 10148 -> "https://cdn.bulbagarden.net/upload/thumb/7/75/025Pikachu-Partner.png/600px-025Pikachu-Partner.png"
-  id == 10151 -> "https://cdn.bulbagarden.net/upload/thumb/5/51/744Rockruff.png/600px-744Rockruff.png"
-  id == 10155 -> "https://cdn.bulbagarden.net/upload/8/80/800Necrozma-Dusk_Mane.png"
-  id == 10156 -> "https://cdn.bulbagarden.net/upload/7/7a/800Necrozma-Dawn_Wings.png"
-  id == 10157 -> "https://cdn.bulbagarden.net/upload/thumb/8/8b/800Necrozma-Ultra.png/600px-800Necrozma-Ultra.png"
-  id == 10158 -> "https://cdn.bulbagarden.net/upload/0/09/052Meowth-Galar.png"
-  id == 10159 -> "https://cdn.bulbagarden.net/upload/9/92/077Ponyta-Galar.png"
-  id == 10160 -> "https://cdn.bulbagarden.net/upload/e/e0/078Rapidash-Galar.png"
-  id == 10161 -> "https://cdn.bulbagarden.net/upload/9/9f/079Slowpoke-Galar.png"
-  id == 10162 -> "https://cdn.bulbagarden.net/upload/8/8b/080Slowbro-Galar.png"
-  id == 10163 -> "https://cdn.bulbagarden.net/upload/7/7d/083Farfetch%27d-Galar.png"
-  id == 10164 -> "https://cdn.bulbagarden.net/upload/thumb/3/38/110Weezing-Galar.png/600px-110Weezing-Galar.png"
+  id == 10130 -> "https://s1.52poke.wiki/wiki/b/bb/774Minior-Core_Dream_Orange.png"
+  id == 10131 -> "https://s1.52poke.wiki/wiki/b/bb/774Minior-Core_Dream_Yellow.png"
+  id == 10132 -> "https://s1.52poke.wiki/wiki/2/20/774Minior-Core_Dream_Green.png"
+  id == 10133 -> "https://s1.52poke.wiki/wiki/7/7d/774Minior-Core_Dream_Blue.png"
+  id == 10134 -> "https://s1.52poke.wiki/wiki/5/5e/774Minior-Core_Dream_Indigo.png"
+  id == 10135 -> "https://s1.52poke.wiki/wiki/9/96/774Minior-Core_Dream_Violet.png"
+  id == 10136 -> "https://s1.52poke.wiki/wiki/7/7a/774Minior-Core_Dream_Red.png"
+  id == 10137 -> "https://s1.52poke.wiki/wiki/b/bb/774Minior-Core_Dream_Orange.png"
+  id == 10138 -> "https://s1.52poke.wiki/wiki/b/bb/774Minior-Core_Dream_Yellow.png"
+  id == 10139 -> "https://s1.52poke.wiki/wiki/2/20/774Minior-Core_Dream_Green.png"
+  id == 10140 -> "https://s1.52poke.wiki/wiki/7/7d/774Minior-Core_Dream_Blue.png"
+  id == 10141 -> "https://s1.52poke.wiki/wiki/5/5e/774Minior-Core_Dream_Indigo.png"
+  id == 10142 -> "https://s1.52poke.wiki/wiki/9/96/774Minior-Core_Dream_Violet.png"
+  id == 10148 -> "https://s1.52poke.wiki/wiki/thumb/7/75/025Pikachu-Partner.png/150px-025Pikachu-Partner.png"
+  id == 10144 -> "https://s1.52poke.wiki/wiki/2/2c/778Mimikyu_Dream.png"
+  id == 10145 -> "https://s1.52poke.wiki/wiki/3/3a/778Mimikyu_Busted_Dream.png"
+  id == 10151 -> "https://s1.52poke.wiki/wiki/5/56/745Lycanroc-Dusk_Dream.png"
+  id == 10152 -> "https://s1.52poke.wiki/wiki/5/56/745Lycanroc-Dusk_Dream.png"
+  id == 10155 -> "https://s1.52poke.wiki/wiki/d/da/800Necrozma-Dusk_Mane_Dream.png"
+  id == 10156 -> "https://s1.52poke.wiki/wiki/e/e4/800Necrozma-Dawn_Wing_Dream.png"
+  id == 10157 -> "https://s1.52poke.wiki/wiki/9/90/800Necrozma-Ultra_Dream.png"
+  id == 10158 -> "https://s1.52poke.wiki/wiki/c/c8/052Meowth-Galar_Dream.png"
+  id == 10163 -> "https://s1.52poke.wiki/wiki/thumb/7/7d/083Farfetch%27d-Galar.png/450px-083Farfetch%27d-Galar.png"
+  id == 10164 -> "https://s1.52poke.wiki/wiki/b/b9/110Weezing-Galar_Dream.png"
+  id == 10183 -> "https://s1.52poke.wiki/wiki/e/eb/892Urshifu-Rapid_Strike_Dream.png"
+  id == 10208 -> "https://s1.52poke.wiki/wiki/a/a2/841Flapple-Gigantamax.png"
+  id == 10218 -> "https://s1.52poke.wiki/wiki/thumb/e/ef/892Urshifu-Single_StrikeGigantamax.png/600px-892Urshifu-Single_StrikeGigantamax.png"
+  id == 10219 -> "https://s1.52poke.wiki/wiki/thumb/8/8a/892Urshifu-Rapid_StrikeGigantamax.png/600px-892Urshifu-Rapid_StrikeGigantamax.png"
+  name.contains("gmax") -> {
+    if (gMaxImageUrls.any { it.contains(name.split("-")[0], true) }) {
+      gMaxImageUrls.first { it.contains(name.split("-")[0], true) }
+    } else {
+      ""
+    }
+  }
+  name.contains("galar") -> {
+    if (galarImageUrls.any { it.contains(name.split("-")[0], true) }) {
+      galarImageUrls.first { it.contains(name.split("-")[0], true) }
+    } else {
+      ""
+    }
+  }
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
 //  else -> "https://img.pokemondb.net/artwork/large/${name}.jpg"
   else -> "https://img.pokemondb.net/sprites/home/normal/${name}.png"
 }
 
 private val gMaxImageUrls = setOf(
-  "https://s1.52poke.wiki/wiki/thumb/3/3a/026Raichu-Alola.png/600px-026Raichu-Alola.png",
-  "http://s1.52poke.wiki/wiki/thumb/8/8a/003Venusaur-Gigantamax.png/450px-003Venusaur-Gigantamax.png",
+  "https://s1.52poke.wiki/wiki/thumb/8/8a/003Venusaur-Gigantamax.png/450px-003Venusaur-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/8/88/006Charizard-Gigantamax.png/450px-006Charizard-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/d/dc/009Blastoise-Gigantamax.png/450px-009Blastoise-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/f/fd/012Butterfree-Gigantamax.png/450px-012Butterfree-Gigantamax.png",
+  "https://s1.52poke.wiki/wiki/thumb/6/6b/025Pikachu-Gigantamax.png/600px-025Pikachu-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/9/9f/052Meowth-Gigantamax.png/450px-052Meowth-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/c/c4/068Machamp-Gigantamax.png/450px-068Machamp-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/3/31/094Gengar-Gigantamax.png/450px-094Gengar-Gigantamax.png",
