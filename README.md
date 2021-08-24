@@ -12,6 +12,12 @@
 <img src="/previews/preview3.png" align="right" width="30%"/>
 </p>
 
+<p align="center">
+<img src="/previews/preview4.png" align="left" width="30%"/>
+<img src="/previews/preview5.png" align="center" width="30%"/>
+<img src="/previews/preview6.png" align="right" width="30%"/>
+</p>
+
 <br/>
 
 It's fork from [Pokedex](https://github.com/skydoves/Pokedex),I create PokeG becase of Pokedex pokemon's status is radom data.
