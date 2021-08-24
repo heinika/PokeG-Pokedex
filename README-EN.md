@@ -1,4 +1,4 @@
-<h1 align="center">PokeG(口袋图鉴)</h1>
+<h1 align="center">PokeG</h1>
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat"/></a>
@@ -20,25 +20,21 @@
 
 <br/>
 
-开发这款软件的初衷是能够随手查看图鉴，找到喜欢的宝可梦。
-现支持以下为功能：
-- 查看宝可梦属性，基础值，特性，身体特征。
-- 查看宝可梦地区形态，mega 进化形态，极巨化形态，及一些特殊形态。
-- 查看宝可梦各世代技能表。
-- 查看宝可梦进化路线（待继续完善）
-
-## 准备支持的功能
-- 按特定基础值排序。
+I want to use PokeG to simple glance pokemon's status with happy mood.
 
 I use view to replace activity which make page switch more smooth.
 
 Data binding replace by view binding.(I hate it!)
 
 ## Download
-从酷安直接下载: https://www.coolapk.com/apk/283809
+Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
+Download from market: https://www.coolapk.com/apk/283809
 
 ## Fork from
-最初是由 https://github.com/skydoves/Pokedex. 开始建立的。现在变化比较大。总之，感谢。
+It's fork from https://github.com/skydoves/Pokedex.
+
+Pokedex is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>This project is for focusing especially on the new library Hilt of implementing dependency injection.<br>
+Also fetching data from the network and integrating persisted data in the database via repository pattern.
 
 # License
 ```
