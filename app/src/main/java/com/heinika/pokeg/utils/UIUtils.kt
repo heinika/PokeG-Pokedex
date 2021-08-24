@@ -980,7 +980,11 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 10115 -> "https://s1.52poke.wiki/wiki/thumb/0/06/105Marowak-Alola.png/600px-105Marowak-Alola.png"
   id == 10116 -> "https://s1.52poke.wiki/wiki/8/84/658Greninja-Ash_Dream.png"
   id == 10117 -> "https://s1.52poke.wiki/wiki/thumb/0/0e/658Greninja-Ash.png/600px-658Greninja-Ash.png"
-  id == 10127 -> "https://www.pikpng.com/pngl/b/431-4317690_wishiwashi-regular-and-school-form-now-complete-wishiwashi.png"
+  id == 10123 -> "https://s1.52poke.wiki/wiki/4/41/741Oricorio-Pom-Pom_Dream.png"
+  id == 10124 -> "https://s1.52poke.wiki/wiki/5/51/741Oricorio-Pa%27u_Dream.png"
+  id == 10125 -> "https://s1.52poke.wiki/wiki/7/7d/741Oricorio-Sensu_Dream.png"
+  id == 10126 -> "https://s1.52poke.wiki/wiki/6/67/745Lycanroc-Midnight_Dream.png"
+  id == 10127 -> "https://s1.52poke.wiki/wiki/c/c5/746Wishiwashi-School_Dream.png"
   id == 10128 -> "https://static.miraheze.org/atrociousgameplaywiki/thumb/c/c5/Lurantis.png/600px-Lurantis.png"
   id == 10130 -> "https://s1.52poke.wiki/wiki/b/bb/774Minior-Core_Dream_Orange.png"
   id == 10131 -> "https://s1.52poke.wiki/wiki/b/bb/774Minior-Core_Dream_Yellow.png"
@@ -1025,7 +1029,7 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
     }
   }
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
-//  else -> "https://img.pokemondb.net/artwork/large/${name}.jpg"
+  name.contains("mega") || name.contains("primal") -> "https://img.pokemondb.net/artwork/vector/${name}.png"
   else -> "https://img.pokemondb.net/sprites/home/normal/${name}.png"
 }
 
