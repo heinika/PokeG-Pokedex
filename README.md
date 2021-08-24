@@ -30,10 +30,6 @@
 ## 准备支持的功能
 - 按特定基础值排序。
 
-I use view to replace activity which make page switch more smooth.
-
-Data binding replace by view binding.(I hate it!)
-
 ## Download
 从酷安直接下载: https://www.coolapk.com/apk/283809
 
