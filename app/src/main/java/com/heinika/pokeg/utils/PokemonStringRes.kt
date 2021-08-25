@@ -11,7 +11,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
 
   fun getNameById(id: Int, name: String): String =
     if (id <= 898) {
-      getResString("pkoemon_name_$id")
+      getResString("pokemon_name_$id")
     } else {
       name
     }
