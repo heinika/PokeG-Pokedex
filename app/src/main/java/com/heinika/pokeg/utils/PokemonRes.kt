@@ -38,6 +38,8 @@ class PokemonRes @Inject constructor(
 
   fun getNameById(id: Int, name: String): String = stringRes.getNameById(id, name)
 
+  fun getItemById(id: Int): String = stringRes.getItemById(id)
+
   fun getTypeString(type: String): String = stringRes.getTypeString(type)
 
   @WorkerThread

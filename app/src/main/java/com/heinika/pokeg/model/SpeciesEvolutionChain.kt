@@ -68,7 +68,7 @@ data class SpeciesEvolutionChain(
         }
       }
       2 -> if (tradeSpeciesId == -1) "交换进化" else "和${pokemonRes.getNameById(tradeSpeciesId, "")}交换进化"
-      3 -> "使用${triggerItemId}进化"
+      3 -> "使用${pokemonRes.getItemById(triggerItemId)}进化"
       4 -> "20级，包包中有精灵球，且同行宝可梦有空位"
       else -> "未知"
     }

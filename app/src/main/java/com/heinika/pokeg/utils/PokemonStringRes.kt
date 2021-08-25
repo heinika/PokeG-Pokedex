@@ -16,6 +16,9 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
       name
     }
 
+  fun getItemById(id: Int): String = getResString("item_$id")
+
+
   fun getTypeString(type: String): String {
     return getResString("type_$type")
   }
@@ -31,7 +34,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
       )
     } catch (e: Exception) {
       Timber.e("no resource name $name")
-      ""
+      name
     }
   }
 
