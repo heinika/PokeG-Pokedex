@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
@@ -14,6 +15,8 @@ import com.heinika.pokeg.ui.main.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.PokemonRes
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
 
@@ -45,12 +48,21 @@ class MainPage(
     mainPageView.recyclerView.adapter = adapter
 
     val header = Header("图鉴")
-    mainViewModel.pokemonListLiveData.observe(activity, {
-      val itemList = arrayListOf<Any>(header) + it
-      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
-      adapter.items = itemList
-      diffResult.dispatchUpdatesTo(adapter)
-    })
+    activity.lifecycleScope.launch {
+      mainViewModel.pokemonListState.collect { pokemonList ->
+        val itemList = arrayListOf<Any>(header) + pokemonList
+        val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
+        adapter.items = itemList
+        diffResult.dispatchUpdatesTo(adapter)
+      }
+//        { pokemonList ->
+//          val itemList = arrayListOf<Any>(header) + pokemonList
+//          val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
+//          adapter.items = itemList
+//          diffResult.dispatchUpdatesTo(adapter)
+//        }
+    }
+
 
     mainViewModel.toastMessage.observe(activity, { toastMessage ->
       Toast.makeText(activity, toastMessage, Toast.LENGTH_LONG).show()

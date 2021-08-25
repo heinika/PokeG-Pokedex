@@ -22,6 +22,8 @@ class PokeGActivity : AppCompatActivity() {
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     super.onCreate(savedInstanceState)
     MainPage(this, pageStack, pokemonRes).showPage()
+
+
   }
 
   override fun onBackPressed() {

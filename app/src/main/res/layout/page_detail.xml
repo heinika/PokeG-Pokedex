@@ -299,7 +299,7 @@
             style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pkoemon_name_1"
+            tools:text="@string/pokemon_name_1"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:translationZ="10dp"
