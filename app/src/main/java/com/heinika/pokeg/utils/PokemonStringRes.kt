@@ -18,11 +18,6 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
 
   fun getItemById(id: Int): String = getResString("item_$id")
 
-
-  fun getTypeString(type: String): String {
-    return getResString("type_$type")
-  }
-
   private fun getResString(name: String): String {
     return try {
       context.resources.getString(
@@ -997,29 +992,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "other"
   }
 
-  fun getTypeString(id: Int): String = when (id) {
-    1 -> context.resources.getString(R.string.type_normal)
-    2 -> context.resources.getString(R.string.type_fighting)
-    3 -> context.resources.getString(R.string.type_flying)
-    4 -> context.resources.getString(R.string.type_poison)
-    5 -> context.resources.getString(R.string.type_ground)
-    6 -> context.resources.getString(R.string.type_rock)
-    7 -> context.resources.getString(R.string.type_bug)
-    8 -> context.resources.getString(R.string.type_ghost)
-    9 -> context.resources.getString(R.string.type_steel)
-    10 -> context.resources.getString(R.string.type_fire)
-    11 -> context.resources.getString(R.string.type_water)
-    12 -> context.resources.getString(R.string.type_grass)
-    13 -> context.resources.getString(R.string.type_electric)
-    14 -> context.resources.getString(R.string.type_psychic)
-    15 -> context.resources.getString(R.string.type_ice)
-    16 -> context.resources.getString(R.string.type_dragon)
-    17 -> context.resources.getString(R.string.type_dark)
-    18 -> context.resources.getString(R.string.type_fairy)
-    10001 -> "???"
-    10002 -> "shadow"
-    else -> "other"
-  }
+  fun getTypeString(id: Int): String = PokemonProp.getTypeString(context,id)
 
   fun getDamageClassName(id: Int) = when (id) {
     1 -> context.resources.getString(R.string.damage_class_1)

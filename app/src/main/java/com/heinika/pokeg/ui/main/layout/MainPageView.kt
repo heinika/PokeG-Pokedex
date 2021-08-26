@@ -165,15 +165,14 @@ class MainPageView(context: Context) : CustomLayout(context) {
           }
         }
       }
-
-      floatButton.setOnClickListener {
-        showSearchBar()
-      }
-
     }
   }
 
-  private fun showSearchBar() {
+  fun setOnSearchClickListener(onClickListener: OnClickListener){
+    floatButton.setOnClickListener(onClickListener)
+  }
+
+  fun showSearchBar() {
     recyclerView.translationY = 120.dp.toFloat()
     symbolTextView.translationY = 120.dp.toFloat()
     searchEditText.translationY = 120.dp.toFloat()

@@ -49,7 +49,7 @@ class MainPage(
 
     val header = Header("图鉴")
     activity.lifecycleScope.launch {
-      mainViewModel.pokemonListState.collect { pokemonList ->
+      mainViewModel.pokemonSortListStateFlow.collect { pokemonList ->
         val itemList = arrayListOf<Any>(header) + pokemonList
         val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
         adapter.items = itemList
@@ -72,6 +72,12 @@ class MainPage(
       mainPageView.progressBar.isVisible = isLoading
     })
 
+    mainPageView.setOnSearchClickListener{
+      mainPageView.showSearchBar()
+//      mainViewModel.filterType1 = PokemonProp.Type.DRAGON
+//      mainViewModel.filterType2 = PokemonProp.Type.ICE
+//      mainViewModel.startSortAndFilter()
+    }
   }
 
   override fun onBackPressed() {

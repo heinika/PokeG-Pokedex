@@ -965,6 +965,7 @@
     <string name="type_fairy">fairy</string>
     <string name="type_dark">dark</string>
     <string name="type_normal">normal</string>
+    <string name="type_unknown">\???</string>
 
     <string name="move_name_1">Pound</string>
     <string name="move_name_2">Karate Chop</string>

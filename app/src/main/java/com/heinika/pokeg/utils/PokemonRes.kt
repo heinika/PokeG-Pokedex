@@ -12,8 +12,6 @@ class PokemonRes @Inject constructor(
   private val colorRes: PokemonColorRes,
   private val jsonRes: PokemonJsonRes
 ) {
-  fun getTypeColor(type: String): Int = colorRes.getTypeColor(type)
-
   fun getTypeColor(type: Int): Int = colorRes.getTypeColor(type)
 
   fun getVersionName(id: Int) = stringRes.getVersionName(id)
@@ -39,8 +37,6 @@ class PokemonRes @Inject constructor(
   fun getNameById(id: Int, name: String): String = stringRes.getNameById(id, name)
 
   fun getItemById(id: Int): String = stringRes.getItemById(id)
-
-  fun getTypeString(type: String): String = stringRes.getTypeString(type)
 
   @WorkerThread
   fun fetchPokemonMoveVersionList(id: Int,speciesId:Int): List<Int> = jsonRes.fetchPokemonMoveVersionList(id,speciesId)
