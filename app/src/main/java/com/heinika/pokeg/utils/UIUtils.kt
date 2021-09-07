@@ -1025,6 +1025,7 @@ fun getPokemonImageUrl(id: Int, name: String) = when {
     }
   }
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
+  name.contains("mega") || name.contains("primal") -> "https://img.pokemondb.net/artwork/vector/${name}.png"
 //  else -> "https://img.pokemondb.net/artwork/large/${name}.jpg"
   else -> "https://img.pokemondb.net/sprites/home/normal/${name}.png"
 }
