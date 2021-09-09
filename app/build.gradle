@@ -142,6 +142,7 @@ dependencies {
 
     // custom views
     implementation "com.github.skydoves:progressview:1.1.1"
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
     // gradation
     implementation "com.github.skydoves:rainbow:1.0.3"

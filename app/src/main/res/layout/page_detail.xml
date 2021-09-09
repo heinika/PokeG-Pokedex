@@ -280,7 +280,7 @@
             android:paddingTop="12dp"
             android:translationZ="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/header"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_arrow" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -312,13 +312,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="10dp"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             android:translationZ="10dp"
             app:layout_constraintEnd_toEndOf="@id/header"
-            app:layout_constraintTop_toTopOf="@id/header"
+            app:layout_constraintTop_toTopOf="@id/arrow"
             tools:text="#001" />
 
         <androidx.appcompat.widget.AppCompatTextView

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/check_box_type_normal.xml" value="0.3796875" />
+        <entry key="app/src/main/res/drawable/check_box_type_select.xml" value="0.3796875" />
+        <entry key="app/src/main/res/drawable/filter_list.xml" value="0.11388888888888889" />
         <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.39010416666666664" />
         <entry key="app/src/main/res/drawable/input_background.xml" value="0.22870370370370371" />
         <entry key="app/src/main/res/drawable/item_ability_background.xml" value="0.3731481481481482" />
@@ -10,9 +13,14 @@
         <entry key="app/src/main/res/drawable/item_height_background.xml" value="0.3731481481481482" />
         <entry key="app/src/main/res/drawable/item_race_background.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/drawable/item_tag_background.xml" value="0.2222222222222222" />
+        <entry key="app/src/main/res/drawable/item_type_background.xml" value="0.3796875" />
         <entry key="app/src/main/res/drawable/item_weight_background.xml" value="0.3731481481481482" />
+        <entry key="app/src/main/res/drawable/search.xml" value="0.11388888888888889" />
+        <entry key="app/src/main/res/drawable/selector_radio_button.xml" value="0.11296296296296296" />
+        <entry key="app/src/main/res/drawable/type_check_box_button.xml" value="0.3796875" />
         <entry key="app/src/main/res/layout/item_evolution.xml" value="0.30364583333333334" />
-        <entry key="app/src/main/res/layout/page_detail.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/page_detail.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.39010416666666664" />
       </map>
     </option>

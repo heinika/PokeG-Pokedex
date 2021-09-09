@@ -15,7 +15,7 @@ class HeaderItemDelegate : ItemViewDelegate<Header, HeaderItemDelegate.ViewHolde
   }
 
   override fun onCreateViewHolder(context: Context, parent: ViewGroup): ViewHolder {
-    return ViewHolder(HeaderView(context).apply {  })
+    return ViewHolder(HeaderView(context))
   }
 
   class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

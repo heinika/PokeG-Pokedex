@@ -26,6 +26,14 @@ object PokemonProp {
     UNKNOWN(-1, R.string.type_unknown, R.color.gray_21)
   }
 
+  fun Type.toResName(context: Context):String{
+    return context.getString(this.typeNameResId)
+  }
+
+  fun Type.toColor(context: Context):Int{
+    return context.getColor(this.typeColorResId)
+  }
+
   fun getTypeString(context: Context, id: Int): String {
     return when (id) {
       Type.NORMAL.typeId -> context.getString(Type.NORMAL.typeNameResId)

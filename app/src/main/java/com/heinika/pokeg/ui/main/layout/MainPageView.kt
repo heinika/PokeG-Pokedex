@@ -1,7 +1,6 @@
 package com.heinika.pokeg.ui.main.layout
 
 import android.content.Context
-import android.graphics.Color
 import android.text.InputFilter
 import android.text.InputType
 import android.view.Gravity
@@ -23,11 +22,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
+import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.utils.StatusBarHeight
 
 class MainPageView(context: Context) : CustomLayout(context) {
+  var onSelectedChange: ((List<PokemonProp.Type>) -> Unit)? = null
+    set(value) {
+      filterListView.onSelectedChange = value
+      field = onSelectedChange
+    }
 
   val recyclerView = RecyclerView(context).apply {
-    setBackgroundColor(Color.RED)
     layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT)
     layoutManager = LinearLayoutManager(context)
     setBackgroundColor(R.color.background.resColor)
@@ -39,11 +44,19 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
-  val floatButton = FloatingActionButton(context).apply {
+  val searchButton = FloatingActionButton(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = 8.dp
     }
     setImageResource(R.drawable.search)
+    addView(this)
+  }
+
+  val filterListButton = FloatingActionButton(context).apply {
+    layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+      bottomMargin = 8.dp
+    }
+    setImageResource(R.drawable.filter_list)
     addView(this)
   }
 
@@ -73,6 +86,11 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val filterListView = FilterListView(context).apply {
+    layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+    this@MainPageView.addView(this)
+  }
+
   private val symbolTextView = AppCompatTextView(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, 54.dp)
     setTextColor(R.color.colorPrimary.resColor)
@@ -91,9 +109,16 @@ class MainPageView(context: Context) : CustomLayout(context) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     progressBar.autoMeasure()
     recyclerView.autoMeasure()
-    floatButton.autoMeasure()
-    searchEditText.let { it.measure((measuredWidth - it.marginStart - it.marginEnd).toExactlyMeasureSpec(), it.defaultHeightMeasureSpec()) }
+    searchButton.autoMeasure()
+    filterListButton.autoMeasure()
+    searchEditText.let {
+      it.measure(
+        (measuredWidth - it.marginStart - it.marginEnd).toExactlyMeasureSpec(),
+        it.defaultHeightMeasureSpec()
+      )
+    }
     symbolTextView.autoMeasure()
+    filterListView.autoMeasure()
 
     setMeasuredDimension(measuredWidth, measuredHeight)
   }
@@ -107,9 +132,21 @@ class MainPageView(context: Context) : CustomLayout(context) {
         height / 2 - it.measuredHeight / 2
       )
     }
-    floatButton.let { it.layout(width / 2 - it.measuredWidth / 2, height - it.measuredHeight - it.marginBottom) }
-    searchEditText.let { it.layout(it.marginStart, -it.measuredHeight - 12.dp) }
+    searchButton.let {
+      it.layout(
+        width / 2 - it.measuredWidth / 2 - 72.dp,
+        height - it.measuredHeight - it.marginBottom
+      )
+    }
+    filterListButton.let {
+      it.layout(
+        width / 2 - it.measuredWidth / 2 + 72.dp,
+        height - it.measuredHeight - it.marginBottom
+      )
+    }
+    searchEditText.let { it.layout(it.marginStart, -it.measuredHeight - StatusBarHeight.value) }
     symbolTextView.layout(searchEditText.left, searchEditText.top)
+    filterListView.let { it.layout(0, -it.measuredHeight - StatusBarHeight.value) }
   }
 
   override fun onAttachedToWindow() {
@@ -117,14 +154,27 @@ class MainPageView(context: Context) : CustomLayout(context) {
     post {
       recyclerView.let {
         it.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-          var hideSearchAnimator = SpringAnimation(floatButton, DynamicAnimation.TRANSLATION_Y, 70.dp.toFloat())
-          var showSearchAnimator = SpringAnimation(floatButton, DynamicAnimation.TRANSLATION_Y, 0f)
+          var hideSearchAnimator = SpringAnimation(
+            searchButton,
+            DynamicAnimation.TRANSLATION_Y,
+            70.dp.toFloat()
+          )
+          var showSearchAnimator =
+            SpringAnimation(searchButton, DynamicAnimation.TRANSLATION_Y, 0f)
+          var hideFilterListAnimator = SpringAnimation(
+            filterListButton,
+            DynamicAnimation.TRANSLATION_Y,
+            70.dp.toFloat()
+          )
+          var showFilterListAnimator =
+            SpringAnimation(filterListButton, DynamicAnimation.TRANSLATION_Y, 0f)
 
 
           override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if (it.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
               showSearchAnimator.start()
+              showFilterListAnimator.start()
             }
           }
 
@@ -132,12 +182,14 @@ class MainPageView(context: Context) : CustomLayout(context) {
             super.onScrolled(recyclerView, dx, dy)
             if (it.scrollState != RecyclerView.SCROLL_STATE_IDLE) {
               if (dy > 0) {
-                if (!hideSearchAnimator.isRunning && floatButton.translationY == 0f) {
+                if (!hideSearchAnimator.isRunning && searchButton.translationY == 0f) {
                   hideSearchAnimator.start()
+                  hideFilterListAnimator.start()
                 }
               } else {
                 if (!showSearchAnimator.isRunning) {
                   showSearchAnimator.start()
+                  showFilterListAnimator.start()
                 }
               }
             }
@@ -168,40 +220,54 @@ class MainPageView(context: Context) : CustomLayout(context) {
     }
   }
 
-  fun setOnSearchClickListener(onClickListener: OnClickListener){
-    floatButton.setOnClickListener(onClickListener)
+  fun setOnSearchClickListener(onClickListener: OnClickListener) {
+    searchButton.setOnClickListener(onClickListener)
+  }
+
+  fun setOnFilterClickListener(onClickListener: OnClickListener) {
+    filterListButton.setOnClickListener(onClickListener)
   }
 
   fun showSearchBar() {
+    searchEditText.translationY = 120.dp.toFloat() + StatusBarHeight.value
+    symbolTextView.translationY = 120.dp.toFloat() + StatusBarHeight.value
     recyclerView.translationY = 120.dp.toFloat()
-    symbolTextView.translationY = 120.dp.toFloat()
-    searchEditText.translationY = 120.dp.toFloat()
     searchEditText.requestFocus()
-    val imm: InputMethodManager = searchEditText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val imm: InputMethodManager =
+      searchEditText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.showSoftInput(searchEditText, 0)
   }
 
-  private fun toSearchPosition(position: Int) {
-    (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(position, 48.dp)
-    hideSearchBar()
-    searchEditText.setText("")
+  fun showFilterListView() {
+    filterListView.translationY = filterListView.height.toFloat() + StatusBarHeight.value
+    recyclerView.translationY = filterListView.height.toFloat()
   }
 
   private fun hideSearchBar() {
-    recyclerView.translationY = 0f
-    symbolTextView.translationY = 0f
     searchEditText.translationY = 0f
-    val imm: InputMethodManager = searchEditText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    symbolTextView.translationY = 0f
+    recyclerView.translationY = 0f
+    val imm: InputMethodManager =
+      searchEditText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     if (imm.isActive) {
       imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
     }
   }
 
-  fun canScrollUp(): Boolean{
+  private fun toSearchPosition(position: Int) {
+    (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(
+      position,
+      48.dp
+    )
+    hideSearchBar()
+    searchEditText.setText("")
+  }
+
+  fun canScrollUp(): Boolean {
     return (recyclerView.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition() != 0
   }
 
-  fun scrollToTop(){
+  fun scrollToTop() {
     (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(0, 0)
   }
 }

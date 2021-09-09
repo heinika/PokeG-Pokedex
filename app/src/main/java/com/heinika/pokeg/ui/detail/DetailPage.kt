@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
 import androidx.core.view.children
@@ -54,6 +55,8 @@ class DetailPage(
   override fun showPage() {
     super.showPage()
 
+    (binding.arrow.layoutParams as ConstraintLayout.LayoutParams).topMargin = StatusBarHeight.value
+
     Glide.with(binding.image)
       .load(pokemon.getImageUrl())
       .listener(
@@ -84,10 +87,22 @@ class DetailPage(
 
     detailViewModel.getPokemonBaseStatLiveData(pokemon.id).observe(activity) { baseStats ->
       initProgress(binding.progressHp, baseStats.first { it.statId.isHPStat }.baseStat)
-      initProgress(binding.progressAttach, baseStats.first { it.statId.isAttackStat }.baseStat)
-      initProgress(binding.progressDefense, baseStats.first { it.statId.isDefenseStat }.baseStat)
-      initProgress(binding.progressSpAttack, baseStats.first { it.statId.isSAttackStat }.baseStat)
-      initProgress(binding.progressSpDefense, baseStats.first { it.statId.isSDefenseStat }.baseStat)
+      initProgress(
+        binding.progressAttach,
+        baseStats.first { it.statId.isAttackStat }.baseStat
+      )
+      initProgress(
+        binding.progressDefense,
+        baseStats.first { it.statId.isDefenseStat }.baseStat
+      )
+      initProgress(
+        binding.progressSpAttack,
+        baseStats.first { it.statId.isSAttackStat }.baseStat
+      )
+      initProgress(
+        binding.progressSpDefense,
+        baseStats.first { it.statId.isSDefenseStat }.baseStat
+      )
       initProgress(binding.progressSpd, baseStats.first { it.statId.isSPeedStat }.baseStat)
     }
 
@@ -132,24 +147,26 @@ class DetailPage(
           binding.race.text = names.first { it.localLanguageId.isCnId }.genus
         }
 
-      detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observe(activity) { species ->
-        binding.eggStepsText.text = species.getEggSteps()
-        binding.generationText.text = pokemonRes.getGeneration(species.generationId)
-        binding.shapeText.text = pokemonRes.getShape(species.shapeId)
-        if (species.habitatId.isNotEmpty()) {
-          binding.habitatText.isVisible = true
-          binding.habitatText.text = pokemonRes.getHabitat(species.habitatId.toInt())
+      detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId)
+        .observe(activity) { species ->
+          binding.eggStepsText.text = species.getEggSteps()
+          binding.generationText.text = pokemonRes.getGeneration(species.generationId)
+          binding.shapeText.text = pokemonRes.getShape(species.shapeId)
+          if (species.habitatId.isNotEmpty()) {
+            binding.habitatText.isVisible = true
+            binding.habitatText.text = pokemonRes.getHabitat(species.habitatId.toInt())
+          }
+          binding.growSpeedText.text = pokemonRes.getGrowRate(species.growthRateId)
+          binding.babyText.isVisible = species.isBaby.toBoolean
+          binding.legendaryText.isVisible = species.isLegendary.toBoolean
+          binding.mythicalText.isVisible = species.isMythical.toBoolean
         }
-        binding.growSpeedText.text = pokemonRes.getGrowRate(species.growthRateId)
-        binding.babyText.isVisible = species.isBaby.toBoolean
-        binding.legendaryText.isVisible = species.isLegendary.toBoolean
-        binding.mythicalText.isVisible = species.isMythical.toBoolean
-      }
 
 
       detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) {
-        binding.eggGroupText.text = it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
-          .replace(",", " ")
+        binding.eggGroupText.text =
+          it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
+            .replace(",", " ")
       }
 
       detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.id)
@@ -158,11 +175,21 @@ class DetailPage(
             binding.formsRecyclerView.isVisible = true
             binding.formsRecyclerView.layoutManager = LinearLayoutManager(activity)
             binding.formsRecyclerView.adapter = MultiTypeAdapter().apply {
-              register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
-                DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
-                  it.showPage()
-                }
-              }))
+              register(
+                PokemonItemDelegate(
+                  pokemonRes,
+                  onItemClick = { imageView, pokemon ->
+                    DetailPage(
+                      pokemonRes,
+                      activity,
+                      pokemon,
+                      imageView,
+                      pageStack
+                    ).also {
+                      it.showPage()
+                    }
+                  })
+              )
               items = forms
             }
             adapter.notifyDataSetChanged()
@@ -176,10 +203,17 @@ class DetailPage(
             chainList.forEach {
               binding.evolutionLinear.addView(
                 LayoutInflater.from(activity)
-                  .inflate(R.layout.item_evolution, binding.evolutionLinear, false).also { view ->
-                    val fromImage = view.findViewById<AppCompatImageView>(R.id.fromImageView)
-                    val toImage = view.findViewById<AppCompatImageView>(R.id.toImageView)
-                    val descText = view.findViewById<AppCompatTextView>(R.id.descText)
+                  .inflate(
+                    R.layout.item_evolution,
+                    binding.evolutionLinear,
+                    false
+                  ).also { view ->
+                    val fromImage =
+                      view.findViewById<AppCompatImageView>(R.id.fromImageView)
+                    val toImage =
+                      view.findViewById<AppCompatImageView>(R.id.toImageView)
+                    val descText =
+                      view.findViewById<AppCompatTextView>(R.id.descText)
 
                     descText.text = it.getDescText(pokemonRes)
 
@@ -238,13 +272,15 @@ class DetailPage(
         doOnEnd {
           detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
             .observe(activity) { versions ->
-              binding.moveVersionText.text = pokemonRes.getVersionName(versions.last())
+              binding.moveVersionText.text =
+                pokemonRes.getVersionName(versions.last())
 
               val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
                 .setItems(
                   versions.map { pokemonRes.getVersionName(it) }.toTypedArray()
                 ) { dialog, index ->
-                  binding.moveVersionText.text = pokemonRes.getVersionName(versions[index])
+                  binding.moveVersionText.text =
+                    pokemonRes.getVersionName(versions[index])
                   refreshMoveTable(versions[index])
                   dialog.dismiss()
                 }.create()
@@ -264,7 +300,8 @@ class DetailPage(
             (startRootCenterX - endRootCenterX) * (1 - valueAnimator.animatedFraction)
           val rootTranslationY =
             (startRootCenterY - endRootCenterY) * (1 - valueAnimator.animatedFraction)
-          val rootScale = startRootScale + (1 - startRootScale) * valueAnimator.animatedFraction
+          val rootScale =
+            startRootScale + (1 - startRootScale) * valueAnimator.animatedFraction
 
           binding.root.translationX = rootTranslationX
           binding.root.translationY = rootTranslationY
@@ -362,8 +399,10 @@ class DetailPage(
       val startRootCenterY = startRootLocation[1] + binding.root.height / 2
 
       addUpdateListener { valueAnimator ->
-        val translateX = 0 + (endRootCenterX - startRootCenterX) * valueAnimator.animatedFraction
-        val translateY = 0 + (endRootCenterY - startRootCenterY) * valueAnimator.animatedFraction
+        val translateX =
+          0 + (endRootCenterX - startRootCenterX) * valueAnimator.animatedFraction
+        val translateY =
+          0 + (endRootCenterY - startRootCenterY) * valueAnimator.animatedFraction
         val scale = 1 - (1 - endRootScale) * valueAnimator.animatedFraction
         binding.root.translationX = translateX
         binding.root.translationY = translateY

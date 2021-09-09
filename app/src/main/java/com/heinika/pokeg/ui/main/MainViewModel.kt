@@ -28,8 +28,7 @@ class MainViewModel @Inject constructor(
 
   private var basePokemonList: List<Pokemon>? = null
 
-  var filterType1 = PokemonProp.Type.UNKNOWN
-  var filterType2 = PokemonProp.Type.UNKNOWN
+  var filterTypeList : List<PokemonProp.Type> = emptyList()
 
 
   init {
@@ -49,22 +48,24 @@ class MainViewModel @Inject constructor(
 
   fun startSortAndFilter() {
     basePokemonList?.let { baseList ->
-      _pokemonSortListStateFlow.value = baseList.sortedBy { -it.totalBaseStat }.filterType()
+      _pokemonSortListStateFlow.value = baseList.filterType()
     }
   }
 
   private fun List<Pokemon>.filterType(): List<Pokemon> {
-    if (filterType1 == PokemonProp.Type.UNKNOWN && filterType2 == PokemonProp.Type.UNKNOWN) return this
-    if (filterType1 != PokemonProp.Type.UNKNOWN && filterType2 != PokemonProp.Type.UNKNOWN) return this.filter { pokemon ->
-      pokemon.types.any { it.typeId == filterType1.typeId } && pokemon.types.any { it.typeId == filterType2.typeId }
+    return filter { pokemon ->
+      if (filterTypeList.isEmpty()){
+        true
+      } else {
+        var result = true
+        filterTypeList.forEach { type ->
+          if (!pokemon.types.map { it.typeId }.contains(type.typeId)){
+            result = false
+          }
+        }
+        result
+      }
     }
-    if (filterType1 != PokemonProp.Type.UNKNOWN) return this.filter { pokemon ->
-      pokemon.types.any { it.typeId == filterType1.typeId }
-    }
-    if (filterType2 != PokemonProp.Type.UNKNOWN) return this.filter { pokemon ->
-      pokemon.types.any { it.typeId == filterType2.typeId }
-    }
-    return this
   }
 
 }

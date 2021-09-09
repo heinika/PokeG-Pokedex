@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.ui.detail.DetailPage
+import com.heinika.pokeg.ui.main.itemdelegate.BottomItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
+import com.heinika.pokeg.ui.main.itemdelegate.model.BottomItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.utils.AdapterDiffUtils
@@ -39,6 +41,7 @@ class MainPage(
     content.addView(mainPageView)
 
     adapter.register(HeaderItemDelegate())
+    adapter.register(BottomItemDelegate())
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
       DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
         it.showPage()
@@ -46,21 +49,19 @@ class MainPage(
     }))
 
     mainPageView.recyclerView.adapter = adapter
+    mainPageView.onSelectedChange = {
+      mainViewModel.filterTypeList = it
+      mainViewModel.startSortAndFilter()
+    }
 
     val header = Header("图鉴")
     activity.lifecycleScope.launch {
       mainViewModel.pokemonSortListStateFlow.collect { pokemonList ->
-        val itemList = arrayListOf<Any>(header) + pokemonList
+        val itemList = arrayListOf<Any>(header) + pokemonList + BottomItem("没有了")
         val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
         adapter.items = itemList
         diffResult.dispatchUpdatesTo(adapter)
       }
-//        { pokemonList ->
-//          val itemList = arrayListOf<Any>(header) + pokemonList
-//          val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
-//          adapter.items = itemList
-//          diffResult.dispatchUpdatesTo(adapter)
-//        }
     }
 
 
@@ -74,9 +75,10 @@ class MainPage(
 
     mainPageView.setOnSearchClickListener{
       mainPageView.showSearchBar()
-//      mainViewModel.filterType1 = PokemonProp.Type.DRAGON
-//      mainViewModel.filterType2 = PokemonProp.Type.ICE
-//      mainViewModel.startSortAndFilter()
+    }
+
+    mainPageView.setOnFilterClickListener{
+      mainPageView.showFilterListView()
     }
   }
 
