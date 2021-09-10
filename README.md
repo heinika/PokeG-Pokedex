@@ -27,7 +27,7 @@
 - 查看宝可梦各世代技能表。
 - 查看宝可梦进化路线（待继续完善）
 - 按照属性查找宝可梦
-  <img src="/previews/filter_preview.png" align="right" width="30%"/>
+<img src="/previews/filter_preview.png" align="right" width="30%"/>
 
 ## 准备支持的功能
 - 按特定基础值排序。
