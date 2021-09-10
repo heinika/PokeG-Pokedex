@@ -26,6 +26,7 @@ import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.StatusBarHeight
 
 class MainPageView(context: Context) : CustomLayout(context) {
+
   var onSelectedChange: ((List<PokemonProp.Type>) -> Unit)? = null
     set(value) {
       filterListView.onSelectedChange = value
@@ -101,6 +102,29 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  var isShowFilterList = false
+    private set
+
+  private val hideFilterListAnimator = SpringAnimation(
+    filterListButton,
+    DynamicAnimation.TRANSLATION_Y,
+    70.dp.toFloat()
+  )
+
+  private val hideSearchAnimator = SpringAnimation(
+    searchButton,
+    DynamicAnimation.TRANSLATION_Y,
+    70.dp.toFloat()
+  )
+
+  private val showSearchAnimator =
+    SpringAnimation(searchButton, DynamicAnimation.TRANSLATION_Y, 0f)
+
+  private val showFilterListAnimator =
+    SpringAnimation(filterListButton, DynamicAnimation.TRANSLATION_Y, 0f)
+
+
+
   init {
     setBackgroundColor(R.color.background.resColor)
   }
@@ -154,27 +178,11 @@ class MainPageView(context: Context) : CustomLayout(context) {
     post {
       recyclerView.let {
         it.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-          var hideSearchAnimator = SpringAnimation(
-            searchButton,
-            DynamicAnimation.TRANSLATION_Y,
-            70.dp.toFloat()
-          )
-          var showSearchAnimator =
-            SpringAnimation(searchButton, DynamicAnimation.TRANSLATION_Y, 0f)
-          var hideFilterListAnimator = SpringAnimation(
-            filterListButton,
-            DynamicAnimation.TRANSLATION_Y,
-            70.dp.toFloat()
-          )
-          var showFilterListAnimator =
-            SpringAnimation(filterListButton, DynamicAnimation.TRANSLATION_Y, 0f)
-
 
           override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-            if (it.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
-              showSearchAnimator.start()
-              showFilterListAnimator.start()
+            if (it.scrollState == RecyclerView.SCROLL_STATE_IDLE && !isShowFilterList) {
+              showBottomFilterView()
             }
           }
 
@@ -183,13 +191,11 @@ class MainPageView(context: Context) : CustomLayout(context) {
             if (it.scrollState != RecyclerView.SCROLL_STATE_IDLE) {
               if (dy > 0) {
                 if (!hideSearchAnimator.isRunning && searchButton.translationY == 0f) {
-                  hideSearchAnimator.start()
-                  hideFilterListAnimator.start()
+                  hideBottomFilterBar()
                 }
               } else {
-                if (!showSearchAnimator.isRunning) {
-                  showSearchAnimator.start()
-                  showFilterListAnimator.start()
+                if (!showSearchAnimator.isRunning && !isShowFilterList) {
+                  showBottomFilterView()
                 }
               }
             }
@@ -220,6 +226,11 @@ class MainPageView(context: Context) : CustomLayout(context) {
     }
   }
 
+  fun hideBottomFilterBar() {
+    hideSearchAnimator.start()
+    hideFilterListAnimator.start()
+  }
+
   fun setOnSearchClickListener(onClickListener: OnClickListener) {
     searchButton.setOnClickListener(onClickListener)
   }
@@ -238,11 +249,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     imm.showSoftInput(searchEditText, 0)
   }
 
-  fun showFilterListView() {
-    filterListView.translationY = filterListView.height.toFloat() + StatusBarHeight.value
-    recyclerView.translationY = filterListView.height.toFloat()
-  }
-
   private fun hideSearchBar() {
     searchEditText.translationY = 0f
     symbolTextView.translationY = 0f
@@ -252,6 +258,23 @@ class MainPageView(context: Context) : CustomLayout(context) {
     if (imm.isActive) {
       imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
     }
+  }
+
+  fun showFilterListView() {
+    isShowFilterList = true
+    filterListView.translationY = filterListView.height.toFloat() + StatusBarHeight.value
+    recyclerView.translationY = filterListView.height.toFloat()
+  }
+
+  fun hideTopFilterListView() {
+    isShowFilterList = false
+    filterListView.translationY = 0f
+    recyclerView.translationY = 0f
+  }
+
+  fun showBottomFilterView(){
+    showSearchAnimator.start()
+    showFilterListAnimator.start()
   }
 
   private fun toSearchPosition(position: Int) {

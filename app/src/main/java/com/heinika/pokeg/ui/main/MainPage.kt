@@ -79,6 +79,7 @@ class MainPage(
 
     mainPageView.setOnFilterClickListener{
       mainPageView.showFilterListView()
+      mainPageView.hideBottomFilterBar()
     }
   }
 
@@ -87,7 +88,12 @@ class MainPage(
     if (mainPageView.canScrollUp()) {
       mainPageView.scrollToTop()
     } else {
-      activity.finish()
+      if (mainPageView.isShowFilterList){
+        mainPageView.hideTopFilterListView()
+        mainPageView.showBottomFilterView()
+      }else{
+        activity.finish()
+      }
     }
   }
 }

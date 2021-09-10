@@ -4,15 +4,17 @@ import android.content.Context
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.appcompat.widget.AppCompatCheckBox
-import com.google.android.flexbox.AlignContent.SPACE_AROUND
+import com.google.android.flexbox.*
 import com.google.android.flexbox.FlexWrap.WRAP
-import com.google.android.flexbox.FlexboxLayout
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.view.TypeCheckBox
 import timber.log.Timber
 import java.util.*
+
+
+
 
 class FilterListView(context: Context) : CustomLayout(context) {
 
@@ -27,9 +29,10 @@ class FilterListView(context: Context) : CustomLayout(context) {
 
     private val flexboxLayout = FlexboxLayout(context).apply {
         layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-        alignContent = SPACE_AROUND
+        alignContent = AlignContent.CENTER
         setPadding(8.dp, 0, 8.dp, 0)
         flexWrap = WRAP
+        justifyContent = JustifyContent.SPACE_BETWEEN
         PokemonProp.Type.values().forEach {
             if (it != PokemonProp.Type.UNKNOWN) {
                 addTypeCheckBox(this, context, it)
@@ -46,7 +49,9 @@ class FilterListView(context: Context) : CustomLayout(context) {
         type: PokemonProp.Type
     ) {
         layout.addView(TypeCheckBox(context, type = type).apply {
-            layoutParams = LayoutParams(WRAP_CONTENT, 30.dp).apply {
+            layoutParams = FlexboxLayoutManager.LayoutParams(WRAP_CONTENT, 30.dp).apply {
+                flexGrow = 1.0f
+                alignSelf = AlignItems.FLEX_END
                 marginStart = 4.dp
                 marginEnd = 4.dp
                 topMargin = 4.dp
