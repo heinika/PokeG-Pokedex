@@ -5,7 +5,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.ui.main.MainPage
-import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.StatusBarHeight
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*

@@ -1,7 +1,7 @@
 package com.heinika.pokeg.model
 
 
-import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

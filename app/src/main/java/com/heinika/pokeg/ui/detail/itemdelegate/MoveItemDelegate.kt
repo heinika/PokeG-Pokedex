@@ -9,7 +9,7 @@ import com.drakeet.multitype.ItemViewDelegate
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonMoveBinding
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
-import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.repository.res.PokemonRes
 
 class MoveItemDelegate(private val pokemonRes: PokemonRes) :
   ItemViewDelegate<MoveItem, MoveItemDelegate.ViewHolder>() {

@@ -14,7 +14,7 @@ import com.github.florent37.glidepalette.GlidePalette
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
-import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.repository.res.PokemonRes
 
 class PokemonItemDelegate(
   private val pokemonRes: PokemonRes,

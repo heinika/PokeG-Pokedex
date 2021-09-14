@@ -1,4 +1,4 @@
-package com.heinika.pokeg.utils
+package com.heinika.pokeg.repository.res
 
 import android.app.Application
 import androidx.annotation.WorkerThread
