@@ -2,7 +2,7 @@ package com.heinika.pokeg.di
 
 import com.heinika.pokeg.network.PokeGClient
 import com.heinika.pokeg.repository.MainRepository
-import com.heinika.pokeg.utils.PokemonRes
+import com.heinika.pokeg.repository.res.PokemonRes
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

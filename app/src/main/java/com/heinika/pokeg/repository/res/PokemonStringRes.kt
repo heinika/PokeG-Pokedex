@@ -1,7 +1,8 @@
-package com.heinika.pokeg.utils
+package com.heinika.pokeg.repository.res
 
 import android.app.Application
 import com.heinika.pokeg.R
+import com.heinika.pokeg.utils.PokemonProp
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -9,16 +10,12 @@ import javax.inject.Singleton
 @Singleton
 class PokemonStringRes @Inject constructor(private val context: Application) {
 
-  fun getNameById(id: Int, name: String): String =
-    if (id <= 898) {
-      getResString("pokemon_name_$id")
-    } else {
-      name
-    }
+  fun getNameById(id: Int, name: String): String = getResString("pokemon_name_$id",name)
+
 
   fun getItemById(id: Int): String = getResString("item_$id")
 
-  private fun getResString(name: String): String {
+  private fun getResString(name: String, default: String = ""): String {
     return try {
       context.resources.getString(
         context.resources.getIdentifier(
@@ -29,7 +26,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
       )
     } catch (e: Exception) {
       Timber.e("no resource name $name")
-      name
+      default
     }
   }
 
@@ -992,7 +989,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "other"
   }
 
-  fun getTypeString(id: Int): String = PokemonProp.getTypeString(context,id)
+  fun getTypeString(id: Int): String = PokemonProp.getTypeString(context, id)
 
   fun getDamageClassName(id: Int) = when (id) {
     1 -> context.resources.getString(R.string.damage_class_1)
