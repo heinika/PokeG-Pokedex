@@ -1,6 +1,7 @@
-package com.heinika.pokeg.utils
+package com.heinika.pokeg.repository.res
 
 import android.app.Application
+import com.heinika.pokeg.utils.PokemonProp
 import javax.inject.Inject
 import javax.inject.Singleton
 

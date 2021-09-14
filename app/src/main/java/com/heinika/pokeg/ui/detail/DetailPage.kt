@@ -25,6 +25,7 @@ import com.heinika.pokeg.databinding.PageDetailBinding
 import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
