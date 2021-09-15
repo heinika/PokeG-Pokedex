@@ -53,7 +53,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
-  val filterListButton = FloatingActionButton(context).apply {
+  private val filterListButton = FloatingActionButton(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = 8.dp
     }
@@ -69,6 +69,15 @@ class MainPageView(context: Context) : CustomLayout(context) {
         translationY = 0f
       }
       return super.onKeyPreIme(keyCode, event)
+    }
+
+    override fun onTextChanged(
+      text: CharSequence?,
+      start: Int,
+      lengthBefore: Int,
+      lengthAfter: Int
+    ) {
+      super.onTextChanged(text, start, lengthBefore, lengthAfter)
     }
   }.apply {
     layoutParams = LayoutParams(MATCH_PARENT, 54.dp).apply {
@@ -211,7 +220,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
                 when (val id = it.text.toString().toInt()) {
                   in 0..898 -> toSearchPosition(id)
                   in 899..10000 -> toSearchPosition(899)
-                  in 1001..10220 -> toSearchPosition(898 + id - 10000)
+                  in 10001..10220 -> toSearchPosition(898 + id - 10000)
                   else -> toSearchPosition(898 + 220)
                 }
               } else {
