@@ -956,6 +956,35 @@
     <string name="pokemon_name_898">蕾冠王</string>
 
 
+    <string name="pokemon_name_10001">代欧奇希斯攻击</string>
+    <string name="pokemon_name_10002">代欧奇希斯防御</string>
+    <string name="pokemon_name_10003">代欧奇希斯速度</string>
+    <string name="pokemon_name_10004">结草贵妇砂土蓑衣</string>
+    <string name="pokemon_name_10005">结草贵妇垃圾蓑衣</string>
+    <string name="pokemon_name_10006">谢米天空形态</string>
+    <string name="pokemon_name_10007">骑拉帝纳起源形态</string>
+    <string name="pokemon_name_10008">加热洛托姆</string>
+    <string name="pokemon_name_10009">清洗洛托姆</string>
+    <string name="pokemon_name_10010">结冰洛托姆</string>
+    <string name="pokemon_name_10011">旋转洛托姆</string>
+    <string name="pokemon_name_10012">切割洛托姆</string>
+    <string name="pokemon_name_10013">漂浮泡泡太阳的样子</string>
+    <string name="pokemon_name_10014">漂浮泡泡雨水的样子</string>
+    <string name="pokemon_name_10015">漂浮泡泡雪云的样子</string>
+    <string name="pokemon_name_10016">野蛮鲈鱼蓝条纹的样子</string>
+    <string name="pokemon_name_10017">达摩狒狒达摩模式</string>
+    <string name="pokemon_name_10018">美洛耶塔舞步形态</string>
+    <string name="pokemon_name_10019">龙卷云灵兽形态</string>
+    <string name="pokemon_name_10020">雷电云灵兽形态</string>
+    <string name="pokemon_name_10021">土地云灵兽形态</string>
+    <string name="pokemon_name_10022">暗黑酋雷姆</string>
+    <string name="pokemon_name_10023">焰白酋雷姆</string>
+    <string name="pokemon_name_10024">凯路迪欧觉悟的样子</string>
+    <string name="pokemon_name_10025">超能妙喵雌性的样子</string>
+    <string name="pokemon_name_10026">坚盾剑怪剑形态</string>
+
+
+
     <string name="pokemon_name_10033">超级妙蛙花</string>
     <string name="pokemon_name_10034">超级喷火龙Ｘ</string>
     <string name="pokemon_name_10035">超级喷火龙Ｙ</string>
@@ -1098,7 +1127,7 @@
     <string name="pokemon_name_10172">直冲熊加勒尔的样子</string>
     <string name="pokemon_name_10173">火红不倒翁加勒尔的样子</string>
     <string name="pokemon_name_10174">达摩狒狒加勒尔的样子</string>
-    <string name="pokemon_name_10175">达摩狒狒ZEN加勒尔的样子</string>
+    <string name="pokemon_name_10175">达摩狒狒达摩模式加勒尔的样子</string>
     <string name="pokemon_name_10176">哭哭面具加勒尔的样子</string>
     <string name="pokemon_name_10177">泥巴鱼加勒尔的样子</string>
     <string name="pokemon_name_10178">颤弦蝾螈低调的样子</string>
