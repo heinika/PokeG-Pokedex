@@ -33,6 +33,8 @@ class MainPageView(context: Context) : CustomLayout(context) {
       field = onSelectedChange
     }
 
+  var onSearchTextChange: ((CharSequence?) -> Unit)? = null
+
   val recyclerView = RecyclerView(context).apply {
     layoutParams = LayoutParams(MATCH_PARENT, MATCH_PARENT)
     layoutManager = LinearLayoutManager(context)
@@ -68,6 +70,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
         symbolTextView.translationY = 0f
         translationY = 0f
       }
+
       return super.onKeyPreIme(keyCode, event)
     }
 
@@ -78,6 +81,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
       lengthAfter: Int
     ) {
       super.onTextChanged(text, start, lengthBefore, lengthAfter)
+      onSearchTextChange?.invoke(text)
     }
   }.apply {
     layoutParams = LayoutParams(MATCH_PARENT, 54.dp).apply {

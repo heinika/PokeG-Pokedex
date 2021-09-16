@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.ui.detail.DetailPage
 import com.heinika.pokeg.ui.main.itemdelegate.BottomItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.HeaderItemDelegate
@@ -16,7 +17,6 @@ import com.heinika.pokeg.ui.main.itemdelegate.model.BottomItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.utils.AdapterDiffUtils
-import com.heinika.pokeg.repository.res.PokemonRes
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -54,6 +54,15 @@ class MainPage(
       mainViewModel.startSortAndFilter()
     }
 
+    mainPageView.onSearchTextChange = { searchText ->
+      Timber.i("onSearchTextChange $searchText")
+      mainViewModel.setSearchText(searchText)
+    }
+
+    mainViewModel.searchText.observe(activity) { searchText ->
+      Timber.i("observe $searchText")
+    }
+
     val header = Header("图鉴")
     activity.lifecycleScope.launch {
       mainViewModel.pokemonSortListStateFlow.collect { pokemonList ->
@@ -73,11 +82,11 @@ class MainPage(
       mainPageView.progressBar.isVisible = isLoading
     })
 
-    mainPageView.setOnSearchClickListener{
+    mainPageView.setOnSearchClickListener {
       mainPageView.showSearchBar()
     }
 
-    mainPageView.setOnFilterClickListener{
+    mainPageView.setOnFilterClickListener {
       mainPageView.showFilterListView()
       mainPageView.hideBottomFilterBar()
     }
@@ -88,10 +97,10 @@ class MainPage(
     if (mainPageView.canScrollUp()) {
       mainPageView.scrollToTop()
     } else {
-      if (mainPageView.isShowFilterList){
+      if (mainPageView.isShowFilterList) {
         mainPageView.hideTopFilterListView()
         mainPageView.showBottomFilterView()
-      }else{
+      } else {
         activity.finish()
       }
     }
