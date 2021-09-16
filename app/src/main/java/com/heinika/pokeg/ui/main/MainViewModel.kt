@@ -20,6 +20,9 @@ class MainViewModel @Inject constructor(
   private val _toastMessage = MutableLiveData<String?>()
   val toastMessage: LiveData<String?> = _toastMessage
 
+  private val _searchText = MutableLiveData<CharSequence?>()
+  val searchText: LiveData<CharSequence?> = _searchText
+
   private val _isLoading = MutableLiveData<Boolean>().apply { value = true }
   val isLoading: LiveData<Boolean> = _isLoading
 
@@ -28,7 +31,7 @@ class MainViewModel @Inject constructor(
 
   private var basePokemonList: List<Pokemon>? = null
 
-  var filterTypeList : List<PokemonProp.Type> = emptyList()
+  var filterTypeList: List<PokemonProp.Type> = emptyList()
 
 
   init {
@@ -52,14 +55,18 @@ class MainViewModel @Inject constructor(
     }
   }
 
+  fun setSearchText(searchText: CharSequence?) {
+    _searchText.value = searchText
+  }
+
   private fun List<Pokemon>.filterType(): List<Pokemon> {
     return filter { pokemon ->
-      if (filterTypeList.isEmpty()){
+      if (filterTypeList.isEmpty()) {
         true
       } else {
         var result = true
         filterTypeList.forEach { type ->
-          if (!pokemon.types.map { it.typeId }.contains(type.typeId)){
+          if (!pokemon.types.map { it.typeId }.contains(type.typeId)) {
             result = false
           }
         }
