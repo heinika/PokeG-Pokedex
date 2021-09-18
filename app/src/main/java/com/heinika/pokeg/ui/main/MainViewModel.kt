@@ -3,6 +3,7 @@ package com.heinika.pokeg.ui.main
 import androidx.lifecycle.*
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.PokemonProp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
   private val mainRepository: MainRepository,
+  private val pokemonRes: PokemonRes,
   private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -57,6 +59,13 @@ class MainViewModel @Inject constructor(
 
   fun setSearchText(searchText: CharSequence?) {
     _searchText.value = searchText
+    if (searchText.isNullOrEmpty()) {
+      basePokemonList?.let { _pokemonSortListStateFlow.value = it }
+    } else {
+      basePokemonList?.filter { it.getCName(pokemonRes).contains(searchText, true) || it.id.toString().contains(searchText, true)  }?.let {
+        _pokemonSortListStateFlow.value = it
+      }
+    }
   }
 
   private fun List<Pokemon>.filterType(): List<Pokemon> {
