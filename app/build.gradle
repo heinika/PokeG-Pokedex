@@ -15,13 +15,13 @@ android {
             keyPassword '111111'
         }
     }
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.heinika.pokeg"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 8
         versionName "1.7"
 
@@ -92,9 +92,9 @@ dependencies {
     // architecture components
     implementation "androidx.fragment:fragment-ktx:1.3.6"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha03"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha03"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0-beta01"
 
 
     // unit test
