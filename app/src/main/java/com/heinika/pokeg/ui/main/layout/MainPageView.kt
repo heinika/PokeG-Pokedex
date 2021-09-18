@@ -2,12 +2,10 @@ package com.heinika.pokeg.ui.main.layout
 
 import android.content.Context
 import android.text.InputFilter
-import android.text.InputType
 import android.view.Gravity
 import android.view.KeyEvent
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatEditText
@@ -92,10 +90,8 @@ class MainPageView(context: Context) : CustomLayout(context) {
     setPadding(42.dp, 0, 0, 0)
     textSize = 36f
     setTextColor(R.color.colorPrimary.resColor)
-    inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
     setSingleLine()
     filters = arrayOf(InputFilter.LengthFilter(5))
-    imeOptions = EditorInfo.IME_ACTION_DONE
     setBackgroundResource(R.drawable.input_background)
     addView(this)
   }
@@ -216,26 +212,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
         })
       }
 
-      searchEditText.let {
-        it.setOnEditorActionListener { _, actionId, _ ->
-          return@setOnEditorActionListener when (actionId) {
-            EditorInfo.IME_ACTION_DONE -> {
-              if (it.text.toString().isNotEmpty()) {
-                when (val id = it.text.toString().toInt()) {
-                  in 0..898 -> toSearchPosition(id)
-                  in 899..10000 -> toSearchPosition(899)
-                  in 10001..10220 -> toSearchPosition(898 + id - 10000)
-                  else -> toSearchPosition(898 + 220)
-                }
-              } else {
-                hideSearchBar()
-              }
-              true
-            }
-            else -> false
-          }
-        }
-      }
     }
   }
 
@@ -262,17 +238,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     imm.showSoftInput(searchEditText, 0)
   }
 
-  private fun hideSearchBar() {
-    searchEditText.translationY = 0f
-    symbolTextView.translationY = 0f
-    recyclerView.translationY = 0f
-    val imm: InputMethodManager =
-      searchEditText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    if (imm.isActive) {
-      imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
-    }
-  }
-
   fun showFilterListView() {
     isShowFilterList = true
     filterListView.translationY = filterListView.height.toFloat() + StatusBarHeight.value
@@ -288,15 +253,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
   fun showBottomFilterView(){
     showSearchAnimator.start()
     showFilterListAnimator.start()
-  }
-
-  private fun toSearchPosition(position: Int) {
-    (recyclerView.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(
-      position,
-      48.dp
-    )
-    hideSearchBar()
-    searchEditText.setText("")
   }
 
   fun canScrollUp(): Boolean {
