@@ -1,5 +1,6 @@
 package com.heinika.pokeg.model
 
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.getPokemonImageUrl
 
 data class Pokemon(
@@ -16,6 +17,8 @@ data class Pokemon(
 //  }
 
   fun getImageUrl(): String = getPokemonImageUrl(id, name)
+
+  fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id,name)
 
   fun getIdString(): String = String.format("#%03d", id)
 }
