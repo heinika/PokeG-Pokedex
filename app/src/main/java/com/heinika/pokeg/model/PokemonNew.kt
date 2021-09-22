@@ -1,8 +1,10 @@
 package com.heinika.pokeg.model
 
 
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import timber.log.Timber
 
 @JsonClass(generateAdapter = true)
 data class PokemonNew(
@@ -28,4 +30,19 @@ data class PokemonNew(
     fun getFormatWeight(): String = String.format("%.1f KG", weight.toFloat() / 10)
 
     fun getFormatHeight(): String = String.format("%.1f M", height.toFloat() / 10)
+
+    fun toPokemon(pokemonRes: PokemonRes): Pokemon {
+        var totalBaseStat = 0
+        pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id }.forEach {
+            totalBaseStat += it.baseStat
+        }
+        Timber.i(identifier)
+        return Pokemon(
+            id = id,
+            speciesId = speciesId,
+            name = identifier,
+            types = pokemonRes.fetchPokemonType().filter { it.pokemonId == id },
+            totalBaseStat = totalBaseStat
+        )
+    }
 }
