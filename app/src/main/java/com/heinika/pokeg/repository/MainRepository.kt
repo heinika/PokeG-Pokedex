@@ -1,6 +1,7 @@
 package com.heinika.pokeg.repository
 
 import androidx.annotation.WorkerThread
+import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonNew
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -25,6 +26,7 @@ class MainRepository @Inject constructor(
       val pokemonList = pokemonRes.fetchPokemonNew().map { pokemon ->
         toPokemon(pokemon)
       }
+      PokemonDataCache.pokemonList = pokemonList
       onSuccess()
       emit(pokemonList)
     } catch (e: Exception) {

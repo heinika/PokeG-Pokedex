@@ -1,11 +1,9 @@
 package com.heinika.pokeg.repository
 
 import com.heinika.pokeg.model.Ability
-import com.heinika.pokeg.model.Pokemon
-import com.heinika.pokeg.model.PokemonNew
 import com.heinika.pokeg.model.SpeciesEvolutionChain
-import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -73,24 +71,9 @@ class DetailRepository @Inject constructor(
   fun speciesAllOtherFormsFlow(specieId: Int, id: Int) = flow {
     emit(pokemonRes.fetchPokemonNew().filter { it.speciesId == specieId && it.id != id }
       .map { pokemonNew ->
-        toPokemon(pokemonNew)
+        pokemonNew.toPokemon(pokemonRes)
       })
   }.flowOn(Dispatchers.IO)
-
-  private fun toPokemon(pokemon: PokemonNew): Pokemon {
-    var totalBaseStat = 0
-    pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == pokemon.id }.forEach {
-      totalBaseStat += it.baseStat
-    }
-    Timber.i(pokemon.identifier)
-    return Pokemon(
-      id = pokemon.id,
-      speciesId = pokemon.speciesId,
-      name = pokemon.identifier,
-      types = pokemonRes.fetchPokemonType().filter { it.pokemonId == pokemon.id },
-      totalBaseStat = totalBaseStat
-    )
-  }
 
   fun pokemonAbilitiesFlow(id: Int) = flow {
     emit(

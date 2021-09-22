@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide
 import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.databinding.PageDetailBinding
@@ -201,7 +202,7 @@ class DetailPage(
         .observe(activity) { chainList ->
           if (chainList.isNotEmpty()) {
             binding.evolutionCard.isVisible = true
-            chainList.forEach {
+            chainList.forEach { chain ->
               binding.evolutionLinear.addView(
                 LayoutInflater.from(activity)
                   .inflate(
@@ -210,20 +211,28 @@ class DetailPage(
                     false
                   ).also { view ->
                     val fromImage =
-                      view.findViewById<AppCompatImageView>(R.id.fromImageView)
+                      view.findViewById<AppCompatImageView>(R.id.fromImageView).apply {
+                        if (pokemon.id != chain.evolvedFromSpeciesId ){
+                          toTargetDetailPage(chain.evolvedFromSpeciesId )
+                        }
+                      }
                     val toImage =
-                      view.findViewById<AppCompatImageView>(R.id.toImageView)
+                      view.findViewById<AppCompatImageView>(R.id.toImageView).apply {
+                        if (pokemon.id != chain.evolvedToSpeciesId ){
+                          toTargetDetailPage(chain.evolvedToSpeciesId)
+                        }
+                      }
                     val descText =
                       view.findViewById<AppCompatTextView>(R.id.descText)
 
-                    descText.text = it.getDescText(pokemonRes)
+                    descText.text = chain.getDescText(pokemonRes)
 
                     Glide.with(fromImage)
-                      .load(it.getSpeciesFromImageUrl())
+                      .load(chain.getSpeciesFromImageUrl())
                       .into(fromImage)
 
                     Glide.with(toImage)
-                      .load(it.getSpeciesToImageUrl())
+                      .load(chain.getSpeciesToImageUrl())
                       .into(toImage)
                   })
             }
@@ -318,6 +327,20 @@ class DetailPage(
 
         duration = animatorDuration
         start()
+      }
+    }
+  }
+
+  private fun AppCompatImageView.toTargetDetailPage(targetId: Int) {
+    setOnClickListener {
+      DetailPage(
+        pokemonRes,
+        activity,
+        pokemonList.first { it.id == targetId },
+        this,
+        pageStack
+      ).also {
+        it.showPage()
       }
     }
   }
