@@ -10,6 +10,10 @@
     <string name="sp_def">特防</string>
     <string name="spd">速度</string>
 
+    <string name="save_image">保存图片</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
     <string name="version_1">红/绿/蓝</string>
     <string name="version_2">黄</string>
     <string name="version_3">金/银</string>

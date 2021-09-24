@@ -21,6 +21,7 @@ android {
     defaultConfig {
         applicationId "com.heinika.pokeg"
         minSdkVersion 23
+        //noinspection OldTargetApi
         targetSdkVersion 31
         versionCode 9
         versionName "1.8"

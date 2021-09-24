@@ -1,21 +1,31 @@
 package com.heinika.pokeg.ui.detail
 
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import androidx.core.animation.doOnStart
+import androidx.core.app.ActivityCompat
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
@@ -38,6 +48,7 @@ import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
 import java.util.*
 
+
 class DetailPage(
   private val pokemonRes: PokemonRes,
   private val activity: AppCompatActivity,
@@ -54,6 +65,7 @@ class DetailPage(
 
   private val animatorDuration = 200L
 
+  @SuppressLint("NotifyDataSetChanged")
   override fun showPage() {
     super.showPage()
 
@@ -79,6 +91,44 @@ class DetailPage(
             }
           }.crossfade(true)
       ).into(binding.image)
+    binding.image.setOnLongClickListener {
+      val dialog =
+        AlertDialog.Builder(activity)
+          .setTitle("保存图片")
+          .setNegativeButton(R.string.cancel) { dialog, _ ->
+            dialog.dismiss()
+          }
+          .setPositiveButton(R.string.ok) { dialog, _ ->
+            Glide.with(activity)
+              .asBitmap()
+              .load(pokemon.getImageUrl())
+              .into(object : CustomTarget<Bitmap>() {
+                override fun onResourceReady(
+                  resource: Bitmap,
+                  @Nullable transition: Transition<in Bitmap>?
+                ) {
+                  if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P){
+                    if (checkPermission()) {
+                      saveImageToDCIM(resource)
+                    }else{
+                      //请求权限
+                      ActivityCompat.requestPermissions(activity, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+                    }
+                  } else {
+                    saveImageToDCIM(resource)
+                  }
+                }
+
+                override fun onLoadCleared(@Nullable placeholder: Drawable?) {
+                  Toast.makeText(activity.applicationContext,"保存失败",Toast.LENGTH_SHORT).show()
+                }
+              })
+            dialog.dismiss()
+          }
+          .create()
+      dialog.show()
+      true
+    }
 
     binding.progressHp.max = PokemonInfo.maxHp
     binding.progressAttach.max = PokemonInfo.maxAttack
@@ -212,13 +262,13 @@ class DetailPage(
                   ).also { view ->
                     val fromImage =
                       view.findViewById<AppCompatImageView>(R.id.fromImageView).apply {
-                        if (pokemon.id != chain.evolvedFromSpeciesId ){
-                          toTargetDetailPage(chain.evolvedFromSpeciesId )
+                        if (pokemon.id != chain.evolvedFromSpeciesId) {
+                          toTargetDetailPage(chain.evolvedFromSpeciesId)
                         }
                       }
                     val toImage =
                       view.findViewById<AppCompatImageView>(R.id.toImageView).apply {
-                        if (pokemon.id != chain.evolvedToSpeciesId ){
+                        if (pokemon.id != chain.evolvedToSpeciesId) {
                           toTargetDetailPage(chain.evolvedToSpeciesId)
                         }
                       }
@@ -329,6 +379,11 @@ class DetailPage(
         start()
       }
     }
+  }
+
+  private fun saveImageToDCIM(resource: Bitmap) {
+    PhotoUtils.saveBitmap2Gallery2(activity, resource, pokemon.getCName(pokemonRes))
+    Toast.makeText(activity.applicationContext, "已保存到相册", Toast.LENGTH_SHORT).show()
   }
 
   private fun AppCompatImageView.toTargetDetailPage(targetId: Int) {
@@ -452,5 +507,11 @@ class DetailPage(
       duration = animatorDuration
       start()
     }
+  }
+
+  private fun checkPermission():Boolean{
+    return ActivityCompat.checkSelfPermission(
+      activity, android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+    ) == PackageManager.PERMISSION_GRANTED
   }
 }

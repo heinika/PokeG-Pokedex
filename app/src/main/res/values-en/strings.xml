@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">PokeG</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
@@ -9,6 +9,10 @@
     <string name="sp_atk">SATK</string>
     <string name="sp_def">SDEF</string>
     <string name="spd">SPD</string>
+
+    <string name="save_image">Save Image</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
     <string name="version_1">red/blue</string>
     <string name="version_2">yellow</string>
@@ -2045,7 +2049,7 @@
 
     <string name="monster">monster</string>
     <string name="plant">plant</string>
-    <string name="water1">water1</string>
+    <string name="water1" tools:ignore="Typos">water1</string>
     <string name="water2">water2</string>
     <string name="water3">water3</string>
     <string name="bug">bug</string>
