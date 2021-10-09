@@ -215,9 +215,9 @@ class DetailPage(
         }
 
 
-      detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) {
+      detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) { list ->
         binding.eggGroupText.text =
-          it.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
+          list.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
             .replace(",", " ")
       }
 

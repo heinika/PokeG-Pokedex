@@ -1,6 +1,7 @@
 package com.heinika.pokeg.ui.main.layout
 
 import android.content.Context
+import android.graphics.Color
 import android.text.InputFilter
 import android.view.Gravity
 import android.view.KeyEvent
@@ -49,7 +50,8 @@ class MainPageView(context: Context) : CustomLayout(context) {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = 8.dp
     }
-    setImageResource(R.drawable.search)
+    setImageResource(R.drawable.ic_search)
+    setColorFilter(Color.WHITE)
     addView(this)
   }
 
@@ -57,7 +59,8 @@ class MainPageView(context: Context) : CustomLayout(context) {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = 8.dp
     }
-    setImageResource(R.drawable.filter_list)
+    setImageResource(R.drawable.ic_filter_list)
+    setColorFilter(Color.WHITE)
     addView(this)
   }
 

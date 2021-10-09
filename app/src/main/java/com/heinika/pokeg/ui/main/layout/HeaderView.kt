@@ -1,22 +1,34 @@
 package com.heinika.pokeg.ui.main.layout
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
-import android.widget.TextView
-import androidx.core.view.marginStart
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.marginTop
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
 import com.heinika.pokeg.utils.StatusBarHeight
 
-class HeaderView(context: Context) : CustomLayout(context) {
-  private val titleLabel = TextView(context).apply {
+@SuppressLint("ViewConstructor")
+class HeaderView(context: Context, onSettingClick: () -> Unit) : CustomLayout(context) {
+  private val titleLabel = AppCompatTextView(context).apply {
     text = "全国图鉴"
     textSize = 10.dp.toFloat()
-    setPadding(24.dp, StatusBarHeight.value, 0, 0)
+    setPadding(0, StatusBarHeight.value + 16.dp, 0, 0)
     layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
     setTextColor(R.color.white.resColor)
+    this@HeaderView.addView(this)
+  }
+
+  private val settingImage = AppCompatImageButton(context).apply {
+    layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+    setImageResource(R.drawable.ic_menu)
+    background = null
+    setOnClickListener {
+      onSettingClick()
+    }
     this@HeaderView.addView(this)
   }
 
@@ -24,11 +36,13 @@ class HeaderView(context: Context) : CustomLayout(context) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
     titleLabel.autoMeasure()
+    settingImage.autoMeasure()
 
-    setMeasuredDimension(measuredWidth, 82.dp)
+    setMeasuredDimension(measuredWidth, 66.dp + StatusBarHeight.value)
   }
 
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-    titleLabel.let { it.layout(it.marginStart, it.marginTop) }
+    settingImage.layout(12.dp, StatusBarHeight.value + 8.dp)
+    titleLabel.let { it.layout(12.dp + settingImage.measuredWidth, it.marginTop) }
   }
 }

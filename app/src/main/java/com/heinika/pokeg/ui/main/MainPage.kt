@@ -1,11 +1,15 @@
 package com.heinika.pokeg.ui.main
 
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
+import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -15,6 +19,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BottomItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.Header
+import com.heinika.pokeg.ui.main.layout.LeftDrawerView
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import kotlinx.coroutines.flow.collect
@@ -38,9 +43,20 @@ class MainPage(
 
   override fun showPage() {
     super.showPage()
-    content.addView(mainPageView)
+    val drawerLayout = DrawerLayout(activity).apply {
+      addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
+      addView(LeftDrawerView(activity).apply {
+        layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+          gravity = GravityCompat.START
+          fitsSystemWindows = false
+        }
+      })
+    }
+    content.addView(drawerLayout)
 
-    adapter.register(HeaderItemDelegate())
+    adapter.register(HeaderItemDelegate {
+      drawerLayout.openDrawer(GravityCompat.START,true)
+    })
     adapter.register(BottomItemDelegate())
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
       DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
