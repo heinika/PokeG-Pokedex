@@ -1,5 +1,6 @@
 package com.heinika.pokeg.ui.main
 
+import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -19,8 +20,8 @@ import com.heinika.pokeg.ui.main.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BottomItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.Header
-import com.heinika.pokeg.ui.main.layout.LeftDrawerView
 import com.heinika.pokeg.ui.main.layout.MainPageView
+import com.heinika.pokeg.ui.main.layout.RightDrawerView
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -41,21 +42,33 @@ class MainPage(
 
   private val mainPageView = MainPageView(activity)
 
+  private val rightDrawerView = RightDrawerView(activity).apply {
+    layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+      gravity = GravityCompat.END
+      fitsSystemWindows = true
+    }
+  }
+
+  private val drawerLayout = DrawerLayout(activity).apply {
+      layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
+      addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
+//      addView(LeftDrawerView(activity).apply {
+//        layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+//          gravity = GravityCompat.START
+//          fitsSystemWindows = true
+//        }
+//      })
+      addView(rightDrawerView)
+    }
+
+
   override fun showPage() {
     super.showPage()
-    val drawerLayout = DrawerLayout(activity).apply {
-      addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
-      addView(LeftDrawerView(activity).apply {
-        layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
-          gravity = GravityCompat.START
-          fitsSystemWindows = false
-        }
-      })
-    }
+
     content.addView(drawerLayout)
 
     adapter.register(HeaderItemDelegate {
-      drawerLayout.openDrawer(GravityCompat.START,true)
+      drawerLayout.openDrawer(GravityCompat.START, true)
     })
     adapter.register(BottomItemDelegate())
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
@@ -65,7 +78,7 @@ class MainPage(
     }))
 
     mainPageView.recyclerView.adapter = adapter
-    mainPageView.onSelectedChange = {
+    rightDrawerView.filterListView.onSelectedChange = {
       mainViewModel.filterTypeList = it
       mainViewModel.startSortAndFilter()
     }
@@ -103,8 +116,7 @@ class MainPage(
     }
 
     mainPageView.setOnFilterClickListener {
-      mainPageView.showFilterListView()
-      mainPageView.hideBottomFilterBar()
+      drawerLayout.openDrawer(GravityCompat.END, true)
     }
   }
 
@@ -113,8 +125,8 @@ class MainPage(
     if (mainPageView.canScrollUp()) {
       mainPageView.scrollToTop()
     } else {
-      if (mainPageView.isShowFilterList) {
-        mainPageView.hideTopFilterListView()
+      if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+        drawerLayout.closeDrawer(GravityCompat.END, true)
         mainPageView.showBottomFilterView()
       } else {
         activity.finish()

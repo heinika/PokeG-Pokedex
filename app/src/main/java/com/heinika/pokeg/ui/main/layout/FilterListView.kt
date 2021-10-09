@@ -1,14 +1,15 @@
 package com.heinika.pokeg.ui.main.layout
 
 import android.content.Context
-import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.Gravity
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.GridLayout
+import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.google.android.flexbox.*
-import com.google.android.flexbox.FlexWrap.WRAP
-import com.heinika.pokeg.R
-import com.heinika.pokeg.base.CustomLayout
 import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.dp
 import com.heinika.pokeg.view.TypeCheckBox
 import timber.log.Timber
 import java.util.*
@@ -16,23 +17,21 @@ import java.util.*
 
 
 
-class FilterListView(context: Context) : CustomLayout(context) {
+class FilterListView(context: Context) : LinearLayout(context) {
 
     var onSelectedChange: ((List<PokemonProp.Type>) -> Unit)? = null
 
     init {
-        setBackgroundColor(context.getColor(R.color.background))
+        gravity = Gravity.CENTER_HORIZONTAL
     }
 
     private val typeQueue = LinkedList<PokemonProp.Type>()
     private val checkBoxList = arrayListOf<AppCompatCheckBox>()
 
-    private val flexboxLayout = FlexboxLayout(context).apply {
-        layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-        alignContent = AlignContent.CENTER
-        setPadding(8.dp, 0, 8.dp, 0)
-        flexWrap = WRAP
-        justifyContent = JustifyContent.SPACE_BETWEEN
+    private val flexboxLayout = GridLayout(context).apply {
+        layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+
+        columnCount = 5
         PokemonProp.Type.values().forEach {
             if (it != PokemonProp.Type.UNKNOWN) {
                 addTypeCheckBox(this, context, it)
@@ -44,18 +43,17 @@ class FilterListView(context: Context) : CustomLayout(context) {
 
 
     private fun addTypeCheckBox(
-        layout: FlexboxLayout,
+        layout: GridLayout,
         context: Context,
         type: PokemonProp.Type
     ) {
         layout.addView(TypeCheckBox(context, type = type).apply {
-            layoutParams = FlexboxLayoutManager.LayoutParams(WRAP_CONTENT, 30.dp).apply {
-                flexGrow = 1.0f
-                alignSelf = AlignItems.FLEX_END
+            layoutParams = LayoutParams(WRAP_CONTENT, 30.dp).apply {
                 marginStart = 4.dp
                 marginEnd = 4.dp
                 topMargin = 4.dp
                 bottomMargin = 4.dp
+                gravity = Gravity.CENTER
             }
 
             textAlignment = TEXT_ALIGNMENT_CENTER
@@ -88,11 +86,6 @@ class FilterListView(context: Context) : CustomLayout(context) {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        flexboxLayout.autoMeasure()
-        setMeasuredDimension(measuredWidth, flexboxLayout.measuredHeight + 48.dp)
-    }
-
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        flexboxLayout.layout(0.dp, 48.dp)
+        setMeasuredDimension(measuredWidth, flexboxLayout.measuredHeight + StatusBarHeight.value)
     }
 }

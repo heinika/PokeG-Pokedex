@@ -21,16 +21,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
-import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.StatusBarHeight
 
 class MainPageView(context: Context) : CustomLayout(context) {
-
-  var onSelectedChange: ((List<PokemonProp.Type>) -> Unit)? = null
-    set(value) {
-      filterListView.onSelectedChange = value
-      field = onSelectedChange
-    }
 
   var onSearchTextChange: ((CharSequence?) -> Unit)? = null
 
@@ -99,11 +92,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
-  private val filterListView = FilterListView(context).apply {
-    layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-    this@MainPageView.addView(this)
-  }
-
   private val symbolTextView = AppCompatTextView(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, 54.dp)
     setTextColor(R.color.colorPrimary.resColor)
@@ -113,9 +101,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     setPadding(12.dp, 0, 0, 0)
     addView(this)
   }
-
-  var isShowFilterList = false
-    private set
 
   private val hideFilterListAnimator = SpringAnimation(
     filterListButton,
@@ -154,7 +139,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
       )
     }
     symbolTextView.autoMeasure()
-    filterListView.autoMeasure()
 
     setMeasuredDimension(measuredWidth, measuredHeight)
   }
@@ -182,7 +166,6 @@ class MainPageView(context: Context) : CustomLayout(context) {
     }
     searchEditText.let { it.layout(it.marginStart, -it.measuredHeight - StatusBarHeight.value) }
     symbolTextView.layout(searchEditText.left, searchEditText.top)
-    filterListView.let { it.layout(0, -it.measuredHeight - StatusBarHeight.value) }
   }
 
   override fun onAttachedToWindow() {
@@ -193,7 +176,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
 
           override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-            if (it.scrollState == RecyclerView.SCROLL_STATE_IDLE && !isShowFilterList) {
+            if (it.scrollState == RecyclerView.SCROLL_STATE_IDLE) {
               showBottomFilterView()
             }
           }
@@ -206,7 +189,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
                   hideBottomFilterBar()
                 }
               } else {
-                if (!showSearchAnimator.isRunning && !isShowFilterList) {
+                if (!showSearchAnimator.isRunning) {
                   showBottomFilterView()
                 }
               }
@@ -241,15 +224,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
     imm.showSoftInput(searchEditText, 0)
   }
 
-  fun showFilterListView() {
-    isShowFilterList = true
-    filterListView.translationY = filterListView.height.toFloat() + StatusBarHeight.value
-    recyclerView.translationY = filterListView.height.toFloat()
-  }
-
   fun hideTopFilterListView() {
-    isShowFilterList = false
-    filterListView.translationY = 0f
     recyclerView.translationY = 0f
   }
 
