@@ -51,16 +51,16 @@ class MainPage(
   }
 
   private val drawerLayout = DrawerLayout(activity).apply {
-      layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
-      addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
+    layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
+    addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
 //      addView(LeftDrawerView(activity).apply {
 //        layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
 //          gravity = GravityCompat.START
 //          fitsSystemWindows = true
 //        }
 //      })
-      addView(rightDrawerView)
-    }
+    addView(rightDrawerView)
+  }
 
 
   override fun showPage() {
@@ -96,8 +96,16 @@ class MainPage(
       Timber.i("observe $searchText")
     }
 
-    mainViewModel.sortBaseStatusList.observe(activity){
-      rightDrawerView.setBaseStatusTitleDataList(it)
+    mainViewModel.sortBaseStatusList.observe(activity) {
+      rightDrawerView.setBaseStatusTitleDataList(it, isDesc = mainViewModel.isSortDesc.value!!)
+    }
+
+    mainViewModel.isSortDesc.observe(activity){
+      rightDrawerView.setBaseStatusTitleDataList(mainViewModel.sortBaseStatusList.value!!, isDesc = it)
+    }
+
+    rightDrawerView.onBaseStatusTitleClick = {
+      mainViewModel.changeSortOrder()
     }
 
     val header = Header("图鉴")

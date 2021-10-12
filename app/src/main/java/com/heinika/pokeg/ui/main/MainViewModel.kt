@@ -28,6 +28,9 @@ class MainViewModel @Inject constructor(
   private val _isLoading = MutableLiveData<Boolean>().apply { value = true }
   val isLoading: LiveData<Boolean> = _isLoading
 
+  private val _isSortDesc = MutableLiveData<Boolean>().apply { value = true }
+  val isSortDesc: LiveData<Boolean> = _isSortDesc
+
   private val _pokemonSortListStateFlow = MutableStateFlow<List<Pokemon>>(listOf())
   val pokemonSortListStateFlow = _pokemonSortListStateFlow
 
@@ -63,7 +66,6 @@ class MainViewModel @Inject constructor(
     _sortBaseStatusList.value = list
     startSortAndFilter()
   }
-
 
   private fun startSortAndFilter() {
     basePokemonList?.let { baseList ->
@@ -117,9 +119,18 @@ class MainViewModel @Inject constructor(
             PokemonProp.BaseStatus.SPEED -> pokemon.speed
           }
         }
-        -sortPriority
+        if (isSortDesc.value!!) {
+          -sortPriority
+        } else {
+          sortPriority
+        }
       }
     }
+  }
+
+  fun changeSortOrder() {
+    _isSortDesc.value = !_isSortDesc.value!!
+    startSortAndFilter()
   }
 
 }

@@ -29,8 +29,13 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     text = "排序： 未选择"
     setTextColor(Color.WHITE)
     textSize = 20f
+    setOnClickListener {
+      onBaseStatusTitleClick?.invoke()
+    }
     addView(this)
   }
+
+  var onBaseStatusTitleClick: (() -> Unit)? = null
 
   private val baseStatusCheckedList = mutableListOf<PokemonProp.BaseStatus>()
   var onBaseStatusCheckedListChange: ((list: List<PokemonProp.BaseStatus>) -> Unit)? = null
@@ -87,11 +92,16 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     baseStatusFilterView.layout(12.dp, baseStatusTitle.bottom + 8.dp)
   }
 
-  fun setBaseStatusTitleDataList(list: List<PokemonProp.BaseStatus>) {
+  fun setBaseStatusTitleDataList(list: List<PokemonProp.BaseStatus>, isDesc: Boolean) {
     if (list.isEmpty()) {
-      baseStatusTitle.text = "排序:未选择"
+      baseStatusTitle.text = "${sortPriority(isDesc)}:未选择"
+    } else if (list.size == 6) {
+      baseStatusTitle.text = "${sortPriority(isDesc)}:总能力值"
     } else {
-      baseStatusTitle.text = "排序:${list.map { it.getName(context) }.joinToString("+")}"
+      baseStatusTitle.text =
+        "${sortPriority(isDesc)}:${list.map { it.getName(context) }.joinToString("+")}"
     }
   }
+
+  private fun sortPriority(isDesc: Boolean) = if (isDesc) "降序" else "升序"
 }
