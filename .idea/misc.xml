@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/check_box_basestatus_normal.xml" value="0.3425925925925926" />
         <entry key="app/src/main/res/drawable/check_box_type_normal.xml" value="0.3796875" />
         <entry key="app/src/main/res/drawable/check_box_type_select.xml" value="0.3796875" />
         <entry key="app/src/main/res/drawable/filter_list.xml" value="0.11388888888888889" />

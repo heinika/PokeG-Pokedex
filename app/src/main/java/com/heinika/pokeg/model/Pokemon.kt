@@ -8,7 +8,13 @@ data class Pokemon(
   val speciesId: Int,
   val name: String,
   val types: List<PokemonType>,
-  val totalBaseStat: Int
+  val totalBaseStat: Int,
+  val hp: Int,
+  val atk: Int,
+  val def: Int,
+  val spAtk: Int,
+  val spDef: Int,
+  val speed: Int,
 ) {
 
 //  fun getImageUrl(): String {
@@ -18,7 +24,7 @@ data class Pokemon(
 
   fun getImageUrl(): String = getPokemonImageUrl(id, name)
 
-  fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id,name)
+  fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id, name)
 
   fun getIdString(): String = String.format("#%03d", id)
 }

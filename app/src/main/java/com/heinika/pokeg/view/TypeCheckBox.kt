@@ -9,8 +9,6 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.heinika.pokeg.R
 import com.heinika.pokeg.utils.PokemonProp
-import com.heinika.pokeg.utils.PokemonProp.toColor
-import com.heinika.pokeg.utils.PokemonProp.toResName
 import com.heinika.pokeg.utils.dp
 
 @SuppressLint("ViewConstructor")
@@ -21,14 +19,14 @@ class TypeCheckBox @JvmOverloads constructor(
     init {
         tag = type.name
         textAlignment = TEXT_ALIGNMENT_CENTER
-        text = type.toResName(context)
+        text = type.getName(context)
         setTextColor(Color.WHITE)
         buttonDrawable = null
         val drawable = resources.getDrawable(R.drawable.check_box_type_normal) as GradientDrawable
-        drawable.setTint(type.toColor(context))
+        drawable.setTint(type.getColor(context))
         drawable.setTintMode(PorterDuff.Mode.ADD)
         setBackgroundDrawable(drawable)
-        setOnCheckedChangeListener { buttonView, isChecked ->
+        setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 (background as GradientDrawable).setStroke(2.dp, Color.RED)
             } else {

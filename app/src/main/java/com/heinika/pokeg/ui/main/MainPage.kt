@@ -23,6 +23,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.ui.main.layout.RightDrawerView
 import com.heinika.pokeg.utils.AdapterDiffUtils
+import com.heinika.pokeg.utils.dp
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -43,7 +44,7 @@ class MainPage(
   private val mainPageView = MainPageView(activity)
 
   private val rightDrawerView = RightDrawerView(activity).apply {
-    layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+    layoutParams = DrawerLayout.LayoutParams(316.dp, MATCH_PARENT).apply {
       gravity = GravityCompat.END
       fitsSystemWindows = true
     }
@@ -78,9 +79,12 @@ class MainPage(
     }))
 
     mainPageView.recyclerView.adapter = adapter
-    rightDrawerView.filterListView.onSelectedChange = {
+    rightDrawerView.typesFilterView.onSelectedChange = {
       mainViewModel.filterTypeList = it
-      mainViewModel.startSortAndFilter()
+    }
+
+    rightDrawerView.onBaseStatusCheckedListChange = {
+      mainViewModel.changeSortBaseStatusList(it)
     }
 
     mainPageView.onSearchTextChange = { searchText ->
@@ -90,6 +94,10 @@ class MainPage(
 
     mainViewModel.searchText.observe(activity) { searchText ->
       Timber.i("observe $searchText")
+    }
+
+    mainViewModel.sortBaseStatusList.observe(activity){
+      rightDrawerView.setBaseStatusTitleDataList(it)
     }
 
     val header = Header("图鉴")

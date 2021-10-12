@@ -34,7 +34,15 @@ class MainViewModel @Inject constructor(
   private var basePokemonList: List<Pokemon>? = null
 
   var filterTypeList: List<PokemonProp.Type> = emptyList()
+    set(value) {
+      field = value
+      startSortAndFilter()
+    }
 
+  private val _sortBaseStatusList: MutableLiveData<List<PokemonProp.BaseStatus>> =
+    MutableLiveData(emptyList())
+
+  val sortBaseStatusList: LiveData<List<PokemonProp.BaseStatus>> = _sortBaseStatusList
 
   init {
     Timber.d("init MainViewModel")
@@ -51,9 +59,15 @@ class MainViewModel @Inject constructor(
     }
   }
 
-  fun startSortAndFilter() {
+  fun changeSortBaseStatusList(list: List<PokemonProp.BaseStatus>) {
+    _sortBaseStatusList.value = list
+    startSortAndFilter()
+  }
+
+
+  private fun startSortAndFilter() {
     basePokemonList?.let { baseList ->
-      _pokemonSortListStateFlow.value = baseList.filterType()
+      _pokemonSortListStateFlow.value = baseList.filterType().sortBaseStatus()
     }
   }
 
@@ -62,7 +76,10 @@ class MainViewModel @Inject constructor(
     if (searchText.isNullOrEmpty()) {
       basePokemonList?.let { _pokemonSortListStateFlow.value = it }
     } else {
-      basePokemonList?.filter { it.getCName(pokemonRes).contains(searchText, true) || it.id.toString().contains(searchText, true)  }?.let {
+      basePokemonList?.filter {
+        it.getCName(pokemonRes).contains(searchText, true) || it.id.toString()
+          .contains(searchText, true)
+      }?.let {
         _pokemonSortListStateFlow.value = it
       }
     }
@@ -80,6 +97,27 @@ class MainViewModel @Inject constructor(
           }
         }
         result
+      }
+    }
+  }
+
+  private fun List<Pokemon>.sortBaseStatus(): List<Pokemon> {
+    return sortedBy { pokemon ->
+      if (sortBaseStatusList.value.isNullOrEmpty()) {
+        0
+      } else {
+        var sortPriority = 0
+        sortBaseStatusList.value?.forEach {
+          sortPriority += when (it) {
+            PokemonProp.BaseStatus.HP -> pokemon.hp
+            PokemonProp.BaseStatus.ATK -> pokemon.atk
+            PokemonProp.BaseStatus.DEF -> pokemon.def
+            PokemonProp.BaseStatus.SP_ATK -> pokemon.spAtk
+            PokemonProp.BaseStatus.SP_DEF -> pokemon.spDef
+            PokemonProp.BaseStatus.SPEED -> pokemon.speed
+          }
+        }
+        -sortPriority
       }
     }
   }

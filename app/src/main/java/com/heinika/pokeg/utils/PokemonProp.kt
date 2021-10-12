@@ -4,6 +4,23 @@ import android.content.Context
 import com.heinika.pokeg.R
 
 object PokemonProp {
+  enum class BaseStatus(val resId: Int,val resColor: Int){
+    HP(R.string.hp,R.color.colorPrimary),
+    ATK(R.string.atk,R.color.md_orange_100),
+    DEF(R.string.def,R.color.md_blue_200),
+    SP_ATK(R.string.sp_atk,R.color.flying),
+    SP_DEF(R.string.sp_def,R.color.md_green_200),
+    SPEED(R.string.spd,R.color.poison);
+
+    fun getName(context: Context): CharSequence {
+      return context.getString(resId)
+    }
+
+    fun getColor(context: Context): Int{
+      return context.getColor(resColor)
+    }
+  }
+
   enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int) {
     NORMAL(1, R.string.type_normal, R.color.gray_21),
     FIGHTING(2, R.string.type_fighting, R.color.fighting),
@@ -23,15 +40,15 @@ object PokemonProp {
     DRAGON(16, R.string.type_dragon, R.color.dragon),
     DARK(17, R.string.type_dark, R.color.dark),
     FAIRY(18, R.string.type_fairy, R.color.fairy),
-    UNKNOWN(-1, R.string.type_unknown, R.color.gray_21)
-  }
+    UNKNOWN(-1, R.string.type_unknown, R.color.gray_21);
 
-  fun Type.toResName(context: Context):String{
-    return context.getString(this.typeNameResId)
-  }
+    fun getName(context: Context): String {
+      return context.getString(this.typeNameResId)
+    }
 
-  fun Type.toColor(context: Context):Int{
-    return context.getColor(this.typeColorResId)
+    fun getColor(context: Context):Int{
+      return context.getColor(this.typeColorResId)
+    }
   }
 
   fun getTypeString(context: Context, id: Int): String {

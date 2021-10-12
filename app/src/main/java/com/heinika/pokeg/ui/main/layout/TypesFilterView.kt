@@ -15,9 +15,7 @@ import timber.log.Timber
 import java.util.*
 
 
-
-
-class FilterListView(context: Context) : LinearLayout(context) {
+class TypesFilterView(context: Context) : LinearLayout(context) {
 
     var onSelectedChange: ((List<PokemonProp.Type>) -> Unit)? = null
 
@@ -38,7 +36,7 @@ class FilterListView(context: Context) : LinearLayout(context) {
             }
         }
 
-        this@FilterListView.addView(this)
+        this@TypesFilterView.addView(this)
     }
 
 
@@ -48,7 +46,7 @@ class FilterListView(context: Context) : LinearLayout(context) {
         type: PokemonProp.Type
     ) {
         layout.addView(TypeCheckBox(context, type = type).apply {
-            layoutParams = LayoutParams(WRAP_CONTENT, 30.dp).apply {
+            layoutParams = LayoutParams(52.dp, 30.dp).apply {
                 marginStart = 4.dp
                 marginEnd = 4.dp
                 topMargin = 4.dp
@@ -62,8 +60,6 @@ class FilterListView(context: Context) : LinearLayout(context) {
                 updateTypes(isChecked, type)
             }
 
-
-//            background.setTint(type.toColor(context))
             checkBoxList.add(this)
         })
     }

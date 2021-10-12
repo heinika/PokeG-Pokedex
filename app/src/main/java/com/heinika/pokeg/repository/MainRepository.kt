@@ -5,6 +5,7 @@ import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonNew
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.utils.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -38,7 +39,20 @@ class MainRepository @Inject constructor(
 
   private fun toPokemon(pokemon: PokemonNew): Pokemon {
     var totalBaseStat = 0
-    pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == pokemon.id }.forEach {
+    var hp = 0
+    var atk = 0
+    var def = 0
+    var spAtk = 0
+    var spDef = 0
+    var speed = 0
+    pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == pokemon.id }.apply {
+      hp = first { it.statId.isHPStat }.baseStat
+      atk = first { it.statId.isAttackStat }.baseStat
+      def = first { it.statId.isDefenseStat }.baseStat
+      spAtk = first { it.statId.isSAttackStat }.baseStat
+      spDef = first { it.statId.isSDefenseStat }.baseStat
+      speed = first { it.statId.isSPeedStat }.baseStat
+    }.forEach {
       totalBaseStat += it.baseStat
     }
     return Pokemon(
@@ -46,9 +60,9 @@ class MainRepository @Inject constructor(
       speciesId = pokemon.speciesId,
       name = pokemon.identifier,
       types = pokemonRes.fetchPokemonType().filter { it.pokemonId == pokemon.id },
-      totalBaseStat = totalBaseStat
+      totalBaseStat = totalBaseStat,
+      hp, atk, def, spAtk, spDef, speed
     )
   }
-
 }
 

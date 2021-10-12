@@ -2,9 +2,9 @@ package com.heinika.pokeg.model
 
 
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.utils.*
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import timber.log.Timber
 
 @JsonClass(generateAdapter = true)
 data class PokemonNew(
@@ -33,16 +33,29 @@ data class PokemonNew(
 
     fun toPokemon(pokemonRes: PokemonRes): Pokemon {
         var totalBaseStat = 0
-        pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id }.forEach {
+        var hp = 0
+        var atk = 0
+        var def = 0
+        var spAtk = 0
+        var spDef = 0
+        var speed = 0
+        pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id }.apply {
+            hp = first { it.statId.isHPStat }.baseStat
+            atk = first { it.statId.isAttackStat }.baseStat
+            def = first { it.statId.isDefenseStat }.baseStat
+            spAtk = first { it.statId.isSAttackStat }.baseStat
+            spDef = first { it.statId.isSDefenseStat }.baseStat
+            speed = first { it.statId.isSPeedStat }.baseStat
+        }.forEach {
             totalBaseStat += it.baseStat
         }
-        Timber.i(identifier)
         return Pokemon(
             id = id,
             speciesId = speciesId,
             name = identifier,
             types = pokemonRes.fetchPokemonType().filter { it.pokemonId == id },
-            totalBaseStat = totalBaseStat
+            totalBaseStat = totalBaseStat,
+            hp, atk, def, spAtk, spDef, speed
         )
     }
 }
