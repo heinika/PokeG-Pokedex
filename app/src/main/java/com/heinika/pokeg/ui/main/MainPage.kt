@@ -69,7 +69,8 @@ class MainPage(
     content.addView(drawerLayout)
 
     adapter.register(HeaderItemDelegate {
-      drawerLayout.openDrawer(GravityCompat.START, true)
+//      drawerLayout.openDrawer(GravityCompat.START, true)
+      Toast.makeText(activity.applicationContext, "开发中，敬请期待！", Toast.LENGTH_SHORT).show()
     })
     adapter.register(BottomItemDelegate())
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
