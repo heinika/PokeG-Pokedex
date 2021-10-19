@@ -20,6 +20,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.HeaderItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BottomItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.Header
+import com.heinika.pokeg.ui.main.layout.LeftDrawerView
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.ui.main.layout.RightDrawerView
 import com.heinika.pokeg.utils.AdapterDiffUtils
@@ -53,12 +54,12 @@ class MainPage(
   private val drawerLayout = DrawerLayout(activity).apply {
     layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
     addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
-//      addView(LeftDrawerView(activity).apply {
-//        layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
-//          gravity = GravityCompat.START
-//          fitsSystemWindows = true
-//        }
-//      })
+    addView(LeftDrawerView(activity).apply {
+      layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+        gravity = GravityCompat.START
+        fitsSystemWindows = true
+      }
+    })
     addView(rightDrawerView)
   }
 
@@ -69,8 +70,7 @@ class MainPage(
     content.addView(drawerLayout)
 
     adapter.register(HeaderItemDelegate {
-//      drawerLayout.openDrawer(GravityCompat.START, true)
-      Toast.makeText(activity.applicationContext, "开发中，敬请期待！", Toast.LENGTH_SHORT).show()
+      drawerLayout.openDrawer(GravityCompat.START, true)
     })
     adapter.register(BottomItemDelegate())
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
@@ -101,8 +101,11 @@ class MainPage(
       rightDrawerView.setBaseStatusTitleDataList(it, isDesc = mainViewModel.isSortDesc.value!!)
     }
 
-    mainViewModel.isSortDesc.observe(activity){
-      rightDrawerView.setBaseStatusTitleDataList(mainViewModel.sortBaseStatusList.value!!, isDesc = it)
+    mainViewModel.isSortDesc.observe(activity) {
+      rightDrawerView.setBaseStatusTitleDataList(
+        mainViewModel.sortBaseStatusList.value!!,
+        isDesc = it
+      )
     }
 
     rightDrawerView.onBaseStatusTitleClick = {

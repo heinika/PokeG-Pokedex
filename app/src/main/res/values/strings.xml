@@ -14,26 +14,30 @@
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
 
-    <string name="version_1">红/绿/蓝</string>
-    <string name="version_2">黄</string>
-    <string name="version_3">金/银</string>
-    <string name="version_4">水晶</string>
-    <string name="version_5">红宝石/蓝宝石</string>
-    <string name="version_6">绿宝石</string>
-    <string name="version_7">火红/叶绿</string>
-    <string name="version_8">珍珠/钻石</string>
-    <string name="version_9">白金</string>
-    <string name="version_10">心金/魂银</string>
-    <string name="version_11">黑/白</string>
-    <string name="version_12">圆形竞技场</string>
-    <string name="version_13">XD暗之旋风黑暗洛奇亚</string>
-    <string name="version_14">黑2/白2</string>
-    <string name="version_15">x/y</string>
-    <string name="version_16">Ω红宝石/α蓝宝石</string>
-    <string name="version_17">日/月</string>
-    <string name="version_18">究极之日/究极之月</string>
-    <string name="version_19">Let\'s Go</string>
-    <string name="version_20">剑/盾</string>
+    <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
+
+    <string-array name="versions">
+        <item>红/绿/蓝</item>
+        <item>黄</item>
+        <item>金/银</item>
+        <item>水晶</item>
+        <item>红宝石/蓝宝石</item>
+        <item>绿宝石</item>
+        <item>火红/叶绿</item>
+        <item>珍珠/钻石</item>
+        <item>白金</item>
+        <item>心金/魂银</item>
+        <item>黑/白</item>
+        <item>圆形竞技场</item>
+        <item>XD暗之旋风黑暗洛奇亚</item>
+        <item>黑2/白2</item>
+        <item>x/y</item>
+        <item>Ω红宝石/α蓝宝石</item>
+        <item>日/月</item>
+        <item>究极之日/究极之月</item>
+        <item>Let\'s Go</item>
+        <item>剑/盾</item>
+    </string-array>
 
     <string name="type_fighting">格斗</string>
     <string name="type_flying">飞行</string>
@@ -986,7 +990,6 @@
     <string name="pokemon_name_10024">凯路迪欧觉悟的样子</string>
     <string name="pokemon_name_10025">超能妙喵雌性的样子</string>
     <string name="pokemon_name_10026">坚盾剑怪剑形态</string>
-
 
 
     <string name="pokemon_name_10033">超级妙蛙花</string>
@@ -2064,7 +2067,7 @@
     <string name="ditto">重复</string>
     <string name="dragon">龙</string>
     <string name="no_eggs">没有蛋</string>
-    
+
     <string name="slow">慢</string>
     <string name="medium">中等</string>
     <string name="fast">快</string>
@@ -3003,7 +3006,6 @@
     <string name="item_1003">ＰＰ回复碰碰</string>
     <string name="item_1004">加油碰碰</string>
     <string name="item_1005">捕捉碰碰</string>
-
 
 
 </resources>

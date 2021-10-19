@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Singleton
 class PokemonStringRes @Inject constructor(private val context: Application) {
 
-  fun getNameById(id: Int, name: String): String = getResString("pokemon_name_$id",name)
+  fun getNameById(id: Int, name: String): String = getResString("pokemon_name_$id", name)
 
 
   fun getItemById(id: Int): String = getResString("item_$id")
@@ -30,29 +30,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     }
   }
 
-  fun getVersionName(id: Int) = when (id) {
-    1 -> context.resources.getString(R.string.version_1)
-    2 -> context.resources.getString(R.string.version_2)
-    3 -> context.resources.getString(R.string.version_3)
-    4 -> context.resources.getString(R.string.version_4)
-    5 -> context.resources.getString(R.string.version_5)
-    6 -> context.resources.getString(R.string.version_6)
-    7 -> context.resources.getString(R.string.version_7)
-    8 -> context.resources.getString(R.string.version_8)
-    9 -> context.resources.getString(R.string.version_9)
-    10 -> context.resources.getString(R.string.version_10)
-    11 -> context.resources.getString(R.string.version_11)
-    12 -> context.resources.getString(R.string.version_12)
-    13 -> context.resources.getString(R.string.version_13)
-    14 -> context.resources.getString(R.string.version_14)
-    15 -> context.resources.getString(R.string.version_15)
-    16 -> context.resources.getString(R.string.version_16)
-    17 -> context.resources.getString(R.string.version_17)
-    18 -> context.resources.getString(R.string.version_18)
-    19 -> context.resources.getString(R.string.version_19)
-    20 -> context.resources.getString(R.string.version_20)
-    else -> "other"
-  }
+  fun getVersionName(id: Int) = context.resources.getStringArray(R.array.versions)[id - 1] ?: "?"
 
   fun getMoveMethodName(id: Int) = when (id) {
     1 -> context.resources.getString(R.string.move_method_1)

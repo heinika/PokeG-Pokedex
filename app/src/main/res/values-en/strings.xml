@@ -14,26 +14,30 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 
-    <string name="version_1">red/blue</string>
-    <string name="version_2">yellow</string>
-    <string name="version_3">gold/silver</string>
-    <string name="version_4">crystal</string>
-    <string name="version_5">ruby/sapphire</string>
-    <string name="version_6">emerald</string>
-    <string name="version_7">firered/leafgreen</string>
-    <string name="version_8">diamond/pearl</string>
-    <string name="version_9">platinum</string>
-    <string name="version_10">heartgold/soulsilver</string>
-    <string name="version_11">black/white</string>
-    <string name="version_12">colosseum</string>
-    <string name="version_13">xd</string>
-    <string name="version_14">black 2/white 2</string>
-    <string name="version_15">x/y</string>
-    <string name="version_16">Ω ruby/α sapphire</string>
-    <string name="version_17">sun/moon</string>
-    <string name="version_18">ultra sun/ultra moon</string>
-    <string name="version_19">Let\'s Go</string>
-    <string name="version_20">sword/shield</string>
+    <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
+
+    <string-array name="versions">
+        <item>红/绿/蓝</item>
+        <item>黄</item>
+        <item>金/银</item>
+        <item>水晶</item>
+        <item>红宝石/蓝宝石</item>
+        <item>绿宝石</item>
+        <item>火红/叶绿</item>
+        <item>珍珠/钻石</item>
+        <item>白金</item>
+        <item>心金/魂银</item>
+        <item>黑/白</item>
+        <item>圆形竞技场</item>
+        <item>XD暗之旋风黑暗洛奇亚</item>
+        <item>黑2/白2</item>
+        <item>x/y</item>
+        <item>Ω红宝石/α蓝宝石</item>
+        <item>日/月</item>
+        <item>究极之日/究极之月</item>
+        <item>Let\'s Go</item>
+        <item>剑/盾</item>
+    </string-array>
 
     <string name="move_method_1">level-up</string>
     <string name="move_method_2">egg</string>

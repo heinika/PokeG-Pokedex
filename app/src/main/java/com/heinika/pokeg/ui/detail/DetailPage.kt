@@ -29,6 +29,7 @@ import com.bumptech.glide.request.transition.Transition
 import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
@@ -332,8 +333,10 @@ class DetailPage(
         doOnEnd {
           detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
             .observe(activity) { versions ->
+              val defaultVersion = ConfigMMKV.defaultVersion
+              val version = if (versions.contains(defaultVersion)) defaultVersion else versions.last()
               binding.moveVersionText.text =
-                pokemonRes.getVersionName(versions.last())
+                pokemonRes.getVersionName(version)
 
               val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
                 .setItems(
@@ -348,7 +351,7 @@ class DetailPage(
                 selectVersionDialog.show()
               }
 
-              refreshMoveTable(versions.last())
+              refreshMoveTable(version)
             }
         }
 
