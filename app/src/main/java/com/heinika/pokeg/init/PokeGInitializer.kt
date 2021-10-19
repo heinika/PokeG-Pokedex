@@ -3,6 +3,7 @@ package com.heinika.pokeg.init
 import android.content.Context
 import androidx.startup.Initializer
 import com.heinika.pokeg.BuildConfig
+import com.tencent.mmkv.MMKV
 import timber.log.Timber
 import java.io.FileOutputStream
 
@@ -16,6 +17,7 @@ class PokeGInitializer : Initializer<Unit> {
         if (!file.exists()){
             context.assets.open("PokeG_Base.db").copyTo(FileOutputStream(context.getDatabasePath("PokeG.db")))
         }
+        MMKV.initialize(context)
     }
 
     override fun dependencies() = emptyList<Class<out Initializer<*>>>()

@@ -1,41 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.heinika.pokeg">
+  xmlns:tools="http://schemas.android.com/tools"
+  package="com.heinika.pokeg">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+  <application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:name=".PokeGApp"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.PokeG"
+    tools:ignore="AllowBackup">
+    <activity
+      android:exported="false"
+      android:name=".DonationActivity" />
+    <activity
+      android:exported="true"
+      android:name=".PokeGActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="LockedOrientationActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-    <application
-        android:name=".PokeGApp"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.PokeG"
-        tools:ignore="AllowBackup">
-        <activity android:name=".PokeGActivity"
-            android:screenOrientation="portrait"
-            android:exported="true"
-            tools:ignore="LockedOrientationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity
+      android:exported="true"
+      android:name=".AboutActivity"
+      android:screenOrientation="portrait"
+      tools:ignore="LockedOrientationActivity" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <provider
+      android:authorities="com.heinika.pokeg.androidx-startup"
+      android:exported="false"
+      android:name="androidx.startup.InitializationProvider"
+      tools:node="merge">
 
-        <provider
-            android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.heinika.pokeg.androidx-startup"
-            android:exported="false"
-            tools:node="merge">
-            <!-- This entry makes WorkManagerInitializer discoverable. -->
-            <meta-data android:name="com.heinika.pokeg.init.PokeGInitializer"
-                android:value="androidx.startup" />
-        </provider>
+      <!-- This entry makes WorkManagerInitializer discoverable. -->
+      <meta-data
+        android:name="com.heinika.pokeg.init.PokeGInitializer"
+        android:value="androidx.startup" />
+    </provider>
+  </application>
+  <uses-permission android:name="android.permission.INTERNET" />
 
-    </application>
+  <uses-permission
+    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    tools:ignore="ScopedStorage" />
 
 </manifest>

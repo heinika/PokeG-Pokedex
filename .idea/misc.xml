@@ -3,36 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/check_box_basestatus_normal.xml" value="0.3425925925925926" />
-        <entry key="app/src/main/res/drawable/check_box_type_normal.xml" value="0.3796875" />
-        <entry key="app/src/main/res/drawable/check_box_type_select.xml" value="0.3796875" />
-        <entry key="app/src/main/res/drawable/filter_list.xml" value="0.11388888888888889" />
-        <entry key="app/src/main/res/drawable/ic_arrow.xml" value="0.196875" />
-        <entry key="app/src/main/res/drawable/ic_double_arrow_down.xml" value="0.3425925925925926" />
-        <entry key="app/src/main/res/drawable/ic_double_arrow_up.xml" value="0.3425925925925926" />
-        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.39010416666666664" />
-        <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.378125" />
-        <entry key="app/src/main/res/drawable/input_background.xml" value="0.22870370370370371" />
-        <entry key="app/src/main/res/drawable/item_ability_background.xml" value="0.3731481481481482" />
-        <entry key="app/src/main/res/drawable/item_ability_desc_background.xml" value="0.3731481481481482" />
-        <entry key="app/src/main/res/drawable/item_height_background.xml" value="0.3731481481481482" />
-        <entry key="app/src/main/res/drawable/item_race_background.xml" value="0.2222222222222222" />
-        <entry key="app/src/main/res/drawable/item_tag_background.xml" value="0.2222222222222222" />
-        <entry key="app/src/main/res/drawable/item_type_background.xml" value="0.3796875" />
-        <entry key="app/src/main/res/drawable/item_weight_background.xml" value="0.3731481481481482" />
-        <entry key="app/src/main/res/drawable/search.xml" value="0.11388888888888889" />
-        <entry key="app/src/main/res/drawable/selector_radio_button.xml" value="0.11296296296296296" />
-        <entry key="app/src/main/res/drawable/settings.xml" value="0.378125" />
-        <entry key="app/src/main/res/drawable/type_check_box_button.xml" value="0.3796875" />
-        <entry key="app/src/main/res/layout/item_evolution.xml" value="0.30364583333333334" />
-        <entry key="app/src/main/res/layout/item_pokemon.xml" value="0.36354166666666665" />
-        <entry key="app/src/main/res/layout/page_detail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/page_setting.xml" value="0.3619791666666667" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.39010416666666664" />
+        <entry key="../../../.gradle/caches/transforms-3/738cf99c6a790415aae2555e3d446861/transformed/jetified-about-2.4.1/res/layout/about_page_main_activity.xml" value="0.20208333333333334" />
+        <entry key="app/src/main/res/drawable/ic_arrow.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_donation.xml" value="0.20208333333333334" />
+        <entry key="app/src/main/res/layout/page_setting.xml" value="0.15625" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

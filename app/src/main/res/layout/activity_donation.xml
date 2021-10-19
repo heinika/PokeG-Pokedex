@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".DonationActivity">
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".DonationActivity">
+
+    <TextView
+      android:id="@+id/wechatPayText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:gravity="center"
+      android:text="微信支付"
+      android:textColor="@color/white"
+      android:textSize="24sp"
+      app:layout_constraintTop_toBottomOf="@id/wechatPayImage" />
+
+    <TextView
+      android:id="@+id/aliPayText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:gravity="center"
+      android:text="支付宝"
+      android:textColor="@color/white"
+      android:textSize="24sp"
+      app:layout_constraintTop_toBottomOf="@id/aliPayImage" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/aliPayImage"
+      android:layout_width="match_parent"
+      android:layout_height="300dp"
+      android:layout_margin="16dp"
+      android:src="@drawable/alipay"
+      app:layout_constraintTop_toBottomOf="@id/wechatPayText" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/wechatPayImage"
+      android:layout_width="match_parent"
+      android:layout_height="300dp"
+      android:layout_margin="16dp"
+      android:src="@drawable/wechat"
+      app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@color/colorPrimary"
+      app:layout_collapseMode="pin"
+      app:layout_constraintTop_toTopOf="parent"
+      app:navigationIcon="@drawable/ic_arrow"
+      app:title="捐赠"
+      app:titleTextColor="@color/white" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
