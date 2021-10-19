@@ -336,7 +336,7 @@ class DetailPage(
               val defaultVersion = ConfigMMKV.defaultVersion
               val version = if (versions.contains(defaultVersion)) defaultVersion else versions.last()
               binding.moveVersionText.text =
-                pokemonRes.getVersionName(ConfigMMKV.defaultVersion)
+                pokemonRes.getVersionName(version)
 
               val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
                 .setItems(
