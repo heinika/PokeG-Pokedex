@@ -87,6 +87,16 @@ class MainPage(
     rightDrawerView.onBaseStatusCheckedListChange = {
       mainViewModel.changeSortBaseStatusList(it)
     }
+    rightDrawerView.onBaseStatusFilterViewClick = {
+      mainViewModel.startSortAndFilter()
+    }
+
+    rightDrawerView.onBodyStatusSelectChange = {
+      mainViewModel.changeBodyStatus(it)
+    }
+    rightDrawerView.onBodyStatusRadioButtonClick = {
+      mainViewModel.startSortAndFilter()
+    }
 
     rightDrawerView.onGenerationListChange = {
       mainViewModel.changeGenerations(it)
@@ -101,12 +111,16 @@ class MainPage(
       Timber.i("observe $searchText")
     }
 
-    mainViewModel.filterGenerations.observe(activity){
+    mainViewModel.filterGenerations.observe(activity) {
       rightDrawerView.setGenerationTitleDataList(it)
     }
 
     mainViewModel.sortBaseStatusList.observe(activity) {
       rightDrawerView.setBaseStatusTitleDataList(it, isDesc = mainViewModel.isSortDesc.value!!)
+    }
+
+    mainViewModel.selectedBodyStatus.observe(activity) {
+      rightDrawerView.setBodyStatus(it, isDesc = mainViewModel.isSortDesc.value!!)
     }
 
     mainViewModel.isSortDesc.observe(activity) {

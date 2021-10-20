@@ -42,11 +42,16 @@ class MainViewModel @Inject constructor(
       startSortAndFilter()
     }
 
-  private val _filterGenerations: MutableLiveData<List<PokemonProp.Generation>> = MutableLiveData(emptyList())
+  private val _filterGenerations: MutableLiveData<List<PokemonProp.Generation>> =
+    MutableLiveData(emptyList())
   val filterGenerations: LiveData<List<PokemonProp.Generation>> = _filterGenerations
 
   private val _sortBaseStatusList: MutableLiveData<List<PokemonProp.BaseStatus>> =
     MutableLiveData(emptyList())
+
+  private val _selectedBodyStatus: MutableLiveData<PokemonProp.BodyStatus?> =
+    MutableLiveData(null)
+  val selectedBodyStatus: LiveData<PokemonProp.BodyStatus?> = _selectedBodyStatus
 
   val sortBaseStatusList: LiveData<List<PokemonProp.BaseStatus>> = _sortBaseStatusList
 
@@ -67,7 +72,10 @@ class MainViewModel @Inject constructor(
 
   fun changeSortBaseStatusList(list: List<PokemonProp.BaseStatus>) {
     _sortBaseStatusList.value = list
-    startSortAndFilter()
+  }
+
+  fun changeBodyStatus(bodyStatus: PokemonProp.BodyStatus?) {
+    _selectedBodyStatus.value = bodyStatus
   }
 
   fun changeGenerations(list: List<PokemonProp.Generation>) {
@@ -75,9 +83,10 @@ class MainViewModel @Inject constructor(
     startSortAndFilter()
   }
 
-  private fun startSortAndFilter() {
+  fun startSortAndFilter() {
     basePokemonList?.let { baseList ->
-      _pokemonSortListStateFlow.value = baseList.filterType().filterGenerations().sortBaseStatus()
+      _pokemonSortListStateFlow.value =
+        baseList.filterType().filterGenerations().sortBaseStatus().sortBodyStatus()
     }
   }
 
@@ -113,7 +122,7 @@ class MainViewModel @Inject constructor(
 
   private fun List<Pokemon>.filterGenerations(): List<Pokemon> {
     return filter { pokemon ->
-      if (filterGenerations.value!!.isEmpty()){
+      if (filterGenerations.value!!.isEmpty()) {
         true
       } else {
         var result = false
@@ -149,6 +158,29 @@ class MainViewModel @Inject constructor(
           sortPriority
         }
       }
+    }
+  }
+
+  private fun List<Pokemon>.sortBodyStatus(): List<Pokemon> {
+    return if (selectedBodyStatus.value != null) {
+      sortedBy { pokemon ->
+        var sortPriority = 0
+        when (selectedBodyStatus.value) {
+          PokemonProp.BodyStatus.WEIGHT -> {
+            sortPriority = pokemon.weight
+          }
+          PokemonProp.BodyStatus.HEIGHT -> {
+            sortPriority = pokemon.height
+          }
+        }
+        if (isSortDesc.value!!) {
+          -sortPriority
+        } else {
+          sortPriority
+        }
+      }
+    } else {
+      this
     }
   }
 

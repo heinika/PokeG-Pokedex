@@ -56,6 +56,9 @@
     <color name="generation_7">#03A9F4</color>
     <color name="generation_8">#00BCD4</color>
 
+    <color name="weight">#4CAF50</color>
+    <color name="height">#FF5722</color>
+
     <color name="radio_color">#0E1218</color>
     <color name="radio_color_check">@color/skyBlue</color>
     <color name="radio_text_color_check">@color/skyBlue</color>

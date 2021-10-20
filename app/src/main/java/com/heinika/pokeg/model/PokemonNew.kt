@@ -61,7 +61,9 @@ data class PokemonNew(
             types = pokemonRes.fetchPokemonType().filter { it.pokemonId == id },
             totalBaseStat = totalBaseStat,
             hp, atk, def, spAtk, spDef, speed,
-            generationId = generationId
+            generationId = generationId,
+            weight = weight,
+            height = height
         )
     }
 }

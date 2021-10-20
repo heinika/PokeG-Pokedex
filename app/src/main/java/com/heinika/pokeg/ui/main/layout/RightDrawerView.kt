@@ -6,7 +6,10 @@ import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.core.view.children
+import androidx.core.view.forEach
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.MultiTypeAdapter
@@ -18,6 +21,8 @@ import com.heinika.pokeg.ui.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.GenerationsSelectItem
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.view.BaseStatusCheckBox
+import com.heinika.pokeg.view.BodyRadioButton
 
 class RightDrawerView(context: Context) : CustomLayout(context) {
   val typesFilterView = TypesFilterView(context).apply {
@@ -41,17 +46,20 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   private val baseStatusCheckedList = mutableListOf<PokemonProp.BaseStatus>()
   var onBaseStatusCheckedListChange: ((list: List<PokemonProp.BaseStatus>) -> Unit)? = null
+  var onBaseStatusFilterViewClick: (() -> Unit)? = null
 
-  private val baseStatusFilterView = RecyclerView(context).apply {
+  private val baseStatusFilterView: RecyclerView = RecyclerView(context).apply {
     val list = mutableListOf<BaseStatusSelectItem>().apply {
-      PokemonProp.BaseStatus.values().forEach {
-        add(BaseStatusSelectItem(it) { baseStatus, isChecked ->
+      PokemonProp.BaseStatus.values().forEach { eachBaseStatus ->
+        add(BaseStatusSelectItem(eachBaseStatus) { baseStatus, isChecked ->
           if (isChecked) {
             baseStatusCheckedList.add(baseStatus)
           } else {
             baseStatusCheckedList.remove(baseStatus)
           }
+          clearBodyRadioButtonSelected()
           onBaseStatusCheckedListChange?.invoke(baseStatusCheckedList)
+          onBaseStatusFilterViewClick?.invoke()
         })
       }
     }
@@ -73,6 +81,42 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     })
 
     this@RightDrawerView.addView(this)
+  }
+
+  private fun clearBodyRadioButtonSelected() {
+    onBodyStatusSelectChange?.invoke(null)
+    bodyRadioGroup.clearCheck()
+  }
+
+  var onBodyStatusSelectChange: ((bodyStatus: PokemonProp.BodyStatus?) -> Unit)? = null
+  var onBodyStatusRadioButtonClick: (() -> Unit)? = null
+
+  private val bodyRadioGroup: RadioGroup = RadioGroup(context).apply {
+    layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+    orientation = RadioGroup.HORIZONTAL
+    PokemonProp.BodyStatus.values().forEach { bodyStatus ->
+      addView(BodyRadioButton(context, bodyStatus).apply {
+        setOnClickListener {
+          clearBaseStatusSelect()
+          onBodyStatusSelectChange?.invoke(bodyStatus)
+          onBodyStatusRadioButtonClick?.invoke()
+        }
+      }, LayoutParams(60.dp, 40.dp).apply {
+        marginEnd = 8.dp
+      })
+    }
+
+    this@RightDrawerView.addView(this)
+  }
+
+  private fun clearBaseStatusSelect() {
+    baseStatusCheckedList.clear()
+    baseStatusFilterView.children.forEach { baseStatusCheckBox ->
+      if (baseStatusCheckBox is BaseStatusCheckBox) {
+        baseStatusCheckBox.isChecked = false
+      }
+    }
+    onBaseStatusCheckedListChange?.invoke(baseStatusCheckedList)
   }
 
   private val generationsTitle = TextView(context).apply {
@@ -133,6 +177,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     typesFilterView.autoMeasure()
     baseStatusTitle.autoMeasure()
     baseStatusFilterView.autoMeasure()
+    bodyRadioGroup.autoMeasure()
     generationsTitle.autoMeasure()
     generationsFilterView.autoMeasure()
   }
@@ -141,7 +186,8 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     typesFilterView.layout(0, 0)
     baseStatusTitle.layout(12.dp, typesFilterView.bottom + 8.dp)
     baseStatusFilterView.layout(12.dp, baseStatusTitle.bottom + 8.dp)
-    generationsTitle.layout(12.dp, baseStatusFilterView.bottom + 8.dp)
+    bodyRadioGroup.layout(12.dp, baseStatusFilterView.bottom + 8.dp)
+    generationsTitle.layout(12.dp, bodyRadioGroup.bottom + 8.dp)
     generationsFilterView.layout(12.dp, generationsTitle.bottom + 8.dp)
   }
 
@@ -160,12 +206,18 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     }
   }
 
+  fun setBodyStatus(bodyStatus: PokemonProp.BodyStatus?, isDesc: Boolean) {
+    bodyStatus?.let {
+      baseStatusTitle.text = "${sortPriority(isDesc)}:${bodyStatus.getName(context)}"
+    }
+  }
+
   fun setGenerationTitleDataList(list: List<PokemonProp.Generation>) {
     when {
       list.isEmpty() -> {
         generationsTitle.text = "世代:未选择"
       }
-      list.size == 6 -> {
+      list.size == 8 -> {
         generationsTitle.text = "世代:所有世代"
       }
       else -> {
