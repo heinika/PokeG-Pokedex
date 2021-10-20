@@ -116,7 +116,11 @@ class MainPage(
     }
 
     mainViewModel.sortBaseStatusList.observe(activity) {
-      rightDrawerView.setBaseStatusTitleDataList(it, isDesc = mainViewModel.isSortDesc.value!!)
+      rightDrawerView.setBaseStatusTitleDataList(
+        it,
+        mainViewModel.selectedBodyStatus.value,
+        isDesc = mainViewModel.isSortDesc.value!!
+      )
     }
 
     mainViewModel.selectedBodyStatus.observe(activity) {
@@ -126,6 +130,7 @@ class MainPage(
     mainViewModel.isSortDesc.observe(activity) {
       rightDrawerView.setBaseStatusTitleDataList(
         mainViewModel.sortBaseStatusList.value!!,
+        mainViewModel.selectedBodyStatus.value,
         isDesc = it
       )
     }

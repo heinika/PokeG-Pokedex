@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
+@Suppress("unused")
 @HiltViewModel
 class MainViewModel @Inject constructor(
   private val mainRepository: MainRepository,

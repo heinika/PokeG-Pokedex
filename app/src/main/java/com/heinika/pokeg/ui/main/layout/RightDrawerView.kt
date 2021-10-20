@@ -9,7 +9,6 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.core.view.children
-import androidx.core.view.forEach
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.MultiTypeAdapter
@@ -191,10 +190,18 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     generationsFilterView.layout(12.dp, generationsTitle.bottom + 8.dp)
   }
 
-  fun setBaseStatusTitleDataList(list: List<PokemonProp.BaseStatus>, isDesc: Boolean) {
+  fun setBaseStatusTitleDataList(
+    list: List<PokemonProp.BaseStatus>,
+    bodyStatus: PokemonProp.BodyStatus?,
+    isDesc: Boolean
+  ) {
     when {
       list.isEmpty() -> {
-        baseStatusTitle.text = "${sortPriority(isDesc)}:未选择"
+        if (bodyStatus == null) {
+          baseStatusTitle.text = "${sortPriority(isDesc)}:未选择"
+        } else {
+          setBodyStatus(bodyStatus, isDesc)
+        }
       }
       list.size == 6 -> {
         baseStatusTitle.text = "${sortPriority(isDesc)}:总能力值"
