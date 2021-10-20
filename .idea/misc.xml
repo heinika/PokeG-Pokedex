@@ -6,6 +6,7 @@
         <entry key="../../../.gradle/caches/transforms-3/738cf99c6a790415aae2555e3d446861/transformed/jetified-about-2.4.1/res/layout/about_page_main_activity.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/drawable/ic_arrow.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/activity_donation.xml" value="0.20208333333333334" />
+        <entry key="app/src/main/res/layout/page_detail.xml" value="0.17603850050658562" />
         <entry key="app/src/main/res/layout/page_setting.xml" value="0.15625" />
       </map>
     </option>

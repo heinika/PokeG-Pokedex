@@ -42,6 +42,9 @@ class MainViewModel @Inject constructor(
       startSortAndFilter()
     }
 
+  private val _filterGenerations: MutableLiveData<List<PokemonProp.Generation>> = MutableLiveData(emptyList())
+  val filterGenerations: LiveData<List<PokemonProp.Generation>> = _filterGenerations
+
   private val _sortBaseStatusList: MutableLiveData<List<PokemonProp.BaseStatus>> =
     MutableLiveData(emptyList())
 
@@ -67,9 +70,14 @@ class MainViewModel @Inject constructor(
     startSortAndFilter()
   }
 
+  fun changeGenerations(list: List<PokemonProp.Generation>) {
+    _filterGenerations.value = list
+    startSortAndFilter()
+  }
+
   private fun startSortAndFilter() {
     basePokemonList?.let { baseList ->
-      _pokemonSortListStateFlow.value = baseList.filterType().sortBaseStatus()
+      _pokemonSortListStateFlow.value = baseList.filterType().filterGenerations().sortBaseStatus()
     }
   }
 
@@ -96,6 +104,22 @@ class MainViewModel @Inject constructor(
         filterTypeList.forEach { type ->
           if (!pokemon.types.map { it.typeId }.contains(type.typeId)) {
             result = false
+          }
+        }
+        result
+      }
+    }
+  }
+
+  private fun List<Pokemon>.filterGenerations(): List<Pokemon> {
+    return filter { pokemon ->
+      if (filterGenerations.value!!.isEmpty()){
+        true
+      } else {
+        var result = false
+        filterGenerations.value!!.forEach { generation ->
+          if (pokemon.generationId == generation.id) {
+            result = true
           }
         }
         result

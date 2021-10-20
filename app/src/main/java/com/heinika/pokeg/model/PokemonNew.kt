@@ -39,6 +39,7 @@ data class PokemonNew(
         var spAtk = 0
         var spDef = 0
         var speed = 0
+        var generationId: Int
         pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id }.apply {
             hp = first { it.statId.isHPStat }.baseStat
             atk = first { it.statId.isAttackStat }.baseStat
@@ -49,13 +50,18 @@ data class PokemonNew(
         }.forEach {
             totalBaseStat += it.baseStat
         }
+
+        pokemonRes.fetchPokemonSpecies().first { it.id == speciesId }.let {
+            generationId = it.generationId
+        }
         return Pokemon(
             id = id,
             speciesId = speciesId,
             name = identifier,
             types = pokemonRes.fetchPokemonType().filter { it.pokemonId == id },
             totalBaseStat = totalBaseStat,
-            hp, atk, def, spAtk, spDef, speed
+            hp, atk, def, spAtk, spDef, speed,
+            generationId = generationId
         )
     }
 }

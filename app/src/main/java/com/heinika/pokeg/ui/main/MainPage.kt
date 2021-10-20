@@ -88,6 +88,10 @@ class MainPage(
       mainViewModel.changeSortBaseStatusList(it)
     }
 
+    rightDrawerView.onGenerationListChange = {
+      mainViewModel.changeGenerations(it)
+    }
+
     mainPageView.onSearchTextChange = { searchText ->
       Timber.i("onSearchTextChange $searchText")
       mainViewModel.setSearchText(searchText)
@@ -95,6 +99,10 @@ class MainPage(
 
     mainViewModel.searchText.observe(activity) { searchText ->
       Timber.i("observe $searchText")
+    }
+
+    mainViewModel.filterGenerations.observe(activity){
+      rightDrawerView.setGenerationTitleDataList(it)
     }
 
     mainViewModel.sortBaseStatusList.observe(activity) {
