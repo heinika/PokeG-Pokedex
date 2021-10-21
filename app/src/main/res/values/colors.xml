@@ -63,4 +63,5 @@
     <color name="radio_color_check">@color/skyBlue</color>
     <color name="radio_text_color_check">@color/skyBlue</color>
     <color name="radio_text_color_not_check">@color/white</color>
+
 </resources>
