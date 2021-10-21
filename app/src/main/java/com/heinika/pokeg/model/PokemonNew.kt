@@ -39,6 +39,10 @@ data class PokemonNew(
         var spAtk = 0
         var spDef = 0
         var speed = 0
+        var generationId: Int
+        var isBaby: Boolean
+        var isLegendary: Boolean
+        var isMythical: Boolean
         pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id }.apply {
             hp = first { it.statId.isHPStat }.baseStat
             atk = first { it.statId.isAttackStat }.baseStat
@@ -49,13 +53,26 @@ data class PokemonNew(
         }.forEach {
             totalBaseStat += it.baseStat
         }
+
+        pokemonRes.fetchPokemonSpecies().first { it.id == speciesId }.let {
+            generationId = it.generationId
+            isBaby = it.isBaby.toBoolean
+            isLegendary = it.isLegendary.toBoolean
+            isMythical = it.isMythical.toBoolean
+        }
         return Pokemon(
             id = id,
             speciesId = speciesId,
             name = identifier,
             types = pokemonRes.fetchPokemonType().filter { it.pokemonId == id },
             totalBaseStat = totalBaseStat,
-            hp, atk, def, spAtk, spDef, speed
+            hp, atk, def, spAtk, spDef, speed,
+            generationId = generationId,
+            weight = weight,
+            height = height,
+            isBaby = isBaby,
+            isLegendary = isLegendary,
+            isMythical = isMythical
         )
     }
 }

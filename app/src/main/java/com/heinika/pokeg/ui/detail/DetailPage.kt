@@ -329,8 +329,10 @@ class DetailPage(
           binding.image.alpha = 1f
           binding.image.isVisible = true
           binding.root.isVisible = true
+          binding.root.background.alpha = 0
         }
         doOnEnd {
+          binding.root.background.alpha = 255
           detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
             .observe(activity) { versions ->
               val defaultVersion = ConfigMMKV.defaultVersion
@@ -501,6 +503,7 @@ class DetailPage(
 
       doOnEnd {
         content.removeView(binding.root)
+        binding.root.background.alpha = 255
         binding.image.translationX = 0f
         binding.image.translationY = 0f
         binding.image.scaleX = 1f

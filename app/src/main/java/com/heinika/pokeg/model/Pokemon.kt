@@ -15,6 +15,12 @@ data class Pokemon(
   val spAtk: Int,
   val spDef: Int,
   val speed: Int,
+  val generationId: Int,
+  val weight: Int,
+  val height: Int,
+  var isBaby: Boolean,
+  var isLegendary: Boolean,
+  var isMythical: Boolean,
 ) {
 
 //  fun getImageUrl(): String {

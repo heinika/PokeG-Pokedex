@@ -38,31 +38,11 @@ class MainRepository @Inject constructor(
   }.onStart { onStart() }.flowOn(Dispatchers.IO)
 
   private fun toPokemon(pokemon: PokemonNew): Pokemon {
-    var totalBaseStat = 0
-    var hp = 0
-    var atk = 0
-    var def = 0
-    var spAtk = 0
-    var spDef = 0
-    var speed = 0
-    pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == pokemon.id }.apply {
-      hp = first { it.statId.isHPStat }.baseStat
-      atk = first { it.statId.isAttackStat }.baseStat
-      def = first { it.statId.isDefenseStat }.baseStat
-      spAtk = first { it.statId.isSAttackStat }.baseStat
-      spDef = first { it.statId.isSDefenseStat }.baseStat
-      speed = first { it.statId.isSPeedStat }.baseStat
-    }.forEach {
-      totalBaseStat += it.baseStat
-    }
-    return Pokemon(
-      id = pokemon.id,
-      speciesId = pokemon.speciesId,
-      name = pokemon.identifier,
-      types = pokemonRes.fetchPokemonType().filter { it.pokemonId == pokemon.id },
-      totalBaseStat = totalBaseStat,
-      hp, atk, def, spAtk, spDef, speed
-    )
+    return pokemon.toPokemon(pokemonRes)
   }
+
+  fun pokemonSpecieFlow(id: Int) = flow {
+    emit(pokemonRes.fetchPokemonSpecies().first { it.id == id })
+  }.flowOn(Dispatchers.IO)
 }
 
