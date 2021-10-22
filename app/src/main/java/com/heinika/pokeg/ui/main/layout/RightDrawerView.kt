@@ -1,5 +1,6 @@
 package com.heinika.pokeg.ui.main.layout
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
@@ -190,6 +191,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     generationsFilterView.layout(12.dp, generationsTitle.bottom + 8.dp)
   }
 
+  @SuppressLint("SetTextI18n")
   fun setBaseStatusTitleDataList(
     list: List<PokemonProp.BaseStatus>,
     bodyStatus: PokemonProp.BodyStatus?,
@@ -198,13 +200,13 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     when {
       list.isEmpty() -> {
         if (bodyStatus == null) {
-          baseStatusTitle.text = "${sortPriority(isDesc)}:未选择"
+          baseStatusTitle.text = context.getString(R.string.base_status_unselected,sortPriority(isDesc))
         } else {
           setBodyStatus(bodyStatus, isDesc)
         }
       }
       list.size == 6 -> {
-        baseStatusTitle.text = "${sortPriority(isDesc)}:总能力值"
+        baseStatusTitle.text = context.getString(R.string.all_base_status_selected,sortPriority(isDesc))
       }
       else -> {
         baseStatusTitle.text =
@@ -213,27 +215,29 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     }
   }
 
+  @SuppressLint("SetTextI18n")
   fun setBodyStatus(bodyStatus: PokemonProp.BodyStatus?, isDesc: Boolean) {
     bodyStatus?.let {
       baseStatusTitle.text = "${sortPriority(isDesc)}:${bodyStatus.getName(context)}"
     }
   }
 
+  @SuppressLint("SetTextI18n")
   fun setGenerationTitleDataList(list: List<PokemonProp.Generation>) {
     when {
       list.isEmpty() -> {
-        generationsTitle.text = "世代:未选择"
+        generationsTitle.text = context.getString(R.string.genneration_unselected)
       }
       list.size == 8 -> {
-        generationsTitle.text = "世代:所有世代"
+        generationsTitle.text = context.getString(R.string.genneration_all_selected)
       }
       else -> {
         generationsTitle.text =
-          "世代:${list.map { it.filterString }.joinToString("+")}"
+          "${context.getString(R.string.genneration)}:${list.map { it.filterString }.joinToString("+")}"
       }
     }
 
   }
 
-  private fun sortPriority(isDesc: Boolean) = if (isDesc) "降序" else "升序"
+  private fun sortPriority(isDesc: Boolean) = if (isDesc) context.getString(R.string.Descending) else context.getString(R.string.Ascending)
 }
