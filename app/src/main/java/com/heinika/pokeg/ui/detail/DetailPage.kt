@@ -139,6 +139,7 @@ class DetailPage(
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
     detailViewModel.getPokemonBaseStatLiveData(pokemon.id).observe(activity) { baseStats ->
+      initProgress(binding.progressSumBaseStatus,baseStats.sumOf { it.baseStat })
       initProgress(binding.progressHp, baseStats.first { it.statId.isHPStat }.baseStat)
       initProgress(
         binding.progressAttach,

@@ -3,6 +3,7 @@
     <string name="weight">体重</string>
     <string name="height">身高</string>
     <string name="base_stats">种族值</string>
+    <string name="sum_base_status">总和</string>
     <string name="hp">血量</string>
     <string name="atk">攻击</string>
     <string name="def">防御</string>

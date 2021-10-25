@@ -47,6 +47,14 @@
     <color name="md_blue_100">#81D4fA</color>
     <color name="md_blue_200">#0091EA</color>
 
+    <color name="base_status_sum">#01579B</color>
+    <color name="base_status_hp">#DD2C00</color>
+    <color name="base_status_atk">#FF8F00</color>
+    <color name="base_status_def">#2E7D32</color>
+    <color name="base_status_satk">#673AB7</color>
+    <color name="base_status_sdef">#455A64</color>
+    <color name="base_status_spd">#0277BD</color>
+
     <color name="generation_1">#F44336</color>
     <color name="generation_2">#E91E63</color>
     <color name="generation_3">#9C27B0</color>
