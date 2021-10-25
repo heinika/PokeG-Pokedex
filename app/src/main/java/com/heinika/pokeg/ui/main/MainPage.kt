@@ -162,6 +162,10 @@ class MainPage(
       mainPageView.showSearchBar()
     }
 
+    mainPageView.setOnTopButtonClickListener{
+      mainPageView.scrollToTop()
+    }
+
     mainPageView.setOnFilterClickListener {
       drawerLayout.openDrawer(GravityCompat.END, true)
     }
