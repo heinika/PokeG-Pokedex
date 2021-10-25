@@ -58,6 +58,24 @@ object PokemonProp {
     }
   }
 
+  enum class Tag(
+    private val resId: Int,
+    private val resColor: Int
+  ) {
+    Favorite(R.string.favorite, R.color.favorite),
+    BABY(R.string.baby, R.color.baby),
+    Legendary(R.string.legendary, R.color.legendary),
+    Mythical(R.string.mythical, R.color.mythical);
+
+    fun getName(context: Context): CharSequence {
+      return context.getString(resId)
+    }
+
+    fun getColor(context: Context): Int {
+      return context.getColor(resColor)
+    }
+  }
+
   enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int) {
     NORMAL(1, R.string.type_normal, R.color.gray_21),
     FIGHTING(2, R.string.type_fighting, R.color.fighting),

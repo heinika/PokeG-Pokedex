@@ -18,7 +18,8 @@ import com.heinika.pokeg.repository.res.PokemonRes
 
 class PokemonItemDelegate(
   private val pokemonRes: PokemonRes,
-  private val onItemClick: (AppCompatImageView, Pokemon) -> Unit
+  private val onItemClick: (AppCompatImageView, Pokemon) -> Unit,
+  private val onFavoriteClick: (Pokemon, isChecked: Boolean) -> Unit
 ) :
   ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
 
@@ -43,6 +44,9 @@ class PokemonItemDelegate(
     init {
       binding.root.setOnClickListener {
         onItemClick(binding.imageView, item)
+      }
+      binding.favoriteCheckBox.setOnClickListener {
+        onFavoriteClick(item, binding.favoriteCheckBox.isChecked)
       }
     }
 

@@ -17,8 +17,10 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
 import com.heinika.pokeg.ui.main.itemdelegate.BaseStatusItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.GenerationItemDelegate
+import com.heinika.pokeg.ui.main.itemdelegate.TagItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.GenerationsSelectItem
+import com.heinika.pokeg.ui.main.itemdelegate.model.TagSelectItem
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.StatusBarHeight
 import com.heinika.pokeg.view.BaseStatusCheckBox
@@ -47,6 +49,10 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
   private val baseStatusCheckedList = mutableListOf<PokemonProp.BaseStatus>()
   var onBaseStatusCheckedListChange: ((list: List<PokemonProp.BaseStatus>) -> Unit)? = null
   var onBaseStatusFilterViewClick: (() -> Unit)? = null
+
+  private val tagCheckedList = mutableListOf<PokemonProp.Tag>()
+  var onTagCheckedListChange: ((list: List<PokemonProp.Tag>) -> Unit)? = null
+  var onTagFilterViewClick: (() -> Unit)? = null
 
   private val baseStatusFilterView: RecyclerView = RecyclerView(context).apply {
     val list = mutableListOf<BaseStatusSelectItem>().apply {
@@ -130,6 +136,52 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val tagTitle = TextView(context).apply {
+    layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+    text = "只显示符合标签的"
+    setTextColor(Color.WHITE)
+    textSize = 20f
+    setOnClickListener {
+      onBaseStatusTitleClick?.invoke()
+    }
+    addView(this)
+  }
+
+  private val tagFilterView: RecyclerView = RecyclerView(context).apply {
+    val list = mutableListOf<TagSelectItem>().apply {
+      PokemonProp.Tag.values().forEach { eachTag ->
+        add(TagSelectItem(eachTag) { tag, isChecked ->
+          if (isChecked) {
+            tagCheckedList.add(tag)
+          } else {
+            tagCheckedList.remove(tag)
+          }
+
+          onTagCheckedListChange?.invoke(tagCheckedList)
+          onTagFilterViewClick?.invoke()
+        })
+      }
+    }
+    val multiTypeAdapter = MultiTypeAdapter(list).apply {
+      register(TagItemDelegate())
+    }
+
+    layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+    adapter = multiTypeAdapter
+    addItemDecoration(object : RecyclerView.ItemDecoration() {
+      override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+      ) {
+        outRect.set(0, 0, 8.dp, 0)
+      }
+    })
+
+    this@RightDrawerView.addView(this)
+  }
+
   private val generationList = mutableListOf<PokemonProp.Generation>()
   var onGenerationListChange: ((list: List<PokemonProp.Generation>) -> Unit)? = null
 
@@ -180,6 +232,8 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     bodyRadioGroup.autoMeasure()
     generationsTitle.autoMeasure()
     generationsFilterView.autoMeasure()
+    tagTitle.autoMeasure()
+    tagFilterView.autoMeasure()
   }
 
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
@@ -189,6 +243,8 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     bodyRadioGroup.layout(12.dp, baseStatusFilterView.bottom + 8.dp)
     generationsTitle.layout(12.dp, bodyRadioGroup.bottom + 8.dp)
     generationsFilterView.layout(12.dp, generationsTitle.bottom + 8.dp)
+    tagTitle.layout(12.dp, generationsFilterView.bottom + 8.dp)
+    tagFilterView.layout(12.dp, tagTitle.bottom + 8.dp)
   }
 
   @SuppressLint("SetTextI18n")

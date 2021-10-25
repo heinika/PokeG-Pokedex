@@ -64,6 +64,11 @@
     <color name="generation_7">#03A9F4</color>
     <color name="generation_8">#00BCD4</color>
 
+    <color name="favorite">#1b5e20</color>
+    <color name="baby">#bf360c</color>
+    <color name="legendary">#00695c</color>
+    <color name="mythical">#0d47a1</color>
+
     <color name="weight">#4CAF50</color>
     <color name="height">#FF5722</color>
 

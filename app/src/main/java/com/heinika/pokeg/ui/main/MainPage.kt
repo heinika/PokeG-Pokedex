@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
+import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.ui.detail.DetailPage
@@ -51,15 +52,17 @@ class MainPage(
     }
   }
 
+  private val leftDrawerView = LeftDrawerView(activity).apply {
+    layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+      gravity = GravityCompat.START
+      fitsSystemWindows = true
+    }
+  }
+
   private val drawerLayout = DrawerLayout(activity).apply {
     layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
     addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
-    addView(LeftDrawerView(activity).apply {
-      layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
-        gravity = GravityCompat.START
-        fitsSystemWindows = true
-      }
-    })
+    addView(leftDrawerView)
     addView(rightDrawerView)
   }
 
@@ -76,6 +79,12 @@ class MainPage(
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
       DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
         it.showPage()
+      }
+    }, onFavoriteClick = { pokemon, isChecked ->
+      favoritePokemons = if (isChecked) {
+        favoritePokemons + pokemon.id.toString()
+      } else {
+        favoritePokemons - pokemon.id.toString()
       }
     }))
 
@@ -162,7 +171,7 @@ class MainPage(
       mainPageView.showSearchBar()
     }
 
-    mainPageView.setOnTopButtonClickListener{
+    mainPageView.setOnTopButtonClickListener {
       mainPageView.scrollToTop()
     }
 
