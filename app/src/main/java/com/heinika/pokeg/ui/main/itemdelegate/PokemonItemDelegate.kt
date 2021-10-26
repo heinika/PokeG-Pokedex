@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.drakeet.multitype.ItemViewDelegate
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
@@ -55,6 +56,7 @@ class PokemonItemDelegate(
 
       with(binding) {
         nameLabel.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
+        favoriteCheckBox.isChecked = ConfigMMKV.favoritePokemons.contains(pokemon.id.toString())
 
         val imageUrl = pokemon.getImageUrl()
         Glide.with(imageView)

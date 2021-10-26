@@ -14,7 +14,7 @@ import com.heinika.pokeg.utils.StatusBarHeight
 @SuppressLint("ViewConstructor")
 class HeaderView(context: Context, onSettingClick: () -> Unit) : CustomLayout(context) {
   private val titleLabel = AppCompatTextView(context).apply {
-    text = "全国图鉴"
+    text = "图鉴"
     textSize = 10.dp.toFloat()
     setPadding(0, StatusBarHeight.value + 16.dp, 0, 0)
     layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)

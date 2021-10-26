@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
@@ -26,8 +25,6 @@ import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.ui.main.layout.RightDrawerView
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.dp
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
 
@@ -111,6 +108,10 @@ class MainPage(
       mainViewModel.changeGenerations(it)
     }
 
+    rightDrawerView.onTagCheckedListChange = {
+      mainViewModel.changeTags(it)
+    }
+
     mainPageView.onSearchTextChange = { searchText ->
       Timber.i("onSearchTextChange $searchText")
       mainViewModel.setSearchText(searchText)
@@ -149,23 +150,27 @@ class MainPage(
     }
 
     val header = Header("图鉴")
-    activity.lifecycleScope.launch {
-      mainViewModel.pokemonSortListStateFlow.collect { pokemonList ->
-        val itemList = arrayListOf<Any>(header) + pokemonList + BottomItem("没有了")
-        val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
-        adapter.items = itemList
-        diffResult.dispatchUpdatesTo(adapter)
-      }
+
+    mainViewModel.pokemonSortListLiveData.observe(activity) { pokemonList ->
+      Timber.i(pokemonList.size.toString())
+      val itemList = arrayListOf<Any>(header) + pokemonList + BottomItem("没有了")
+      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
+      adapter.items = itemList
+      diffResult.dispatchUpdatesTo(adapter)
+    }
+
+    mainViewModel.onRefreshFavorite = {
+      adapter.notifyItemChanged(adapter.items.indexOf(it))
     }
 
 
-    mainViewModel.toastMessage.observe(activity, { toastMessage ->
+    mainViewModel.toastMessage.observe(activity) { toastMessage ->
       Toast.makeText(activity, toastMessage, Toast.LENGTH_LONG).show()
-    })
+    }
 
-    mainViewModel.isLoading.observe(activity, { isLoading ->
+    mainViewModel.isLoading.observe(activity) { isLoading ->
       mainPageView.progressBar.isVisible = isLoading
-    })
+    }
 
     mainPageView.setOnSearchClickListener {
       mainPageView.showSearchBar()

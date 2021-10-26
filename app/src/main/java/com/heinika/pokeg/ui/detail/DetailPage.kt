@@ -30,6 +30,8 @@ import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.heinika.pokeg.ConfigMMKV
+import com.heinika.pokeg.ConfigMMKV.favoritePokemons
+import com.heinika.pokeg.ConfigMMKV.isFavoritePokemon
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
@@ -40,6 +42,7 @@ import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
+import com.heinika.pokeg.ui.main.MainViewModel
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.utils.*
 import com.heinika.pokeg.view.MoveMethodRadioButton
@@ -59,6 +62,7 @@ class DetailPage(
 ) : BasePage(activity, pageStack) {
 
   private val detailViewModel: DetailViewModel by activity.viewModels()
+  private val mainViewModel: MainViewModel by activity.viewModels()
 
   private val binding: PageDetailBinding = PageDetailBinding.inflate(activity.layoutInflater)
 
@@ -133,6 +137,16 @@ class DetailPage(
           .create()
       dialog.show()
       true
+    }
+
+    binding.favoriteCheckBox.isChecked = isFavoritePokemon(pokemon.id)
+    binding.favoriteCheckBox.setOnClickListener {
+      favoritePokemons = if (binding.favoriteCheckBox.isChecked) {
+        favoritePokemons + pokemon.id.toString()
+      } else {
+        favoritePokemons - pokemon.id.toString()
+      }
+      mainViewModel.changeBasePokemonListFavorite(pokemon, binding.favoriteCheckBox.isChecked)
     }
 
     binding.progressHp.max = PokemonInfo.maxHp
@@ -248,10 +262,10 @@ class DetailPage(
                     }
                   },
                   onFavoriteClick = { pokemon, isChecked ->
-                    ConfigMMKV.favoritePokemons = if (isChecked) {
-                      ConfigMMKV.favoritePokemons + pokemon.id.toString()
+                    favoritePokemons = if (isChecked) {
+                      favoritePokemons + pokemon.id.toString()
                     } else {
-                      ConfigMMKV.favoritePokemons - pokemon.id.toString()
+                      favoritePokemons - pokemon.id.toString()
                     }
                   }
                 )

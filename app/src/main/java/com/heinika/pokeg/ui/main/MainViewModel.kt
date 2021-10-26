@@ -1,12 +1,13 @@
 package com.heinika.pokeg.ui.main
 
 import androidx.lifecycle.*
+import com.bumptech.glide.Glide.init
+import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.PokemonProp
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -32,10 +33,10 @@ class MainViewModel @Inject constructor(
   private val _isSortDesc = MutableLiveData<Boolean>().apply { value = true }
   val isSortDesc: LiveData<Boolean> = _isSortDesc
 
-  private val _pokemonSortListStateFlow = MutableStateFlow<List<Pokemon>>(listOf())
-  val pokemonSortListStateFlow = _pokemonSortListStateFlow
+  private val _pokemonSortListLiveData = MutableLiveData<List<Pokemon>>(listOf())
+  val pokemonSortListLiveData : LiveData<List<Pokemon>> = _pokemonSortListLiveData
 
-  private var basePokemonList: List<Pokemon>? = null
+  private var basePokemonList: MutableLiveData<List<Pokemon>?> = MutableLiveData()
 
   var filterTypeList: List<PokemonProp.Type> = emptyList()
     set(value) {
@@ -47,6 +48,10 @@ class MainViewModel @Inject constructor(
     MutableLiveData(emptyList())
   val filterGenerations: LiveData<List<PokemonProp.Generation>> = _filterGenerations
 
+  private val _filterTags: MutableLiveData<List<PokemonProp.Tag>> =
+    MutableLiveData(emptyList())
+  private val filterTags: LiveData<List<PokemonProp.Tag>> = _filterTags
+
   private val _sortBaseStatusList: MutableLiveData<List<PokemonProp.BaseStatus>> =
     MutableLiveData(emptyList())
 
@@ -55,6 +60,8 @@ class MainViewModel @Inject constructor(
   val selectedBodyStatus: LiveData<PokemonProp.BodyStatus?> = _selectedBodyStatus
 
   val sortBaseStatusList: LiveData<List<PokemonProp.BaseStatus>> = _sortBaseStatusList
+
+  var onRefreshFavorite : ((Pokemon)->Unit)? = null
 
   init {
     Timber.d("init MainViewModel")
@@ -65,10 +72,15 @@ class MainViewModel @Inject constructor(
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
       ).collect {
-        basePokemonList = it
-        _pokemonSortListStateFlow.value = it
+        basePokemonList.value = it
+        _pokemonSortListLiveData.value = it
       }
     }
+  }
+
+  fun changeBasePokemonListFavorite(pokemon: Pokemon, isFavorite: Boolean) {
+    pokemon.isFavorite = isFavorite
+    onRefreshFavorite?.invoke(pokemon)
   }
 
   fun changeSortBaseStatusList(list: List<PokemonProp.BaseStatus>) {
@@ -84,23 +96,28 @@ class MainViewModel @Inject constructor(
     startSortAndFilter()
   }
 
+  fun changeTags(list: List<PokemonProp.Tag>) {
+    _filterTags.value = list
+    startSortAndFilter()
+  }
+
   fun startSortAndFilter() {
-    basePokemonList?.let { baseList ->
-      _pokemonSortListStateFlow.value =
-        baseList.filterType().filterGenerations().sortBaseStatus().sortBodyStatus()
+    basePokemonList.value?.let { baseList ->
+      _pokemonSortListLiveData.value =
+        baseList.filterType().filterGenerations().filterTags().sortBaseStatus().sortBodyStatus()
     }
   }
 
   fun setSearchText(searchText: CharSequence?) {
     _searchText.value = searchText
     if (searchText.isNullOrEmpty()) {
-      basePokemonList?.let { _pokemonSortListStateFlow.value = it }
+      basePokemonList.value?.let { _pokemonSortListLiveData.value = it }
     } else {
-      basePokemonList?.filter {
+      basePokemonList.value?.filter {
         it.getCName(pokemonRes).contains(searchText, true) || it.id.toString()
           .contains(searchText, true)
       }?.let {
-        _pokemonSortListStateFlow.value = it
+        _pokemonSortListLiveData.value = it
       }
     }
   }
@@ -133,6 +150,40 @@ class MainViewModel @Inject constructor(
           }
         }
         result
+      }
+    }
+  }
+
+  private fun List<Pokemon>.filterTags(): List<Pokemon> {
+    return filter { pokemon ->
+      if (filterTags.value!!.isEmpty()) {
+        true
+      } else {
+        filterTags.value!!.forEach { tag ->
+          when (tag) {
+            PokemonProp.Tag.Favorite -> {
+              if (favoritePokemons.contains(pokemon.id.toString())) {
+                return@filter true
+              }
+            }
+            PokemonProp.Tag.Legendary -> {
+              if (pokemon.isLegendary) {
+                return@filter true
+              }
+            }
+            PokemonProp.Tag.Mythical -> {
+              if (pokemon.isMythical) {
+                return@filter true
+              }
+            }
+            PokemonProp.Tag.BABY -> {
+              if (pokemon.isBaby) {
+                return@filter true
+              }
+            }
+          }
+        }
+        false
       }
     }
   }

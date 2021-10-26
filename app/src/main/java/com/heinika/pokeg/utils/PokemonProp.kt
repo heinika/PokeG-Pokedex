@@ -63,9 +63,9 @@ object PokemonProp {
     private val resColor: Int
   ) {
     Favorite(R.string.favorite, R.color.favorite),
-    BABY(R.string.baby, R.color.baby),
     Legendary(R.string.legendary, R.color.legendary),
-    Mythical(R.string.mythical, R.color.mythical);
+    Mythical(R.string.mythical, R.color.mythical),
+    BABY(R.string.baby, R.color.baby);
 
     fun getName(context: Context): CharSequence {
       return context.getString(resId)

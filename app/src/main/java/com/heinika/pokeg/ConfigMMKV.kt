@@ -1,5 +1,6 @@
 package com.heinika.pokeg
 
+import com.heinika.pokeg.model.Pokemon
 import com.tencent.mmkv.MMKV
 
 object ConfigMMKV {
@@ -22,4 +23,7 @@ object ConfigMMKV {
     get() {
       return kv.getStringSet(FAVORITE_POKEMONS, emptySet())!!
     }
+
+  fun isFavoritePokemon(pokemonId: Int) = favoritePokemons.contains(pokemonId.toString())
+
 }

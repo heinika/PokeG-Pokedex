@@ -296,12 +296,10 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginTop="24dp"
-            android:paddingEnd="6dp"
-            android:paddingStart="12dp"
-            android:paddingTop="12dp"
+            android:padding="6dp"
             android:translationZ="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -325,10 +323,11 @@
             android:layout_height="wrap_content"
             tools:text="@string/pokemon_name_1"
             android:textColor="@color/white"
-            android:textSize="18sp"
             android:translationZ="10dp"
             app:layout_constraintStart_toEndOf="@id/arrow"
-            app:layout_constraintTop_toTopOf="@id/arrow" />
+            app:layout_constraintTop_toTopOf="@id/arrow"
+            app:layout_constraintBottom_toBottomOf="@id/arrow"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/index"
@@ -336,14 +335,27 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:translationZ="10dp"
             app:layout_constraintEnd_toEndOf="@id/header"
             app:layout_constraintTop_toTopOf="@id/arrow"
+            app:layout_constraintBottom_toBottomOf="@id/arrow"
             tools:text="#001" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/favoriteCheckBox"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintEnd_toStartOf="@id/index"
+            app:layout_constraintTop_toTopOf="@id/arrow"
+            app:layout_constraintBottom_toBottomOf="@id/arrow"
+            android:translationZ="10dp"
+            android:button="@drawable/sl_favorite_24dp"
+            android:buttonTint="@color/white"
+            android:layout_marginEnd="8.dp"
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/type1Text"

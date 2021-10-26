@@ -25,6 +25,7 @@ import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.StatusBarHeight
 import com.heinika.pokeg.view.BaseStatusCheckBox
 import com.heinika.pokeg.view.BodyRadioButton
+import timber.log.Timber
 
 class RightDrawerView(context: Context) : CustomLayout(context) {
   val typesFilterView = TypesFilterView(context).apply {
@@ -52,7 +53,6 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   private val tagCheckedList = mutableListOf<PokemonProp.Tag>()
   var onTagCheckedListChange: ((list: List<PokemonProp.Tag>) -> Unit)? = null
-  var onTagFilterViewClick: (() -> Unit)? = null
 
   private val baseStatusFilterView: RecyclerView = RecyclerView(context).apply {
     val list = mutableListOf<BaseStatusSelectItem>().apply {
@@ -138,7 +138,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   private val tagTitle = TextView(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-    text = "只显示符合标签的"
+    text = "含有标签"
     setTextColor(Color.WHITE)
     textSize = 20f
     setOnClickListener {
@@ -152,13 +152,13 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
       PokemonProp.Tag.values().forEach { eachTag ->
         add(TagSelectItem(eachTag) { tag, isChecked ->
           if (isChecked) {
-            tagCheckedList.add(tag)
+            tagCheckedList.add(eachTag)
           } else {
-            tagCheckedList.remove(tag)
+            tagCheckedList.remove(eachTag)
           }
 
+          Timber.i(tagCheckedList.joinToString (","))
           onTagCheckedListChange?.invoke(tagCheckedList)
-          onTagFilterViewClick?.invoke()
         })
       }
     }
