@@ -1,5 +1,6 @@
 package com.heinika.pokeg.ui.main.layout
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
@@ -16,12 +17,15 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
 import com.heinika.pokeg.ui.main.itemdelegate.BaseStatusItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.GenerationItemDelegate
+import com.heinika.pokeg.ui.main.itemdelegate.TagItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.GenerationsSelectItem
+import com.heinika.pokeg.ui.main.itemdelegate.model.TagSelectItem
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.StatusBarHeight
 import com.heinika.pokeg.view.BaseStatusCheckBox
 import com.heinika.pokeg.view.BodyRadioButton
+import timber.log.Timber
 
 class RightDrawerView(context: Context) : CustomLayout(context) {
   val typesFilterView = TypesFilterView(context).apply {
@@ -46,6 +50,9 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
   private val baseStatusCheckedList = mutableListOf<PokemonProp.BaseStatus>()
   var onBaseStatusCheckedListChange: ((list: List<PokemonProp.BaseStatus>) -> Unit)? = null
   var onBaseStatusFilterViewClick: (() -> Unit)? = null
+
+  private val tagCheckedList = mutableListOf<PokemonProp.Tag>()
+  var onTagCheckedListChange: ((list: List<PokemonProp.Tag>) -> Unit)? = null
 
   private val baseStatusFilterView: RecyclerView = RecyclerView(context).apply {
     val list = mutableListOf<BaseStatusSelectItem>().apply {
@@ -129,6 +136,52 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val tagTitle = TextView(context).apply {
+    layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+    text = "含有标签"
+    setTextColor(Color.WHITE)
+    textSize = 20f
+    setOnClickListener {
+      onBaseStatusTitleClick?.invoke()
+    }
+    addView(this)
+  }
+
+  private val tagFilterView: RecyclerView = RecyclerView(context).apply {
+    val list = mutableListOf<TagSelectItem>().apply {
+      PokemonProp.Tag.values().forEach { eachTag ->
+        add(TagSelectItem(eachTag) { tag, isChecked ->
+          if (isChecked) {
+            tagCheckedList.add(eachTag)
+          } else {
+            tagCheckedList.remove(eachTag)
+          }
+
+          Timber.i(tagCheckedList.joinToString (","))
+          onTagCheckedListChange?.invoke(tagCheckedList)
+        })
+      }
+    }
+    val multiTypeAdapter = MultiTypeAdapter(list).apply {
+      register(TagItemDelegate())
+    }
+
+    layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+    adapter = multiTypeAdapter
+    addItemDecoration(object : RecyclerView.ItemDecoration() {
+      override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
+      ) {
+        outRect.set(0, 0, 8.dp, 0)
+      }
+    })
+
+    this@RightDrawerView.addView(this)
+  }
+
   private val generationList = mutableListOf<PokemonProp.Generation>()
   var onGenerationListChange: ((list: List<PokemonProp.Generation>) -> Unit)? = null
 
@@ -179,6 +232,8 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     bodyRadioGroup.autoMeasure()
     generationsTitle.autoMeasure()
     generationsFilterView.autoMeasure()
+    tagTitle.autoMeasure()
+    tagFilterView.autoMeasure()
   }
 
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
@@ -188,8 +243,11 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     bodyRadioGroup.layout(12.dp, baseStatusFilterView.bottom + 8.dp)
     generationsTitle.layout(12.dp, bodyRadioGroup.bottom + 8.dp)
     generationsFilterView.layout(12.dp, generationsTitle.bottom + 8.dp)
+    tagTitle.layout(12.dp, generationsFilterView.bottom + 8.dp)
+    tagFilterView.layout(12.dp, tagTitle.bottom + 8.dp)
   }
 
+  @SuppressLint("SetTextI18n")
   fun setBaseStatusTitleDataList(
     list: List<PokemonProp.BaseStatus>,
     bodyStatus: PokemonProp.BodyStatus?,
@@ -198,13 +256,13 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     when {
       list.isEmpty() -> {
         if (bodyStatus == null) {
-          baseStatusTitle.text = "${sortPriority(isDesc)}:未选择"
+          baseStatusTitle.text = context.getString(R.string.base_status_unselected,sortPriority(isDesc))
         } else {
           setBodyStatus(bodyStatus, isDesc)
         }
       }
       list.size == 6 -> {
-        baseStatusTitle.text = "${sortPriority(isDesc)}:总能力值"
+        baseStatusTitle.text = context.getString(R.string.all_base_status_selected,sortPriority(isDesc))
       }
       else -> {
         baseStatusTitle.text =
@@ -213,27 +271,29 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     }
   }
 
+  @SuppressLint("SetTextI18n")
   fun setBodyStatus(bodyStatus: PokemonProp.BodyStatus?, isDesc: Boolean) {
     bodyStatus?.let {
       baseStatusTitle.text = "${sortPriority(isDesc)}:${bodyStatus.getName(context)}"
     }
   }
 
+  @SuppressLint("SetTextI18n")
   fun setGenerationTitleDataList(list: List<PokemonProp.Generation>) {
     when {
       list.isEmpty() -> {
-        generationsTitle.text = "世代:未选择"
+        generationsTitle.text = context.getString(R.string.genneration_unselected)
       }
       list.size == 8 -> {
-        generationsTitle.text = "世代:所有世代"
+        generationsTitle.text = context.getString(R.string.genneration_all_selected)
       }
       else -> {
         generationsTitle.text =
-          "世代:${list.map { it.filterString }.joinToString("+")}"
+          "${context.getString(R.string.genneration)}:${list.map { it.filterString }.joinToString("+")}"
       }
     }
 
   }
 
-  private fun sortPriority(isDesc: Boolean) = if (isDesc) "降序" else "升序"
+  private fun sortPriority(isDesc: Boolean) = if (isDesc) context.getString(R.string.Descending) else context.getString(R.string.Ascending)
 }

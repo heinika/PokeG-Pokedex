@@ -1,6 +1,7 @@
 package com.heinika.pokeg.model
 
 
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.*
 import com.squareup.moshi.Json
@@ -72,7 +73,8 @@ data class PokemonNew(
             height = height,
             isBaby = isBaby,
             isLegendary = isLegendary,
-            isMythical = isMythical
+            isMythical = isMythical,
+            isFavorite = ConfigMMKV.isFavoritePokemon(id)
         )
     }
 }

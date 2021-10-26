@@ -1,0 +1,159 @@
+<resources>
+    <string name="app_name">口袋图鉴</string>
+    <string name="weight">体重</string>
+    <string name="height">身高</string>
+    <string name="base_stats">种族值</string>
+    <string name="sum_base_status">总和</string>
+    <string name="hp">血量</string>
+    <string name="atk">攻击</string>
+    <string name="def">防御</string>
+    <string name="sp_atk">特攻</string>
+    <string name="sp_def">特防</string>
+    <string name="spd">速度</string>
+
+    <string name="save_image">保存图片</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
+
+    <string-array name="versions">
+        <item>红/绿/蓝</item>
+        <item>黄</item>
+        <item>金/银</item>
+        <item>水晶</item>
+        <item>红宝石/蓝宝石</item>
+        <item>绿宝石</item>
+        <item>火红/叶绿</item>
+        <item>珍珠/钻石</item>
+        <item>白金</item>
+        <item>心金/魂银</item>
+        <item>黑/白</item>
+        <item>圆形竞技场</item>
+        <item>XD暗之旋风黑暗洛奇亚</item>
+        <item>黑2/白2</item>
+        <item>x/y</item>
+        <item>Ω红宝石/α蓝宝石</item>
+        <item>日/月</item>
+        <item>究极之日/究极之月</item>
+        <item>Let\'s Go</item>
+        <item>剑/盾</item>
+    </string-array>
+
+    <string name="type_fighting">格斗</string>
+    <string name="type_flying">飞行</string>
+    <string name="type_poison">毒</string>
+    <string name="type_ground">地面</string>
+    <string name="type_rock">岩石</string>
+    <string name="type_bug">虫</string>
+    <string name="type_ghost">鬼</string>
+    <string name="type_steel">钢</string>
+    <string name="type_fire">火</string>
+    <string name="type_water">水</string>
+    <string name="type_grass">草</string>
+    <string name="type_electric">电</string>
+    <string name="type_psychic">超能</string>
+    <string name="type_ice">冰</string>
+    <string name="type_dragon">龙</string>
+    <string name="type_fairy">妖精</string>
+    <string name="type_dark">恶</string>
+    <string name="type_normal">正常</string>
+    <string name="type_unknown">/???</string>
+
+    <string name="damage_class_1">变化</string>
+    <string name="damage_class_2">物理</string>
+    <string name="damage_class_3">特殊</string>
+
+
+
+
+    <string name="move_method_1">等级提升</string>
+    <string name="move_method_2">蛋遗传</string>
+    <string name="move_method_3">教学</string>
+    <string name="move_method_4">技能机</string>
+    <string name="move_method_5">皮卡丘大球场冲浪</string>
+    <string name="move_method_6">携带电气球蛋遗传</string>
+    <string name="move_method_7">圆形竞技场-纯化</string>
+    <string name="move_method_8">xd-shadow</string>
+    <string name="move_method_9">xd-purification</string>
+    <string name="move_method_10">form-change</string>
+    <string name="move_method_11">zygarde-cube</string>
+
+    <string name="pp">PP</string>
+    <string name="accuracy">命中</string>
+    <string name="power">威力</string>
+    <string name="move_table">技能表</string>
+    <string name="favorite">喜爱的❤</string>
+    <string name="legendary">传奇</string>
+    <string name="mythical">神话</string>
+    <string name="baby">婴儿</string>
+    <string name="egg_group">蛋组</string>
+    <string name="egg_steps">孵化步数</string>
+    <string name="grow_speed">生长速度</string>
+
+    <string name="monster">怪兽</string>
+    <string name="plant">植物</string>
+    <string name="water1">水1</string>
+    <string name="water2">水2</string>
+    <string name="water3">水3</string>
+    <string name="bug">虫</string>
+    <string name="flying">飞行</string>
+    <string name="ground">地面</string>
+    <string name="fairy">精灵</string>
+    <string name="humanshape">人形</string>
+    <string name="mineral">矿物</string>
+    <string name="indeterminate">不定</string>
+    <string name="ditto">重复</string>
+    <string name="dragon">龙</string>
+    <string name="no_eggs">没有蛋</string>
+
+    <string name="slow">慢</string>
+    <string name="medium">中等</string>
+    <string name="fast">快</string>
+    <string name="medium_slow">中等慢</string>
+    <string name="slow_then_very_fast">比较快</string>
+    <string name="fast_then_very_slow">比较慢</string>
+
+    <string name="generation_i">第一世代</string>
+    <string name="generation_ii">第二世代</string>
+    <string name="generation_iii">第三世代</string>
+    <string name="generation_iv">第四世代</string>
+    <string name="generation_v">第五世代</string>
+    <string name="generation_vi">第六世代</string>
+    <string name="generation_vii">第七世代</string>
+    <string name="generation_viii">第八世代</string>
+
+    <string name="ball">球型</string>
+    <string name="squiggle">蛇形</string>
+    <string name="fish">鱼形</string>
+    <string name="arms">双手形</string>
+    <string name="blob">柱形</string>
+    <string name="upright">双足兽形</string>
+    <string name="legs">双腿形</string>
+    <string name="quadruped">四足兽形</string>
+    <string name="wings">双翅形</string>
+    <string name="tentacles">触手形</string>
+    <string name="heads">组合形</string>
+    <string name="humanoid">人形</string>
+    <string name="bug_wings">多翅形</string>
+    <string name="armor">虫形</string>
+
+    <string name="cave">洞穴</string>
+    <string name="forest">森林</string>
+    <string name="grassland">草原</string>
+    <string name="mountain">山丘</string>
+    <string name="rare">稀有的</string>
+    <string name="rough_terrain">崎岖的地形</string>
+    <string name="sea">海</string>
+    <string name="urban">城市</string>
+    <string name="waters_edge">水边</string>
+
+    <string name="base_status_unselected">%s:未选择</string>
+    <string name="all_base_status_selected">%s:总能力值</string>
+    <string name="genneration_unselected">世代:未选择</string>
+    <string name="genneration_all_selected">世代:所有世代</string>
+    <string name="genneration">世代</string>
+
+    <string name="Descending">降序</string>
+    <string name="Ascending">升序</string>
+</resources>

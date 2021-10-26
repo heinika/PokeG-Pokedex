@@ -48,6 +48,15 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val toTopButton = FloatingActionButton(context).apply {
+    layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+      bottomMargin = 8.dp
+    }
+    setImageResource(R.drawable.ic_arror_top)
+    setColorFilter(Color.WHITE)
+    addView(this)
+  }
+
   private val filterListButton = FloatingActionButton(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = 8.dp
@@ -102,6 +111,12 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val hideToTopButtonAnimator = SpringAnimation(
+    toTopButton,
+    DynamicAnimation.TRANSLATION_Y,
+    70.dp.toFloat()
+  )
+
   private val hideFilterListAnimator = SpringAnimation(
     filterListButton,
     DynamicAnimation.TRANSLATION_Y,
@@ -113,6 +128,9 @@ class MainPageView(context: Context) : CustomLayout(context) {
     DynamicAnimation.TRANSLATION_Y,
     70.dp.toFloat()
   )
+
+  private val showToTopButtonAnimator =
+    SpringAnimation(toTopButton, DynamicAnimation.TRANSLATION_Y, 0f)
 
   private val showSearchAnimator =
     SpringAnimation(searchButton, DynamicAnimation.TRANSLATION_Y, 0f)
@@ -130,6 +148,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     progressBar.autoMeasure()
     recyclerView.autoMeasure()
+    toTopButton.autoMeasure()
     searchButton.autoMeasure()
     filterListButton.autoMeasure()
     searchEditText.let {
@@ -152,15 +171,21 @@ class MainPageView(context: Context) : CustomLayout(context) {
         height / 2 - it.measuredHeight / 2
       )
     }
+    toTopButton.let {
+      it.layout(
+        width / 2 - it.measuredWidth / 2 - 92.dp,
+        height - it.measuredHeight - it.marginBottom
+      )
+    }
     searchButton.let {
       it.layout(
-        width / 2 - it.measuredWidth / 2 - 72.dp,
+        width / 2 - it.measuredWidth / 2,
         height - it.measuredHeight - it.marginBottom
       )
     }
     filterListButton.let {
       it.layout(
-        width / 2 - it.measuredWidth / 2 + 72.dp,
+        width / 2 - it.measuredWidth / 2 + 92.dp,
         height - it.measuredHeight - it.marginBottom
       )
     }
@@ -204,6 +229,11 @@ class MainPageView(context: Context) : CustomLayout(context) {
   fun hideBottomFilterBar() {
     hideSearchAnimator.start()
     hideFilterListAnimator.start()
+    hideToTopButtonAnimator.start()
+  }
+
+  fun setOnTopButtonClickListener(onClickListener: OnClickListener) {
+    toTopButton.setOnClickListener(onClickListener)
   }
 
   fun setOnSearchClickListener(onClickListener: OnClickListener) {
@@ -231,6 +261,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
   fun showBottomFilterView(){
     showSearchAnimator.start()
     showFilterListAnimator.start()
+    showToTopButtonAnimator.start()
   }
 
   fun canScrollUp(): Boolean {

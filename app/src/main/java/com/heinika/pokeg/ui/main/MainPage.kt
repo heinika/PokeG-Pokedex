@@ -8,10 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
+import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.ui.detail.DetailPage
@@ -25,8 +25,6 @@ import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.ui.main.layout.RightDrawerView
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.dp
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
 
@@ -51,15 +49,17 @@ class MainPage(
     }
   }
 
+  private val leftDrawerView = LeftDrawerView(activity).apply {
+    layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
+      gravity = GravityCompat.START
+      fitsSystemWindows = true
+    }
+  }
+
   private val drawerLayout = DrawerLayout(activity).apply {
     layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
     addView(FullDraggableContainer(activity).apply { addView(mainPageView) })
-    addView(LeftDrawerView(activity).apply {
-      layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
-        gravity = GravityCompat.START
-        fitsSystemWindows = true
-      }
-    })
+    addView(leftDrawerView)
     addView(rightDrawerView)
   }
 
@@ -76,6 +76,12 @@ class MainPage(
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
       DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
         it.showPage()
+      }
+    }, onFavoriteClick = { pokemon, isChecked ->
+      favoritePokemons = if (isChecked) {
+        favoritePokemons + pokemon.id.toString()
+      } else {
+        favoritePokemons - pokemon.id.toString()
       }
     }))
 
@@ -100,6 +106,10 @@ class MainPage(
 
     rightDrawerView.onGenerationListChange = {
       mainViewModel.changeGenerations(it)
+    }
+
+    rightDrawerView.onTagCheckedListChange = {
+      mainViewModel.changeTags(it)
     }
 
     mainPageView.onSearchTextChange = { searchText ->
@@ -140,26 +150,34 @@ class MainPage(
     }
 
     val header = Header("图鉴")
-    activity.lifecycleScope.launch {
-      mainViewModel.pokemonSortListStateFlow.collect { pokemonList ->
-        val itemList = arrayListOf<Any>(header) + pokemonList + BottomItem("没有了")
-        val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
-        adapter.items = itemList
-        diffResult.dispatchUpdatesTo(adapter)
-      }
+
+    mainViewModel.pokemonSortListLiveData.observe(activity) { pokemonList ->
+      Timber.i(pokemonList.size.toString())
+      val itemList = arrayListOf<Any>(header) + pokemonList + BottomItem("没有了")
+      val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
+      adapter.items = itemList
+      diffResult.dispatchUpdatesTo(adapter)
+    }
+
+    mainViewModel.onRefreshFavorite = {
+      adapter.notifyItemChanged(adapter.items.indexOf(it))
     }
 
 
-    mainViewModel.toastMessage.observe(activity, { toastMessage ->
+    mainViewModel.toastMessage.observe(activity) { toastMessage ->
       Toast.makeText(activity, toastMessage, Toast.LENGTH_LONG).show()
-    })
+    }
 
-    mainViewModel.isLoading.observe(activity, { isLoading ->
+    mainViewModel.isLoading.observe(activity) { isLoading ->
       mainPageView.progressBar.isVisible = isLoading
-    })
+    }
 
     mainPageView.setOnSearchClickListener {
       mainPageView.showSearchBar()
+    }
+
+    mainPageView.setOnTopButtonClickListener {
+      mainPageView.scrollToTop()
     }
 
     mainPageView.setOnFilterClickListener {

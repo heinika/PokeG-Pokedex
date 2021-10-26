@@ -30,6 +30,8 @@ import com.drakeet.multitype.MultiTypeAdapter
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import com.heinika.pokeg.ConfigMMKV
+import com.heinika.pokeg.ConfigMMKV.favoritePokemons
+import com.heinika.pokeg.ConfigMMKV.isFavoritePokemon
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
@@ -40,6 +42,7 @@ import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.ui.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
+import com.heinika.pokeg.ui.main.MainViewModel
 import com.heinika.pokeg.ui.main.itemdelegate.PokemonItemDelegate
 import com.heinika.pokeg.utils.*
 import com.heinika.pokeg.view.MoveMethodRadioButton
@@ -59,6 +62,7 @@ class DetailPage(
 ) : BasePage(activity, pageStack) {
 
   private val detailViewModel: DetailViewModel by activity.viewModels()
+  private val mainViewModel: MainViewModel by activity.viewModels()
 
   private val binding: PageDetailBinding = PageDetailBinding.inflate(activity.layoutInflater)
 
@@ -108,12 +112,16 @@ class DetailPage(
                   resource: Bitmap,
                   @Nullable transition: Transition<in Bitmap>?
                 ) {
-                  if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P){
+                  if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
                     if (checkPermission()) {
                       saveImageToDCIM(resource)
-                    }else{
+                    } else {
                       //请求权限
-                      ActivityCompat.requestPermissions(activity, arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+                      ActivityCompat.requestPermissions(
+                        activity,
+                        arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                        1
+                      )
                     }
                   } else {
                     saveImageToDCIM(resource)
@@ -121,7 +129,7 @@ class DetailPage(
                 }
 
                 override fun onLoadCleared(@Nullable placeholder: Drawable?) {
-                  Toast.makeText(activity.applicationContext,"保存失败",Toast.LENGTH_SHORT).show()
+                  Toast.makeText(activity.applicationContext, "保存失败", Toast.LENGTH_SHORT).show()
                 }
               })
             dialog.dismiss()
@@ -129,6 +137,16 @@ class DetailPage(
           .create()
       dialog.show()
       true
+    }
+
+    binding.favoriteCheckBox.isChecked = isFavoritePokemon(pokemon.id)
+    binding.favoriteCheckBox.setOnClickListener {
+      favoritePokemons = if (binding.favoriteCheckBox.isChecked) {
+        favoritePokemons + pokemon.id.toString()
+      } else {
+        favoritePokemons - pokemon.id.toString()
+      }
+      mainViewModel.changeBasePokemonListFavorite(pokemon, binding.favoriteCheckBox.isChecked)
     }
 
     binding.progressHp.max = PokemonInfo.maxHp
@@ -139,6 +157,7 @@ class DetailPage(
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
     detailViewModel.getPokemonBaseStatLiveData(pokemon.id).observe(activity) { baseStats ->
+      initProgress(binding.progressSumBaseStatus, baseStats.sumOf { it.baseStat })
       initProgress(binding.progressHp, baseStats.first { it.statId.isHPStat }.baseStat)
       initProgress(
         binding.progressAttach,
@@ -241,7 +260,15 @@ class DetailPage(
                     ).also {
                       it.showPage()
                     }
-                  })
+                  },
+                  onFavoriteClick = { pokemon, isChecked ->
+                    favoritePokemons = if (isChecked) {
+                      favoritePokemons + pokemon.id.toString()
+                    } else {
+                      favoritePokemons - pokemon.id.toString()
+                    }
+                  }
+                )
               )
               items = forms
             }
@@ -336,7 +363,8 @@ class DetailPage(
           detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
             .observe(activity) { versions ->
               val defaultVersion = ConfigMMKV.defaultVersion
-              val version = if (versions.contains(defaultVersion)) defaultVersion else versions.last()
+              val version =
+                if (versions.contains(defaultVersion)) defaultVersion else versions.last()
               binding.moveVersionText.text =
                 pokemonRes.getVersionName(version)
 
@@ -515,7 +543,7 @@ class DetailPage(
     }
   }
 
-  private fun checkPermission():Boolean{
+  private fun checkPermission(): Boolean {
     return ActivityCompat.checkSelfPermission(
       activity, android.Manifest.permission.WRITE_EXTERNAL_STORAGE
     ) == PackageManager.PERMISSION_GRANTED

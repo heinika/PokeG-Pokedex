@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.drakeet.multitype.ItemViewDelegate
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
@@ -18,7 +19,8 @@ import com.heinika.pokeg.repository.res.PokemonRes
 
 class PokemonItemDelegate(
   private val pokemonRes: PokemonRes,
-  private val onItemClick: (AppCompatImageView, Pokemon) -> Unit
+  private val onItemClick: (AppCompatImageView, Pokemon) -> Unit,
+  private val onFavoriteClick: (Pokemon, isChecked: Boolean) -> Unit
 ) :
   ItemViewDelegate<Pokemon, PokemonItemDelegate.ViewHolder>() {
 
@@ -44,6 +46,9 @@ class PokemonItemDelegate(
       binding.root.setOnClickListener {
         onItemClick(binding.imageView, item)
       }
+      binding.favoriteCheckBox.setOnClickListener {
+        onFavoriteClick(item, binding.favoriteCheckBox.isChecked)
+      }
     }
 
     fun setData(pokemon: Pokemon) {
@@ -51,6 +56,7 @@ class PokemonItemDelegate(
 
       with(binding) {
         nameLabel.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
+        favoriteCheckBox.isChecked = ConfigMMKV.favoritePokemons.contains(pokemon.id.toString())
 
         val imageUrl = pokemon.getImageUrl()
         Glide.with(imageView)

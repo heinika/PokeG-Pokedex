@@ -97,6 +97,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/favoriteCheckBox"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintEnd_toEndOf="@id/idText"
+            app:layout_constraintTop_toBottomOf="@id/idText"
+            app:layout_constraintBottom_toTopOf="@id/totalStatText"
+            android:button="@drawable/sl_favorite_24dp"
+            android:buttonTint="@color/white"
+            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
