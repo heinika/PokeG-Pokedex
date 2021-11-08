@@ -1,0 +1,8684 @@
+[
+  {
+    "move_id": 1,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用长长的尾巴或手等\n拍打对手进行攻击。"
+  },
+  {
+    "move_id": 1,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用长长的尾巴或手等\n拍打对手进行攻击。"
+  },
+  {
+    "move_id": 2,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用锋利的手刀\n劈向对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 2,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用锋利的手刀\n劈向对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 3,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用连环巴掌\n拍打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 3,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用连环巴掌\n拍打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 4,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用拳头怒涛般的\n殴打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 4,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用拳头怒涛般的\n殴打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 5,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用充满力量的拳头攻击对手。"
+  },
+  {
+    "move_id": 5,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用充满力量的拳头攻击对手。"
+  },
+  {
+    "move_id": 6,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手的身体\n投掷小金币进行攻击。\n战斗后可以拿到钱。"
+  },
+  {
+    "move_id": 6,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手的身体\n投掷小金币进行攻击。\n战斗后可以拿到钱。"
+  },
+  {
+    "move_id": 7,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用充满火焰的拳头攻击对手。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 7,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用充满火焰的拳头攻击对手。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 8,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用充满寒气的拳头攻击对手。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 8,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用充满寒气的拳头攻击对手。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 9,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用充满电流的拳头攻击对手。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 9,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用充满电流的拳头攻击对手。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 10,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬且无比锋利的爪子\n抓对手进行攻击。"
+  },
+  {
+    "move_id": 10,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬且无比锋利的爪子\n抓对手进行攻击。"
+  },
+  {
+    "move_id": 11,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手从两侧夹住，\n给予伤害。"
+  },
+  {
+    "move_id": 11,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手从两侧夹住，\n给予伤害。"
+  },
+  {
+    "move_id": 12,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用大钳子或剪刀等\n夹断对手进行攻击。\n只要命中就会一击濒死。"
+  },
+  {
+    "move_id": 12,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用大钳子或剪刀等\n夹断对手进行攻击。\n只要命中就会一击濒死。"
+  },
+  {
+    "move_id": 13,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "制造风之刃，\n于第２回合攻击对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 13,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "制造风之刃，\n于第２回合攻击对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 14,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "激烈地跳起战舞提高气势。\n大幅提高自己的攻击。"
+  },
+  {
+    "move_id": 14,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "激烈地跳起战舞提高气势。\n大幅提高自己的攻击。"
+  },
+  {
+    "move_id": 15,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用镰刀或爪子等\n切斩对手进行攻击。"
+  },
+  {
+    "move_id": 15,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用镰刀或爪子等\n切斩对手进行攻击。"
+  },
+  {
+    "move_id": 16,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用翅膀将刮起的狂风\n袭向对手进行攻击。"
+  },
+  {
+    "move_id": 16,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用翅膀将刮起的狂风\n袭向对手进行攻击。"
+  },
+  {
+    "move_id": 17,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "大大地展开美丽的翅膀，\n将其撞向对手进行攻击。"
+  },
+  {
+    "move_id": 17,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "大大地展开美丽的翅膀，\n将其撞向对手进行攻击。"
+  },
+  {
+    "move_id": 18,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吹飞对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 18,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吹飞对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 19,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合飞上天空，\n第２回合攻击对手。"
+  },
+  {
+    "move_id": 19,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合飞上天空，\n第２回合攻击对手。"
+  },
+  {
+    "move_id": 20,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用长长的身体或藤蔓等，\n在４～５回合内\n绑紧对手进行攻击。"
+  },
+  {
+    "move_id": 20,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用长长的身体或藤蔓等，\n在４～５回合内\n绑紧对手进行攻击。"
+  },
+  {
+    "move_id": 21,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用长长的尾巴或藤蔓等\n摔打对手进行攻击。"
+  },
+  {
+    "move_id": 21,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用长长的尾巴或藤蔓等\n摔打对手进行攻击。"
+  },
+  {
+    "move_id": 22,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用如同鞭子般弯曲而细长的藤蔓\n摔打对手进行攻击。"
+  },
+  {
+    "move_id": 22,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用如同鞭子般弯曲而细长的藤蔓\n摔打对手进行攻击。"
+  },
+  {
+    "move_id": 23,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用大脚踩踏对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 23,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用大脚踩踏对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 24,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用２只脚踢飞对手进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 24,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用２只脚踢飞对手进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 25,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出力大无穷的重踢\n踢飞对手进行攻击。"
+  },
+  {
+    "move_id": 25,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出力大无穷的重踢\n踢飞对手进行攻击。"
+  },
+  {
+    "move_id": 26,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出高高的腾空踢攻击对手。\n如果踢偏则自己会受到伤害。"
+  },
+  {
+    "move_id": 26,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出高高的腾空踢攻击对手。\n如果踢偏则自己会受到伤害。"
+  },
+  {
+    "move_id": 27,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "一边使身体快速旋转，\n一边踢飞对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 27,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "一边使身体快速旋转，\n一边踢飞对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 28,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手脸上泼沙子，\n从而降低命中率。"
+  },
+  {
+    "move_id": 28,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手脸上泼沙子，\n从而降低命中率。"
+  },
+  {
+    "move_id": 29,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将头伸出，\n笔直地扑向对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 29,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将头伸出，\n笔直地扑向对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 30,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖锐的角攻击对手。"
+  },
+  {
+    "move_id": 30,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖锐的角攻击对手。"
+  },
+  {
+    "move_id": 31,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用角或喙\n刺向对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 31,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用角或喙\n刺向对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 32,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用旋转的角\n刺入对手进行攻击。\n只要命中就会一击濒死。"
+  },
+  {
+    "move_id": 32,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用旋转的角\n刺入对手进行攻击。\n只要命中就会一击濒死。"
+  },
+  {
+    "move_id": 33,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用整个身体\n撞向对手进行攻击。"
+  },
+  {
+    "move_id": 33,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用整个身体\n撞向对手进行攻击。"
+  },
+  {
+    "move_id": 34,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用整个身体\n压住对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 34,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用整个身体\n压住对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 35,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用长长的身体或藤蔓等，\n在４～５回合内\n紧束对手进行攻击。"
+  },
+  {
+    "move_id": 35,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用长长的身体或藤蔓等，\n在４～５回合内\n紧束对手进行攻击。"
+  },
+  {
+    "move_id": 36,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以惊人的气势\n撞向对手进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 36,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以惊人的气势\n撞向对手进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 37,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在２～３回合内，\n乱打一气地攻击对手。\n大闹一番后自己会陷入混乱。"
+  },
+  {
+    "move_id": 37,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在２～３回合内，\n乱打一气地攻击对手。\n大闹一番后自己会陷入混乱。"
+  },
+  {
+    "move_id": 38,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "拼命地猛撞向对手进行攻击。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 38,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "拼命地猛撞向对手进行攻击。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 39,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "可爱地左右摇晃尾巴，\n诱使对手疏忽大意。\n会降低对手的防御。"
+  },
+  {
+    "move_id": 39,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "可爱地左右摇晃尾巴，\n诱使对手疏忽大意。\n会降低对手的防御。"
+  },
+  {
+    "move_id": 40,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将有毒的针\n刺入对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 40,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将有毒的针\n刺入对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 41,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将２根针刺入对手，\n连续２次给予伤害。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 41,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将２根针刺入对手，\n连续２次给予伤害。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 42,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n锐针进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 42,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n锐针进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 43,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用犀利的眼神使其害怕，\n从而降低对手的防御。"
+  },
+  {
+    "move_id": 43,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用犀利的眼神使其害怕，\n从而降低对手的防御。"
+  },
+  {
+    "move_id": 44,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖锐的牙\n咬住对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 44,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖锐的牙\n咬住对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 45,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手听可爱的叫声，\n引开注意力使其疏忽，\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 45,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手听可爱的叫声，\n引开注意力使其疏忽，\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 46,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放走对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 46,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放走对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 47,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手听舒适、\n美妙的歌声，\n从而陷入睡眠状态。"
+  },
+  {
+    "move_id": 47,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手听舒适、\n美妙的歌声，\n从而陷入睡眠状态。"
+  },
+  {
+    "move_id": 48,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从身体发出\n特殊的音波，\n从而使对手混乱。"
+  },
+  {
+    "move_id": 48,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从身体发出\n特殊的音波，\n从而使对手混乱。"
+  },
+  {
+    "move_id": 49,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将冲击波\n撞向对手进行攻击。\n必定会给予２０的伤害。"
+  },
+  {
+    "move_id": 49,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将冲击波\n撞向对手进行攻击。\n必定会给予２０的伤害。"
+  },
+  {
+    "move_id": 50,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "阻碍对手行动，\n之前使出的招式\n将在４回合内无法使用。"
+  },
+  {
+    "move_id": 50,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "阻碍对手行动，\n之前使出的招式\n将在４回合内无法使用。"
+  },
+  {
+    "move_id": 51,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将强酸泼向对手进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 51,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将强酸泼向对手进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 52,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n小型火焰进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 52,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n小型火焰进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 53,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n烈焰进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 53,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n烈焰进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 54,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用白雾覆盖身体。\n在５回合内不会让对手\n降低自己的能力。"
+  },
+  {
+    "move_id": 54,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用白雾覆盖身体。\n在５回合内不会让对手\n降低自己的能力。"
+  },
+  {
+    "move_id": 55,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地喷射\n水流进行攻击。"
+  },
+  {
+    "move_id": 55,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地喷射\n水流进行攻击。"
+  },
+  {
+    "move_id": 56,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地喷射\n大量水流进行攻击。"
+  },
+  {
+    "move_id": 56,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地喷射\n大量水流进行攻击。"
+  },
+  {
+    "move_id": 57,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用大浪\n攻击自己周围所有的宝可梦。"
+  },
+  {
+    "move_id": 57,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用大浪\n攻击自己周围所有的宝可梦。"
+  },
+  {
+    "move_id": 58,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n冰冻光束进行攻击。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 58,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n冰冻光束进行攻击。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 59,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将猛烈的暴风雪\n刮向对手进行攻击。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 59,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将猛烈的暴风雪\n刮向对手进行攻击。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 60,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n神奇的光线进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 60,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n神奇的光线进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 61,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地喷射\n泡沫进行攻击。\n有时会降低对手的速度。"
+  },
+  {
+    "move_id": 61,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地喷射\n泡沫进行攻击。\n有时会降低对手的速度。"
+  },
+  {
+    "move_id": 62,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n虹色光束进行攻击。\n有时会降低对手的攻击。"
+  },
+  {
+    "move_id": 62,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n虹色光束进行攻击。\n有时会降低对手的攻击。"
+  },
+  {
+    "move_id": 63,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n强烈的光线进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 63,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n强烈的光线进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 64,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖锐的喙或角\n刺向对手进行攻击。"
+  },
+  {
+    "move_id": 64,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖锐的喙或角\n刺向对手进行攻击。"
+  },
+  {
+    "move_id": 65,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "一边旋转，一边将尖喙\n刺入对手进行攻击。"
+  },
+  {
+    "move_id": 65,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "一边旋转，一边将尖喙\n刺入对手进行攻击。"
+  },
+  {
+    "move_id": 66,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手连同自己一起\n摔向地面进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 66,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手连同自己一起\n摔向地面进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 67,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用力踢对手的脚，\n使其摔倒进行攻击。\n对手越重，威力越大。"
+  },
+  {
+    "move_id": 67,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用力踢对手的脚，\n使其摔倒进行攻击。\n对手越重，威力越大。"
+  },
+  {
+    "move_id": 68,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从对手那里受到\n物理攻击的伤害将以\n２倍返还给同一个对手。"
+  },
+  {
+    "move_id": 68,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从对手那里受到\n物理攻击的伤害将以\n２倍返还给同一个对手。"
+  },
+  {
+    "move_id": 69,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用引力将对手甩飞出去。\n给予对手和自己等级相同的伤害。"
+  },
+  {
+    "move_id": 69,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用引力将对手甩飞出去。\n给予对手和自己等级相同的伤害。"
+  },
+  {
+    "move_id": 70,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出浑身力气\n殴打对手进行攻击。"
+  },
+  {
+    "move_id": 70,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出浑身力气\n殴打对手进行攻击。"
+  },
+  {
+    "move_id": 71,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吸取对手的养分进行攻击。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 71,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吸取对手的养分进行攻击。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 72,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吸取对手的养分进行攻击。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 72,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吸取对手的养分进行攻击。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 73,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "植入寄生种子后，将在每回合\n一点一点吸取对手的ＨＰ，\n从而用来回复自己的ＨＰ。"
+  },
+  {
+    "move_id": 73,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "植入寄生种子后，将在每回合\n一点一点吸取对手的ＨＰ，\n从而用来回复自己的ＨＰ。"
+  },
+  {
+    "move_id": 74,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让身体一下子长大，\n从而提高攻击和特攻。"
+  },
+  {
+    "move_id": 74,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让身体一下子长大，\n从而提高攻击和特攻。"
+  },
+  {
+    "move_id": 75,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "飞出叶片，\n切斩对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 75,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "飞出叶片，\n切斩对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 76,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合收集满满的日光，\n第２回合发射光束进行攻击。"
+  },
+  {
+    "move_id": 76,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合收集满满的日光，\n第２回合发射光束进行攻击。"
+  },
+  {
+    "move_id": 77,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "撒出毒粉，\n从而让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 77,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "撒出毒粉，\n从而让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 78,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "撒出麻痹粉，\n从而让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 78,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "撒出麻痹粉，\n从而让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 79,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "撒出催眠粉，\n从而让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 79,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "撒出催眠粉，\n从而让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 80,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在２～３回合内，\n散落花瓣攻击对手。\n之后自己会陷入混乱。"
+  },
+  {
+    "move_id": 80,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在２～３回合内，\n散落花瓣攻击对手。\n之后自己会陷入混乱。"
+  },
+  {
+    "move_id": 81,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用口中吐出的丝缠绕对手，\n从而大幅降低对手的速度。"
+  },
+  {
+    "move_id": 81,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用口中吐出的丝缠绕对手，\n从而大幅降低对手的速度。"
+  },
+  {
+    "move_id": 82,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将愤怒的冲击波\n撞向对手进行攻击。\n必定会给予４０的伤害。"
+  },
+  {
+    "move_id": 82,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将愤怒的冲击波\n撞向对手进行攻击。\n必定会给予４０的伤害。"
+  },
+  {
+    "move_id": 83,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手困在\n激烈的火焰旋涡中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 83,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手困在\n激烈的火焰旋涡中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 84,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发出电流刺激对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 84,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发出电流刺激对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 85,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发出\n强力电击进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 85,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发出\n强力电击进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 86,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发出\n微弱的电击，\n从而让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 86,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发出\n微弱的电击，\n从而让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 87,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手劈下暴雷进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 87,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手劈下暴雷进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 88,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "拿起小岩石，\n投掷对手进行攻击。"
+  },
+  {
+    "move_id": 88,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "拿起小岩石，\n投掷对手进行攻击。"
+  },
+  {
+    "move_id": 89,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用地震的冲击，\n攻击自己周围所有的宝可梦。"
+  },
+  {
+    "move_id": 89,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用地震的冲击，\n攻击自己周围所有的宝可梦。"
+  },
+  {
+    "move_id": 90,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手掉落于地裂的\n裂缝中进行攻击。\n只要命中就会一击濒死。"
+  },
+  {
+    "move_id": 90,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手掉落于地裂的\n裂缝中进行攻击。\n只要命中就会一击濒死。"
+  },
+  {
+    "move_id": 91,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合钻入，\n第２回合攻击对手。"
+  },
+  {
+    "move_id": 91,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合钻入，\n第２回合攻击对手。"
+  },
+  {
+    "move_id": 92,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手陷入剧毒状态。\n随着回合的推进，\n中毒伤害会增加。"
+  },
+  {
+    "move_id": 92,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手陷入剧毒状态。\n随着回合的推进，\n中毒伤害会增加。"
+  },
+  {
+    "move_id": 93,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发送\n微弱的念力进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 93,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发送\n微弱的念力进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 94,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发送\n强大的念力进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 94,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发送\n强大的念力进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 95,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "施以诱导睡意的暗示，\n让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 95,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "施以诱导睡意的暗示，\n让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 96,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "唤醒身体深处\n沉睡的力量，\n从而提高自己的攻击。"
+  },
+  {
+    "move_id": 96,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "唤醒身体深处\n沉睡的力量，\n从而提高自己的攻击。"
+  },
+  {
+    "move_id": 97,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让身体放松变得轻盈，\n以便高速移动。\n大幅提高自己的速度。"
+  },
+  {
+    "move_id": 97,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让身体放松变得轻盈，\n以便高速移动。\n大幅提高自己的速度。"
+  },
+  {
+    "move_id": 98,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势扑向对手。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 98,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势扑向对手。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 99,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果在使出招式后\n受到攻击的话，\n会因愤怒的力量而提高攻击。"
+  },
+  {
+    "move_id": 99,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果在使出招式后\n受到攻击的话，\n会因愤怒的力量而提高攻击。"
+  },
+  {
+    "move_id": 100,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "停止和野生宝可梦战斗并逃走。"
+  },
+  {
+    "move_id": 100,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "停止和野生宝可梦战斗并逃走。"
+  },
+  {
+    "move_id": 101,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "显示恐怖幻影，\n只给予对手\n和自己等级相同的伤害。"
+  },
+  {
+    "move_id": 101,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "显示恐怖幻影，\n只给予对手\n和自己等级相同的伤害。"
+  },
+  {
+    "move_id": 102,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "可以将对手\n最后使用的招式，\n在战斗内变成自己的招式。"
+  },
+  {
+    "move_id": 102,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "可以将对手\n最后使用的招式，\n在战斗内变成自己的招式。"
+  },
+  {
+    "move_id": 103,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发出不由自主想要\n捂起耳朵的刺耳声，\n从而大幅降低对手的防御。"
+  },
+  {
+    "move_id": 103,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发出不由自主想要\n捂起耳朵的刺耳声，\n从而大幅降低对手的防御。"
+  },
+  {
+    "move_id": 104,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过快速移动来制造分身，\n扰乱对手，从而提高闪避率。"
+  },
+  {
+    "move_id": 104,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过快速移动来制造分身，\n扰乱对手，从而提高闪避率。"
+  },
+  {
+    "move_id": 105,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让细胞再生，\n从而回复自己\n最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 105,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让细胞再生，\n从而回复自己\n最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 106,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "全身使劲，让身体变硬，\n从而提高自己的防御。"
+  },
+  {
+    "move_id": 106,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "全身使劲，让身体变硬，\n从而提高自己的防御。"
+  },
+  {
+    "move_id": 107,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "蜷缩身体显得很小，\n从而大幅提高\n自己的闪避率。"
+  },
+  {
+    "move_id": 107,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "蜷缩身体显得很小，\n从而大幅提高\n自己的闪避率。"
+  },
+  {
+    "move_id": 108,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手喷出烟或墨汁等，\n从而降低对手的命中率。"
+  },
+  {
+    "move_id": 108,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手喷出烟或墨汁等，\n从而降低对手的命中率。"
+  },
+  {
+    "move_id": 109,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "显示奇怪的光，\n扰乱对手。\n使对手混乱。"
+  },
+  {
+    "move_id": 109,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "显示奇怪的光，\n扰乱对手。\n使对手混乱。"
+  },
+  {
+    "move_id": 110,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "缩入壳里保护身体，\n从而提高自己的防御。"
+  },
+  {
+    "move_id": 110,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "缩入壳里保护身体，\n从而提高自己的防御。"
+  },
+  {
+    "move_id": 111,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将身体蜷曲变圆，\n从而提高自己的防御。"
+  },
+  {
+    "move_id": 111,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将身体蜷曲变圆，\n从而提高自己的防御。"
+  },
+  {
+    "move_id": 112,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "制造坚固的壁障，\n从而大幅提高自己的防御。"
+  },
+  {
+    "move_id": 112,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "制造坚固的壁障，\n从而大幅提高自己的防御。"
+  },
+  {
+    "move_id": 113,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内使用神奇的墙，\n减弱从对手那受到的\n特殊攻击的伤害。"
+  },
+  {
+    "move_id": 113,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内使用神奇的墙，\n减弱从对手那受到的\n特殊攻击的伤害。"
+  },
+  {
+    "move_id": 114,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "升起黑雾，将正在场上战斗的\n全体宝可梦的能力变回原点。"
+  },
+  {
+    "move_id": 114,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "升起黑雾，将正在场上战斗的\n全体宝可梦的能力变回原点。"
+  },
+  {
+    "move_id": 115,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内使用神奇的墙，\n减弱从对手那受到的\n物理攻击的伤害。"
+  },
+  {
+    "move_id": 115,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内使用神奇的墙，\n减弱从对手那受到的\n物理攻击的伤害。"
+  },
+  {
+    "move_id": 116,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "深深地吸口气，集中精神。\n自己的攻击\n会变得容易击中要害。"
+  },
+  {
+    "move_id": 116,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "深深地吸口气，集中精神。\n自己的攻击\n会变得容易击中要害。"
+  },
+  {
+    "move_id": 117,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在２回合内忍受攻击，\n受到的伤害会\n２倍返还给对手。"
+  },
+  {
+    "move_id": 117,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在２回合内忍受攻击，\n受到的伤害会\n２倍返还给对手。"
+  },
+  {
+    "move_id": 118,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "挥动手指刺激自己的大脑，\n从所有的招式中\n任意使出１个。"
+  },
+  {
+    "move_id": 118,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "挥动手指刺激自己的大脑，\n从所有的招式中\n任意使出１个。"
+  },
+  {
+    "move_id": 119,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "模仿对手使用的招式，\n自己也使用相同招式。"
+  },
+  {
+    "move_id": 119,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "模仿对手使用的招式，\n自己也使用相同招式。"
+  },
+  {
+    "move_id": 120,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "引发爆炸，\n攻击自己周围所有的宝可梦。\n使用后陷入濒死。"
+  },
+  {
+    "move_id": 120,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "引发爆炸，\n攻击自己周围所有的宝可梦。\n使用后陷入濒死。"
+  },
+  {
+    "move_id": 121,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手用力投掷\n大大的蛋进行攻击。"
+  },
+  {
+    "move_id": 121,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手用力投掷\n大大的蛋进行攻击。"
+  },
+  {
+    "move_id": 122,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用长长的舌头，\n舔遍对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 122,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用长长的舌头，\n舔遍对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 123,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将肮脏的浓雾\n吹向对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 123,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将肮脏的浓雾\n吹向对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 124,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用污泥投掷对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 124,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用污泥投掷对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 125,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用手中的骨头\n殴打对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 125,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用手中的骨头\n殴打对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 126,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用大字形状的火焰烧尽对手。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 126,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用大字形状的火焰烧尽对手。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 127,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以惊人的气势扑向对手。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 127,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以惊人的气势扑向对手。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 128,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用非常坚固且厚实的贝壳，\n在４～５回合内\n夹住对手进行攻击。"
+  },
+  {
+    "move_id": 128,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用非常坚固且厚实的贝壳，\n在４～５回合内\n夹住对手进行攻击。"
+  },
+  {
+    "move_id": 129,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射星形的光攻击对手。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 129,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射星形的光攻击对手。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 130,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合把头缩进去，\n从而提高防御。\n第２回合攻击对手。"
+  },
+  {
+    "move_id": 130,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合把头缩进去，\n从而提高防御。\n第２回合攻击对手。"
+  },
+  {
+    "move_id": 131,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n锐针进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 131,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n锐针进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 132,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用触手或青藤等缠绕进行攻击。\n有时会降低对手的速度。"
+  },
+  {
+    "move_id": 132,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用触手或青藤等缠绕进行攻击。\n有时会降低对手的速度。"
+  },
+  {
+    "move_id": 133,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将头脑清空，\n瞬间忘记某事，\n从而大幅提高自己的特防。"
+  },
+  {
+    "move_id": 133,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将头脑清空，\n瞬间忘记某事，\n从而大幅提高自己的特防。"
+  },
+  {
+    "move_id": 134,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "折弯汤匙引开注意，\n从而降低对手的命中率。"
+  },
+  {
+    "move_id": 134,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "折弯汤匙引开注意，\n从而降低对手的命中率。"
+  },
+  {
+    "move_id": 135,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 135,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 136,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "跳起后用膝盖撞对手进行攻击。\n如果撞偏则自己会受到伤害。"
+  },
+  {
+    "move_id": 136,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "跳起后用膝盖撞对手进行攻击。\n如果撞偏则自己会受到伤害。"
+  },
+  {
+    "move_id": 137,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用腹部的花纹使对手害怕，\n从而让其陷入麻痹状态。"
+  },
+  {
+    "move_id": 137,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用腹部的花纹使对手害怕，\n从而让其陷入麻痹状态。"
+  },
+  {
+    "move_id": 138,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吃掉正在睡觉的对手的梦\n进行攻击。回复对手\n所受到伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 138,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吃掉正在睡觉的对手的梦\n进行攻击。回复对手\n所受到伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 139,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将毒瓦斯吹到对手的脸上，\n从而让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 139,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将毒瓦斯吹到对手的脸上，\n从而让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 140,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n圆形物体进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 140,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n圆形物体进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 141,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吸取血液攻击对手。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 141,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吸取血液攻击对手。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 142,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用恐怖的脸强吻对手。\n让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 142,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用恐怖的脸强吻对手。\n让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 143,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第２回合攻击对手。\n偶尔使对手畏缩。\n也容易击中要害。"
+  },
+  {
+    "move_id": 143,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第２回合攻击对手。\n偶尔使对手畏缩。\n也容易击中要害。"
+  },
+  {
+    "move_id": 144,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "变身成对手宝可梦的样子，\n能够使用和对手\n完全相同的招式。"
+  },
+  {
+    "move_id": 144,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "变身成对手宝可梦的样子，\n能够使用和对手\n完全相同的招式。"
+  },
+  {
+    "move_id": 145,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手用力吹起无数泡泡进行攻击。\n有时会降低对手的速度。"
+  },
+  {
+    "move_id": 145,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手用力吹起无数泡泡进行攻击。\n有时会降低对手的速度。"
+  },
+  {
+    "move_id": 146,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "有节奏地出拳攻击对手。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 146,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "有节奏地出拳攻击对手。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 147,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "沙沙沙地撒满具有\n催眠效果的孢子，\n从而让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 147,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "沙沙沙地撒满具有\n催眠效果的孢子，\n从而让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 148,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出耀眼光芒，\n从而降低对手的命中率。"
+  },
+  {
+    "move_id": 148,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出耀眼光芒，\n从而降低对手的命中率。"
+  },
+  {
+    "move_id": 149,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n神奇的念波进行攻击。\n每次使用，伤害都会改变。"
+  },
+  {
+    "move_id": 149,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n神奇的念波进行攻击。\n每次使用，伤害都会改变。"
+  },
+  {
+    "move_id": 150,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "也不攻击只是一蹦一蹦地跳，\n什么都不会发生……"
+  },
+  {
+    "move_id": 150,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "也不攻击只是一蹦一蹦地跳，\n什么都不会发生……"
+  },
+  {
+    "move_id": 151,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过细胞的变化进行液化，\n从而大幅提高自己的防御。"
+  },
+  {
+    "move_id": 151,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过细胞的变化进行液化，\n从而大幅提高自己的防御。"
+  },
+  {
+    "move_id": 152,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用大钳子\n敲打对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 152,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用大钳子\n敲打对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 153,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "引发大爆炸，\n攻击自己周围所有的宝可梦。\n使用后自己会陷入濒死。"
+  },
+  {
+    "move_id": 153,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "引发大爆炸，\n攻击自己周围所有的宝可梦。\n使用后自己会陷入濒死。"
+  },
+  {
+    "move_id": 154,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用爪子或镰刀等\n抓对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 154,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用爪子或镰刀等\n抓对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 155,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用手中的骨头投掷对手，\n来回连续２次给予伤害。"
+  },
+  {
+    "move_id": 155,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用手中的骨头投掷对手，\n来回连续２次给予伤害。"
+  },
+  {
+    "move_id": 156,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "连续睡上２回合。\n回复自己的全部ＨＰ\n以及治愈所有异常状态。"
+  },
+  {
+    "move_id": 156,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "连续睡上２回合。\n回复自己的全部ＨＰ\n以及治愈所有异常状态。"
+  },
+  {
+    "move_id": 157,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将大岩石\n猛烈地撞向对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 157,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将大岩石\n猛烈地撞向对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 158,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用锋利的门牙\n牢牢地咬住对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 158,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用锋利的门牙\n牢牢地咬住对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 159,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "增加身体的角，\n变得棱棱角角，\n从而提高自己的攻击。"
+  },
+  {
+    "move_id": 159,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "增加身体的角，\n变得棱棱角角，\n从而提高自己的攻击。"
+  },
+  {
+    "move_id": 160,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将自己的属性转换成\n和已学会的招式中\n第一个招式相同的属性。"
+  },
+  {
+    "move_id": 160,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将自己的属性转换成\n和已学会的招式中\n第一个招式相同的属性。"
+  },
+  {
+    "move_id": 161,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用３种光线进行攻击。\n有时会让对手陷入\n麻痹、灼伤或冰冻的状态。"
+  },
+  {
+    "move_id": 161,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用３种光线进行攻击。\n有时会让对手陷入\n麻痹、灼伤或冰冻的状态。"
+  },
+  {
+    "move_id": 162,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用锋利的门牙\n猛烈地咬住对手进行攻击。\n对手的ＨＰ减半。"
+  },
+  {
+    "move_id": 162,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用锋利的门牙\n猛烈地咬住对手进行攻击。\n对手的ＨＰ减半。"
+  },
+  {
+    "move_id": 163,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用爪子或镰刀等\n劈开对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 163,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用爪子或镰刀等\n劈开对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 164,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "削减少许自己的ＨＰ，\n制造分身。\n分身将成为自己的替身。"
+  },
+  {
+    "move_id": 164,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "削减少许自己的ＨＰ，\n制造分身。\n分身将成为自己的替身。"
+  },
+  {
+    "move_id": 165,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当自己的ＰＰ耗尽时，\n努力挣扎攻击对手。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 165,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当自己的ＰＰ耗尽时，\n努力挣扎攻击对手。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 166,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手使用的招式\n变成自己的招式。\n使用１次后写生消失。"
+  },
+  {
+    "move_id": 166,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手使用的招式\n变成自己的招式。\n使用１次后写生消失。"
+  },
+  {
+    "move_id": 167,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "连续３次踢对手进行攻击。\n每踢中一次，威力就会提高。"
+  },
+  {
+    "move_id": 167,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "连续３次踢对手进行攻击。\n每踢中一次，威力就会提高。"
+  },
+  {
+    "move_id": 168,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "攻击的同时盗取道具。\n当自己携带道具时，\n不会去盗取。"
+  },
+  {
+    "move_id": 168,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "攻击的同时盗取道具。\n当自己携带道具时，\n不会去盗取。"
+  },
+  {
+    "move_id": 169,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将黏糊糊的细丝\n一层一层缠住对手，\n使其不能从战斗中逃走。"
+  },
+  {
+    "move_id": 169,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将黏糊糊的细丝\n一层一层缠住对手，\n使其不能从战斗中逃走。"
+  },
+  {
+    "move_id": 170,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用心感受对手的行动，\n下次攻击必定\n会击中对手。"
+  },
+  {
+    "move_id": 170,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用心感受对手的行动，\n下次攻击必定\n会击中对手。"
+  },
+  {
+    "move_id": 171,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让在睡眠状态下的对手做恶梦，\n每回合会缓缓减少ＨＰ。"
+  },
+  {
+    "move_id": 171,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让在睡眠状态下的对手做恶梦，\n每回合会缓缓减少ＨＰ。"
+  },
+  {
+    "move_id": 172,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身，\n猛撞向对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 172,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身，\n猛撞向对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 173,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在自己睡觉时，\n发出噪音进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 173,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在自己睡觉时，\n发出噪音进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 174,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用该招式的宝可梦，\n其属性是幽灵属性或其他属性时，\n效果会不一样。"
+  },
+  {
+    "move_id": 174,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用该招式的宝可梦，\n其属性是幽灵属性或其他属性时，\n效果会不一样。"
+  },
+  {
+    "move_id": 175,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "抓狂般乱打进行攻击。\n自己的ＨＰ越少，\n招式的威力越大。"
+  },
+  {
+    "move_id": 175,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "抓狂般乱打进行攻击。\n自己的ＨＰ越少，\n招式的威力越大。"
+  },
+  {
+    "move_id": 176,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "为了可以抵抗对手\n最后使用的招式，\n从而使自己的属性发生变化。"
+  },
+  {
+    "move_id": 176,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "为了可以抵抗对手\n最后使用的招式，\n从而使自己的属性发生变化。"
+  },
+  {
+    "move_id": 177,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射空气旋涡\n进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 177,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射空气旋涡\n进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 178,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将棉花般柔软的孢子\n紧贴对手，\n从而大幅降低对手的速度。"
+  },
+  {
+    "move_id": 178,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将棉花般柔软的孢子\n紧贴对手，\n从而大幅降低对手的速度。"
+  },
+  {
+    "move_id": 179,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "竭尽全力进行攻击。\n自己的ＨＰ越少，\n招式的威力越大。"
+  },
+  {
+    "move_id": 179,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "竭尽全力进行攻击。\n自己的ＨＰ越少，\n招式的威力越大。"
+  },
+  {
+    "move_id": 180,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对对手最后使用的招式\n怀有怨恨，\n减少４ＰＰ该招式。"
+  },
+  {
+    "move_id": 180,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "对对手最后使用的招式\n怀有怨恨，\n减少４ＰＰ该招式。"
+  },
+  {
+    "move_id": 181,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将冰冷的细雪\n吹向对手进行攻击。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 181,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将冰冷的细雪\n吹向对手进行攻击。\n有时会让对手陷入冰冻状态。"
+  },
+  {
+    "move_id": 182,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "完全抵挡\n对手的攻击。\n连续使出则容易失败。"
+  },
+  {
+    "move_id": 182,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "完全抵挡\n对手的攻击。\n连续使出则容易失败。"
+  },
+  {
+    "move_id": 183,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势出拳。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 183,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势出拳。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 184,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用恐怖的脸瞪着对手，\n使其害怕，\n从而大幅降低对手的速度。"
+  },
+  {
+    "move_id": 184,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用恐怖的脸瞪着对手，\n使其害怕，\n从而大幅降低对手的速度。"
+  },
+  {
+    "move_id": 185,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "悄悄地靠近对手，\n趁其不备进行殴打。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 185,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "悄悄地靠近对手，\n趁其不备进行殴打。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 186,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "像天使般可爱地亲吻对手，\n从而使对手混乱。"
+  },
+  {
+    "move_id": 186,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "像天使般可爱地亲吻对手，\n从而使对手混乱。"
+  },
+  {
+    "move_id": 187,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将自己的ＨＰ减少到\n最大ＨＰ的一半，\n从而最大限度提高自己的攻击。"
+  },
+  {
+    "move_id": 187,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将自己的ＨＰ减少到\n最大ＨＰ的一半，\n从而最大限度提高自己的攻击。"
+  },
+  {
+    "move_id": 188,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用污泥投掷对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 188,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用污泥投掷对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 189,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手的脸等\n投掷泥块进行攻击。\n会降低对手的命中率。"
+  },
+  {
+    "move_id": 189,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手的脸等\n投掷泥块进行攻击。\n会降低对手的命中率。"
+  },
+  {
+    "move_id": 190,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手的脸等\n喷出墨汁进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 190,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手的脸等\n喷出墨汁进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 191,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在对手的脚下扔撒菱。\n对替换出场的对手的宝可梦\n给予伤害。"
+  },
+  {
+    "move_id": 191,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在对手的脚下扔撒菱。\n对替换出场的对手的宝可梦\n给予伤害。"
+  },
+  {
+    "move_id": 192,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射大炮一样的\n电流进行攻击。\n让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 192,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射大炮一样的\n电流进行攻击。\n让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 193,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对幽灵属性宝可梦没有效果的招式\n以及闪避率高的对手，\n使用后变得能够打中。"
+  },
+  {
+    "move_id": 193,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出后对幽灵属性宝可梦没有\n效果的招式以及闪避率高的对手，\n变得能够打中。"
+  },
+  {
+    "move_id": 194,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出招式后，当受到对手攻击\n陷入濒死时，对手也会一同濒死。\n连续使出则会失败。"
+  },
+  {
+    "move_id": 194,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出招式后，当受到对手攻击\n陷入濒死时，对手也会一同濒死。\n连续使出则会失败。"
+  },
+  {
+    "move_id": 195,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "倾听歌声的宝可梦\n经过３回合陷入濒死。\n替换后效果消失。"
+  },
+  {
+    "move_id": 195,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "倾听歌声的宝可梦\n经过３回合陷入濒死。\n替换后效果消失。"
+  },
+  {
+    "move_id": 196,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将结冰的冷气\n吹向对手进行攻击。\n会降低对手的速度。"
+  },
+  {
+    "move_id": 196,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将结冰的冷气\n吹向对手进行攻击。\n会降低对手的速度。"
+  },
+  {
+    "move_id": 197,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "完全抵挡\n对手的攻击。\n连续使出则容易失败。"
+  },
+  {
+    "move_id": 197,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "完全抵挡\n对手的攻击。\n连续使出则容易失败。"
+  },
+  {
+    "move_id": 198,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬的骨头\n殴打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 198,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬的骨头\n殴打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 199,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "紧紧瞄准对手，\n下次攻击必定会打中。"
+  },
+  {
+    "move_id": 199,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "紧紧瞄准对手，\n下次攻击必定会打中。"
+  },
+  {
+    "move_id": 200,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在２～３回合内，\n乱打一气地进行攻击。\n大闹一番后自己会陷入混乱。"
+  },
+  {
+    "move_id": 200,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在２～３回合内，\n乱打一气地进行攻击。\n大闹一番后自己会陷入混乱。"
+  },
+  {
+    "move_id": 201,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内扬起沙暴，除岩石、地面和\n钢属性以外的宝可梦，都会受到伤害。\n岩石属性的特防还会提高。"
+  },
+  {
+    "move_id": 201,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内扬起沙暴，除岩石、地面和\n钢属性以外的宝可梦，都会受到伤害。\n岩石属性的特防还会提高。"
+  },
+  {
+    "move_id": 202,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吸取对手的养分进行攻击。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 202,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吸取对手的养分进行攻击。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 203,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "即使受到攻击，\n也至少会留下１ＨＰ。\n连续使出则容易失败。"
+  },
+  {
+    "move_id": 203,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "即使受到攻击，\n也至少会留下１ＨＰ。\n连续使出则容易失败。"
+  },
+  {
+    "move_id": 204,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "可爱地凝视，\n诱使对手疏忽大意，\n从而大幅降低对手的攻击。"
+  },
+  {
+    "move_id": 204,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "可爱地凝视，\n诱使对手疏忽大意，\n从而大幅降低对手的攻击。"
+  },
+  {
+    "move_id": 205,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内连续滚动攻击对手。\n招式每次击中，威力就会提高。"
+  },
+  {
+    "move_id": 205,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内连续滚动攻击对手。\n招式每次击中，威力就会提高。"
+  },
+  {
+    "move_id": 206,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对手的ＨＰ\n至少会留下１ＨＰ，\n如此般手下留情地攻击。"
+  },
+  {
+    "move_id": 206,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "对手的ＨＰ\n至少会留下１ＨＰ，\n如此般手下留情地攻击。"
+  },
+  {
+    "move_id": 207,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "激怒对手，使其混乱。\n因为愤怒，对手的攻击\n会大幅提高。"
+  },
+  {
+    "move_id": 207,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "激怒对手，使其混乱。\n因为愤怒，对手的攻击\n会大幅提高。"
+  },
+  {
+    "move_id": 208,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 208,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 209,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让电流覆盖全身，\n猛撞向对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 209,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让电流覆盖全身，\n猛撞向对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 210,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用镰刀或爪子等\n切斩对手进行攻击。\n连续击中，威力就会提高。"
+  },
+  {
+    "move_id": 210,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用镰刀或爪子等\n切斩对手进行攻击。\n连续击中，威力就会提高。"
+  },
+  {
+    "move_id": 211,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬的翅膀敲打\n对手进行攻击。\n有时会提高自己的防御。"
+  },
+  {
+    "move_id": 211,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬的翅膀敲打\n对手进行攻击。\n有时会提高自己的防御。"
+  },
+  {
+    "move_id": 212,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用好似要勾人心魂的黑色目光\n一动不动地凝视对手，\n使其不能从战斗中逃走。"
+  },
+  {
+    "move_id": 212,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用好似要勾人心魂的黑色目光\n一动不动地凝视对手，\n使其不能从战斗中逃走。"
+  },
+  {
+    "move_id": 213,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "♂诱惑♀或♀诱惑♂，\n让对手着迷。\n对手将很难使出招式。"
+  },
+  {
+    "move_id": 213,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "♂诱惑♀或♀诱惑♂，\n让对手着迷。\n对手将很难使出招式。"
+  },
+  {
+    "move_id": 214,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从自己已学会的招式中\n任意使出１个。\n只能在自己睡觉时使用。"
+  },
+  {
+    "move_id": 214,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从自己已学会的招式中\n任意使出１个。\n只能在自己睡觉时使用。"
+  },
+  {
+    "move_id": 215,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让同伴听舒适的铃音，\n从而治愈我方全员的异常状态。"
+  },
+  {
+    "move_id": 215,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让同伴听舒适的铃音，\n从而治愈我方全员的异常状态。"
+  },
+  {
+    "move_id": 216,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "为了训练家而\n全力攻击对手。\n亲密度越高，威力越大。"
+  },
+  {
+    "move_id": 216,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "为了训练家而\n全力攻击对手。\n亲密度越高，威力越大。"
+  },
+  {
+    "move_id": 217,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "递给对手设有圈套的\n盒子进行攻击。\n也有可能回复对手ＨＰ。"
+  },
+  {
+    "move_id": 217,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "递给对手设有圈套的\n盒子进行攻击。\n也有可能回复对手ＨＰ。"
+  },
+  {
+    "move_id": 218,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "为了发泄不满而\n全力攻击对手。\n亲密度越低，威力越大。"
+  },
+  {
+    "move_id": 218,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "为了发泄不满而\n全力攻击对手。\n亲密度越低，威力越大。"
+  },
+  {
+    "move_id": 219,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内\n被神奇的力量守护，\n从而不会陷入异常状态。"
+  },
+  {
+    "move_id": 219,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内\n被神奇的力量守护，\n从而不会陷入异常状态。"
+  },
+  {
+    "move_id": 220,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将自己的ＨＰ和\n对手的ＨＰ相加，\n然后自己和对手友好地平分。"
+  },
+  {
+    "move_id": 220,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将自己的ＨＰ和\n对手的ＨＰ相加，\n然后自己和对手友好地平分。"
+  },
+  {
+    "move_id": 221,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用神秘的火焰\n烧尽对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 221,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用神秘的火焰\n烧尽对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 222,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "晃动地面，攻击自己\n周围所有的宝可梦。\n招式的威力会有各种变化。"
+  },
+  {
+    "move_id": 222,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "晃动地面，攻击自己\n周围所有的宝可梦。\n招式的威力会有各种变化。"
+  },
+  {
+    "move_id": 223,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出浑身力气出拳进行攻击。\n必定会使对手混乱。"
+  },
+  {
+    "move_id": 223,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出浑身力气出拳进行攻击。\n必定会使对手混乱。"
+  },
+  {
+    "move_id": 224,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬且华丽的角狠狠地\n刺入对手进行攻击。"
+  },
+  {
+    "move_id": 224,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬且华丽的角狠狠地\n刺入对手进行攻击。"
+  },
+  {
+    "move_id": 225,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将强烈的气息\n吹向对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 225,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将强烈的气息\n吹向对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 226,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "和后备宝可梦进行替换。\n换上的宝可梦能直接继承\n其能力的变化。"
+  },
+  {
+    "move_id": 226,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "和后备宝可梦进行替换。\n换上的宝可梦能直接继承\n其能力的变化。"
+  },
+  {
+    "move_id": 227,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手接受再来一次，\n连续３次使出最后使用的招式。"
+  },
+  {
+    "move_id": 227,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手接受再来一次，\n连续３次使出最后使用的招式。"
+  },
+  {
+    "move_id": 228,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当对手替换宝可梦上场时\n使出此招式的话，\n能够以２倍的威力进行攻击。"
+  },
+  {
+    "move_id": 228,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当对手替换宝可梦上场时\n使出此招式的话，\n能够以２倍的威力进行攻击。"
+  },
+  {
+    "move_id": 229,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过旋转来攻击对手。\n还可以摆脱绑紧、紧束、\n寄生种子和撒菱等招式。"
+  },
+  {
+    "move_id": 229,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过旋转来攻击对手。\n还可以摆脱绑紧、紧束、\n寄生种子和撒菱等招式。"
+  },
+  {
+    "move_id": 230,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用香气大幅降低对手的闪避率。"
+  },
+  {
+    "move_id": 230,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用香气大幅降低对手的闪避率。"
+  },
+  {
+    "move_id": 231,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用坚硬的尾巴\n摔打对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 231,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用坚硬的尾巴\n摔打对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 232,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用钢铁之爪\n劈开对手进行攻击。\n有时会提高自己的攻击。"
+  },
+  {
+    "move_id": 232,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用钢铁之爪\n劈开对手进行攻击。\n有时会提高自己的攻击。"
+  },
+  {
+    "move_id": 233,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "会在对手之后进行攻击。\n但是自己的攻击必定会命中。"
+  },
+  {
+    "move_id": 233,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "会在对手之后进行攻击。\n但是自己的攻击必定会命中。"
+  },
+  {
+    "move_id": 234,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复自己的ＨＰ。\n根据天气的不同，\n回复量也会有所变化。"
+  },
+  {
+    "move_id": 234,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复自己的ＨＰ。\n根据天气的不同，\n回复量也会有所变化。"
+  },
+  {
+    "move_id": 235,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复自己的ＨＰ。\n根据天气的不同，\n回复量也会有所变化。"
+  },
+  {
+    "move_id": 235,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复自己的ＨＰ。\n根据天气的不同，\n回复量也会有所变化。"
+  },
+  {
+    "move_id": 236,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复自己的ＨＰ。\n根据天气的不同，\n回复量也会有所变化。"
+  },
+  {
+    "move_id": 236,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复自己的ＨＰ。\n根据天气的不同，\n回复量也会有所变化。"
+  },
+  {
+    "move_id": 237,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "招式的属性会随着\n使用此招式的宝可梦而改变。"
+  },
+  {
+    "move_id": 237,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "招式的属性会随着\n使用此招式的宝可梦而改变。"
+  },
+  {
+    "move_id": 238,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用两手呈十字\n劈打对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 238,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用两手呈十字\n劈打对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 239,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "兴起龙卷风，\n将对手卷入进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 239,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "兴起龙卷风，\n将对手卷入进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 240,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内一直降雨，\n从而提高水属性的招式威力。\n火属性的招式威力则降低。"
+  },
+  {
+    "move_id": 240,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内一直降雨，\n从而提高水属性的招式威力。\n火属性的招式威力则降低。"
+  },
+  {
+    "move_id": 241,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内阳光变得强烈，\n从而提高火属性的招式威力。\n水属性的招式威力则降低。"
+  },
+  {
+    "move_id": 241,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内阳光变得强烈，\n从而提高火属性的招式威力。\n水属性的招式威力则降低。"
+  },
+  {
+    "move_id": 242,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用利牙咬碎对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 242,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用利牙咬碎对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 243,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从对手那里受到\n特殊攻击的伤害将以\n２倍返还给同一个对手。"
+  },
+  {
+    "move_id": 243,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从对手那里受到\n特殊攻击的伤害将以\n２倍返还给同一个对手。"
+  },
+  {
+    "move_id": 244,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向自己施以自我暗示，\n将能力变化的状态\n变得和对手一样。"
+  },
+  {
+    "move_id": 244,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向自己施以自我暗示，\n将能力变化的状态\n变得和对手一样。"
+  },
+  {
+    "move_id": 245,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势\n猛撞向对手进行攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 245,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势\n猛撞向对手进行攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 246,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用原始之力进行攻击。\n有时会提高\n自己所有的能力。"
+  },
+  {
+    "move_id": 246,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用原始之力进行攻击。\n有时会提高\n自己所有的能力。"
+  },
+  {
+    "move_id": 247,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "投掷一团黑影进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 247,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "投掷一团黑影进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 248,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在使用招式２回合后，\n向对手发送一团念力进行攻击。"
+  },
+  {
+    "move_id": 248,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在使用招式２回合后，\n向对手发送一团念力进行攻击。"
+  },
+  {
+    "move_id": 249,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用拳头进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 249,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用拳头进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 250,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手困在激烈的\n水流旋涡中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 250,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手困在激烈的\n水流旋涡中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 251,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "我方全员进行攻击。\n同行的宝可梦越多，\n招式的攻击次数越多。"
+  },
+  {
+    "move_id": 251,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "我方全员进行攻击。\n同行的宝可梦越多，\n招式的攻击次数越多。"
+  },
+  {
+    "move_id": 252,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "进行先制攻击，使对手畏缩。\n要在出场后立刻使出才能成功。"
+  },
+  {
+    "move_id": 252,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "进行先制攻击，使对手畏缩。\n要在出场后立刻使出才能成功。"
+  },
+  {
+    "move_id": 253,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在３回合内\n用骚乱攻击对手。\n在此期间谁都不能入眠。"
+  },
+  {
+    "move_id": 253,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在３回合内\n用骚乱攻击对手。\n在此期间谁都不能入眠。"
+  },
+  {
+    "move_id": 254,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "积蓄力量，\n提高自己的防御和特防。\n最多积蓄３次。"
+  },
+  {
+    "move_id": 254,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "积蓄力量，\n提高自己的防御和特防。\n最多积蓄３次。"
+  },
+  {
+    "move_id": 255,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将积蓄的力量\n撞向对手进行攻击。\n积蓄得越多，威力越大。"
+  },
+  {
+    "move_id": 255,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将积蓄的力量\n撞向对手进行攻击。\n积蓄得越多，威力越大。"
+  },
+  {
+    "move_id": 256,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将积蓄的力量吞下，\n从而回复自己的ＨＰ。\n积蓄得越多，回复越大。"
+  },
+  {
+    "move_id": 256,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将积蓄的力量吞下，\n从而回复自己的ＨＰ。\n积蓄得越多，回复越大。"
+  },
+  {
+    "move_id": 257,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将炎热的气息\n吹向对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 257,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将炎热的气息\n吹向对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 258,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内一直降冰雹，\n除冰属性的宝可梦以外，\n给予全体宝可梦伤害。"
+  },
+  {
+    "move_id": 258,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内一直降冰雹，\n除冰属性的宝可梦以外，\n给予全体宝可梦伤害。"
+  },
+  {
+    "move_id": 259,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手无理取闹，\n令其不能连续２次\n使出相同招式。"
+  },
+  {
+    "move_id": 259,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手无理取闹，\n令其不能连续２次\n使出相同招式。"
+  },
+  {
+    "move_id": 260,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "吹捧对手，使其混乱。\n同时还会提高对手的特攻。"
+  },
+  {
+    "move_id": 260,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "吹捧对手，使其混乱。\n同时还会提高对手的特攻。"
+  },
+  {
+    "move_id": 261,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放出怪异的火焰，\n从而让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 261,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放出怪异的火焰，\n从而让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 262,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "虽然会使自己陷入濒死，\n但是能够大幅降低\n对手的攻击和特攻。"
+  },
+  {
+    "move_id": 262,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "虽然会使自己陷入濒死，\n但是能够大幅降低\n对手的攻击和特攻。"
+  },
+  {
+    "move_id": 263,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当自己处于中毒、麻痹、灼伤状态时，\n向对手使出此招式的话，\n威力会变成２倍。"
+  },
+  {
+    "move_id": 263,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当自己处于中毒、麻痹、灼伤状态时，\n向对手使出此招式的话，\n威力会变成２倍。"
+  },
+  {
+    "move_id": 264,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "集中精神出拳。\n在招式使出前\n若受到攻击则会失败。"
+  },
+  {
+    "move_id": 264,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "集中精神出拳。\n在招式使出前\n若受到攻击则会失败。"
+  },
+  {
+    "move_id": 265,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对于麻痹状态下的对手，\n威力会变成２倍。\n但相反对手的麻痹也会被治愈。"
+  },
+  {
+    "move_id": 265,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "对于麻痹状态下的对手，\n威力会变成２倍。\n但相反对手的麻痹也会被治愈。"
+  },
+  {
+    "move_id": 266,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "引起对手的注意，\n将对手的攻击\n全部转移到自己身上。"
+  },
+  {
+    "move_id": 266,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "引起对手的注意，\n将对手的攻击\n全部转移到自己身上。"
+  },
+  {
+    "move_id": 267,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用自然之力进行攻击。\n根据所使用场所的不同，\n使出的招式也会有所变化。"
+  },
+  {
+    "move_id": 267,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用自然之力进行攻击。\n根据所使用场所的不同，\n使出的招式也会有所变化。"
+  },
+  {
+    "move_id": 268,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "提高下一回合使出的\n电属性的招式威力。\n自己的特防也会提高。"
+  },
+  {
+    "move_id": 268,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "提高下一回合使出的\n电属性的招式威力。\n自己的特防也会提高。"
+  },
+  {
+    "move_id": 269,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使对手愤怒。\n在３回合内让对手\n只能使出给予伤害的招式。"
+  },
+  {
+    "move_id": 269,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使对手愤怒。\n在３回合内让对手\n只能使出给予伤害的招式。"
+  },
+  {
+    "move_id": 270,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "帮助伙伴。\n被帮助的宝可梦，\n其招式威力变得比平时大。"
+  },
+  {
+    "move_id": 270,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "帮助伙伴。\n被帮助的宝可梦，\n其招式威力变得比平时大。"
+  },
+  {
+    "move_id": 271,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "抓住对手的空隙，\n交换自己和对手的持有物。"
+  },
+  {
+    "move_id": 271,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "抓住对手的空隙，\n交换自己和对手的持有物。"
+  },
+  {
+    "move_id": 272,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "扮演对手，\n让自己的特性\n变得和对手相同。"
+  },
+  {
+    "move_id": 272,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "扮演对手，\n让自己的特性\n变得和对手相同。"
+  },
+  {
+    "move_id": 273,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在下一回合回复自己或是\n替换出场的宝可梦最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 273,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在下一回合回复自己或是\n替换出场的宝可梦最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 274,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向我方紧急求助，\n从我方宝可梦已学会的\n招式中随机使用１个。"
+  },
+  {
+    "move_id": 274,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向我方紧急求助，\n从我方宝可梦已学会的\n招式中随机使用１个。"
+  },
+  {
+    "move_id": 275,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在大地上扎根，\n每回合回复自己的ＨＰ。\n因为扎根了，所以不能替换宝可梦。"
+  },
+  {
+    "move_id": 275,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在大地上扎根，\n每回合回复自己的ＨＰ。\n因为扎根了，所以不能替换宝可梦。"
+  },
+  {
+    "move_id": 276,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发挥惊人的力量攻击对手。\n自己的攻击和防御会降低。"
+  },
+  {
+    "move_id": 276,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发挥惊人的力量攻击对手。\n自己的攻击和防御会降低。"
+  },
+  {
+    "move_id": 277,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当对手使出会变成异常状态的\n招式或寄生种子等时，\n会将对手的招式反射回去。"
+  },
+  {
+    "move_id": 277,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当对手使出会变成异常状态的\n招式或寄生种子等时，\n会将对手的招式反射回去。"
+  },
+  {
+    "move_id": 278,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使战斗中已经消耗掉的\n自己的持有物再生，\n并可以再次使用。"
+  },
+  {
+    "move_id": 278,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使战斗中已经消耗掉的\n自己的持有物再生，\n并可以再次使用。"
+  },
+  {
+    "move_id": 279,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果受到对手的招式攻击，\n就能给予对手２倍的伤害。"
+  },
+  {
+    "move_id": 279,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果受到对手的招式攻击，\n就能给予对手２倍的伤害。"
+  },
+  {
+    "move_id": 280,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将手刀猛烈地挥下攻击对手。\n还可以破坏光墙和反射壁等。"
+  },
+  {
+    "move_id": 280,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将手刀猛烈地挥下攻击对手。\n还可以破坏光墙和反射壁等。"
+  },
+  {
+    "move_id": 281,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "打个大哈欠引起睡意。\n在下一回合让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 281,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "打个大哈欠引起睡意。\n在下一回合让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 282,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "拍落对手的持有物，\n直到战斗结束都不能使用。\n对手携带道具时会增加伤害。"
+  },
+  {
+    "move_id": 282,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "拍落对手的持有物，\n直到战斗结束都不能使用。\n对手携带道具时会增加伤害。"
+  },
+  {
+    "move_id": 283,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给予伤害，\n使对手的ＨＰ变得\n和自己的ＨＰ一样。"
+  },
+  {
+    "move_id": 283,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给予伤害，\n使对手的ＨＰ变得\n和自己的ＨＰ一样。"
+  },
+  {
+    "move_id": 284,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "爆发怒火攻击对手。\n自己的ＨＰ越少，\n招式的威力越小。"
+  },
+  {
+    "move_id": 284,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "爆发怒火攻击对手。\n自己的ＨＰ越少，\n招式的威力越小。"
+  },
+  {
+    "move_id": 285,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手的特性。"
+  },
+  {
+    "move_id": 285,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手的特性。"
+  },
+  {
+    "move_id": 286,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果对手有和自己相同的招式，\n那么只有对手无法使用该招式。"
+  },
+  {
+    "move_id": 286,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果对手有和自己相同的招式，\n那么只有对手无法使用该招式。"
+  },
+  {
+    "move_id": 287,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让身体休息，\n治愈自己身上所中的\n毒、麻痹、灼伤的异常状态。"
+  },
+  {
+    "move_id": 287,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让身体休息，\n治愈自己身上所中的\n毒、麻痹、灼伤的异常状态。"
+  },
+  {
+    "move_id": 288,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "因对手的招式而陷入濒死时\n给对手施加怨念，\n让该招式的ＰＰ变成０。"
+  },
+  {
+    "move_id": 288,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "因对手的招式而陷入濒死时\n给对手施加怨念，\n让该招式的ＰＰ变成０。"
+  },
+  {
+    "move_id": 289,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手打算使用的回复招式\n或能力变化招式夺为己用。"
+  },
+  {
+    "move_id": 289,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手打算使用的回复招式\n或能力变化招式夺为己用。"
+  },
+  {
+    "move_id": 290,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "根据使用场所不同，\n该招式的追加效果也会有所变化。"
+  },
+  {
+    "move_id": 290,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "根据使用场所不同，\n该招式的追加效果也会有所变化。"
+  },
+  {
+    "move_id": 291,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合潜入，\n第２回合浮上来进行攻击。"
+  },
+  {
+    "move_id": 291,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合潜入，\n第２回合浮上来进行攻击。"
+  },
+  {
+    "move_id": 292,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用张开着的双手\n猛推对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 292,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用张开着的双手\n猛推对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 293,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "根据所在场所不同，\n如水边、草丛和洞窟等，\n可以改变自己的属性。"
+  },
+  {
+    "move_id": 293,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "根据所在场所不同，\n如水边、草丛和洞窟等，\n可以改变自己的属性。"
+  },
+  {
+    "move_id": 294,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "凝视闪烁的光芒，\n集中自己的精神，\n从而巨幅提高特攻。"
+  },
+  {
+    "move_id": 294,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "凝视闪烁的光芒，\n集中自己的精神，\n从而巨幅提高特攻。"
+  },
+  {
+    "move_id": 295,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "释放耀眼的光芒进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 295,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "释放耀眼的光芒进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 296,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用围绕着雾状\n羽毛的球进行攻击。\n有时会降低对手的特攻。"
+  },
+  {
+    "move_id": 296,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用围绕着雾状\n羽毛的球进行攻击。\n有时会降低对手的特攻。"
+  },
+  {
+    "move_id": 297,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "撒出羽毛，\n笼罩在对手的周围。\n大幅降低对手的攻击。"
+  },
+  {
+    "move_id": 297,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "撒出羽毛，\n笼罩在对手的周围。\n大幅降低对手的攻击。"
+  },
+  {
+    "move_id": 298,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "摇摇晃晃地跳起舞蹈，\n让自己周围的宝可梦\n陷入混乱状态。"
+  },
+  {
+    "move_id": 298,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "摇摇晃晃地跳起舞蹈，\n让自己周围的宝可梦\n陷入混乱状态。"
+  },
+  {
+    "move_id": 299,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "攻击对手后，\n有时会使其陷入灼伤状态。\n也容易击中要害。"
+  },
+  {
+    "move_id": 299,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "攻击对手后，\n有时会使其陷入灼伤状态。\n也容易击中要害。"
+  },
+  {
+    "move_id": 300,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "一旦使用此招式，\n周围就会弄得到处是泥。\n在５回合内减弱电属性的招式。"
+  },
+  {
+    "move_id": 300,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "一旦使用此招式，\n周围就会弄得到处是泥。\n在５回合内减弱电属性的招式。"
+  },
+  {
+    "move_id": 301,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内攻击对手。\n招式每次击中，威力就会提高。"
+  },
+  {
+    "move_id": 301,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内攻击对手。\n招式每次击中，威力就会提高。"
+  },
+  {
+    "move_id": 302,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用带刺的手臂\n猛烈地挥舞进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 302,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用带刺的手臂\n猛烈地挥舞进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 303,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "偷懒休息。\n回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 303,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "偷懒休息。\n回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 304,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给予对手又吵又响的\n巨大震动进行攻击。"
+  },
+  {
+    "move_id": 304,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给予对手又吵又响的\n巨大震动进行攻击。"
+  },
+  {
+    "move_id": 305,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用有毒的牙齿\n咬住对手进行攻击。\n有时会使对手中剧毒。"
+  },
+  {
+    "move_id": 305,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用有毒的牙齿\n咬住对手进行攻击。\n有时会使对手中剧毒。"
+  },
+  {
+    "move_id": 306,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬的锐爪\n劈开对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 306,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬的锐爪\n劈开对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 307,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用爆炸的火焰\n烧尽对手进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 307,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用爆炸的火焰\n烧尽对手进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 308,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手喷射水炮进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 308,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手喷射水炮进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 309,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出彗星般的拳头攻击对手。\n有时会提高自己的攻击。"
+  },
+  {
+    "move_id": 309,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出彗星般的拳头攻击对手。\n有时会提高自己的攻击。"
+  },
+  {
+    "move_id": 310,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖叫声等\n突然惊吓对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 310,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖叫声等\n突然惊吓对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 311,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "根据使用时的天气，\n招式属性和威力会改变。"
+  },
+  {
+    "move_id": 311,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "根据使用时的天气，\n招式属性和威力会改变。"
+  },
+  {
+    "move_id": 312,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让同伴闻沁人心脾的香气，\n从而治愈我方全员的异常状态。"
+  },
+  {
+    "move_id": 312,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让同伴闻沁人心脾的香气，\n从而治愈我方全员的异常状态。"
+  },
+  {
+    "move_id": 313,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "装哭流泪。\n使对手不知所措，\n从而大幅降低对手的特防。"
+  },
+  {
+    "move_id": 313,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "装哭流泪。\n使对手不知所措，\n从而大幅降低对手的特防。"
+  },
+  {
+    "move_id": 314,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用锐利的风\n切斩对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 314,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用锐利的风\n切斩对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 315,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出全部力量攻击对手。\n使用之后会因为反作用力，\n自己的特攻大幅降低。"
+  },
+  {
+    "move_id": 315,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出全部力量攻击对手。\n使用之后会因为反作用力，\n自己的特攻大幅降低。"
+  },
+  {
+    "move_id": 316,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对幽灵属性宝可梦没有效果的招式\n以及闪避率高的对手，\n使用后变得能够打中。"
+  },
+  {
+    "move_id": 316,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出后对幽灵属性宝可梦没有\n效果的招式以及闪避率高的对手，\n变得能够打中。"
+  },
+  {
+    "move_id": 317,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "投掷岩石进行攻击。\n封住对手的行动，\n从而降低速度。"
+  },
+  {
+    "move_id": 317,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "投掷岩石进行攻击。\n封住对手的行动，\n从而降低速度。"
+  },
+  {
+    "move_id": 318,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在风中掺入鳞粉攻击对手。\n有时会提高自己的全部能力。"
+  },
+  {
+    "move_id": 318,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在风中掺入鳞粉攻击对手。\n有时会提高自己的全部能力。"
+  },
+  {
+    "move_id": 319,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手听摩擦金属般\n讨厌的声音。\n大幅降低对手的特防。"
+  },
+  {
+    "move_id": 319,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手听摩擦金属般\n讨厌的声音。\n大幅降低对手的特防。"
+  },
+  {
+    "move_id": 320,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手听舒适的笛声，\n从而陷入睡眠状态。"
+  },
+  {
+    "move_id": 320,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手听舒适的笛声，\n从而陷入睡眠状态。"
+  },
+  {
+    "move_id": 321,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给对手挠痒，使其发笑，\n从而降低对手的攻击和防御。"
+  },
+  {
+    "move_id": 321,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给对手挠痒，使其发笑，\n从而降低对手的攻击和防御。"
+  },
+  {
+    "move_id": 322,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "汲取宇宙中神秘的力量，\n从而提高自己的防御和特防。"
+  },
+  {
+    "move_id": 322,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "汲取宇宙中神秘的力量，\n从而提高自己的防御和特防。"
+  },
+  {
+    "move_id": 323,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "掀起潮水进行攻击。\n自己的ＨＰ越少，\n招式的威力越小。"
+  },
+  {
+    "move_id": 323,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "掀起潮水进行攻击。\n自己的ＨＰ越少，\n招式的威力越小。"
+  },
+  {
+    "move_id": 324,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射神奇的光线进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 324,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射神奇的光线进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 325,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出混影之拳。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 325,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出混影之拳。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 326,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发出看不见的\n神奇力量进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 326,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发出看不见的\n神奇力量进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 327,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用冲向天空般高高的上勾拳\n顶起对手进行攻击。"
+  },
+  {
+    "move_id": 327,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用冲向天空般高高的上勾拳\n顶起对手进行攻击。"
+  },
+  {
+    "move_id": 328,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手困在\n铺天盖地的沙暴中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 328,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手困在\n铺天盖地的沙暴中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 329,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给对手一击濒死。\n如果是冰属性以外的宝可梦使用，\n就会难以打中。"
+  },
+  {
+    "move_id": 329,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给对手一击濒死。\n如果是冰属性以外的宝可梦使用，\n就会难以打中。"
+  },
+  {
+    "move_id": 330,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手喷射\n浑浊的水进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 330,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手喷射\n浑浊的水进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 331,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地\n发射种子进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 331,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手猛烈地\n发射种子进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 332,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以敏捷的动作\n戏弄对手后进行切斩。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 332,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以敏捷的动作\n戏弄对手后进行切斩。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 333,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n锋利的冰柱进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 333,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n锋利的冰柱进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 334,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将皮肤变得坚硬如铁，\n从而大幅提高自己的防御。"
+  },
+  {
+    "move_id": 334,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将皮肤变得坚硬如铁，\n从而大幅提高自己的防御。"
+  },
+  {
+    "move_id": 335,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "张开双手进行阻挡，\n封住对手的退路，\n使其不能逃走。"
+  },
+  {
+    "move_id": 335,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "张开双手进行阻挡，\n封住对手的退路，\n使其不能逃走。"
+  },
+  {
+    "move_id": 336,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "大声吼叫提高气势，\n从而提高自己的攻击。"
+  },
+  {
+    "move_id": 336,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "大声吼叫提高气势，\n从而提高自己的攻击。"
+  },
+  {
+    "move_id": 337,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖锐的巨爪\n劈开对手进行攻击。"
+  },
+  {
+    "move_id": 337,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖锐的巨爪\n劈开对手进行攻击。"
+  },
+  {
+    "move_id": 338,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用大树摔打对手进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 338,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用大树摔打对手进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 339,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出全身力气绷紧肌肉，\n从而提高自己的攻击和防御。"
+  },
+  {
+    "move_id": 339,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出全身力气绷紧肌肉，\n从而提高自己的攻击和防御。"
+  },
+  {
+    "move_id": 340,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "弹跳到高高的空中，\n第２回合攻击对手。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 340,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "弹跳到高高的空中，\n第２回合攻击对手。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 341,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n泥块进行攻击。\n同时降低对手的速度。"
+  },
+  {
+    "move_id": 341,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n泥块进行攻击。\n同时降低对手的速度。"
+  },
+  {
+    "move_id": 342,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尾巴拍打。\n有时会让对手陷入中毒状态，\n也容易击中要害。"
+  },
+  {
+    "move_id": 342,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尾巴拍打。\n有时会让对手陷入中毒状态，\n也容易击中要害。"
+  },
+  {
+    "move_id": 343,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "一边可爱地撒娇，\n一边靠近对手进行攻击，\n还能夺取对手携带的道具。"
+  },
+  {
+    "move_id": 343,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "一边可爱地撒娇，\n一边靠近对手进行攻击，\n还能夺取对手携带的道具。"
+  },
+  {
+    "move_id": 344,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让电流覆盖全身猛撞向对手。\n自己也会受到不小的伤害。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 344,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让电流覆盖全身猛撞向对手。\n自己也会受到不小的伤害。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 345,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "散落可以追踪\n对手的神奇叶片。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 345,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "散落可以追踪\n对手的神奇叶片。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 346,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用水湿透周围。\n在５回合内\n减弱火属性的招式。"
+  },
+  {
+    "move_id": 346,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用水湿透周围。\n在５回合内\n减弱火属性的招式。"
+  },
+  {
+    "move_id": 347,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "静心凝神，\n从而提高自己的特攻和特防。"
+  },
+  {
+    "move_id": 347,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "静心凝神，\n从而提高自己的特攻和特防。"
+  },
+  {
+    "move_id": 348,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "像用剑一般操纵叶片\n切斩对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 348,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "像用剑一般操纵叶片\n切斩对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 349,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "激烈地跳起神秘\n且强有力的舞蹈。\n从而提高自己的攻击和速度。"
+  },
+  {
+    "move_id": 349,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "激烈地跳起神秘\n且强有力的舞蹈。\n从而提高自己的攻击和速度。"
+  },
+  {
+    "move_id": 350,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n坚硬的岩石进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 350,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n坚硬的岩石进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 351,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手快速发出电击。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 351,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手快速发出电击。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 352,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用水的震动攻击对手。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 352,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用水的震动攻击对手。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 353,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用招式２回合后，\n会用无数道光束攻击对手。"
+  },
+  {
+    "move_id": 353,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用招式２回合后，\n会用无数道光束攻击对手。"
+  },
+  {
+    "move_id": 354,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出全部力量攻击对手。\n使用之后会因为反作用力，\n自己的特攻大幅降低。"
+  },
+  {
+    "move_id": 354,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出全部力量攻击对手。\n使用之后会因为反作用力，\n自己的特攻大幅降低。"
+  },
+  {
+    "move_id": 355,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "降到地面，使身体休息。\n回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 355,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "降到地面，使身体休息。\n回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 356,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内，飘浮特性和飞行属性的\n宝可梦会被地面属性的招式击中。\n飞向空中的招式也将无法使用。"
+  },
+  {
+    "move_id": 356,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内，飘浮特性和飞行属性的\n宝可梦会被地面属性的招式击中。\n飞向空中的招式也将无法使用。"
+  },
+  {
+    "move_id": 357,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对恶属性宝可梦没有效果的招式\n以及闪避率高的对手，\n使用后变得能够打中。"
+  },
+  {
+    "move_id": 357,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出后对恶属性宝可梦没有\n效果的招式以及闪避率高的对手，\n变得能够打中。"
+  },
+  {
+    "move_id": 358,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给予睡眠状态下的对手较大的伤害。\n但相反对手会从睡眠中醒过来。"
+  },
+  {
+    "move_id": 358,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给予睡眠状态下的对手较大的伤害。\n但相反对手会从睡眠中醒过来。"
+  },
+  {
+    "move_id": 359,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "挥舞强力而沉重的拳头，\n给予对手伤害。\n自己的速度会降低。"
+  },
+  {
+    "move_id": 359,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "挥舞强力而沉重的拳头，\n给予对手伤害。\n自己的速度会降低。"
+  },
+  {
+    "move_id": 360,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让身体高速旋转并撞击对手。\n速度比对手越慢，威力越大。"
+  },
+  {
+    "move_id": 360,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让身体高速旋转并撞击对手。\n速度比对手越慢，威力越大。"
+  },
+  {
+    "move_id": 361,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "虽然自己陷入濒死，\n但可以治愈后备上场的\n宝可梦的异常状态以及回复ＨＰ。"
+  },
+  {
+    "move_id": 361,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "虽然自己陷入濒死，\n但可以治愈后备上场的\n宝可梦的异常状态以及回复ＨＰ。"
+  },
+  {
+    "move_id": 362,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当对手的ＨＰ\n负伤到一半左右时，\n招式威力会变成２倍。"
+  },
+  {
+    "move_id": 362,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当对手的ＨＰ\n负伤到一半左右时，\n招式威力会变成２倍。"
+  },
+  {
+    "move_id": 363,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从树果上获得力量进行攻击。\n根据携带的树果，\n招式属性和威力会改变。"
+  },
+  {
+    "move_id": 363,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从树果上获得力量进行攻击。\n根据携带的树果，\n招式属性和威力会改变。"
+  },
+  {
+    "move_id": 364,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "能够攻击正在使用\n守住或看穿等招式的对手。\n解除其守护效果。"
+  },
+  {
+    "move_id": 364,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "能够攻击正在使用\n守住或看穿等招式的对手。\n解除其守护效果。"
+  },
+  {
+    "move_id": 365,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用喙进行攻击。\n当对手携带树果时，\n可以食用并获得其效果。"
+  },
+  {
+    "move_id": 365,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用喙进行攻击。\n当对手携带树果时，\n可以食用并获得其效果。"
+  },
+  {
+    "move_id": 366,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "刮起猛烈的旋风，\n在４回合内\n提高我方全员的速度。"
+  },
+  {
+    "move_id": 366,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "刮起猛烈的旋风，\n在４回合内\n提高我方全员的速度。"
+  },
+  {
+    "move_id": 367,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过点穴\n让身体舒筋活络。\n大幅提高某１项能力。"
+  },
+  {
+    "move_id": 367,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过点穴\n让身体舒筋活络。\n大幅提高某１项能力。"
+  },
+  {
+    "move_id": 368,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出招式前，\n将最后受到的招式的伤害\n大力返还给对手。"
+  },
+  {
+    "move_id": 368,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出招式前，\n将最后受到的招式的伤害\n大力返还给对手。"
+  },
+  {
+    "move_id": 369,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在攻击之后急速返回，\n和后备宝可梦进行替换。"
+  },
+  {
+    "move_id": 369,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在攻击之后急速返回，\n和后备宝可梦进行替换。"
+  },
+  {
+    "move_id": 370,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放弃守护，\n向对手的怀里突击。\n自己的防御和特防会降低。"
+  },
+  {
+    "move_id": 370,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放弃守护，\n向对手的怀里突击。\n自己的防御和特防会降低。"
+  },
+  {
+    "move_id": 371,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "蓄力攻击。\n如果能在对手之后攻击，\n招式的威力会变成２倍。"
+  },
+  {
+    "move_id": 371,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "蓄力攻击。\n如果能在对手之后攻击，\n招式的威力会变成２倍。"
+  },
+  {
+    "move_id": 372,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果此回合内对手\n已经受到伤害的话，\n招式威力会变成２倍。"
+  },
+  {
+    "move_id": 372,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果此回合内对手\n已经受到伤害的话，\n招式威力会变成２倍。"
+  },
+  {
+    "move_id": 373,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手在５回合内不能使用\n宝可梦携带的道具。训练家也\n不能给那只宝可梦使用道具。"
+  },
+  {
+    "move_id": 373,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手在５回合内不能使用\n宝可梦携带的道具。训练家也\n不能给那只宝可梦使用道具。"
+  },
+  {
+    "move_id": 374,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "快速投掷携带的道具进行攻击。\n根据道具不同，\n威力和效果会改变。"
+  },
+  {
+    "move_id": 374,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "快速投掷携带的道具进行攻击。\n根据道具不同，\n威力和效果会改变。"
+  },
+  {
+    "move_id": 375,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力施以暗示，\n从而将自己受到的异常状态\n转移给对手。"
+  },
+  {
+    "move_id": 375,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力施以暗示，\n从而将自己受到的异常状态\n转移给对手。"
+  },
+  {
+    "move_id": 376,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "王牌招式的\n剩余ＰＰ越少，\n招式的威力越大。"
+  },
+  {
+    "move_id": 376,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "王牌招式的\n剩余ＰＰ越少，\n招式的威力越大。"
+  },
+  {
+    "move_id": 377,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内\n无法通过招式、特性或\n携带的道具来回复ＨＰ。"
+  },
+  {
+    "move_id": 377,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内\n无法通过招式、特性或\n携带的道具来回复ＨＰ。"
+  },
+  {
+    "move_id": 378,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用力勒紧对手进行攻击。\n对手的ＨＰ越多，\n威力越大。"
+  },
+  {
+    "move_id": 378,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用力勒紧对手进行攻击。\n对手的ＨＰ越多，\n威力越大。"
+  },
+  {
+    "move_id": 379,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力交换\n自己的攻击和\n防御的力量。"
+  },
+  {
+    "move_id": 379,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力交换\n自己的攻击和\n防御的力量。"
+  },
+  {
+    "move_id": 380,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将胃液吐向对手的身体。\n沾上的胃液会消除\n对手的特性效果。"
+  },
+  {
+    "move_id": 380,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将胃液吐向对手的身体。\n沾上的胃液会消除\n对手的特性效果。"
+  },
+  {
+    "move_id": 381,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向天许愿，\n从而在５回合内不会\n被对手的攻击打中要害。"
+  },
+  {
+    "move_id": 381,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向天许愿，\n从而在５回合内不会\n被对手的攻击打中要害。"
+  },
+  {
+    "move_id": 382,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "提高威力，抢先使出\n对手想要使出的招式。\n如果不先使出则会失败。"
+  },
+  {
+    "move_id": 382,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "提高威力，抢先使出\n对手想要使出的招式。\n如果不先使出则会失败。"
+  },
+  {
+    "move_id": 383,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "模仿对手刚才使出的招式，\n并使出相同招式。\n如果对手还没出招则会失败。"
+  },
+  {
+    "move_id": 383,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "模仿对手刚才使出的招式，\n并使出相同招式。\n如果对手还没出招则会失败。"
+  },
+  {
+    "move_id": 384,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手的攻击\n以及特攻的能力变化。"
+  },
+  {
+    "move_id": 384,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手的攻击\n以及特攻的能力变化。"
+  },
+  {
+    "move_id": 385,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手的防御\n以及特防的能力变化。"
+  },
+  {
+    "move_id": 385,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手的防御\n以及特防的能力变化。"
+  },
+  {
+    "move_id": 386,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "根据能力变化，\n对手提高的力量越大，\n招式的威力越大。"
+  },
+  {
+    "move_id": 386,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "根据能力变化，\n对手提高的力量越大，\n招式的威力越大。"
+  },
+  {
+    "move_id": 387,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当战斗中已学会的招式\n全部使用过后，\n才能开始使出珍藏的招式。"
+  },
+  {
+    "move_id": 387,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当战斗中已学会的招式\n全部使用过后，\n才能开始使出珍藏的招式。"
+  },
+  {
+    "move_id": 388,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "种植心神不宁的种子。\n使对手不能入眠，\n并将特性变成不眠。"
+  },
+  {
+    "move_id": 388,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "种植心神不宁的种子。\n使对手不能入眠，\n并将特性变成不眠。"
+  },
+  {
+    "move_id": 389,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "可以比对手先攻击。\n对手使出的招式\n如果不是攻击招式则会失败。"
+  },
+  {
+    "move_id": 389,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "可以比对手先攻击。\n对手使出的招式\n如果不是攻击招式则会失败。"
+  },
+  {
+    "move_id": 390,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在对手的脚下撒毒菱。\n使对手替换出场的宝可梦中毒。"
+  },
+  {
+    "move_id": 390,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在对手的脚下撒毒菱。\n使对手替换出场的宝可梦中毒。"
+  },
+  {
+    "move_id": 391,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手之间的\n能力变化。"
+  },
+  {
+    "move_id": 391,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力互换\n自己和对手之间的\n能力变化。"
+  },
+  {
+    "move_id": 392,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在自己身体的周围\n覆盖用水制造的幕。\n每回合回复ＨＰ。"
+  },
+  {
+    "move_id": 392,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在自己身体的周围\n覆盖用水制造的幕。\n每回合回复ＨＰ。"
+  },
+  {
+    "move_id": 393,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用电气产生的磁力浮在空中。\n在５回合内可以飘浮。"
+  },
+  {
+    "move_id": 393,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用电气产生的磁力浮在空中。\n在５回合内可以飘浮。"
+  },
+  {
+    "move_id": 394,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身猛撞向对手。\n自己也会受到不小的伤害。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 394,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身猛撞向对手。\n自己也会受到不小的伤害。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 395,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手的身体\n发出冲击波进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 395,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手的身体\n发出冲击波进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 396,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从体内产生出波导之力，\n然后向对手发出。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 396,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从体内产生出波导之力，\n然后向对手发出。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 397,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "打磨自己的身体，\n减少空气阻力。\n可以大幅提高自己的速度。"
+  },
+  {
+    "move_id": 397,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "打磨自己的身体，\n减少空气阻力。\n可以大幅提高自己的速度。"
+  },
+  {
+    "move_id": 398,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用带毒的触手或手臂刺入对手。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 398,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用带毒的触手或手臂刺入对手。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 399,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从体内发出\n充满恶意的恐怖气场。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 399,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从体内发出\n充满恶意的恐怖气场。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 400,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "抓住瞬间的空隙\n切斩对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 400,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "抓住瞬间的空隙\n切斩对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 401,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如惊涛骇浪般挥动\n大尾巴攻击对手。"
+  },
+  {
+    "move_id": 401,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如惊涛骇浪般挥动\n大尾巴攻击对手。"
+  },
+  {
+    "move_id": 402,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将外壳坚硬的大种子，\n从上方砸下攻击对手。"
+  },
+  {
+    "move_id": 402,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将外壳坚硬的大种子，\n从上方砸下攻击对手。"
+  },
+  {
+    "move_id": 403,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用连天空也能劈开的\n空气之刃进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 403,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用连天空也能劈开的\n空气之刃进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 404,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将镰刀或爪子像剪刀般地交叉，\n顺势劈开对手。"
+  },
+  {
+    "move_id": 404,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将镰刀或爪子像剪刀般地交叉，\n顺势劈开对手。"
+  },
+  {
+    "move_id": 405,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用振动发出音波进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 405,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用振动发出音波进行攻击。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 406,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从大大的口中\n掀起冲击波攻击对手。"
+  },
+  {
+    "move_id": 406,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从大大的口中\n掀起冲击波攻击对手。"
+  },
+  {
+    "move_id": 407,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "释放出骇人的杀气，\n一边威慑一边撞击对手。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 407,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "释放出骇人的杀气，\n一边威慑一边撞击对手。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 408,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射如宝石般\n闪耀的光芒攻击对手。"
+  },
+  {
+    "move_id": 408,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射如宝石般\n闪耀的光芒攻击对手。"
+  },
+  {
+    "move_id": 409,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用拳头吸取对手的力量。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 409,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用拳头吸取对手的力量。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 410,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "挥动拳头，\n掀起真空波。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 410,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "挥动拳头，\n掀起真空波。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 411,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "提高气势，\n释放出全部力量。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 411,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "提高气势，\n释放出全部力量。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 412,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射从自然收集的生命力量。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 412,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射从自然收集的生命力量。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 413,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "收拢翅膀，\n通过低空飞行突击对手。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 413,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "收拢翅膀，\n通过低空飞行突击对手。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 414,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手脚下\n释放出大地之力。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 414,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手脚下\n释放出大地之力。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 415,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用一闪而过的速度\n交换自己和对手的持有物。"
+  },
+  {
+    "move_id": 415,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用一闪而过的速度\n交换自己和对手的持有物。"
+  },
+  {
+    "move_id": 416,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出自己浑身力量突击对手。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 416,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出自己浑身力量突击对手。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 417,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "谋划诡计，激活头脑。\n大幅提高自己的特攻。"
+  },
+  {
+    "move_id": 417,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "谋划诡计，激活头脑。\n大幅提高自己的特攻。"
+  },
+  {
+    "move_id": 418,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手使出如子弹般\n快速而坚硬的拳头。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 418,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手使出如子弹般\n快速而坚硬的拳头。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 419,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果受到对手的招式攻击，\n就能给予该对手\n２倍威力的攻击。"
+  },
+  {
+    "move_id": 419,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果受到对手的招式攻击，\n就能给予该对手\n２倍威力的攻击。"
+  },
+  {
+    "move_id": 420,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "瞬间制作冰块，\n快速地扔向对手。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 420,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "瞬间制作冰块，\n快速地扔向对手。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 421,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以影子做成的锐爪，\n劈开对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 421,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以影子做成的锐爪，\n劈开对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 422,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用蓄满电流的牙齿咬住对手。\n有时会使对手畏缩\n或陷入麻痹状态。"
+  },
+  {
+    "move_id": 422,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用蓄满电流的牙齿咬住对手。\n有时会使对手畏缩\n或陷入麻痹状态。"
+  },
+  {
+    "move_id": 423,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用藏有冷气的牙齿咬住对手。\n有时会使对手畏缩\n或陷入冰冻状态。"
+  },
+  {
+    "move_id": 423,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用藏有冷气的牙齿咬住对手。\n有时会使对手畏缩\n或陷入冰冻状态。"
+  },
+  {
+    "move_id": 424,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用覆盖着火焰的牙齿咬住对手。\n有时会使对手畏缩\n或陷入灼伤状态。"
+  },
+  {
+    "move_id": 424,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用覆盖着火焰的牙齿咬住对手。\n有时会使对手畏缩\n或陷入灼伤状态。"
+  },
+  {
+    "move_id": 425,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "伸长影子，\n从对手的背后进行攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 425,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "伸长影子，\n从对手的背后进行攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 426,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n坚硬的泥弹进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 426,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n坚硬的泥弹进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 427,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用实体化的\n心之利刃劈开对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 427,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用实体化的\n心之利刃劈开对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 428,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将思念的力量集中在\n前额进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 428,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将思念的力量集中在\n前额进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 429,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "抛光自己的身体，\n向对手释放出闪光之力。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 429,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "抛光自己的身体，\n向对手释放出闪光之力。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 430,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将身体的光芒\n聚集在一点释放出去。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 430,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将身体的光芒\n聚集在一点释放出去。\n有时会降低对手的特防。"
+  },
+  {
+    "move_id": 431,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尽全力扑向对手进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 431,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尽全力扑向对手进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 432,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用强风吹开对手的\n反射壁或光墙等。\n也会降低对手的闪避率。"
+  },
+  {
+    "move_id": 432,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用强风吹开对手的\n反射壁或光墙等。\n也会降低对手的闪避率。"
+  },
+  {
+    "move_id": 433,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "制造出离奇的空间。\n在５回合内\n速度慢的宝可梦可以先行动。"
+  },
+  {
+    "move_id": 433,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "制造出离奇的空间。\n在５回合内\n速度慢的宝可梦可以先行动。"
+  },
+  {
+    "move_id": 434,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从天空中向对手落下陨石。\n使用之后因为反作用力，\n自己的特攻会大幅降低。"
+  },
+  {
+    "move_id": 434,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从天空中向对手落下陨石。\n使用之后因为反作用力，\n自己的特攻会大幅降低。"
+  },
+  {
+    "move_id": 435,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用耀眼的电击\n攻击自己周围所有的宝可梦。\n有时会陷入麻痹状态。"
+  },
+  {
+    "move_id": 435,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用耀眼的电击\n攻击自己周围所有的宝可梦。\n有时会陷入麻痹状态。"
+  },
+  {
+    "move_id": 436,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用熊熊烈火\n攻击自己周围所有的宝可梦。\n有时会陷入灼伤状态。"
+  },
+  {
+    "move_id": 436,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用熊熊烈火\n攻击自己周围所有的宝可梦。\n有时会陷入灼伤状态。"
+  },
+  {
+    "move_id": 437,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖尖的叶片向对手卷起风暴。\n使用之后因为反作用力\n自己的特攻会大幅降低。"
+  },
+  {
+    "move_id": 437,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖尖的叶片向对手卷起风暴。\n使用之后因为反作用力\n自己的特攻会大幅降低。"
+  },
+  {
+    "move_id": 438,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "激烈地挥舞青藤或触手\n摔打对手进行攻击。"
+  },
+  {
+    "move_id": 438,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "激烈地挥舞青藤或触手\n摔打对手进行攻击。"
+  },
+  {
+    "move_id": 439,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n巨大的岩石进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 439,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射\n巨大的岩石进行攻击。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 440,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用毒刃劈开对手。\n有时会让对手陷入中毒状态，\n也容易击中要害。"
+  },
+  {
+    "move_id": 440,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用毒刃劈开对手。\n有时会让对手陷入中毒状态，\n也容易击中要害。"
+  },
+  {
+    "move_id": 441,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用肮脏的垃圾\n撞向对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 441,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用肮脏的垃圾\n撞向对手进行攻击。\n有时会让对手陷入中毒状态。"
+  },
+  {
+    "move_id": 442,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用钢铁般\n坚硬的头部进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 442,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用钢铁般\n坚硬的头部进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 443,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发射吸住对手的\n钢铁炸弹。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 443,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发射吸住对手的\n钢铁炸弹。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 444,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖尖的岩石\n刺入对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 444,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖尖的岩石\n刺入对手进行攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 445,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "♂诱惑♀或♀诱惑♂，\n从而大幅降低对手的特攻。"
+  },
+  {
+    "move_id": 445,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "♂诱惑♀或♀诱惑♂，\n从而大幅降低对手的特攻。"
+  },
+  {
+    "move_id": 446,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将无数岩石悬浮在对手的周围，\n从而对替换出场的对手的\n宝可梦给予伤害。"
+  },
+  {
+    "move_id": 446,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将无数岩石悬浮在对手的周围，\n从而对替换出场的对手的\n宝可梦给予伤害。"
+  },
+  {
+    "move_id": 447,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用草缠住并绊倒对手。\n对手越重，威力越大。"
+  },
+  {
+    "move_id": 447,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用草缠住并绊倒对手。\n对手越重，威力越大。"
+  },
+  {
+    "move_id": 448,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用非常烦人的，\n喋喋不休的音波攻击对手。\n使对手混乱。"
+  },
+  {
+    "move_id": 448,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用非常烦人的，\n喋喋不休的音波攻击对手。\n使对手混乱。"
+  },
+  {
+    "move_id": 449,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手放出无数的光弹。\n属性会根据自己\n携带的石板不同而改变。"
+  },
+  {
+    "move_id": 449,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手放出无数的光弹。\n属性会根据自己\n携带的石板不同而改变。"
+  },
+  {
+    "move_id": 450,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "咬住进行攻击。\n当对手携带树果时，\n可以食用并获得其效果。"
+  },
+  {
+    "move_id": 450,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "咬住进行攻击。\n当对手携带树果时，\n可以食用并获得其效果。"
+  },
+  {
+    "move_id": 451,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射电击光束。\n由于蓄满电流，\n有时会提高自己的特攻。"
+  },
+  {
+    "move_id": 451,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射电击光束。\n由于蓄满电流，\n有时会提高自己的特攻。"
+  },
+  {
+    "move_id": 452,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬的躯体\n撞击对手进行攻击。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 452,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬的躯体\n撞击对手进行攻击。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 453,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势\n扑向对手。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 453,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以迅雷不及掩耳之势\n扑向对手。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 454,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "召唤手下，\n让其朝对手发起攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 454,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "召唤手下，\n让其朝对手发起攻击。\n容易击中要害。"
+  },
+  {
+    "move_id": 455,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "召唤手下，\n让其附在自己的身体上。\n可以提高自己的防御和特防。"
+  },
+  {
+    "move_id": 455,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "召唤手下，\n让其附在自己的身体上。\n可以提高自己的防御和特防。"
+  },
+  {
+    "move_id": 456,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "召唤手下疗伤。\n回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 456,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "召唤手下疗伤。\n回复自己最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 457,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "拼命使出浑身力气，\n向对手进行头锤攻击。\n自己也会受到非常大的伤害。"
+  },
+  {
+    "move_id": 457,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "拼命使出浑身力气，\n向对手进行头锤攻击。\n自己也会受到非常大的伤害。"
+  },
+  {
+    "move_id": 458,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用尾巴等\n拍打对手进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 458,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用尾巴等\n拍打对手进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 459,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "释放出扭曲时间般的\n强大力量攻击对手。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 459,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "释放出扭曲时间般的\n强大力量攻击对手。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 460,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手连同周围的空间一起\n撕裂并给予伤害。\n容易击中要害。"
+  },
+  {
+    "move_id": 460,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手连同周围的空间一起\n撕裂并给予伤害。\n容易击中要害。"
+  },
+  {
+    "move_id": 461,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "虽然自己陷入濒死，\n但可以治愈后备上场的\n宝可梦的全部状态。"
+  },
+  {
+    "move_id": 461,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "虽然自己陷入濒死，\n但可以治愈后备上场的\n宝可梦的全部状态。"
+  },
+  {
+    "move_id": 462,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用骇人的力量捏碎对手。\n对手的ＨＰ越多，\n威力越大。"
+  },
+  {
+    "move_id": 462,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用骇人的力量捏碎对手。\n对手的ＨＰ越多，\n威力越大。"
+  },
+  {
+    "move_id": 463,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手困在\n熊熊燃烧的火焰中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 463,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手困在\n熊熊燃烧的火焰中，\n在４～５回合内进行攻击。"
+  },
+  {
+    "move_id": 464,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手强制拖入黑暗的世界，\n从而让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 464,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手强制拖入黑暗的世界，\n从而让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 465,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从身体里产生冲击波。\n有时会大幅降低对手的特防。"
+  },
+  {
+    "move_id": 465,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从身体里产生冲击波。\n有时会大幅降低对手的特防。"
+  },
+  {
+    "move_id": 466,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "突然刮起毛骨悚然的暴风\n攻击对手。有时会提高\n自己的全部能力。"
+  },
+  {
+    "move_id": 466,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "突然刮起毛骨悚然的暴风\n攻击对手。有时会提高\n自己的全部能力。"
+  },
+  {
+    "move_id": 467,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合消失踪影，\n第２回合攻击对手。\n即使对手正受保护，也能击中。"
+  },
+  {
+    "move_id": 467,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合消失踪影，\n第２回合攻击对手。\n即使对手正受保护，也能击中。"
+  },
+  {
+    "move_id": 468,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将爪子磨得更加锋利。\n提高自己的攻击和命中率。"
+  },
+  {
+    "move_id": 468,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将爪子磨得更加锋利。\n提高自己的攻击和命中率。"
+  },
+  {
+    "move_id": 469,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在１回合内防住\n击打我方全员的攻击。"
+  },
+  {
+    "move_id": 469,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在１回合内防住\n击打我方全员的攻击。"
+  },
+  {
+    "move_id": 470,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力将自己和对手的\n防御和特防相加，\n再进行平分。"
+  },
+  {
+    "move_id": 470,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力将自己和对手的\n防御和特防相加，\n再进行平分。"
+  },
+  {
+    "move_id": 471,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力将自己和对手的\n攻击和特攻相加，\n再进行平分。"
+  },
+  {
+    "move_id": 471,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力将自己和对手的\n攻击和特攻相加，\n再进行平分。"
+  },
+  {
+    "move_id": 472,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "制造出离奇的空间。\n在５回合内互换\n所有宝可梦的防御和特防。"
+  },
+  {
+    "move_id": 472,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "制造出离奇的空间。\n在５回合内互换\n所有宝可梦的防御和特防。"
+  },
+  {
+    "move_id": 473,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将神奇的念波实体化攻击对手。\n给予物理伤害。"
+  },
+  {
+    "move_id": 473,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将神奇的念波实体化攻击对手。\n给予物理伤害。"
+  },
+  {
+    "move_id": 474,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将特殊的毒液泼向对手。\n对处于中毒状态的对手，\n威力会变成２倍。"
+  },
+  {
+    "move_id": 474,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将特殊的毒液泼向对手。\n对处于中毒状态的对手，\n威力会变成２倍。"
+  },
+  {
+    "move_id": 475,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "削掉身体上没用的部分。\n大幅提高自己的速度，\n同时体重也会变轻。"
+  },
+  {
+    "move_id": 475,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "削掉身体上没用的部分。\n大幅提高自己的速度，\n同时体重也会变轻。"
+  },
+  {
+    "move_id": 476,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将令人烦躁的粉末撒在自己身上，\n用以吸引对手的注意。\n使对手的攻击全部指向自己。"
+  },
+  {
+    "move_id": 476,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将令人烦躁的粉末撒在自己身上，\n用以吸引对手的注意。\n使对手的攻击全部指向自己。"
+  },
+  {
+    "move_id": 477,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用超能力使对手浮起来。\n在３回合内\n攻击会变得容易打中对手。"
+  },
+  {
+    "move_id": 477,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用超能力使对手浮起来。\n在３回合内\n攻击会变得容易打中对手。"
+  },
+  {
+    "move_id": 478,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "制造出离奇的空间。\n在５回合内所有宝可梦\n携带道具的效果都会消失。"
+  },
+  {
+    "move_id": 478,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "制造出离奇的空间。\n在５回合内所有宝可梦\n携带道具的效果都会消失。"
+  },
+  {
+    "move_id": 479,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "扔石头或炮弹，\n攻击飞行的对手。\n对手会被击落，掉到地面。"
+  },
+  {
+    "move_id": 479,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "扔石头或炮弹，\n攻击飞行的对手。\n对手会被击落，掉到地面。"
+  },
+  {
+    "move_id": 480,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手使出强烈的一击。\n攻击必定会击中要害。"
+  },
+  {
+    "move_id": 480,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手使出强烈的一击。\n攻击必定会击中要害。"
+  },
+  {
+    "move_id": 481,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果击中，爆裂的火焰会\n攻击到对手。爆裂出的火焰\n还会飞溅到旁边的对手。"
+  },
+  {
+    "move_id": 481,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果击中，爆裂的火焰会\n攻击到对手。爆裂出的火焰\n还会飞溅到旁边的对手。"
+  },
+  {
+    "move_id": 482,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用污泥波攻击\n自己周围所有的宝可梦。\n有时会陷入中毒状态。"
+  },
+  {
+    "move_id": 482,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用污泥波攻击\n自己周围所有的宝可梦。\n有时会陷入中毒状态。"
+  },
+  {
+    "move_id": 483,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "轻巧地跳起神秘而又美丽的舞蹈。\n提高自己的特攻、特防和速度。"
+  },
+  {
+    "move_id": 483,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "轻巧地跳起神秘而又美丽的舞蹈。\n提高自己的特攻、特防和速度。"
+  },
+  {
+    "move_id": 484,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用沉重的身体撞向对手进行攻击。\n自己比对手越重，威力越大。"
+  },
+  {
+    "move_id": 484,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用沉重的身体撞向对手进行攻击。\n自己比对手越重，威力越大。"
+  },
+  {
+    "move_id": 485,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用神奇电波对\n周围所有和自己属性相同的\n宝可梦给予伤害。"
+  },
+  {
+    "move_id": 485,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用神奇电波对\n周围所有和自己属性相同的\n宝可梦给予伤害。"
+  },
+  {
+    "move_id": 486,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用电气团撞向对手。\n自己比对手速度越快，\n威力越大。"
+  },
+  {
+    "move_id": 486,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用电气团撞向对手。\n自己比对手速度越快，\n威力越大。"
+  },
+  {
+    "move_id": 487,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将大量的水泼向对手，\n从而使其变成水属性。"
+  },
+  {
+    "move_id": 487,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将大量的水泼向对手，\n从而使其变成水属性。"
+  },
+  {
+    "move_id": 488,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身，攻击对手。\n积蓄力量并提高自己的速度。"
+  },
+  {
+    "move_id": 488,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身，攻击对手。\n积蓄力量并提高自己的速度。"
+  },
+  {
+    "move_id": 489,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "盘蜷着集中精神。\n提高自己的攻击、防御和命中率。"
+  },
+  {
+    "move_id": 489,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "盘蜷着集中精神。\n提高自己的攻击、防御和命中率。"
+  },
+  {
+    "move_id": 490,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以敏捷的动作瞄准\n对手的脚进行攻击。\n降低对手的速度。"
+  },
+  {
+    "move_id": 490,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以敏捷的动作瞄准\n对手的脚进行攻击。\n降低对手的速度。"
+  },
+  {
+    "move_id": 491,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "喷出能溶化对手的液体进行攻击。\n大幅降低对手的特防。"
+  },
+  {
+    "move_id": 491,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "喷出能溶化对手的液体进行攻击。\n大幅降低对手的特防。"
+  },
+  {
+    "move_id": 492,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用对手的力量进行攻击。\n正和自己战斗的对手，\n其攻击越高，伤害越大。"
+  },
+  {
+    "move_id": 492,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用对手的力量进行攻击。\n正和自己战斗的对手，\n其攻击越高，伤害越大。"
+  },
+  {
+    "move_id": 493,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发送谜之念波。\n接收到念波的对手，\n其特性会变为单纯。"
+  },
+  {
+    "move_id": 493,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发送谜之念波。\n接收到念波的对手，\n其特性会变为单纯。"
+  },
+  {
+    "move_id": 494,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用神奇的节奏跳舞。\n使对手模仿自己的动作，\n从而将特性变成一样。"
+  },
+  {
+    "move_id": 494,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用神奇的节奏跳舞。\n使对手模仿自己的动作，\n从而将特性变成一样。"
+  },
+  {
+    "move_id": 495,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "支援我方或对手的行动，\n使其紧接着此招式之后行动。"
+  },
+  {
+    "move_id": 495,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "支援我方或对手的行动，\n使其紧接着此招式之后行动。"
+  },
+  {
+    "move_id": 496,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用歌声攻击对手。\n同伴还可以接着使出轮唱招式，\n威力也会提高。"
+  },
+  {
+    "move_id": 496,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用歌声攻击对手。\n同伴还可以接着使出轮唱招式，\n威力也会提高。"
+  },
+  {
+    "move_id": 497,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用回声攻击对手。\n如果每回合都有宝可梦接着\n使用该招式，威力就会提高。"
+  },
+  {
+    "move_id": 497,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用回声攻击对手。\n如果每回合都有宝可梦接着\n使用该招式，威力就会提高。"
+  },
+  {
+    "move_id": 498,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "看准机会稳步攻击。\n无视对手的能力变化，\n直接给予伤害。"
+  },
+  {
+    "move_id": 498,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "看准机会稳步攻击。\n无视对手的能力变化，\n直接给予伤害。"
+  },
+  {
+    "move_id": 499,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n特殊的泥块进行攻击。\n使其能力变回原点。"
+  },
+  {
+    "move_id": 499,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n特殊的泥块进行攻击。\n使其能力变回原点。"
+  },
+  {
+    "move_id": 500,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用蓄积起来的力量攻击对手。\n自己的能力提高得越多，\n威力就越大。"
+  },
+  {
+    "move_id": 500,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用蓄积起来的力量攻击对手。\n自己的能力提高得越多，\n威力就越大。"
+  },
+  {
+    "move_id": 501,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "守护自己和同伴，\n以防对手的先制攻击。"
+  },
+  {
+    "move_id": 501,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "守护自己和同伴，\n以防对手的先制攻击。"
+  },
+  {
+    "move_id": 502,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用神奇的力量瞬间移动，\n互换自己和同伴所在的位置。"
+  },
+  {
+    "move_id": 502,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用神奇的力量瞬间移动，\n互换自己和同伴所在的位置。"
+  },
+  {
+    "move_id": 503,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手喷射\n煮得翻滚的开水进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 503,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手喷射\n煮得翻滚的开水进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 504,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "打破外壳，\n降低自己的防御和特防，\n但大幅提高攻击、特攻和速度。"
+  },
+  {
+    "move_id": 504,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "打破外壳，\n降低自己的防御和特防，\n但大幅提高攻击、特攻和速度。"
+  },
+  {
+    "move_id": 505,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放出治愈波动，\n从而回复对手\n最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 505,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放出治愈波动，\n从而回复对手\n最大ＨＰ的一半。"
+  },
+  {
+    "move_id": 506,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "接二连三地进行攻击。\n对处于异常状态的对手\n给予较大的伤害。"
+  },
+  {
+    "move_id": 506,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "接二连三地进行攻击。\n对处于异常状态的对手\n给予较大的伤害。"
+  },
+  {
+    "move_id": 507,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合将对手带到空中，\n第２回合将其摔下进行攻击。\n被带到空中的对手不能动弹。"
+  },
+  {
+    "move_id": 507,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合将对手带到空中，\n第２回合将其摔下进行攻击。\n被带到空中的对手不能动弹。"
+  },
+  {
+    "move_id": 508,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "转动齿轮，\n不仅提高自己的攻击，\n还会大幅提高速度。"
+  },
+  {
+    "move_id": 508,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "转动齿轮，\n不仅提高自己的攻击，\n还会大幅提高速度。"
+  },
+  {
+    "move_id": 509,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "扔飞对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 509,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "扔飞对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 510,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用火焰攻击对手。\n对手携带树果等时，\n会烧掉，使其不能使用。"
+  },
+  {
+    "move_id": 510,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用火焰攻击对手。\n对手携带树果等时，\n会烧掉，使其不能使用。"
+  },
+  {
+    "move_id": 511,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "压制对手，\n从而将其行动顺序放到最后。"
+  },
+  {
+    "move_id": 511,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "压制对手，\n从而将其行动顺序放到最后。"
+  },
+  {
+    "move_id": 512,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "轻巧地攻击对手。\n自己没有携带道具时，\n会给予较大的伤害。"
+  },
+  {
+    "move_id": 512,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "轻巧地攻击对手。\n自己没有携带道具时，\n会给予较大的伤害。"
+  },
+  {
+    "move_id": 513,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "反射对手的属性，\n让自己也变成一样的属性。"
+  },
+  {
+    "move_id": 513,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "反射对手的属性，\n让自己也变成一样的属性。"
+  },
+  {
+    "move_id": 514,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "为倒下的同伴报仇。\n如果上一回合有同伴倒下，\n威力就会提高。"
+  },
+  {
+    "move_id": 514,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "为倒下的同伴报仇。\n如果上一回合有同伴倒下，\n威力就会提高。"
+  },
+  {
+    "move_id": 515,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "拼命攻击对手。\n虽然自己陷入濒死，但会给予对手\n和自己目前ＨＰ等量的伤害。"
+  },
+  {
+    "move_id": 515,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "拼命攻击对手。\n虽然自己陷入濒死，但会给予对手\n和自己目前ＨＰ等量的伤害。"
+  },
+  {
+    "move_id": 516,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "当对手未携带道具时，\n能够将自己携带的道具交给对手。"
+  },
+  {
+    "move_id": 516,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "当对手未携带道具时，\n能够将自己携带的道具交给对手。"
+  },
+  {
+    "move_id": 517,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用烈焰包裹住对手进行攻击。\n让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 517,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用烈焰包裹住对手进行攻击。\n让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 518,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用水柱进行攻击。\n如果和火组合，威力就会提高，\n天空中会挂上彩虹。"
+  },
+  {
+    "move_id": 518,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用水柱进行攻击。\n如果和火组合，威力就会提高，\n天空中会挂上彩虹。"
+  },
+  {
+    "move_id": 519,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用火柱进行攻击。\n如果和草组合，威力就会提高，\n周围会变成火海。"
+  },
+  {
+    "move_id": 519,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用火柱进行攻击。\n如果和草组合，威力就会提高，\n周围会变成火海。"
+  },
+  {
+    "move_id": 520,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用草柱进行攻击。\n如果和水组合，威力就会提高，\n周围会变成湿地。"
+  },
+  {
+    "move_id": 520,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用草柱进行攻击。\n如果和水组合，威力就会提高，\n周围会变成湿地。"
+  },
+  {
+    "move_id": 521,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在攻击之后急速返回，\n和后备宝可梦进行替换。"
+  },
+  {
+    "move_id": 521,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在攻击之后急速返回，\n和后备宝可梦进行替换。"
+  },
+  {
+    "move_id": 522,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "抵抗并攻击对手。\n降低对手的特攻。"
+  },
+  {
+    "move_id": 522,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "抵抗并攻击对手。\n降低对手的特攻。"
+  },
+  {
+    "move_id": 523,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用力踩踏地面并攻击\n自己周围所有的宝可梦。\n降低对方的速度。"
+  },
+  {
+    "move_id": 523,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用力踩踏地面并攻击\n自己周围所有的宝可梦。\n降低对方的速度。"
+  },
+  {
+    "move_id": 524,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将冰冷的气息\n吹向对手进行攻击。\n必定会击中要害。"
+  },
+  {
+    "move_id": 524,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将冰冷的气息\n吹向对手进行攻击。\n必定会击中要害。"
+  },
+  {
+    "move_id": 525,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "弹飞对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 525,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "弹飞对手，强制拉后备宝可梦上场。\n如果对手为野生宝可梦，\n战斗将直接结束。"
+  },
+  {
+    "move_id": 526,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "激励自己，\n从而提高攻击和特攻。"
+  },
+  {
+    "move_id": 526,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "激励自己，\n从而提高攻击和特攻。"
+  },
+  {
+    "move_id": 527,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用电网捉住对手进行攻击。\n降低对手的速度。"
+  },
+  {
+    "move_id": 527,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用电网捉住对手进行攻击。\n降低对手的速度。"
+  },
+  {
+    "move_id": 528,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让电流覆盖全身\n撞向对手进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 528,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让电流覆盖全身\n撞向对手进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 529,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "像钢钻一样，一边旋转身体\n一边撞击对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 529,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "像钢钻一样，一边旋转身体\n一边撞击对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 530,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用身体坚硬的部分\n拍打对手进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 530,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用身体坚硬的部分\n拍打对手进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 531,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以可爱的动作使对手疏忽，\n乘机给出强烈的一击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 531,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以可爱的动作使对手疏忽，\n乘机给出强烈的一击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 532,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将角刺入，吸取对手的养分。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 532,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将角刺入，吸取对手的养分。\n可以回复给予对手\n伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 533,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用长角切斩对手进行攻击。\n无视对手的能力变化，\n直接给予伤害。"
+  },
+  {
+    "move_id": 533,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用长角切斩对手进行攻击。\n无视对手的能力变化，\n直接给予伤害。"
+  },
+  {
+    "move_id": 534,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用锋利的贝壳切斩\n对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 534,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用锋利的贝壳切斩\n对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 535,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用燃烧的身体撞向对手进行攻击。\n自己比对手越重，威力越大。"
+  },
+  {
+    "move_id": 535,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用燃烧的身体撞向对手进行攻击。\n自己比对手越重，威力越大。"
+  },
+  {
+    "move_id": 536,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用锋利的叶片包裹住\n对手进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 536,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用锋利的叶片包裹住\n对手进行攻击。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 537,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "旋转揉成团的身体\n压扁对手。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 537,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "旋转揉成团的身体\n压扁对手。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 538,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用软绵绵的绒毛包裹住\n自己的身体进行守护。\n巨幅提高自己的防御。"
+  },
+  {
+    "move_id": 538,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用软绵绵的绒毛包裹住\n自己的身体进行守护。\n巨幅提高自己的防御。"
+  },
+  {
+    "move_id": 539,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放出黑暗的冲击波攻击对手。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 539,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放出黑暗的冲击波攻击对手。\n有时会降低对手的命中率。"
+  },
+  {
+    "move_id": 540,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将神奇的念波实体化攻击对手。\n给予物理伤害。"
+  },
+  {
+    "move_id": 540,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将神奇的念波实体化攻击对手。\n给予物理伤害。"
+  },
+  {
+    "move_id": 541,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用坚硬的尾巴\n拍打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 541,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用坚硬的尾巴\n拍打对手进行攻击。\n连续攻击２～５次。"
+  },
+  {
+    "move_id": 542,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用强烈的风席卷\n对手进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 542,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用强烈的风席卷\n对手进行攻击。\n有时会使对手混乱。"
+  },
+  {
+    "move_id": 543,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用厉害的爆炸头\n猛撞向对手进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 543,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用厉害的爆炸头\n猛撞向对手进行攻击。\n自己也会受到少许伤害。"
+  },
+  {
+    "move_id": 544,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n钢铁齿轮进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 544,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手投掷\n钢铁齿轮进行攻击。\n连续２次给予伤害。"
+  },
+  {
+    "move_id": 545,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用熊熊烈火\n攻击自己周围所有的宝可梦。\n有时会陷入灼伤状态。"
+  },
+  {
+    "move_id": 545,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用熊熊烈火\n攻击自己周围所有的宝可梦。\n有时会陷入灼伤状态。"
+  },
+  {
+    "move_id": 546,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手放出光弹。\n属性会根据自己\n携带的卡带不同而改变。"
+  },
+  {
+    "move_id": 546,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手放出光弹。\n属性会根据自己\n携带的卡带不同而改变。"
+  },
+  {
+    "move_id": 547,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让对手听古老之歌，\n打动对手的内心进行攻击。\n有时会让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 547,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让对手听古老之歌，\n打动对手的内心进行攻击。\n有时会让对手陷入睡眠状态。"
+  },
+  {
+    "move_id": 548,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用长角切斩对手进行攻击。\n角上拥有的神奇力量\n将给予物理伤害。"
+  },
+  {
+    "move_id": 548,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用长角切斩对手进行攻击。\n角上拥有的神奇力量\n将给予物理伤害。"
+  },
+  {
+    "move_id": 549,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将冰冻的冷气\n吹向对手进行攻击。\n会降低对手的速度。"
+  },
+  {
+    "move_id": 549,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将冰冻的冷气\n吹向对手进行攻击。\n会降低对手的速度。"
+  },
+  {
+    "move_id": 550,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让强大的电流覆盖全身，\n猛撞向对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 550,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让强大的电流覆盖全身，\n猛撞向对手进行攻击。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 551,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用美丽而激烈的青焰\n包裹住对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 551,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用美丽而激烈的青焰\n包裹住对手进行攻击。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 552,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身，\n振翅攻击对手。\n有时会提高自己的特攻。"
+  },
+  {
+    "move_id": 552,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让火焰覆盖全身，\n振翅攻击对手。\n有时会提高自己的特攻。"
+  },
+  {
+    "move_id": 553,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用覆盖着电流的冰块，\n在第２回合撞向对手。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 553,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用覆盖着电流的冰块，\n在第２回合撞向对手。\n有时会让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 554,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用能够冻结一切的强烈冷气，\n在第２回合包裹住对手。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 554,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用能够冻结一切的强烈冷气，\n在第２回合包裹住对手。\n有时会让对手陷入灼伤状态。"
+  },
+  {
+    "move_id": 555,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "没完没了地大声斥责，\n从而降低对手的特攻。"
+  },
+  {
+    "move_id": 555,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "没完没了地大声斥责，\n从而降低对手的特攻。"
+  },
+  {
+    "move_id": 556,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用大冰柱激烈地\n撞向对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 556,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用大冰柱激烈地\n撞向对手进行攻击。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 557,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从前额产生灼热的火焰，\n舍身撞击对手。\n防御、特防和速度会降低。"
+  },
+  {
+    "move_id": 557,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从前额产生灼热的火焰，\n舍身撞击对手。\n防御、特防和速度会降低。"
+  },
+  {
+    "move_id": 558,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "释放出巨大的火焰。\n受到巨大的闪电影响时，\n招式威力会提高。"
+  },
+  {
+    "move_id": 558,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "释放出巨大的火焰。\n受到巨大的闪电影响时，\n招式威力会提高。"
+  },
+  {
+    "move_id": 559,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "释放出巨大的闪电。\n受到巨大的火焰影响时，\n招式威力会提高。"
+  },
+  {
+    "move_id": 559,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "释放出巨大的闪电。\n受到巨大的火焰影响时，\n招式威力会提高。"
+  },
+  {
+    "move_id": 560,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从空中俯冲向对手。\n此招式同时带有\n格斗属性和飞行属性。"
+  },
+  {
+    "move_id": 560,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从空中俯冲向对手。\n此招式同时带有\n格斗属性和飞行属性。"
+  },
+  {
+    "move_id": 561,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将掀起来的榻榻米当作盾牌，\n防住自己和同伴免受招式伤害。\n变化招式无法防住。"
+  },
+  {
+    "move_id": 561,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将掀起来的榻榻米当作盾牌，\n防住自己和同伴免受招式伤害。\n变化招式无法防住。"
+  },
+  {
+    "move_id": 562,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "朝着对手打嗝，\n并给予伤害。\n如果不吃树果则无法使出。"
+  },
+  {
+    "move_id": 562,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "朝着对手打嗝，\n并给予伤害。\n如果不吃树果则无法使出。"
+  },
+  {
+    "move_id": 563,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "翻耕土地，\n使草木更容易成长。\n会提高草属性宝可梦的攻击和特攻。"
+  },
+  {
+    "move_id": 563,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "翻耕土地，\n使草木更容易成长。\n会提高草属性宝可梦的攻击和特攻。"
+  },
+  {
+    "move_id": 564,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在对手周围围上黏黏的网，\n降低替换出场的对手的速度。"
+  },
+  {
+    "move_id": 564,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在对手周围围上黏黏的网，\n降低替换出场的对手的速度。"
+  },
+  {
+    "move_id": 565,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果使用此招式打倒对手，\n攻击会巨幅提高。"
+  },
+  {
+    "move_id": 565,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果使用此招式打倒对手，\n攻击会巨幅提高。"
+  },
+  {
+    "move_id": 566,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合消失在某处，\n第２回合攻击对手。\n可以无视守护进行攻击。"
+  },
+  {
+    "move_id": 566,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合消失在某处，\n第２回合攻击对手。\n可以无视守护进行攻击。"
+  },
+  {
+    "move_id": 567,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "邀请对手参加万圣夜。\n使对手被追加幽灵属性。"
+  },
+  {
+    "move_id": 567,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "邀请对手参加万圣夜。\n使对手被追加幽灵属性。"
+  },
+  {
+    "move_id": 568,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发出战吼威吓对手，\n从而降低对手的攻击和特攻。"
+  },
+  {
+    "move_id": 568,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发出战吼威吓对手，\n从而降低对手的攻击和特攻。"
+  },
+  {
+    "move_id": 569,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将带电粒子扩散开来，\n使一般属性的招式变成电属性。"
+  },
+  {
+    "move_id": 569,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将带电粒子扩散开来，\n使一般属性的招式变成电属性。"
+  },
+  {
+    "move_id": 570,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给周围全体宝可梦造成伤害。\n可以回复给予伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 570,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给周围全体宝可梦造成伤害。\n可以回复给予伤害的一半ＨＰ。"
+  },
+  {
+    "move_id": 571,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手施加森林诅咒。\n中了诅咒的对手\n会被追加草属性。"
+  },
+  {
+    "move_id": 571,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手施加森林诅咒。\n中了诅咒的对手\n会被追加草属性。"
+  },
+  {
+    "move_id": 572,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "猛烈地刮起飞雪般的落花，\n攻击周围所有的宝可梦，\n并给予伤害。"
+  },
+  {
+    "move_id": 572,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "猛烈地刮起飞雪般的落花，\n攻击周围所有的宝可梦，\n并给予伤害。"
+  },
+  {
+    "move_id": 573,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "急剧冷冻对手，\n有时会让对手陷入冰冻状态。\n对于水属性宝可梦也是效果绝佳。"
+  },
+  {
+    "move_id": 573,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "急剧冷冻对手，\n有时会让对手陷入冰冻状态。\n对于水属性宝可梦也是效果绝佳。"
+  },
+  {
+    "move_id": 574,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "发出魅惑的叫声，\n给予对手精神上的伤害。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 574,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "发出魅惑的叫声，\n给予对手精神上的伤害。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 575,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "抛下狠话威吓对手，\n降低攻击和特攻后，\n和后备宝可梦进行替换。"
+  },
+  {
+    "move_id": 575,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "抛下狠话威吓对手，\n降低攻击和特攻后，\n和后备宝可梦进行替换。"
+  },
+  {
+    "move_id": 576,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "颠倒对手身上的\n所有能力变化，\n变成和原来相反的状态。"
+  },
+  {
+    "move_id": 576,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "颠倒对手身上的\n所有能力变化，\n变成和原来相反的状态。"
+  },
+  {
+    "move_id": 577,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用一个吻吸取对手的ＨＰ。\n回复给予对手\n伤害的一半以上的ＨＰ。"
+  },
+  {
+    "move_id": 577,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用一个吻吸取对手的ＨＰ。\n回复给予对手\n伤害的一半以上的ＨＰ。"
+  },
+  {
+    "move_id": 578,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用神奇的力量\n防住攻击我方的变化招式。\n但无法防住伤害招式的攻击。"
+  },
+  {
+    "move_id": 578,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用神奇的力量\n防住攻击我方的变化招式。\n但无法防住伤害招式的攻击。"
+  },
+  {
+    "move_id": 579,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使用神奇的力量\n提高在场的所有\n草属性宝可梦的防御。"
+  },
+  {
+    "move_id": 579,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使用神奇的力量\n提高在场的所有\n草属性宝可梦的防御。"
+  },
+  {
+    "move_id": 580,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内变成青草场地。\n地面上的宝可梦每回合都能回复。\n草属性的招式威力还会提高。"
+  },
+  {
+    "move_id": 580,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内变成青草场地。\n地面上的宝可梦每回合都能回复。\n草属性的招式威力还会提高。"
+  },
+  {
+    "move_id": 581,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内，\n地面上的宝可梦不会陷入异常状态。\n龙属性招式的伤害也会减半。"
+  },
+  {
+    "move_id": 581,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内，\n地面上的宝可梦不会陷入异常状态。\n龙属性招式的伤害也会减半。"
+  },
+  {
+    "move_id": 582,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对手使出招式前，\n如果输电，则该回合\n对手的招式变成电属性。"
+  },
+  {
+    "move_id": 582,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "对手使出招式前，\n如果输电，则该回合\n对手的招式变成电属性。"
+  },
+  {
+    "move_id": 583,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "与对手嬉闹并攻击。\n有时会降低对手的攻击。"
+  },
+  {
+    "move_id": 583,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "与对手嬉闹并攻击。\n有时会降低对手的攻击。"
+  },
+  {
+    "move_id": 584,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "刮起妖精之风，\n吹向对手进行攻击。"
+  },
+  {
+    "move_id": 584,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "刮起妖精之风，\n吹向对手进行攻击。"
+  },
+  {
+    "move_id": 585,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "借用月亮的力量攻击对手。\n有时会降低对手的特攻。"
+  },
+  {
+    "move_id": 585,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "借用月亮的力量攻击对手。\n有时会降低对手的特攻。"
+  },
+  {
+    "move_id": 586,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过震耳欲聋的爆炸声\n产生的破坏力，\n攻击自己周围所有的宝可梦。"
+  },
+  {
+    "move_id": 586,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过震耳欲聋的爆炸声\n产生的破坏力，\n攻击自己周围所有的宝可梦。"
+  },
+  {
+    "move_id": 587,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过封锁，\n下一回合所有的\n宝可梦都无法逃走。"
+  },
+  {
+    "move_id": 587,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过封锁，\n下一回合所有的\n宝可梦都无法逃走。"
+  },
+  {
+    "move_id": 588,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "防住对手攻击的同时，\n自己变为防御姿态。\n大幅降低所接触到的对手的攻击。"
+  },
+  {
+    "move_id": 588,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "防住对手攻击的同时，\n自己变为防御姿态。\n大幅降低所接触到的对手的攻击。"
+  },
+  {
+    "move_id": 589,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "和对手和睦相处，\n使其失去战斗的气力，\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 589,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "和对手和睦相处，\n使其失去战斗的气力，\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 590,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "和对手进行密语，\n使其失去集中力，\n从而降低对手的特攻。"
+  },
+  {
+    "move_id": 590,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "和对手进行密语，\n使其失去集中力，\n从而降低对手的特攻。"
+  },
+  {
+    "move_id": 591,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "掀起钻石风暴给予伤害。\n有时会大幅提高自己的防御。"
+  },
+  {
+    "move_id": 591,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "掀起钻石风暴给予伤害。\n有时会大幅提高自己的防御。"
+  },
+  {
+    "move_id": 592,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将滚烫的蒸汽喷向对手。\n有时会让对手灼伤。"
+  },
+  {
+    "move_id": 592,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将滚烫的蒸汽喷向对手。\n有时会让对手灼伤。"
+  },
+  {
+    "move_id": 593,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过异次元洞，\n突然出现在对手的侧面进行攻击。\n还可以无视守住和看穿等招式。"
+  },
+  {
+    "move_id": 593,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过异次元洞，\n突然出现在对手的侧面进行攻击。\n还可以无视守住和看穿等招式。"
+  },
+  {
+    "move_id": 594,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用粘液制成的手里剑，\n连续攻击２～５次。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 594,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用粘液制成的手里剑，\n连续攻击２～５次。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 595,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从口中喷出特别灼热的\n火焰进行攻击。\n降低对手的特攻。"
+  },
+  {
+    "move_id": 595,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从口中喷出特别灼热的\n火焰进行攻击。\n降低对手的特攻。"
+  },
+  {
+    "move_id": 596,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "防住对手攻击的同时，\n削减接触到自己的对手的体力。"
+  },
+  {
+    "move_id": 596,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "防住对手攻击的同时，\n削减接触到自己的对手的体力。"
+  },
+  {
+    "move_id": 597,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过神奇的芳香，\n提高我方宝可梦的特防。"
+  },
+  {
+    "move_id": 597,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过神奇的芳香，\n提高我方宝可梦的特防。"
+  },
+  {
+    "move_id": 598,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从身体放射出怪异电波，\n让对手沐浴其中，\n从而大幅降低其特攻。"
+  },
+  {
+    "move_id": 598,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从身体放射出怪异电波，\n让对手沐浴其中，\n从而大幅降低其特攻。"
+  },
+  {
+    "move_id": 599,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将特殊的毒液泼向对手。\n对处于中毒状态的对手，\n其攻击、特攻和速度都会降低。"
+  },
+  {
+    "move_id": 599,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将特殊的毒液泼向对手。\n对处于中毒状态的对手，\n其攻击、特攻和速度都会降低。"
+  },
+  {
+    "move_id": 600,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果被撒到粉尘的对手\n使用火招式，\n则会爆炸并给予伤害。"
+  },
+  {
+    "move_id": 600,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果被撒到粉尘的对手\n使用火招式，\n则会爆炸并给予伤害。"
+  },
+  {
+    "move_id": 601,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合吸收能量，\n第２回合大幅提高\n特攻、特防和速度。"
+  },
+  {
+    "move_id": 601,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合吸收能量，\n第２回合大幅提高\n特攻、特防和速度。"
+  },
+  {
+    "move_id": 602,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过操控磁场，\n会提高特性为正电和负电的\n宝可梦的防御和特防。"
+  },
+  {
+    "move_id": 602,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过操控磁场，\n会提高特性为正电和负电的\n宝可梦的防御和特防。"
+  },
+  {
+    "move_id": 603,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果使用欢乐时光，\n战斗后得到的钱会翻倍。"
+  },
+  {
+    "move_id": 603,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果使用欢乐时光，\n战斗后得到的钱会翻倍。"
+  },
+  {
+    "move_id": 604,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内变成电气场地。\n地面上的宝可梦将无法入眠。\n电属性的招式威力还会提高。"
+  },
+  {
+    "move_id": 604,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内变成电气场地。\n地面上的宝可梦将无法入眠。\n电属性的招式威力还会提高。"
+  },
+  {
+    "move_id": 605,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手发射强光，\n并给予伤害。"
+  },
+  {
+    "move_id": 605,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手发射强光，\n并给予伤害。"
+  },
+  {
+    "move_id": 606,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "宝可梦为十分\n开心的你庆祝。"
+  },
+  {
+    "move_id": 606,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "宝可梦为十分\n开心的你庆祝。"
+  },
+  {
+    "move_id": 607,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "我方宝可梦之间牵手。\n能带来非常幸福的心情。"
+  },
+  {
+    "move_id": 607,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "我方宝可梦之间牵手。\n能带来非常幸福的心情。"
+  },
+  {
+    "move_id": 608,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用圆瞳凝视对手，\n从而降低其攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 608,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用圆瞳凝视对手，\n从而降低其攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 609,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将带电的脸颊\n蹭蹭对手进行攻击。\n让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 609,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将带电的脸颊\n蹭蹭对手进行攻击。\n让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 610,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在攻击的时候手下留情，\n从而使对手的ＨＰ\n至少会留下１ＨＰ。"
+  },
+  {
+    "move_id": 610,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在攻击的时候手下留情，\n从而使对手的ＨＰ\n至少会留下１ＨＰ。"
+  },
+  {
+    "move_id": 611,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在４～５回合内\n死缠烂打地进行攻击。\n在此期间对手将无法逃走。"
+  },
+  {
+    "move_id": 611,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在４～５回合内\n死缠烂打地进行攻击。\n在此期间对手将无法逃走。"
+  },
+  {
+    "move_id": 612,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过反复击打对手，\n使自己的拳头慢慢变硬。\n打中对手攻击就会提高。"
+  },
+  {
+    "move_id": 612,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过反复击打对手，\n使自己的拳头慢慢变硬。\n打中对手攻击就会提高。"
+  },
+  {
+    "move_id": 613,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从锁定的对手身上吸取ＨＰ。\n回复给予对手\n伤害的一半以上的ＨＰ。"
+  },
+  {
+    "move_id": 613,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从锁定的对手身上吸取ＨＰ。\n回复给予对手\n伤害的一半以上的ＨＰ。"
+  },
+  {
+    "move_id": 614,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "可以击中浮在空中的宝可梦。\n空中的对手被击落后，\n会掉到地面。"
+  },
+  {
+    "move_id": 614,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "可以击中浮在空中的宝可梦。\n空中的对手被击落后，\n会掉到地面。"
+  },
+  {
+    "move_id": 615,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从地面掀起波浪进行攻击。\n被掀入波浪中的对手，\n将无法从战斗中逃走。"
+  },
+  {
+    "move_id": 615,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从地面掀起波浪进行攻击。\n被掀入波浪中的对手，\n将无法从战斗中逃走。"
+  },
+  {
+    "move_id": 616,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "聚集大地的力量，\n将此力量集中攻击对手，\n并给予伤害。"
+  },
+  {
+    "move_id": 616,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "聚集大地的力量，\n将此力量集中攻击对手，\n并给予伤害。"
+  },
+  {
+    "move_id": 617,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "借用永恒之花的力量，\n发射出强力光线。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 617,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "借用永恒之花的力量，\n发射出强力光线。\n自己也会受到不小的伤害。"
+  },
+  {
+    "move_id": 618,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用无数青白色\n且闪耀的光线攻击对手。"
+  },
+  {
+    "move_id": 618,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用无数青白色\n且闪耀的光线攻击对手。"
+  },
+  {
+    "move_id": 619,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将大地的力量变化为利刃\n攻击对手。"
+  },
+  {
+    "move_id": 619,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将大地的力量变化为利刃\n攻击对手。"
+  },
+  {
+    "move_id": 620,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "从天空中急速下降攻击对手。\n自己的防御和特防会降低。"
+  },
+  {
+    "move_id": 620,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "从天空中急速下降攻击对手。\n自己的防御和特防会降低。"
+  },
+  {
+    "move_id": 621,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用许多手臂，无视对手的\n守住或看穿等招式进行连续攻击，\n自己的防御会降低。"
+  },
+  {
+    "move_id": 621,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用许多手臂，无视对手的\n守住或看穿等招式进行连续攻击，\n自己的防御会降低。"
+  },
+  {
+    "move_id": 622,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量气势猛烈地\n全力撞上对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 622,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量气势猛烈地\n全力撞上对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 623,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 623,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 624,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造出能量弹，\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 624,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造出能量弹，\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 625,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 625,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 626,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量猛烈地飞向天空，\n朝对手全力落下。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 626,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量猛烈地飞向天空，\n朝对手全力落下。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 627,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 627,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 628,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量使毒沼涌起，\n全力让对手沉下去。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 628,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量使毒沼涌起，\n全力让对手沉下去。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 629,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 629,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 630,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量潜入地里最深处，\n全力撞上对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 630,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量潜入地里最深处，\n全力撞上对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 631,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 631,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 632,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量召唤大大的岩山，\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 632,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量召唤大大的岩山，\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 633,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 633,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 634,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量将吐出的丝线\n全力束缚对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 634,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量将吐出的丝线\n全力束缚对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 635,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 635,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 636,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量召唤强烈的怨念，\n全力降临到对手身上。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 636,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量召唤强烈的怨念，\n全力降临到对手身上。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 637,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 637,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 638,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量进行高速旋转，\n全力撞上对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 638,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量进行高速旋转，\n全力撞上对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 639,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 639,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 640,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量喷出熊熊烈火，\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 640,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量喷出熊熊烈火，\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 641,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 641,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 642,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造大大的潮旋，\n全力吞没对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 642,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造大大的潮旋，\n全力吞没对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 643,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 643,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 644,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量借助花草的能量，\n全力攻击对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 644,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量借助花草的能量，\n全力攻击对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 645,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 645,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 646,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量将蓄积的强大电流\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 646,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量将蓄积的强大电流\n全力撞向对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 647,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 647,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 648,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量操纵对手，\n全力使其感受到痛苦。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 648,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量操纵对手，\n全力使其感受到痛苦。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 649,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 649,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 650,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量急剧降低气温，\n全力冰冻对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 650,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量急剧降低气温，\n全力冰冻对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 651,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 651,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 652,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量将气场实体化，\n向对手全力发动袭击。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 652,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量将气场实体化，\n向对手全力发动袭击。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 653,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 653,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 654,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量收集恶能量，\n全力将对手吸入。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 654,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量收集恶能量，\n全力将对手吸入。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 655,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 655,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 656,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造魅惑空间，\n全力捉弄对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 656,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造魅惑空间，\n全力捉弄对手。\n威力会根据原来的招式而改变。"
+  },
+  {
+    "move_id": 657,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 657,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "ダミーデータ"
+  },
+  {
+    "move_id": 658,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量，\n皮卡丘全身覆盖最强电力，\n全力猛扑对手。"
+  },
+  {
+    "move_id": 658,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量，\n皮卡丘全身覆盖最强电力，\n全力猛扑对手。"
+  },
+  {
+    "move_id": 659,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复自己最大ＨＰ的一半。\n在沙暴中回复得更多。"
+  },
+  {
+    "move_id": 659,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复自己最大ＨＰ的一半。\n在沙暴中回复得更多。"
+  },
+  {
+    "move_id": 660,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "威力很高的招式，\n但只有在出场战斗时，\n立刻使出才能成功。"
+  },
+  {
+    "move_id": 660,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "威力很高的招式，\n但只有在出场战斗时，\n立刻使出才能成功。"
+  },
+  {
+    "move_id": 661,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "防住对手攻击的同时，\n让接触到自己的对手中毒。"
+  },
+  {
+    "move_id": 661,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "防住对手攻击的同时，\n让接触到自己的对手中毒。"
+  },
+  {
+    "move_id": 662,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "攻击的同时，\n缝住对手的影子，\n使其无法逃走。"
+  },
+  {
+    "move_id": 662,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "攻击的同时，\n缝住对手的影子，\n使其无法逃走。"
+  },
+  {
+    "move_id": 663,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "旋转双臂打向对手。\n无视对手的能力变化，\n直接给予伤害。"
+  },
+  {
+    "move_id": 663,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "旋转双臂打向对手。\n无视对手的能力变化，\n直接给予伤害。"
+  },
+  {
+    "move_id": 664,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "随着唱歌会放出很多气球。\n受到此招式攻击时，\n灼伤会被治愈。"
+  },
+  {
+    "move_id": 664,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "随着唱歌会放出很多气球。\n受到此招式攻击时，\n灼伤会被治愈。"
+  },
+  {
+    "move_id": 665,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "挥舞强力而沉重的拳头，\n给予对手伤害。\n自己的速度会降低。"
+  },
+  {
+    "move_id": 665,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "挥舞强力而沉重的拳头，\n给予对手伤害。\n自己的速度会降低。"
+  },
+  {
+    "move_id": 666,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "回复对手最大ＨＰ的一半。\n在青草场地时，效果会提高。"
+  },
+  {
+    "move_id": 666,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "回复对手最大ＨＰ的一半。\n在青草场地时，效果会提高。"
+  },
+  {
+    "move_id": 667,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "使出全身力量，\n猛攻对手。"
+  },
+  {
+    "move_id": 667,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "使出全身力量，\n猛攻对手。"
+  },
+  {
+    "move_id": 668,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给自己回复和对手攻击力\n相同数值的ＨＰ，\n然后降低对手的攻击。"
+  },
+  {
+    "move_id": 668,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给自己回复和对手攻击力\n相同数值的ＨＰ，\n然后降低对手的攻击。"
+  },
+  {
+    "move_id": 669,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "第１回合收集满满的日光，\n第２回合将此力量\n集中在剑上进行攻击。"
+  },
+  {
+    "move_id": 669,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "第１回合收集满满的日光，\n第２回合将此力量\n集中在剑上进行攻击。"
+  },
+  {
+    "move_id": 670,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将叶片打向对手，\n进行攻击。"
+  },
+  {
+    "move_id": 670,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将叶片打向对手，\n进行攻击。"
+  },
+  {
+    "move_id": 671,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "给宝可梦打上聚光灯，\n该回合只能瞄准该宝可梦。"
+  },
+  {
+    "move_id": 671,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "给宝可梦打上聚光灯，\n该回合只能瞄准该宝可梦。"
+  },
+  {
+    "move_id": 672,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将混有毒的丝吐向对手。\n使其中毒，\n从而降低对手的速度。"
+  },
+  {
+    "move_id": 672,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将混有毒的丝吐向对手。\n使其中毒，\n从而降低对手的速度。"
+  },
+  {
+    "move_id": 673,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "集中精神，\n下次攻击必定会击中要害。"
+  },
+  {
+    "move_id": 673,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "集中精神，\n下次攻击必定会击中要害。"
+  },
+  {
+    "move_id": 674,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "启动齿轮，\n提高特性为正电和负电的\n宝可梦的攻击和特攻。"
+  },
+  {
+    "move_id": 674,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "启动齿轮，\n提高特性为正电和负电的\n宝可梦的攻击和特攻。"
+  },
+  {
+    "move_id": 675,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "受到此招式攻击的对手，\n会因为地狱般的痛苦，在２回合内，\n变得无法使出声音类招式。"
+  },
+  {
+    "move_id": 675,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "受到此招式攻击的对手，\n会因为地狱般的痛苦，在２回合内，\n变得无法使出声音类招式。"
+  },
+  {
+    "move_id": 676,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "对敌人使用是会爆炸的团子。\n对我方使用则是给予回复的团子。"
+  },
+  {
+    "move_id": 676,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "对敌人使用是会爆炸的团子。\n对我方使用则是给予回复的团子。"
+  },
+  {
+    "move_id": 677,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将锚缠住对手进行攻击。\n使对手无法逃走。"
+  },
+  {
+    "move_id": 677,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将锚缠住对手进行攻击。\n使对手无法逃走。"
+  },
+  {
+    "move_id": 678,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内，地面上的宝可梦\n不会受到先制招式的攻击。\n超能力属性的招式威力会提高。"
+  },
+  {
+    "move_id": 678,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内，地面上的宝可梦\n不会受到先制招式的攻击。\n超能力属性的招式威力会提高。"
+  },
+  {
+    "move_id": 679,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "全力猛扑对手进行攻击。\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 679,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "全力猛扑对手进行攻击。\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 680,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用燃烧的鞭子抽打对手。\n受到攻击的对手防御会降低。"
+  },
+  {
+    "move_id": 680,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用燃烧的鞭子抽打对手。\n受到攻击的对手防御会降低。"
+  },
+  {
+    "move_id": 681,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "耀武扬威地攻击对手，\n自己的能力提高得越多，\n威力就越大。"
+  },
+  {
+    "move_id": 681,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "耀武扬威地攻击对手，\n自己的能力提高得越多，\n威力就越大。"
+  },
+  {
+    "move_id": 682,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将自己全身燃烧起火焰来，\n给予对手大大的伤害。\n自己的火属性将会消失。"
+  },
+  {
+    "move_id": 682,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将自己全身燃烧起火焰来，\n给予对手大大的伤害。\n自己的火属性将会消失。"
+  },
+  {
+    "move_id": 683,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将对手和自己的速度\n进行互换。"
+  },
+  {
+    "move_id": 683,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将对手和自己的速度\n进行互换。"
+  },
+  {
+    "move_id": 684,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用尖尖的角刺入对手进行攻击。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 684,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用尖尖的角刺入对手进行攻击。\n攻击必定会命中。"
+  },
+  {
+    "move_id": 685,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "治愈对手的异常状态。\n治愈后可以回复自己的ＨＰ。"
+  },
+  {
+    "move_id": 685,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "治愈对手的异常状态。\n治愈后可以回复自己的ＨＰ。"
+  },
+  {
+    "move_id": 686,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "全力跳舞进行攻击。\n此招式的属性将\n变得和自己的属性相同。"
+  },
+  {
+    "move_id": 686,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "全力跳舞进行攻击。\n此招式的属性将\n变得和自己的属性相同。"
+  },
+  {
+    "move_id": 687,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "如果给予过伤害的对手\n已经结束行动，\n其特性就会被消除。"
+  },
+  {
+    "move_id": 687,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "如果给予过伤害的对手\n已经结束行动，\n其特性就会被消除。"
+  },
+  {
+    "move_id": 688,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手使出来自南国的火热脚踢。\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 688,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手使出来自南国的火热脚踢。\n从而降低对手的攻击。"
+  },
+  {
+    "move_id": 689,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手下达指示，\n让其再次使出刚才的招式。"
+  },
+  {
+    "move_id": 689,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手下达指示，\n让其再次使出刚才的招式。"
+  },
+  {
+    "move_id": 690,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "先加热鸟嘴后再进行攻击。\n鸟嘴在加热时对手触碰的话，\n就会使其灼伤。"
+  },
+  {
+    "move_id": 690,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "先加热鸟嘴后再进行攻击。\n鸟嘴在加热时对手触碰的话，\n就会使其灼伤。"
+  },
+  {
+    "move_id": 691,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "摩擦全身鳞片，\n发出响亮的声音进行攻击。\n攻击后自己的防御会降低。"
+  },
+  {
+    "move_id": 691,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "摩擦全身鳞片，\n发出响亮的声音进行攻击。\n攻击后自己的防御会降低。"
+  },
+  {
+    "move_id": 692,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "将身体当作锤子，\n向对手发动袭击，\n给予伤害。"
+  },
+  {
+    "move_id": 692,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "将身体当作锤子，\n向对手发动袭击，\n给予伤害。"
+  },
+  {
+    "move_id": 693,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用自己的身体狂舞挥打，\n给予对手伤害。"
+  },
+  {
+    "move_id": 693,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用自己的身体狂舞挥打，\n给予对手伤害。"
+  },
+  {
+    "move_id": 694,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "在５回合内减弱\n物理和特殊的伤害。\n只有冰雹时才能使出。"
+  },
+  {
+    "move_id": 694,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "在５回合内减弱\n物理和特殊的伤害。\n只有冰雹时才能使出。"
+  },
+  {
+    "move_id": 695,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造出\n无数箭的狙射树枭\n将全力射穿对手进行攻击。"
+  },
+  {
+    "move_id": 695,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量制造出\n无数箭的狙射树枭\n将全力射穿对手进行攻击。"
+  },
+  {
+    "move_id": 696,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量得到\n强壮肉体的炽焰咆哮虎\n将全力撞向对手进行攻击。"
+  },
+  {
+    "move_id": 696,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量得到\n强壮肉体的炽焰咆哮虎\n将全力撞向对手进行攻击。"
+  },
+  {
+    "move_id": 697,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量召唤\n大量水的西狮海壬\n将全力攻击对手。"
+  },
+  {
+    "move_id": 697,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量召唤\n大量水的西狮海壬\n将全力攻击对手。"
+  },
+  {
+    "move_id": 698,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量得到阿罗拉之力的\n土地神宝可梦将全力进行攻击。\n对手的剩余ＨＰ会减少很多。"
+  },
+  {
+    "move_id": 698,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量得到阿罗拉之力的\n土地神宝可梦将全力进行攻击。\n对手的剩余ＨＰ会减少很多。"
+  },
+  {
+    "move_id": 699,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的玛夏多\n将全力使出拳头和脚踢的\n连续招式叩打对手。"
+  },
+  {
+    "move_id": 699,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的玛夏多\n将全力使出拳头和脚踢的\n连续招式叩打对手。"
+  },
+  {
+    "move_id": 700,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的阿罗拉地区的\n雷丘将全力进行攻击。\n从而让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 700,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的阿罗拉地区的\n雷丘将全力进行攻击。\n从而让对手陷入麻痹状态。"
+  },
+  {
+    "move_id": 701,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量使得认真起来的\n卡比兽跃动巨大身躯，\n全力向对手发动袭击。"
+  },
+  {
+    "move_id": 701,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "通过Ｚ力量使得认真起来的\n卡比兽跃动巨大身躯，\n全力向对手发动袭击。"
+  },
+  {
+    "move_id": 702,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的伊布\n将借助进化后伙伴们的力量，\n大幅提高能力。"
+  },
+  {
+    "move_id": 702,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的伊布\n将借助进化后伙伴们的力量，\n大幅提高能力。"
+  },
+  {
+    "move_id": 703,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的梦幻\n将全力攻击对手。\n脚下会变成精神场地。"
+  },
+  {
+    "move_id": 703,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的梦幻\n将全力攻击对手。\n脚下会变成精神场地。"
+  },
+  {
+    "move_id": 704,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "设下甲壳陷阱。\n如果对手使出物理招式，\n陷阱就会爆炸并给予对手伤害。"
+  },
+  {
+    "move_id": 704,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "设下甲壳陷阱。\n如果对手使出物理招式，\n陷阱就会爆炸并给予对手伤害。"
+  },
+  {
+    "move_id": 705,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放出强力光束后，\n自己的特攻会大幅降低。"
+  },
+  {
+    "move_id": 705,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放出强力光束后，\n自己的特攻会大幅降低。"
+  },
+  {
+    "move_id": 706,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "利用精神力量咬住对手进行攻击。\n还可以破坏光墙和反射壁等。"
+  },
+  {
+    "move_id": 706,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "利用精神力量咬住对手进行攻击。\n还可以破坏光墙和反射壁等。"
+  },
+  {
+    "move_id": 707,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "化悔恨为力量进行攻击。\n如果上一回合招式没有打中，\n威力就会翻倍。"
+  },
+  {
+    "move_id": 707,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "化悔恨为力量进行攻击。\n如果上一回合招式没有打中，\n威力就会翻倍。"
+  },
+  {
+    "move_id": 708,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用附有灵魂的骨头\n殴打对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 708,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用附有灵魂的骨头\n殴打对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 709,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "迅速撞向对手进行攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 709,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "迅速撞向对手进行攻击。\n必定能够先制攻击。"
+  },
+  {
+    "move_id": 710,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用水之力量撞向对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 710,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用水之力量撞向对手进行攻击。\n有时会降低对手的防御。"
+  },
+  {
+    "move_id": 711,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "用棱镜的力量发射强烈光线。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 711,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用棱镜的力量发射强烈光线。\n下一回合自己将无法动弹。"
+  },
+  {
+    "move_id": 712,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "潜入对手的影子进行攻击。\n会夺取对手的能力提升。"
+  },
+  {
+    "move_id": 712,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "潜入对手的影子进行攻击。\n会夺取对手的能力提升。"
+  },
+  {
+    "move_id": 713,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "以流星般的气势猛撞对手。\n可以无视对手的特性进行攻击。"
+  },
+  {
+    "move_id": 713,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "以流星般的气势猛撞对手。\n可以无视对手的特性进行攻击。"
+  },
+  {
+    "move_id": 714,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "放出奇怪的光线攻击对手。\n可以无视对手的特性进行攻击。"
+  },
+  {
+    "move_id": 714,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "放出奇怪的光线攻击对手。\n可以无视对手的特性进行攻击。"
+  },
+  {
+    "move_id": 715,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "变得泪眼汪汪，\n让对手丧失斗志。\n从而降低对手的攻击和特攻。"
+  },
+  {
+    "move_id": 715,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "变得泪眼汪汪，\n让对手丧失斗志。\n从而降低对手的攻击和特攻。"
+  },
+  {
+    "move_id": 716,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "撞向对手，并发出强电，\n使其感到麻麻刺刺的。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 716,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "撞向对手，并发出强电，\n使其感到麻麻刺刺的。\n有时会使对手畏缩。"
+  },
+  {
+    "move_id": 717,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "向对手释放自然之怒。\n对手的ＨＰ会减半。"
+  },
+  {
+    "move_id": 717,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "向对手释放自然之怒。\n对手的ＨＰ会减半。"
+  },
+  {
+    "move_id": 718,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "一边覆盖高能量，\n一边撞向对手进行攻击。\n根据存储碟不同，属性会改变。"
+  },
+  {
+    "move_id": 718,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "一边覆盖高能量，\n一边撞向对手进行攻击。\n根据存储碟不同，属性会改变。"
+  },
+  {
+    "move_id": 719,
+    "version_group_id": 17,
+    "language_id": 12,
+    "flavor_text": "戴着帽子的皮卡丘将通过Ｚ力量\n增强的电击全力释放给对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 719,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "戴着帽子的皮卡丘将通过Ｚ力量\n增强的电击全力释放给对手。\n容易击中要害。"
+  },
+  {
+    "move_id": 720,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "让自己的头爆炸，\n来攻击周围的一切。\n自己也会受到伤害。"
+  },
+  {
+    "move_id": 721,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用覆盖着电流的拳头进行攻击。\n使一般属性的招式变成电属性。"
+  },
+  {
+    "move_id": 722,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "用光柱来进行攻击。\n比较自己的攻击和特攻，\n用数值相对较高的一项给予对方伤害。"
+  },
+  {
+    "move_id": 723,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "奈克洛兹玛会无视对手的特性效果，\n在攻击和特攻之间，\n用数值相对较高的一项给予对方伤害。"
+  },
+  {
+    "move_id": 724,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的索尔迦雷欧\n将全力进行攻击。\n可以无视对手的特性效果。"
+  },
+  {
+    "move_id": 725,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的露奈雅拉\n将全力进行攻击。\n可以无视对手的特性效果。"
+  },
+  {
+    "move_id": 726,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的谜拟Ｑ\n将全力进行乱揍攻击。"
+  },
+  {
+    "move_id": 727,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的鬃岩狼人\n将全力进行攻击。\n而且会消除场地状态。"
+  },
+  {
+    "move_id": 728,
+    "version_group_id": 18,
+    "language_id": 12,
+    "flavor_text": "得到Ｚ力量的杖尾鳞甲龙\n将全力攻击对手。\n并且自己的能力会提高。"
+  }
+]
