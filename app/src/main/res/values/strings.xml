@@ -155,5 +155,6 @@
 
     <string name="Descending">Desce</string>
     <string name="Ascending">Asce</string>
+    <string name="title_activity_move_List">Move List</string>
 
 </resources>

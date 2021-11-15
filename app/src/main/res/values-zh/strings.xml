@@ -156,4 +156,5 @@
 
     <string name="Descending">降序</string>
     <string name="Ascending">升序</string>
+    <string name="title_activity_move_List">技能列表</string>
 </resources>

@@ -56,6 +56,11 @@ class PokemonJsonRes @Inject constructor(
   }
 
   @WorkerThread
+  fun fetchAllMoves(): List<Move> {
+    return fetchListByJson<Move>("moves.json")
+  }
+
+  @WorkerThread
   fun fetchSpeciesEggGroup(id: Int): List<SpeciesEggGroup> {
     return fetchListByJson<SpeciesEggGroup>("pokemon_egg_group.json").filter { it.speciesId == id }
   }

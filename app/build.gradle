@@ -6,6 +6,9 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
+// compose
+String composeVersion = "1.1.0-beta02"
+
 android {
     signingConfigs {
         release {
@@ -38,6 +41,11 @@ android {
 
     buildFeatures {
         dataBinding true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = composeVersion
     }
 
     viewBinding {
@@ -97,6 +105,16 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0"
 
+    //compose
+    implementation("androidx.compose.ui:ui:$composeVersion")
+    implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeVersion"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.10.0"
+    implementation "com.google.accompanist:accompanist-insets:0.10.0"
+
 
     // unit test
     testImplementation 'junit:junit:4.13.2'
@@ -109,6 +127,8 @@ dependencies {
     //room
     implementation "androidx.room:room-runtime:2.3.0"
     implementation "androidx.room:room-ktx:2.3.0"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$composeVersion"
     kapt "androidx.room:room-compiler:2.3.0"
 
     implementation 'com.tencent:mmkv-static:1.2.10'
@@ -134,8 +154,8 @@ dependencies {
     kaptAndroidTest "com.google.dagger:hilt-compiler:2.37"
 
     // coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0"
 
     // glide
