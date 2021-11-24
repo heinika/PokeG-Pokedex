@@ -10,7 +10,7 @@ import com.heinika.pokeg.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.DonationActivity
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 
 class LeftDrawerView(context: Context) : LinearLayout(context) {
 
@@ -24,7 +24,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     text =
       "默认版本：${context.resources.getStringArray(R.array.versions)[ConfigMMKV.defaultVersion - 1]}"
     addView(this)
-    (layoutParams as LayoutParams).topMargin = StatusBarHeight.value
+    (layoutParams as LayoutParams).topMargin = SystemBar.statusBarHeight
     background.setTint(context.getColor(R.color.md_amber_700))
     setTextColor(Color.WHITE)
 

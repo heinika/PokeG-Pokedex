@@ -74,7 +74,7 @@ class DetailPage(
   override fun showPage() {
     super.showPage()
 
-    (binding.arrow.layoutParams as ConstraintLayout.LayoutParams).topMargin = StatusBarHeight.value
+    (binding.arrow.layoutParams as ConstraintLayout.LayoutParams).topMargin = SystemBar.statusBarHeight
 
     Glide.with(binding.image)
       .load(pokemon.getImageUrl())

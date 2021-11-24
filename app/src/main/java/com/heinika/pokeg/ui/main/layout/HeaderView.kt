@@ -9,14 +9,14 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.marginTop
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 
 @SuppressLint("ViewConstructor")
 class HeaderView(context: Context, onSettingClick: () -> Unit) : CustomLayout(context) {
   private val titleLabel = AppCompatTextView(context).apply {
     text = "图鉴"
     textSize = 10.dp.toFloat()
-    setPadding(0, StatusBarHeight.value + 16.dp, 0, 0)
+    setPadding(0, SystemBar.statusBarHeight + 16.dp, 0, 0)
     layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
     setTextColor(R.color.white.resColor)
     this@HeaderView.addView(this)
@@ -38,11 +38,11 @@ class HeaderView(context: Context, onSettingClick: () -> Unit) : CustomLayout(co
     titleLabel.autoMeasure()
     settingImage.autoMeasure()
 
-    setMeasuredDimension(measuredWidth, 66.dp + StatusBarHeight.value)
+    setMeasuredDimension(measuredWidth, 66.dp + SystemBar.statusBarHeight)
   }
 
   override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-    settingImage.layout(12.dp, StatusBarHeight.value + 8.dp)
+    settingImage.layout(12.dp, SystemBar.statusBarHeight + 8.dp)
     titleLabel.let { it.layout(12.dp + settingImage.measuredWidth, it.marginTop) }
   }
 }

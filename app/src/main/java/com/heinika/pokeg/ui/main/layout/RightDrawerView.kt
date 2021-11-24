@@ -22,7 +22,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.GenerationsSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.TagSelectItem
 import com.heinika.pokeg.utils.PokemonProp
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.view.BaseStatusCheckBox
 import com.heinika.pokeg.view.BodyRadioButton
 import timber.log.Timber
@@ -30,7 +30,7 @@ import timber.log.Timber
 class RightDrawerView(context: Context) : CustomLayout(context) {
   val typesFilterView = TypesFilterView(context).apply {
     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
-    setPadding(0, StatusBarHeight.value, 0, 0)
+    setPadding(0, SystemBar.statusBarHeight, 0, 0)
     this@RightDrawerView.addView(this)
   }
 

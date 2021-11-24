@@ -6,9 +6,8 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.GridLayout
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatCheckBox
-import com.google.android.flexbox.*
 import com.heinika.pokeg.utils.PokemonProp
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.dp
 import com.heinika.pokeg.view.TypeCheckBox
 import timber.log.Timber
@@ -82,6 +81,6 @@ class TypesFilterView(context: Context) : LinearLayout(context) {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        setMeasuredDimension(measuredWidth, flexboxLayout.measuredHeight + StatusBarHeight.value)
+        setMeasuredDimension(measuredWidth, flexboxLayout.measuredHeight + SystemBar.statusBarHeight)
     }
 }

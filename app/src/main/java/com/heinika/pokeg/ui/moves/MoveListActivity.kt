@@ -15,10 +15,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
-import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.ui.theme.PokeGTheme
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 
 class MoveListActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +41,7 @@ class MoveListActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-  Text(text = "撞击",Modifier.padding(top = Dp(StatusBarHeight.value.toFloat()),start = 12.dp))
+  Text(text = "撞击",Modifier.padding(top = Dp(SystemBar.statusBarHeight.toFloat()),start = 12.dp))
 }
 
 @Preview(showBackground = true)

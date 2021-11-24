@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.ui.main.MainPage
 import com.heinika.pokeg.repository.res.PokemonRes
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
@@ -22,7 +22,7 @@ class PokeGActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     super.onCreate(savedInstanceState)
-    StatusBarHeight.initStatusBarHeight(this)
+    SystemBar.initStatusBarHeight(this)
     MainPage(this, pageStack, pokemonRes).showPage()
   }
 

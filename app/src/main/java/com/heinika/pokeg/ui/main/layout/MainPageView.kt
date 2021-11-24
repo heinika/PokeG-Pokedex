@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
-import com.heinika.pokeg.utils.StatusBarHeight
+import com.heinika.pokeg.utils.SystemBar
 
 class MainPageView(context: Context) : CustomLayout(context) {
 
@@ -39,9 +39,11 @@ class MainPageView(context: Context) : CustomLayout(context) {
     addView(this)
   }
 
+  private val bottomViewsMargin = 12.dp + SystemBar.navigationBarHeight
+
   val searchButton = FloatingActionButton(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
-      bottomMargin = 8.dp
+      bottomMargin = bottomViewsMargin
     }
     setImageResource(R.drawable.ic_search)
     setColorFilter(Color.WHITE)
@@ -50,7 +52,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
 
   private val toTopButton = FloatingActionButton(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
-      bottomMargin = 8.dp
+      bottomMargin = bottomViewsMargin
     }
     setImageResource(R.drawable.ic_arror_top)
     setColorFilter(Color.WHITE)
@@ -59,7 +61,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
 
   private val filterListButton = FloatingActionButton(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
-      bottomMargin = 8.dp
+      bottomMargin = bottomViewsMargin
     }
     setImageResource(R.drawable.ic_filter_list)
     setColorFilter(Color.WHITE)
@@ -114,19 +116,19 @@ class MainPageView(context: Context) : CustomLayout(context) {
   private val hideToTopButtonAnimator = SpringAnimation(
     toTopButton,
     DynamicAnimation.TRANSLATION_Y,
-    70.dp.toFloat()
+    172.dp.toFloat()
   )
 
   private val hideFilterListAnimator = SpringAnimation(
     filterListButton,
     DynamicAnimation.TRANSLATION_Y,
-    70.dp.toFloat()
+    172.dp.toFloat()
   )
 
   private val hideSearchAnimator = SpringAnimation(
     searchButton,
     DynamicAnimation.TRANSLATION_Y,
-    70.dp.toFloat()
+    172.dp.toFloat()
   )
 
   private val showToTopButtonAnimator =
@@ -189,7 +191,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
         height - it.measuredHeight - it.marginBottom
       )
     }
-    searchEditText.let { it.layout(it.marginStart, -it.measuredHeight - StatusBarHeight.value) }
+    searchEditText.let { it.layout(it.marginStart, -it.measuredHeight - SystemBar.statusBarHeight) }
     symbolTextView.layout(searchEditText.left, searchEditText.top)
   }
 
@@ -245,8 +247,8 @@ class MainPageView(context: Context) : CustomLayout(context) {
   }
 
   fun showSearchBar() {
-    searchEditText.translationY = 120.dp.toFloat() + StatusBarHeight.value
-    symbolTextView.translationY = 120.dp.toFloat() + StatusBarHeight.value
+    searchEditText.translationY = 120.dp.toFloat() + SystemBar.statusBarHeight
+    symbolTextView.translationY = 120.dp.toFloat() + SystemBar.statusBarHeight
     recyclerView.translationY = 120.dp.toFloat()
     searchEditText.requestFocus()
     val imm: InputMethodManager =
