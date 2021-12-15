@@ -10,7 +10,7 @@ class MoveListRepository @Inject constructor(
   private val pokemonRes: PokemonRes
 ) : Repository {
 
-  fun allMovesFlow(id: Int) = flow {
+  fun allMovesFlow() = flow {
     emit(pokemonRes.fetchAllMoves())
   }.flowOn(Dispatchers.IO)
 }

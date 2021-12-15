@@ -1,21 +1,20 @@
 package com.heinika.pokeg.repository.res
 
-import android.app.Application
+import android.content.Context
 import com.heinika.pokeg.R
 import com.heinika.pokeg.utils.PokemonProp
 import timber.log.Timber
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class PokemonStringRes @Inject constructor(private val context: Application) {
+object ResUtils {
 
-  fun getNameById(id: Int, name: String): String = getResString("pokemon_name_$id", name)
+  fun getTypeColor(type: Int,context: Context): Int = PokemonProp.getTypeColor(context, type)
 
+  fun getNameById(id: Int, name: String, context: Context): String =
+    getResString("pokemon_name_$id", name, context)
 
-  fun getItemById(id: Int): String = getResString("item_$id")
+  fun getItemById(id: Int, context: Context): String = getResString("item_$id", context = context)
 
-  private fun getResString(name: String, default: String = ""): String {
+  private fun getResString(name: String, default: String = "", context: Context): String {
     return try {
       context.resources.getString(
         context.resources.getIdentifier(
@@ -30,9 +29,9 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     }
   }
 
-  fun getVersionName(id: Int) = context.resources.getStringArray(R.array.versions)[id - 1] ?: "?"
+  fun getVersionName(id: Int, context: Context) = context.resources.getStringArray(R.array.versions)[id - 1] ?: "?"
 
-  fun getMoveMethodName(id: Int) = when (id) {
+  fun getMoveMethodName(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.move_method_1)
     2 -> context.resources.getString(R.string.move_method_2)
     3 -> context.resources.getString(R.string.move_method_3)
@@ -47,7 +46,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "other"
   }
 
-  fun getEggGroupName(name: Int) = when (name) {
+  fun getEggGroupName(name: Int, context: Context) = when (name) {
     1 -> context.resources.getString(R.string.monster)
     2 -> context.resources.getString(R.string.water1)
     3 -> context.resources.getString(R.string.bug)
@@ -66,7 +65,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> context.resources.getString(R.string.no_eggs)
   }
 
-  fun getGrowRate(id: Int) = when (id) {
+  fun getGrowRate(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.slow)
     2 -> context.resources.getString(R.string.medium)
     3 -> context.resources.getString(R.string.fast)
@@ -76,7 +75,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "?"
   }
 
-  fun getGeneration(id: Int) = when (id) {
+  fun getGeneration(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.generation_i)
     2 -> context.resources.getString(R.string.generation_ii)
     3 -> context.resources.getString(R.string.generation_iii)
@@ -88,7 +87,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "?"
   }
 
-  fun getShape(id: Int) = when (id) {
+  fun getShape(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.ball)
     2 -> context.resources.getString(R.string.squiggle)
     3 -> context.resources.getString(R.string.fish)
@@ -106,7 +105,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "?"
   }
 
-  fun getHabitat(id: Int) = when (id) {
+  fun getHabitat(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.cave)
     2 -> context.resources.getString(R.string.forest)
     3 -> context.resources.getString(R.string.grassland)
@@ -119,7 +118,7 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "?"
   }
 
-  fun getMoveName(id: Int) = when (id) {
+  fun getMoveName(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.move_name_1)
     2 -> context.resources.getString(R.string.move_name_2)
     3 -> context.resources.getString(R.string.move_name_3)
@@ -967,13 +966,14 @@ class PokemonStringRes @Inject constructor(private val context: Application) {
     else -> "other"
   }
 
-  fun getTypeString(id: Int): String = PokemonProp.getTypeString(context, id)
+  fun getTypeString(id: Int, context: Context): String = PokemonProp.getTypeString(context, id)
 
-  fun getDamageClassName(id: Int) = when (id) {
+  fun getDamageClassName(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.damage_class_1)
     2 -> context.resources.getString(R.string.damage_class_2)
     3 -> context.resources.getString(R.string.damage_class_3)
     else -> "other"
   }
+
 
 }

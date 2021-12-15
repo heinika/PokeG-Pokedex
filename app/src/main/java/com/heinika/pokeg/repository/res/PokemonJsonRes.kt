@@ -40,12 +40,12 @@ class PokemonJsonRes @Inject constructor(
 
   @WorkerThread
   fun fetchPokemonMoveList(pokemonId: Int,speciesId: Int, version: Int): List<PokemonMove> {
-    if (fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+    return if (fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
         .any() { it.id == pokemonId }){
-      return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+      fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
         .first { it.id == pokemonId }.moves.toList()
     }else {
-      return fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
+      fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
         .first { it.id == speciesId }.moves.toList()
     }
   }

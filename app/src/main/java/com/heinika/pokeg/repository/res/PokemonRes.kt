@@ -1,5 +1,6 @@
 package com.heinika.pokeg.repository.res
 
+import android.app.Application
 import androidx.annotation.WorkerThread
 import com.heinika.pokeg.model.*
 import javax.inject.Inject
@@ -8,42 +9,42 @@ import javax.inject.Singleton
 @Suppress("BlockingMethodInNonBlockingContext")
 @Singleton
 class PokemonRes @Inject constructor(
-  private val stringRes: PokemonStringRes,
-  private val colorRes: PokemonColorRes,
+  private val context: Application,
   private val jsonRes: PokemonJsonRes
 ) {
-  fun getTypeColor(type: Int): Int = colorRes.getTypeColor(type)
+  fun getTypeColor(type: Int): Int = ResUtils.getTypeColor(type,context)
 
-  fun getVersionName(id: Int) = stringRes.getVersionName(id)
+  fun getVersionName(id: Int) = ResUtils.getVersionName(id, context)
 
-  fun getEggGroupName(name: Int) = stringRes.getEggGroupName(name)
+  fun getEggGroupName(name: Int) = ResUtils.getEggGroupName(name, context)
 
-  fun getGrowRate(id: Int) = stringRes.getGrowRate(id)
+  fun getGrowRate(id: Int) = ResUtils.getGrowRate(id, context)
 
-  fun getGeneration(id: Int) = stringRes.getGeneration(id)
+  fun getGeneration(id: Int) = ResUtils.getGeneration(id, context)
 
-  fun getShape(id: Int) = stringRes.getShape(id)
+  fun getShape(id: Int) = ResUtils.getShape(id, context)
 
-  fun getHabitat(id: Int) = stringRes.getHabitat(id)
+  fun getHabitat(id: Int) = ResUtils.getHabitat(id, context)
 
-  fun getMoveMethodName(id: Int) = stringRes.getMoveMethodName(id)
+  fun getMoveMethodName(id: Int) = ResUtils.getMoveMethodName(id, context)
 
-  fun getMoveName(id: Int) = stringRes.getMoveName(id)
+  fun getMoveName(id: Int) = ResUtils.getMoveName(id, context)
 
-  fun getTypeString(id: Int): String = stringRes.getTypeString(id)
+  fun getTypeString(id: Int): String = ResUtils.getTypeString(id, context)
 
-  fun getDamageClassName(id: Int) = stringRes.getDamageClassName(id)
+  fun getDamageClassName(id: Int) = ResUtils.getDamageClassName(id, context)
 
-  fun getNameById(id: Int, name: String): String = stringRes.getNameById(id, name)
+  fun getNameById(id: Int, name: String): String = ResUtils.getNameById(id, name, context)
 
-  fun getItemById(id: Int): String = stringRes.getItemById(id)
-
-  @WorkerThread
-  fun fetchPokemonMoveVersionList(id: Int,speciesId:Int): List<Int> = jsonRes.fetchPokemonMoveVersionList(id,speciesId)
+  fun getItemById(id: Int): String = ResUtils.getItemById(id, context)
 
   @WorkerThread
-  fun fetchPokemonMoveList(pokemonId: Int, speciesId:Int,version: Int): List<PokemonMove> =
-    jsonRes.fetchPokemonMoveList(pokemonId,speciesId, version)
+  fun fetchPokemonMoveVersionList(id: Int, speciesId: Int): List<Int> =
+    jsonRes.fetchPokemonMoveVersionList(id, speciesId)
+
+  @WorkerThread
+  fun fetchPokemonMoveList(pokemonId: Int, speciesId: Int, version: Int): List<PokemonMove> =
+    jsonRes.fetchPokemonMoveList(pokemonId, speciesId, version)
 
   @WorkerThread
   fun fetchMovesDetail(moveIds: List<Int>): List<Move> = jsonRes.fetchMovesDetail(moveIds)
@@ -52,16 +53,20 @@ class PokemonRes @Inject constructor(
   fun fetchAllMoves(): List<Move> = jsonRes.fetchAllMoves()
 
   @WorkerThread
-  fun fetchSpeciesEggGroup(specieId: Int): List<SpeciesEggGroup> = jsonRes.fetchSpeciesEggGroup(specieId)
+  fun fetchSpeciesEggGroup(specieId: Int): List<SpeciesEggGroup> =
+    jsonRes.fetchSpeciesEggGroup(specieId)
 
   @WorkerThread
-  fun fetchSpeciesEvolutionChain(): List<SpeciesEvolutionChain> = jsonRes.fetchSpeciesEvolutionChain()
+  fun fetchSpeciesEvolutionChain(): List<SpeciesEvolutionChain> =
+    jsonRes.fetchSpeciesEvolutionChain()
 
   @WorkerThread
-  fun fetchSpecieFlavorText(specieId: Int): List<SpecieFlavorText> = jsonRes.fetchSpecieFlavorText(specieId)
+  fun fetchSpecieFlavorText(specieId: Int): List<SpecieFlavorText> =
+    jsonRes.fetchSpecieFlavorText(specieId)
 
   @WorkerThread
-  fun fetchSpecieFlavorBaseText(specieId: Int): SpecieFlavorBaseText = jsonRes.fetchSpecieFlavorBaseText(specieId)
+  fun fetchSpecieFlavorBaseText(specieId: Int): SpecieFlavorBaseText =
+    jsonRes.fetchSpecieFlavorBaseText(specieId)
 
   @WorkerThread
   fun fetchPokemonName(): List<PokemonName> = jsonRes.fetchPokemonName()
