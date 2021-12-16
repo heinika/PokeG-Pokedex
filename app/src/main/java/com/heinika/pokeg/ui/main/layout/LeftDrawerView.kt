@@ -1,15 +1,18 @@
 package com.heinika.pokeg.ui.main.layout
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
+import androidx.compose.material.ExperimentalMaterialApi
 import com.heinika.pokeg.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.DonationActivity
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.moves.MoveListActivity
 import com.heinika.pokeg.utils.SystemBar
 
 class LeftDrawerView(context: Context) : LinearLayout(context) {
@@ -20,6 +23,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setBackgroundColor(context.getColor(R.color.black_70))
   }
 
+  @SuppressLint("SetTextI18n")
   private val selectVersionButton = AppCompatButton(context).apply {
     text =
       "默认版本：${context.resources.getStringArray(R.array.versions)[ConfigMMKV.defaultVersion - 1]}"
@@ -43,6 +47,16 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     }
   }
 
+  @ExperimentalMaterialApi
+  private val movesButton = AppCompatButton(context).apply {
+    text = "技能列表（试用版）"
+    background.setTint(context.getColor(R.color.md_blue_200))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
+    addView(this)
+  }
+
   private val aboutButton = AppCompatButton(context).apply {
     text = "关于"
     addView(this)
@@ -54,11 +68,11 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
 
   private val donationButton = AppCompatButton(context).apply {
     text = "捐赠"
-    addView(this)
     background.setTint(context.getColor(R.color.md_green_200))
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, DonationActivity::class.java)) }
+    addView(this)
   }
 
 
