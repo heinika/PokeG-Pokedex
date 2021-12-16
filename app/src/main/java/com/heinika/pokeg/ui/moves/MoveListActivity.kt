@@ -5,24 +5,28 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.animation.*
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.google.accompanist.insets.ProvideWindowInsets
@@ -33,6 +37,7 @@ import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
 @AndroidEntryPoint
@@ -42,6 +47,7 @@ class MoveListActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+    SystemBar.initStatusBarHeight(this)
 
     setContent {
       PokeGTheme {
@@ -54,14 +60,74 @@ class MoveListActivity : ComponentActivity() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
           ) {
-            val moves = remember { moveListViewModel.allMovesState }
-            LazyColumn {
-              itemsIndexed(moves.value) { index, move ->
-                if (index == 0) {
-                  Spacer(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeight.toFloat())))
-                  MoveCard(move)
-                } else {
-                  MoveCard(move)
+            val drawerState = rememberBottomDrawerState(BottomDrawerValue.Closed)
+            val scope = rememberCoroutineScope()
+
+            BottomDrawer(drawerContent = {
+              Text(
+                "过滤功能开发中",
+                modifier = Modifier
+                  .padding(top = 16.dp, bottom = Dp(SystemBar.statusBarHeightDp))
+                  .fillMaxWidth()
+                  .height(80.dp),
+                textAlign = TextAlign.Center
+              )
+            }, gesturesEnabled = drawerState.isOpen, drawerState = drawerState) {
+              val moves = remember { moveListViewModel.allMovesState }
+              ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+                val (moveList, filterButton) = createRefs()
+
+                val listState = rememberLazyListState()
+
+                LazyColumn(Modifier.constrainAs(moveList) {
+                  top.linkTo(parent.top)
+                  start.linkTo(parent.start)
+                }, state = listState) {
+                  itemsIndexed(moves.value) { index, move ->
+                    if (index == 0) {
+                      Spacer(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)))
+                      MoveCard(move)
+                    } else {
+                      MoveCard(move)
+                    }
+                  }
+                }
+
+                AnimatedVisibility(
+                  visible = !listState.isScrollInProgress,
+                  enter = fadeIn() + slideIn(initialOffset = {
+                    IntOffset(
+                      0,
+                      SystemBar.statusBarHeightDp.toInt()
+                    )
+                  }),
+                  exit = slideOut(targetOffset = {
+                    IntOffset(
+                      0,
+                      SystemBar.statusBarHeightDp.toInt()
+                    )
+                  }) + fadeOut(),
+                  modifier = Modifier.constrainAs(filterButton) {
+                    bottom.linkTo(parent.bottom, Dp(SystemBar.navigationBarHeightDp))
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                  }) {
+                  FloatingActionButton(
+                    onClick = {
+                      scope.launch {
+                        if (drawerState.isOpen) {
+                          drawerState.close()
+                        } else {
+                          drawerState.open()
+                        }
+                      }
+                    }
+                  ) {
+                    Image(
+                      painter = painterResource(id = R.drawable.ic_filter_list),
+                      contentDescription = ""
+                    )
+                  }
                 }
               }
             }
@@ -79,14 +145,14 @@ fun MoveCard(move: Move) {
     onClick = { /*TODO*/ }, modifier = Modifier
       .padding(12.dp)
       .fillMaxWidth()
-      .height(90.dp)
+      .height(130.dp)
   ) {
     val context = LocalContext.current
 
     ConstraintLayout {
       // Create references for the composables to constrain
       val (nameLabel, formatIdLabel, typeLabel, damageClassLabel,
-        powerLabel, accuracyLabel, ppLabel,generationLabel) = createRefs()
+        powerLabel, accuracyLabel, ppLabel, generationLabel, flavorLabel) = createRefs()
 
       // Assign reference "text" to the Text composable
       // and constrain it to the bottom of the Button composable
@@ -124,11 +190,22 @@ fun MoveCard(move: Move) {
       })
 
       Text(
+        text = move.flavorText,
+        style = MaterialTheme.typography.subtitle1,
+        modifier = Modifier
+          .constrainAs(flavorLabel) {
+            top.linkTo(powerLabel.bottom)
+            bottom.linkTo(parent.bottom)
+            start.linkTo(nameLabel.start)
+          }
+          .padding(end = 16.dp))
+
+      Text(
         text = "威力:${move.power}",
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(powerLabel) {
           top.linkTo(nameLabel.bottom)
-          bottom.linkTo(parent.bottom)
+          bottom.linkTo(flavorLabel.top)
           start.linkTo(nameLabel.start)
         })
 
@@ -137,7 +214,7 @@ fun MoveCard(move: Move) {
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
           top.linkTo(nameLabel.bottom)
-          bottom.linkTo(parent.bottom)
+          bottom.linkTo(flavorLabel.top)
           start.linkTo(powerLabel.end)
           end.linkTo(ppLabel.start)
         })
@@ -147,17 +224,17 @@ fun MoveCard(move: Move) {
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
           top.linkTo(nameLabel.bottom)
-          bottom.linkTo(parent.bottom)
+          bottom.linkTo(flavorLabel.top)
           start.linkTo(accuracyLabel.end)
           end.linkTo(generationLabel.start)
         })
 
       Text(
-        text = "世代:${move.generation_id}",
+        text = "世代:${move.generationId}",
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(generationLabel) {
           top.linkTo(nameLabel.bottom)
-          bottom.linkTo(parent.bottom)
+          bottom.linkTo(flavorLabel.top)
           end.linkTo(parent.end, 16.dp)
         })
     }
@@ -206,20 +283,14 @@ fun DefaultPreview() {
     MoveCard(
       Move(
         accuracy = "40",
-        contest_effect_id = "",
-        contestTypeId = "",
         damageClassId = 1,
-        effect_chance = "",
-        effect_id = 1,
-        generation_id = 1,
+        generationId = 1,
         id = 1,
-        identifier = "撞击",
+        eName = "撞击",
         power = "40",
-        pp = "",
-        priority = 1,
-        super_contest_effect_id = "",
-        target_id = 0,
-        typeId = 1
+        pp = "25",
+        typeId = 1,
+        flavorText = "对对手进行打击"
       )
     )
   }

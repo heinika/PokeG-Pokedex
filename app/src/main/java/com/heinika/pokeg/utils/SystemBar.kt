@@ -1,12 +1,19 @@
 package com.heinika.pokeg.utils
 
 import android.app.Activity
+import android.content.res.Resources
 
 object SystemBar {
   var statusBarHeight: Int = 12.dp
     private set
   var navigationBarHeight = 0.dp
     private set
+
+  val statusBarHeightDp: Float
+    get() = statusBarHeight.toFloat() / Resources.getSystem().displayMetrics.density
+
+  val navigationBarHeightDp: Float
+    get() = navigationBarHeight.toFloat() / Resources.getSystem().displayMetrics.density
 
 
   fun initStatusBarHeight(activity: Activity) {
