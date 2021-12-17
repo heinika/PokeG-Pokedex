@@ -31,6 +31,7 @@ import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @ExperimentalMaterialApi
 @ExperimentalAnimationApi
@@ -57,16 +58,12 @@ class MoveListActivity : ComponentActivity() {
             val drawerState = rememberBottomDrawerState(BottomDrawerValue.Closed)
 
             BottomDrawer(drawerContent = {
-              TypeClipList()
-
-              Text(
-                "过滤功能开发中",
-                modifier = Modifier
-                  .padding(top = 16.dp, bottom = Dp(SystemBar.statusBarHeightDp))
-                  .fillMaxWidth()
-                  .height(80.dp),
-                textAlign = TextAlign.Center
-              )
+              Spacer(modifier = Modifier.height(8.dp))
+              TypeClipList(onSelectedChange = {
+                Timber.i("$it")
+                moveListViewModel.filterTypes(it)
+              })
+              Spacer(modifier = Modifier.height( Dp(SystemBar.statusBarHeightDp)))
             }, gesturesEnabled = drawerState.isOpen, drawerState = drawerState) {
               val moves = remember { moveListViewModel.allMovesState }
               ConstraintLayout(modifier = Modifier.fillMaxSize()) {

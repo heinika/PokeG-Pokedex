@@ -1,20 +1,14 @@
 package com.heinika.pokeg.ui.moves.compose
 
-import android.content.Context
-import android.util.AttributeSet
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Card
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.AbstractComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -86,22 +80,55 @@ private fun BaseChip(
 }
 
 enum class ChipStatus {
-  Selected(),
-  UnSelected(),
-  Disable()
+  Selected,
+  UnSelected,
+  Disable
 }
 
 @ExperimentalMaterialApi
 @Composable
-fun TypeClipList() {
-//  var typeChipStatus by remember { mutableStateOf(ChipStatus.UnSelected) }
-//  var typeChipsStatus by remember {
-//    mutableStateOf(mutableListOf<ChipStatus>().apply {
-//      repeat(PokemonProp.Type.values().size) {
-//        add(ChipStatus.UnSelected)
-//      }
-//    }.toList())
-//  }
+fun TypeClipList(onSelectedChange:(List<PokemonProp.Type>)->Unit) {
+  val typeArray = PokemonProp.Type.values().dropLast(1)
+  val typeChipsStatus = remember {
+    mutableListOf<ChipStatus>().apply {
+      repeat(typeArray.size) {
+        add(ChipStatus.UnSelected)
+      }
+    }.toMutableStateList()
+  }
+
+  FlowRow(
+    Modifier
+      .fillMaxWidth()
+      .padding(8.dp),
+    mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
+    lastLineMainAxisAlignment = FlowMainAxisAlignment.SpaceEvenly,
+    mainAxisSpacing = 8.dp,
+    crossAxisSpacing = 8.dp
+  ) {
+    typeArray.forEachIndexed { index, it ->
+      TypeChip(typeChipStatus = typeChipsStatus[index], typeId = it.typeId, onClick = {
+        when (typeChipsStatus[index]) {
+          ChipStatus.Selected -> typeChipsStatus[index] = ChipStatus.UnSelected
+          ChipStatus.UnSelected ->typeChipsStatus[index] = ChipStatus.Selected
+          ChipStatus.Disable -> {}
+        }
+
+        onSelectedChange(mutableListOf<PokemonProp.Type>().apply {
+          typeChipsStatus.forEachIndexed { index, chipStatus ->
+            if (chipStatus == ChipStatus.Selected){
+              add(typeArray[index])
+            }
+          }
+        })
+      })
+    }
+  }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun SelectTwoTypeClipList() {
 
   val typeChipsStatus = remember {
     mutableListOf<ChipStatus>().apply {
@@ -125,9 +152,9 @@ fun TypeClipList() {
         when (typeChipsStatus[index]) {
           ChipStatus.Selected -> {
             typeChipsStatus[index] = ChipStatus.UnSelected
-            if (typeChipsStatus.filter { it == ChipStatus.Selected }.size == 1){
-              for (typeChipsIndex in typeChipsStatus.indices){
-                if (typeChipsStatus[typeChipsIndex] != ChipStatus.Selected){
+            if (typeChipsStatus.filter { it == ChipStatus.Selected }.size == 1) {
+              for (typeChipsIndex in typeChipsStatus.indices) {
+                if (typeChipsStatus[typeChipsIndex] != ChipStatus.Selected) {
                   typeChipsStatus[typeChipsIndex] = ChipStatus.UnSelected
                 }
               }
@@ -135,9 +162,9 @@ fun TypeClipList() {
           }
           ChipStatus.UnSelected -> {
             typeChipsStatus[index] = ChipStatus.Selected
-            if (typeChipsStatus.filter { it == ChipStatus.Selected }.size >= 2){
-              for (typeChipsIndex in typeChipsStatus.indices){
-                if (typeChipsStatus[typeChipsIndex] != ChipStatus.Selected){
+            if (typeChipsStatus.filter { it == ChipStatus.Selected }.size >= 2) {
+              for (typeChipsIndex in typeChipsStatus.indices) {
+                if (typeChipsStatus[typeChipsIndex] != ChipStatus.Selected) {
                   typeChipsStatus[typeChipsIndex] = ChipStatus.Disable
                 }
               }
@@ -150,33 +177,22 @@ fun TypeClipList() {
   }
 }
 
-@ExperimentalMaterialApi
-class TypeClipListView @JvmOverloads constructor(
-  context: Context,
-  attrs: AttributeSet? = null,
-  defStyle: Int = 0
-) : AbstractComposeView(context, attrs, defStyle) {
-
-  @Composable
-  override fun Content() {
-    PokeGTheme {
-      Text("Hello")
-    }
-  }
-
-}
-
 
 @ExperimentalMaterialApi
 @Composable
 @Preview
 fun ChipPreview() {
   var typeChipStatus by remember { mutableStateOf(ChipStatus.UnSelected) }
-  TypeChip(typeChipStatus = typeChipStatus, typeId = 12, onClick = {
-    when (typeChipStatus) {
-      ChipStatus.Selected -> typeChipStatus = ChipStatus.UnSelected
-      ChipStatus.UnSelected -> typeChipStatus = ChipStatus.Selected
-      ChipStatus.Disable -> ChipStatus.Disable
+  PokeGTheme {
+    Surface {
+      TypeChip(typeChipStatus = typeChipStatus, typeId = 12, onClick = {
+        when (typeChipStatus) {
+          ChipStatus.Selected -> typeChipStatus = ChipStatus.UnSelected
+          ChipStatus.UnSelected -> typeChipStatus = ChipStatus.Selected
+          ChipStatus.Disable -> ChipStatus.Disable
+        }
+      })
     }
-  })
+  }
+
 }

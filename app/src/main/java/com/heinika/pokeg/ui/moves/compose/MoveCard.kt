@@ -87,8 +87,10 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           }
       )
 
+      val powerTextColor = move.power.toPowerColor()
       Text(
         text = "威力:${move.power}",
+        color = powerTextColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(powerLabel) {
           top.linkTo(nameLabel.bottom)
@@ -96,8 +98,11 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           start.linkTo(nameLabel.start)
         })
 
+
+      val accuracyTextColor = move.accuracy.toAccuracyColor()
       Text(
         text = "命中率:${move.accuracy}",
+        color = accuracyTextColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
           top.linkTo(nameLabel.bottom)
@@ -106,8 +111,10 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           end.linkTo(ppLabel.start)
         })
 
+      val ppTextColor = move.pp.toPPColor()
       Text(
         text = "PP:${move.pp}",
+        color = ppTextColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
           top.linkTo(nameLabel.bottom)
@@ -125,6 +132,42 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           end.linkTo(parent.end, 16.dp)
         })
     }
+  }
+}
+
+private fun String.toPowerColor(): Color {
+  return try {
+    when(this.toInt()){
+      in 0..50 -> Color.Red
+      in 51..100 -> Color.Yellow
+      else -> Color.Green
+    }
+  }catch (e:Exception){
+    Color.Gray
+  }
+}
+
+private fun String.toAccuracyColor(): Color {
+  return try {
+    when(this.toInt()){
+      100 -> Color.Green
+      in 80..100 -> Color.Yellow
+      else -> Color.Red
+    }
+  }catch (e:Exception){
+    Color.Gray
+  }
+}
+
+private fun String.toPPColor(): Color {
+  return try {
+    when(this.toInt()){
+      in 0..5 -> Color.Red
+      in 6..10 -> Color.Yellow
+      else -> Color.Green
+    }
+  }catch (e:Exception){
+    Color.Gray
   }
 }
 
