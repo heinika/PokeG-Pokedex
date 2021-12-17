@@ -10,6 +10,7 @@ import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
@@ -55,7 +56,7 @@ import java.util.*
 
 class DetailPage(
   private val pokemonRes: PokemonRes,
-  private val activity: AppCompatActivity,
+  private val activity: ComponentActivity,
   private val pokemon: Pokemon,
   private val shareView: AppCompatImageView,
   pageStack: Stack<BasePage>

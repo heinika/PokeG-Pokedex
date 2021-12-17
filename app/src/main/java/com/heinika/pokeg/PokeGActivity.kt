@@ -2,7 +2,10 @@ package com.heinika.pokeg
 
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material.ExperimentalMaterialApi
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.ui.main.MainPage
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -11,8 +14,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
 
+@ExperimentalAnimationApi
 @AndroidEntryPoint
-class PokeGActivity : AppCompatActivity() {
+@ExperimentalMaterialApi
+class PokeGActivity : ComponentActivity() {
 
   private var pageStack: Stack<BasePage> = Stack()
 

@@ -26,12 +26,14 @@ import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.moves.compose.MoveCard
+import com.heinika.pokeg.ui.moves.compose.TypeClipList
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
+@ExperimentalAnimationApi
 @AndroidEntryPoint
 class MoveListActivity : ComponentActivity() {
   private val moveListViewModel: MoveListViewModel by viewModels()
@@ -55,6 +57,8 @@ class MoveListActivity : ComponentActivity() {
             val drawerState = rememberBottomDrawerState(BottomDrawerValue.Closed)
 
             BottomDrawer(drawerContent = {
+              TypeClipList()
+
               Text(
                 "过滤功能开发中",
                 modifier = Modifier

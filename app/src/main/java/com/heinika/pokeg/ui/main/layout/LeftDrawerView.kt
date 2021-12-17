@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import com.heinika.pokeg.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
@@ -15,6 +16,7 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.moves.MoveListActivity
 import com.heinika.pokeg.utils.SystemBar
 
+@ExperimentalAnimationApi
 class LeftDrawerView(context: Context) : LinearLayout(context) {
 
   init {

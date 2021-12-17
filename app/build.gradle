@@ -7,7 +7,7 @@ plugins {
 }
 
 // compose
-String composeVersion = "1.1.0-beta03"
+String composeVersion = "1.0.5"
 
 android {
     signingConfigs {
@@ -122,6 +122,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.10.0"
     implementation "com.google.accompanist:accompanist-insets:0.10.0"
+    implementation "com.google.accompanist:accompanist-flowlayout:0.10.0"
 
 
     // unit test

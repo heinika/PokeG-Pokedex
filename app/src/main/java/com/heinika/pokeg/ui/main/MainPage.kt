@@ -3,11 +3,15 @@ package com.heinika.pokeg.ui.main
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
@@ -23,6 +27,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.model.Header
 import com.heinika.pokeg.ui.main.layout.LeftDrawerView
 import com.heinika.pokeg.ui.main.layout.MainPageView
 import com.heinika.pokeg.ui.main.layout.RightDrawerView
+import com.heinika.pokeg.ui.moves.compose.TypeClipListView
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.dp
 import timber.log.Timber
@@ -30,8 +35,10 @@ import java.util.*
 
 
 @Suppress("UNCHECKED_CAST")
+@ExperimentalMaterialApi
+@ExperimentalAnimationApi
 class MainPage(
-  private val activity: AppCompatActivity,
+  private val activity: ComponentActivity,
   pageStack: Stack<BasePage>,
   private val pokemonRes: PokemonRes
 ) :
@@ -48,6 +55,7 @@ class MainPage(
       fitsSystemWindows = true
     }
   }
+
 
   private val leftDrawerView = LeftDrawerView(activity).apply {
     layoutParams = DrawerLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT).apply {
@@ -68,6 +76,11 @@ class MainPage(
     super.showPage()
 
     content.addView(drawerLayout)
+
+
+//    content.addView(TypeClipListView(activity).apply {
+//      ViewTreeLifecycleOwner.set(this, activity)
+//    })
 
     adapter.register(HeaderItemDelegate {
       drawerLayout.openDrawer(GravityCompat.START, true)

@@ -1,6 +1,8 @@
 package com.heinika.pokeg.utils
 
 import android.content.res.Resources
+import androidx.compose.ui.graphics.Color
+import com.heinika.pokeg.ui.theme.*
 
 val Number.dp: Int
   get() = (this.toInt() * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
@@ -46,6 +48,29 @@ val Int.isUseItem: Boolean
 
 val Int.isShed: Boolean
   get() = this == 4
+
+val Number.toTypeColor: Color
+  get() = when (this) {
+    PokemonProp.Type.NORMAL.typeId -> normalColor
+    PokemonProp.Type.FIGHTING.typeId -> fightingColor
+    PokemonProp.Type.FLYING.typeId -> flyingColor
+    PokemonProp.Type.POISON.typeId -> poisonColor
+    PokemonProp.Type.GROUND.typeId -> groundColor
+    PokemonProp.Type.ROCK.typeId -> rockColor
+    PokemonProp.Type.BUG.typeId -> bugColor
+    PokemonProp.Type.GHOST.typeId -> ghostColor
+    PokemonProp.Type.STEEL.typeId -> steelColor
+    PokemonProp.Type.FIRE.typeId -> fireColor
+    PokemonProp.Type.WATER.typeId -> waterColor
+    PokemonProp.Type.GRASS.typeId -> grassColor
+    PokemonProp.Type.ELECTRIC.typeId -> electricColor
+    PokemonProp.Type.PSYCHIC.typeId -> psychicColor
+    PokemonProp.Type.ICE.typeId -> iceColor
+    PokemonProp.Type.DRAGON.typeId -> dragonColor
+    PokemonProp.Type.DARK.typeId -> darkColor
+    PokemonProp.Type.FAIRY.typeId -> fairyColor
+    else -> grassColor
+  }
 
 fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 1 -> "https://s1.52poke.wiki/wiki/thumb/2/21/001Bulbasaur.png/450px-001Bulbasaur.png"

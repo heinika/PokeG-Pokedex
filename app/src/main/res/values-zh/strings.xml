@@ -57,8 +57,8 @@
     <string name="type_dragon">龙</string>
     <string name="type_fairy">妖精</string>
     <string name="type_dark">恶</string>
-    <string name="type_normal">正常</string>
-    <string name="type_unknown">/???</string>
+    <string name="type_normal">一般</string>
+    <string name="type_unknown">\???</string>
 
     <string name="damage_class_1">变化</string>
     <string name="damage_class_2">物理</string>
