@@ -1,23 +1,18 @@
 package com.heinika.pokeg.ui.moves.compose
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.BlackColor
-import com.heinika.pokeg.ui.theme.DisableColor
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.toTypeColor
@@ -34,49 +29,6 @@ fun TypeChip(
   val typeColor = typeId.toTypeColor
   val text = ResUtils.getTypeString(typeId, LocalContext.current)
   BaseChip(typeChipStatus, typeColor, modifier.width(68.dp), onClick, text)
-}
-
-
-@ExperimentalMaterialApi
-@Composable
-private fun BaseChip(
-  chipStatus: ChipStatus,
-  typeColor: Color,
-  modifier: Modifier,
-  onClick: () -> Unit,
-  text: String
-) {
-  Card(
-    backgroundColor = when (chipStatus) {
-      ChipStatus.Selected -> typeColor
-      ChipStatus.UnSelected -> Color.Transparent
-      ChipStatus.Disable -> Color.Transparent
-    },
-    contentColor = when (chipStatus) {
-      ChipStatus.Selected -> BlackColor
-      ChipStatus.UnSelected -> typeColor
-      ChipStatus.Disable -> DisableColor
-    },
-    shape = CircleShape,
-    border = BorderStroke(
-      width = 1.dp,
-      color = when (chipStatus) {
-        ChipStatus.Selected -> typeColor
-        ChipStatus.UnSelected -> typeColor
-        ChipStatus.Disable -> DisableColor
-      }
-    ),
-    modifier = modifier,
-    onClick = { onClick() }
-  ) {
-    Text(
-      text = text,
-      textAlign = TextAlign.Center,
-      style = MaterialTheme.typography.body2,
-      modifier = Modifier.padding(8.dp)
-    )
-
-  }
 }
 
 enum class ChipStatus {
@@ -194,5 +146,4 @@ fun ChipPreview() {
       })
     }
   }
-
 }

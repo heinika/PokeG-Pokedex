@@ -25,6 +25,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.moves.compose.GenerationClipList
 import com.heinika.pokeg.ui.moves.compose.MoveCard
 import com.heinika.pokeg.ui.moves.compose.TypeClipList
 import com.heinika.pokeg.ui.theme.PokeGTheme
@@ -57,11 +58,17 @@ class MoveListActivity : ComponentActivity() {
           ) {
             val drawerState = rememberBottomDrawerState(BottomDrawerValue.Closed)
 
-            BottomDrawer(drawerContent = {
+            BottomDrawer(
+              drawerContent = {
               Spacer(modifier = Modifier.height(8.dp))
               TypeClipList(onSelectedChange = {
                 Timber.i("$it")
                 moveListViewModel.filterTypes(it)
+              })
+
+              Spacer(modifier = Modifier.height(8.dp))
+              GenerationClipList(onSelectedChange = {
+                Timber.i("$it")
               })
               Spacer(modifier = Modifier.height( Dp(SystemBar.statusBarHeightDp)))
             }, gesturesEnabled = drawerState.isOpen, drawerState = drawerState) {

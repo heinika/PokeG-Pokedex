@@ -34,3 +34,12 @@ val normalColor = Color(0xffdcdcdc)
 val statusMoveColor = Color(0xFF8BC34A)
 val physicalMoveColor = Color(0xFF00BCD4)
 val specialMoveColor = Color(0xFF9C27B0)
+
+val GenerationIColor = poisonColor
+val GenerationIIColor = grassColor
+val GenerationIIIColor = fireColor
+val GenerationIVColor = flyingColor
+val GenerationVColor = ghostColor
+val GenerationVIColor = iceColor
+val GenerationVIIColor = psychicColor
+val GenerationVIIIColor = rockColor

@@ -72,6 +72,19 @@ val Number.toTypeColor: Color
     else -> grassColor
   }
 
+val Number.toGenerationColor: Color
+  get() = when (this.toInt()) {
+    PokemonProp.Generation.GenerationI.id -> GenerationIColor
+    PokemonProp.Generation.GenerationII.id -> GenerationIIColor
+    PokemonProp.Generation.GenerationIII.id -> GenerationIIIColor
+    PokemonProp.Generation.GenerationVI.id -> GenerationIVColor
+    PokemonProp.Generation.GenerationV.id -> GenerationVColor
+    PokemonProp.Generation.GenerationVI.id -> GenerationVIColor
+    PokemonProp.Generation.GenerationVII.id -> GenerationVIIColor
+    PokemonProp.Generation.GenerationVIII.id -> GenerationVIIIColor
+    else -> GenerationIColor
+  }
+
 fun getPokemonImageUrl(id: Int, name: String) = when {
   id == 1 -> "https://s1.52poke.wiki/wiki/thumb/2/21/001Bulbasaur.png/450px-001Bulbasaur.png"
   id == 2 -> "https://s1.52poke.wiki/wiki/thumb/7/73/002Ivysaur.png/450px-002Ivysaur.png"
