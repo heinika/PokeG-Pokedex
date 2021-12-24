@@ -123,6 +123,7 @@ dependencies {
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.10.0"
     implementation "com.google.accompanist:accompanist-insets:0.10.0"
     implementation "com.google.accompanist:accompanist-flowlayout:0.10.0"
+    implementation("org.burnoutcrew.composereorderable:reorderable:0.7.4")
 
 
     // unit test

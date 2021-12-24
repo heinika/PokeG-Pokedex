@@ -77,7 +77,7 @@ val Number.toGenerationColor: Color
     PokemonProp.Generation.GenerationI.id -> GenerationIColor
     PokemonProp.Generation.GenerationII.id -> GenerationIIColor
     PokemonProp.Generation.GenerationIII.id -> GenerationIIIColor
-    PokemonProp.Generation.GenerationVI.id -> GenerationIVColor
+    PokemonProp.Generation.GenerationIV.id -> GenerationIVColor
     PokemonProp.Generation.GenerationV.id -> GenerationVColor
     PokemonProp.Generation.GenerationVI.id -> GenerationVIColor
     PokemonProp.Generation.GenerationVII.id -> GenerationVIIColor

@@ -25,6 +25,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.moves.compose.DrawerContent
 import com.heinika.pokeg.ui.moves.compose.GenerationClipList
 import com.heinika.pokeg.ui.moves.compose.MoveCard
 import com.heinika.pokeg.ui.moves.compose.TypeClipList
@@ -60,18 +61,17 @@ class MoveListActivity : ComponentActivity() {
 
             BottomDrawer(
               drawerContent = {
-              Spacer(modifier = Modifier.height(8.dp))
-              TypeClipList(onSelectedChange = {
-                Timber.i("$it")
-                moveListViewModel.filterTypes(it)
-              })
-
-              Spacer(modifier = Modifier.height(8.dp))
-              GenerationClipList(onSelectedChange = {
-                Timber.i("$it")
-              })
-              Spacer(modifier = Modifier.height( Dp(SystemBar.statusBarHeightDp)))
-            }, gesturesEnabled = drawerState.isOpen, drawerState = drawerState) {
+                DrawerContent(
+                  onSelectedTypeChange = {
+                    moveListViewModel.filterTypes(it)
+                  },
+                  onSelectedGenerationChange = {
+                    moveListViewModel.filterGenerations(it)
+                  })
+              },
+              gesturesEnabled = drawerState.isOpen,
+              drawerState = drawerState
+            ) {
               val moves = remember { moveListViewModel.allMovesState }
               ConstraintLayout(modifier = Modifier.fillMaxSize()) {
                 val (moveList, filterButton) = createRefs()
@@ -85,9 +85,9 @@ class MoveListActivity : ComponentActivity() {
                   itemsIndexed(moves.value) { index, move ->
                     if (index == 0) {
                       Spacer(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)))
-                      MoveCard(move,onClick = {})
+                      MoveCard(move, onClick = {})
                     } else {
-                      MoveCard(move,onClick = {})
+                      MoveCard(move, onClick = {})
                     }
                   }
                 }

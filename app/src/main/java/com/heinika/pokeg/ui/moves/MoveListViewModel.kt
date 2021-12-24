@@ -18,6 +18,9 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
   private var baseMoves = emptyList<Move>()
   val allMovesState: State<List<Move>> = _allMovesState
 
+  private var typeFilterList: List<PokemonProp.Type> = emptyList()
+  private var generationFilterList: List<PokemonProp.Generation> = emptyList()
+
   init {
     viewModelScope.launch {
       moveListRepository.allMovesFlow().collect {
@@ -27,14 +30,30 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
     }
   }
 
-  fun filterTypes(selectedTypes : List<PokemonProp.Type>){
-    if (selectedTypes.isEmpty()){
-      _allMovesState.value = baseMoves
-    } else {
-      val selectedTypeIdList = selectedTypes.map { it.typeId }
-      _allMovesState.value = baseMoves.filter { selectedTypeIdList.contains(it.typeId) }
-    }
+  fun filterTypes(selectedTypes: List<PokemonProp.Type>) {
+    typeFilterList = selectedTypes
+    startFitter()
+  }
 
+  fun filterGenerations(selectedGenerations: List<PokemonProp.Generation>) {
+    generationFilterList = selectedGenerations
+    startFitter()
+  }
+
+  private fun startFitter() {
+    _allMovesState.value = baseMoves.filter { move ->
+      if (typeFilterList.isEmpty()) {
+        true
+      } else {
+        typeFilterList.map { it.typeId }.contains(move.typeId)
+      }
+    }.filter { move ->
+      if (generationFilterList.isEmpty()) {
+        true
+      } else {
+        generationFilterList.map { it.id }.contains(move.generationId)
+      }
+    }
   }
 
 }

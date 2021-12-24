@@ -39,7 +39,7 @@ enum class ChipStatus {
 
 @ExperimentalMaterialApi
 @Composable
-fun TypeClipList(onSelectedChange:(List<PokemonProp.Type>)->Unit) {
+fun TypeClipList(modifier: Modifier = Modifier,onSelectedChange: (List<PokemonProp.Type>) -> Unit) {
   val typeArray = PokemonProp.Type.values().dropLast(1)
   val typeChipsStatus = remember {
     mutableListOf<ChipStatus>().apply {
@@ -50,7 +50,7 @@ fun TypeClipList(onSelectedChange:(List<PokemonProp.Type>)->Unit) {
   }
 
   FlowRow(
-    Modifier
+    modifier
       .fillMaxWidth()
       .padding(8.dp),
     mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
@@ -62,13 +62,14 @@ fun TypeClipList(onSelectedChange:(List<PokemonProp.Type>)->Unit) {
       TypeChip(typeChipStatus = typeChipsStatus[index], typeId = it.typeId, onClick = {
         when (typeChipsStatus[index]) {
           ChipStatus.Selected -> typeChipsStatus[index] = ChipStatus.UnSelected
-          ChipStatus.UnSelected ->typeChipsStatus[index] = ChipStatus.Selected
-          ChipStatus.Disable -> {}
+          ChipStatus.UnSelected -> typeChipsStatus[index] = ChipStatus.Selected
+          ChipStatus.Disable -> {
+          }
         }
 
         onSelectedChange(mutableListOf<PokemonProp.Type>().apply {
           typeChipsStatus.forEachIndexed { index, chipStatus ->
-            if (chipStatus == ChipStatus.Selected){
+            if (chipStatus == ChipStatus.Selected) {
               add(typeArray[index])
             }
           }
@@ -122,7 +123,8 @@ fun SelectTwoTypeClipList() {
               }
             }
           }
-          ChipStatus.Disable -> {}
+          ChipStatus.Disable -> {
+          }
         }
       })
     }

@@ -43,3 +43,7 @@ val GenerationVColor = ghostColor
 val GenerationVIColor = iceColor
 val GenerationVIIColor = psychicColor
 val GenerationVIIIColor = rockColor
+
+val PowerSortColor = dragonColor
+val AccuracySortColor = fireColor
+val PPSortColor = rockColor

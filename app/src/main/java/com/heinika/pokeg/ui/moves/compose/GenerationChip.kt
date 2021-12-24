@@ -30,7 +30,7 @@ fun GenerationChip(
 
 @ExperimentalMaterialApi
 @Composable
-fun GenerationClipList(onSelectedChange:(List<PokemonProp.Generation>)->Unit) {
+fun GenerationClipList(modifier:Modifier = Modifier,onSelectedChange:(List<PokemonProp.Generation>)->Unit) {
   val generationArray = PokemonProp.Generation.values()
   val generationChipsStatus = remember {
     mutableListOf<ChipStatus>().apply {
@@ -41,9 +41,8 @@ fun GenerationClipList(onSelectedChange:(List<PokemonProp.Generation>)->Unit) {
   }
 
   FlowRow(
-    Modifier
-      .fillMaxWidth()
-      .padding(8.dp),
+    modifier
+      .fillMaxWidth(),
     mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
     lastLineMainAxisAlignment = FlowMainAxisAlignment.SpaceEvenly,
     mainAxisSpacing = 4.dp,
