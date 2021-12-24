@@ -18,15 +18,16 @@ import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.MoveProp
 import org.burnoutcrew.reorderable.*
 
-typealias onTypeSortClick = (MoveProp.SortType, SortChipStatus) -> Unit
+typealias OnTypeSortClick = (MoveProp.SortType, SortChipStatus) -> Unit
+typealias OnMoveOrderChange = (List<MoveProp.SortType>) -> Unit
 
 
 @ExperimentalMaterialApi
 @Composable
 fun ReorderableList(
   modifier: Modifier = Modifier,
-  onTypeSortClick: onTypeSortClick,
-  onPositionChange: (List<MoveProp.SortType>) -> Unit
+  onTypeSortClick: OnTypeSortClick,
+  onMoveOrderChange: OnMoveOrderChange
 ) {
   val state = rememberReorderState()
   val moveSortTypes by remember { mutableStateOf(MoveProp.SortType.values().toMutableList()) }
@@ -38,7 +39,7 @@ fun ReorderableList(
         state,
         { from, to ->
           moveSortTypes.move(from.index, to.index)
-          onPositionChange(moveSortTypes)
+          onMoveOrderChange(moveSortTypes)
         },
         orientation = Orientation.Horizontal
       )
@@ -62,7 +63,7 @@ fun ReorderableList(
 fun ReorderableListPreview() {
   PokeGTheme {
     Surface {
-      ReorderableList(onTypeSortClick = { _, _ -> }, onPositionChange = {})
+      ReorderableList(onTypeSortClick = { _, _ -> }, onMoveOrderChange = {})
     }
   }
 }

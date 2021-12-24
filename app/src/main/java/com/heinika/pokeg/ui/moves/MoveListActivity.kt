@@ -17,18 +17,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
-import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.moves.compose.DrawerContent
-import com.heinika.pokeg.ui.moves.compose.GenerationClipList
 import com.heinika.pokeg.ui.moves.compose.MoveCard
-import com.heinika.pokeg.ui.moves.compose.TypeClipList
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,7 +63,14 @@ class MoveListActivity : ComponentActivity() {
                   },
                   onSelectedGenerationChange = {
                     moveListViewModel.filterGenerations(it)
-                  })
+                  },
+                  onMoveOrderChange = {
+                    moveListViewModel.changeSortOrder(it)
+                  },
+                  onTypeSortClick = { type, state ->
+                    moveListViewModel.changSortState(type, state)
+                  }
+                )
               },
               gesturesEnabled = drawerState.isOpen,
               drawerState = drawerState
