@@ -17,6 +17,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,8 +59,8 @@ fun EggPreview() {
           .padding(top = Dp(SystemBar.statusBarHeightDp), start = 12.dp, end = 12.dp)
           .verticalScroll(state)
       ) {
-        Text(text = "宝可梦培育", style = MaterialTheme.typography.h3)
-        Divider(Modifier.padding(bottom = 16.dp))
+//        Text(text = "宝可梦培育", style = MaterialTheme.typography.h3)
+//        Divider(Modifier.padding(bottom = 16.dp))
         Text(
           style = MaterialTheme.typography.body1,
           text = "宝可梦培育是指通过生蛋孵化获得新的宝可梦的方式来获得玩家想要的宝可梦，同时兼指对宝可梦能力的培养，于第二世代引入。培养宝可梦一般是为了获得在对战中最符合其能力的强大的宝可梦。"
@@ -92,24 +94,14 @@ fun EggPreview() {
             "第三世代起，两只宝可梦是否能生蛋遵循以下原则："
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Image(
-          modifier = Modifier.fillMaxWidth(),
-          painter = painterResource(id = R.drawable.egg1),
-          contentDescription = "",
-          contentScale = ContentScale.FillWidth
-        )
+        EggDescImage(painterResource(id = R.drawable.egg1))
 
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "特殊的宝可梦", style = MaterialTheme.typography.h5)
         Spacer(modifier = Modifier.height(16.dp))
         Text("一些宝可梦并不符合以上的生蛋规则：", style = MaterialTheme.typography.body1)
         Spacer(modifier = Modifier.height(16.dp))
-        Image(
-          modifier = Modifier.fillMaxWidth(),
-          painter = painterResource(id = R.drawable.egg2),
-          contentDescription = "",
-          contentScale = ContentScale.FillWidth
-        )
+        EggDescImage(painterResource(id = R.drawable.egg2))
 
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "薰香", style = MaterialTheme.typography.h5)
@@ -119,12 +111,7 @@ fun EggPreview() {
           style = MaterialTheme.typography.body1
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Image(
-          modifier = Modifier.fillMaxWidth(),
-          painter = painterResource(id = R.drawable.egg3),
-          contentDescription = "",
-          contentScale = ContentScale.FillWidth
-        )
+        EggDescImage(painterResource(id = R.drawable.egg3))
 
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = "遗传", style = MaterialTheme.typography.h4)
@@ -170,12 +157,7 @@ fun EggPreview() {
           style = MaterialTheme.typography.body1
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Image(
-          modifier = Modifier.fillMaxWidth(),
-          painter = painterResource(id = R.drawable.egg4),
-          contentDescription = "",
-          contentScale = ContentScale.FillWidth
-        )
+        EggDescImage(painterResource(id = R.drawable.egg4))
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -276,7 +258,72 @@ fun EggPreview() {
           style = MaterialTheme.typography.body1
         )
         Spacer(modifier = Modifier.height(16.dp))
+
+        Text(text = "隐藏特性", style = MaterialTheme.typography.h5)
+        Text(text = "第五世代", style = MaterialTheme.typography.h5)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+          "第五世代的隐藏特性必须满足以下条件才能遗传：\n" +
+            "\n" +
+            "♀一方持有隐藏特性，♂一方是同种族的宝可梦或者是同蛋群但不同种族的宝可梦。♂一方是否持有隐藏特性不影响遗传。\n" +
+            "另一方不能是百变怪。百变怪即使持有隐藏特性也不能遗传。\n" +
+            "满足该特性的情况下生蛋有60%的概率得到拥有隐藏特性的子代，算上2种普通特性共计3种的出现率约为20%：20%：60%。\n" +
+            "\n" +
+            "第五世代的父方的隐藏特性以及性别不明的宝可梦的隐藏特性无法遗传。例如：",
+          style = MaterialTheme.typography.body1
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        EggDescImage(painterResource(id = R.drawable.egg5))
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(text = "第六世代起", style = MaterialTheme.typography.h5)
+        EggDescImage(painterResource(id = R.drawable.egg7))
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(text = "特殊特性", style = MaterialTheme.typography.h5)
+        Text(text = "第七世代", style = MaterialTheme.typography.h5)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+          "特殊岩狗狗的蛋可以通过宝可梦培育得到。该岩狗狗实际拥有不同的形态数而拥有与一般形态不一样的特性，且形态数能保持遗传，因此：\n" +
+            "\n" +
+            "(特殊岩狗狗 或者 黄昏鬃岩狼人) ＋ 百变怪 → 特殊岩狗狗的蛋\n" +
+            "(特殊岩狗狗♀ 或者 黄昏鬃岩狼人♀) ＋ 任意陆上群宝可梦♂ → 特殊岩狗狗的蛋",
+          style = MaterialTheme.typography.body1
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(text = "异色", style = MaterialTheme.typography.h5)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+          "在第二世代，亲代为异色宝可梦时，异性子代有1⁄64的几率是异色宝可梦。自第三世代起，培育出异色宝可梦的几率与该世代在野外遇到野生异色宝可梦的几率相同。第五世代后可以受到闪耀护符的加成。\n" +
+            "\n" +
+            "自第四世代起，当父母双方来自不同语言的游戏时，子代会是异色宝可梦的几率是1⁄2048，这一特殊机制通常被称作国际婚姻。自《黑／白》起，这个概率上升到1⁄1366。第五世代及之后的游戏中，子代为异色宝可梦的概率列表如下：",
+          style = MaterialTheme.typography.body1
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        EggDescImage(painterResource(id = R.drawable.egg8))
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+          "第八世代起，当培育出异色宝可梦的蛋时，此蛋会根据孵化者的特殊ID进行对应改变，从而使得孵化者孵出的宝可梦为异色宝可梦，其中，有1⁄16的可能是方块特效，有15⁄16的可能是星星特效。",
+          style = MaterialTheme.typography.body1
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        EggDescImage(painterResource(id = R.drawable.egg9))
+        EggDescImage(painterResource(id = R.drawable.egg10))
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "转自：https://wiki.52poke.com/zh-hans/宝可梦培育")
       }
     }
   }
+}
+
+@Composable
+fun EggDescImage(painter : Painter){
+  Image(
+    modifier = Modifier.fillMaxWidth(),
+    painter = painter,
+    contentDescription = "",
+    contentScale = ContentScale.FillWidth
+  )
 }
