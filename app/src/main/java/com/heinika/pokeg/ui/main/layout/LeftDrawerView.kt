@@ -13,6 +13,7 @@ import com.heinika.pokeg.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.DonationActivity
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.egg.EggActivity
 import com.heinika.pokeg.ui.moves.MoveListActivity
 import com.heinika.pokeg.utils.SystemBar
 
@@ -56,6 +57,16 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalMaterialApi
+  private val eggButton = AppCompatButton(context).apply {
+    text = "宝可梦培育（蛋）教学"
+    background.setTint(context.getColor(R.color.md_green_100))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, EggActivity::class.java)) }
     addView(this)
   }
 
