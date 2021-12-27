@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.ui.theme.PokeGTheme
+import com.heinika.pokeg.utils.MoveProp
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.SystemBar
 
@@ -21,7 +22,8 @@ fun DrawerContent(
   onSelectedTypeChange: (List<PokemonProp.Type>) -> Unit,
   onSelectedGenerationChange: (List<PokemonProp.Generation>) -> Unit,
   onTypeSortClick: OnTypeSortClick,
-  onMoveOrderChange: OnMoveOrderChange
+  onMoveOrderChange: OnMoveOrderChange,
+  onDamageClassSelectChange: (MoveProp.DamageClass?) -> Unit
 ) {
   Spacer(modifier = Modifier.height(16.dp))
   TypeClipList(modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
@@ -34,11 +36,17 @@ fun DrawerContent(
   })
 
   Spacer(modifier = Modifier.height(16.dp))
+  DamageClassClipRow(modifier = Modifier.padding(16.dp, 0.dp),onDamageClassSelectChange = {
+    onDamageClassSelectChange(it)
+  })
+
+  Spacer(modifier = Modifier.height(16.dp))
   ReorderableList(
     modifier = Modifier.padding(16.dp, 0.dp),
     onTypeSortClick = onTypeSortClick,
     onMoveOrderChange = onMoveOrderChange
   )
+
   Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
 }
 
@@ -54,7 +62,9 @@ fun DrawerContentPreview() {
           onSelectedTypeChange = {},
           onSelectedGenerationChange = {},
           onMoveOrderChange = {},
-          onTypeSortClick = { _, _ -> })
+          onTypeSortClick = { _, _ -> },
+          onDamageClassSelectChange = {}
+        )
       }
     }
   }

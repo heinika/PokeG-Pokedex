@@ -27,6 +27,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
   private var powerState = SortChipStatus.Disable
   private var accuracyState = SortChipStatus.Disable
   private var ppState = SortChipStatus.Disable
+  private var selectedDamageClass: MoveProp.DamageClass? = null
   val allMovesState: State<List<Move>> = _allMovesState
 
   private var typeFilterList: List<PokemonProp.Type> = emptyList()
@@ -48,6 +49,11 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
 
   fun filterGenerations(selectedGenerations: List<PokemonProp.Generation>) {
     generationFilterList = selectedGenerations
+    startFitter()
+  }
+
+  fun filterDamageClass(damageClass: MoveProp.DamageClass?) {
+    selectedDamageClass = damageClass
     startFitter()
   }
 
@@ -76,7 +82,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
 
   private fun startFitter() {
     viewModelScope.launch {
-      _allMovesState.value = withContext(Dispatchers.IO){
+      _allMovesState.value = withContext(Dispatchers.IO) {
         baseMoves.filter { move ->
           if (typeFilterList.isEmpty()) {
             true
@@ -88,6 +94,12 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
             true
           } else {
             generationFilterList.map { it.id }.contains(move.generationId)
+          }
+        }.filter { move ->
+          if (selectedDamageClass != null) {
+            move.damageClassId == selectedDamageClass!!.ordinal + 1
+          } else {
+            true
           }
         }.sortedBy {
           when {
@@ -114,11 +126,11 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
     }
   }
 
-  private val String.toPriorityInt :Int
-    get(){
+  private val String.toPriorityInt: Int
+    get() {
       return try {
         toInt()
-      }catch (e : Exception){
+      } catch (e: Exception) {
         0
       }
     }

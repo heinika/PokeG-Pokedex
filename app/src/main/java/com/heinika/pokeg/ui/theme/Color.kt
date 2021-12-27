@@ -31,9 +31,9 @@ val dragonColor = Color(0xff5078dc)
 val fairyColor = Color(0xffffafdc)
 val normalColor = Color(0xffdcdcdc)
 
-val statusMoveColor = Color(0xFF8BC34A)
-val physicalMoveColor = Color(0xFF00BCD4)
-val specialMoveColor = Color(0xFF9C27B0)
+val StatusMoveColor = Color(0xFF8BC34A)
+val PhysicalMoveColor = Color(0xFF00BCD4)
+val SpecialMoveColor = Color(0xFF9C27B0)
 
 val GenerationIColor = poisonColor
 val GenerationIIColor = grassColor

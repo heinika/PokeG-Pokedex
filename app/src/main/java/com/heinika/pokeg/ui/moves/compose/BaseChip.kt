@@ -1,6 +1,10 @@
 package com.heinika.pokeg.ui.moves.compose
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Card
@@ -8,8 +12,12 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.ui.theme.BlackColor
@@ -53,6 +61,46 @@ fun BaseChip(
       style = MaterialTheme.typography.body2,
       modifier = Modifier.padding(8.dp)
     )
+
+  }
+}
+
+@ExperimentalMaterialApi
+@Composable
+fun BaseImageChip(
+  isSelected: Boolean,
+  color: Color,
+  modifier: Modifier,
+  onClick: () -> Unit,
+  text: String,
+  painter: Painter
+) {
+  Card(
+    backgroundColor = if (isSelected) color else Color.Transparent,
+    contentColor = if (isSelected) BlackColor else color,
+    shape = CircleShape,
+    border = BorderStroke(
+      width = 1.dp,
+      color = color
+    ),
+    modifier = modifier,
+    onClick = { onClick() }
+  ) {
+    Row(
+      modifier = Modifier.fillMaxWidth(),
+      verticalAlignment = Alignment.CenterVertically,
+      horizontalArrangement = Arrangement.Center
+    ) {
+      Image(painter = painter, contentDescription = "")
+
+      Text(
+        text = text,
+        textAlign = TextAlign.Center,
+        style = MaterialTheme.typography.body2,
+        modifier = Modifier.padding(8.dp)
+      )
+    }
+
 
   }
 }

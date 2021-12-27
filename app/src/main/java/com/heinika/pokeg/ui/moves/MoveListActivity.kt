@@ -69,6 +69,9 @@ class MoveListActivity : ComponentActivity() {
                   },
                   onTypeSortClick = { type, state ->
                     moveListViewModel.changSortState(type, state)
+                  },
+                  onDamageClassSelectChange = {
+                    moveListViewModel.filterDamageClass(it)
                   }
                 )
               },
