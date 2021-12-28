@@ -157,4 +157,11 @@
     <string name="Ascending">Asce</string>
     <string name="title_activity_move_List">Move List</string>
 
+    <string name="Acid">Acid</string>
+    <string name="Sweet">Sweet</string>
+    <string name="Bitter">Bitter List</string>
+    <string name="Hot">Hot</string>
+    <string name="Astringent">Astringent</string>
+    <string name="no_special">--</string>
+
 </resources>

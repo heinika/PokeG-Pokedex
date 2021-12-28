@@ -22,13 +22,13 @@ import javax.inject.Inject
 @HiltViewModel
 class MoveListViewModel @Inject constructor(moveListRepository: MoveListRepository) : ViewModel() {
   private val _allMovesState = mutableStateOf<List<Move>>(emptyList())
+  val allMovesState: State<List<Move>> = _allMovesState
   private var baseMoves = emptyList<Move>()
   private var sortOrderTypes = MoveProp.SortType.values().toList()
   private var powerState = SortChipStatus.Disable
   private var accuracyState = SortChipStatus.Disable
   private var ppState = SortChipStatus.Disable
   private var selectedDamageClass: MoveProp.DamageClass? = null
-  val allMovesState: State<List<Move>> = _allMovesState
 
   private var typeFilterList: List<PokemonProp.Type> = emptyList()
   private var generationFilterList: List<PokemonProp.Generation> = emptyList()

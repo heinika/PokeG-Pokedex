@@ -1,8 +1,10 @@
-package com.heinika.pokeg
+package com.heinika.pokeg.ui.about
 
 import android.widget.ImageView
 import android.widget.TextView
 import com.drakeet.about.*
+import com.heinika.pokeg.BuildConfig
+import com.heinika.pokeg.R
 
 class AboutActivity : AbsAboutActivity() {
   override fun onCreateHeader(icon: ImageView, slogan: TextView, version: TextView) {

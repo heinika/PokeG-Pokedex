@@ -1,4 +1,4 @@
-package com.heinika.pokeg
+package com.heinika.pokeg.ui.donation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

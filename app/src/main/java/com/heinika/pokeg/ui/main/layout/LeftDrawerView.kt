@@ -2,6 +2,7 @@ package com.heinika.pokeg.ui.main.layout
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.NativeActivity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -9,12 +10,13 @@ import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
-import com.heinika.pokeg.AboutActivity
+import com.heinika.pokeg.ui.about.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
-import com.heinika.pokeg.DonationActivity
+import com.heinika.pokeg.ui.donation.DonationActivity
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.egg.EggActivity
 import com.heinika.pokeg.ui.moves.MoveListActivity
+import com.heinika.pokeg.ui.nature.NatureListActivity
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalAnimationApi
@@ -57,6 +59,16 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalMaterialApi
+  private val natureButton = AppCompatButton(context).apply {
+    text = "性格列表"
+    background.setTint(context.getColor(R.color.fighting))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, NatureListActivity::class.java)) }
     addView(this)
   }
 

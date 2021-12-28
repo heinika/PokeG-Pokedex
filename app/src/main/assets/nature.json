@@ -1,0 +1,227 @@
+[
+  {
+    "cname": "勤奋",
+    "jname": "がんばりや",
+    "ename": "Hardy",
+    "grow_easy": "—",
+    "grow_hard": "—",
+    "taste_like": "—",
+    "taste_dislike": "—"
+  },
+  {
+    "cname": "怕寂寞",
+    "jname": "さみしがり",
+    "ename": "Lonely",
+    "grow_easy": "攻击",
+    "grow_hard": "防御",
+    "taste_like": "辣",
+    "taste_dislike": "酸"
+  },
+  {
+    "cname": "固执",
+    "jname": "いじっぱり",
+    "ename": "Adamant",
+    "grow_easy": "攻击",
+    "grow_hard": "特攻",
+    "taste_like": "辣",
+    "taste_dislike": "涩"
+  },
+  {
+    "cname": "顽皮",
+    "jname": "やんちゃ",
+    "ename": "Naughty",
+    "grow_easy": "攻击",
+    "grow_hard": "特防",
+    "taste_like": "辣",
+    "taste_dislike": "苦"
+  },
+  {
+    "cname": "勇敢",
+    "jname": "ゆうかん",
+    "ename": "Brave",
+    "grow_easy": "攻击",
+    "grow_hard": "速度",
+    "taste_like": "辣",
+    "taste_dislike": "甜"
+  },
+  {
+    "cname": "大胆",
+    "jname": "ずぶとい",
+    "ename": "Bold",
+    "grow_easy": "防御",
+    "grow_hard": "攻击",
+    "taste_like": "酸",
+    "taste_dislike": "辣"
+  },
+  {
+    "cname": "坦率",
+    "jname": "すなお",
+    "ename": "Docile",
+    "grow_easy": "—",
+    "grow_hard": "—",
+    "taste_like": "—",
+    "taste_dislike": "—"
+  },
+  {
+    "cname": "淘气",
+    "jname": "わんぱく",
+    "ename": "Impish",
+    "grow_easy": "防御",
+    "grow_hard": "特攻",
+    "taste_like": "酸",
+    "taste_dislike": "涩"
+  },
+  {
+    "cname": "乐天",
+    "jname": "のうてんき",
+    "ename": "Lax",
+    "grow_easy": "防御",
+    "grow_hard": "特防",
+    "taste_like": "酸",
+    "taste_dislike": "苦"
+  },
+  {
+    "cname": "悠闲",
+    "jname": "のんき",
+    "ename": "Relaxed",
+    "grow_easy": "防御",
+    "grow_hard": "速度",
+    "taste_like": "酸",
+    "taste_dislike": "甜"
+  },
+  {
+    "cname": "内敛",
+    "jname": "ひかえめ",
+    "ename": "Modest",
+    "grow_easy": "特攻",
+    "grow_hard": "攻击",
+    "taste_like": "涩",
+    "taste_dislike": "辣"
+  },
+  {
+    "cname": "慢吞吞",
+    "jname": "おっとり",
+    "ename": "Mild",
+    "grow_easy": "特攻",
+    "grow_hard": "防御",
+    "taste_like": "涩",
+    "taste_dislike": "酸"
+  },
+  {
+    "cname": "害羞",
+    "jname": "てれや",
+    "ename": "Bashful",
+    "grow_easy": "—",
+    "grow_hard": "—",
+    "taste_like": "—",
+    "taste_dislike": "—"
+  },
+  {
+    "cname": "马虎",
+    "jname": "うっかりや",
+    "ename": "Rash",
+    "grow_easy": "特攻",
+    "grow_hard": "特防",
+    "taste_like": "涩",
+    "taste_dislike": "苦"
+  },
+  {
+    "cname": "冷静",
+    "jname": "れいせい",
+    "ename": "Quiet",
+    "grow_easy": "特攻",
+    "grow_hard": "速度",
+    "taste_like": "涩",
+    "taste_dislike": "甜"
+  },
+  {
+    "cname": "温和",
+    "jname": "おだやか",
+    "ename": "Calm",
+    "grow_easy": "特防",
+    "grow_hard": "攻击",
+    "taste_like": "苦",
+    "taste_dislike": "辣"
+  },
+  {
+    "cname": "温顺",
+    "jname": "おとなしい",
+    "ename": "Gentle",
+    "grow_easy": "特防",
+    "grow_hard": "防御",
+    "taste_like": "苦",
+    "taste_dislike": "酸"
+  },
+  {
+    "cname": "慎重",
+    "jname": "しんちょう",
+    "ename": "Careful",
+    "grow_easy": "特防",
+    "grow_hard": "特攻",
+    "taste_like": "苦",
+    "taste_dislike": "涩"
+  },
+  {
+    "cname": "浮躁",
+    "jname": "きまぐれ",
+    "ename": "Quirky",
+    "grow_easy": "—",
+    "grow_hard": "—",
+    "taste_like": "—",
+    "taste_dislike": "—"
+  },
+  {
+    "cname": "自大",
+    "jname": "なまいき",
+    "ename": "Sassy",
+    "grow_easy": "特防",
+    "grow_hard": "速度",
+    "taste_like": "苦",
+    "taste_dislike": "甜"
+  },
+  {
+    "cname": "胆小",
+    "jname": "おくびょう",
+    "ename": "Timid",
+    "grow_easy": "速度",
+    "grow_hard": "攻击",
+    "taste_like": "甜",
+    "taste_dislike": "辣"
+  },
+  {
+    "cname": "急躁",
+    "jname": "せっかち",
+    "ename": "Hasty",
+    "grow_easy": "速度",
+    "grow_hard": "防御",
+    "taste_like": "甜",
+    "taste_dislike": "酸"
+  },
+  {
+    "cname": "爽朗",
+    "jname": "ようき",
+    "ename": "Jolly",
+    "grow_easy": "速度",
+    "grow_hard": "特攻",
+    "taste_like": "甜",
+    "taste_dislike": "涩"
+  },
+  {
+    "cname": "天真",
+    "jname": "むじゃき",
+    "ename": "Naive",
+    "grow_easy": "速度",
+    "grow_hard": "特防",
+    "taste_like": "甜",
+    "taste_dislike": "苦"
+  },
+  {
+    "cname": "认真",
+    "jname": "まじめ",
+    "ename": "Serious",
+    "grow_easy": "—",
+    "grow_hard": "—",
+    "taste_like": "—",
+    "taste_dislike": "—"
+  }
+]
