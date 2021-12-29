@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="White_Herb">White Herb</string>
+    <string name="Mental_Herb">Mental Herb</string>
+    <string name="Macho_Brace">Macho Brace</string>
+    <string name="Soothe_Bell">Soothe Bell</string>
+    <string name="Choice_Band">Choice Band</string>
+    <string name="Soul_Dew">Soul Dew</string>
+    <string name="Deep_Sea_Tooth">Deep Sea Tooth</string>
+    <string name="Deep_Sea_Scale">Deep Sea Scale</string>
+    <string name="Silk_Scarf">Silk Scarf</string>
+    <string name="Shell_Bell">Shell Bell</string>
+    <string name="Sea_Incense">Sea Incense</string>
+    <string name="Lax_Incense">Lax Incense</string>
+    <string name="Red_Scarf">Red Scarf</string>
+    <string name="Blue_Scarf">Blue Scarf</string>
+    <string name="Pink_Scarf">Pink Scarf</string>
+    <string name="Green_Scarf">Green Scarf</string>
+    <string name="Yellow_Scarf">Yellow Scarf</string>
+
+    <string name="White_Herb_flavor">当携带它的宝可梦能力降低时，仅能回到之前的状态１次。</string>
+    <string name="Mental_Herb_flavor">当携带它的宝可梦无法自由使出招式时，仅会回复１次。</string>
+    <string name="Macho_Brace_flavor">又硬又重的锻炼器。虽然携带后速度会降低，但会比平时更容易茁壮成长。</string>
+    <string name="Soothe_Bell_flavor">音色悦耳的铃铛。携带它的宝可梦会受到安抚，变得容易和训练家亲密。</string>
+    <string name="Choice_Band_flavor">有点讲究的头带。虽然携带后攻击会提高，但只能使出相同的招式。</string>
+    <string name="Soul_Dew_flavor">让拉帝欧斯或拉帝亚斯携带后，超能力和龙属性的招式威力就会提高的神奇珠子。</string>
+    <string name="Deep_Sea_Tooth_flavor">让珍珠贝携带后，特攻就会提高的牙齿。散发着闪亮的银光。</string>
+    <string name="Deep_Sea_Scale_flavor">让珍珠贝携带后，特防就会提高的鳞片。散发着淡淡的粉红色光芒。</string>
+    <string name="Silk_Scarf_flavor">手感不错的围巾。携带后，一般属性的招式威力就会提高。</string>
+    <string name="Shell_Bell_flavor">当携带它的宝可梦攻击对手并造成伤害时，能回复少量ＨＰ。</string>
+    <string name="Sea_Incense_flavor">有着神奇香气的薰香。携带后，水属性的招式威力就会提高。</string>
+    <string name="Lax_Incense_flavor">携带后，薰香的神奇香气会迷惑对手，其招式会变得不容易命中。</string>
+    <string name="Red_Scarf_flavor">携带它去参加华丽大赛的宝可梦会比平时看上去更加帅气。</string>
+    <string name="Blue_Scarf_flavor">携带它去参加华丽大赛的宝可梦会比平时看上去更加美丽。</string>
+    <string name="Pink_Scarf_flavor">携带它去参加华丽大赛的宝可梦会比平时看上去更加可爱。</string>
+    <string name="Green_Scarf_flavor">携带它去参加华丽大赛的宝可梦会比平时看上去更加聪明。</string>
+    <string name="Yellow_Scarf_flavor">携带它去参加华丽大赛的宝可梦会比平时看上去更加强壮。</string>
+
+
+
+</resources>

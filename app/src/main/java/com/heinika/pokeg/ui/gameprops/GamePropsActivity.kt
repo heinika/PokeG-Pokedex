@@ -13,16 +13,14 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.heinika.pokeg.R
-import com.heinika.pokeg.ui.gameprops.compose.EvolutionPropsColumn
-import com.heinika.pokeg.ui.gameprops.compose.FossilPropsColumn
-import com.heinika.pokeg.ui.gameprops.compose.PokeballPropsColumn
-import com.heinika.pokeg.ui.gameprops.compose.SwapPropsColumn
+import com.heinika.pokeg.ui.gameprops.compose.*
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
@@ -39,22 +37,23 @@ class GamePropsActivity : ComponentActivity() {
       PokeGTheme {
         Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxHeight()) {
           Column(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp))) {
-            val tab1Title = stringResource(R.string.game_props_evolution)
-            val tab2Title = stringResource(R.string.game_props_pokeball)
-            val tab3Title = stringResource(R.string.game_props_fossil)
-            val tab4Title = stringResource(R.string.game_props_swap)
-            val tabTitles = listOf(tab1Title, tab2Title, tab3Title,tab4Title)
+            val tab1Title = stringResource(R.string.game_props_carry)
+            val tab2Title = stringResource(R.string.game_props_evolution)
+            val tab3Title = stringResource(R.string.game_props_pokeball)
+            val tab4Title = stringResource(R.string.game_props_fossil)
+            val tab5Title = stringResource(R.string.game_props_swap)
+            val tabTitles = listOf(tab1Title, tab2Title, tab3Title,tab4Title,tab5Title)
 
             val coroutineScope = rememberCoroutineScope()
             val pagerState = rememberPagerState()
 
-            TabRow(
+            ScrollableTabRow(
               selectedTabIndex = pagerState.currentPage,
               backgroundColor = MaterialTheme.colors.background
             ) {
               tabTitles.forEachIndexed { index, title ->
                 Tab(
-                  text = { Text(title, fontSize = 18.sp, textAlign = TextAlign.Start) },
+                  text = { Text(title, fontSize = 16.sp, textAlign = TextAlign.Start, maxLines = 1, overflow = TextOverflow.Ellipsis) },
                   selected = pagerState.currentPage == index,
                   onClick = {
                     // Animate to the selected page when clicked
@@ -74,10 +73,11 @@ class GamePropsActivity : ComponentActivity() {
 
               ) { pageIndex ->
               when (pageIndex) {
-                0 -> EvolutionPropsColumn()
-                1 -> PokeballPropsColumn()
-                2 -> FossilPropsColumn()
-                3 -> SwapPropsColumn()
+                0 -> CarryPropsPage()
+                1 -> EvolutionPropsColumn()
+                2 -> PokeballPropsColumn()
+                3 -> FossilPropsColumn()
+                4 -> SwapPropsColumn()
                 else -> {
                   Text(text = tabTitles[pageIndex])
                 }
