@@ -10,11 +10,13 @@ import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.ui.about.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.ui.donation.DonationActivity
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.egg.EggActivity
+import com.heinika.pokeg.ui.gameprops.GamePropsActivity
 import com.heinika.pokeg.ui.moves.MoveListActivity
 import com.heinika.pokeg.ui.nature.NatureListActivity
 import com.heinika.pokeg.utils.SystemBar
@@ -59,6 +61,17 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalPagerApi
+  @ExperimentalMaterialApi
+  private val gamePropsButton = AppCompatButton(context).apply {
+    text = "道具列表"
+    background.setTint(context.getColor(R.color.base_status_sum))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, GamePropsActivity::class.java)) }
     addView(this)
   }
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Fire_Stone">ほのおのいし</string>
+    <string name="Thunder_Stone">かみなりのいし</string>
+    <string name="Water_Stone">みずのいし</string>
+    <string name="Leaf_Stone">リーフのいし</string>
+    <string name="Moon_Stone">つきのいし</string>
+    <string name="Sun_Stone">たいようのいし</string>
+    <string name="Shiny_Stone">ひかりのいし</string>
+    <string name="Dusk_Stone">やみのいし</string>
+    <string name="Dawn_Stone">めざめいし</string>
+    <string name="Ice_Stone">こおりのいし</string>
+    <string name="Sweet_Apple">あまーいりんご</string>
+    <string name="Tart_Apple">すっぱいりんご</string>
+    <string name="Cracked_Pot">われたポット</string>
+    <string name="Chipped_Pot">かけたポット</string>
+    <string name="Galarica_Cuff">ガラナツブレス</string>
+    <string name="Galarica_Wreath">ガラナツリース</string>
+
+    <string name="Fire_Stone_flavor">能让某些特定宝可梦进化的神奇石头。看上去是橙黄色的。</string>
+    <string name="Thunder_Stone_flavor">能让某些特定宝可梦进化的神奇石头。有着闪电般的花纹。</string>
+    <string name="Water_Stone_flavor">能让某些特定宝可梦进化的神奇石头。看上去是澄蓝色的。</string>
+    <string name="Leaf_Stone_flavor">能让某些特定宝可梦进化的神奇石头。有着叶子般的花纹。</string>
+    <string name="Moon_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像夜空一样乌黑。</string>
+    <string name="Sun_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像太阳一样赤红。</string>
+    <string name="Shiny_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像光芒一样耀眼。</string>
+    <string name="Dusk_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像黑夜一般漆黑。</string>
+    <string name="Dawn_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像眼眸一般光彩动人。</string>
+    <string name="Ice_Stone_flavor">能让某些特定宝可梦进化的神奇石头。有着雪花般的花纹。</string>
+    <string name="Sweet_Apple_flavor">这种神奇的苹果可以使特定的宝可梦进化。吃起来非常甜美。</string>
+    <string name="Tart_Apple_flavor">这种神奇的苹果可以使特定的宝可梦进化。吃起来酸酸的。</string>
+    <string name="Cracked_Pot_flavor">这个神奇的茶壶可以使特定的宝可梦进化。虽然有破损，但泡出来的茶依旧清香。</string>
+    <string name="Chipped_Pot_flavor">这个神奇的茶壶可以使特定的宝可梦进化。虽然有缺陷，但泡出来的茶依旧清香。</string>
+    <string name="Galarica_Cuff_flavor">用伽勒豆蔻枝编织的手环。给伽勒尔地区的呆呆兽戴上，它就会很开心。</string>
+    <string name="Galarica_Wreath_flavor">用伽勒豆蔻枝编织的花冠。给伽勒尔地区的呆呆兽戴上，它就会很开心。</string>
+</resources>

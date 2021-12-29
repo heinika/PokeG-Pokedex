@@ -43,6 +43,7 @@
 
         <activity android:name=".ui.egg.EggActivity"/>
         <activity android:name=".ui.nature.NatureListActivity"/>
+        <activity android:name=".ui.gameprops.GamePropsActivity"/>
 
         <activity
             android:name=".ui.about.AboutActivity"

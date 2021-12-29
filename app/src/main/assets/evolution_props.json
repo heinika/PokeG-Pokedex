@@ -1,0 +1,98 @@
+[
+  {
+    "cname": "火之石",
+    "jname": "ほのおのいし",
+    "ename": "Fire Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。看上去是橙黄色的。"
+  },
+  {
+    "cname": "雷之石",
+    "jname": "かみなりのいし",
+    "ename": "Thunder Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。有着闪电般的花纹。"
+  },
+  {
+    "cname": "水之石",
+    "jname": "みずのいし",
+    "ename": "Water Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。看上去是澄蓝色的。"
+  },
+  {
+    "cname": "叶之石",
+    "jname": "リーフのいし",
+    "ename": "Leaf Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。有着叶子般的花纹。"
+  },
+  {
+    "cname": "月之石",
+    "jname": "つきのいし",
+    "ename": "Moon Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。像夜空一样乌黑。"
+  },
+  {
+    "cname": "日之石",
+    "jname": "たいようのいし",
+    "ename": "Sun Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。像太阳一样赤红。"
+  },
+  {
+    "cname": "光之石",
+    "jname": "ひかりのいし",
+    "ename": "Shiny Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。像光芒一样耀眼。"
+  },
+  {
+    "cname": "暗之石",
+    "jname": "やみのいし",
+    "ename": "Dusk Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。像黑夜一般漆黑。"
+  },
+  {
+    "cname": "觉醒之石",
+    "jname": "めざめいし",
+    "ename": "Dawn Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。像眼眸一般光彩动人。"
+  },
+  {
+    "cname": "冰之石",
+    "jname": "こおりのいし",
+    "ename": "Ice Stone",
+    "flavor": "能让某些特定宝可梦进化的神奇石头。有着雪花般的花纹。"
+  },
+  {
+    "cname": "甜甜苹果",
+    "jname": "あまーいりんご",
+    "ename": "Sweet Apple",
+    "flavor": "这种神奇的苹果可以使特定的宝可梦进化。吃起来非常甜美。"
+  },
+  {
+    "cname": "酸酸苹果",
+    "jname": "すっぱいりんご",
+    "ename": "Tart Apple",
+    "flavor": "这种神奇的苹果可以使特定的宝可梦进化。吃起来酸酸的。"
+  },
+  {
+    "cname": "破裂的茶壶",
+    "jname": "われたポット",
+    "ename": "Cracked Pot",
+    "flavor": "这个神奇的茶壶可以使特定的宝可梦进化。虽然有破损，但泡出来的茶依旧清香。"
+  },
+  {
+    "cname": "缺损的茶壶",
+    "jname": "かけたポット",
+    "ename": "Chipped Pot",
+    "flavor": "这个神奇的茶壶可以使特定的宝可梦进化。虽然有缺陷，但泡出来的茶依旧清香。"
+  },
+  {
+    "cname": "伽勒豆蔻手环",
+    "jname": "ガラナツブレス",
+    "ename": "Galarica Cuff",
+    "flavor": "用伽勒豆蔻枝编织的手环。给伽勒尔地区的呆呆兽戴上，它就会很开心。"
+  },
+  {
+    "cname": "伽勒豆蔻花圈",
+    "jname": "ガラナツリース",
+    "ename": "Galarica Wreath",
+    "flavor": "用伽勒豆蔻枝编织的花冠。给伽勒尔地区的呆呆兽戴上，它就会很开心。"
+  }
+]

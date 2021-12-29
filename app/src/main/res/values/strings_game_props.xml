@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Fire_Stone">Fire Stone</string>
+    <string name="Thunder_Stone">Thunder Stone</string>
+    <string name="Water_Stone">Water Stone</string>
+    <string name="Leaf_Stone">Leaf Stone</string>
+    <string name="Moon_Stone">Moon Stone</string>
+    <string name="Sun_Stone">Sun Stone</string>
+    <string name="Shiny_Stone">Shiny Stone</string>
+    <string name="Dusk_Stone">Dusk Stone</string>
+    <string name="Dawn_Stone">Dawn Stone</string>
+    <string name="Ice_Stone">Ice Stone</string>
+    <string name="Sweet_Apple">Sweet Apple</string>
+    <string name="Tart_Apple">Tart Apple</string>
+    <string name="Cracked_Pot">Cracked Pot</string>
+    <string name="Chipped_Pot">Chipped Pot</string>
+    <string name="Galarica_Cuff">Galarica Cuff</string>
+    <string name="Galarica_Wreath">Galarica Wreath</string>
+
+    <string name="Fire_Stone_flavor">能让某些特定宝可梦进化的神奇石头。看上去是橙黄色的。</string>
+    <string name="Thunder_Stone_flavor">能让某些特定宝可梦进化的神奇石头。有着闪电般的花纹。</string>
+    <string name="Water_Stone_flavor">能让某些特定宝可梦进化的神奇石头。看上去是澄蓝色的。</string>
+    <string name="Leaf_Stone_flavor">能让某些特定宝可梦进化的神奇石头。有着叶子般的花纹。</string>
+    <string name="Moon_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像夜空一样乌黑。</string>
+    <string name="Sun_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像太阳一样赤红。</string>
+    <string name="Shiny_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像光芒一样耀眼。</string>
+    <string name="Dusk_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像黑夜一般漆黑。</string>
+    <string name="Dawn_Stone_flavor">能让某些特定宝可梦进化的神奇石头。像眼眸一般光彩动人。</string>
+    <string name="Ice_Stone_flavor">能让某些特定宝可梦进化的神奇石头。有着雪花般的花纹。</string>
+    <string name="Sweet_Apple_flavor">这种神奇的苹果可以使特定的宝可梦进化。吃起来非常甜美。</string>
+    <string name="Tart_Apple_flavor">这种神奇的苹果可以使特定的宝可梦进化。吃起来酸酸的。</string>
+    <string name="Cracked_Pot_flavor">这个神奇的茶壶可以使特定的宝可梦进化。虽然有破损，但泡出来的茶依旧清香。</string>
+    <string name="Chipped_Pot_flavor">这个神奇的茶壶可以使特定的宝可梦进化。虽然有缺陷，但泡出来的茶依旧清香。</string>
+    <string name="Galarica_Cuff_flavor">用伽勒豆蔻枝编织的手环。给伽勒尔地区的呆呆兽戴上，它就会很开心。</string>
+    <string name="Galarica_Wreath_flavor">用伽勒豆蔻枝编织的花冠。给伽勒尔地区的呆呆兽戴上，它就会很开心。</string>
+</resources>
