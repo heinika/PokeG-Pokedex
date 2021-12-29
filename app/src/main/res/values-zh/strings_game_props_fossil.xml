@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Helix_Fossil">贝壳化石</string>
+    <string name="Dome_Fossil">甲壳化石</string>
+    <string name="Old_Amber">秘密琥珀</string>
+    <string name="Root_Fossil">根状化石</string>
+    <string name="Claw_Fossil">爪子化石</string>
+    <string name="Skull_Fossil">头盖化石</string>
+    <string name="Armor_Fossil">盾甲化石</string>
+    <string name="Cover_Fossil">背盖化石</string>
+    <string name="Plume_Fossil">羽毛化石</string>
+    <string name="Jaw_Fossil">颚之化石</string>
+    <string name="Sail_Fossil">鳍之化石</string>
+    <string name="Fossilized_Bird">化石鸟</string>
+    <string name="Fossilized_Fish">化石鱼</string>
+    <string name="Fossilized_Drake">化石龙</string>
+    <string name="Fossilized_Dino">化石海兽</string>
+
+
+    <string name="Helix_Fossil_flavor">	很久以前栖息在海里的古代宝可梦的化石。好像是贝壳的一部分。</string>
+    <string name="Dome_Fossil_flavor">很久以前栖息在海里的古代宝可梦的化石。好像是甲壳的一部分。</string>
+    <string name="Old_Amber_flavor">封存着古代宝可梦遗传基因的琥珀，透着点红色。</string>
+    <string name="Root_Fossil_flavor">很久以前栖息在海里的古代宝可梦的化石。好像是根的一部分。</string>
+    <string name="Claw_Fossil_flavor">很久以前栖息在海里的古代宝可梦的化石。好像是爪子的一部分。</string>
+    <string name="Skull_Fossil_flavor">很久以前生活在地上的古代宝可梦的化石。好像是头部的一部分。</string>
+    <string name="Armor_Fossil_flavor">很久以前生活在地上的古代宝可梦的化石。好像是领饰的一部分。</string>
+    <string name="Cover_Fossil_flavor">很久以前栖息在海里的古代宝可梦的化石。好像是后背的一部分。</string>
+    <string name="Plume_Fossil_flavor">据说是鸟宝可梦的祖先，古代宝可梦的化石。好像是翅膀的一部分。</string>
+    <string name="Jaw_Fossil_flavor">很久以前生活在地上的古代宝可梦的化石。好像是很大的颚的一部分。</string>
+    <string name="Sail_Fossil_flavor">很久以前生活在地上的古代宝可梦的化石。好像是头鳍的一部分。</string>
+    <string name="Fossilized_Bird_flavor">远古时代的宝可梦化石残片。它曾翱翔于天空，本来面目至今仍是未解之谜。</string>
+    <string name="Fossilized_Fish_flavor">远古时代的宝可梦化石残片。它曾栖息于大海，本来面目至今仍是未解之谜。</string>
+    <string name="Fossilized_Drake_flavor">远古时代的宝可梦化石残片。它曾栖息于陆地，本来面目至今仍是未解之谜。</string>
+    <string name="Fossilized_Dino_flavor">远古时代的宝可梦化石残片。它曾栖息于大海，本来面目至今仍是未解之谜。</string>
+</resources>

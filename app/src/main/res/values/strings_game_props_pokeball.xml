@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Poké_Ball">Poké Ball</string>
+    <string name="Great_Ball">Great Ball</string>
+    <string name="Ultra_Ball">Ultra Ball</string>
+    <string name="Safari_Ball">Safari Ball</string>
+    <string name="Master_Ball">Master Ball</string>
+    <string name="Fast_Ball">Fast Ball</string>
+    <string name="Level_Ball">Level Ball</string>
+    <string name="Lure_Ball">Lure Ball</string>
+    <string name="Heavy_Ball">Heavy Ball</string>
+    <string name="Love_Ball">Love Ball</string>
+    <string name="Friend_Ball">Friend Ball</string>
+    <string name="Moon_Ball">Moon Ball</string>
+    <string name="Sport_Ball">Sport Ball</string>
+    <string name="Park_Ball">Park Ball</string>
+    <string name="Net_Ball">Net Ball</string>
+    <string name="Dive_Ball">Dive Ball</string>
+    <string name="Nest_Ball">Nest Ball</string>
+    <string name="Repeat_Ball">Repeat Ball</string>
+    <string name="Timer_Ball">Timer Ball</string>
+    <string name="Luxury_Ball">Luxury Ball</string>
+    <string name="Premier_Ball">Premier Ball</string>
+    <string name="Dusk_Ball">Dusk Ball</string>
+    <string name="Heal_Ball">Heal Ball</string>
+    <string name="Quick_Ball">Quick Ball</string>
+    <string name="Cherish_Ball">Cherish Ball</string>
+    <string name="Dream_Ball">Dream Ball</string>
+    <string name="Beast_Ball">Beast Ball</string>
+
+    <string name="Poké_Ball_flavor">用于投向野生宝可梦并将其捕捉的球。它是胶囊样式的。</string>
+    <string name="Great_Ball_flavor">比起精灵球来更容易捉到宝可梦的，性能还算不错的球。</string>
+    <string name="Ultra_Ball_flavor">比起超级球来更容易捉到宝可梦的，性能非常不错的球。</string>
+    <string name="Safari_Ball_flavor">曾在关都地区的狩猎地带以及神奥地区的大湿地被使用。是一种特殊的球。</string>
+    <string name="Master_Ball_flavor">必定能捉到野生宝可梦的，性能最好的球。</string>
+    <string name="Fast_Ball_flavor">有点与众不同的球。能很容易地捕捉逃跑速度很快的宝可梦。</string>
+    <string name="Level_Ball_flavor">有点与众不同的球。要捕捉的宝可梦比自己宝可梦的等级越低，就会越容易捕捉。</string>
+    <string name="Lure_Ball_flavor">有点与众不同的球。能很容易地捕捉用钓竿钓上来的宝可梦。</string>
+    <string name="Heavy_Ball_flavor">有点与众不同的球。能很容易地捕捉身体沉重的宝可梦。</string>
+    <string name="Love_Ball_flavor">有点与众不同的球。能很容易地捕捉和自己宝可梦性别不同的宝可梦。</string>
+    <string name="Friend_Ball_flavor">有点与众不同的球。捉到的野生宝可梦会立刻变得和训练家亲密起来。</string>
+    <string name="Moon_Ball_flavor">有点与众不同的球。能很容易地捕捉使用月之石进化的宝可梦。</string>
+    <string name="Sport_Ball_flavor">曽在城都地区的捕虫大赛上使用的特殊的球。</string>
+    <string name="Park_Ball_flavor">在伙伴公园里使用的特殊的球。</string>
+    <string name="Net_Ball_flavor">有点与众不同的球。能很容易地捕捉水属性和虫属性的宝可梦。</string>
+    <string name="Dive_Ball_flavor">有点与众不同的球。能很容易地捕捉生活在水世界里的宝可梦。</string>
+    <string name="Nest_Ball_flavor">有点与众不同的球。捕捉的野生宝可梦越弱，就会越容易捕捉。</string>
+    <string name="Repeat_Ball_flavor">有点与众不同的球。能很容易地捕捉以前曾捉到过的宝可梦。</string>
+    <string name="Timer_Ball_flavor">有点与众不同的球。回合数花费得越多，宝可梦就会越容易捕捉。</string>
+    <string name="Luxury_Ball_flavor">住着十分惬意的球。捉到的野生宝可梦会变得容易和训练家亲密。</string>
+    <string name="Premier_Ball_flavor">有点珍贵的球。特制出来的某种纪念品。</string>
+    <string name="Dusk_Ball_flavor">有点与众不同的球。能很容易地在夜晚或洞窟等阴暗的地方捕捉宝可梦。</string>
+    <string name="Heal_Ball_flavor">有点温柔的球。能回复捉到的宝可梦的ＨＰ并治愈异常状态。</string>
+    <string name="Quick_Ball_flavor">有点与众不同的球。如果战斗开始后立刻使用，就能很容易地捉到宝可梦。</string>
+    <string name="Cherish_Ball_flavor">相当珍贵的球。特制出来的某种纪念品。</string>
+    <string name="Dream_Ball_flavor">在连入之森中，不知何时出现在包包里的梦中球。能捉到任何宝可梦。</string>
+    <string name="Beast_Ball_flavor">为捕捉究极异兽而制作的特殊精灵球。很难捕捉究极异兽之外的宝可梦。</string>
+
+
+</resources>

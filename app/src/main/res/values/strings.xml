@@ -164,6 +164,9 @@
     <string name="Astringent">Astringent</string>
     <string name="no_special">--</string>
     <string name="game_props_evolution">进化</string>
+    <string name="game_props_pokeball">精灵球</string>
+    <string name="game_props_fossil">化石</string>
+    <string name="game_props_swap">交换</string>
     <string name="game_props_other">其他</string>
 
 </resources>

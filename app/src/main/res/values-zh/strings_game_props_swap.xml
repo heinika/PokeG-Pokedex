@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Red_Shard">红色碎片</string>
+    <string name="Blue_Shard">蓝色碎片</string>
+    <string name="Yellow_Shard">黄色碎片</string>
+    <string name="Green_Shard">绿色碎片</string>
+    <string name="Shoal_Salt">浅滩海盐</string>
+    <string name="Shoal_Shell">浅滩贝壳</string>
+    <string name="Heart_Scale">心之鳞片</string>
+    <string name="Galarica_Twig">伽勒豆蔻枝</string>
+    <string name="Armorite_Ore">铠甲矿石</string>
+    <string name="Dynite_Ore">极矿石</string>
+    <string name="Mysterious_Shard_S">谜之碎片Ｓ</string>
+    <string name="Mysterious_Shard_L">谜之碎片Ｌ</string>
+
+    <string name="Red_Shard_flavor">红色的小碎片。好像是以前制作的某道具的一部分。</string>
+    <string name="Blue_Shard_flavor">蓝色的小碎片。好像是以前制作的某道具的一部分。</string>
+    <string name="Yellow_Shard_flavor">黄色的小碎片。好像是以前制作的某道具的一部分。</string>
+    <string name="Green_Shard_flavor">绿色的小碎片。好像是以前制作的某道具的一部分。</string>
+    <string name="Shoal_Salt_flavor">在浅滩洞穴这地方找到的海盐。</string>
+    <string name="Shoal_Shell_flavor">在浅滩洞穴这地方找到的贝壳。</string>
+    <string name="Heart_Scale_flavor">有着美丽心形外形且非常珍稀的鳞片。有些人收到会很高兴。</string>
+    <string name="Galarica_Twig_flavor">伽勒尔部分地区生长的伽勒豆蔻这种植物的枝条。可以用来制作某种宝可梦的饰品。</string>
+    <string name="Armorite_Ore_flavor">能够在铠岛找出的珍稀石头。把它送给铠岛的收藏家，就会有好事发生。</string>
+    <string name="Dynite_Ore_flavor">能够在王冠雪原找出的珍稀石头。把它送给王冠雪原的收藏家，就会有好事发生。</string>
+    <string name="Mysterious_Shard_S_flavor">能够感受到神秘力量的小碎片。碎片上浮现出了像玫瑰花一样的花纹。</string>
+    <string name="Mysterious_Shard_L_flavor">能够感受到神秘力量的大碎片。碎片上浮现出了像玫瑰花一样的花纹。</string>
+
+</resources>

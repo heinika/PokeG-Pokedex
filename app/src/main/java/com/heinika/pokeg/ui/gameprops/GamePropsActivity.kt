@@ -20,6 +20,9 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.gameprops.compose.EvolutionPropsColumn
+import com.heinika.pokeg.ui.gameprops.compose.FossilPropsColumn
+import com.heinika.pokeg.ui.gameprops.compose.PokeballPropsColumn
+import com.heinika.pokeg.ui.gameprops.compose.SwapPropsColumn
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
@@ -37,16 +40,21 @@ class GamePropsActivity : ComponentActivity() {
         Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxHeight()) {
           Column(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp))) {
             val tab1Title = stringResource(R.string.game_props_evolution)
-            val tab2Title = stringResource(R.string.game_props_other)
-            val tabTitles = listOf(tab1Title,tab2Title)
+            val tab2Title = stringResource(R.string.game_props_pokeball)
+            val tab3Title = stringResource(R.string.game_props_fossil)
+            val tab4Title = stringResource(R.string.game_props_swap)
+            val tabTitles = listOf(tab1Title, tab2Title, tab3Title,tab4Title)
 
             val coroutineScope = rememberCoroutineScope()
             val pagerState = rememberPagerState()
 
-            TabRow(selectedTabIndex = pagerState.currentPage, backgroundColor = MaterialTheme.colors.background) {
+            TabRow(
+              selectedTabIndex = pagerState.currentPage,
+              backgroundColor = MaterialTheme.colors.background
+            ) {
               tabTitles.forEachIndexed { index, title ->
                 Tab(
-                  text = { Text(title, fontSize = 26.sp, textAlign = TextAlign.Start) },
+                  text = { Text(title, fontSize = 18.sp, textAlign = TextAlign.Start) },
                   selected = pagerState.currentPage == index,
                   onClick = {
                     // Animate to the selected page when clicked
@@ -62,12 +70,17 @@ class GamePropsActivity : ComponentActivity() {
               count = tabTitles.size, state = pagerState,
               modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
-            ) { pageIndex ->
-              if (pageIndex == 0) {
-                EvolutionPropsColumn()
-              } else {
-                Text(text = tabTitles[pageIndex])
+                .fillMaxWidth(),
+
+              ) { pageIndex ->
+              when (pageIndex) {
+                0 -> EvolutionPropsColumn()
+                1 -> PokeballPropsColumn()
+                2 -> FossilPropsColumn()
+                3 -> SwapPropsColumn()
+                else -> {
+                  Text(text = tabTitles[pageIndex])
+                }
               }
             }
           }
