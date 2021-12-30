@@ -69,5 +69,13 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
       GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId))
     }
+
+    item {
+      Text(text = "第八世代起",Modifier.padding(12.dp))
+    }
+    items(CarryVIIIProps.values()) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
   }
 }

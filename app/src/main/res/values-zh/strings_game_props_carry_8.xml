@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Rusted_Sword">腐朽的剑</string>
+    <string name="Rusted_Shield">腐朽的盾</string>
+    <string name="Strawberry_Sweet">草莓糖饰</string>
+    <string name="Love_Sweet">爱心糖饰</string>
+    <string name="Berry_Sweet">野莓糖饰</string>
+    <string name="Clover_Sweet">幸运草糖饰</string>
+    <string name="Flower_Sweet">花朵糖饰</string>
+    <string name="Star_Sweet">星星糖饰</string>
+    <string name="Ribbon_Sweet">蝴蝶结糖饰</string>
+    <string name="Throat_Spray">爽喉喷雾</string>
+    <string name="Eject_Pack">避难背包</string>
+    <string name="Heavy_Duty_Boots">厚底靴</string>
+    <string name="Blunder_Policy">打空保险</string>
+    <string name="Room_Service">客房服务</string>
+    <string name="Utility_Umbrella">万能伞</string>
+
+
+    <string name="Rusted_Sword_flavor">据说很久以前，英雄就是拿着这把剑驱走了灾厄。而现在早已变得锈迹斑斑。</string>
+    <string name="Rusted_Shield_flavor">据说很久以前，英雄就是拿着这面盾驱走了灾厄。而现在早已变得锈迹斑斑。</string>
+    <string name="Strawberry_Sweet_flavor">草莓形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Love_Sweet_flavor">爱心形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Berry_Sweet_flavor">浆果形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Clover_Sweet_flavor">四叶草形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Flower_Sweet_flavor">花朵形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Star_Sweet_flavor">星星形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Ribbon_Sweet_flavor">蝴蝶结形状的工艺糖果。让小仙奶携带的话，会高兴地转圈圈。</string>
+    <string name="Throat_Spray_flavor">使用声音相关的招式时，特攻会提高。</string>
+    <string name="Eject_Pack_flavor">当携带它的宝可梦能力下降时，同行宝可梦就会自动替换上场。</string>
+    <string name="Heavy_Duty_Boots_flavor">不受脚下陷阱等的影响。</string>
+    <string name="Blunder_Policy_flavor">招式因命中率影响而落空时，速度会大幅提高。</string>
+    <string name="Room_Service_flavor">让宝可梦携带后，在戏法空间使用时，速度会下降。</string>
+    <string name="Utility_Umbrella_flavor">携带它的宝可梦将不受各种天气的影响。</string>
+
+
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Douse_Drive">水流卡带</string>
+    <string name="Shock_Drive">闪电卡带</string>
+    <string name="Burn_Drive">火焰卡带</string>
+    <string name="Chill_Drive">冰冻卡带</string>
+    <string name="Prism_Scale">美丽鳞片</string>
+    <string name="Eviolite">进化奇石</string>
+    <string name="Float_Stone">轻石</string>
+    <string name="Rocky_Helmet">凸凸头盔</string>
+    <string name="Air_Balloon">气球</string>
+    <string name="Red_Card">红牌</string>
+    <string name="Ring_Target">标靶</string>
+    <string name="Binding_Band">紧绑束带</string>
+    <string name="Absorb_Bulb">球根</string>
+    <string name="Cell_Battery">充电电池</string>
+    <string name="Eject_Button">逃脱按键</string>
+    <string name="Fire_Gem">火之宝石</string>
+    <string name="Water_Gem">水之宝石</string>
+    <string name="Electric_Gem">电之宝石</string>
+    <string name="Grass_Gem">草之宝石</string>
+    <string name="Ice_Gem">冰之宝石</string>
+    <string name="Fighting_Gem">格斗宝石</string>
+    <string name="Poison_Gem">毒之宝石</string>
+    <string name="Ground_Gem">地面宝石</string>
+    <string name="Flying_Gem">飞行宝石</string>
+    <string name="Psychic_Gem">超能力宝石</string>
+    <string name="Bug_Gem">虫之宝石</string>
+    <string name="Rock_Gem">岩石宝石</string>
+    <string name="Ghost_Gem">幽灵宝石</string>
+    <string name="Dragon_Gem">龙之宝石</string>
+    <string name="Dark_Gem">恶之宝石</string>
+    <string name="Steel_Gem">钢之宝石</string>
+    <string name="Normal_Gem">一般宝石</string>
+
+
+    <string name="Douse_Drive_flavor">这是让盖诺赛克特携带的卡带。携带后，高科技光炮这招式就会变为水属性。</string>
+    <string name="Shock_Drive_flavor">这是让盖诺赛克特携带的卡带。携带后，高科技光炮这招式就会变为电属性。</string>
+    <string name="Burn_Drive_flavor">这是让盖诺赛克特携带的卡带。携带后，高科技光炮这招式就会变为火属性。</string>
+    <string name="Chill_Drive_flavor">这是让盖诺赛克特携带的卡带。携带后，高科技光炮这招式就会变为冰属性。</string>
+    <string name="Prism_Scale_flavor">能让某些特定宝可梦进化的神奇鳞片。散发着虹色光辉。</string>
+    <string name="Eviolite_flavor">进化的神奇石块。携带后，还能进化的宝可梦的防御和特防就会提高。</string>
+    <string name="Float_Stone_flavor">非常轻的石头。携带后，宝可梦的体重会变轻。</string>
+    <string name="Rocky_Helmet_flavor">让宝可梦携带后，在受到打击招式攻击时，能给予对手伤害。</string>
+    <string name="Air_Balloon_flavor">让宝可梦携带后，宝可梦会浮在空中。受到攻击就会破裂。</string>
+    <string name="Red_Card_flavor">有着神奇力量的卡片。携带后，能让使用了招式的对手退场。</string>
+    <string name="Ring_Target_flavor">原本因宝可梦的属性相克关系而无效的招式现在会变得能够击中自己。</string>
+    <string name="Binding_Band_flavor">能增强绑紧招式的束带。携带后，绑紧招式的威力会变强。</string>
+    <string name="Absorb_Bulb_flavor">一次性使用的球根。携带它的宝可梦如果受到水属性招式的攻击，特攻就会提高。</string>
+    <string name="Cell_Battery_flavor">一次性使用的充电电池。携带它的宝可梦如果受到电属性招式的攻击，攻击就会提高。</string>
+    <string name="Eject_Button_flavor">携带它的宝可梦如果受到招式攻击，就能逃脱战斗，并和同行的其他宝可梦进行替换。</string>
+    <string name="Fire_Gem_flavor">火属性的宝石。携带后，火属性的招式威力仅会增强１次。</string>
+    <string name="Water_Gem_flavor">水属性的宝石。携带后，水属性的招式威力仅会增强１次。</string>
+    <string name="Electric_Gem_flavor">电属性的宝石。携带后，电属性的招式威力仅会增强１次。</string>
+    <string name="Grass_Gem_flavor">草属性的宝石。携带后，草属性的招式威力仅会增强１次。</string>
+    <string name="Ice_Gem_flavor">冰属性的宝石。携带后，冰属性的招式威力仅会增强１次。</string>
+    <string name="Fighting_Gem_flavor">格斗属性的宝石。携带后，格斗属性的招式威力仅会增强１次。</string>
+    <string name="Poison_Gem_flavor">毒属性的宝石。携带后，毒属性的招式威力仅会增强１次。</string>
+    <string name="Ground_Gem_flavor">地面属性的宝石。携带后，地面属性的招式威力仅会增强１次。</string>
+    <string name="Flying_Gem_flavor">飞行属性的宝石。携带后，飞行属性的招式威力仅会增强１次。</string>
+    <string name="Psychic_Gem_flavor">超能力属性的宝石。携带后，超能力属性的招式威力仅会增强１次。</string>
+    <string name="Bug_Gem_flavor">虫属性的宝石。携带后，虫属性的招式威力仅会增强１次。</string>
+    <string name="Rock_Gem_flavor">岩石属性的宝石。携带后，岩石属性的招式威力仅会增强１次。</string>
+    <string name="Ghost_Gem_flavor">幽灵属性的宝石。携带后，幽灵属性的招式威力仅会增强１次。</string>
+    <string name="Dragon_Gem_flavor">龙属性的宝石。携带后，龙属性的招式威力仅会增强１次。</string>
+    <string name="Dark_Gem_flavor">恶属性的宝石。携带后，恶属性的招式威力仅会增强１次。</string>
+    <string name="Steel_Gem_flavor">钢属性的宝石。携带后，钢属性的招式威力仅会增强１次。</string>
+    <string name="Normal_Gem_flavor">一般属性的宝石。携带后，一般属性的招式威力仅会增强１次。</string>
+
+
+</resources>

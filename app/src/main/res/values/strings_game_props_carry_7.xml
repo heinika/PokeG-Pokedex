@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Adrenaline_Orb">Adrenaline Orb</string>
+    <string name="Terrain_Extender">Terrain Extender</string>
+    <string name="Protective_Pads">Protective Pads</string>
+    <string name="Electric_Seed">Electric Seed</string>
+    <string name="Psychic_Seed">Psychic Seed</string>
+    <string name="Misty_Seed">Misty Seed</string>
+    <string name="Grassy_Seed">Grassy Seed</string>
+    <string name="Fighting_Memory">Fighting Memory</string>
+    <string name="Flying_Memory">Flying Memory</string>
+    <string name="Poison_Memory">Poison Memory</string>
+    <string name="Ground_Memory">Ground Memory</string>
+    <string name="Rock_Memory">Rock Memory</string>
+    <string name="Bug_Memory">Bug Memory</string>
+    <string name="Ghost_Memory">Ghost Memory</string>
+    <string name="Steel_Memory">Steel Memory</string>
+    <string name="Fire_Memory">Fire Memory</string>
+    <string name="Water_Memory">Water Memory</string>
+    <string name="Grass_Memory">Grass Memory</string>
+    <string name="Electric_Memory">Electric Memory</string>
+    <string name="Psychic_Memory">Psychic Memory</string>
+    <string name="Ice_Memory">Ice Memory</string>
+    <string name="Dragon_Memory">Dragon Memory</string>
+    <string name="Dark_Memory">Dark Memory</string>
+    <string name="Fairy_Memory">Fairy Memory</string>
+
+    <string name="Adrenaline_Orb_flavor">使用后会容易呼唤伙伴，但使用后会消失。携带后，在受到威吓时速度会提高。</string>
+    <string name="Terrain_Extender_flavor">当携带它的宝可梦利用招式或特性展开场地时，场地的持续时间会比平时更长。</string>
+    <string name="Protective_Pads_flavor">不会受到触碰攻击对手时本应受到的效果。</string>
+    <string name="Electric_Seed_flavor">让宝可梦携带后，在电气场地上使用，防御就会提高。</string>
+    <string name="Psychic_Seed_flavor">让宝可梦携带后，在精神场地上使用，特防就会提高。</string>
+    <string name="Misty_Seed_flavor">让宝可梦携带后，在薄雾场地上使用，特防就会提高。</string>
+    <string name="Grassy_Seed_flavor">让宝可梦携带后，在青草场地上使用，防御就会提高。</string>
+    <string name="Fighting_Memory_flavor">装有格斗属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Flying_Memory_flavor">装有飞行属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Poison_Memory_flavor">装有毒属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Ground_Memory_flavor">装有地面属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Rock_Memory_flavor">装有岩石属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Bug_Memory_flavor">装有虫属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Ghost_Memory_flavor">装有幽灵属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Steel_Memory_flavor">装有钢属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Fire_Memory_flavor">装有火属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Water_Memory_flavor">装有水属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Grass_Memory_flavor">装有草属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Electric_Memory_flavor">装有电属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Psychic_Memory_flavor">装有超能力属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Ice_Memory_flavor">装有冰属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Dragon_Memory_flavor">装有龙属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Dark_Memory_flavor">装有恶属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+    <string name="Fairy_Memory_flavor">装有妖精属性数据的存储碟。特定宝可梦携带后，属性就会发生变化。</string>
+
+
+
+
+
+
+</resources>
