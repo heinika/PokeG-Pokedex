@@ -74,14 +74,14 @@ val Number.toTypeColor: Color
 
 val Number.toGenerationColor: Color
   get() = when (this.toInt()) {
-    PokemonProp.Generation.GenerationI.id -> GenerationIColor
-    PokemonProp.Generation.GenerationII.id -> GenerationIIColor
-    PokemonProp.Generation.GenerationIII.id -> GenerationIIIColor
-    PokemonProp.Generation.GenerationIV.id -> GenerationIVColor
-    PokemonProp.Generation.GenerationV.id -> GenerationVColor
-    PokemonProp.Generation.GenerationVI.id -> GenerationVIColor
-    PokemonProp.Generation.GenerationVII.id -> GenerationVIIColor
-    PokemonProp.Generation.GenerationVIII.id -> GenerationVIIIColor
+    Generation.GenerationI.id -> GenerationIColor
+    Generation.GenerationII.id -> GenerationIIColor
+    Generation.GenerationIII.id -> GenerationIIIColor
+    Generation.GenerationIV.id -> GenerationIVColor
+    Generation.GenerationV.id -> GenerationVColor
+    Generation.GenerationVI.id -> GenerationVIColor
+    Generation.GenerationVII.id -> GenerationVIIColor
+    Generation.GenerationVIII.id -> GenerationVIIIColor
     else -> GenerationIColor
   }
 

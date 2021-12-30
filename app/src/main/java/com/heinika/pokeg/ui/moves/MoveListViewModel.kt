@@ -7,13 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.model.Move
 import com.heinika.pokeg.repository.MoveListRepository
 import com.heinika.pokeg.ui.moves.compose.SortChipStatus
+import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.MoveProp
 import com.heinika.pokeg.utils.PokemonProp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -31,7 +30,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
   private var selectedDamageClass: MoveProp.DamageClass? = null
 
   private var typeFilterList: List<PokemonProp.Type> = emptyList()
-  private var generationFilterList: List<PokemonProp.Generation> = emptyList()
+  private var generationFilterList: List<Generation> = emptyList()
 
   init {
     viewModelScope.launch {
@@ -47,7 +46,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
     startFitter()
   }
 
-  fun filterGenerations(selectedGenerations: List<PokemonProp.Generation>) {
+  fun filterGenerations(selectedGenerations: List<Generation>) {
     generationFilterList = selectedGenerations
     startFitter()
   }
@@ -101,7 +100,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
           } else {
             true
           }
-        }.sortedBy {
+        }.sortedBy { move ->
           when {
             sortOrderTypes.all { getSortTypesState(it) == SortChipStatus.Disable } -> 0
             else -> {
@@ -111,13 +110,13 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
                 if (typeState != SortChipStatus.Disable) {
                   val f = if (typeState == SortChipStatus.Ascending) 1 else -1
                   priority += when (type) {
-                    MoveProp.SortType.Power -> it.power.toPriorityInt * 1000 * f
-                    MoveProp.SortType.Accuracy -> it.accuracy.toPriorityInt * 1000 * f
-                    MoveProp.SortType.PP -> it.pp.toPriorityInt * 1000 * f
+                    MoveProp.SortType.Power -> move.power.toPriorityInt * 1000 * f
+                    MoveProp.SortType.Accuracy -> move.accuracy.toPriorityInt * 1000 * f
+                    MoveProp.SortType.PP -> move.pp.toPriorityInt * 1000 * f
                   }
                 }
               }
-              Timber.i("priority: $priority,${it.eName},${it.id}")
+              Timber.i("priority: $priority,${move.eName},${move.id}")
               priority
             }
           }

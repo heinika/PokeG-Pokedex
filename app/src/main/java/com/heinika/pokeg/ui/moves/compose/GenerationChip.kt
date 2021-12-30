@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.ui.theme.PokeGTheme
+import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.toGenerationColor
 
@@ -21,7 +22,7 @@ import com.heinika.pokeg.utils.toGenerationColor
 fun GenerationChip(
   chipStatus: ChipStatus,
   modifier: Modifier = Modifier,
-  generation: PokemonProp.Generation,
+  generation: Generation,
   onClick: () -> Unit
 ) {
   val typeColor = generation.id.toGenerationColor
@@ -30,8 +31,8 @@ fun GenerationChip(
 
 @ExperimentalMaterialApi
 @Composable
-fun GenerationClipList(modifier:Modifier = Modifier,onSelectedChange:(List<PokemonProp.Generation>)->Unit) {
-  val generationArray = PokemonProp.Generation.values()
+fun GenerationClipList(modifier:Modifier = Modifier,onSelectedChange:(List<Generation>)->Unit) {
+  val generationArray = Generation.values()
   val generationChipsStatus = remember {
     mutableListOf<ChipStatus>().apply {
       repeat(generationArray.size) {
@@ -56,7 +57,7 @@ fun GenerationClipList(modifier:Modifier = Modifier,onSelectedChange:(List<Pokem
           ChipStatus.Disable -> {}
         }
 
-        onSelectedChange(mutableListOf<PokemonProp.Generation>().apply {
+        onSelectedChange(mutableListOf<Generation>().apply {
           generationChipsStatus.forEachIndexed { index, chipStatus ->
             if (chipStatus == ChipStatus.Selected){
               add(generationArray[index])
@@ -76,7 +77,7 @@ fun GenerationChipPreview() {
   var typeChipStatus by remember { mutableStateOf(ChipStatus.UnSelected) }
   PokeGTheme {
     Surface {
-      GenerationChip(chipStatus = typeChipStatus, generation = PokemonProp.Generation.GenerationI, onClick = {
+      GenerationChip(chipStatus = typeChipStatus, generation = Generation.GenerationI, onClick = {
         when (typeChipStatus) {
           ChipStatus.Selected -> typeChipStatus = ChipStatus.UnSelected
           ChipStatus.UnSelected -> typeChipStatus = ChipStatus.Selected

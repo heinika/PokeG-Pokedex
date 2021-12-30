@@ -50,32 +50,4 @@ fun SwapPropsColumn(modifier: Modifier = Modifier) {
   }
 }
 
-@Preview
-@ExperimentalMaterialApi
-@Composable
-fun CarryPropsColumn(modifier: Modifier = Modifier) {
-  LazyColumn(modifier) {
-    item {
-      Text(text = "第二世代起",Modifier.padding(12.dp))
-    }
-    items(CarryIIProps.values()) {
-      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId))
-    }
-    item {
-      Text(text = "第三世代起",Modifier.padding(12.dp))
-    }
-    items(CarryIIIProps.values()) {
-      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId))
-    }
 
-    item {
-      Text(text = "第八世代起",Modifier.padding(12.dp))
-    }
-    items(CarryVIIIProps.values()) {
-      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId))
-    }
-  }
-}

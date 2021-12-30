@@ -7,7 +7,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.dp
 
 
@@ -29,7 +29,7 @@ class GenerationCheckBox constructor(context: Context) : AppCompatCheckBox(conte
     (background as GradientDrawable).setStroke(0, Color.WHITE)
   }
 
-  fun setBaseStatus(generation: PokemonProp.Generation){
+  fun setBaseStatus(generation: Generation){
     text = generation.filterString
     buttonDrawable = null
     val drawable = resources.getDrawable(R.drawable.check_box_basestatus_normal)

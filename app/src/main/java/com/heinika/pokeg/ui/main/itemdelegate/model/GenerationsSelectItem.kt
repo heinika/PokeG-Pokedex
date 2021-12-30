@@ -1,8 +1,8 @@
 package com.heinika.pokeg.ui.main.itemdelegate.model
 
-import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.utils.Generation
 
 data class GenerationsSelectItem(
-  val generation: PokemonProp.Generation,
-  val onClick: (name: PokemonProp.Generation, isChecked: Boolean) -> Unit
+  val generation: Generation,
+  val onClick: (name: Generation, isChecked: Boolean) -> Unit
 )

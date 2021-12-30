@@ -21,6 +21,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.TagItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.GenerationsSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.TagSelectItem
+import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.view.BaseStatusCheckBox
@@ -150,7 +151,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
   private val tagFilterView: RecyclerView = RecyclerView(context).apply {
     val list = mutableListOf<TagSelectItem>().apply {
       PokemonProp.Tag.values().forEach { eachTag ->
-        add(TagSelectItem(eachTag) { tag, isChecked ->
+        add(TagSelectItem(eachTag) { _, isChecked ->
           if (isChecked) {
             tagCheckedList.add(eachTag)
           } else {
@@ -182,12 +183,12 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
     this@RightDrawerView.addView(this)
   }
 
-  private val generationList = mutableListOf<PokemonProp.Generation>()
-  var onGenerationListChange: ((list: List<PokemonProp.Generation>) -> Unit)? = null
+  private val generationList = mutableListOf<Generation>()
+  var onGenerationListChange: ((list: List<Generation>) -> Unit)? = null
 
   private val generationsFilterView = RecyclerView(context).apply {
     val list = mutableListOf<GenerationsSelectItem>().apply {
-      PokemonProp.Generation.values().forEach {
+      Generation.values().forEach {
         add(GenerationsSelectItem(it) { generation, isChecked ->
           if (isChecked) {
             generationList.add(generation)
@@ -266,7 +267,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
       }
       else -> {
         baseStatusTitle.text =
-          "${sortPriority(isDesc)}:${list.map { it.getName(context) }.joinToString("+")}"
+          "${sortPriority(isDesc)}:${list.joinToString("+") { it.getName(context) }}"
       }
     }
   }
@@ -279,7 +280,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
   }
 
   @SuppressLint("SetTextI18n")
-  fun setGenerationTitleDataList(list: List<PokemonProp.Generation>) {
+  fun setGenerationTitleDataList(list: List<Generation>) {
     when {
       list.isEmpty() -> {
         generationsTitle.text = context.getString(R.string.genneration_unselected)
@@ -289,7 +290,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
       }
       else -> {
         generationsTitle.text =
-          "${context.getString(R.string.genneration)}:${list.map { it.filterString }.joinToString("+")}"
+          "${context.getString(R.string.genneration)}:${list.joinToString("+") { it.filterString }}"
       }
     }
 

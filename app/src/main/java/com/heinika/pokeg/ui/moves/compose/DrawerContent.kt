@@ -12,6 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.ui.theme.PokeGTheme
+import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.MoveProp
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.SystemBar
@@ -20,7 +21,7 @@ import com.heinika.pokeg.utils.SystemBar
 @Composable
 fun DrawerContent(
   onSelectedTypeChange: (List<PokemonProp.Type>) -> Unit,
-  onSelectedGenerationChange: (List<PokemonProp.Generation>) -> Unit,
+  onSelectedGenerationChange: (List<Generation>) -> Unit,
   onTypeSortClick: OnTypeSortClick,
   onMoveOrderChange: OnMoveOrderChange,
   onDamageClassSelectChange: (MoveProp.DamageClass?) -> Unit

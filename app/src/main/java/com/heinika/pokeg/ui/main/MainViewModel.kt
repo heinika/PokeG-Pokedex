@@ -6,6 +6,7 @@ import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.PokemonProp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
@@ -44,9 +45,9 @@ class MainViewModel @Inject constructor(
       startSortAndFilter()
     }
 
-  private val _filterGenerations: MutableLiveData<List<PokemonProp.Generation>> =
+  private val _filterGenerations: MutableLiveData<List<Generation>> =
     MutableLiveData(emptyList())
-  val filterGenerations: LiveData<List<PokemonProp.Generation>> = _filterGenerations
+  val filterGenerations: LiveData<List<Generation>> = _filterGenerations
 
   private val _filterTags: MutableLiveData<List<PokemonProp.Tag>> =
     MutableLiveData(emptyList())
@@ -91,7 +92,7 @@ class MainViewModel @Inject constructor(
     _selectedBodyStatus.value = bodyStatus
   }
 
-  fun changeGenerations(list: List<PokemonProp.Generation>) {
+  fun changeGenerations(list: List<Generation>) {
     _filterGenerations.value = list
     startSortAndFilter()
   }
