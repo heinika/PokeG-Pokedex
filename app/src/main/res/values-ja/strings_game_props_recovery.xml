@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Potion">キズぐすり</string>
+    <string name="Antidote">どくけし</string>
+    <string name="Burn_Heal">やけどなおし</string>
+    <string name="Ice_Heal">こおりなおし</string>
+    <string name="Awakening">ねむけざまし</string>
+    <string name="Paralyze_Heal">まひなおし</string>
+    <string name="Full_Restore">かいふくのくすり</string>
+    <string name="Max_Potion">まんたんのくすり</string>
+    <string name="Hyper_Potion">すごいキズぐすり</string>
+    <string name="Super_Potion">いいキズぐすり</string>
+    <string name="Full_Heal">なんでもなおし</string>
+    <string name="Revive">げんきのかけら</string>
+    <string name="Max_Revive">げんきのかたまり</string>
+    <string name="Fresh_Water">おいしいみず</string>
+    <string name="Soda_Pop">サイコソーダ</string>
+    <string name="Lemonade">ミックスオレ</string>
+    <string name="Moomoo_Milk">モーモーミルク</string>
+    <string name="Energy_Powder">ちからのこな</string>
+    <string name="Energy_Root">ちからのねっこ</string>
+    <string name="Heal_Powder">ばんのうごな</string>
+    <string name="Revival_Herb">ふっかつそう</string>
+    <string name="Ether">ピーピーエイド</string>
+    <string name="Max_Ether">ピーピーリカバー</string>
+    <string name="Elixir">ピーピーエイダー</string>
+    <string name="Max_Elixir">ピーピーマックス</string>
+    <string name="Lava_Cookie">フエンせんべい</string>
+    <string name="Berry_Juice">きのみジュース</string>
+    <string name="Sacred_Ash">せいなるはい</string>
+    <string name="Rage_Candy_Bar">いかりまんじゅう</string>
+    <string name="Old_Gateau">もりのヨウカン</string>
+    <string name="Sweet_Heart">ハートスイーツ</string>
+    <string name="Casteliacone">ヒウンアイス</string>
+    <string name="Lumiose_Galette">ミアレガレット</string>
+    <string name="Shalour_Sable">シャラサブレ</string>
+    <string name="Big_Malasada">おおきいマラサダ</string>
+    <string name="Pewter_Crunchies">ニビあられ</string>
+    <string name="Max_Honey">ダイミツ</string>
+
+
+    <string name="Potion_flavor">喷雾式伤药。能让１只宝可梦回复２０ＨＰ。</string>
+    <string name="Antidote_flavor">喷雾式药水。能治愈１只宝可梦的中毒状态。</string>
+    <string name="Burn_Heal_flavor">喷雾式药水。能治愈１只宝可梦的灼伤状态。</string>
+    <string name="Ice_Heal_flavor">喷雾式药水。能治愈１只宝可梦的冰冻状态。</string>
+    <string name="Awakening_flavor">喷雾式药水。能治愈１只宝可梦的睡眠状态。</string>
+    <string name="Paralyze_Heal_flavor">喷雾式药水。能治愈１只宝可梦的麻痹状态。</string>
+    <string name="Full_Restore_flavor">能回复１只宝可梦的所有ＨＰ并治愈所有异常状态。</string>
+    <string name="Max_Potion_flavor">喷雾式伤药。能让１只宝可梦回复所有ＨＰ。</string>
+    <string name="Hyper_Potion_flavor">喷雾式伤药。能让１只宝可梦回复１２０ＨＰ。</string>
+    <string name="Super_Potion_flavor">喷雾式伤药。能让１只宝可梦回复６０ＨＰ。</string>
+    <string name="Full_Heal_flavor">喷雾式药水。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Revive_flavor">能让１只陷入濒死的宝可梦重获生机，并回复一半ＨＰ。</string>
+    <string name="Max_Revive_flavor">能让１只陷入濒死的宝可梦重获生机，并回复所有ＨＰ。</string>
+    <string name="Fresh_Water_flavor">富含矿物质的水。能让１只宝可梦回复３０ＨＰ。</string>
+    <string name="Soda_Pop_flavor">翻腾着气泡的汽水。能让１只宝可梦回复５０ＨＰ。</string>
+    <string name="Lemonade_flavor">非常香甜的牛奶。能让１只宝可梦回复７０ＨＰ。</string>
+    <string name="Moomoo_Milk_flavor">营养百分百的牛奶。能让１只宝可梦回复１００ＨＰ。</string>
+    <string name="Energy_Powder_flavor">非常苦的药粉。能让１只宝可梦回复６０ＨＰ。</string>
+    <string name="Energy_Root_flavor">非常苦的根。能让１只宝可梦回复１２０ＨＰ。</string>
+    <string name="Heal_Powder_flavor">非常苦的药粉。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Revival_Herb_flavor">非常苦的药草。能让１只濒死的宝可梦回复所有ＨＰ。</string>
+    <string name="Ether_flavor">能让宝可梦学会的其中１个招式回复１０ＰＰ。</string>
+    <string name="Max_Ether_flavor">能让宝可梦学会的其中１个招式回复所有ＰＰ。</string>
+    <string name="Elixir_flavor">能让宝可梦学会的４个招式各回复１０ＰＰ。</string>
+    <string name="Max_Elixir_flavor">能让宝可梦学会的４个招式回复所有ＰＰ。</string>
+    <string name="Lava_Cookie_flavor">釜炎特产的仙贝。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Berry_Juice_flavor">１００％树果果汁。能让１只宝可梦回复２０ＨＰ。</string>
+    <string name="Sacred_Ash_flavor">能让陷入濒死的全部宝可梦回复所有ＨＰ。</string>
+    <string name="Rage_Candy_Bar_flavor">卡吉镇特产的馒头。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Old_Gateau_flavor">百代不为人知的特产。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Sweet_Heart_flavor">非常甜腻的巧克力。能让１只宝可梦回复２０ＨＰ。</string>
+    <string name="Casteliacone_flavor">飞云市特产的冰淇淋。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Lumiose_Galette_flavor">在密阿雷市很受欢迎的点心。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Shalour_Sable_flavor">娑罗市特产的沙布蕾。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Big_Malasada_flavor">阿罗拉特产的油炸面包。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Pewter_Crunchies_flavor">深灰特产的糕点。能治愈１只宝可梦的所有异常状态。</string>
+    <string name="Max_Honey_flavor">极巨化的蜂女王制造出的蜜汁。放进极巨汤里，就能让汤的味道变得很温和。与活力块具有相同的效果。</string>
+
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
