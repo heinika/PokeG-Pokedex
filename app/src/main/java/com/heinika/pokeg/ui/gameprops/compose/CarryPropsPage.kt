@@ -32,7 +32,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationII)
     }
-    items(CarryIIProps.values()) {
+    items(carryIIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -41,7 +41,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationIII)
     }
-    items(CarryIIIProps.values()) {
+    items(carryIIIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -51,7 +51,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationIV)
     }
-    items(CarryIVProps.values()) {
+    items(carryIVPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -61,7 +61,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationV)
     }
-    items(CarryVProps.values()) {
+    items(carryVPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -71,7 +71,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationVI)
     }
-    items(CarryVIProps.values()) {
+    items(carryVIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -81,7 +81,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationVII)
     }
-    items(CarryVIIProps.values()) {
+    items(carryVIIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -91,7 +91,7 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     item {
       GenCard(Generation.GenerationVIII)
     }
-    items(CarryVIIIProps.values()) {
+    items(carryVIIIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)

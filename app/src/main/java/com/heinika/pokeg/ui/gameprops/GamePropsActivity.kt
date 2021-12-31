@@ -42,7 +42,8 @@ class GamePropsActivity : ComponentActivity() {
             val tab3Title = stringResource(R.string.game_props_pokeball)
             val tab4Title = stringResource(R.string.game_props_fossil)
             val tab5Title = stringResource(R.string.game_props_swap)
-            val tabTitles = listOf(tab1Title, tab2Title, tab3Title,tab4Title,tab5Title)
+            val tab6Title = stringResource(R.string.game_props_apricorn)
+            val tabTitles = listOf(tab1Title, tab2Title, tab3Title,tab4Title,tab5Title,tab6Title)
 
             val coroutineScope = rememberCoroutineScope()
             val pagerState = rememberPagerState()
@@ -78,6 +79,7 @@ class GamePropsActivity : ComponentActivity() {
                 2 -> PokeballPropsColumn()
                 3 -> FossilPropsColumn()
                 4 -> SwapPropsColumn()
+                5 -> ApricornPropsColumn()
                 else -> {
                   Text(text = tabTitles[pageIndex])
                 }

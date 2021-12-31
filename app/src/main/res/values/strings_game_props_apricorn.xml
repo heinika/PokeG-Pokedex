@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Red_Apricorn">Red Apricorn</string>
+    <string name="Blue_Apricorn">Blue Apricorn</string>
+    <string name="Yellow_Apricorn">Yellow Apricorn</string>
+    <string name="Green_Apricorn">Green Apricorn</string>
+    <string name="Pink_Apricorn">Pink Apricorn</string>
+    <string name="White_Apricorn">White Apricorn</string>
+    <string name="Black_Apricorn">Black Apricorn</string>
+
+
+    <string name="Red_Apricorn_flavor">红色的球果。有种刺鼻的气味。</string>
+    <string name="Blue_Apricorn_flavor">蓝色的球果。略有一股青草的香味。</string>
+    <string name="Yellow_Apricorn_flavor">黄色的球果。有种清爽的香味。</string>
+    <string name="Green_Apricorn_flavor">绿色的球果。有种焦香的香味，非常神奇。</string>
+    <string name="Pink_Apricorn_flavor">粉红色的球果。有种甜甜的，好闻的香味。</string>
+    <string name="White_Apricorn_flavor">白色的球果。没有任何气味。</string>
+    <string name="Black_Apricorn_flavor">黑色的球果。有种无法形容的气味。</string>
+
+
+</resources>
