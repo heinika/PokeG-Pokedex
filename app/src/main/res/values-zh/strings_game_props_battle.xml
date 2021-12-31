@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Guard_Spec">能力防守</string>
+    <string name="Dire_Hit">要害攻击</string>
+    <string name="X_Attack">力量强化</string>
+    <string name="X_Defense">防御强化</string>
+    <string name="X_Speed">速度强化</string>
+    <string name="X_Accuracy">命中强化</string>
+    <string name="X_Sp_Atk">特攻强化</string>
+    <string name="X_Sp_Def">特防强化</string>
+    <string name="Poké_Doll">皮皮玩偶</string>
+    <string name="Fluffy_Tail">向尾喵的尾巴</string>
+    <string name="Poké_Toy">宝可尾草</string>
+    <string name="Max_Mushrooms">极巨菇菇</string>
+
+
+    <string name="Guard_Spec_flavor">在战斗中，５回合内不让我方能力降低的道具。</string>
+    <string name="Dire_Hit_flavor">击中要害的几率会大幅提高。只能使用１次。离场后，效果便会消失。</string>
+    <string name="X_Attack_flavor">大幅提高战斗中宝可梦攻击的道具。离场后，效果便会消失。</string>
+    <string name="X_Defense_flavor">大幅提高战斗中宝可梦防御的道具。离场后，效果便会消失。</string>
+    <string name="X_Speed_flavor">大幅提高战斗中宝可梦速度的道具。离场后，效果便会消失。</string>
+    <string name="X_Accuracy_flavor">大幅提高战斗中宝可梦命中的道具。离场后，效果便会消失。</string>
+    <string name="X_Sp_Atk_flavor">大幅提高战斗中宝可梦特攻的道具。离场后，效果便会消失。</string>
+    <string name="X_Sp_Def_flavor">大幅提高战斗中宝可梦特防的道具。离场后，效果便会消失。</string>
+    <string name="Poké_Doll_flavor">能吸引宝可梦注意的道具。在和野生宝可梦的战斗中绝对可以逃走。</string>
+    <string name="Fluffy_Tail_flavor">能吸引宝可梦注意的道具。在和野生宝可梦的战斗中绝对可以逃走。</string>
+    <string name="Poké_Toy_flavor">能吸引宝可梦注意的道具。在和野生宝可梦的战斗中绝对可以逃走。</string>
+    <string name="Max_Mushrooms_flavor">拥有某种神奇力量的蘑菇，能改变宝可梦极巨化的样子。在战斗中，可以提高宝可梦所有的能力。</string>
+
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

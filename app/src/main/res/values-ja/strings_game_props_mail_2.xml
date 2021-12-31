@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Bluesky_Mail">あおぞらメール</string>
+    <string name="Eon_Mail">ブイブイメール</string>
+    <string name="Flower_Mail">はながらメール</string>
+    <string name="Liteblue_mail">みずいろメール</string>
+    <string name="Lovely_Mail">ラブリーメール</string>
+    <string name="Mirage_Mail">まぼろしメール</string>
+    <string name="Morph_Mail">へんしんメール</string>
+    <string name="Portrait_mail">にがおえメール</string>
+    <string name="Music_Mail">おんぷメール</string>
+    <string name="Surf_Mail">なみのりメール</string>
+
+    <string name="Bluesky_Mail_flavor">印有蓝天的邮件。</string>
+    <string name="Eon_Mail_flavor">印有伊布的邮件。</string>
+    <string name="Flower_Mail_flavor">印有花朵的邮件。</string>
+    <string name="Liteblue_mail_flavor">印有迷你龙的邮件。</string>
+    <string name="Lovely_Mail_flavor">印有心的邮件。</string>
+    <string name="Mirage_Mail_flavor">印有梦幻的邮件。</string>
+    <string name="Morph_Mail_flavor">印有百变怪的邮件。</string>
+    <string name="Portrait_mail_flavor">印有携带者肖像的邮件。</string>
+    <string name="Music_Mail_flavor">印有天然雀的邮件。</string>
+    <string name="Surf_Mail_flavor">印有拉普拉斯的邮件。</string>
+
+</resources>

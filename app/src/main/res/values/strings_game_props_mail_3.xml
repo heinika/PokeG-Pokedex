@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Orange_Mail">Orange Mail</string>
+    <string name="Harbor_Mail">Harbor Mail</string>
+    <string name="Glitter_Mail">Glitter Mail</string>
+    <string name="Mech_Mail">Mech Mail</string>
+    <string name="Wood_Mail">Wood Mail</string>
+    <string name="Wave_Mail">Wave Mail</string>
+    <string name="Bead_Mail">Bead Mail</string>
+    <string name="Shadow_Mail">Shadow Mail</string>
+    <string name="Tropical_Mail">Tropical Mail</string>
+    <string name="Dream_Mail">Dream Mail</string>
+    <string name="Miracle_Mail">Miracle Mail。</string>
+    <string name="Retro_Mail">Retro Mail。</string>
+
+    <string name="Orange_Mail_flavor">印有蛇纹熊的信纸，可以让宝可梦携带。</string>
+    <string name="Harbor_Mail_flavor">印有长翅鸥的信纸，可以让宝可梦携带。</string>
+    <string name="Glitter_Mail_flavor">印有皮卡丘的信纸，可以让宝可梦携带。</string>
+    <string name="Mech_Mail_flavor">印有小磁怪的信纸，可以让宝可梦携带。</string>
+    <string name="Wood_Mail_flavor">印有懒人獭的信纸，可以让宝可梦携带。</string>
+    <string name="Wave_Mail_flavor">印有吼吼鲸的信纸，可以让宝可梦携带。</string>
+    <string name="Bead_Mail_flavor">一张能显示持有者的图像的信纸，可以让宝可梦携带。</string>
+    <string name="Shadow_Mail_flavor">印有夜巡灵的信纸，可以让宝可梦携带。</string>
+    <string name="Tropical_Mail_flavor">印有美丽花的信纸，可以让宝可梦携带。</string>
+    <string name="Dream_Mail_flavor">一张能显示持有者的图像的信纸，可以让宝可梦携带。</string>
+    <string name="Miracle_Mail_flavor">一张华丽的信纸，可以让宝可梦携带。</string>
+    <string name="Retro_Mail_flavor">印有三种宝可梦的信纸，可以让宝可梦携带。</string>
+
+</resources>

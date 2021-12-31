@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Greet_Mail">初次邮件</string>
+    <string name="Favored_Mail">喜爱邮件</string>
+    <string name="RSVP_Mail">邀请邮件</string>
+    <string name="Thanks_Mail">感谢邮件</string>
+    <string name="Inquiry_Mail">询问邮件</string>
+    <string name="Like_Mail">推荐邮件</string>
+    <string name="Reply_Mail">回复邮件</string>
+    <string name="Bridge_Mail_S">桥梁邮件Ｓ</string>
+    <string name="Bridge_Mail_D">桥梁邮件Ｈ</string>
+    <string name="Bridge_Mail_T">桥梁邮件Ｃ</string>
+    <string name="Bridge_Mail_V">桥梁邮件Ｖ</string>
+    <string name="Bridge_Mail_M">桥梁邮件Ｗ</string>
+
+
+    <string name="Greet_Mail_flavor">方便写初次见面这类寒暄语的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Favored_Mail_flavor">方便写表达自己喜好这类邮件的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="RSVP_Mail_flavor">方便写邀请对方这类邮件的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Thanks_Mail_flavor">方便写表达感谢这类邮件的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Inquiry_Mail_flavor">方便写询问对方这类邮件的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Like_Mail_flavor">方便写推荐内容这类邮件的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Reply_Mail_flavor">方便写回复邮件的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bridge_Mail_S_flavor">印有通天桥图案的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bridge_Mail_D_flavor">印有鲜红色活动桥图案的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bridge_Mail_T_flavor">印有钢铁悬索桥图案的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bridge_Mail_V_flavor">印有砖桥图案的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bridge_Mail_M_flavor">印有拱桥图案的信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

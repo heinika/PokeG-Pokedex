@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Grass_Mail">グラスメール</string>
+    <string name="Flame_Mail">フレイムメール</string>
+    <string name="Bubble_Mail">ブルーメール</string>
+    <string name="Bloom_Mail">ブルームメール</string>
+    <string name="Tunnel_Mail">トンネルメール</string>
+    <string name="Steel_Mail">スチールメール</string>
+    <string name="Heart_Mail">ラブラブメール</string>
+    <string name="Snow_Mail">ブリザードメール</string>
+    <string name="Space_Mail">スペースメール</string>
+    <string name="Air_Mail">エアメール</string>
+    <string name="Mosaic_Mail">モザイクメール</string>
+    <string name="Brick_Mail">ブリックメール</string>
+
+
+    <string name="Grass_Mail_flavor">印有新鲜绿草的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Flame_Mail_flavor">印有红色火花的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bubble_Mail_flavor">印有水下蓝色世界的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Bloom_Mail_flavor">印有漂亮的花卉图案的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Tunnel_Mail_flavor">印有昏暗的煤矿的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Steel_Mail_flavor">印有很酷的机械设计的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Heart_Mail_flavor">印有巨大的爱心的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Snow_Mail_flavor">印有寒冷的冰雪覆盖的世界的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Space_Mail_flavor">印有广袤无垠的空间的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Air_Mail_flavor">印有丰富多彩条纹的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Mosaic_Mail_flavor">印有一个生动的彩虹图案的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+    <string name="Brick_Mail_flavor">印有坚硬砖墙的特殊信纸。使用该道具时，需要让宝可梦携带着来用。</string>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Bluesky_Mail">Bluesky Mail</string>
+    <string name="Eon_Mail">Eon Mail</string>
+    <string name="Flower_Mail">Flower Mail</string>
+    <string name="Liteblue_mail">Liteblue mail</string>
+    <string name="Lovely_Mail">Lovely Mail</string>
+    <string name="Mirage_Mail">Mirage Mail</string>
+    <string name="Morph_Mail">Morph Mail</string>
+    <string name="Portrait_mail">Portrait mail</string>
+    <string name="Music_Mail">Music Mail</string>
+    <string name="Surf_Mail">Surf Mail</string>
+
+    <string name="Bluesky_Mail_flavor">印有蓝天的邮件。</string>
+    <string name="Eon_Mail_flavor">印有伊布的邮件。</string>
+    <string name="Flower_Mail_flavor">印有花朵的邮件。</string>
+    <string name="Liteblue_mail_flavor">印有迷你龙的邮件。</string>
+    <string name="Lovely_Mail_flavor">印有心的邮件。</string>
+    <string name="Mirage_Mail_flavor">印有梦幻的邮件。</string>
+    <string name="Morph_Mail_flavor">印有百变怪的邮件。</string>
+    <string name="Portrait_mail_flavor">印有携带者肖像的邮件。</string>
+    <string name="Music_Mail_flavor">印有天然雀的邮件。</string>
+    <string name="Surf_Mail_flavor">印有拉普拉斯的邮件。</string>
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

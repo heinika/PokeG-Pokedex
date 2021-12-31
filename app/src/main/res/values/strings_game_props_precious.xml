@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Tiny_Mushroom">Tiny Mushroom</string>
+    <string name="Big_Mushroom">Big Mushroom</string>
+    <string name="Pearl">Pearl</string>
+    <string name="Big_Pearl">Big Pearl</string>
+    <string name="Stardust">Stardust</string>
+    <string name="Star_Piece">Star Piece</string>
+    <string name="Gold_Leaf">Gold Leaf</string>
+    <string name="Silver_Leaf">Silver Leaf</string>
+    <string name="Brick_Piece">Brick Piece</string>
+    <string name="Nugget">Nugget</string>
+    <string name="Rare_Bone">Rare Bone</string>
+    <string name="Pretty_Wing">Pretty Wing</string>
+    <string name="Balm_Mushroom">Balm Mushroom</string>
+    <string name="Big_Nugget">Big Nugget</string>
+    <string name="Pearl_String">Pearl String</string>
+    <string name="Comet_Shard">Comet Shard</string>
+    <string name="Relic_Copper">Relic Copper</string>
+    <string name="Relic_Silver">Relic Silver</string>
+    <string name="Relic_Gold">Relic Gold</string>
+    <string name="Relic_Vase">Relic Vase</string>
+    <string name="Relic_Band">Relic Band</string>
+    <string name="Relic_Statue">Relic Statue</string>
+    <string name="Relic_Crown">Relic Crown</string>
+    <string name="Strange_Souvenir">Strange Souvenir</string>
+    <string name="Bottle_Cap">Bottle Cap</string>
+    <string name="Gold_Bottle">Gold Bottle</string>
+    <string name="Stretchy_Spring">Stretchy Spring</string>
+    <string name="Chalky_Stone">Chalky Stone</string>
+    <string name="Marble">Marble</string>
+    <string name="Lone_Earring">Lone Earring</string>
+    <string name="Beach_Glass">Beach Glass</string>
+    <string name="Polished_Mud">Polished Mud</string>
+    <string name="Tropical_Shell">Tropical Shell</string>
+
+
+
+    <string name="Tiny_Mushroom_flavor">珍稀的小蘑菇。在一些爱好者中有着相当高的人气。</string>
+    <string name="Big_Mushroom_flavor">珍稀的大蘑菇。在一些爱好者中有着非常高的人气。</string>
+    <string name="Pearl_flavor">散发着美丽银辉且有点小的珍珠。可以在商店低价出售。</string>
+    <string name="Big_Pearl_flavor">散发着美丽银辉且相当大颗的珍珠。可以在商店高价出售。</string>
+    <string name="Stardust_flavor">手感细腻且十分美丽的红色沙子。可以在商店低价出售。</string>
+    <string name="Star_Piece_flavor">闪着红光且十分美丽的宝石碎片。可以在商店高价出售。</string>
+    <string name="Gold_Leaf_flavor">神奇的金色叶子。至今仍未发现能长出这种叶子的树木。</string>
+    <string name="Silver_Leaf_flavor">神奇的银色叶子。至今仍未发现能长出这种叶子的树木 。</string>
+    <string name="Brick_Piece_flavor">破裂的砖瓦碎片。</string>
+    <string name="Nugget__flavor">闪着金光，以纯金制成的珠子。可以在商店高价出售。</string>
+    <string name="Rare_Bone_flavor">在宝可梦考古学上非常贵重的骨头。可以在商店高价出售。</string>
+    <string name="Pretty_Wing_flavor">仅仅只是漂亮，没有任何效果，极其普通的羽毛。</string>
+    <string name="Balm_Mushroom_flavor">能让附近一带芳香四溢的珍稀蘑菇。可以在商店高价出售。</string>
+    <string name="Big_Nugget_flavor">以纯金制成，闪着金光的大珠子。可以在商店高价出售。</string>
+    <string name="Pearl_String_flavor">散发着美丽银辉且非常大颗的珍珠。可以在商店高价出售。</string>
+    <string name="Comet_Shard_flavor">彗星临近时，掉落到地表上的碎片。可以在商店高价出售。</string>
+    <string name="Relic_Copper_flavor">约３０００年前的文明使用的铜币。</string>
+    <string name="Relic_Silver_flavor">约３０００年前的文明使用的银币。</string>
+    <string name="Relic_Gold_flavor">约３０００年前的文明使用的金币。</string>
+    <string name="Relic_Vase_flavor">约３０００年前的文明制造的壶。</string>
+    <string name="Relic_Band_flavor">约３０００年前的文明制造的手镯。</string>
+    <string name="Relic_Statue_flavor">约３０００年前的文明制造的石像。</string>
+    <string name="Relic_Crown_flavor">约３０００年前的文明制造的王冠。</string>
+    <string name="Strange_Souvenir_flavor">在阿罗拉地区，据说是模仿古时候被称为守护神的神奇宝可梦而制作的摆设。</string>
+    <string name="Bottle_Cap_flavor">银色的美丽王冠。有些人收到它会很高兴。</string>
+    <string name="Gold_Bottle_flavor">金色的美丽王冠。比银色王冠珍贵。有些人收到它会很高兴。</string>
+    <string name="Stretchy_Spring_flavor">细小的弹簧。被拉得太长了，不知道能派上什么用。</string>
+    <string name="Chalky_Stone_flavor">路边捡到的白白的小石头。</string>
+    <string name="Marble_flavor">非常圆润的玻璃球。能在透明的球体中看见彩色玻璃的花纹。</string>
+    <string name="Lone_Earring_flavor">某人遗失的单只耳环。</string>
+    <string name="Beach_Glass_flavor">受到波浪的洗刷从而变成圆形的彩色玻璃片。表面摸起来有点粗糙不平。</string>
+    <string name="Polished_Mud_flavor">用泥土制作的丸子。花了大把时间打磨，表面油光水滑。</string>
+    <string name="Tropical_Shell_flavor">美丽的白色贝壳。或许是从温暖的海域那里漂流到这里的。</string>
+
+
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
