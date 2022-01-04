@@ -58,3 +58,28 @@ fun ApricornPropsColumn(modifier: Modifier = Modifier) {
     }
   }
 }
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun BattlePropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(battlePropList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}
+
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun RecoveryPropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(recoveryPropList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}

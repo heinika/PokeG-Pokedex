@@ -169,6 +169,9 @@
     <string name="game_props_swap">交换</string>
     <string name="game_props_carry">携带</string>
     <string name="game_props_apricorn">球果</string>
+    <string name="game_props_recovery">回复</string>
+    <string name="game_props_battle">战斗</string>
+    <string name="game_props_mail">邮件</string>
     <string name="game_props_other">其他</string>
 
 </resources>

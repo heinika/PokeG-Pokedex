@@ -108,6 +108,67 @@ val evolutionPropList = listOf(
   )
 )
 
+class BattleProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+val battlePropList = listOf(
+  BattleProp(R.string.Guard_Spec, R.string.Guard_Spec_flavor, R.drawable.battle_prop_1),
+  BattleProp(R.string.Dire_Hit, R.string.Dire_Hit_flavor, R.drawable.battle_prop_2),
+  BattleProp(R.string.X_Attack, R.string.X_Attack_flavor, R.drawable.battle_prop_3),
+  BattleProp(R.string.X_Defense, R.string.X_Defense_flavor, R.drawable.battle_prop_4),
+  BattleProp(R.string.X_Speed, R.string.X_Speed_flavor, R.drawable.battle_prop_5),
+  BattleProp(R.string.X_Accuracy, R.string.X_Accuracy_flavor, R.drawable.battle_prop_6),
+  BattleProp(R.string.X_Sp_Atk, R.string.X_Sp_Atk_flavor, R.drawable.battle_prop_7),
+  BattleProp(R.string.X_Sp_Def, R.string.X_Sp_Def_flavor, R.drawable.battle_prop_8),
+  BattleProp(R.string.Poké_Doll, R.string.Poké_Doll_flavor, R.drawable.battle_prop_9),
+  BattleProp(R.string.Fluffy_Tail, R.string.Fluffy_Tail_flavor, R.drawable.battle_prop_10),
+  BattleProp(R.string.Poké_Toy, R.string.Poké_Toy_flavor, R.drawable.battle_prop_11),
+  BattleProp(R.string.Max_Mushrooms, R.string.Max_Mushrooms_flavor, R.drawable.battle_prop_12),
+)
+
+class RecoveryProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+val recoveryPropList = listOf(
+  RecoveryProp(R.string.Potion, R.string.Potion_flavor, R.drawable.recovery_prop_1),
+  RecoveryProp(R.string.Antidote, R.string.Antidote_flavor, R.drawable.recovery_prop_2),
+  RecoveryProp(R.string.Burn_Heal, R.string.Burn_Heal_flavor, R.drawable.recovery_prop_3),
+  RecoveryProp(R.string.Ice_Heal, R.string.Ice_Heal_flavor, R.drawable.recovery_prop_4),
+  RecoveryProp(R.string.Awakening, R.string.Awakening_flavor, R.drawable.recovery_prop_5),
+  RecoveryProp(R.string.Paralyze_Heal, R.string.Paralyze_Heal_flavor, R.drawable.recovery_prop_6),
+  RecoveryProp(R.string.Full_Restore, R.string.Full_Restore_flavor, R.drawable.recovery_prop_7),
+  RecoveryProp(R.string.Max_Potion, R.string.Max_Potion_flavor, R.drawable.recovery_prop_8),
+  RecoveryProp(R.string.Hyper_Potion, R.string.Hyper_Potion_flavor, R.drawable.recovery_prop_9),
+  RecoveryProp(R.string.Super_Potion, R.string.Super_Potion_flavor, R.drawable.recovery_prop_10),
+  RecoveryProp(R.string.Full_Heal, R.string.Full_Heal_flavor, R.drawable.recovery_prop_11),
+  RecoveryProp(R.string.Revive, R.string.Revive_flavor, R.drawable.recovery_prop_12),
+  RecoveryProp(R.string.Max_Revive, R.string.Max_Revive_flavor, R.drawable.recovery_prop_13),
+  RecoveryProp(R.string.Fresh_Water, R.string.Fresh_Water_flavor, R.drawable.recovery_prop_14),
+  RecoveryProp(R.string.Soda_Pop, R.string.Soda_Pop_flavor, R.drawable.recovery_prop_15),
+  RecoveryProp(R.string.Lemonade, R.string.Lemonade_flavor, R.drawable.recovery_prop_16),
+  RecoveryProp(R.string.Moomoo_Milk, R.string.Moomoo_Milk_flavor, R.drawable.recovery_prop_17),
+  RecoveryProp(R.string.Energy_Powder, R.string.Energy_Powder_flavor, R.drawable.recovery_prop_18),
+  RecoveryProp(R.string.Energy_Root, R.string.Energy_Root_flavor, R.drawable.recovery_prop_19),
+  RecoveryProp(R.string.Heal_Powder, R.string.Heal_Powder_flavor, R.drawable.recovery_prop_20),
+  RecoveryProp(R.string.Revival_Herb, R.string.Revival_Herb_flavor, R.drawable.recovery_prop_21),
+  RecoveryProp(R.string.Ether, R.string.Ether_flavor, R.drawable.recovery_prop_22),
+  RecoveryProp(R.string.Max_Ether, R.string.Max_Ether_flavor, R.drawable.recovery_prop_23),
+  RecoveryProp(R.string.Elixir, R.string.Elixir_flavor, R.drawable.recovery_prop_24),
+  RecoveryProp(R.string.Max_Elixir, R.string.Max_Elixir_flavor, R.drawable.recovery_prop_25),
+  RecoveryProp(R.string.Lava_Cookie, R.string.Lava_Cookie_flavor, R.drawable.recovery_prop_26),
+  RecoveryProp(R.string.Berry_Juice, R.string.Berry_Juice_flavor, R.drawable.recovery_prop_27),
+  RecoveryProp(R.string.Sacred_Ash, R.string.Sacred_Ash_flavor, R.drawable.recovery_prop_28),
+  RecoveryProp(R.string.Rage_Candy_Bar, R.string.Rage_Candy_Bar_flavor, R.drawable.recovery_prop_29),
+  RecoveryProp(R.string.Old_Gateau, R.string.Old_Gateau_flavor, R.drawable.recovery_prop_30),
+  RecoveryProp(R.string.Sweet_Heart, R.string.Sweet_Heart_flavor, R.drawable.recovery_prop_31),
+  RecoveryProp(R.string.Casteliacone, R.string.Casteliacone_flavor, R.drawable.recovery_prop_32),
+  RecoveryProp(R.string.Lumiose_Galette, R.string.Lumiose_Galette_flavor, R.drawable.recovery_prop_33),
+  RecoveryProp(R.string.Shalour_Sable, R.string.Shalour_Sable_flavor, R.drawable.recovery_prop_34),
+  RecoveryProp(R.string.Big_Malasada, R.string.Big_Malasada_flavor, R.drawable.recovery_prop_35),
+  RecoveryProp(R.string.Pewter_Crunchies, R.string.Pewter_Crunchies_flavor, R.drawable.recovery_prop_36),
+  RecoveryProp(R.string.Max_Honey, R.string.Max_Honey_flavor, R.drawable.recovery_prop_37),
+)
+
 class Apricorn(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
@@ -119,6 +180,108 @@ val apricornList = listOf(
   Apricorn(R.string.Pink_Apricorn, R.string.Pink_Apricorn_flavor, R.drawable.apricorn_prop_5),
   Apricorn(R.string.White_Apricorn, R.string.White_Apricorn_flavor, R.drawable.apricorn_prop_6),
   Apricorn(R.string.Black_Apricorn, R.string.Black_Apricorn_flavor, R.drawable.apricorn_prop_7)
+)
+
+class PreciousProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+val preciousPropList = listOf(
+  PreciousProp(R.string.Tiny_Mushroom, R.string.Tiny_Mushroom_flavor, R.drawable.precious_prop_1),
+  PreciousProp(R.string.Big_Mushroom, R.string.Big_Mushroom_flavor, R.drawable.precious_prop_2),
+  PreciousProp(R.string.Pearl, R.string.Pearl_flavor, R.drawable.precious_prop_3),
+  PreciousProp(R.string.Big_Pearl, R.string.Big_Pearl_flavor, R.drawable.precious_prop_4),
+  PreciousProp(R.string.Stardust, R.string.Stardust_flavor, R.drawable.precious_prop_5),
+  PreciousProp(R.string.Star_Piece, R.string.Star_Piece_flavor, R.drawable.precious_prop_6),
+  PreciousProp(R.string.Gold_Leaf, R.string.Gold_Leaf_flavor, R.drawable.precious_prop_7),
+  PreciousProp(R.string.Silver_Leaf, R.string.Silver_Leaf_flavor, R.drawable.precious_prop_8),
+  PreciousProp(R.string.Brick_Piece, R.string.Brick_Piece_flavor, R.drawable.precious_prop_9),
+  PreciousProp(R.string.Nugget, R.string.Nugget_flavor, R.drawable.precious_prop_10),
+  PreciousProp(R.string.Rare_Bone, R.string.Rare_Bone_flavor, R.drawable.precious_prop_11),
+  PreciousProp(R.string.Pretty_Wing, R.string.Pretty_Wing_flavor, R.drawable.precious_prop_12),
+  PreciousProp(R.string.Balm_Mushroom, R.string.Balm_Mushroom_flavor, R.drawable.precious_prop_13),
+  PreciousProp(R.string.Big_Nugget, R.string.Big_Nugget_flavor, R.drawable.precious_prop_14),
+  PreciousProp(R.string.Pearl_String, R.string.Pearl_String_flavor, R.drawable.precious_prop_15),
+  PreciousProp(R.string.Comet_Shard, R.string.Comet_Shard_flavor, R.drawable.precious_prop_16),
+  PreciousProp(R.string.Relic_Copper, R.string.Relic_Copper_flavor, R.drawable.precious_prop_17),
+  PreciousProp(R.string.Relic_Silver, R.string.Relic_Silver_flavor, R.drawable.precious_prop_18),
+  PreciousProp(R.string.Relic_Gold, R.string.Relic_Gold_flavor, R.drawable.precious_prop_19),
+  PreciousProp(R.string.Relic_Vase, R.string.Relic_Vase_flavor, R.drawable.precious_prop_20),
+  PreciousProp(R.string.Relic_Band, R.string.Relic_Band_flavor, R.drawable.precious_prop_21),
+  PreciousProp(R.string.Relic_Statue, R.string.Relic_Statue_flavor, R.drawable.precious_prop_22),
+  PreciousProp(R.string.Relic_Crown, R.string.Relic_Crown_flavor, R.drawable.precious_prop_23),
+  PreciousProp(R.string.Strange_Souvenir, R.string.Strange_Souvenir_flavor, R.drawable.precious_prop_24),
+  PreciousProp(R.string.Bottle_Cap, R.string.Bottle_Cap_flavor, R.drawable.precious_prop_25),
+  PreciousProp(R.string.Gold_Bottle, R.string.Gold_Bottle_flavor, R.drawable.precious_prop_26),
+  PreciousProp(R.string.Stretchy_Spring, R.string.Stretchy_Spring_flavor, R.drawable.precious_prop_27),
+  PreciousProp(R.string.Chalky_Stone, R.string.Chalky_Stone_flavor, R.drawable.precious_prop_28),
+  PreciousProp(R.string.Marble, R.string.Marble_flavor, R.drawable.precious_prop_29),
+  PreciousProp(R.string.Lone_Earring, R.string.Lone_Earring_flavor, R.drawable.precious_prop_30),
+  PreciousProp(R.string.Beach_Glass, R.string.Beach_Glass_flavor, R.drawable.precious_prop_31),
+  PreciousProp(R.string.Polished_Mud, R.string.Polished_Mud_flavor, R.drawable.precious_prop_32),
+  PreciousProp(R.string.Tropical_Shell, R.string.Tropical_Shell_flavor, R.drawable.precious_prop_33),
+
+)
+
+class Mail(val gen: Generation,nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+val mailIIList = listOf(
+  Mail(Generation.GenerationII,R.string.Bluesky_Mail, R.string.Bluesky_Mail_flavor, R.drawable.mail_ii_prop_1),
+  Mail(Generation.GenerationII,R.string.Eon_Mail, R.string.Eon_Mail_flavor, R.drawable.mail_ii_prop_2),
+  Mail(Generation.GenerationII,R.string.Flower_Mail, R.string.Flower_Mail_flavor, R.drawable.mail_ii_prop_3),
+  Mail(Generation.GenerationII,R.string.Liteblue_mail, R.string.Liteblue_mail_flavor, R.drawable.mail_ii_prop_4),
+  Mail(Generation.GenerationII,R.string.Lovely_Mail, R.string.Lovely_Mail_flavor, R.drawable.mail_ii_prop_5),
+  Mail(Generation.GenerationII,R.string.Mirage_Mail, R.string.Mirage_Mail_flavor, R.drawable.mail_ii_prop_6),
+  Mail(Generation.GenerationII,R.string.Morph_Mail, R.string.Morph_Mail_flavor, R.drawable.mail_ii_prop_7),
+  Mail(Generation.GenerationII,R.string.Portrait_mail, R.string.Portrait_mail_flavor, R.drawable.mail_ii_prop_8),
+  Mail(Generation.GenerationII,R.string.Music_Mail, R.string.Music_Mail_flavor, R.drawable.mail_ii_prop_9),
+  Mail(Generation.GenerationII,R.string.Surf_Mail, R.string.Surf_Mail_flavor, R.drawable.mail_ii_prop_10),
+)
+
+val mailIIIList = listOf(
+  Mail(Generation.GenerationIII,R.string.Orange_Mail, R.string.Orange_Mail_flavor, R.drawable.mail_iii_prop_1),
+  Mail(Generation.GenerationIII,R.string.Harbor_Mail, R.string.Harbor_Mail_flavor, R.drawable.mail_iii_prop_2),
+  Mail(Generation.GenerationIII,R.string.Glitter_Mail, R.string.Glitter_Mail_flavor, R.drawable.mail_iii_prop_3),
+  Mail(Generation.GenerationIII,R.string.Mech_Mail, R.string.Mech_Mail_flavor, R.drawable.mail_iii_prop_4),
+  Mail(Generation.GenerationIII,R.string.Wood_Mail, R.string.Wood_Mail_flavor, R.drawable.mail_iii_prop_5),
+  Mail(Generation.GenerationIII,R.string.Wave_Mail, R.string.Wave_Mail_flavor, R.drawable.mail_iii_prop_6),
+  Mail(Generation.GenerationIII,R.string.Bead_Mail, R.string.Bead_Mail_flavor, R.drawable.mail_iii_prop_7),
+  Mail(Generation.GenerationIII,R.string.Shadow_Mail, R.string.Shadow_Mail_flavor, R.drawable.mail_iii_prop_8),
+  Mail(Generation.GenerationIII,R.string.Tropical_Mail, R.string.Tropical_Mail_flavor, R.drawable.mail_iii_prop_9),
+  Mail(Generation.GenerationIII,R.string.Dream_Mail, R.string.Dream_Mail_flavor, R.drawable.mail_iii_prop_10),
+  Mail(Generation.GenerationIII,R.string.Miracle_Mail, R.string.Miracle_Mail_flavor, R.drawable.mail_iii_prop_11),
+  Mail(Generation.GenerationIII,R.string.Retro_Mail, R.string.Retro_Mail_flavor, R.drawable.mail_iii_prop_12),
+
+)
+
+val mailIVList = listOf(
+  Mail(Generation.GenerationIV,R.string.Grass_Mail, R.string.Grass_Mail_flavor, R.drawable.mail_iv_prop_1),
+  Mail(Generation.GenerationIV,R.string.Flame_Mail, R.string.Flame_Mail_flavor, R.drawable.mail_iv_prop_2),
+  Mail(Generation.GenerationIV,R.string.Bubble_Mail, R.string.Bubble_Mail_flavor, R.drawable.mail_iv_prop_3),
+  Mail(Generation.GenerationIV,R.string.Bloom_Mail, R.string.Bloom_Mail_flavor, R.drawable.mail_iv_prop_5),
+  Mail(Generation.GenerationIV,R.string.Tunnel_Mail, R.string.Tunnel_Mail_flavor, R.drawable.mail_iv_prop_6),
+  Mail(Generation.GenerationIV,R.string.Steel_Mail, R.string.Steel_Mail_flavor, R.drawable.mail_iv_prop_7),
+  Mail(Generation.GenerationIV,R.string.Heart_Mail, R.string.Heart_Mail_flavor, R.drawable.mail_iv_prop_8),
+  Mail(Generation.GenerationIV,R.string.Snow_Mail, R.string.Snow_Mail_flavor, R.drawable.mail_iv_prop_9),
+  Mail(Generation.GenerationIV,R.string.Space_Mail, R.string.Space_Mail_flavor, R.drawable.mail_iv_prop_10),
+  Mail(Generation.GenerationIV,R.string.Air_Mail, R.string.Air_Mail_flavor, R.drawable.mail_iv_prop_11),
+  Mail(Generation.GenerationIV,R.string.Mosaic_Mail, R.string.Mosaic_Mail_flavor, R.drawable.mail_iv_prop_12),
+  Mail(Generation.GenerationIV,R.string.Brick_Mail, R.string.Brick_Mail_flavor, R.drawable.mail_iv_prop_12),
+)
+
+val mailVList = listOf(
+  Mail(Generation.GenerationV,R.string.Greet_Mail, R.string.Greet_Mail_flavor, R.drawable.mail_v_prop_1),
+  Mail(Generation.GenerationV,R.string.Favored_Mail, R.string.Favored_Mail_flavor, R.drawable.mail_v_prop_2),
+  Mail(Generation.GenerationV,R.string.RSVP_Mail, R.string.RSVP_Mail_flavor, R.drawable.mail_v_prop_3),
+  Mail(Generation.GenerationV,R.string.Thanks_Mail, R.string.Thanks_Mail_flavor, R.drawable.mail_v_prop_4),
+  Mail(Generation.GenerationV,R.string.Inquiry_Mail, R.string.Inquiry_Mail_flavor, R.drawable.mail_v_prop_5),
+  Mail(Generation.GenerationV,R.string.Like_Mail, R.string.Like_Mail_flavor, R.drawable.mail_v_prop_6),
+  Mail(Generation.GenerationV,R.string.Reply_Mail, R.string.Reply_Mail_flavor, R.drawable.mail_v_prop_7),
+  Mail(Generation.GenerationV,R.string.Bridge_Mail_S, R.string.Bridge_Mail_S_flavor, R.drawable.mail_v_prop_8),
+  Mail(Generation.GenerationV,R.string.Bridge_Mail_D, R.string.Bridge_Mail_D_flavor, R.drawable.mail_v_prop_9),
+  Mail(Generation.GenerationV,R.string.Bridge_Mail_T, R.string.Bridge_Mail_T_flavor, R.drawable.mail_v_prop_10),
+  Mail(Generation.GenerationV,R.string.Bridge_Mail_V, R.string.Bridge_Mail_V_flavor, R.drawable.mail_v_prop_11),
+  Mail(Generation.GenerationV,R.string.Bridge_Mail_M, R.string.Bridge_Mail_M_flavor, R.drawable.mail_v_prop_12),
 )
 
 
