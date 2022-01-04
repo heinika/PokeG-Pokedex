@@ -26,18 +26,6 @@ fun PokeballPropsColumn(modifier: Modifier = Modifier) {
 @Preview
 @ExperimentalMaterialApi
 @Composable
-fun FossilPropsColumn(modifier: Modifier = Modifier) {
-  LazyColumn(modifier) {
-    items(fossilList) {
-      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId))
-    }
-  }
-}
-
-@Preview
-@ExperimentalMaterialApi
-@Composable
 fun SwapPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
     items(swapPropList) {
