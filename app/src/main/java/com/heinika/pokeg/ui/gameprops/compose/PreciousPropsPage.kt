@@ -1,5 +1,6 @@
 package com.heinika.pokeg.ui.gameprops.compose
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -18,22 +19,20 @@ import com.heinika.pokeg.utils.preciousPropList
 @Preview
 @ExperimentalMaterialApi
 @Composable
-fun FossilPropsColumn(modifier: Modifier = Modifier) {
-  LazyColumn(modifier) {
+fun PreciousPropsPage(){
+  LazyColumn() {
+    item {
+      Text(text = stringResource(id = R.string.game_props_fossil),Modifier.padding(12.dp))
+    }
     items(fossilList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
       )
     }
-  }
-}
-
-@Preview
-@ExperimentalMaterialApi
-@Composable
-fun PreciousPropsColumn(modifier: Modifier = Modifier) {
-  LazyColumn(modifier) {
+    item {
+      Text(text = stringResource(id = R.string.game_props_precious_thing),Modifier.padding(12.dp))
+    }
     items(preciousPropList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
@@ -41,14 +40,4 @@ fun PreciousPropsColumn(modifier: Modifier = Modifier) {
       )
     }
   }
-}
-
-@Preview
-@ExperimentalMaterialApi
-@Composable
-fun PreciousPropsPage(){
-  Text(text = stringResource(id = R.string.game_props_fossil),Modifier.padding(12.dp))
-  FossilPropsColumn()
-  Text(text = stringResource(id = R.string.game_props_precious_thing),Modifier.padding(12.dp))
-  PreciousPropsColumn()
 }
