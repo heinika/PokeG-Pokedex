@@ -1,6 +1,5 @@
 package com.heinika.pokeg
 
-import com.heinika.pokeg.model.Pokemon
 import com.tencent.mmkv.MMKV
 
 object ConfigMMKV {

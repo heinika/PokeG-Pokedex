@@ -23,48 +23,9 @@ fun CarryPropsPage() {
 fun CarryPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
     item {
-      GenerationCard(Generation.GenerationII)
+      GenerationCard(Generation.GenerationVIII)
     }
-    items(carryIIPropsList) {
-      GamePropCard(
-        painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId)
-      )
-    }
-    item {
-      GenerationCard(Generation.GenerationIII)
-    }
-    items(carryIIIPropsList) {
-      GamePropCard(
-        painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId)
-      )
-    }
-
-    item {
-      GenerationCard(Generation.GenerationIV)
-    }
-    items(carryIVPropsList) {
-      GamePropCard(
-        painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId)
-      )
-    }
-
-    item {
-      GenerationCard(Generation.GenerationV)
-    }
-    items(carryVPropsList) {
-      GamePropCard(
-        painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId)
-      )
-    }
-
-    item {
-      GenerationCard(Generation.GenerationVI)
-    }
-    items(carryVIPropsList) {
+    items(carryVIIIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -82,9 +43,49 @@ fun CarryPropsColumn(modifier: Modifier = Modifier) {
     }
 
     item {
-      GenerationCard(Generation.GenerationVIII)
+      GenerationCard(Generation.GenerationVI)
     }
-    items(carryVIIIPropsList) {
+    items(carryVIPropsList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationV)
+    }
+    items(carryVPropsList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationIV)
+    }
+    items(carryIVPropsList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationIII)
+    }
+    items(carryIIIPropsList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationII)
+    }
+    items(carryIIPropsList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)

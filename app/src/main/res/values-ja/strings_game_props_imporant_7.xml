@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Makeup_Bag">コスメポーチ</string>
+    <string name="Z_Ring">Ｚリング</string>
+    <string name="Forage_Bag">ざいりょうぶくろ</string>
+    <string name="Fishing_Rod1">つりざお</string>
+    <string name="Fishing_Rod2">つりざお</string>
+    <string name="Professor_s_Mask">はかせのふくめん</string>
+    <string name="Sparkling_Stone1">かがやくいし</string>
+    <string name="Sparkling_Stone2">かがやくいし</string>
+    <string name="Zygarde_Cube">ジガルデキューブ</string>
+    <string name="Ride_Pager">ライドギア</string>
+    <string name="Sun_Flute">たいようのふえ</string>
+    <string name="Moon_Flute">つきのふえ</string>
+    <string name="Enigmatic_Card">あやしいカード</string>
+    <string name="Z_Power_Ring">Ｚパワーリング</string>
+    <string name="Pink_Petal">ももいろはなびら</string>
+    <string name="Orange_Petal">だいだいはなびら</string>
+    <string name="Blue_Petal">あおのはなびら</string>
+    <string name="Red_Petal">あかのはなびら</string>
+    <string name="Green_Petal">みどりのはなびら</string>
+    <string name="Yellow_Petal">きいろのはなびら</string>
+    <string name="Purple_Petal">むらさきはなびら</string>
+    <string name="Rainbow_Flower">にじいろのはな</string>
+    <string name="Surge_Badge">だいだいバッジ</string>
+    <string name="N_Solarizer">ネクロプラスソル</string>
+    <string name="N_Lunarizer">ネクロプラスルナ</string>
+    <string name="Ilima_s_Normalium">イリマのノーマルＺ</string>
+    <string name="Left_Poké_Ball">のこされたボール</string>
+    <string name="Autograph">マチスのサイン</string>
+    <string name="Pokémon_Box1">ポケモンボックス</string>
+    <string name="Pokémon_Box2">ポケモンボックス</string>
+    <string name="Medicine_Pocket">かいふくポケット</string>
+    <string name="Candy_Jar">アメボトル</string>
+    <string name="Power_Up_Pocket">きょうかポケット</string>
+    <string name="Clothing_Trunk">おきがえトランク</string>
+    <string name="Catching_Pocket">ほかくポケット</string>
+    <string name="Battle_Pocket">バトルポケット</string>
+
+    <string name="Makeup_Bag_flavor">可以存放唇膏的精美小包包。</string>
+    <string name="Z_Ring_flavor">通过使用训练家的气力和体力来让宝可梦释放出Ｚ力量的神奇手环。</string>
+    <string name="Forage_Bag_flavor">将丛林里收集到的材料装在一起的袋子。在玛奥的考验中使用。</string>
+    <string name="Fishing_Rod1_flavor">水莲队长制作的钓竿。如果向着岩石阴影那边使用，就能钓到宝可梦。</string>
+    <string name="Fishing_Rod2_flavor">在有水的地方使用，就能钓到各种各样的宝可梦。</string>
+    <string name="Professor_s_Mask_flavor">皇家蒙面人的面罩。好像是职业摔角手自己用缝纫机缝制的。</string>
+    <string name="Sparkling_Stone1_flavor">从被认为是阿罗拉守护神的宝可梦那里得到的石头。据说其光辉下有着某种秘密。</string>
+    <string name="Sparkling_Stone2_flavor">从被认为是阿罗拉守护神的宝可梦那里得到的石头。据说其光辉下有着某种秘密。</string>
+    <string name="Zygarde_Cube_flavor">用于收集宝可梦基格尔德的核心和细胞的道具。还可以教基格尔德招式。</string>
+    <string name="Ride_Pager_flavor">通过输入编号，瞬间召唤与编号对应的坐骑宝可梦的道具。</string>
+    <string name="Sun_Flute_flavor">为了对太阳的传说的宝可梦表达感激之情，据说会用它来献上美乐。</string>
+    <string name="Moon_Flute_flavor">为了对月亮的传说的宝可梦表达感激之情，据说会用它来献上美乐。</string>
+    <string name="Enigmatic_Card_flavor">上面写有“在阿卡拉岛８号道路的汽车旅馆客房里等”的谜之卡片。</string>
+    <string name="Z_Power_Ring_flavor">通过使用训练家的气力和体力来让宝可梦释放出Ｚ力量的神奇手环。</string>
+    <string name="Pink_Petal_flavor">在茉莉的考验中，能从茉莉那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Orange_Petal_flavor">在茉莉的考验中，能从伊利马那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Blue_Petal_flavor">在茉莉的考验中，能从水莲那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Red_Petal_flavor">在茉莉的考验中，能从卡奇那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Green_Petal_flavor">在茉莉的考验中，能从玛奥那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Yellow_Petal_flavor">在茉莉的考验中，能从马玛内那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Purple_Petal_flavor">在茉莉的考验中，能从默丹那里得到的干花花瓣。目标是集齐７种。</string>
+    <string name="Rainbow_Flower_flavor">将得自队长们那里的花瓣化零为整后形成的东西。是成长得到认可的证明。</string>
+    <string name="Surge_Badge_flavor">能从关都之道馆那里得到的徽章赠品。好像仿照了某个地区的道馆徽章。</string>
+    <string name="N_Solarizer_flavor">用来让需求光的奈克洛兹玛和索尔迦雷欧合体的机器。用来让曾需求过光的奈克洛兹玛和索尔迦雷欧分离的机器。</string>
+    <string name="N_Lunarizer_flavor">用来让需求光的奈克洛兹玛和露奈雅拉合体的机器。用来让曾需求过光的奈克洛兹玛和露奈雅拉分离的机器。</string>
+    <string name="Ilima_s_Normalium_flavor">伊利马交给你保管的一般Ｚ。受人嘱托要把它放到葱郁洞窟深处的台座上。</string>
+    <string name="Left_Poké_Ball_flavor">该精灵球里面装的是没有了训练家的宝可梦。那位训练家好像是出生自乌拉乌拉岛。</string>
+    <string name="Autograph_flavor">枯叶市道馆馆主马志士给你的彩色签名纸。上面写着“Good Luck！”。</string>
+    <string name="Pokémon_Box1_flavor">—</string>
+    <string name="Pokémon_Box2_flavor">可以随时访问宝可梦中心电脑里的盒子，来寄放或领回需要的宝可梦。</string>
+    <string name="Medicine_Pocket_flavor">—</string>
+    <string name="Candy_Jar_flavor">—</string>
+    <string name="Power_Up_Pocket_flavor">—</string>
+    <string name="Clothing_Trunk_flavor">非常轻的箱子。能塞入宝可梦或训练家的替换衣物。</string>
+    <string name="Catching_Pocket_flavor">—</string>
+    <string name="Battle_Pocket_flavor">—</string>
+
+
+
+</resources>

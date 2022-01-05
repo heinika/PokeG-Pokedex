@@ -26,18 +26,9 @@ fun MailPropsPage() {
 fun MailPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
     item {
-      GenerationCard(Generation.GenerationII)
+      GenerationCard(Generation.GenerationV)
     }
-    items(mailIIList) {
-      GamePropCard(
-        painterResource(id = it.imageResId), stringResource(it.nameResId),
-        stringResource(it.flavorResId)
-      )
-    }
-    item {
-      GenerationCard(Generation.GenerationIII)
-    }
-    items(mailIIIList) {
+    items(mailVList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)
@@ -55,9 +46,19 @@ fun MailPropsColumn(modifier: Modifier = Modifier) {
     }
 
     item {
-      GenerationCard(Generation.GenerationV)
+      GenerationCard(Generation.GenerationIII)
     }
-    items(mailVList) {
+    items(mailIIIList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationII)
+    }
+    items(mailIIList) {
       GamePropCard(
         painterResource(id = it.imageResId), stringResource(it.nameResId),
         stringResource(it.flavorResId)

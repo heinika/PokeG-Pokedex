@@ -31,5 +31,14 @@ fun ImportantPropsColumn(modifier: Modifier = Modifier) {
         stringResource(it.flavorResId)
       )
     }
+    item {
+      GenerationCard(Generation.GenerationVII)
+    }
+    items(importantVIIList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
   }
 }
