@@ -12,8 +12,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.fossilList
-import com.heinika.pokeg.utils.preciousPropList
+import com.heinika.pokeg.ui.gameprops.fossilList
+import com.heinika.pokeg.ui.gameprops.preciousPropList
 
 @Preview
 @ExperimentalMaterialApi

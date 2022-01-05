@@ -11,8 +11,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.theme.fireColor
-import com.heinika.pokeg.utils.EvolutionProp
-import com.heinika.pokeg.utils.evolutionPropList
+import com.heinika.pokeg.ui.gameprops.EvolutionProp
+import com.heinika.pokeg.ui.gameprops.evolutionPropList
 
 @ExperimentalMaterialApi
 @Preview
@@ -22,7 +22,8 @@ fun EvolutionPropsCard(props: EvolutionProp =  EvolutionProp(
   R.string.Fire_Stone,
   R.string.Fire_Stone_flavor,
   R.drawable.evolution_prop_1
-)) {
+)
+) {
   GamePropCard(
     painterResource(id = props.imageResId), stringResource(props.nameResId),
     stringResource(props.flavorResId), props.color, Color.Black

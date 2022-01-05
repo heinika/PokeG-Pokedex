@@ -1,8 +1,9 @@
-package com.heinika.pokeg.utils
+package com.heinika.pokeg.ui.gameprops
 
 import androidx.compose.ui.graphics.Color
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.theme.*
+import com.heinika.pokeg.utils.Generation
 
 sealed class GameProps(val nameResId: Int, val flavorResId: Int, val imageResId: Int)
 
@@ -222,7 +223,46 @@ val preciousPropList = listOf(
 
 )
 
-class Mail(val gen: Generation,nameResId: Int, flavorResId: Int, imageResId: Int) :
+class ImportantProp(val gen: Generation, nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+val importantVIIIList = listOf(
+  ImportantProp(Generation.GenerationVIII,R.string.Escape_Rope, R.string.Escape_Rope_flavor, R.drawable.important_viii_prop_1),
+  ImportantProp(Generation.GenerationVIII,R.string.Endorsement, R.string.Endorsement_flavor, R.drawable.important_viii_prop_2),
+  ImportantProp(Generation.GenerationVIII,R.string.Wishing_Star, R.string.Wishing_Star_flavor, R.drawable.important_viii_prop_3),
+  ImportantProp(Generation.GenerationVIII,R.string.Dynamax_Band, R.string.Dynamax_Band_flavor, R.drawable.important_viii_prop_4),
+  ImportantProp(Generation.GenerationVIII,R.string.Rotom_Bike1, R.string.Rotom_Bike1_flavor, R.drawable.important_viii_prop_5),
+  ImportantProp(Generation.GenerationVIII,R.string.Rotom_Bike2, R.string.Rotom_Bike2_flavor, R.drawable.important_viii_prop_6),
+  ImportantProp(Generation.GenerationVIII,R.string.Camping_Gear, R.string.Camping_Gear_flavor, R.drawable.important_viii_prop_7),
+  ImportantProp(Generation.GenerationVIII,R.string.Hi_tech_Earbuds, R.string.Hi_tech_Earbuds_flavor, R.drawable.important_viii_prop_8),
+  ImportantProp(Generation.GenerationVIII,R.string.Old_Letter, R.string.Old_Letter_flavor, R.drawable.important_viii_prop_9),
+  ImportantProp(Generation.GenerationVIII,R.string.Band_Autograph, R.string.Band_Autograph_flavor, R.drawable.important_viii_prop_10),
+  ImportantProp(Generation.GenerationVIII,R.string.Sonia_s_Book, R.string.Sonia_s_Book_flavor, R.drawable.important_viii_prop_11),
+  ImportantProp(Generation.GenerationVIII,R.string.Rotom_Catalog, R.string.Rotom_Catalog_flavor, R.drawable.important_viii_prop_12),
+  ImportantProp(Generation.GenerationVIII,R.string.Catching_Charm, R.string.Catching_Charm_flavor, R.drawable.important_viii_prop_13),
+  ImportantProp(Generation.GenerationVIII,R.string.Armor_Pass, R.string.Armor_Pass_flavor, R.drawable.important_viii_prop_14),
+  ImportantProp(Generation.GenerationVIII,R.string.Rotom_Bike3, R.string.Rotom_Bike3_flavor, R.drawable.important_viii_prop_15),
+  ImportantProp(Generation.GenerationVIII,R.string.Rotom_Bike4, R.string.Rotom_Bike4_flavor, R.drawable.important_viii_prop_16),
+  ImportantProp(Generation.GenerationVIII,R.string.Style_Card, R.string.Style_Card_flavor, R.drawable.important_viii_prop_17),
+  ImportantProp(Generation.GenerationVIII,R.string.Exp_Charm, R.string.Exp_Charm_flavor, R.drawable.important_viii_prop_18),
+  ImportantProp(Generation.GenerationVIII,R.string.Mark_Charm, R.string.Mark_Charm_flavor, R.drawable.important_viii_prop_19),
+  ImportantProp(Generation.GenerationVIII,R.string.Crown_Pass, R.string.Crown_Pass_flavor, R.drawable.important_viii_prop_20),
+  ImportantProp(Generation.GenerationVIII,R.string.Legendary_Clue_1, R.string.Legendary_Clue_1_flavor, R.drawable.important_viii_prop_21),
+  ImportantProp(Generation.GenerationVIII,R.string.Legendary_Clue_2, R.string.Legendary_Clue_2_flavor, R.drawable.important_viii_prop_22),
+  ImportantProp(Generation.GenerationVIII,R.string.Legendary_Clue_3, R.string.Legendary_Clue_3_flavor, R.drawable.important_viii_prop_23),
+  ImportantProp(Generation.GenerationVIII,R.string.Legendary_Clue, R.string.Legendary_Clue_flavor, R.drawable.important_viii_prop_24),
+  ImportantProp(Generation.GenerationVIII,R.string.Carrot_Seeds, R.string.Carrot_Seeds_flavor, R.drawable.important_viii_prop_25),
+  ImportantProp(Generation.GenerationVIII,R.string.Iceroot_Carrot, R.string.Iceroot_Carrot_flavor, R.drawable.important_viii_prop_26),
+  ImportantProp(Generation.GenerationVIII,R.string.Shaderoot_Carrot, R.string.Shaderoot_Carrot_flavor, R.drawable.important_viii_prop_27),
+  ImportantProp(Generation.GenerationVIII,R.string.White_Mane_Hair, R.string.White_Mane_Hair_flavor, R.drawable.important_viii_prop_28),
+  ImportantProp(Generation.GenerationVIII,R.string.Black_Mane_Hair, R.string.Black_Mane_Hair_flavor, R.drawable.important_viii_prop_29),
+  ImportantProp(Generation.GenerationVIII,R.string.Wooden_Crown, R.string.Wooden_Crown_flavor, R.drawable.important_viii_prop_30),
+  ImportantProp(Generation.GenerationVIII,R.string.Radiant_Petal, R.string.Radiant_Petal_flavor, R.drawable.important_viii_prop_31),
+  ImportantProp(Generation.GenerationVIII,R.string.Reins_of_Unity, R.string.Reins_of_Unity_flavor, R.drawable.important_viii_prop_32),
+  ImportantProp(Generation.GenerationVIII,R.string.DS_Sounds, R.string.DS_Sounds_flavor, R.drawable.important_viii_prop_33),
+)
+
+class Mail(val gen: Generation, nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
 val mailIIList = listOf(
