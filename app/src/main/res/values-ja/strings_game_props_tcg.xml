@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="TM1">わざマシン</string>
+    <string name="TM2">わざマシン</string>
+    <string name="HM1">ひでんマシン</string>
+    <string name="HM2">ひでんマシン</string>
+    <string name="TR">わざレコード</string>
+
+</resources>

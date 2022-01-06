@@ -1,51 +1,5 @@
-Mach_Bike1, 
-Mach_Bike2, 
-Acro_Bike1, 
-Acro_Bike2, 
-Contest_Pass
-Wailmer_Pail
-Devon_Goods,
-Soot_Sack, R
-Pokéblock_Ca
-Letter, R.st
-Eon_Ticket1,
-Eon_Ticket2,
-Scanner1, R.
-Scanner2, R.
-Go_Goggles1,
-Go_Goggles2,
-Meteorite1, 
-Meteorite2, 
-Meteorite3, 
-Meteorite4, 
-Meteorite5, 
-Rm_1_Key1, R
-Rm_1_Key2, R
-Rm_2_Key1, R
-Rm_2_Key2, R
-Rm_4_Key1, R
-Rm_4_Key2, R
-Rm_6_Key1, R
-Rm_6_Key2, R
-Storage_Key1
-Storage_Key2
-Storage_Key3
-Devon_Scope1
-Devon_Scope2
-Vs_Seeker, R
-Fame_Checker
-TM_Case1, R.
-TM_Case2, R.
-Berry_Pouch,
-Teachy_TV, R
-Tri_Pass, R.
-Rainbow_Pass
-Tea1, R.stri
-Tea2, R.stri
-MysticTicket
-AuroraTicket
-Powder_Jar, 
-Ruby, R.stri
-Sapphire, R.
-Magma_Emblem
-Old_Sea_Map,
+招式学习器
+招式学习器
+秘传学习器
+秘传学习器
+招式记录

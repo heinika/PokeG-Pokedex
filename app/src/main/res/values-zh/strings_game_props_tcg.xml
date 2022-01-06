@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="TM1">招式学习器</string>
+    <string name="TM2">招式学习器</string>
+    <string name="HM1">秘传学习器</string>
+    <string name="HM2">秘传学习器</string>
+    <string name="TR">招式记录</string>
+
+</resources>

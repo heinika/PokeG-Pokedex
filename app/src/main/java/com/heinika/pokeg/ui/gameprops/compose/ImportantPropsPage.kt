@@ -31,6 +31,7 @@ fun ImportantPropsColumn(modifier: Modifier = Modifier) {
         stringResource(it.flavorResId)
       )
     }
+
     item {
       GenerationCard(Generation.GenerationVII)
     }
@@ -40,5 +41,67 @@ fun ImportantPropsColumn(modifier: Modifier = Modifier) {
         stringResource(it.flavorResId)
       )
     }
+
+    item {
+      GenerationCard(Generation.GenerationVI)
+    }
+    items(importantVIList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationV)
+    }
+    items(importantVList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationIV)
+    }
+    items(importantIVList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationIII)
+    }
+    items(importantIIIList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationII)
+    }
+    items(importantIIList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+    item {
+      GenerationCard(Generation.GenerationI)
+    }
+    items(importantIList) {
+      GamePropCard(
+        painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId)
+      )
+    }
+
+
   }
 }

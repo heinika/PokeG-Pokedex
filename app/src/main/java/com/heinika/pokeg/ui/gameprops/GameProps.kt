@@ -127,6 +127,24 @@ val battlePropList = listOf(
   BattleProp(R.string.Max_Mushrooms, R.string.Max_Mushrooms_flavor, R.drawable.battle_prop_12),
 )
 
+class RoToProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+val rotoList = listOf(
+  RoToProp(R.string.Roto_Hatch, R.string.Roto_Hatch_flavor, R.drawable.roto_prop_1),
+  RoToProp(R.string.Roto_Bargain, R.string.Roto_Bargain_flavor, R.drawable.roto_prop_2),
+  RoToProp(R.string.Roto_Prize_Money, R.string.Roto_Prize_Money_flavor, R.drawable.roto_prop_3),
+  RoToProp(R.string.Roto_Exp_Points, R.string.Roto_Exp_Points_flavor, R.drawable.roto_prop_4),
+  RoToProp(R.string.Roto_Friendship, R.string.Roto_Friendship_flavor, R.drawable.roto_prop_5),
+  RoToProp(R.string.Roto_Encounter, R.string.Roto_Encounter_flavor, R.drawable.roto_prop_6),
+  RoToProp(R.string.Roto_Stealth, R.string.Roto_Stealth_flavor, R.drawable.roto_prop_7),
+  RoToProp(R.string.Roto_HP_Restore, R.string.Roto_HP_Restore_flavor, R.drawable.roto_prop_8),
+  RoToProp(R.string.Roto_PP_Restore, R.string.Roto_PP_Restore_flavor, R.drawable.roto_prop_9),
+  RoToProp(R.string.Roto_Boost, R.string.Roto_Boost_flavor, R.drawable.roto_prop_10),
+  RoToProp(R.string.Roto_Catch, R.string.Roto_Catch_flavor, R.drawable.roto_prop_11),
+)
+
+
 class RecoveryProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 

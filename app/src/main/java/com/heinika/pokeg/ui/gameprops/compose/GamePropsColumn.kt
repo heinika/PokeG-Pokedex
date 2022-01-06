@@ -71,3 +71,16 @@ fun RecoveryPropsColumn(modifier: Modifier = Modifier) {
     }
   }
 }
+
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun RotoPropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(rotoList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}

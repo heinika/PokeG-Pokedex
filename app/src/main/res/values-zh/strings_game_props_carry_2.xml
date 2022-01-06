@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Bright_Powder">光粉</string>
-    <string name="Exp_Share">学习装置</string>
+    <string name="Exp_Share2">学习装置</string>
     <string name="Quick_Claw">先制之爪</string>
     <string name="Kings_Rock">王者之证</string>
     <string name="Silver_Powder">银粉</string>
@@ -50,7 +50,7 @@
     <string name="MysteryBerry">神奇的果实</string>
 
     <string name="Bright_Powder_flavor">闪闪发光的粉末。携带后，光芒会迷惑对手，从而使其招式变得不容易命中。</string>
-    <string name="Exp_Share_flavor">携带的宝可梦就算没有参与对战也能分享到经验值的便利装置。</string>
+    <string name="Exp_Share2_flavor">携带的宝可梦就算没有参与对战也能分享到经验值的便利装置。</string>
     <string name="Quick_Claw_flavor">又轻又尖锐的爪子。携带后，有时能比对手先一步行动。</string>
     <string name="Kings_Rock_flavor">携带后进行攻击，在造成伤害时，有时会让对手畏缩。</string>
     <string name="Silver_Powder_flavor">散发着银色光辉的粉末。携带后，虫属性的招式威力就会提高。</string>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Roto_Hatch">タマゴふかポン</string>
+    <string name="Roto_Bargain">やすうりポン</string>
+    <string name="Roto_Prize_Money">おこづかいポン</string>
+    <string name="Roto_Exp_Points">けいけんポン</string>
+    <string name="Roto_Friendship">なつきポン</string>
+    <string name="Roto_Encounter">みっけポン</string>
+    <string name="Roto_Stealth">かくれポン</string>
+    <string name="Roto_HP_Restore">ＨＰかいふくポン</string>
+    <string name="Roto_PP_Restore">ＰＰかいふくポン</string>
+    <string name="Roto_Boost">おうえんポン</string>
+    <string name="Roto_Catch">つかまえポン</string>
+
+    <string name="Roto_Hatch_flavor">洛托姆之力的一种，使用后，蛋就会变得非常容易孵化。</string>
+    <string name="Roto_Bargain_flavor">洛托姆之力的一种，使用后，友好商店的商品就会变成半价。</string>
+    <string name="Roto_Prize_Money_flavor">洛托姆之力的一种，对战后能得到的零花钱会变成３倍。</string>
+    <string name="Roto_Exp_Points_flavor">洛托姆之力的一种，对战后能得到的经验值会稍微增加。</string>
+    <string name="Roto_Friendship_flavor">洛托姆之力的一种，带在身边的宝可梦会变得非常容易亲近。</string>
+    <string name="Roto_Encounter_flavor">洛托姆之力的一种，一定时间内，会变得容易遇到高等级的野生宝可梦。</string>
+    <string name="Roto_Stealth_flavor">洛托姆之力的一种，一定时间内，会变得完全不会遇到野生宝可梦。</string>
+    <string name="Roto_HP_Restore_flavor">洛托姆之力的一种，正在战斗的我方宝可梦的ＨＰ会全部回复。</string>
+    <string name="Roto_PP_Restore_flavor">洛托姆之力的一种，正在战斗的我方宝可梦的ＰＰ会全部回复。</string>
+    <string name="Roto_Boost_flavor">洛托姆之力的一种，正在战斗的我方宝可梦的所有能力都会提高。</string>
+    <string name="Roto_Catch_flavor">洛托姆之力的一种，使用后，眼前的野生宝可梦会变得非常容易捕捉。</string>
+
+</resources>
