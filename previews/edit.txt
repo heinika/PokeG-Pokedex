@@ -1,199 +1,51 @@
-可以存放代币的盒子。最多能放入９９９９枚在游戏城获得的代币。
-可以存放代币的盒子。最多能放入５００００枚在游戏城获得的代币。
-会对看不见的道具起反应，并发出声音告诉你。
-会对看不见的道具起反应，并发出声音和光线将它的位置告诉你的最尖端机器。
-会对看不见的道具起反应，并发出声音和光线将它的位置告诉你的最尖端机器。
-会对看不见的道具起反应，并发出声音和光线将它的位置告诉你的最尖端机器。
-会对看不见的道具起反应，并将它的位置告诉你的最尖端机器。戴在头上使用。
-又破又旧的钓竿。在有水的地方使用的话，可以钓到宝可梦。
-又破又旧的钓竿。在有水的地方使用的话，可以钓到宝可梦。
-不错的新钓竿。在有水的地方使用的话，可以钓到宝可梦。
-不错的新钓竿。在有水的地方使用的话，可以钓到宝可梦。
-最新的厉害钓竿。在有水的地方使用的话，可以钓到宝可梦。
-最新的厉害钓竿。在有水的地方使用的话，可以钓到宝可梦。
-乘坐圣特安努号时所需的船票。上面绘有船的图案。
-乘坐高速船水流号时所需的船票。上面绘有船的图案。
-乘坐渡船时需要用到。
-这是常青市的友好商店托付给你的包裹。需要将它交给大木博士。
-这是别人托付给你的包裹。需要将它交给从双叶镇启程踏上旅途的青梅竹马。
-能吹出让睡着的宝可梦都会情不自禁醒来的美妙音色的笛子。
-能吹出让睡着的宝可梦都会情不自禁醒来的美妙音色的笛子。
-能打开红莲岛上那座宝可梦道馆的钥匙。周身都以红色装饰。
-在特定的地方使用，就会发出特殊电信号来开门的高科技钥匙。
-给华蓝市的奇迹自行车店就能交换得到自行车。
-狩猎地带的园长遗失的金假牙。装上它后，笑起来十分耀眼。
-狩猎地带的园长遗失的金假牙。装上它后，笑起来十分耀眼。
-带有火箭队标志的钥匙。能启动位于火箭队基地的电梯。
-带有火箭队标志的钥匙。能启动位于火箭队基地的电梯。
-能比跑步鞋跑得还快的折叠式自行车。
-能比跑步鞋跑得还快的折叠式自行车。
-能比跑步鞋跑得还快的折叠式自行车。
-能比跑步鞋跑得还快的折叠式自行车。
-能比跑步鞋跑得还快的折叠式自行车。
-可以随时轻松查看的便利地图。也能清楚自己的位置。
-可以随时轻松查看的便利地图。也能清楚自己的位置。
-可以随时轻松查看的便利地图。也能清楚自己的位置。
-西尔佛公司制造的透视镜。可以看见人眼无法看见的东西。
-西尔佛公司制造的透视镜。可以看见人眼无法看见的东西。
-用来打开位于金黄市的西尔佛公司总部大厦门锁的卡片式钥匙。
-用来打开电台卷帘门的卡片式钥匙。
-
-代币盒
-代币盒
-探宝器
-探宝器
-探宝器
-探宝器
-探宝器
-破旧钓竿
-破旧钓竿
-好钓竿
-好钓竿
-厉害钓竿
-厉害钓竿
-船票
-船票
-船票
-包裹
-包裹
-宝可梦之笛
-宝可梦之笛
-秘密钥匙
-秘密钥匙
-兑换券
-金假牙
-金假牙
-电梯钥匙
-电梯钥匙
-自行车
-自行车
-自行车
-自行车
-自行车
-城镇地图
-城镇地图
-城镇地图
-西尔佛检视镜
-西尔佛检视镜
-钥匙卡
-钥匙卡
-
-コインケース
-コインケース
-ダウジングマシン
-ダウジングマシン
-ダウジングマシン
-ダウジングマシン
-ダウジングマシン
-ボロのつりざお
-ボロのつりざお
-いいつりざお
-いいつりざお
-すごいつりざお
-すごいつりざお
-ふねのチケット
-ふねのチケット
-ふねのチケット
-おとどけもの
-おとどけもの
-ポケモンのふえ
-ポケモンのふえ
-ひみつのカギ
-ひみつのカギ
-ひきかえけん
-きんのいれば
-きんのいれば
-エレベータのカギ
-エレベータのカギ
-じてんしゃ
-じてんしゃ
-じてんしゃ
-じてんしゃ
-じてんしゃ
-タウンマップ
-タウンマップ
-タウンマップ
-シルフスコープ
-シルフスコープ
-カードキー
-カードキー
-
-Coin Case
-Coin Case
-Itemfinder
-Dowsing MCHN
-Dowsing MCHN
-Dowsing Machine
-Dowsing Machine
-Old Rod
-Old Rod
-Good Rod
-Good Rod
-Super Rod
-Super Rod
-S.S. Ticket
-S.S. Ticket
-S.S. Ticket
-Parcel
-Parcel
-Poké Flute
-Poké Flute
-Secret Key
-Secret Key
-Bike Voucher
-Gold Teeth
-Gold Teeth
-Lift Key
-Lift Key
-Bicycle
-Bicycle
-Bicycle
-Bicycle
-Bicycle
-Town Map
-Town Map
-Town Map
-Silph Scope
-Silph Scope
-Card Key
-Card Key
-
-Coin_Case1
-Coin_Case2
-Itemfinder
-Dowsing_MCHN1
-Dowsing_MCHN2
-Dowsing_Machine1
-Dowsing_Machine2
-Old_Rod1
-Old_Rod2
-Good_Rod1
-Good_Rod2
-Super_Rod1
-Super_Rod2
-SS_Ticket1
-SS_Ticket2
-SS_Ticket3
-Parcel1
-Parcel2
-Poké_Flute1
-Poké_Flute2
-Secret_Key1
-Secret_Key2
-Bike_Voucher
-Gold_Teeth1
-Gold_Teeth2
-Lift_Key1
-Lift_Key2
-Bicycle1
-Bicycle2
-Bicycle3
-Bicycle4
-Bicycle5
-Town_Map1
-Town_Map2
-Town_Map3
-Silph_Scope1
-Silph_Scope2
-Card_Key1
-Card_Key2
+Mach_Bike1, 
+Mach_Bike2, 
+Acro_Bike1, 
+Acro_Bike2, 
+Contest_Pass
+Wailmer_Pail
+Devon_Goods,
+Soot_Sack, R
+Pokéblock_Ca
+Letter, R.st
+Eon_Ticket1,
+Eon_Ticket2,
+Scanner1, R.
+Scanner2, R.
+Go_Goggles1,
+Go_Goggles2,
+Meteorite1, 
+Meteorite2, 
+Meteorite3, 
+Meteorite4, 
+Meteorite5, 
+Rm_1_Key1, R
+Rm_1_Key2, R
+Rm_2_Key1, R
+Rm_2_Key2, R
+Rm_4_Key1, R
+Rm_4_Key2, R
+Rm_6_Key1, R
+Rm_6_Key2, R
+Storage_Key1
+Storage_Key2
+Storage_Key3
+Devon_Scope1
+Devon_Scope2
+Vs_Seeker, R
+Fame_Checker
+TM_Case1, R.
+TM_Case2, R.
+Berry_Pouch,
+Teachy_TV, R
+Tri_Pass, R.
+Rainbow_Pass
+Tea1, R.stri
+Tea2, R.stri
+MysticTicket
+AuroraTicket
+Powder_Jar, 
+Ruby, R.stri
+Sapphire, R.
+Magma_Emblem
+Old_Sea_Map,
