@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="GS_Ball">ＧＳ球</string>
+    <string name="Egg_Ticket">宝可梦的蛋兑换券</string>
+    <string name="Pass2">定期月票</string>
+    <string name="Clear_Bell">透明铃铛</string>
+    <string name="Blue_Card">蓝卡</string>
+    <string name="Squirtbottle1">杰尼龟喷壶</string>
+    <string name="Squirtbottle2">杰尼龟喷壶</string>
+    <string name="Red_Scale">红色鳞片</string>
+    <string name="Lost_Item1">遗失物</string>
+    <string name="Lost_Item2">遗失物</string>
+    <string name="Machine_Part">机械零件</string>
+    <string name="Basement_Key1">地下钥匙</string>
+    <string name="Basement_Key2">地下钥匙</string>
+    <string name="Silver_Wing1">银色之羽</string>
+    <string name="Silver_Wing2">银色之羽</string>
+    <string name="Rainbow_Wing">虹色之羽</string>
+    <string name="Mystery_Egg">神奇蛋</string>
+    <string name="SecretPotion">秘传之药</string>
+
+
+    <string name="GS_Ball_flavor">神秘的精灵球。</string>
+    <string name="Egg_Ticket_flavor">似乎可以在满金市交换柜台使用。</string>
+    <string name="Pass2_flavor">可以搭乘列车。</string>
+    <string name="Clear_Bell_flavor">能发出静心宁神音色的，非常古旧的铃铛。</string>
+    <string name="Blue_Card_flavor">可以将《葵妍的密语》这节目的点数积攒起来的卡片。</string>
+    <string name="Squirtbottle1_flavor">杰尼龟外形的喷壶，用来给草木增加水分的道具。</string>
+    <string name="Squirtbottle2_flavor">浇水的道具。能让树果种植盆里的树果快快长大。</string>
+    <string name="Red_Scale_flavor">在愤怒之湖里出现的红色暴鲤龙的鳞片。散发著像火一样的红色光芒。</string>
+    <string name="Lost_Item1_flavor">模仿少女丢失的皮皮玩偶</string>
+    <string name="Lost_Item2_flavor">模仿少女丢失的魔尼尼人偶。</string>
+    <string name="Machine_Part_flavor">发电厂里被盗的，用于发电机的重要零件。</string>
+    <string name="Basement_Key1_flavor">用来打开满金地道大门的钥匙。</string>
+    <string name="Basement_Key2_flavor">进入紫堇地下的新紫堇时，所使用的钥匙。</string>
+    <string name="Silver_Wing1_flavor">散发着银色光辉的神奇羽毛。</string>
+    <string name="Silver_Wing2_flavor">散发着银色光辉的神奇羽毛。</string>
+    <string name="Rainbow_Wing_flavor">散发着虹色光辉的神奇羽毛。</string>
+    <string name="Mystery_Egg_flavor">从宝可梦爷爷那里得到的有着神奇花纹的蛋。不知道是什么的蛋。</string>
+    <string name="SecretPotion_flavor">在湛蓝市的药店里得到的，能让任何宝可梦立刻变得精力充沛的高效药。</string>
+</resources>

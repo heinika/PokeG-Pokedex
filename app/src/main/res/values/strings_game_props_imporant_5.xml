@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Xtransceiver1">Xtransceiver</string>
+    <string name="Xtransceiver2">Xtransceiver</string>
+    <string name="Xtransceiver3">Xtransceiver</string>
+    <string name="Xtransceiver4">Xtransceiver</string>
+    <string name="Dragon_Skull">Dragon Skull</string>
+    <string name="Prop_Case">Prop Case</string>
+    <string name="Liberty_Pass">Liberty Pass</string>
+    <string name="Light_Stone">Light Stone</string>
+    <string name="Dark_Stone">Dark Stone</string>
+    <string name="God_Stone">God Stone</string>
+    <string name="Gram_1">Gram 1</string>
+    <string name="Gram_2">Gram 2</string>
+    <string name="Gram_3">Gram 3</string>
+    <string name="Medal_Box">Medal Box</string>
+    <string name="DNA_Splicers1">DNA Splicers</string>
+    <string name="DNA_Splicers2">DNA Splicers</string>
+    <string name="Permit">Permit</string>
+    <string name="Oval_Charm">Oval Charm</string>
+    <string name="Shiny_Charm">Shiny Charm</string>
+    <string name="Plasma_Card">Plasma Card</string>
+    <string name="Grubby_Hanky">Grubby Hanky</string>
+    <string name="Colress_Machine">Colress Machine</string>
+    <string name="Dropped_Item1">Dropped Item</string>
+    <string name="Dropped_Item2">Dropped Item</string>
+    <string name="Reveal_Glass">Reveal Glass</string>
+
+
+    <string name="Xtransceiver1_flavor">带摄像头功能，最多能让４人进行通话的最新型对讲机。</string>
+    <string name="Xtransceiver2_flavor">带摄像头功能，最多能让４人进行通话的最新型对讲机。</string>
+    <string name="Xtransceiver3_flavor">带摄像头功能，最多能让４人进行通话的最新型对讲机。</string>
+    <string name="Xtransceiver4_flavor">带摄像头功能，最多能让４人进行通话的最新型对讲机。</string>
+    <string name="Dragon_Skull_flavor">据说是能在狂风暴雨的大海上随意翱翔的宝可梦的头骨。</string>
+    <string name="Prop_Case_flavor">漂亮精美的箱子。可以存放宝可梦出演音乐剧时用来装扮自己的多种小物件。</string>
+    <string name="Liberty_Pass_flavor">用于前往自由庭园岛的特殊船票。可以从飞云市上船。</string>
+    <string name="Light_Stone_flavor">莱希拉姆的肉体毁灭后变成的样子。据说它在等待着英雄的到来。</string>
+    <string name="Dark_Stone_flavor">捷克罗姆的肉体毁灭后变成的样子。据说它在等待着英雄的到来。</string>
+    <string name="God_Stone_flavor">奇幻之石。</string>
+    <string name="Gram_1_flavor">长翅鸥投递的重要信件。</string>
+    <string name="Gram_2_flavor">长翅鸥投递的重要信件。</string>
+    <string name="Gram_3_flavor">长翅鸥投递的重要信件。</string>
+    <string name="Medal_Box_flavor">可以放入获得的奖牌，并记录奖牌信息的箱形机器。</string>
+    <string name="DNA_Splicers1_flavor">据说是能让原本为一体的酋雷姆和某宝可梦合体的一对楔子。</string>
+    <string name="DNA_Splicers2_flavor">能让合体后的酋雷姆和某宝可梦分离成原状的一对楔子。</string>
+    <string name="Permit_flavor">只有极少数人才知道的，进入自然保护区所需的授权卡。</string>
+    <string name="Oval_Charm_flavor">拥有它之后，在寄放屋里会更容易找到蛋的神奇浑圆护符。</string>
+    <string name="Shiny_Charm_flavor">拥有它之后，据说会更容易遇见发光宝可梦的神奇闪光护符。</string>
+    <string name="Plasma_Card_flavor">在等离子驱逐舰的船内输入密码时，需要用到的钥匙卡。</string>
+    <string name="Grubby_Hanky_flavor">七宝市仓库咖啡馆的熟客遗失的手帕。隐约有着宝可梦的香气。</string>
+    <string name="Colress_Machine_flavor">能强行让宝可梦的能力觉醒的特殊装置。但由于是试制品，功能尚未完善。</string>
+    <string name="Dropped_Item1_flavor">在雷文市的游乐园里捡到的即时通讯器。失主好像是个男孩子。</string>
+    <string name="Dropped_Item2_flavor">在雷文市的游乐园里捡到的即时通讯器。失主好像是个女孩子。</string>
+    <string name="Reveal_Glass_flavor">能够通过照出真实，让宝可梦变回原来样子的神奇镜子。</string>
+
+
+</resources>
