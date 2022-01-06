@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Normalium_Z_pokemon">Normalium Z</string>
+    <string name="Firium_Z_pokemon">Firium Z</string>
+    <string name="Waterium_Z_pokemon">Waterium Z</string>
+    <string name="Electrium_Z_pokemon">Electrium Z</string>
+    <string name="Grassium_Z_pokemon">Grassium Z</string>
+    <string name="Icium_Z_pokemon">Icium Z</string>
+    <string name="Fightinium_Z_pokemon">Fightinium Z</string>
+    <string name="Poisonium_Z_pokemon">Poisonium Z</string>
+    <string name="Groundium_Z_pokemon">Groundium Z</string>
+    <string name="Flyinium_Z_pokemon">Flyinium Z</string>
+    <string name="Psychium_Z_pokemon">Psychium Z</string>
+    <string name="Buginium_Z_pokemon">Buginium Z</string>
+    <string name="Rockium_Z_pokemon">Rockium Z</string>
+    <string name="Ghostium_Z_pokemon">Ghostium Z</string>
+    <string name="Dragonium_Z_pokemon">Dragonium Z</string>
+    <string name="Darkinium_Z_pokemon">Darkinium Z</string>
+    <string name="Steelium_Z_pokemon">Steelium Z</string>
+    <string name="Fairium_Z_pokemon">Fairium Z</string>
+    <string name="Pikanium_Z_pokemon">Pikanium Z</string>
+    <string name="Decidium_Z_pokemon">Decidium Z</string>
+    <string name="Incinium_Z_pokemon">Incinium Z</string>
+    <string name="Primarium_Z_pokemon">Primarium Z</string>
+    <string name="Tapunium_Z_pokemon">Tapunium Z</string>
+    <string name="Marshadium_Z_pokemon">Marshadium Z</string>
+    <string name="Aloraichium_Z_pokemon">Aloraichium Z</string>
+    <string name="Snorlium_Z_pokemon">Snorlium Z</string>
+    <string name="Eevium_Z_pokemon">Eevium Z</string>
+    <string name="Mewnium_Z_pokemon">Mewnium Z</string>
+    <string name="Pikashunium_Z_pokemon">Pikashunium Z</string>
+    <string name="Solganium_Z_pokemon">Solganium Z</string>
+    <string name="Lunalium_Z_pokemon">Lunalium Z</string>
+    <string name="Ultranecrozium_Z_pokemon">Ultranecrozium Z</string>
+    <string name="Mimikium_Z_pokemon">Mimikium Z</string>
+    <string name="Lycanium_Z_pokemon">Lycanium Z</string>
+    <string name="Kommonium_Z_pokemon">Kommonium Z</string>
+
+
+    <string name="Normalium_Z_pokemon_flavor">Ｚ力量的结晶。会将一般属性的招式升级成Ｚ招式。</string>
+    <string name="Firium_Z_pokemon_flavor">Ｚ力量的结晶。会将火属性的招式升级成Ｚ招式。</string>
+    <string name="Waterium_Z_pokemon_flavor">Ｚ力量的结晶。会将水属性的招式升级成Ｚ招式。</string>
+    <string name="Electrium_Z_pokemon_flavor">Ｚ力量的结晶。会将电属性的招式升级成Ｚ招式。</string>
+    <string name="Grassium_Z_pokemon_flavor">Ｚ力量的结晶。会将草属性的招式升级成Ｚ招式。</string>
+    <string name="Icium_Z_pokemon_flavor">Ｚ力量的结晶。会将冰属性的招式升级成Ｚ招式。</string>
+    <string name="Fightinium_Z_pokemon_flavor">Ｚ力量的结晶。会将格斗属性的招式升级成Ｚ招式。</string>
+    <string name="Poisonium_Z_pokemon_flavor">Ｚ力量的结晶。会将毒属性的招式升级成Ｚ招式。</string>
+    <string name="Groundium_Z_pokemon_flavor">Ｚ力量的结晶。会将地面属性的招式升级成Ｚ招式。</string>
+    <string name="Flyinium_Z_pokemon_flavor">Ｚ力量的结晶。会将飞行属性的招式升级成Ｚ招式。</string>
+    <string name="Psychium_Z_pokemon_flavor">Ｚ力量的结晶。会将超能力属性的招式升级成Ｚ招式。</string>
+    <string name="Buginium_Z_pokemon_flavor">Ｚ力量的结晶。会将虫属性的招式升级成Ｚ招式。</string>
+    <string name="Rockium_Z_pokemon_flavor">Ｚ力量的结晶。会将岩石属性的招式升级成Ｚ招式。</string>
+    <string name="Ghostium_Z_pokemon_flavor">Ｚ力量的结晶。会将幽灵属性的招式升级成Ｚ招式。</string>
+    <string name="Dragonium_Z_pokemon_flavor">Ｚ力量的结晶。会将龙属性的招式升级成Ｚ招式。</string>
+    <string name="Darkinium_Z_pokemon_flavor">Ｚ力量的结晶。会将恶属性的招式升级成Ｚ招式。</string>
+    <string name="Steelium_Z_pokemon_flavor">Ｚ力量的结晶。会将钢属性的招式升级成Ｚ招式。</string>
+    <string name="Fairium_Z_pokemon_flavor">Ｚ力量的结晶。会将妖精属性的招式升级成Ｚ招式。</string>
+    <string name="Pikanium_Z_pokemon_flavor">Ｚ力量的结晶。会将皮卡丘的伏特攻击升级成Ｚ招式。</string>
+    <string name="Decidium_Z_pokemon_flavor">Ｚ力量的结晶。会将狙射树枭的缝影升级成Ｚ招式。</string>
+    <string name="Incinium_Z_pokemon_flavor">Ｚ力量的结晶。会将炽焰咆哮虎的ＤＤ金勾臂升级成Ｚ招式。</string>
+    <string name="Primarium_Z_pokemon_flavor">Ｚ力量的结晶。会将西狮海壬的泡影的咏叹调升级成Ｚ招式。</string>
+    <string name="Tapunium_Z_pokemon_flavor">Ｚ力量的结晶。会将卡璞们的自然之怒升级成Ｚ招式。</string>
+    <string name="Marshadium_Z_pokemon_flavor">Ｚ力量的结晶。会将玛夏多的暗影偷盗升级成Ｚ招式。</string>
+    <string name="Aloraichium_Z_pokemon_flavor">Ｚ力量的结晶。会将阿罗拉地区雷丘的十万伏特升级成Ｚ招式。</string>
+    <string name="Snorlium_Z_pokemon_flavor">Ｚ力量的结晶。会将卡比兽的终极冲击升级成Ｚ招式。</string>
+    <string name="Eevium_Z_pokemon_flavor">Ｚ力量的结晶。会将伊布的珍藏升级成Ｚ招式。</string>
+    <string name="Mewnium_Z_pokemon_flavor">Ｚ力量的结晶。会将梦幻的精神强念升级成Ｚ招式。</string>
+    <string name="Pikashunium_Z_pokemon_flavor">Ｚ力量的结晶。会将戴着帽子的皮卡丘的十万伏特升级成Ｚ招式。</string>
+    <string name="Solganium_Z_pokemon_flavor">Ｚ力量的结晶。会将索尔迦雷欧的流星闪冲升级成Ｚ招式。</string>
+    <string name="Lunalium_Z_pokemon_flavor">Ｚ力量的结晶。会将露奈雅拉的暗影之光升级成Ｚ招式。</string>
+    <string name="Ultranecrozium_Z_pokemon_flavor">Ｚ力量的结晶。会将奈克洛兹玛的光子喷涌升级成Ｚ招式。</string>
+    <string name="Mimikium_Z_pokemon_flavor">Ｚ力量的结晶。会将谜拟Ｑ的嬉闹升级成Ｚ招式。</string>
+    <string name="Lycanium_Z_pokemon_flavor">Ｚ力量的结晶。会将鬃岩狼人的尖石攻击升级成Ｚ招式。</string>
+    <string name="Kommonium_Z_pokemon_flavor">Ｚ力量的结晶。会将杖尾鳞甲龙的鳞片噪音升级成Ｚ招式。</string>
+
+
+
+</resources>

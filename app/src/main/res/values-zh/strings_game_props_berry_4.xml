@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Occa_Berry">巧可果</string>
+    <string name="Passho_Berry">千香果</string>
+    <string name="Wacan_Berry">烛木果</string>
+    <string name="Rindo_Berry">罗子果</string>
+    <string name="Yache_Berry">番荔果</string>
+    <string name="Chople_Berry">莲蒲果</string>
+    <string name="Kebia_Berry">通通果</string>
+    <string name="Shuca_Berry">腰木果</string>
+    <string name="Coba_Berry">棱瓜果</string>
+    <string name="Payapa_Berry">福禄果</string>
+    <string name="Tanga_Berry">扁樱果</string>
+    <string name="Charti_Berry">草蚕果</string>
+    <string name="Kasib_Berry">佛柑果</string>
+    <string name="Haban_Berry">莓榴果</string>
+    <string name="Colbur_Berry">刺耳果</string>
+    <string name="Babiri_Berry">霹霹果</string>
+    <string name="Chilan_Berry2">灯浆果</string>
+    <string name="Micle_Berry">奇秘果</string>
+    <string name="Custap_Berry">释陀果</string>
+    <string name="Jaboca_Berry">嘉珍果</string>
+    <string name="Rowap_Berry">雾莲果</string>
+
+    <string name="Occa_Berry_flavor">让宝可梦携带后，在受到效果绝佳的火属性招式攻击时，能令其威力减弱。</string>
+    <string name="Passho_Berry_flavor">让宝可梦携带后，在受到效果绝佳的水属性招式攻击时，能令其威力减弱。</string>
+    <string name="Wacan_Berry_flavor">让宝可梦携带后，在受到效果绝佳的电属性招式攻击时，能令其威力减弱。</string>
+    <string name="Rindo_Berry_flavor">让宝可梦携带后，在受到效果绝佳的草属性招式攻击时，能令其威力减弱。</string>
+    <string name="Yache_Berry_flavor">让宝可梦携带后，在受到效果绝佳的冰属性招式攻击时，能令其威力减弱。</string>
+    <string name="Chople_Berry_flavor">让宝可梦携带后，在受到效果绝佳的格斗属性招式攻击时，能令其威力减弱。</string>
+    <string name="Kebia_Berry_flavor">让宝可梦携带后，在受到效果绝佳的毒属性招式攻击时，能令其威力减弱。</string>
+    <string name="Shuca_Berry_flavor">让宝可梦携带后，在受到效果绝佳的地面属性招式攻击时，能令其威力减弱。</string>
+    <string name="Coba_Berry_flavor">让宝可梦携带后，在受到效果绝佳的飞行属性招式攻击时，能令其威力减弱。</string>
+    <string name="Payapa_Berry_flavor">让宝可梦携带后，在受到效果绝佳的超能力属性招式攻击时，能令其威力减弱。</string>
+    <string name="Tanga_Berry_flavor">让宝可梦携带后，在受到效果绝佳的虫属性招式攻击时，能令其威力减弱。</string>
+    <string name="Charti_Berry_flavor">让宝可梦携带后，在受到效果绝佳的岩石属性招式攻击时，能令其威力减弱。</string>
+    <string name="Kasib_Berry_flavor">让宝可梦携带后，在受到效果绝佳的幽灵属性招式攻击时，能令其威力减弱。</string>
+    <string name="Haban_Berry_flavor">让宝可梦携带后，在受到效果绝佳的龙属性招式攻击时，能令其威力减弱。</string>
+    <string name="Colbur_Berry_flavor">让宝可梦携带后，在受到效果绝佳的恶属性招式攻击时，能令其威力减弱。</string>
+    <string name="Babiri_Berry_flavor">让宝可梦携带后，在受到效果绝佳的钢属性招式攻击时，能令其威力减弱。</string>
+    <string name="Chilan_Berry2_flavor">让宝可梦携带后，在受到一般属性招式攻击时，能令其威力减弱。</string>
+    <string name="Micle_Berry_flavor">让宝可梦携带后，危机时，招式的命中率仅会提高１次。</string>
+    <string name="Custap_Berry_flavor">让宝可梦携带后，危机时，行动仅会变快１次。</string>
+    <string name="Jaboca_Berry_flavor">让宝可梦携带后，在受到物理招式攻击时，能给予对手伤害。</string>
+    <string name="Rowap_Berry_flavor">让宝可梦携带后，在受到特殊招式攻击时，能给予对手伤害。</string>
+
+</resources>

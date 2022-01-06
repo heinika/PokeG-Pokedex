@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Pumkin_Berry">カチャのみ</string>
+    <string name="Drash_Berry">ブーカのみ</string>
+    <string name="Eggant_Berry">ビスナのみ</string>
+    <string name="Strib_Berry">エドマのみ</string>
+    <string name="Chilan_Berry">ホズのみ</string>
+    <string name="Nutpea_Berry">ラッカのみ</string>
+    <string name="Ginema_Berry">ギネマのみ</string>
+    <string name="Kuo_Berry">クオのみ</string>
+    <string name="Yago_Berry">ヤゴのみ</string>
+    <string name="Touga_Berry">トウガのみ</string>
+    <string name="Niniku_Berry">ニニクのみ</string>
+    <string name="Topo_Berry">トポのみ</string>
+
+
+    <string name="Pumkin_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Drash_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Eggant_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Strib_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Chilan_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Nutpea_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Ginema_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Kuo_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Yago_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Touga_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Niniku_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Topo_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+
+</resources>

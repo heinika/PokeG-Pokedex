@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Silver_Razz_Berry">ぎんのズリのみ</string>
+    <string name="Golden_Razz_Berry">きんのズリのみ</string>
+    <string name="Silver_Nanab_Berry">ぎんのナナのみ</string>
+    <string name="Golden_Nanab_Berry">きんのナナのみ</string>
+    <string name="Silver_Pinap_Berry">ぎんのパイルのみ</string>
+    <string name="Golden_Pinap_Berry">きんのパイルのみ</string>
+
+
+    <string name="Silver_Razz_Berry_flavor">把这树果交给宝可梦后，宝可梦就会变得容易捕捉。</string>
+    <string name="Golden_Razz_Berry_flavor">把这树果交给宝可梦后，宝可梦就会变得十分容易捕捉。</string>
+    <string name="Silver_Nanab_Berry_flavor">捕捉宝可梦时，把这树果交给宝可梦就能平复对方的情绪。</string>
+    <string name="Golden_Nanab_Berry_flavor">捕捉宝可梦时，把这树果交给宝可梦就能有效地平复对方的情绪。</string>
+    <string name="Silver_Pinap_Berry_flavor">如果把这树果交给宝可梦，那么接下来捉住该宝可梦时，会更容易获得道具。</string>
+    <string name="Golden_Pinap_Berry_flavor">如果把这树果交给宝可梦，那么接下来捉住该宝可梦时，会非常容易获得道具。</string>
+
+
+</resources>

@@ -1,5 +1,34 @@
-招式学习器
-招式学习器
-秘传学习器
-秘传学习器
-招式记录
+把这树果交给宝可梦后，宝可梦就会变得容易捕捉。
+把这树果交给宝可梦后，宝可梦就会变得十分容易捕捉。
+捕捉宝可梦时，把这树果交给宝可梦就能平复对方的情绪。
+捕捉宝可梦时，把这树果交给宝可梦就能有效地平复对方的情绪。
+如果把这树果交给宝可梦，那么接下来捉住该宝可梦时，会更容易获得道具。
+如果把这树果交给宝可梦，那么接下来捉住该宝可梦时，会非常容易获得道具。
+
+银色蔓莓果
+金色蔓莓果
+银色蕉香果
+金色蕉香果
+银色凰梨果
+金色凰梨果
+
+ぎんのズリのみ
+きんのズリのみ
+ぎんのナナのみ
+きんのナナのみ
+ぎんのパイルのみ
+きんのパイルのみ
+
+Silver Razz Berry
+Golden Razz Berry
+Silver Nanab Berry
+Golden Nanab Berry
+Silver Pinap Berry
+Golden Pinap Berry
+
+Silver_Razz_Berry
+Golden_Razz_Berry
+Silver_Nanab_Berry
+Golden_Nanab_Berry
+Silver_Pinap_Berry
+Golden_Pinap_Berry

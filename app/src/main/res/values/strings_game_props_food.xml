@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Sausages">Sausages</string>
+    <string name="Bob_s_Food_Tins">Bob\'s Food Tins</string>
+    <string name="Bach_s_Food_Tins">Bach\'s Food Tins</string>
+    <string name="Tins_of_Beans">Tins of Beans</string>
+    <string name="Bread">Bread</string>
+    <string name="Pasta">Pasta</string>
+    <string name="Mixed_Mushrooms">Mixed Mushrooms</string>
+    <string name="Smoke_Poke_Tails">Smoke-Poke Tails</string>
+    <string name="Large_Leeks">Large Leeks</string>
+    <string name="Fancy_Apples">Fancy Apples</string>
+    <string name="Brittle_Bones">Brittle Bones</string>
+    <string name="Packs_of_Potatoes">Packs of Potatoes</string>
+    <string name="Pungent_Roots">Pungent Roots</string>
+    <string name="Salad_Mixes">Salad Mixes</string>
+    <string name="Fried_Foods">Fried Foods</string>
+    <string name="Boiled_Eggs">Boiled Eggs</string>
+    <string name="Fruit_Bunches">Fruit Bunches</string>
+    <string name="Moomoo_Cheese">Moomoo Cheese</string>
+    <string name="Spice_Mix">Spice Mix</string>
+    <string name="Fresh_Cream">Fresh Cream</string>
+    <string name="Packaged_Curry">Packaged Curry</string>
+    <string name="Coconut_Milk">Coconut Milk</string>
+    <string name="Instant_Noodles">Instant Noodles</string>
+    <string name="Precooked_Burgers">Precooked Burgers</string>
+    <string name="Gigantamixes">Gigantamixes</string>
+
+    <string name="Sausages_flavor">在露营营地制作料理时会使用的一种食材。白香肠是香肠的一种。需要先煮过之后再食用。</string>
+    <string name="Bob_s_Food_Tins_flavor">在露营营地制作料理时会使用的一种食材。不知是什么原因，饱伯卖的罐头在伽勒尔特别受欢迎。</string>
+    <string name="Bach_s_Food_Tins_flavor">在露营营地制作料理时会使用的一种食材。不知是什么原因，巴哈卖的罐头在伽勒尔特别受欢迎。</string>
+    <string name="Tins_of_Beans_flavor">在露营营地制作料理时会使用的一种食材。放进料理里一起煮，豆子的那种香甜就会散发出来。</string>
+    <string name="Bread_flavor">在露营营地制作料理时会使用的一种食材。同时也是用于吸干盘中最后一滴咖喱的秘密武器。</string>
+    <string name="Pasta_flavor">在露营营地制作料理时会使用的一种食材。是由麦儿粉揉制的面条。搭配咖喱出乎意料地美味。</string>
+    <string name="Mixed_Mushrooms_flavor">在露营营地制作料理时会使用的一种食材。各种菌菇混在一起的嚼劲会为口感带来变化。</string>
+    <string name="Smoke_Poke_Tails_flavor">在露营营地制作料理时会使用的一种食材。宝可梦呆呆兽的尾巴就算断掉也会很快长出新的。</string>
+    <string name="Large_Leeks_flavor">在露营营地制作料理时会使用的一种食材。不知是不是宝可梦大葱鸭最爱的那种植物的茎。</string>
+    <string name="Fancy_Apples_flavor">在露营营地制作料理时会使用的一种食材。历经千挑万选的苹果不仅形状饱满，表皮更是亮泽鲜艳。</string>
+    <string name="Brittle_Bones_flavor">在露营营地制作料理时会使用的一种食材。将骨头精心熬煮而得的一丝浓缩的精华加深了料理的美味。</string>
+    <string name="Packs_of_Potatoes_flavor">在露营营地制作料理时会使用的一种食材。土豆能中和辣味，使整道料理的滋味变得柔和。</string>
+    <string name="Pungent_Roots_flavor">在露营营地制作料理时会使用的一种食材。将信手摘取的香草点缀在上面，使料理更加色香味俱全。</string>
+    <string name="Salad_Mixes_flavor">在露营营地制作料理时会使用的一种食材。将各种蔬菜搭配到一起，看上去就非常有益健康。</string>
+    <string name="Fried_Foods_flavor">在露营营地制作料理时会使用的一种食材。炸完出锅后放置了一段时间，所以稍稍有些油腻。</string>
+    <string name="Boiled_Eggs_flavor">在露营营地制作料理时会使用的一种食材。只需一个水煮蛋，整道料理的水准都能得到升华。</string>
+    <string name="Fruit_Bunches_flavor">在露营营地制作料理时会使用的一种食材。煮得粘稠浓厚的水果，能为料理增添一份热带风情。</string>
+    <string name="Moomoo_Cheese_flavor">在露营营地制作料理时会使用的一种食材。融化的芝士能为咖喱增添一份独特的浓郁。</string>
+    <string name="Spice_Mix_flavor">在露营营地制作料理时会使用的一种食材。加入了超过５０种香辛料调配而成，香辣十足。</string>
+    <string name="Fresh_Cream_flavor">在露营营地制作料理时会使用的一种食材。在辣味的咖喱中加入奶油，使滋味变得香甜可口。</string>
+    <string name="Packaged_Curry_flavor">在露营营地制作料理时会使用的一种食材。使用这种成品速食咖喱，可以有效预防失误。</string>
+    <string name="Coconut_Milk_flavor">在露营营地制作料理时会使用的一种食材。椰奶那种与众不同的清甜滋味非常受欢迎。</string>
+    <string name="Instant_Noodles_flavor">在露营营地制作料理时会使用的一种食材。没想到加入速食食品，滋味也出乎意料地和谐。</string>
+    <string name="Precooked_Burgers_flavor">在露营营地制作料理时会使用的一种食材。不知道该加什么的时候，选择这种汉堡肉准没错。</string>
+    <string name="Gigantamixes_flavor">在露营营地制作料理时会使用的食材。只要把这种神奇的香辛料往咖喱上轻轻一撒，咖喱就会变得巨大无比。</string>
+
+
+</resources>

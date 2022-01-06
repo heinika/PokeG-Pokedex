@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Pumkin_Berry">瓜南果</string>
+    <string name="Drash_Berry">无青果</string>
+    <string name="Eggant_Berry">子茄果</string>
+    <string name="Strib_Berry">宛豆果</string>
+    <string name="Chilan_Berry">姑娘果</string>
+    <string name="Nutpea_Berry">泥豆果</string>
+    <string name="Ginema_Berry">葱首果</string>
+    <string name="Kuo_Berry">角豆果</string>
+    <string name="Yago_Berry">菩达果</string>
+    <string name="Touga_Berry">辛子果</string>
+    <string name="Niniku_Berry">蒜蒜果</string>
+    <string name="Topo_Berry">薯薯果</string>
+
+
+    <string name="Pumkin_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Drash_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Eggant_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Strib_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Chilan_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Nutpea_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Ginema_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Kuo_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Yago_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Touga_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Niniku_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+    <string name="Topo_Berry_flavor">用于制作宝可方块，种在松软的土里会长出神秘的果实。</string>
+
+</resources>

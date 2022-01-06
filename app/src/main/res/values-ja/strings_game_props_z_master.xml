@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Normalium_Z_master">ノーマルＺ</string>
+    <string name="Firium_Z_master">ホノオＺ</string>
+    <string name="Waterium_Z_master">ミズＺ</string>
+    <string name="Electrium_Z_master">デンキＺ</string>
+    <string name="Grassium_Z_master">クサＺ</string>
+    <string name="Icium_Z_master">コオリＺ</string>
+    <string name="Fightinium_Z_master">カクトウＺ</string>
+    <string name="Poisonium_Z_master">ドクＺ</string>
+    <string name="Groundium_Z_master">ジメンＺ</string>
+    <string name="Flyinium_Z_master">ヒコウＺ</string>
+    <string name="Psychium_Z_master">エスパーＺ</string>
+    <string name="Buginium_Z_master">ムシＺ</string>
+    <string name="Rockium_Z_master">イワＺ</string>
+    <string name="Ghostium_Z_master">ゴーストＺ</string>
+    <string name="Dragonium_Z_master">ドラゴンＺ</string>
+    <string name="Darkinium_Z_master">アクＺ</string>
+    <string name="Steelium_Z_master">ハガネＺ</string>
+    <string name="Fairium_Z_master">フェアリーＺ</string>
+    <string name="Pikanium_Z_master">ピカチュウＺ</string>
+    <string name="Decidium_Z_master">ジュナイパーＺ</string>
+    <string name="Incinium_Z_master">ガオガエンＺ</string>
+    <string name="Primarium_Z_master">アシレーヌＺ</string>
+    <string name="Tapunium_Z_master">カプＺ</string>
+    <string name="Marshadium_Z_master">マーシャドーＺ</string>
+    <string name="Aloraichium_Z_master">アロライＺ</string>
+    <string name="Snorlium_Z_master">カビゴンＺ</string>
+    <string name="Eevium_Z_master">イーブイＺ</string>
+    <string name="Mewnium_Z_master">ミュウＺ</string>
+    <string name="Pikashunium_Z_master">サトピカＺ</string>
+    <string name="Solganium_Z_master">ソルガレオＺ</string>
+    <string name="Lunalium_Z_master">ルナアーラＺ</string>
+    <string name="Ultranecrozium_Z_master">ウルトラネクロＺ</string>
+    <string name="Mimikium_Z_master">ミミッキュＺ</string>
+    <string name="Lycanium_Z_master">ルガルガンＺ</string>
+    <string name="Kommonium_Z_master">ジャラランガＺ</string>
+
+
+    <string name="Normalium_Z_master_flavor">可用它来制造用于对战并能将一般属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Firium_Z_master_flavor">可用它来制造用于对战并能将火属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Waterium_Z_master_flavor">可用它来制造用于对战并能将水属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Electrium_Z_master_flavor">可用它来制造用于对战并能将电属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Grassium_Z_master_flavor">可用它来制造用于对战并能将草属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Icium_Z_master_flavor">可用它来制造用于对战并能将冰属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Fightinium_Z_master_flavor">可用它来制造用于对战并能将格斗属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Poisonium_Z_master_flavor">可用它来制造用于对战并能将毒属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Groundium_Z_master_flavor">可用它来制造用于对战并能将地面属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Flyinium_Z_master_flavor">可用它来制造用于对战并能将飞行属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Psychium_Z_master_flavor">可用它来制造用于对战并能将超能力属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Buginium_Z_master_flavor">可用它来制造用于对战并能将虫属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Rockium_Z_master_flavor">可用它来制造用于对战并能将岩石属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Ghostium_Z_master_flavor">可用它来制造用于对战并能将幽灵属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Dragonium_Z_master_flavor">可用它来制造用于对战并能将龙属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Darkinium_Z_master_flavor">可用它来制造用于对战并能将恶属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Steelium_Z_master_flavor">可用它来制造用于对战并能将钢属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Fairium_Z_master_flavor">可用它来制造用于对战并能将妖精属性招式升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Pikanium_Z_master_flavor">可用它来制造用于对战并能将皮卡丘的伏特攻击升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Decidium_Z_master_flavor">可用它来制造用于对战并能将狙射树枭的缝影升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Incinium_Z_master_flavor">可用它来制造用于对战并能将炽焰咆哮虎的ＤＤ金勾臂升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Primarium_Z_master_flavor">可用它来制造用于对战并能将西狮海壬的泡影的咏叹调升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Tapunium_Z_master_flavor">可用它来制造用于对战并能将卡璞们的自然之怒升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Marshadium_Z_master_flavor">可用它来制造用于对战并能将玛夏多的暗影偷盗升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Aloraichium_Z_master_flavor">可用它来制造用于对战并能将阿罗拉地区雷丘的十万伏特升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Snorlium_Z_master_flavor">可用它来制造用于对战并能将卡比兽的终极冲击升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Eevium_Z_master_flavor">可用它来制造用于对战并能将伊布的珍藏升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Mewnium_Z_master_flavor">可用它来制造用于对战并能将梦幻的精神强念升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Pikashunium_Z_master_flavor">可用它来制造用于对战并能将戴着帽子的皮卡丘的十万伏特升级成特殊Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Solganium_Z_master_flavor">可用它来制造用于对战并能将索尔迦雷欧的流星闪冲升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Lunalium_Z_master_flavor">可用它来制造用于对战并能将露奈雅拉的暗影之光升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Ultranecrozium_Z_master_flavor">能让和索尔迦雷欧或露奈雅拉合体的奈克洛兹玛变成崭新样子的结晶。</string>
+    <string name="Mimikium_Z_master_flavor">可用它来制造用于对战并能将谜拟Ｑ的嬉闹升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Lycanium_Z_master_flavor">可用它来制造用于对战并能将鬃岩狼人的尖石攻击升级成Ｚ招式的Ｚ力量结晶。</string>
+    <string name="Kommonium_Z_master_flavor">可用它来制造用于对战并能将杖尾鳞甲龙的鳞片噪音升级成Ｚ招式的Ｚ力量结晶。</string>
+
+
+
+</resources>
