@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -99,8 +100,7 @@ class GamePropsActivity : ComponentActivity() {
               count = tabTitles.size, state = pagerState,
               modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth(),
-
+                .fillMaxWidth()
               ) { pageIndex ->
               when (pageIndex) {
                 carry -> CarryPropsPage()
