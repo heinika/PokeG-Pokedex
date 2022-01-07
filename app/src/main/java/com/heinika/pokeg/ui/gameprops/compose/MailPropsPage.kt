@@ -8,10 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.heinika.pokeg.ui.gameprops.mailIIIList
-import com.heinika.pokeg.ui.gameprops.mailIIList
-import com.heinika.pokeg.ui.gameprops.mailIVList
-import com.heinika.pokeg.ui.gameprops.mailVList
+import com.heinika.pokeg.ui.gameprops.props.mailIIIList
+import com.heinika.pokeg.ui.gameprops.props.mailIIList
+import com.heinika.pokeg.ui.gameprops.props.mailIVList
+import com.heinika.pokeg.ui.gameprops.props.mailVList
 import com.heinika.pokeg.utils.*
 
 @ExperimentalMaterialApi

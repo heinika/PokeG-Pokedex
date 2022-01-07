@@ -11,8 +11,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.theme.fireColor
-import com.heinika.pokeg.ui.gameprops.EvolutionProp
-import com.heinika.pokeg.ui.gameprops.evolutionPropList
+import com.heinika.pokeg.ui.gameprops.props.EvolutionProp
+import com.heinika.pokeg.ui.gameprops.props.evolutionPropList
 
 @ExperimentalMaterialApi
 @Preview
