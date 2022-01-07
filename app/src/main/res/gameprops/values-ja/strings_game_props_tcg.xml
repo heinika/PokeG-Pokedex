@@ -6,4 +6,10 @@
     <string name="HM2">ひでんマシン</string>
     <string name="TR">わざレコード</string>
 
+    <string name="TM1_flavor">是宝可梦训练家用来让宝可梦学会一些招式的道具。</string>
+    <string name="TM2_flavor">是宝可梦训练家用来让宝可梦学会一些招式的道具。</string>
+    <string name="HM1_flavor">学会的招式可以用于对战，亦可在对战外使用。</string>
+    <string name="HM2_flavor">学会的招式可以用于对战，亦可在对战外使用。</string>
+    <string name="TR_flavor">是能让宝可梦学会一些招式的道具，于第八世代引入。</string>
+
 </resources>

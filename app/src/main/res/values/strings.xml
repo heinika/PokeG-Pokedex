@@ -166,7 +166,12 @@
     <string name="game_props_evolution">进化</string>
     <string name="game_props_pokeball">精灵球</string>
     <string name="game_props_berry">树果</string>
+    <string name="game_props_food">食物</string>
+    <string name="game_props_z">z</string>
+    <string name="game_props_field">野外使用</string>
+    <string name="game_props_tcg">招式学习器</string>
     <string name="game_props_important">重要</string>
+    <string name="game_props_candy">糖果</string>
     <string name="game_props_precious">宝物</string>
     <string name="game_props_precious_thing">贵重物品</string>
     <string name="game_props_fossil">化石</string>

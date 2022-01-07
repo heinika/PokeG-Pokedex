@@ -1,8 +1,6 @@
 package com.heinika.pokeg.ui.gameprops.props
 
 import androidx.compose.ui.graphics.Color
-import com.heinika.pokeg.R
-import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.Generation
 
 sealed class GameProps(val nameResId: Int, val flavorResId: Int, val imageResId: Int)
@@ -49,10 +47,16 @@ class RoToProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
 class CandyProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
+class FieldProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
 class FoodProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
 class ZProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+class TCGProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
 

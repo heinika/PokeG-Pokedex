@@ -21,6 +21,8 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.gameprops.compose.*
+import com.heinika.pokeg.ui.gameprops.props.CandyProp
+import com.heinika.pokeg.ui.gameprops.props.TCGProp
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
@@ -36,20 +38,41 @@ class GamePropsActivity : ComponentActivity() {
     setContent {
       PokeGTheme {
         Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxHeight()) {
+          val carry = 0
+          val evolution = 1
+          val pokeball = 2
+          val berry = 3
+          val important = 4
+          val precious = 5
+          val candy = 6
+          val swap = 7
+          val recovery = 8
+          val battle = 9
+          val food = 10
+          val z = 11
+          val mail = 12
+          val apricorn = 13
+          val tcg = 14
+          val roto = 15
           Column(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp))) {
-            val tab1Title = stringResource(R.string.game_props_carry)
-            val tab2Title = stringResource(R.string.game_props_evolution)
-            val tab3Title = stringResource(R.string.game_props_pokeball)
-            val tab4Title = stringResource(R.string.game_props_berry)
-            val tab5Title = stringResource(R.string.game_props_important)
-            val tab6Title = stringResource(R.string.game_props_precious)
-            val tab7Title = stringResource(R.string.game_props_swap)
-            val tab8Title = stringResource(R.string.game_props_apricorn)
-            val tab9Title = stringResource(R.string.game_props_recovery)
-            val tab10Title = stringResource(R.string.game_props_battle)
-            val tab11Title = stringResource(R.string.game_props_mail)
-            val tab12Title = stringResource(R.string.game_props_roto)
-            val tabTitles = listOf(tab1Title, tab2Title, tab3Title, tab4Title, tab5Title, tab6Title, tab7Title, tab8Title, tab9Title, tab10Title, tab11Title,tab12Title)
+            val tab1 = stringResource(R.string.game_props_carry)
+            val tab2 = stringResource(R.string.game_props_evolution)
+            val tab3 = stringResource(R.string.game_props_pokeball)
+            val tab4 = stringResource(R.string.game_props_berry)
+            val tab5 = stringResource(R.string.game_props_important)
+            val tab6 = stringResource(R.string.game_props_candy)
+            val tab7 = stringResource(R.string.game_props_precious)
+            val tab8 = stringResource(R.string.game_props_swap)
+            val tab9 = stringResource(R.string.game_props_recovery)
+            val tab10 = stringResource(R.string.game_props_battle)
+            val tab11 = stringResource(R.string.game_props_food)
+            val tab12 = stringResource(R.string.game_props_z)
+            val tab13 = stringResource(R.string.game_props_mail)
+            val tab14 = stringResource(R.string.game_props_apricorn)
+            val tab15 = stringResource(R.string.game_props_tcg)
+            val tab16 = stringResource(R.string.game_props_roto)
+            val tabTitles =
+              listOf(tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12, tab13, tab14, tab15,tab16)
 
             val coroutineScope = rememberCoroutineScope()
             val pagerState = rememberPagerState()
@@ -80,18 +103,22 @@ class GamePropsActivity : ComponentActivity() {
 
               ) { pageIndex ->
               when (pageIndex) {
-                0 -> CarryPropsPage()
-                1 -> EvolutionPropsColumn()
-                2 -> PokeballPropsColumn()
-                3 -> BerryPropsPage()
-                4 -> ImportantPropsPage()
-                5 -> PreciousPropsPage()
-                6 -> SwapPropsColumn()
-                7 -> ApricornPropsColumn()
-                8 -> RecoveryPropsColumn()
-                9 -> BattlePropsColumn()
-                10 -> MailPropsPage()
-                11 -> RotoPropsColumn()
+                carry -> CarryPropsPage()
+                evolution -> EvolutionPropsColumn()
+                pokeball -> PokeballPropsColumn()
+                berry -> BerryPropsPage()
+                important -> ImportantPropsPage()
+                precious -> PreciousPropsPage()
+                candy -> CandyPropsColumn()
+                swap -> SwapPropsColumn()
+                recovery -> RecoveryPropsColumn()
+                battle -> BattlePropsColumn()
+                food -> FoodPropsColumn()
+                z -> ZPropsPage()
+                mail -> MailPropsPage()
+                apricorn -> ApricornPropsColumn()
+                tcg -> TCGPropsColumn()
+                roto -> RotoPropsColumn()
                 else -> {
                   Text(text = tabTitles[pageIndex])
                 }

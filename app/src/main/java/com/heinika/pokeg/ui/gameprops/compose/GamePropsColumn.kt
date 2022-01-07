@@ -84,3 +84,51 @@ fun RotoPropsColumn(modifier: Modifier = Modifier) {
     }
   }
 }
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun CandyPropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(candyPropList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun TCGPropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(tcgPropList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun FoodPropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(foodList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}
+
+@Preview
+@ExperimentalMaterialApi
+@Composable
+fun FieldPropsColumn(modifier: Modifier = Modifier) {
+  LazyColumn(modifier) {
+    items(fieldPropList) {
+      GamePropCard(painterResource(id = it.imageResId), stringResource(it.nameResId),
+        stringResource(it.flavorResId))
+    }
+  }
+}
