@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.ui.about.AboutActivity
@@ -19,6 +20,7 @@ import com.heinika.pokeg.ui.egg.EggActivity
 import com.heinika.pokeg.ui.gameprops.GamePropsActivity
 import com.heinika.pokeg.ui.moves.MoveListActivity
 import com.heinika.pokeg.ui.nature.NatureListActivity
+import com.heinika.pokeg.ui.versions.VersionsActivity
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalAnimationApi
@@ -52,6 +54,17 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setOnClickListener {
       selectVersionDialog.show()
     }
+  }
+
+  @ExperimentalFoundationApi
+  @SuppressLint("SetTextI18n")
+  private val versionsButton = AppCompatButton(context).apply {
+    text = "版本列表"
+    background.setTint(context.getColor(R.color.generation_2))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, VersionsActivity::class.java)) }
+    addView(this)
   }
 
   @ExperimentalMaterialApi

@@ -40,6 +40,45 @@
         <item>剑/盾</item>
     </string-array>
 
+    <string name="version_red">红</string>
+    <string name="version_green">绿</string>
+    <string name="version_blue">蓝</string>
+    <string name="version_yellow">黄</string>
+    <string name="version_gold">金</string>
+    <string name="version_silver">银</string>
+    <string name="version_crystal">水晶</string>
+    <string name="version_ruby">红宝石</string>
+    <string name="version_sapphire">蓝宝石</string>
+    <string name="version_emerald">绿宝石</string>
+    <string name="version_firered">火红</string>
+    <string name="version_leafgreen">叶绿</string>
+    <string name="version_diamond">珍珠</string>
+    <string name="version_pearl">钻石</string>
+    <string name="version_platinum">白金</string>
+    <string name="version_heartgold">心金</string>
+    <string name="version_soulsilver">魂银</string>
+    <string name="version_black">黑</string>
+    <string name="version_white">白</string>
+    <string name="version_colosseum">圆形竞技场</string>
+    <string name="version_xd">XD暗之旋风黑暗洛奇亚</string>
+    <string name="version_black_2">黑2</string>
+    <string name="version_white_2">白2</string>
+    <string name="version_x">x</string>
+    <string name="version_y">y</string>
+    <string name="version_omega_ruby">Ω红宝石</string>
+    <string name="version_alpha_sapphire">α蓝宝石</string>
+    <string name="version_sun">日</string>
+    <string name="version_moon">月</string>
+    <string name="version_ultra_sun">究极之日</string>
+    <string name="version_ultra_moon">究极之月</string>
+    <string name="version_lets_go_pikachu">Let\'s Go pikachu</string>
+    <string name="version_lets_go_eevee">Let\'s Go</string>
+    <string name="version_sword">剑</string>
+    <string name="version_shield">盾</string>
+    <string name="version_brilliant_diamond">晶灿钻石</string>
+    <string name="version_shining_pearl">明亮珍珠</string>
+    <string name="version_arceus">阿尔宙斯</string>
+
     <string name="move_method_1">level-up</string>
     <string name="move_method_2">egg</string>
     <string name="move_method_3">tutor</string>
