@@ -46,7 +46,13 @@ class BattleProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
 class RoToProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
+class CandyProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
 class FoodProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
+  GameProps(nameResId, flavorResId, imageResId)
+
+class ZProp(nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
 
