@@ -7,6 +7,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,14 +15,16 @@ import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.gameprops.fossilList
 import com.heinika.pokeg.ui.gameprops.preciousPropList
+import com.heinika.pokeg.ui.theme.grassColor
+import com.heinika.pokeg.ui.theme.groundColor
 
 @Preview
 @ExperimentalMaterialApi
 @Composable
-fun PreciousPropsPage(){
+fun PreciousPropsPage() {
   LazyColumn() {
     item {
-      Text(text = stringResource(id = R.string.game_props_fossil),Modifier.padding(12.dp))
+      CategoryCard(text = stringResource(id = R.string.game_props_fossil), color = groundColor, textColor = Color.Black)
     }
     items(fossilList) {
       GamePropCard(
@@ -30,7 +33,7 @@ fun PreciousPropsPage(){
       )
     }
     item {
-      Text(text = stringResource(id = R.string.game_props_precious_thing),Modifier.padding(12.dp))
+      CategoryCard(text = stringResource(id = R.string.game_props_precious_thing), color = grassColor, textColor = Color.Black)
     }
     items(preciousPropList) {
       GamePropCard(
