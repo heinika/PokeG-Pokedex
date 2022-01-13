@@ -85,7 +85,7 @@ val Number.toGenerationColor: Color
     else -> GenerationIColor
   }
 
-fun getPokemonImageUrl(id: Int, name: String) = when {
+fun getPokemonImageUrl(id: Int, name: String = "") = when {
   id == 1 -> "https://s1.52poke.wiki/wiki/thumb/2/21/001Bulbasaur.png/450px-001Bulbasaur.png"
   id == 2 -> "https://s1.52poke.wiki/wiki/thumb/7/73/002Ivysaur.png/450px-002Ivysaur.png"
   id == 3 -> "https://s1.52poke.wiki/wiki/thumb/a/ae/003Venusaur.png/450px-003Venusaur.png"

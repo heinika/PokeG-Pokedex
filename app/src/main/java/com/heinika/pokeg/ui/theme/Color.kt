@@ -47,3 +47,6 @@ val GenerationVIIIColor = rockColor
 val PowerSortColor = dragonColor
 val AccuracySortColor = fireColor
 val PPSortColor = rockColor
+
+
+val TeamBackgroundColor = Color(0xff1D1E1D)
