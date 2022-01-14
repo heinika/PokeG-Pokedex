@@ -80,7 +80,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 @Composable
 fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberInfo) {
   ConstraintLayout(modifier) {
-    val (image, nameLabel, typeRow, carryTag,natureTag, moveRow) = createRefs()
+    val (image, nameLabel, typeRow, carryTag, natureTag, moveRow) = createRefs()
     Image(
       painter = rememberImagePainter(getPokemonImageUrl(teamNumberInfo.id)),
       contentDescription = "",
@@ -88,35 +88,38 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
         .constrainAs(image) {
           top.linkTo(parent.top)
           start.linkTo(parent.start)
+          bottom.linkTo(parent.bottom)
         }
-        .size(180.dp)
+        .fillMaxWidth(0.4f)
         .padding(12.dp)
     )
 
-    Text(text = ResUtils.getNameById(teamNumberInfo.id, context = LocalContext.current), style = MaterialTheme.typography.h4, modifier = Modifier.constrainAs(nameLabel) {
-      top.linkTo(parent.top)
-      start.linkTo(image.end)
-    })
+    Text(text = ResUtils.getNameById(teamNumberInfo.id, context = LocalContext.current),
+      style = MaterialTheme.typography.h4, modifier = Modifier.constrainAs(nameLabel) {
+        top.linkTo(parent.top)
+        start.linkTo(image.end)
+      })
 
-    TypeRow(
+    TypeColumn(
       Modifier
         .constrainAs(typeRow) {
-          top.linkTo(nameLabel.bottom)
-          start.linkTo(nameLabel.start)
-        }
-        .fillMaxWidth(), teamNumberInfo.typeIdList, teamNumberInfo.nature)
+          top.linkTo(nameLabel.top)
+          bottom.linkTo(nameLabel.bottom)
+          start.linkTo(nameLabel.end, 4.dp)
+        }, teamNumberInfo.typeIdList, teamNumberInfo.nature
+    )
 
     CarryCard(
       modifier = Modifier.constrainAs(carryTag) {
-        top.linkTo(typeRow.bottom, 4.dp)
-        start.linkTo(typeRow.start)
+        top.linkTo(nameLabel.bottom, 4.dp)
+        start.linkTo(nameLabel.start)
       },
       teamNumberInfo.carry
     )
 
     NatureCard(
       modifier = Modifier.constrainAs(natureTag) {
-        top.linkTo(typeRow.bottom, 4.dp)
+        top.linkTo(nameLabel.bottom, 4.dp)
         start.linkTo(carryTag.end, 4.dp)
       },
       typeName = stringResource(id = teamNumberInfo.nature.stringId), color = fireColor
@@ -124,10 +127,10 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
 
     FlowRow(
       Modifier
-        .fillMaxWidth(0.5f)
+        .fillMaxWidth(0.6f)
         .constrainAs(moveRow) {
           top.linkTo(carryTag.bottom)
-          start.linkTo(typeRow.start)
+          start.linkTo(nameLabel.start)
         }) {
       for (move in teamNumberInfo.moveList) {
         MoveCard(Modifier.padding(top = 4.dp, end = 4.dp), move = move)
@@ -137,11 +140,11 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
 }
 
 @Composable
-private fun TypeRow(modifier: Modifier = Modifier, typeList: List<Type>, nature: Nature) {
-  Row(modifier) {
+private fun TypeColumn(modifier: Modifier = Modifier, typeList: List<Type>, nature: Nature) {
+  Column(modifier, Arrangement.Center) {
     typeList.forEach {
       TypeCard(color = it.typeId.toTypeColor, typeName = it.getName(LocalContext.current))
-      Spacer(modifier = Modifier.width(4.dp))
+      Spacer(modifier = Modifier.height(4.dp))
     }
   }
 }
@@ -152,7 +155,7 @@ fun CarryCard(modifier: Modifier = Modifier, carry: CarryProps?, color: Color = 
     modifier
       .height(30.dp)
       .clip(RoundedCornerShape(12.dp))
-      .background(color.copy(alpha = 0.5f)),
+      .background(color.copy(alpha = 0.2f)),
     verticalAlignment = Alignment.CenterVertically
   ) {
     Image(painter = painterResource(carry?.imageResId ?: R.drawable.ic_search), "", modifier = Modifier.size(32.dp))
@@ -172,7 +175,7 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
       .width(56.dp)
       .height(20.dp)
       .clip(RoundedCornerShape(12.dp))
-      .background(color.copy(alpha = 0.5f))
+      .background(color.copy(alpha = 0.2f))
   ) {
     Text(
       text = typeName,
@@ -190,7 +193,7 @@ fun NatureCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", co
       .width(66.dp)
       .height(30.dp)
       .clip(RoundedCornerShape(12.dp))
-      .background(color.copy(alpha = 0.5f))
+      .background(color.copy(alpha = 0.2f))
   ) {
     Text(
       text = typeName,
@@ -205,13 +208,13 @@ fun NatureCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", co
 fun MoveCard(modifier: Modifier = Modifier, move: Move) {
   Box(
     modifier
-      .width(80.dp)
-      .height(40.dp)
+      .width(100.dp)
+      .height(30.dp)
       .clip(RoundedCornerShape(12.dp))
-      .background(move.typeColor.copy(alpha = 0.5f))
+      .background(move.typeColor.copy(alpha = 0.2f))
   ) {
     Text(
-      text = move.getName(LocalContext.current),
+      text = "${move.getName(LocalContext.current)} ${move.power}",
       Modifier.align(Alignment.Center),
       color = Color.White,
       style = MaterialTheme.typography.body2
