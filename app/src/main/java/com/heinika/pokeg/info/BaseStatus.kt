@@ -3,7 +3,7 @@ package com.heinika.pokeg.info
 import android.content.Context
 import com.heinika.pokeg.R
 
-enum class BaseStatus(private val resId: Int, private val resColor: Int) {
+enum class BaseStatus(val resId: Int, val resColor: Int) {
   HP(R.string.hp, R.color.colorPrimary),
   ATK(R.string.atk, R.color.md_orange_100),
   DEF(R.string.def, R.color.md_blue_200),

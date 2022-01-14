@@ -17,16 +17,16 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.heinika.pokeg.R
-import com.heinika.pokeg.model.Nature
+import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.ui.theme.Red200
 import com.heinika.pokeg.utils.SystemBar
 
 
 @Composable
-fun NatureColumn(natureList: List<Nature>) {
+fun NatureColumn() {
   LazyColumn(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)),contentPadding = PaddingValues(bottom = 8.dp)) {
-    items(natureList) {
+    items(Nature.values()) {
       NatureCard(nature = it)
     }
   }
@@ -44,7 +44,7 @@ fun NatureCard(nature: Nature) {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
       val (nameLabel, propLabel, tasteLabel, propRow1, propRow2, taste1, taste2) = createRefs()
       Text(
-        text = nature.cname,
+        text = stringResource(id = nature.stringId),
         style = MaterialTheme.typography.h6,
         modifier = Modifier.constrainAs(nameLabel) {
           top.linkTo(parent.top, 12.dp)
@@ -63,7 +63,7 @@ fun NatureCard(nature: Nature) {
         start.linkTo(propLabel.end)
         end.linkTo(propRow2.start)
       }, verticalAlignment = Alignment.CenterVertically) {
-        Text(text = nature.grow_easy)
+        Text(text = stringResource(nature.growEasyStringId))
         Image(
           painter = painterResource(id = R.drawable.up), "", Modifier
             .size(18.dp)
@@ -76,7 +76,7 @@ fun NatureCard(nature: Nature) {
         start.linkTo(propRow1.end)
         end.linkTo(parent.end)
       }, verticalAlignment = Alignment.CenterVertically) {
-        Text(text = nature.grow_hard)
+        Text(text = stringResource(id = nature.growHardStringId))
         Image(
           painter = painterResource(id = R.drawable.up),
           colorFilter = ColorFilter.tint(
@@ -103,25 +103,25 @@ fun NatureCard(nature: Nature) {
         bottom.linkTo(tasteLabel.bottom)
         start.linkTo(tasteLabel.end)
         end.linkTo(taste2.start)
-      }, taste = nature.taste_like.toTaste)
+      }, taste = nature.tasteLikeId.toTaste)
 
       TasteRow(Modifier.constrainAs(taste2) {
         top.linkTo(tasteLabel.top)
         bottom.linkTo(tasteLabel.bottom)
         start.linkTo(taste1.end)
         end.linkTo(parent.end)
-      }, taste = nature.taste_dislike.toTaste)
+      }, taste = nature.tasteDislikeId.toTaste)
     }
   }
 }
 
-val String.toTaste: Taste
+val Int.toTaste: Taste
   get() = when (this) {
-    "酸" -> Taste.Acid
-    "甜" -> Taste.Sweet
-    "苦" -> Taste.Bitter
-    "辣" -> Taste.Hot
-    "涩" -> Taste.Astringent
+    R.string.acid -> Taste.Acid
+    R.string.sweet -> Taste.Sweet
+    R.string.bitter -> Taste.Bitter
+    R.string.hot -> Taste.Hot
+    R.string.astringent -> Taste.Astringent
     else -> Taste.NoSpecial
   }
 
@@ -129,27 +129,17 @@ val String.toTaste: Taste
 @Composable
 fun NatureCardPreview() {
   PokeGTheme {
-    NatureCard(
-      Nature(
-        cname = "慢吞吞",
-        ename = "",
-        jname = "",
-        grow_easy = "特攻",
-        grow_hard = "防御",
-        taste_dislike = "辣",
-        taste_like = "酸",
-      )
-    )
+    NatureCard(Nature.Adamant)
   }
 }
 
 enum class Taste(val stringId: Int, val drawableId: Int) {
-  Acid(R.string.Acid, R.drawable.lemon),
-  Sweet(R.string.Sweet, R.drawable.donut),
-  Bitter(R.string.Bitter, R.drawable.kugua),
-  Hot(R.string.Hot, R.drawable.chili),
-  Astringent(R.string.Astringent, R.drawable.persimmon),
-  NoSpecial(R.string.no_special, R.drawable.ic_search)
+  Acid(R.string.acid, R.drawable.lemon),
+  Sweet(R.string.sweet, R.drawable.donut),
+  Bitter(R.string.bitter, R.drawable.kugua),
+  Hot(R.string.hot, R.drawable.chili),
+  Astringent(R.string.astringent, R.drawable.persimmon),
+  NoSpecial(R.string.teste_equal, R.drawable.ic_search)
 }
 
 

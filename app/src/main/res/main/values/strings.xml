@@ -196,12 +196,6 @@
     <string name="Ascending">Asce</string>
     <string name="title_activity_move_List">Move List</string>
 
-    <string name="Acid">Acid</string>
-    <string name="Sweet">Sweet</string>
-    <string name="Bitter">Bitter List</string>
-    <string name="Hot">Hot</string>
-    <string name="Astringent">Astringent</string>
-    <string name="no_special">--</string>
     <string name="game_props_evolution">进化</string>
     <string name="game_props_pokeball">精灵球</string>
     <string name="game_props_berry">树果</string>

@@ -62,11 +62,6 @@ class PokemonJsonRes @Inject constructor(
   }
 
   @WorkerThread
-  fun fetchNatureList(): List<Nature> {
-    return fetchListByJson<Nature>("nature.json")
-  }
-
-  @WorkerThread
   fun fetchTeamNumberList(): List<TeamNumber> {
     return fetchListByJson<TeamNumber>("team_numbers.json")
   }

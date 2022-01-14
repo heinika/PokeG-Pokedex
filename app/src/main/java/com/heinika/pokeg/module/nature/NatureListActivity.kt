@@ -21,7 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @ExperimentalAnimationApi
 @AndroidEntryPoint
 internal class NatureListActivity : ComponentActivity() {
-  private val natureViewModel: NatureViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -36,8 +35,7 @@ internal class NatureListActivity : ComponentActivity() {
           systemUiController.setSystemBarsColor(Color.Transparent)
           systemUiController.setStatusBarColor(Color.Transparent)
           Surface(color = MaterialTheme.colors.background) {
-            val natureList = natureViewModel.natureList
-            NatureColumn(natureList = natureList.value)
+            NatureColumn()
           }
         }
       }
