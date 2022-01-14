@@ -1,10 +1,9 @@
-package com.heinika.pokeg.module.nature;
+package com.heinika.pokeg.module.nature
 
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
@@ -30,7 +29,6 @@ internal class NatureListActivity : ComponentActivity() {
     setContent {
       PokeGTheme {
         ProvideWindowInsets {
-          // A surface container using the 'background' color from the theme
           val systemUiController = rememberSystemUiController()
           systemUiController.setSystemBarsColor(Color.Transparent)
           systemUiController.setStatusBarColor(Color.Transparent)
