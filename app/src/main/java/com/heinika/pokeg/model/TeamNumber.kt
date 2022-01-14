@@ -1,6 +1,5 @@
 package com.heinika.pokeg.model
 
-import com.heinika.pokeg.utils.PokemonProp
 import com.squareup.moshi.JsonClass
 
 
@@ -15,7 +14,7 @@ data class TeamNumber(
 //  fun toTeamNumberInfo(): TeamNumberInfo {
 //    return TeamNumberInfo(
 //      id,
-//      typeIdList = typeIdList.map { PokemonProp.Type.values()[id - 1] },
+//      typeIdList = typeIdList.map { Type.values()[i - 1] },
 //      carry = findCarryByName(),
 //      nature = ,
 //      moveIdList: ,

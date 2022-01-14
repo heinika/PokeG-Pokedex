@@ -2,6 +2,8 @@ package com.heinika.pokeg.utils
 
 import android.content.res.Resources
 import androidx.compose.ui.graphics.Color
+import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.ui.theme.*
 
 val Number.dp: Int
@@ -51,24 +53,24 @@ val Int.isShed: Boolean
 
 val Number.toTypeColor: Color
   get() = when (this) {
-    PokemonProp.Type.NORMAL.typeId -> normalColor
-    PokemonProp.Type.FIGHTING.typeId -> fightingColor
-    PokemonProp.Type.FLYING.typeId -> flyingColor
-    PokemonProp.Type.POISON.typeId -> poisonColor
-    PokemonProp.Type.GROUND.typeId -> groundColor
-    PokemonProp.Type.ROCK.typeId -> rockColor
-    PokemonProp.Type.BUG.typeId -> bugColor
-    PokemonProp.Type.GHOST.typeId -> ghostColor
-    PokemonProp.Type.STEEL.typeId -> steelColor
-    PokemonProp.Type.FIRE.typeId -> fireColor
-    PokemonProp.Type.WATER.typeId -> waterColor
-    PokemonProp.Type.GRASS.typeId -> grassColor
-    PokemonProp.Type.ELECTRIC.typeId -> electricColor
-    PokemonProp.Type.PSYCHIC.typeId -> psychicColor
-    PokemonProp.Type.ICE.typeId -> iceColor
-    PokemonProp.Type.DRAGON.typeId -> dragonColor
-    PokemonProp.Type.DARK.typeId -> darkColor
-    PokemonProp.Type.FAIRY.typeId -> fairyColor
+    Type.NORMAL.typeId -> normalColor
+    Type.FIGHTING.typeId -> fightingColor
+    Type.FLYING.typeId -> flyingColor
+    Type.POISON.typeId -> poisonColor
+    Type.GROUND.typeId -> groundColor
+    Type.ROCK.typeId -> rockColor
+    Type.BUG.typeId -> bugColor
+    Type.GHOST.typeId -> ghostColor
+    Type.STEEL.typeId -> steelColor
+    Type.FIRE.typeId -> fireColor
+    Type.WATER.typeId -> waterColor
+    Type.GRASS.typeId -> grassColor
+    Type.ELECTRIC.typeId -> electricColor
+    Type.PSYCHIC.typeId -> psychicColor
+    Type.ICE.typeId -> iceColor
+    Type.DRAGON.typeId -> dragonColor
+    Type.DARK.typeId -> darkColor
+    Type.FAIRY.typeId -> fairyColor
     else -> grassColor
   }
 

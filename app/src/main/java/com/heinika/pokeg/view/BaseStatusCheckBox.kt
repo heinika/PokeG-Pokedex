@@ -7,7 +7,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.BaseStatus
+import com.heinika.pokeg.info.BaseStatus
 import com.heinika.pokeg.utils.dp
 
 

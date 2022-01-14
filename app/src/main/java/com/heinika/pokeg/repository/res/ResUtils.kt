@@ -2,12 +2,12 @@ package com.heinika.pokeg.repository.res
 
 import android.content.Context
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.PokemonProp
+
 import timber.log.Timber
 
 object ResUtils {
 
-  fun getTypeColor(type: Int, context: Context): Int = PokemonProp.getTypeColor(context, type)
+  fun getTypeColor(type: Int, context: Context): Int = com.heinika.pokeg.info.getTypeColor(context, type)
 
   fun getNameById(id: Int, name: String = "", context: Context): String =
     getResString("pokemon_name_$id", name, context)
@@ -966,7 +966,7 @@ object ResUtils {
     else -> "other"
   }
 
-  fun getTypeString(id: Int, context: Context): String = PokemonProp.getTypeString(context, id)
+  fun getTypeString(id: Int, context: Context): String = com.heinika.pokeg.info.getTypeString(context, id)
 
   fun getDamageClassName(id: Int, context: Context) = when (id) {
     1 -> context.resources.getString(R.string.damage_class_1)

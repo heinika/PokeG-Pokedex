@@ -5,15 +5,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
-import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.appcompat.widget.AppCompatRadioButton
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.info.BodyStatus
 import com.heinika.pokeg.utils.dp
 
 
-@SuppressLint("ViewConstructor")
-class BodyRadioButton constructor(context: Context, bodyStatus: PokemonProp.BodyStatus) :
+@SuppressLint("ViewConstructor", "UseCompatLoadingForDrawables")
+class BodyRadioButton constructor(context: Context, bodyStatus: BodyStatus) :
   AppCompatRadioButton(context) {
   init {
     textAlignment = TEXT_ALIGNMENT_CENTER

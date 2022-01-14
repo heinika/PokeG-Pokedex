@@ -8,13 +8,14 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.info.Type
+
 import com.heinika.pokeg.utils.dp
 
 @SuppressLint("ViewConstructor")
 class TypeCheckBox @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
-    type:PokemonProp.Type,
+    type: Type,
 ) : AppCompatCheckBox(context, attrs) {
     init {
         tag = type.name

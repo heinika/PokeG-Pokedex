@@ -3,7 +3,7 @@ package com.heinika.pokeg.repository
 import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.heinika.pokeg.repository.res.PokemonRes
-import com.heinika.pokeg.ui.detail.itemdelegate.model.MoveItem
+import com.heinika.pokeg.module.detail.itemdelegate.model.MoveItem
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
