@@ -21,6 +21,7 @@ import com.heinika.pokeg.ui.main.itemdelegate.TagItemDelegate
 import com.heinika.pokeg.ui.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.GenerationsSelectItem
 import com.heinika.pokeg.ui.main.itemdelegate.model.TagSelectItem
+import com.heinika.pokeg.utils.BaseStatus
 import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.PokemonProp
 import com.heinika.pokeg.utils.SystemBar
@@ -48,8 +49,8 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   var onBaseStatusTitleClick: (() -> Unit)? = null
 
-  private val baseStatusCheckedList = mutableListOf<PokemonProp.BaseStatus>()
-  var onBaseStatusCheckedListChange: ((list: List<PokemonProp.BaseStatus>) -> Unit)? = null
+  private val baseStatusCheckedList = mutableListOf<BaseStatus>()
+  var onBaseStatusCheckedListChange: ((list: List<BaseStatus>) -> Unit)? = null
   var onBaseStatusFilterViewClick: (() -> Unit)? = null
 
   private val tagCheckedList = mutableListOf<PokemonProp.Tag>()
@@ -57,7 +58,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   private val baseStatusFilterView: RecyclerView = RecyclerView(context).apply {
     val list = mutableListOf<BaseStatusSelectItem>().apply {
-      PokemonProp.BaseStatus.values().forEach { eachBaseStatus ->
+      BaseStatus.values().forEach { eachBaseStatus ->
         add(BaseStatusSelectItem(eachBaseStatus) { baseStatus, isChecked ->
           if (isChecked) {
             baseStatusCheckedList.add(baseStatus)
@@ -250,7 +251,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   @SuppressLint("SetTextI18n")
   fun setBaseStatusTitleDataList(
-    list: List<PokemonProp.BaseStatus>,
+    list: List<BaseStatus>,
     bodyStatus: PokemonProp.BodyStatus?,
     isDesc: Boolean
   ) {

@@ -40,8 +40,12 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
-                    'src/main/res',
-                    'src/main/res/gameprops']
+                    'src/main/res/main',
+                    'src/main/res/gameprops',
+                    'src/main/res/nature',
+                    'src/main/res/version',
+                    'src/main/res/egg',
+            ]
         }
     }
 

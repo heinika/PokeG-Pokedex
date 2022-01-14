@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hardy">Hardy</string>
+    <string name="Lonely">Lonely</string>
+    <string name="Adamant">Adamant</string>
+    <string name="Naughty">Naughty</string>
+    <string name="Brave">Brave</string>
+    <string name="Bold">Bold</string>
+    <string name="Docile">Docile</string>
+    <string name="Impish">Impish</string>
+    <string name="Lax">Lax</string>
+    <string name="Relaxed">Relaxed</string>
+    <string name="Modest">Modest</string>
+    <string name="Mild">Mild</string>
+    <string name="Bashful">Bashful</string>
+    <string name="Rash">Rash</string>
+    <string name="Quiet">Quiet</string>
+    <string name="Calm">Calm</string>
+    <string name="Gentle">Gentle</string>
+    <string name="Careful">Careful</string>
+    <string name="Quirky">Quirky</string>
+    <string name="Sassy">Sassy</string>
+    <string name="Timid">Timid</string>
+    <string name="Hasty">Hasty</string>
+    <string name="Jolly">Jolly</string>
+    <string name="Naive">Naive</string>
+    <string name="Serious">Serious</string>
+
+</resources>

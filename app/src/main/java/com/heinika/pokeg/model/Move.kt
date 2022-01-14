@@ -6,6 +6,7 @@ import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.PhysicalMoveColor
 import com.heinika.pokeg.ui.theme.SpecialMoveColor
 import com.heinika.pokeg.ui.theme.StatusMoveColor
+import com.heinika.pokeg.utils.toTypeColor
 import com.squareup.moshi.JsonClass
 
 
@@ -29,6 +30,8 @@ data class Move(
   fun getTypeColor(context: Context) = Color(ResUtils.getTypeColor(typeId, context))
 
   fun getDamageClassName(context: Context) = ResUtils.getDamageClassName(damageClassId, context)
+
+  val typeColor = id.toTypeColor
 
   val damageClassColor = when (damageClassId) {
     1 -> StatusMoveColor

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -14,9 +16,11 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 
+@ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 class TeamActivity : ComponentActivity() {
+//  val teamViewModel: TeamViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -31,7 +35,7 @@ class TeamActivity : ComponentActivity() {
           systemUiController.setSystemBarsColor(Color.Transparent)
           systemUiController.setStatusBarColor(Color.Transparent)
           Surface(color = MaterialTheme.colors.background) {
-           TeamScreen()
+//            TeamScreen(teamViewModel)
           }
         }
       }

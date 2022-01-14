@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hardy">がんばりや</string>
+    <string name="Lonely">さみしがり</string>
+    <string name="Adamant">いじっぱり</string>
+    <string name="Naughty">やんちゃ</string>
+    <string name="Brave">ゆうかん</string>
+    <string name="Bold">ずぶとい</string>
+    <string name="Docile">すなお</string>
+    <string name="Impish">わんぱく</string>
+    <string name="Lax">のうてんき</string>
+    <string name="Relaxed">のんき</string>
+    <string name="Modest">ひかえめ</string>
+    <string name="Mild">おっとり</string>
+    <string name="Bashful">てれや</string>
+    <string name="Rash">うっかりや</string>
+    <string name="Quiet">れいせい</string>
+    <string name="Calm">おだやか</string>
+    <string name="Gentle">おとなしい</string>
+    <string name="Careful">しんちょう</string>
+    <string name="Quirky">きまぐれ</string>
+    <string name="Sassy">なまいき</string>
+    <string name="Timid">おくびょう</string>
+    <string name="Hasty">せっかち</string>
+    <string name="Jolly">ようき</string>
+    <string name="Naive">むじゃき</string>
+    <string name="Serious">まじめ</string>
+</resources>

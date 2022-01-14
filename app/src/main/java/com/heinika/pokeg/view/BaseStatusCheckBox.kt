@@ -7,17 +7,17 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.heinika.pokeg.R
-import com.heinika.pokeg.utils.PokemonProp
+import com.heinika.pokeg.utils.BaseStatus
 import com.heinika.pokeg.utils.dp
 
 
-@SuppressLint("ViewConstructor")
+@SuppressLint("ViewConstructor", "UseCompatLoadingForDrawables")
 class BaseStatusCheckBox constructor(context: Context) : AppCompatCheckBox(context) {
   init {
     textAlignment = TEXT_ALIGNMENT_CENTER
     setTextColor(Color.WHITE)
     buttonDrawable = null
-    val drawable = resources.getDrawable(R.drawable.check_box_basestatus_normal)
+    val drawable = resources.getDrawable(R .drawable.check_box_basestatus_normal)
     setBackgroundDrawable(drawable)
     setOnCheckedChangeListener { _, isChecked ->
       if (isChecked) {
@@ -29,7 +29,7 @@ class BaseStatusCheckBox constructor(context: Context) : AppCompatCheckBox(conte
     (background as GradientDrawable).setStroke(0, Color.WHITE)
   }
 
-  fun setBaseStatus(baseStatus: PokemonProp.BaseStatus){
+  fun setBaseStatus(baseStatus: BaseStatus){
     text = baseStatus.getName(context)
     buttonDrawable = null
     val drawable = resources.getDrawable(R.drawable.check_box_basestatus_normal)

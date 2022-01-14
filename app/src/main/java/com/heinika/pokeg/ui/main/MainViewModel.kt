@@ -1,11 +1,11 @@
 package com.heinika.pokeg.ui.main
 
 import androidx.lifecycle.*
-import com.bumptech.glide.Glide.init
 import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.utils.BaseStatus
 import com.heinika.pokeg.utils.Generation
 import com.heinika.pokeg.utils.PokemonProp
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -53,14 +53,14 @@ class MainViewModel @Inject constructor(
     MutableLiveData(emptyList())
   private val filterTags: LiveData<List<PokemonProp.Tag>> = _filterTags
 
-  private val _sortBaseStatusList: MutableLiveData<List<PokemonProp.BaseStatus>> =
+  private val _sortBaseStatusList: MutableLiveData<List<BaseStatus>> =
     MutableLiveData(emptyList())
 
   private val _selectedBodyStatus: MutableLiveData<PokemonProp.BodyStatus?> =
     MutableLiveData(null)
   val selectedBodyStatus: LiveData<PokemonProp.BodyStatus?> = _selectedBodyStatus
 
-  val sortBaseStatusList: LiveData<List<PokemonProp.BaseStatus>> = _sortBaseStatusList
+  val sortBaseStatusList: LiveData<List<BaseStatus>> = _sortBaseStatusList
 
   var onRefreshFavorite : ((Pokemon)->Unit)? = null
 
@@ -84,7 +84,7 @@ class MainViewModel @Inject constructor(
     onRefreshFavorite?.invoke(pokemon)
   }
 
-  fun changeSortBaseStatusList(list: List<PokemonProp.BaseStatus>) {
+  fun changeSortBaseStatusList(list: List<BaseStatus>) {
     _sortBaseStatusList.value = list
   }
 
@@ -197,12 +197,12 @@ class MainViewModel @Inject constructor(
         var sortPriority = 0
         sortBaseStatusList.value?.forEach {
           sortPriority += when (it) {
-            PokemonProp.BaseStatus.HP -> pokemon.hp
-            PokemonProp.BaseStatus.ATK -> pokemon.atk
-            PokemonProp.BaseStatus.DEF -> pokemon.def
-            PokemonProp.BaseStatus.SP_ATK -> pokemon.spAtk
-            PokemonProp.BaseStatus.SP_DEF -> pokemon.spDef
-            PokemonProp.BaseStatus.SPEED -> pokemon.speed
+            BaseStatus.HP -> pokemon.hp
+            BaseStatus.ATK -> pokemon.atk
+            BaseStatus.DEF -> pokemon.def
+            BaseStatus.SP_ATK -> pokemon.spAtk
+            BaseStatus.SP_DEF -> pokemon.spDef
+            BaseStatus.SPEED -> pokemon.speed
           }
         }
         if (isSortDesc.value!!) {

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="acid">酸</string>
+    <string name="sweet">甜</string>
+    <string name="bitter">苦</string>
+    <string name="hot">辣</string>
+    <string name="astringent">涩</string>
+    <string name="teste_equal">--</string>
+
+</resources>

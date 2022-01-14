@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hardy">勤奋</string>
+    <string name="Lonely">怕寂寞</string>
+    <string name="Adamant">固执</string>
+    <string name="Naughty">顽皮</string>
+    <string name="Brave">勇敢</string>
+    <string name="Bold">大胆</string>
+    <string name="Docile">坦率</string>
+    <string name="Impish">淘气</string>
+    <string name="Lax">乐天</string>
+    <string name="Relaxed">悠闲</string>
+    <string name="Modest">内敛</string>
+    <string name="Mild">慢吞吞</string>
+    <string name="Bashful">害羞</string>
+    <string name="Rash">马虎</string>
+    <string name="Quiet">冷静</string>
+    <string name="Calm">温和</string>
+    <string name="Gentle">温顺</string>
+    <string name="Careful">慎重</string>
+    <string name="Quirky">浮躁</string>
+    <string name="Sassy">自大</string>
+    <string name="Timid">胆小</string>
+    <string name="Hasty">急躁</string>
+    <string name="Jolly">爽朗</string>
+    <string name="Naive">天真</string>
+    <string name="Serious">认真</string>
+</resources>

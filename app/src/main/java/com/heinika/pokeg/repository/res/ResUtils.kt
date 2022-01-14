@@ -7,9 +7,9 @@ import timber.log.Timber
 
 object ResUtils {
 
-  fun getTypeColor(type: Int,context: Context): Int = PokemonProp.getTypeColor(context, type)
+  fun getTypeColor(type: Int, context: Context): Int = PokemonProp.getTypeColor(context, type)
 
-  fun getNameById(id: Int, name: String, context: Context): String =
+  fun getNameById(id: Int, name: String = "", context: Context): String =
     getResString("pokemon_name_$id", name, context)
 
   fun getItemById(id: Int, context: Context): String = getResString("item_$id", context = context)
