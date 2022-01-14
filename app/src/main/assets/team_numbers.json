@@ -1,16 +1,44 @@
 [
   {
     "id": "151",
-    "typeIdList": ["5","7"],
+    "typeIdList": ["14"],
     "carry": "打空保险",
-    "nature": "慢吞吞",
-    "moveIdList": ["1","22","34","45"]
+    "natureId": "1",
+    "moveIdList": ["100","72","32","15"]
   },
   {
     "id": "1",
-    "typeIdList": ["5","7"],
-    "carry": "打空保险",
-    "nature": "慢吞吞",
-    "moveIdList": ["1","22","34","45"]
+    "typeIdList": ["12","4"],
+    "carry": "弱点保险",
+    "natureId": "2",
+    "moveIdList": ["172","22","34","45"]
+  },
+  {
+    "id": "150",
+    "typeIdList": ["14"],
+    "carry": "弱点保险",
+    "natureId": "2",
+    "moveIdList": ["172","22","34","45"]
+  },
+  {
+    "id": "384",
+    "typeIdList": ["16","3"],
+    "carry": "弱点保险",
+    "natureId": "2",
+    "moveIdList": ["172","22","34","45"]
+  },
+  {
+    "id": "382",
+    "typeIdList": ["11"],
+    "carry": "弱点保险",
+    "natureId": "2",
+    "moveIdList": ["172","22","34","45"]
+  },
+  {
+    "id": "383",
+    "typeIdList": ["10"],
+    "carry": "弱点保险",
+    "natureId": "2",
+    "moveIdList": ["172","22","34","45"]
   }
 ]

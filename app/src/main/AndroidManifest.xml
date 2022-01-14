@@ -43,6 +43,7 @@
         <activity android:name="com.heinika.pokeg.module.egg.EggActivity" />
         <activity android:name="com.heinika.pokeg.module.nature.NatureListActivity" />
         <activity android:name="com.heinika.pokeg.module.gameprops.GamePropsActivity" />
+        <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
 
         <activity
             android:name=".module.about.AboutActivity"

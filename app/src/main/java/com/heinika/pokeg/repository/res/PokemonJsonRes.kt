@@ -24,7 +24,6 @@ class PokemonJsonRes @Inject constructor(
   private val pokemonAbilityList: MutableList<PokemonAbility> = mutableListOf()
   private val abilityList: MutableList<Ability> = mutableListOf()
   private val pokemonBaseStatList: MutableList<PokemonBaseStat> = mutableListOf()
-  private val natureList: MutableList<Nature> = mutableListOf()
 
 
   fun fetchPokemonMoveVersionList(id: Int, speciesId: Int): List<Int> {

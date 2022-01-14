@@ -27,7 +27,7 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.utils.SystemBar
-import com.heinika.pokeg.utils.Version
+import com.heinika.pokeg.info.Version
 
 @ExperimentalFoundationApi
 class VersionsActivity : ComponentActivity() {

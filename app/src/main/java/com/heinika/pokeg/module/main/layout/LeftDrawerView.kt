@@ -10,6 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
+import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.module.about.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
@@ -19,6 +20,7 @@ import com.heinika.pokeg.module.egg.EggActivity
 import com.heinika.pokeg.module.gameprops.GamePropsActivity
 import com.heinika.pokeg.module.moves.MoveListActivity
 import com.heinika.pokeg.module.nature.NatureListActivity
+import com.heinika.pokeg.module.team.TeamActivity
 import com.heinika.pokeg.module.versions.VersionsActivity
 import com.heinika.pokeg.utils.SystemBar
 
@@ -73,6 +75,17 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalCoilApi
+  @ExperimentalMaterialApi
+  private val teamsButton = AppCompatButton(context).apply {
+    text = "我的队伍"
+    background.setTint(context.getColor(R.color.base_status_sdef))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, TeamActivity::class.java)) }
     addView(this)
   }
 

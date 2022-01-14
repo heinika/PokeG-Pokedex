@@ -31,7 +31,7 @@ data class Move(
 
   fun getDamageClassName(context: Context) = ResUtils.getDamageClassName(damageClassId, context)
 
-  val typeColor = id.toTypeColor
+  val typeColor = typeId.toTypeColor
 
   val damageClassColor = when (damageClassId) {
     1 -> StatusMoveColor

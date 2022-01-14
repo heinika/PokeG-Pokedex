@@ -1,4 +1,4 @@
-package com.heinika.pokeg.utils
+package com.heinika.pokeg.info
 
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Generation
