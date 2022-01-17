@@ -1,10 +1,14 @@
 package com.heinika.pokeg.module.team
 
+import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.*
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -35,11 +39,12 @@ import com.heinika.pokeg.model.Move
 import com.heinika.pokeg.model.TeamNumberInfo
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.*
+import com.heinika.pokeg.ui.theme.TeamBackgroundColor
+import com.heinika.pokeg.ui.theme.grassColor
+import com.heinika.pokeg.ui.theme.waterColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.toTypeColor
-import timber.log.Timber
 import kotlin.random.Random
 
 @ExperimentalAnimationApi
@@ -69,11 +74,11 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 @Composable
 private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
   var selectedIndex by remember { mutableStateOf(0) }
-
   Row(Modifier.padding(12.dp, 0.dp), verticalAlignment = Alignment.CenterVertically) {
     Text(text = teamName, Modifier.weight(1f), style = MaterialTheme.typography.h5)
+    val context = LocalContext.current
     Image(painter = painterResource(id = R.drawable.baseline_edit_24), contentDescription = "", Modifier.clickable {
-
+      Toast.makeText(context.applicationContext,"暂时只有展示，编辑功能开发中...信息错误请忽略",Toast.LENGTH_SHORT).show()
     })
   }
   Divider(
