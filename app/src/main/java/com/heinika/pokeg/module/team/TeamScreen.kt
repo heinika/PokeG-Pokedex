@@ -58,7 +58,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
             Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
           }
 
-          items(teamNumberMap.entries.toList()){
+          items(teamNumberMap.entries.toList()) {
             TeamItemCard(it.key, it.value)
           }
         }
@@ -81,9 +81,14 @@ private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
       .height(2.dp)
   )
 
-  TeamNumberDetail(Modifier.fillMaxWidth().height(150.dp), teamList[selectedIndex])
+  TeamNumberDetail(
+    Modifier
+      .fillMaxWidth()
+      .height(150.dp), teamList[selectedIndex])
 
-  TeamRow(modifier = Modifier.height(110.dp).padding(6.dp), teamList.map { it.id },
+  TeamRow(modifier = Modifier
+    .height(110.dp)
+    .padding(6.dp), teamList.map { it.id },
     initSelectedIndex = selectedIndex,
     onSelectChange = {
       selectedIndex = it
@@ -136,7 +141,8 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
         top.linkTo(nameLabel.bottom, 4.dp)
         start.linkTo(carryTag.end, 4.dp)
       },
-      typeName = stringResource(id = teamNumberInfo.nature.stringId), color = fireColor
+      typeName = stringResource(id = teamNumberInfo.nature.stringId),
+      color = teamNumberInfo.nature.color
     )
 
     FlowRow(
@@ -201,13 +207,13 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
 }
 
 @Composable
-fun NatureCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", color: Color = grassColor) {
+fun NatureCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", color: Color) {
   Box(
     modifier
       .width(66.dp)
       .height(30.dp)
       .clip(RoundedCornerShape(12.dp))
-      .background(color.copy(alpha = 0.2f))
+      .background(color.copy(alpha = 0.6f))
   ) {
     Text(
       text = typeName,

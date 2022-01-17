@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,7 +41,8 @@ fun NatureCard(nature: Nature) {
       .padding(12.dp)
       .fillMaxWidth()
       .height(80.dp)
-      .fillMaxWidth()
+      .fillMaxWidth(),
+    backgroundColor = nature.color
   ) {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
       val (nameLabel, propLabel, tasteLabel, propRow1, propRow2, taste1, taste2) = createRefs()
