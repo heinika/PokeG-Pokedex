@@ -61,10 +61,6 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
           items(teamNumberMap.entries.toList()){
             TeamItemCard(it.key, it.value)
           }
-
-//          teamNumberMap.forEach { (teamName, teamList) ->
-//            TeamItemCard(teamName, teamList)
-//          }
         }
       }
     }

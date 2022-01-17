@@ -1,72 +1,79 @@
 [
   {
-    "teamName": "Team1",
+    "teamName": "神话队",
     "teamNumbers": [
       {
         "id": "151",
         "typeIdList": ["14"],
-        "carry": "打空保险",
+        "carry": "爱心糖饰",
         "natureId": "1",
-        "moveIdList": ["100","72","32","15"]
+        "moveIdList": ["396","118","94","286"]
       },
       {
-        "id": "1",
-        "typeIdList": ["12","4"],
-        "carry": "弱点保险",
+        "id": "251",
+        "typeIdList": ["14","12"],
+        "carry": "野莓糖饰",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "150",
+        "id": "492",
         "typeIdList": ["14"],
+        "carry": "幸运草糖饰",
+        "natureId": "2",
+        "moveIdList": ["172","22","34","45"]
+      },
+      {
+        "id": "493",
+        "typeIdList": ["1"],
+        "carry": "花朵糖饰",
+        "natureId": "2",
+        "moveIdList": ["172","22","34","45"]
+      },
+      {
+        "id": "647",
+        "typeIdList": ["11","2"],
         "carry": "弱点保险",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "384",
-        "typeIdList": ["16","3"],
-        "carry": "弱点保险",
-        "natureId": "2",
-        "moveIdList": ["172","22","34","45"]
-      },
-      {
-        "id": "382",
-        "typeIdList": ["11"],
-        "carry": "弱点保险",
-        "natureId": "2",
-        "moveIdList": ["172","22","34","45"]
-      },
-      {
-        "id": "383",
-        "typeIdList": ["10"],
-        "carry": "弱点保险",
+        "id": "802",
+        "typeIdList": ["2","8"],
+        "carry": "万能伞",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       }
     ]
   },
   {
-    "teamName": "Team2",
+    "teamName": "传说队",
     "teamNumbers": [
       {
-        "id": "151",
+        "id": "150",
         "typeIdList": ["14"],
-        "carry": "打空保险",
+        "carry": "大地膜",
         "natureId": "1",
         "moveIdList": ["100","72","32","15"]
       },
       {
-        "id": "1",
-        "typeIdList": ["12","4"],
-        "carry": "弱点保险",
+        "id": "249",
+        "typeIdList": ["14","3"],
+        "carry": "青草种子",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "150",
-        "typeIdList": ["14"],
-        "carry": "弱点保险",
+        "id": "250",
+        "typeIdList": ["10","3"],
+        "carry": "岩石存储碟",
+        "natureId": "2",
+        "moveIdList": ["172","22","34","45"]
+      },
+      {
+        "id": "380",
+        "typeIdList": ["16","14"],
+        "carry": "龙存储碟",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
@@ -78,110 +85,103 @@
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "382",
-        "typeIdList": ["11"],
-        "carry": "弱点保险",
-        "natureId": "2",
-        "moveIdList": ["172","22","34","45"]
-      },
-      {
-        "id": "383",
-        "typeIdList": ["10"],
-        "carry": "弱点保险",
+        "id": "890",
+        "typeIdList": ["4","16"],
+        "carry": "妖精存储碟",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       }
     ]
   },
   {
-    "teamName": "Team1",
+    "teamName": "婴儿队",
     "teamNumbers": [
       {
-        "id": "151",
-        "typeIdList": ["14"],
+        "id": "172",
+        "typeIdList": ["13"],
         "carry": "打空保险",
         "natureId": "1",
         "moveIdList": ["100","72","32","15"]
       },
       {
-        "id": "1",
-        "typeIdList": ["12","4"],
+        "id": "173",
+        "typeIdList": ["18"],
+        "carry": "冰雪存储碟",
+        "natureId": "2",
+        "moveIdList": ["172","22","34","45"]
+      },
+      {
+        "id": "174",
+        "typeIdList": ["1","18"],
         "carry": "弱点保险",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "150",
-        "typeIdList": ["14"],
-        "carry": "弱点保险",
+        "id": "175",
+        "typeIdList": ["18"],
+        "carry": "薄雾种子",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "384",
-        "typeIdList": ["16","3"],
-        "carry": "弱点保险",
+        "id": "447",
+        "typeIdList": ["2"],
+        "carry": "客房服务",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "382",
-        "typeIdList": ["11"],
-        "carry": "弱点保险",
-        "natureId": "2",
-        "moveIdList": ["172","22","34","45"]
-      },
-      {
-        "id": "383",
-        "typeIdList": ["10"],
-        "carry": "弱点保险",
+        "id": "446",
+        "typeIdList": ["1"],
+        "carry": "腐朽的盾",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       }
     ]
   },
   {
-    "teamName": "Team3",
+    "teamName": "血量爆表队",
     "teamNumbers": [
       {
-        "id": "151",
-        "typeIdList": ["14"],
-        "carry": "打空保险",
+        "id": "242",
+        "typeIdList": ["1"],
+        "carry": "爱心糖饰",
         "natureId": "1",
         "moveIdList": ["100","72","32","15"]
       },
       {
-        "id": "1",
-        "typeIdList": ["12","4"],
-        "carry": "弱点保险",
+        "id": "113",
+        "typeIdList": ["1"],
+        "carry": "野莓糖饰",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "150",
+        "id": "799",
+        "typeIdList": ["17","16"],
+        "carry": "幸运草糖饰",
+        "natureId": "2",
+        "moveIdList": ["172","22","34","45"]
+      },
+      {
+        "id": "895",
+        "typeIdList": ["16"],
+        "carry": "花朵糖饰",
+        "natureId": "2",
+        "moveIdList": ["172","22","34","45"]
+      },
+      {
+        "id": "202",
         "typeIdList": ["14"],
-        "carry": "弱点保险",
+        "carry": "星星糖饰",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
       {
-        "id": "384",
-        "typeIdList": ["16","3"],
-        "carry": "弱点保险",
-        "natureId": "2",
-        "moveIdList": ["172","22","34","45"]
-      },
-      {
-        "id": "382",
+        "id": "321",
         "typeIdList": ["11"],
-        "carry": "弱点保险",
-        "natureId": "2",
-        "moveIdList": ["172","22","34","45"]
-      },
-      {
-        "id": "383",
-        "typeIdList": ["10"],
-        "carry": "弱点保险",
+        "carry": "蝴蝶结糖饰",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       }
