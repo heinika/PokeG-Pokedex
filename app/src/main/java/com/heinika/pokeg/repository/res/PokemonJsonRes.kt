@@ -57,12 +57,12 @@ class PokemonJsonRes @Inject constructor(
 
   @WorkerThread
   fun fetchAllMoves(): List<Move> {
-    return fetchListByJson<Move>("all_moves.json")
+    return fetchListByJson("all_moves.json")
   }
 
   @WorkerThread
-  fun fetchTeamNumberList(): List<TeamNumber> {
-    return fetchListByJson<TeamNumber>("team_numbers.json")
+  fun fetchTeamList(): List<Team> {
+    return fetchListByJson("team_numbers.json")
   }
 
   @WorkerThread

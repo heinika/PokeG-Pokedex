@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TeamViewModel @Inject constructor(teamRepository: TeamRepository) : ViewModel() {
-  private val _teamNumberList = mutableStateOf<List<TeamNumberInfo>>(emptyList())
-  val teamNumberList: State<List<TeamNumberInfo>> = _teamNumberList
+  private val _teamNumberMap = mutableStateOf<Map<String,List<TeamNumberInfo>>>(emptyMap())
+  val teamNumberMap: State<Map<String,List<TeamNumberInfo>>> = _teamNumberMap
   private var allMoveList : List<Move> = emptyList()
 
 
@@ -22,8 +22,8 @@ class TeamViewModel @Inject constructor(teamRepository: TeamRepository) : ViewMo
     viewModelScope.launch {
       teamRepository.allMovesFlow().collect {moveList ->
         allMoveList = moveList
-        teamRepository.teamNumberInfoListFlow(moveList).collect {
-          _teamNumberList.value = it
+        teamRepository.teamListMap(moveList).collect {
+          _teamNumberMap.value = it
         }
       }
     }

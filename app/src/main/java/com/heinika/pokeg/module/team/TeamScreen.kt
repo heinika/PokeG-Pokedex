@@ -4,10 +4,10 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -45,35 +45,53 @@ import com.heinika.pokeg.utils.toTypeColor
 @ExperimentalCoilApi
 @Composable
 fun TeamScreen(teamViewModel: TeamViewModel) {
-  val teamNumberList by remember { teamViewModel.teamNumberList }
-  if (teamNumberList.isNotEmpty()) {
-    var selectedIndex by remember { mutableStateOf(0) }
+  val teamNumberMap by remember { teamViewModel.teamNumberMap }
+  if (teamNumberMap.isNotEmpty()) {
     PokeGTheme {
       Surface {
-        Column(
+        LazyColumn(
           Modifier
             .fillMaxSize()
             .background(color = TeamBackgroundColor)
         ) {
-          Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
-          Text(text = "Team1", Modifier.padding(start = 12.dp))
-          Divider(
-            Modifier
-              .padding(12.dp, 4.dp)
-              .height(2.dp)
-          )
+          item {
+            Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
+          }
 
-          TeamNumberDetail(Modifier.fillMaxWidth(), teamNumberList[selectedIndex])
+          items(teamNumberMap.entries.toList()){
+            TeamItemCard(it.key, it.value)
+          }
 
-          TeamRow(modifier = Modifier.padding(6.dp), teamNumberList.map { it.id },
-            initSelectedIndex = selectedIndex,
-            onSelectChange = {
-              selectedIndex = it
-            })
+//          teamNumberMap.forEach { (teamName, teamList) ->
+//            TeamItemCard(teamName, teamList)
+//          }
         }
       }
     }
   }
+}
+
+@ExperimentalAnimationApi
+@ExperimentalMaterialApi
+@ExperimentalCoilApi
+@Composable
+private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
+  var selectedIndex by remember { mutableStateOf(0) }
+
+  Text(text = teamName, Modifier.padding(start = 12.dp))
+  Divider(
+    Modifier
+      .padding(12.dp, 4.dp)
+      .height(2.dp)
+  )
+
+  TeamNumberDetail(Modifier.fillMaxWidth().height(150.dp), teamList[selectedIndex])
+
+  TeamRow(modifier = Modifier.height(110.dp).padding(6.dp), teamList.map { it.id },
+    initSelectedIndex = selectedIndex,
+    onSelectChange = {
+      selectedIndex = it
+    })
 }
 
 @ExperimentalCoilApi
@@ -278,7 +296,7 @@ private fun TeamNumberCard(
   onClick: () -> Unit
 ) {
   Box(
-    modifier = modifier.height(140.dp)
+    modifier = modifier.fillMaxHeight()
   ) {
     Card(modifier = Modifier
       .fillMaxWidth(0.95f)

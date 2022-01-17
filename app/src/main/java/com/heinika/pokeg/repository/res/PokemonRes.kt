@@ -53,7 +53,7 @@ class PokemonRes @Inject constructor(
   fun fetchAllMoves(): List<Move> = jsonRes.fetchAllMoves()
 
   @WorkerThread
-  fun fetchTeamNumberList(): List<TeamNumber> = jsonRes.fetchTeamNumberList()
+  fun fetchTeamList(): List<Team> = jsonRes.fetchTeamList()
 
   @WorkerThread
   fun fetchSpeciesEggGroup(specieId: Int): List<SpeciesEggGroup> =
