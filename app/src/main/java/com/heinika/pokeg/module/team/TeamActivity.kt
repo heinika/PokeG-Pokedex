@@ -6,14 +6,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.ui.theme.PokeGTheme
+import com.heinika.pokeg.ui.theme.TeamBackgroundColor
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @ExperimentalCoilApi
 @AndroidEntryPoint
 class TeamActivity : ComponentActivity() {
-  val teamViewModel: TeamViewModel by viewModels()
+  private val teamViewModel: TeamViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class TeamActivity : ComponentActivity() {
           val systemUiController = rememberSystemUiController()
           systemUiController.setSystemBarsColor(Color.Transparent)
           systemUiController.setStatusBarColor(Color.Transparent)
-          Surface(color = MaterialTheme.colors.background) {
+          Surface(color = TeamBackgroundColor, contentColor = Color.White, modifier = Modifier.fillMaxSize()) {
             TeamScreen(teamViewModel)
           }
         }

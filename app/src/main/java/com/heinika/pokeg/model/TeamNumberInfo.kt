@@ -10,5 +10,6 @@ data class TeamNumberInfo(
   val typeIdList: List<Type>,
   val carry: CarryProps?,
   val nature: Nature,
+  val ability: String,
   val moveList: List<Move>
 )

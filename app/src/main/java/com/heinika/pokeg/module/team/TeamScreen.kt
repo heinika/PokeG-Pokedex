@@ -39,6 +39,8 @@ import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.toTypeColor
+import timber.log.Timber
+import kotlin.random.Random
 
 @ExperimentalAnimationApi
 @ExperimentalMaterialApi
@@ -47,21 +49,15 @@ import com.heinika.pokeg.utils.toTypeColor
 fun TeamScreen(teamViewModel: TeamViewModel) {
   val teamNumberMap by remember { teamViewModel.teamNumberMap }
   if (teamNumberMap.isNotEmpty()) {
-    PokeGTheme {
-      Surface {
-        LazyColumn(
-          Modifier
-            .fillMaxSize()
-            .background(color = TeamBackgroundColor)
-        ) {
-          item {
-            Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
-          }
+    LazyColumn(
+      Modifier.fillMaxSize()
+    ) {
+      item {
+        Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
+      }
 
-          items(teamNumberMap.entries.toList()) {
-            TeamItemCard(it.key, it.value)
-          }
-        }
+      items(teamNumberMap.entries.toList()) {
+        TeamItemCard(it.key, it.value)
       }
     }
   }
@@ -74,7 +70,12 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
   var selectedIndex by remember { mutableStateOf(0) }
 
-  Text(text = teamName, Modifier.padding(start = 12.dp))
+  Row(Modifier.padding(12.dp, 0.dp), verticalAlignment = Alignment.CenterVertically) {
+    Text(text = teamName, Modifier.weight(1f), style = MaterialTheme.typography.h5)
+    Image(painter = painterResource(id = R.drawable.baseline_edit_24), contentDescription = "", Modifier.clickable {
+
+    })
+  }
   Divider(
     Modifier
       .padding(12.dp, 4.dp)
@@ -84,7 +85,8 @@ private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
   TeamNumberDetail(
     Modifier
       .fillMaxWidth()
-      .height(150.dp), teamList[selectedIndex])
+      .height(180.dp), teamList[selectedIndex]
+  )
 
   TeamRow(modifier = Modifier
     .height(110.dp)
@@ -99,7 +101,7 @@ private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
 @Composable
 fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberInfo) {
   ConstraintLayout(modifier) {
-    val (image, nameLabel, typeRow, carryTag, natureTag, moveRow) = createRefs()
+    val (image, nameLabel, typeRow, carryTag, natureTag, abilityTag, moveRow) = createRefs()
     Image(
       painter = rememberImagePainter(getPokemonImageUrl(teamNumberInfo.id)),
       contentDescription = "",
@@ -109,7 +111,7 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
           start.linkTo(parent.start)
           bottom.linkTo(parent.bottom)
         }
-        .fillMaxWidth(0.4f)
+        .fillMaxWidth(0.45f)
         .padding(12.dp)
     )
 
@@ -128,26 +130,36 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
         }, teamNumberInfo.typeIdList, teamNumberInfo.nature
     )
 
-    CarryCard(
-      modifier = Modifier.constrainAs(carryTag) {
-        top.linkTo(nameLabel.bottom, 4.dp)
-        start.linkTo(nameLabel.start)
-      },
-      teamNumberInfo.carry
-    )
-
-    NatureCard(
+    TagCard(
       modifier = Modifier.constrainAs(natureTag) {
         top.linkTo(nameLabel.bottom, 4.dp)
-        start.linkTo(carryTag.end, 4.dp)
+        start.linkTo(nameLabel.start)
       },
       typeName = stringResource(id = teamNumberInfo.nature.stringId),
       color = teamNumberInfo.nature.color
     )
 
+    val randomColor = Color(Random.nextInt(0,255),Random.nextInt(0,255),Random.nextInt(0,255),255)
+    TagCard(
+      modifier = Modifier.constrainAs(abilityTag) {
+        top.linkTo(nameLabel.bottom, 4.dp)
+        start.linkTo(natureTag.end, 4.dp)
+      },
+      typeName = teamNumberInfo.ability,
+      color = randomColor
+    )
+
+    CarryCard(
+      modifier = Modifier.constrainAs(carryTag) {
+        top.linkTo(natureTag.bottom, 4.dp)
+        start.linkTo(nameLabel.start)
+      },
+      teamNumberInfo.carry
+    )
+
     FlowRow(
       Modifier
-        .fillMaxWidth(0.6f)
+        .fillMaxWidth(0.55f)
         .constrainAs(moveRow) {
           top.linkTo(carryTag.bottom)
           start.linkTo(nameLabel.start)
@@ -207,11 +219,11 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
 }
 
 @Composable
-fun NatureCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", color: Color) {
+fun TagCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", color: Color) {
   Box(
     modifier
       .width(66.dp)
-      .height(30.dp)
+      .height(25.dp)
       .clip(RoundedCornerShape(12.dp))
       .background(color.copy(alpha = 0.6f))
   ) {
@@ -228,7 +240,7 @@ fun NatureCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", co
 fun MoveCard(modifier: Modifier = Modifier, move: Move) {
   Box(
     modifier
-      .width(100.dp)
+      .width(90.dp)
       .height(30.dp)
       .clip(RoundedCornerShape(12.dp))
       .background(move.typeColor.copy(alpha = 0.2f))

@@ -6,6 +6,7 @@
         "id": "151",
         "typeIdList": ["14"],
         "carry": "爱心糖饰",
+        "abilityId": "28",
         "natureId": "1",
         "moveIdList": ["396","118","94","286"]
       },
@@ -13,6 +14,7 @@
         "id": "251",
         "typeIdList": ["14","12"],
         "carry": "野莓糖饰",
+        "abilityId": "2",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
@@ -20,6 +22,7 @@
         "id": "492",
         "typeIdList": ["14"],
         "carry": "幸运草糖饰",
+        "abilityId": "3",
         "natureId": "3",
         "moveIdList": ["172","22","34","45"]
       },
@@ -27,6 +30,7 @@
         "id": "493",
         "typeIdList": ["1"],
         "carry": "花朵糖饰",
+        "abilityId": "4",
         "natureId": "4",
         "moveIdList": ["172","22","34","45"]
       },
@@ -34,6 +38,7 @@
         "id": "647",
         "typeIdList": ["11","2"],
         "carry": "弱点保险",
+        "abilityId": "5",
         "natureId": "5",
         "moveIdList": ["172","22","34","45"]
       },
@@ -41,6 +46,7 @@
         "id": "802",
         "typeIdList": ["2","8"],
         "carry": "万能伞",
+        "abilityId": "6",
         "natureId": "6",
         "moveIdList": ["172","22","34","45"]
       }
@@ -53,6 +59,7 @@
         "id": "150",
         "typeIdList": ["14"],
         "carry": "大地膜",
+        "abilityId": "127",
         "natureId": "7",
         "moveIdList": ["100","72","32","15"]
       },
@@ -60,6 +67,7 @@
         "id": "249",
         "typeIdList": ["14","3"],
         "carry": "青草种子",
+        "abilityId": "8",
         "natureId": "8",
         "moveIdList": ["172","22","34","45"]
       },
@@ -67,6 +75,7 @@
         "id": "250",
         "typeIdList": ["10","3"],
         "carry": "岩石存储碟",
+        "abilityId": "9",
         "natureId": "9",
         "moveIdList": ["172","22","34","45"]
       },
@@ -74,6 +83,7 @@
         "id": "380",
         "typeIdList": ["16","14"],
         "carry": "龙存储碟",
+        "abilityId": "10",
         "natureId": "10",
         "moveIdList": ["172","22","34","45"]
       },
@@ -81,6 +91,7 @@
         "id": "384",
         "typeIdList": ["16","3"],
         "carry": "弱点保险",
+        "abilityId": "11",
         "natureId": "11",
         "moveIdList": ["172","22","34","45"]
       },
@@ -88,6 +99,7 @@
         "id": "890",
         "typeIdList": ["4","16"],
         "carry": "妖精存储碟",
+        "abilityId": "12",
         "natureId": "12",
         "moveIdList": ["172","22","34","45"]
       }
@@ -100,6 +112,7 @@
         "id": "172",
         "typeIdList": ["13"],
         "carry": "打空保险",
+        "abilityId": "13",
         "natureId": "1",
         "moveIdList": ["100","72","32","15"]
       },
@@ -107,6 +120,7 @@
         "id": "173",
         "typeIdList": ["18"],
         "carry": "冰雪存储碟",
+        "abilityId": "14",
         "natureId": "2",
         "moveIdList": ["172","22","34","45"]
       },
@@ -114,6 +128,7 @@
         "id": "174",
         "typeIdList": ["1","18"],
         "carry": "弱点保险",
+        "abilityId": "15",
         "natureId": "3",
         "moveIdList": ["172","22","34","45"]
       },
@@ -121,6 +136,7 @@
         "id": "175",
         "typeIdList": ["18"],
         "carry": "薄雾种子",
+        "abilityId": "16",
         "natureId": "4",
         "moveIdList": ["172","22","34","45"]
       },
@@ -128,6 +144,7 @@
         "id": "447",
         "typeIdList": ["2"],
         "carry": "客房服务",
+        "abilityId": "17",
         "natureId": "5",
         "moveIdList": ["172","22","34","45"]
       },
@@ -135,6 +152,7 @@
         "id": "446",
         "typeIdList": ["1"],
         "carry": "腐朽的盾",
+        "abilityId": "18",
         "natureId": "6",
         "moveIdList": ["172","22","34","45"]
       }
@@ -147,6 +165,7 @@
         "id": "242",
         "typeIdList": ["1"],
         "carry": "爱心糖饰",
+        "abilityId": "19",
         "natureId": "7",
         "moveIdList": ["100","72","32","15"]
       },
@@ -154,6 +173,7 @@
         "id": "113",
         "typeIdList": ["1"],
         "carry": "野莓糖饰",
+        "abilityId": "20",
         "natureId": "8",
         "moveIdList": ["172","22","34","45"]
       },
@@ -161,6 +181,7 @@
         "id": "799",
         "typeIdList": ["17","16"],
         "carry": "幸运草糖饰",
+        "abilityId": "21",
         "natureId": "9",
         "moveIdList": ["172","22","34","45"]
       },
@@ -168,6 +189,7 @@
         "id": "895",
         "typeIdList": ["16"],
         "carry": "花朵糖饰",
+        "abilityId": "22",
         "natureId": "10",
         "moveIdList": ["172","22","34","45"]
       },
@@ -175,6 +197,7 @@
         "id": "202",
         "typeIdList": ["14"],
         "carry": "星星糖饰",
+        "abilityId": "23",
         "natureId": "11",
         "moveIdList": ["172","22","34","45"]
       },
@@ -182,6 +205,7 @@
         "id": "321",
         "typeIdList": ["11"],
         "carry": "蝴蝶结糖饰",
+        "abilityId": "24",
         "natureId": "12",
         "moveIdList": ["172","22","34","45"]
       }

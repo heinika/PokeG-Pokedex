@@ -17,9 +17,10 @@ class TeamRepository @Inject constructor(
 
   fun teamListMap(moveList: List<Move>) = flow {
     val map = linkedMapOf<String,List<TeamNumberInfo>>()
+    val allAbilityList = pokemonRes.fetchAbilities()
     pokemonRes.fetchTeamList().forEach { team ->
       map[team.teamName] = team.teamNumbers.map {
-        it.toTeamNumberInfo(pokeGApp, moveList)
+        it.toTeamNumberInfo(pokeGApp, moveList,allAbilityList)
       }
     }
     emit(map.toMap())
