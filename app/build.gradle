@@ -7,7 +7,7 @@ plugins {
 }
 
 // compose
-String composeVersion = "1.2.0-alpha01"
+String composeVersion = "1.0.5"
 
 android {
     signingConfigs {

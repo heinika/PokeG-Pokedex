@@ -224,6 +224,7 @@ class MainViewModel @Inject constructor(
           BodyStatus.HEIGHT -> {
             sortPriority = pokemon.height
           }
+          else -> {}
         }
         if (isSortDesc.value!!) {
           -sortPriority
