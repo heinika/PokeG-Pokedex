@@ -102,7 +102,7 @@
     <string name="fairy">精灵</string>
     <string name="humanshape">人形</string>
     <string name="mineral">矿物</string>
-    <string name="indeterminate">不定</string>
+    <string name="indeterminate1">不定</string>
     <string name="ditto">重复</string>
     <string name="dragon">龙</string>
     <string name="no_eggs">没有蛋</string>
@@ -158,10 +158,4 @@
     <string name="Ascending">升序</string>
     <string name="title_activity_move_List">技能列表</string>
 
-    <string name="Acid">酸</string>
-    <string name="Sweet">甜</string>
-    <string name="Bitter">苦</string>
-    <string name="Hot">辣</string>
-    <string name="Astringent">涩</string>
-    <string name="no_special">--</string>
 </resources>

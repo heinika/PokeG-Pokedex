@@ -81,7 +81,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val teamsButton = AppCompatButton(context).apply {
-    text = "我的队伍"
+    text = "我的队伍（开发中）"
     background.setTint(context.getColor(R.color.base_status_sdef))
     setTextColor(Color.WHITE)
 

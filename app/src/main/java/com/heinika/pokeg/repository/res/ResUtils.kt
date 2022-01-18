@@ -57,7 +57,7 @@ object ResUtils {
     8 -> context.resources.getString(R.string.humanshape)
     9 -> context.resources.getString(R.string.water3)
     10 -> context.resources.getString(R.string.mineral)
-    11 -> context.resources.getString(R.string.indeterminate)
+    11 -> context.resources.getString(R.string.indeterminate1)
     12 -> context.resources.getString(R.string.water2)
     13 -> context.resources.getString(R.string.ditto)
     14 -> context.resources.getString(R.string.dragon)
