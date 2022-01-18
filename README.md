@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-<img src="/previews/preview1.png" align="left" width="30%"/>
+<img src="/previews/team.png" align="left" width="30%"/>
 <img src="/previews/preview2.png" align="center" width="30%"/>
 <img src="/previews/preview3.png" align="right" width="30%"/>
 </p>
