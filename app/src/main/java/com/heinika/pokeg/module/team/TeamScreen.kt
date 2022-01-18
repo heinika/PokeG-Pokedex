@@ -33,7 +33,6 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.R
-import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Move
 import com.heinika.pokeg.model.TeamNumberInfo
@@ -132,7 +131,7 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
           top.linkTo(nameLabel.top)
           bottom.linkTo(nameLabel.bottom)
           start.linkTo(nameLabel.end, 4.dp)
-        }, teamNumberInfo.typeIdList, teamNumberInfo.nature
+        }, teamNumberInfo.typeIdList
     )
 
     TagCard(
@@ -177,7 +176,7 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
 }
 
 @Composable
-private fun TypeColumn(modifier: Modifier = Modifier, typeList: List<Type>, nature: Nature) {
+private fun TypeColumn(modifier: Modifier = Modifier, typeList: List<Type>) {
   Column(modifier, Arrangement.Center) {
     typeList.forEach {
       TypeCard(color = it.typeId.toTypeColor, typeName = it.getName(LocalContext.current))
