@@ -38,7 +38,7 @@ import com.heinika.pokeg.model.Move
 import com.heinika.pokeg.model.TeamNumberInfo
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.TeamBackgroundColor
+import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.ui.theme.waterColor
 import com.heinika.pokeg.utils.SystemBar
@@ -368,7 +368,7 @@ private fun TeamNumberCard(
 
     AnimatedVisibility(visible = !isSelected, enter = fadeIn(), exit = fadeOut()) {
       Canvas(modifier = Modifier.fillMaxSize()) {
-        drawRect(TeamBackgroundColor, alpha = 0.5f)
+        drawRect(BlackBackgroundColor, alpha = 0.5f)
       }
     }
   }

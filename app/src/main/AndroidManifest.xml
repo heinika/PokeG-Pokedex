@@ -18,7 +18,7 @@
         tools:ignore="AllowBackup">
 
         <activity
-            android:name=".PokeGActivity"
+            android:name=".module.mypokemon.MyPokemonActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">

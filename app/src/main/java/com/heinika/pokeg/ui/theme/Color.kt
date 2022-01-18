@@ -49,7 +49,7 @@ val AccuracySortColor = fireColor
 val PPSortColor = rockColor
 
 
-val TeamBackgroundColor = Color(0xff1D1E1D)
+val BlackBackgroundColor = Color(0xff1D1E1D)
 
 
 val HardyColor = Color(0xffFF5677)

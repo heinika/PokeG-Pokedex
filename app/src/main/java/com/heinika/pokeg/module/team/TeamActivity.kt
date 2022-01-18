@@ -15,7 +15,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.ui.theme.PokeGTheme
-import com.heinika.pokeg.ui.theme.TeamBackgroundColor
+import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,7 +38,7 @@ class TeamActivity : ComponentActivity() {
           val systemUiController = rememberSystemUiController()
           systemUiController.setSystemBarsColor(Color.Transparent)
           systemUiController.setStatusBarColor(Color.Transparent)
-          Surface(color = TeamBackgroundColor, contentColor = Color.White, modifier = Modifier.fillMaxSize()) {
+          Surface(color = BlackBackgroundColor, contentColor = Color.White, modifier = Modifier.fillMaxSize()) {
             TeamScreen(teamViewModel)
           }
         }
