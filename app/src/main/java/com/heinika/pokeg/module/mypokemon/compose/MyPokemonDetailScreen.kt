@@ -71,25 +71,18 @@ fun MyPokemonDetailScreen() {
         )
       })
 
-    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
-      val (contentColumn,contentColumnBg,image) = createRefs()
-      Box(
-        modifier = Modifier
-          .constrainAs(contentColumnBg) {
-            top.linkTo(image.bottom)
-            bottom.linkTo(parent.bottom)
-          }
-          .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
-          .background(
-            Brush.verticalGradient(
-              listOf(
-                DarkRedLinearStartColor, DarkRedLinearEndColor
-              )
+    Box(modifier = Modifier.fillMaxSize()) {
+      Column(modifier = Modifier
+        .padding(top = 190.dp)
+        .fillMaxSize()
+        .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+        .background(
+          Brush.verticalGradient(
+            listOf(
+              DarkRedLinearStartColor, DarkRedLinearEndColor
             )
           )
-      )
-      
-      Column() {
+        )) {
 
       }
 
@@ -97,12 +90,7 @@ fun MyPokemonDetailScreen() {
         painter = painterResource(id = R.drawable.penbuolong),
         contentDescription = "",
         Modifier
-          .constrainAs(image) {
-            top.linkTo(parent.top)
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-          }
-          .fillMaxWidth(0.8f),
+          .size(285.dp).align(Alignment.TopCenter),
         contentScale = ContentScale.FillWidth
       )
     }
