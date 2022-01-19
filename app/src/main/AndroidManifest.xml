@@ -43,9 +43,8 @@
         <activity android:name="com.heinika.pokeg.module.egg.EggActivity" />
         <activity android:name="com.heinika.pokeg.module.nature.NatureListActivity" />
         <activity android:name="com.heinika.pokeg.module.gameprops.GamePropsActivity" />
-        <activity android:name="com.heinika.pokeg.module.team.TeamActivity"
-            android:theme="@style/Theme.Team"
-            />
+        <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
+        <activity android:name="com.heinika.pokeg.module.mypokemon.MyPokemonActivity" />
 
         <activity
             android:name=".module.about.AboutActivity"

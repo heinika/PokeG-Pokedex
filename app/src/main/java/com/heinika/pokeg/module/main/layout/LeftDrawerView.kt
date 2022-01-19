@@ -19,6 +19,7 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.module.egg.EggActivity
 import com.heinika.pokeg.module.gameprops.GamePropsActivity
 import com.heinika.pokeg.module.moves.MoveListActivity
+import com.heinika.pokeg.module.mypokemon.MyPokemonActivity
 import com.heinika.pokeg.module.nature.NatureListActivity
 import com.heinika.pokeg.module.team.TeamActivity
 import com.heinika.pokeg.module.versions.VersionsActivity
@@ -75,6 +76,18 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalFoundationApi
+  @ExperimentalCoilApi
+  @ExperimentalMaterialApi
+  private val myPokemonButton = AppCompatButton(context).apply {
+    text = "我的宝可梦（开发中）"
+    background.setTint(context.getColor(R.color.base_status_sdef))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, MyPokemonActivity::class.java)) }
     addView(this)
   }
 

@@ -45,6 +45,7 @@ android {
                     'src/main/res/nature',
                     'src/main/res/version',
                     'src/main/res/egg',
+                    'src/main/res/mypokemon',
             ]
         }
     }
