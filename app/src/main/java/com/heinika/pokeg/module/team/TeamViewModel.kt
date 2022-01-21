@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.model.Move
-import com.heinika.pokeg.model.TeamNumberInfo
+import com.heinika.pokeg.model.MyPokemonInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TeamViewModel @Inject constructor(teamRepository: TeamRepository) : ViewModel() {
-  private val _teamNumberMap = mutableStateOf<Map<String,List<TeamNumberInfo>>>(emptyMap())
-  val teamNumberMap: State<Map<String,List<TeamNumberInfo>>> = _teamNumberMap
+  private val _teamNumberMap = mutableStateOf<Map<String,List<MyPokemonInfo>>>(emptyMap())
+  val teamNumberMap: State<Map<String,List<MyPokemonInfo>>> = _teamNumberMap
   private var allMoveList : List<Move> = emptyList()
 
 

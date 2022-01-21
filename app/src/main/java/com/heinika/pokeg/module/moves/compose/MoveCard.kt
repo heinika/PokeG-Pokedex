@@ -135,7 +135,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
   }
 }
 
-private fun String.toPowerColor(): Color {
+fun String.toPowerColor(): Color {
   return try {
     when(this.toInt()){
       in 0..50 -> Color.Red
@@ -147,7 +147,7 @@ private fun String.toPowerColor(): Color {
   }
 }
 
-private fun String.toAccuracyColor(): Color {
+fun String.toAccuracyColor(): Color {
   return try {
     when(this.toInt()){
       100 -> Color.Green
@@ -159,7 +159,7 @@ private fun String.toAccuracyColor(): Color {
   }
 }
 
-private fun String.toPPColor(): Color {
+fun String.toPPColor(): Color {
   return try {
     when(this.toInt()){
       in 0..5 -> Color.Red

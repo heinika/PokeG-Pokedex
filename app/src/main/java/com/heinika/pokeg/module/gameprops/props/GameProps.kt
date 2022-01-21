@@ -14,7 +14,13 @@ class ImportantProp(val gen: Generation, nameResId: Int, flavorResId: Int, image
 class Mail(val gen: Generation, nameResId: Int, flavorResId: Int, imageResId: Int) :
   GameProps(nameResId, flavorResId, imageResId)
 
-class CarryProps(val gen: Generation, nameResId: Int, flavorResId: Int, imageResId: Int) :
+class CarryProps(
+  val cname: String,
+  val gen: Generation,
+  nameResId: Int,
+  flavorResId: Int,
+  imageResId: Int
+) :
   GameProps(nameResId, flavorResId, imageResId)
 
 class EvolutionProp(val color: Color, nameResId: Int, flavorResId: Int, imageResId: Int) :

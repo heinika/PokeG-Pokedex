@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -16,14 +18,18 @@ import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.module.mypokemon.compose.MyPokemonDetailScreen
 import com.heinika.pokeg.module.mypokemon.compose.MyPokemonScreen
+import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
+import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
+@AndroidEntryPoint
 class MyPokemonActivity : ComponentActivity() {
+  private val viewModel: MyPokemonViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -38,12 +44,13 @@ class MyPokemonActivity : ComponentActivity() {
           systemUiController.setStatusBarColor(Color.Transparent)
           val navController = rememberNavController()
 
-          NavHost(navController = navController, startDestination = "MyPokemonDetailPage"){
-            composable("MyPokemonHome"){
+          NavHost(navController = navController, startDestination = "MyPokemonDetailPage") {
+            composable("MyPokemonHome") {
               MyPokemonScreen()
             }
-            composable("MyPokemonDetailPage"){
-              MyPokemonDetailScreen()
+            composable("MyPokemonDetailPage") {
+              viewModel.requestInitDetailPokemon(6,ResUtils.getNameById(6, context = LocalContext.current))
+              MyPokemonDetailScreen(viewModel)
             }
           }
 

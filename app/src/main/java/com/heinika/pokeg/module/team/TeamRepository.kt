@@ -2,7 +2,7 @@ package com.heinika.pokeg.module.team
 
 import android.app.Application
 import com.heinika.pokeg.model.Move
-import com.heinika.pokeg.model.TeamNumberInfo
+import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.repository.Repository
 import com.heinika.pokeg.repository.res.PokemonRes
 import kotlinx.coroutines.Dispatchers
@@ -12,15 +12,14 @@ import javax.inject.Inject
 
 class TeamRepository @Inject constructor(
   private val pokemonRes: PokemonRes,
-  private val pokeGApp: Application
 ) : Repository {
 
   fun teamListMap(moveList: List<Move>) = flow {
-    val map = linkedMapOf<String,List<TeamNumberInfo>>()
+    val map = linkedMapOf<String,List<MyPokemonInfo>>()
     val allAbilityList = pokemonRes.fetchAbilities()
     pokemonRes.fetchTeamList().forEach { team ->
       map[team.teamName] = team.teamNumbers.map {
-        it.toTeamNumberInfo(pokeGApp, moveList,allAbilityList)
+        it.toMyPokemonInfo(moveList,allAbilityList)
       }
     }
     emit(map.toMap())

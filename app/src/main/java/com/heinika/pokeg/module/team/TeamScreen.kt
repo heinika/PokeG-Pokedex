@@ -35,7 +35,7 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Move
-import com.heinika.pokeg.model.TeamNumberInfo
+import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
@@ -71,7 +71,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
-private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
+private fun TeamItemCard(teamName: String, teamList: List<MyPokemonInfo>) {
   var selectedIndex by remember { mutableStateOf(0) }
   Row(Modifier.padding(12.dp, 0.dp), verticalAlignment = Alignment.CenterVertically) {
     Text(text = teamName, Modifier.weight(1f), style = MaterialTheme.typography.h5)
@@ -103,7 +103,7 @@ private fun TeamItemCard(teamName: String, teamList: List<TeamNumberInfo>) {
 
 @ExperimentalCoilApi
 @Composable
-fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberInfo) {
+fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: MyPokemonInfo) {
   ConstraintLayout(modifier) {
     val (image, nameLabel, typeRow, carryTag, natureTag, abilityTag, moveRow) = createRefs()
     Image(
@@ -149,7 +149,7 @@ fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: TeamNumberIn
         top.linkTo(nameLabel.bottom, 4.dp)
         start.linkTo(natureTag.end, 4.dp)
       },
-      typeName = teamNumberInfo.ability,
+      typeName = teamNumberInfo.ability.cname,
       color = randomColor
     )
 

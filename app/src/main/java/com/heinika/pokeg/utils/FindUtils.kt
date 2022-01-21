@@ -1,19 +1,18 @@
 package com.heinika.pokeg.utils
 
-import android.content.Context
 import com.heinika.pokeg.module.gameprops.props.*
 import timber.log.Timber
 
-fun findCarryByName(name: String, context: Context): CarryProps? {
+fun findCarryByCName(name: String): CarryProps {
   Timber.i("findCarryByName: $name")
   return when {
-    carryIIPropsList.any { context.getString(it.nameResId) == name } -> carryIIPropsList.first { context.getString(it.nameResId) == name }
-    carryIIIPropsList.any { context.getString(it.nameResId) == name } -> carryIIIPropsList.first { context.getString(it.nameResId) == name }
-    carryIVPropsList.any { context.getString(it.nameResId) == name } -> carryIVPropsList.first { context.getString(it.nameResId) == name }
-    carryVPropsList.any { context.getString(it.nameResId) == name } -> carryVPropsList.first { context.getString(it.nameResId) == name }
-    carryVIPropsList.any { context.getString(it.nameResId) == name } -> carryVIPropsList.first { context.getString(it.nameResId) == name }
-    carryVIIPropsList.any { context.getString(it.nameResId) == name } -> carryVIIPropsList.first { context.getString(it.nameResId) == name }
-    carryVIIIPropsList.any { context.getString(it.nameResId) == name } -> carryVIIIPropsList.first { context.getString(it.nameResId) == name }
-    else -> null
+    carryIIPropsList.any { it.cname == name } -> carryIIPropsList.first { it.cname == name }
+    carryIIIPropsList.any { it.cname == name } -> carryIIIPropsList.first { it.cname == name }
+    carryIVPropsList.any { it.cname == name } -> carryIVPropsList.first { it.cname == name }
+    carryVPropsList.any { it.cname == name } -> carryVPropsList.first { it.cname == name }
+    carryVIPropsList.any { it.cname == name } -> carryVIPropsList.first { it.cname == name }
+    carryVIIPropsList.any { it.cname == name } -> carryVIIPropsList.first { it.cname == name }
+    carryVIIIPropsList.any { it.cname == name } -> carryVIIIPropsList.first { it.cname == name }
+    else -> carryIIPropsList[0]
   }
 }

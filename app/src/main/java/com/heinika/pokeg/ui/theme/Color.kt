@@ -85,3 +85,5 @@ val RedLinearEndColor = Color(0xffD93E30)
 
 val DarkRedLinearStartColor = Color(0xff732119)
 val DarkRedLinearEndColor = Color(0xffD93E30)
+
+val YellowLight = Color(0xffF2CB07)
