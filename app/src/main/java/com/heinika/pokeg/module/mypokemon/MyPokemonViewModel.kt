@@ -9,12 +9,15 @@ import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
+import com.heinika.pokeg.model.MyPokemon
 import com.heinika.pokeg.model.MyPokemonInfo
+import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.gameprops.props.carryIIIPropsList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,6 +25,18 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
   ViewModel() {
   private val _myDetailPokemonInfo: MutableState<MyPokemonInfo?> = mutableStateOf(null)
   val myDetailPokemon: State<MyPokemonInfo?> = _myDetailPokemonInfo
+
+  private val _myPokemonList: MutableState<List<MyPokemon>> = mutableStateOf(emptyList())
+  val myPokemonList: State<List<MyPokemon>> = _myPokemonList
+
+  fun refreshAllPokemonList() {
+    viewModelScope.launch {
+      withContext(Dispatchers.IO){
+        Timber.i("viewModelScope ${myPokemonRepository.fetchAllMyPokemonList().joinToString { it.name }}")
+        _myPokemonList.value = myPokemonRepository.fetchAllMyPokemonList()
+      }
+    }
+  }
 
   fun requestInitDetailPokemon(id: Int, name: String) {
     viewModelScope.launch {
@@ -49,9 +64,14 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
     }
   }
 
-  fun saveMyPokemonToDataBase(){
+  fun saveMyPokemonToDataBase() {
     myDetailPokemon.value?.let {
-
+      viewModelScope.launch {
+        withContext(Dispatchers.IO) {
+          myPokemonRepository.insertMyPokemon(it.toMyPokemon())
+        }
+      }
     }
   }
+
 }

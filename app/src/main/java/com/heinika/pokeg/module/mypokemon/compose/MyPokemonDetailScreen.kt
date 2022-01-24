@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
@@ -42,7 +43,7 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
-fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
+fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
   viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
     val scrollState = rememberScrollState()
     Column(
@@ -67,7 +68,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
             modifier = Modifier
               .padding(start = 8.dp)
               .clickable {
-
+                navController.popBackStack()
               }
           )
         },
@@ -79,7 +80,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
             modifier = Modifier
               .padding(end = 8.dp)
               .clickable {
-
+                viewModel.saveMyPokemonToDataBase()
               }
           )
         })
@@ -112,7 +113,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
               contentAlignment = Alignment.Center
             ) {
               Text(
-                text = "006",
+                text = myPokemonInfo.formatId,
                 textAlign = TextAlign.Center,
                 color = Color.Black
               )
@@ -194,7 +195,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
             Column(modifier = Modifier.padding(15.dp, 10.dp)) {
               Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
-                  painter = painterResource(id = R.drawable.carry_iv_prop_40),
+                  painter = painterResource(id = myPokemonInfo.carry.imageResId),
                   contentDescription = "",
                   Modifier.size(32.dp)
                 )
@@ -209,7 +210,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
             }
           }
 
-          Column {
+          Column(Modifier.padding(bottom = 15.dp)) {
             myPokemonInfo.moveList.forEach {
               MoveCard(move = it, onClick = {})
             }
@@ -235,7 +236,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel) {
 fun MoveCard(move: Move, onClick: () -> Unit) {
   Card(
     onClick = { onClick() }, modifier = Modifier
-      .padding(12.dp)
+      .padding(start = 12.dp, end = 12.dp, top = 15.dp)
       .fillMaxWidth()
       .height(130.dp)
   ) {

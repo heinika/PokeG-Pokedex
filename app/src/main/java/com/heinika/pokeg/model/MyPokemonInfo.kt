@@ -1,6 +1,5 @@
 package com.heinika.pokeg.model
 
-import android.content.Context
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
@@ -27,4 +26,6 @@ data class MyPokemonInfo(
     abilityId = ability.num,
     moveIdList = moveList.map { it.id }
   )
+
+  val formatId: String = String.format("%03d", id)
 }

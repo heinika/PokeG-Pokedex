@@ -8,11 +8,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,9 +28,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
+import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.utils.SystemBar
@@ -40,28 +44,33 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @ExperimentalAnimationApi
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
-fun MyPokemonScreen(){
-    Scaffold(
-        topBar = {
-            TopAppBar(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)),
-                backgroundColor = BlackBackgroundColor,
-                contentColor = Color.White,
-                title = { Text(text = "My Pokemon") },
-                actions = {
-                    Image(
-                        imageVector = Icons.Default.Add,
-                        contentDescription = "",
-                        colorFilter = ColorFilter.tint(Color.White),
-                        modifier = Modifier.clickable {
-
-                        }
-                    )
-                })
-        },
-        backgroundColor = BlackBackgroundColor
-    ) {
-        TeamNumberCardPreview()
+fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
+  val myPokemonList by viewModel.myPokemonList
+  Scaffold(
+    topBar = {
+      TopAppBar(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)),
+        backgroundColor = BlackBackgroundColor,
+        contentColor = Color.White,
+        title = { Text(text = "My Pokemon") },
+        actions = {
+          Image(
+            imageVector = Icons.Default.Add,
+            contentDescription = "",
+            colorFilter = ColorFilter.tint(Color.White),
+            modifier = Modifier.clickable {
+              navController.navigate("MyPokemonDetailPage")
+            }
+          )
+        })
+    },
+    backgroundColor = BlackBackgroundColor
+  ) {
+    LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
+      items(myPokemonList) {
+        TeamNumberCard(it.id, Modifier) {}
+      }
     }
+  }
 }
 
 
@@ -71,16 +80,14 @@ fun MyPokemonScreen(){
 @ExperimentalMaterialApi
 @Preview
 @Composable
-private fun TeamNumberCardPreview(){
+private fun TeamNumberCardPreview() {
 
-    LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)){
-        items(600){
-            TeamNumberCard(it + 1,Modifier){}
-        }
+  LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
+    items(600) {
+      TeamNumberCard(it + 1, Modifier) {}
     }
+  }
 }
-
-
 
 
 @ExperimentalAnimationApi
@@ -88,61 +95,61 @@ private fun TeamNumberCardPreview(){
 @ExperimentalMaterialApi
 @Composable
 private fun TeamNumberCard(
-    id: Int,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit
+  id: Int,
+  modifier: Modifier = Modifier,
+  onClick: () -> Unit
 ) {
-    Box(
-        modifier = modifier.size(90.dp,120.dp)
-    ) {
-        Card(modifier = Modifier
-            .fillMaxWidth(0.95f)
-            .align(Alignment.TopEnd)
-            .padding(6.dp),
-            shape = RoundedCornerShape(4.dp),
-            onClick = { onClick() }) {
-            Image(
-                painter = painterResource(id = R.drawable.team_card_bg),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxWidth(),
-                contentScale = ContentScale.FillWidth
-            )
+  Box(
+    modifier = modifier.size(90.dp, 120.dp)
+  ) {
+    Card(modifier = Modifier
+      .fillMaxWidth(0.95f)
+      .align(Alignment.TopEnd)
+      .padding(6.dp),
+      shape = RoundedCornerShape(4.dp),
+      onClick = { onClick() }) {
+      Image(
+        painter = painterResource(id = R.drawable.team_card_bg),
+        contentDescription = "",
+        modifier = Modifier
+          .fillMaxWidth(),
+        contentScale = ContentScale.FillWidth
+      )
 
-            Row(
-                Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(0.15f)
-                    .align(Alignment.BottomCenter)
-                    .clip(RoundedCornerShape(4.dp))
-                    .background(Color.White),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = ResUtils.getNameById(id, "", LocalContext.current), color = Color.Black,
-                    style = TextStyle(fontSize = 8.sp),
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(start = 2.dp),
-                    maxLines = 1
-                )
-
-                Image(
-                    painter = painterResource(id = R.drawable.golden_pokeball),
-                    contentDescription = "",
-                    Modifier
-                        .size(12.dp)
-                        .padding(end = 2.dp)
-                )
-            }
-        }
+      Row(
+        Modifier
+          .fillMaxWidth()
+          .fillMaxHeight(0.15f)
+          .align(Alignment.BottomCenter)
+          .clip(RoundedCornerShape(4.dp))
+          .background(Color.White),
+        verticalAlignment = Alignment.CenterVertically
+      ) {
+        Text(
+          text = ResUtils.getNameById(id, "", LocalContext.current), color = Color.Black,
+          style = TextStyle(fontSize = 8.sp),
+          modifier = Modifier
+            .weight(1f)
+            .padding(start = 2.dp),
+          maxLines = 1
+        )
 
         Image(
-            painter = rememberImagePainter(data = getPokemonImageUrl(id, "")),
-            contentDescription = "",
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .fillMaxWidth(0.98f)
+          painter = painterResource(id = R.drawable.golden_pokeball),
+          contentDescription = "",
+          Modifier
+            .size(12.dp)
+            .padding(end = 2.dp)
         )
+      }
     }
+
+    Image(
+      painter = rememberImagePainter(data = getPokemonImageUrl(id, "")),
+      contentDescription = "",
+      modifier = Modifier
+        .align(Alignment.TopStart)
+        .fillMaxWidth(0.98f)
+    )
+  }
 }

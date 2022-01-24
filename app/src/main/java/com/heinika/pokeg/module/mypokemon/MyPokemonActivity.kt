@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
@@ -22,6 +23,7 @@ import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.random.Random
 
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
@@ -44,17 +46,22 @@ class MyPokemonActivity : ComponentActivity() {
           systemUiController.setStatusBarColor(Color.Transparent)
           val navController = rememberNavController()
 
-          NavHost(navController = navController, startDestination = "MyPokemonDetailPage") {
+          NavHost(navController = navController, startDestination = "MyPokemonHome") {
             composable("MyPokemonHome") {
-              MyPokemonScreen()
+              LaunchedEffect(true){
+                viewModel.refreshAllPokemonList()
+              }
+              MyPokemonScreen(viewModel,navController)
             }
             composable("MyPokemonDetailPage") {
-              viewModel.requestInitDetailPokemon(6,ResUtils.getNameById(6, context = LocalContext.current))
-              MyPokemonDetailScreen(viewModel)
+              val context = LocalContext.current
+              LaunchedEffect(true){
+                val randomInt = Random.nextInt(0,890)
+                viewModel.requestInitDetailPokemon(randomInt,ResUtils.getNameById(randomInt, context = context))
+              }
+              MyPokemonDetailScreen(viewModel,navController)
             }
           }
-
-
         }
       }
     }

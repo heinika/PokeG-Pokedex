@@ -1,16 +1,17 @@
 package com.heinika.pokeg.model
 
 import android.content.Context
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.utils.findCarryByCName
 import com.squareup.moshi.JsonClass
 
-
-@JsonClass(generateAdapter = true)
+@Entity
 data class MyPokemon(
-  val name: String,
+  @PrimaryKey val name: String,
   val id: Int,
   val genId: Int,
   val typeIdList: List<Int>,
