@@ -51,16 +51,6 @@ class PokemonJsonRes @Inject constructor(
   }
 
   @WorkerThread
-  fun fetchMovesDetail(moveIds: List<Int>): List<Move> {
-    return fetchListByJson<Move>("all_moves.json").filter { moveIds.contains(it.id) }
-  }
-
-  @WorkerThread
-  fun fetchAllMoves(): List<Move> {
-    return fetchListByJson("all_moves.json")
-  }
-
-  @WorkerThread
   fun fetchTeamList(): List<Team> {
     return fetchListByJson("team_numbers.json")
   }

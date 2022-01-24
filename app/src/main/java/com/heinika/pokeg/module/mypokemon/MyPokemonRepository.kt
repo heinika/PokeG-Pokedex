@@ -17,8 +17,6 @@ class MyPokemonRepository @Inject constructor(val pokemonRes: PokemonRes,val myP
 
   fun fetchMoveList(id: Int, speciesId: Int, version: Int)  = pokemonRes.fetchPokemonMoveList(id, speciesId, version)
 
-  fun fetchAllMoveList()  = pokemonRes.fetchAllMoves()
-
   fun fetchPokemonMoveVersionList(id: Int, speciesId: Int) = pokemonRes.fetchPokemonMoveVersionList(id, speciesId)
 
   fun insertMyPokemon(myPokemon: MyPokemon){

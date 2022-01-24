@@ -8,7 +8,7 @@ data class MoveItem(
   var type: String,
   var typeColor: Int,
   var damageClass: String,
-  var pp: String,
-  var power: String,
-  var accuracy: String
+  var pp: Int,
+  var power: Int,
+  var accuracy: Int
 )

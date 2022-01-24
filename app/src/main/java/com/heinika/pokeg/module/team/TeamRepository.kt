@@ -1,7 +1,6 @@
 package com.heinika.pokeg.module.team
 
-import android.app.Application
-import com.heinika.pokeg.model.Move
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.repository.Repository
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -19,13 +18,9 @@ class TeamRepository @Inject constructor(
     val allAbilityList = pokemonRes.fetchAbilities()
     pokemonRes.fetchTeamList().forEach { team ->
       map[team.teamName] = team.teamNumbers.map {
-        it.toMyPokemonInfo(moveList,allAbilityList)
+        it.toMyPokemonInfo(allAbilityList)
       }
     }
     emit(map.toMap())
-  }.flowOn(Dispatchers.IO)
-
-  fun allMovesFlow() = flow {
-    emit(pokemonRes.fetchAllMoves())
   }.flowOn(Dispatchers.IO)
 }

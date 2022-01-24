@@ -5,15 +5,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.model.Move
-import com.heinika.pokeg.repository.MoveListRepository
-import com.heinika.pokeg.module.moves.compose.SortChipStatus
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.info.Type
-
+import com.heinika.pokeg.module.moves.compose.SortChipStatus
+import com.heinika.pokeg.repository.MoveListRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -23,7 +21,6 @@ import javax.inject.Inject
 class MoveListViewModel @Inject constructor(moveListRepository: MoveListRepository) : ViewModel() {
   private val _allMovesState = mutableStateOf<List<Move>>(emptyList())
   val allMovesState: State<List<Move>> = _allMovesState
-  private var baseMoves = emptyList<Move>()
   private var sortOrderTypes = MoveProp.SortType.values().toList()
   private var powerState = SortChipStatus.Disable
   private var accuracyState = SortChipStatus.Disable
@@ -35,10 +32,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
 
   init {
     viewModelScope.launch {
-      moveListRepository.allMovesFlow().collect {
-        baseMoves = it
-        _allMovesState.value = it
-      }
+      _allMovesState.value = Move.values().toList()
     }
   }
 
@@ -83,7 +77,7 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
   private fun startFitter() {
     viewModelScope.launch {
       _allMovesState.value = withContext(Dispatchers.IO) {
-        baseMoves.filter { move ->
+        Move.values().filter { move ->
           if (typeFilterList.isEmpty()) {
             true
           } else {
@@ -111,13 +105,12 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
                 if (typeState != SortChipStatus.Disable) {
                   val f = if (typeState == SortChipStatus.Ascending) 1 else -1
                   priority += when (type) {
-                    MoveProp.SortType.Power -> move.power.toPriorityInt * 1000 * f
-                    MoveProp.SortType.Accuracy -> move.accuracy.toPriorityInt * 1000 * f
-                    MoveProp.SortType.PP -> move.pp.toPriorityInt * 1000 * f
+                    MoveProp.SortType.Power -> move.power * 1000 * f
+                    MoveProp.SortType.Accuracy -> move.accuracy * 1000 * f
+                    MoveProp.SortType.PP -> move.pp * 1000 * f
                   }
                 }
               }
-              Timber.i("priority: $priority,${move.eName},${move.id}")
               priority
             }
           }
@@ -125,14 +118,5 @@ class MoveListViewModel @Inject constructor(moveListRepository: MoveListReposito
       }
     }
   }
-
-  private val String.toPriorityInt: Int
-    get() {
-      return try {
-        toInt()
-      } catch (e: Exception) {
-        0
-      }
-    }
 
 }

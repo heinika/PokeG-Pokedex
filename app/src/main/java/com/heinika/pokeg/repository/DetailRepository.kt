@@ -1,5 +1,6 @@
 package com.heinika.pokeg.repository
 
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -25,10 +26,9 @@ class DetailRepository @Inject constructor(
   fun pokemonMovesFlow(id: Int, speciesId: Int, version: Int) = flow {
     try {
       val pokemonMoveList = pokemonRes.fetchPokemonMoveList(id, speciesId, version)
-      val moveList = pokemonRes.fetchMovesDetail(pokemonMoveList.map { it.moveId })
       emit(
         pokemonMoveList.map { pokemonMove ->
-          val move = moveList.first { it.id == pokemonMove.moveId }
+          val move = Move.values().first { it.id == pokemonMove.moveId }
           MoveItem(
             id = pokemonMove.moveId,
             methodId = pokemonMove.methodId,

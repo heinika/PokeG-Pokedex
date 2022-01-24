@@ -1,6 +1,7 @@
 package com.heinika.pokeg.model
 
 import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.module.gameprops.props.CarryProps

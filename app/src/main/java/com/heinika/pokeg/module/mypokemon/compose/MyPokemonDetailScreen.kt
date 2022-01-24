@@ -30,11 +30,7 @@ import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
-import com.heinika.pokeg.model.Move
 import com.heinika.pokeg.module.moves.compose.DamageClassImage
-import com.heinika.pokeg.module.moves.compose.toAccuracyColor
-import com.heinika.pokeg.module.moves.compose.toPPColor
-import com.heinika.pokeg.module.moves.compose.toPowerColor
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
 import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
@@ -233,7 +229,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
 
 @ExperimentalMaterialApi
 @Composable
-fun MoveCard(move: Move, onClick: () -> Unit) {
+fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
   Card(
     onClick = { onClick() }, modifier = Modifier
       .padding(start = 12.dp, end = 12.dp, top = 15.dp)
@@ -283,7 +279,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
       })
 
       Text(
-        text = move.flavorText,
+        text = stringResource(id = move.flavorResId),
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier
           .fillMaxWidth()
@@ -294,10 +290,9 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           }
       )
 
-      val powerTextColor = move.power.toPowerColor()
       Text(
         text = "威力:${move.power}",
-        color = powerTextColor,
+        color = move.powerColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(powerLabel) {
           top.linkTo(nameLabel.bottom)
@@ -305,11 +300,9 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           start.linkTo(nameLabel.start)
         })
 
-
-      val accuracyTextColor = move.accuracy.toAccuracyColor()
       Text(
         text = "命中率:${move.accuracy}",
-        color = accuracyTextColor,
+        color = move.accuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
           top.linkTo(nameLabel.bottom)
@@ -318,10 +311,9 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           end.linkTo(ppLabel.start)
         })
 
-      val ppTextColor = move.pp.toPPColor()
       Text(
         text = "PP:${move.pp}",
-        color = ppTextColor,
+        color = move.ppColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
           top.linkTo(nameLabel.bottom)

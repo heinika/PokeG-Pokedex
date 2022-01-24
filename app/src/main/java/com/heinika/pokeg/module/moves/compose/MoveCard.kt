@@ -16,11 +16,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.heinika.pokeg.R
-import com.heinika.pokeg.model.Move
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.ui.theme.grassColor
 
@@ -76,7 +77,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
       })
 
       Text(
-        text = move.flavorText,
+        text = stringResource(id = move.flavorResId),
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier
           .fillMaxWidth()
@@ -87,7 +88,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           }
       )
 
-      val powerTextColor = move.power.toPowerColor()
+      val powerTextColor = move.powerColor
       Text(
         text = "威力:${move.power}",
         color = powerTextColor,
@@ -99,10 +100,9 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
         })
 
 
-      val accuracyTextColor = move.accuracy.toAccuracyColor()
       Text(
         text = "命中率:${move.accuracy}",
-        color = accuracyTextColor,
+        color = move.accuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
           top.linkTo(nameLabel.bottom)
@@ -111,10 +111,10 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           end.linkTo(ppLabel.start)
         })
 
-      val ppTextColor = move.pp.toPPColor()
+
       Text(
         text = "PP:${move.pp}",
-        color = ppTextColor,
+        color = move.ppColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
           top.linkTo(nameLabel.bottom)
@@ -132,42 +132,6 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
           end.linkTo(parent.end, 16.dp)
         })
     }
-  }
-}
-
-fun String.toPowerColor(): Color {
-  return try {
-    when(this.toInt()){
-      in 0..50 -> Color.Red
-      in 51..100 -> Color.Yellow
-      else -> Color.Green
-    }
-  }catch (e:Exception){
-    Color.Gray
-  }
-}
-
-fun String.toAccuracyColor(): Color {
-  return try {
-    when(this.toInt()){
-      100 -> Color.Green
-      in 80..100 -> Color.Yellow
-      else -> Color.Red
-    }
-  }catch (e:Exception){
-    Color.Gray
-  }
-}
-
-fun String.toPPColor(): Color {
-  return try {
-    when(this.toInt()){
-      in 0..5 -> Color.Red
-      in 6..10 -> Color.Yellow
-      else -> Color.Green
-    }
-  }catch (e:Exception){
-    Color.Gray
   }
 }
 
@@ -211,17 +175,7 @@ fun DamageClassImage(damageClassId: Int, modifier: Modifier = Modifier) {
 fun DefaultPreview() {
   PokeGTheme {
     MoveCard(
-      Move(
-        accuracy = "40",
-        damageClassId = 1,
-        generationId = 1,
-        id = 1,
-        eName = "撞击",
-        power = "40",
-        pp = "25",
-        typeId = 1,
-        flavorText = "对对手进行打击"
-      ),
+      Move.Move1,
       onClick = {}
     )
   }

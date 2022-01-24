@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.MyPokemon
@@ -44,7 +45,6 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
         val pokemon = PokemonDataCache.pokemonList.first { it.id == id }
         val abilities = myPokemonRepository.fetchPokemonAbilities(id)
         val versions = myPokemonRepository.fetchPokemonMoveVersionList(id, pokemon.speciesId)
-        val allMoves = myPokemonRepository.fetchAllMoveList()
         val moves = myPokemonRepository.fetchMoveList(id, pokemon.speciesId, versions.last())
         val myPokemonInfo = MyPokemonInfo(
           name,
@@ -56,9 +56,21 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
           ability = abilities.first(),
           moveList = moves.filter { it.methodId == 4 }.takeLast(4).map { it.moveId }
             .map { moveId ->
-              allMoves.first { it.id == moveId }
+              Move.values().first { it.id == moveId }
             }
         )
+        _myDetailPokemonInfo.value = myPokemonInfo
+      }
+    }
+  }
+
+  fun requestExistDetailPokemon(name: String) {
+    viewModelScope.launch {
+      withContext(Dispatchers.IO) {
+        val myPokemon = myPokemonList.value.first { it.name == name }
+        val pokemon = PokemonDataCache.pokemonList.first { it.id == myPokemon.id }
+        val abilities = myPokemonRepository.fetchPokemonAbilities(myPokemon.id)
+        val myPokemonInfo = myPokemon.toMyPokemonInfo(abilities)
         _myDetailPokemonInfo.value = myPokemonInfo
       }
     }

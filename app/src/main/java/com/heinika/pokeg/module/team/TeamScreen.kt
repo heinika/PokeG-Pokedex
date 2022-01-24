@@ -33,8 +33,8 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.R
+import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Type
-import com.heinika.pokeg.model.Move
 import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.repository.res.ResUtils

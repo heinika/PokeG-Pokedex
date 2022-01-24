@@ -11,6 +11,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -48,18 +49,26 @@ class MyPokemonActivity : ComponentActivity() {
 
           NavHost(navController = navController, startDestination = "MyPokemonHome") {
             composable("MyPokemonHome") {
-              LaunchedEffect(true){
+              LaunchedEffect(true) {
                 viewModel.refreshAllPokemonList()
               }
-              MyPokemonScreen(viewModel,navController)
+              MyPokemonScreen(viewModel, navController)
             }
-            composable("MyPokemonDetailPage") {
+            composable("MyPokemonDetailPage/{pokemonName}") {
+              val name = it.arguments?.getString("pokemonName")
               val context = LocalContext.current
-              LaunchedEffect(true){
-                val randomInt = Random.nextInt(0,890)
-                viewModel.requestInitDetailPokemon(randomInt,ResUtils.getNameById(randomInt, context = context))
+              LaunchedEffect(true) {
+                if (name.isNullOrEmpty()) {
+                  val randomInt = Random.nextInt(0, 890)
+                  viewModel.requestInitDetailPokemon(
+                    randomInt,
+                    ResUtils.getNameById(randomInt, context = context)
+                  )
+                } else {
+
+                }
               }
-              MyPokemonDetailScreen(viewModel,navController)
+              MyPokemonDetailScreen(viewModel, navController)
             }
           }
         }
