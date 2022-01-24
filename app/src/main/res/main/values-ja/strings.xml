@@ -1,0 +1,220 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">PokeG</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="base_stats">Base Stats</string>
+    <string name="sum_base_status">SUM</string>
+    <string name="hp">HP</string>
+    <string name="atk">ATK</string>
+    <string name="def">DEF</string>
+    <string name="sp_atk">SATK</string>
+    <string name="sp_def">SDEF</string>
+    <string name="spd">SPD</string>
+
+    <string name="save_image">Save Image</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
+
+    <string-array name="versions">
+        <item>红/绿/蓝</item>
+        <item>黄</item>
+        <item>金/银</item>
+        <item>水晶</item>
+        <item>红宝石/蓝宝石</item>
+        <item>绿宝石</item>
+        <item>火红/叶绿</item>
+        <item>珍珠/钻石</item>
+        <item>白金</item>
+        <item>心金/魂银</item>
+        <item>黑/白</item>
+        <item>圆形竞技场</item>
+        <item>XD暗之旋风黑暗洛奇亚</item>
+        <item>黑2/白2</item>
+        <item>x/y</item>
+        <item>Ω红宝石/α蓝宝石</item>
+        <item>日/月</item>
+        <item>究极之日/究极之月</item>
+        <item>Let\'s Go</item>
+        <item>剑/盾</item>
+    </string-array>
+
+    <string name="version_red">红</string>
+    <string name="version_green">绿</string>
+    <string name="version_blue">蓝</string>
+    <string name="version_yellow">黄</string>
+    <string name="version_gold">金</string>
+    <string name="version_silver">银</string>
+    <string name="version_crystal">水晶</string>
+    <string name="version_ruby">红宝石</string>
+    <string name="version_sapphire">蓝宝石</string>
+    <string name="version_emerald">绿宝石</string>
+    <string name="version_firered">火红</string>
+    <string name="version_leafgreen">叶绿</string>
+    <string name="version_diamond">珍珠</string>
+    <string name="version_pearl">钻石</string>
+    <string name="version_platinum">白金</string>
+    <string name="version_heartgold">心金</string>
+    <string name="version_soulsilver">魂银</string>
+    <string name="version_black">黑</string>
+    <string name="version_white">白</string>
+    <string name="version_colosseum">圆形竞技场</string>
+    <string name="version_xd">XD暗之旋风黑暗洛奇亚</string>
+    <string name="version_black_2">黑2</string>
+    <string name="version_white_2">白2</string>
+    <string name="version_x">x</string>
+    <string name="version_y">y</string>
+    <string name="version_omega_ruby">Ω红宝石</string>
+    <string name="version_alpha_sapphire">α蓝宝石</string>
+    <string name="version_sun">日</string>
+    <string name="version_moon">月</string>
+    <string name="version_ultra_sun">究极之日</string>
+    <string name="version_ultra_moon">究极之月</string>
+    <string name="version_lets_go_pikachu">Let\'s Go pikachu</string>
+    <string name="version_lets_go_eevee">Let\'s Go</string>
+    <string name="version_sword">剑</string>
+    <string name="version_shield">盾</string>
+    <string name="version_brilliant_diamond">晶灿钻石</string>
+    <string name="version_shining_pearl">明亮珍珠</string>
+    <string name="version_arceus">阿尔宙斯</string>
+
+    <string name="move_method_1">level-up</string>
+    <string name="move_method_2">egg</string>
+    <string name="move_method_3">tutor</string>
+    <string name="move_method_4">machine</string>
+    <string name="move_method_5">stadium-surfing-pikachu</string>
+    <string name="move_method_6">light-ball-egg</string>
+    <string name="move_method_7">colosseum-purification</string>
+    <string name="move_method_8">xd-shadow</string>
+    <string name="move_method_9">xd-purification</string>
+    <string name="move_method_10">form-change</string>
+    <string name="move_method_11">zygarde-cube</string>
+
+    <string name="damage_class_1">status</string>
+    <string name="damage_class_2">physical</string>
+    <string name="damage_class_3">special</string>
+
+
+    <string name="type_fighting">fighting</string>
+    <string name="type_flying">flying</string>
+    <string name="type_poison">poison</string>
+    <string name="type_ground">ground</string>
+    <string name="type_rock">rock</string>
+    <string name="type_bug">bug</string>
+    <string name="type_ghost">ghost</string>
+    <string name="type_steel">steel</string>
+    <string name="type_fire">fire</string>
+    <string name="type_water">water</string>
+    <string name="type_grass">grass</string>
+    <string name="type_electric">electric</string>
+    <string name="type_psychic">psychic</string>
+    <string name="type_ice">ice</string>
+    <string name="type_dragon">dragon</string>
+    <string name="type_fairy">fairy</string>
+    <string name="type_dark">dark</string>
+    <string name="type_normal">normal</string>
+    <string name="type_unknown">\???</string>
+
+    <string name="pp">PP</string>
+    <string name="accuracy">accuracy</string>
+    <string name="power">power</string>
+
+    <string name="move_table">move table</string>
+    <string name="favorite">favorite❤</string>
+    <string name="legendary">legendary</string>
+    <string name="mythical">mythical</string>
+    <string name="baby">baby</string>
+    <string name="egg_group">egg_group</string>
+    <string name="egg_steps">egg_steps</string>
+    <string name="grow_speed">grow_speed</string>
+
+    <string name="monster">monster</string>
+    <string name="plant">plant</string>
+    <string name="water1" tools:ignore="Typos">water1</string>
+    <string name="water2">water2</string>
+    <string name="water3">water3</string>
+    <string name="bug">bug</string>
+    <string name="flying">flying</string>
+    <string name="ground">ground</string>
+    <string name="fairy">fairy</string>
+    <string name="humanshape">humanshape</string>
+    <string name="mineral">mineral</string>
+    <string name="indeterminate1">indeterminate</string>
+    <string name="ditto">ditto</string>
+    <string name="dragon">dragon</string>
+    <string name="no_eggs">no_eggs</string>
+
+    <string name="slow">slow</string>
+    <string name="medium">medium</string>
+    <string name="fast">fast</string>
+    <string name="medium_slow">medium_slow</string>
+    <string name="slow_then_very_fast">slow_then_very_fast</string>
+    <string name="fast_then_very_slow">fast_then_very_slow</string>
+
+    <string name="generation_i">generation_i</string>
+    <string name="generation_ii">generation_ii</string>
+    <string name="generation_iii">generation_iii</string>
+    <string name="generation_iv">generation_iv</string>
+    <string name="generation_v">generation_v</string>
+    <string name="generation_vi">generation_vi</string>
+    <string name="generation_vii">generation_vii</string>
+    <string name="generation_viii">generation_viii</string>
+
+    <string name="ball">ball</string>
+    <string name="squiggle">squiggle</string>
+    <string name="fish">fish</string>
+    <string name="arms">arms</string>
+    <string name="blob">blob</string>
+    <string name="upright">upright</string>
+    <string name="legs">legs</string>
+    <string name="quadruped">quadruped</string>
+    <string name="wings">wings</string>
+    <string name="tentacles">tentacles</string>
+    <string name="heads">heads</string>
+    <string name="humanoid">humanoid</string>
+    <string name="bug_wings">bug_wings</string>
+    <string name="armor">armor</string>
+
+    <string name="cave">cave</string>
+    <string name="forest">forest</string>
+    <string name="grassland">grassland</string>
+    <string name="mountain">mountain</string>
+    <string name="rare">rare</string>
+    <string name="rough_terrain">rough_terrain</string>
+    <string name="sea">sea</string>
+    <string name="urban">urban</string>
+    <string name="waters_edge">waters_edge</string>
+
+    <string name="base_status_unselected">%s:unselected</string>
+    <string name="all_base_status_selected">%s:all base status</string>
+    <string name="genneration_unselected">genneration:unselected</string>
+    <string name="genneration_all_selected">genneration:all genneration</string>
+    <string name="genneration">genneration</string>
+
+    <string name="Descending">Desce</string>
+    <string name="Ascending">Asce</string>
+    <string name="title_activity_move_List">Move List</string>
+
+    <string name="game_props_evolution">进化</string>
+    <string name="game_props_pokeball">精灵球</string>
+    <string name="game_props_berry">树果</string>
+    <string name="game_props_food">食物</string>
+    <string name="game_props_z">z</string>
+    <string name="game_props_field">野外使用</string>
+    <string name="game_props_tcg">招式学习器</string>
+    <string name="game_props_important">重要</string>
+    <string name="game_props_candy">糖果</string>
+    <string name="game_props_precious">宝物</string>
+    <string name="game_props_precious_thing">贵重物品</string>
+    <string name="game_props_fossil">化石</string>
+    <string name="game_props_swap">交换</string>
+    <string name="game_props_carry">携带</string>
+    <string name="game_props_apricorn">球果</string>
+    <string name="game_props_recovery">回复</string>
+    <string name="game_props_battle">战斗</string>
+    <string name="game_props_mail">邮件</string>
+    <string name="game_props_roto">洛托姆之力</string>
+    <string name="game_props_other">其他</string>
+
+</resources>
