@@ -8980,6 +8980,76 @@
     "is_default": 1
   },
   {
+    "id": 899,
+    "identifier": "诡角鹿",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
+    "id": 900,
+    "identifier": "劈斧螳螂",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
+    "id": 901,
+    "identifier": "月月熊",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
+    "id": 902,
+    "identifier": "幽尾玄鱼",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
+    "id": 903,
+    "identifier": "大狃拉",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
+    "id": 904,
+    "identifier": "万针鱼",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
+    "id": 905,
+    "identifier": "眷恋云",
+    "species_id": 898,
+    "height": 11,
+    "weight": 77,
+    "base_experience": 250,
+    "order": -1,
+    "is_default": 1
+  },
+  {
     "id": 10001,
     "identifier": "deoxys-attack",
     "species_id": 386,

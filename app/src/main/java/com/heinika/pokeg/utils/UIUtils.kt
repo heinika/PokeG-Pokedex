@@ -986,6 +986,13 @@ fun getPokemonImageUrl(id: Int, name: String = "") = when {
   id == 896 -> "https://s1.52poke.wiki/wiki/thumb/f/ff/896Glastrier.png/375px-896Glastrier.png"
   id == 897 -> "https://s1.52poke.wiki/wiki/thumb/7/7e/897Spectrier.png/375px-897Spectrier.png"
   id == 898 -> "https://s1.52poke.wiki/wiki/thumb/3/3c/898Calyrex.png/450px-898Calyrex.png"
+  id == 899 -> "https://s1.52poke.wiki/wiki/thumb/7/75/899Wyrdeer.png/600px-899Wyrdeer.png"
+  id == 900 -> "https://s1.52poke.wiki/wiki/thumb/3/38/900Kleavor.png/600px-900Kleavor.png"
+  id == 901 -> "https://s1.52poke.wiki/wiki/1/1a/Sprite_901_LA.png"
+  id == 902 -> "https://s1.52poke.wiki/wiki/thumb/3/32/902Basculegion.png/600px-902Basculegion.png"
+  id == 903 -> "https://s1.52poke.wiki/wiki/e/e2/Sprite_903_LA.png"
+  id == 904 -> "https://s1.52poke.wiki/wiki/2/2d/Sprite_904_LA.png"
+  id == 905 -> "https://s1.52poke.wiki/wiki/d/d8/Sprite_905_LA.png"
 
   id == 10001 -> "https://s1.52poke.wiki/wiki/5/54/386Deoxys-Attack_Dream.png"
   id == 10002 -> "https://s1.52poke.wiki/wiki/1/19/386Deoxys-Defense_Dream.png"

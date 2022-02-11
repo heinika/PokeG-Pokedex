@@ -6,7 +6,6 @@ import com.heinika.pokeg.info.*
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import com.heinika.pokeg.repository.res.PokemonRes
-
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -34,7 +33,7 @@ class MainViewModel @Inject constructor(
   val isSortDesc: LiveData<Boolean> = _isSortDesc
 
   private val _pokemonSortListLiveData = MutableLiveData<List<Pokemon>>(listOf())
-  val pokemonSortListLiveData : LiveData<List<Pokemon>> = _pokemonSortListLiveData
+  val pokemonSortListLiveData: LiveData<List<Pokemon>> = _pokemonSortListLiveData
 
   private var basePokemonList: MutableLiveData<List<Pokemon>?> = MutableLiveData()
 
@@ -61,7 +60,7 @@ class MainViewModel @Inject constructor(
 
   val sortBaseStatusList: LiveData<List<BaseStatus>> = _sortBaseStatusList
 
-  var onRefreshFavorite : ((Pokemon)->Unit)? = null
+  var onRefreshFavorite: ((Pokemon) -> Unit)? = null
 
   init {
     Timber.d("init MainViewModel")
@@ -71,9 +70,10 @@ class MainViewModel @Inject constructor(
         onStart = { _isLoading.postValue(true) },
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
-      ).collect {
-        basePokemonList.value = it
-        _pokemonSortListLiveData.value = it
+      ).collect { pokemonList ->
+        val hisuiList = RegionNumber.HiSuiMap.entries.map { hisuiNumber -> pokemonList.first { it.id == hisuiNumber.value }}
+        basePokemonList.value = hisuiList
+        _pokemonSortListLiveData.value = hisuiList
       }
     }
   }
