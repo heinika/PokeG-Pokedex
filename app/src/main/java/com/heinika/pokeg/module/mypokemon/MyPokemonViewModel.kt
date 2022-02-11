@@ -50,7 +50,7 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
           name,
           id,
           Generation.values()[pokemon.generationId - 1],
-          typeIdList = pokemon.types.map { Type.values()[it.typeId - 1] },
+          typeIdList = pokemon.types.map { Type.values()[it - 1] },
           carry = carryIIIPropsList.first(),
           nature = Nature.Brave,
           ability = abilities.first(),
@@ -59,18 +59,6 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
               Move.values().first { it.id == moveId }
             }
         )
-        _myDetailPokemonInfo.value = myPokemonInfo
-      }
-    }
-  }
-
-  fun requestExistDetailPokemon(name: String) {
-    viewModelScope.launch {
-      withContext(Dispatchers.IO) {
-        val myPokemon = myPokemonList.value.first { it.name == name }
-        val pokemon = PokemonDataCache.pokemonList.first { it.id == myPokemon.id }
-        val abilities = myPokemonRepository.fetchPokemonAbilities(myPokemon.id)
-        val myPokemonInfo = myPokemon.toMyPokemonInfo(abilities)
         _myDetailPokemonInfo.value = myPokemonInfo
       }
     }

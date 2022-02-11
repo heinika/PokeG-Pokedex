@@ -85,17 +85,17 @@ class PokemonItemDelegate(
         1 -> {
           type1Text.isVisible = true
           type2Text.visibility = View.INVISIBLE
-          val typeId1 = pokemon.types[0].typeId
+          val typeId1 = pokemon.types[0]
           type1Text.text = pokemonRes.getTypeString(typeId1)
           type1Text.background.setTint(pokemonRes.getTypeColor(typeId1))
         }
         2 -> {
           type1Text.isVisible = true
           type2Text.isVisible = true
-          val typeId1 = pokemon.types[0].typeId
+          val typeId1 = pokemon.types[0]
           type1Text.text = pokemonRes.getTypeString(typeId1)
           type1Text.background.setTint(pokemonRes.getTypeColor(typeId1))
-          val typeId2 = pokemon.types[1].typeId
+          val typeId2 = pokemon.types[1]
           type2Text.text = pokemonRes.getTypeString(typeId2)
           type2Text.background.setTint(pokemonRes.getTypeColor(typeId2))
         }
@@ -103,7 +103,7 @@ class PokemonItemDelegate(
 
       if (pokemon.id != 0) {
         idText.isVisible = true
-        idText.text = pokemon.getIdString()
+        idText.text = pokemon.getFormatId()
       } else {
         idText.isVisible = false
       }

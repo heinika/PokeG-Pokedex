@@ -96,8 +96,8 @@ class MainPage(
     }))
 
     mainPageView.recyclerView.adapter = adapter
-    rightDrawerView.typesFilterView.onSelectedChange = {
-      mainViewModel.filterTypeList = it
+    rightDrawerView.typesFilterView.onSelectedChange = { list ->
+      mainViewModel.filterTypeList = list.map { it.typeId }
     }
 
     rightDrawerView.onBaseStatusCheckedListChange = {
@@ -162,7 +162,7 @@ class MainPage(
     val header = Header("图鉴")
 
     mainViewModel.pokemonSortListLiveData.observe(activity) { pokemonList ->
-      Timber.i(pokemonList.size.toString())
+      Timber.i("pokemonList size : ${pokemonList.size}")
       val itemList = arrayListOf<Any>(header) + pokemonList + BottomItem("没有了")
       val diffResult = DiffUtil.calculateDiff(AdapterDiffUtils(adapter.items, itemList), true)
       adapter.items = itemList

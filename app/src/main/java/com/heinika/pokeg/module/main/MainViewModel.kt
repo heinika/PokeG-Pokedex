@@ -37,7 +37,7 @@ class MainViewModel @Inject constructor(
 
   private var basePokemonList: MutableLiveData<List<Pokemon>?> = MutableLiveData()
 
-  var filterTypeList: List<Type> = emptyList()
+  var filterTypeList: List<Int> = emptyList()
     set(value) {
       field = value
       startSortAndFilter()
@@ -71,9 +71,9 @@ class MainViewModel @Inject constructor(
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
       ).collect { pokemonList ->
-        val hisuiList = RegionNumber.HiSuiMap.entries.map { hisuiNumber -> pokemonList.first { it.id == hisuiNumber.value }}
-        basePokemonList.value = hisuiList
-        _pokemonSortListLiveData.value = hisuiList
+//        val hisuiList = RegionNumber.HiSuiMap.entries.map { hisuiNumber -> pokemonList.first { it.id == hisuiNumber.value }}
+        basePokemonList.value = pokemonList
+        _pokemonSortListLiveData.value = pokemonList
       }
     }
   }
@@ -128,8 +128,8 @@ class MainViewModel @Inject constructor(
         true
       } else {
         var result = true
-        filterTypeList.forEach { type ->
-          if (!pokemon.types.map { it.typeId }.contains(type.typeId)) {
+        filterTypeList.forEach { typeId ->
+          if (!pokemon.types.contains(typeId)) {
             result = false
           }
         }

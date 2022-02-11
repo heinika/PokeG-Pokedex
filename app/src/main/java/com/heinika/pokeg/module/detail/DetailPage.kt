@@ -207,7 +207,7 @@ class DetailPage(
     }
 
     detailViewModel.getPokemonNewLiveData(pokemon.id).observe(activity) { pokemon ->
-      binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.identifier)
+      binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
       binding.index.text = pokemon.getFormatId()
       binding.weight.text = pokemon.getFormatWeight()
       binding.height.text = pokemon.getFormatHeight()

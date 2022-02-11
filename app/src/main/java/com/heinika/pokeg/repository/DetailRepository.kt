@@ -65,14 +65,11 @@ class DetailRepository @Inject constructor(
   }.flowOn(Dispatchers.IO)
 
   fun pokemonNewFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonNew().first { it.id == id })
+    emit(pokemonRes.fetchPokemon().first { it.id == id })
   }.flowOn(Dispatchers.IO)
 
   fun speciesAllOtherFormsFlow(specieId: Int, id: Int) = flow {
-    emit(pokemonRes.fetchPokemonNew().filter { it.speciesId == specieId && it.id != id }
-      .map { pokemonNew ->
-        pokemonNew.toPokemon(pokemonRes)
-      })
+    emit(pokemonRes.fetchPokemon().filter { it.speciesId == specieId && it.id != id })
   }.flowOn(Dispatchers.IO)
 
   fun pokemonAbilitiesFlow(id: Int) = flow {

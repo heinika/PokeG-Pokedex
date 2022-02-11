@@ -20,7 +20,7 @@ class PokemonJsonRes @Inject constructor(
   private val pokemonSpecieList: CopyOnWriteArrayList<PokemonSpecie> = CopyOnWriteArrayList()
   private val pokemonNameList: MutableList<PokemonName> = mutableListOf()
   private val pokemonTypeList: MutableList<PokemonType> = mutableListOf()
-  private val pokemonNewList: MutableList<PokemonNew> = mutableListOf()
+  private val pokemonList: MutableList<Pokemon> = mutableListOf()
   private val pokemonAbilityList: MutableList<PokemonAbility> = mutableListOf()
   private val abilityList: MutableList<Ability> = mutableListOf()
   private val pokemonBaseStatList: MutableList<PokemonBaseStat> = mutableListOf()
@@ -87,11 +87,11 @@ class PokemonJsonRes @Inject constructor(
   }
 
   @WorkerThread
-  fun fetchPokemonNew(): List<PokemonNew> {
-    if (pokemonNewList.isEmpty()) {
-      pokemonNewList.addAll(fetchListByJson("pokemon.json"))
+  fun fetchPokemon(): List<Pokemon> {
+    if (pokemonList.isEmpty()) {
+      pokemonList.addAll(fetchListByJson("pokemon.json"))
     }
-    return pokemonNewList
+    return pokemonList
   }
 
   @WorkerThread
