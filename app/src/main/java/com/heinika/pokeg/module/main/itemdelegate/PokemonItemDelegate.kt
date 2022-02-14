@@ -55,7 +55,7 @@ class PokemonItemDelegate(
       this.item = pokemon
 
       with(binding) {
-        nameLabel.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
+        nameLabel.text = pokemonRes.getNameById(pokemon.id, pokemon.name,pokemon.form)
         favoriteCheckBox.isChecked = ConfigMMKV.favoritePokemons.contains(pokemon.id.toString())
 
         val imageUrl = pokemon.getImageUrl()

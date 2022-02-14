@@ -156,27 +156,13 @@ class DetailPage(
     binding.progressSpDefense.max = PokemonInfo.maxSpecialDefense
     binding.progressSpd.max = PokemonInfo.maxSpeed
 
-    detailViewModel.getPokemonBaseStatLiveData(pokemon.id).observe(activity) { baseStats ->
-      initProgress(binding.progressSumBaseStatus, baseStats.sumOf { it.baseStat })
-      initProgress(binding.progressHp, baseStats.first { it.statId.isHPStat }.baseStat)
-      initProgress(
-        binding.progressAttach,
-        baseStats.first { it.statId.isAttackStat }.baseStat
-      )
-      initProgress(
-        binding.progressDefense,
-        baseStats.first { it.statId.isDefenseStat }.baseStat
-      )
-      initProgress(
-        binding.progressSpAttack,
-        baseStats.first { it.statId.isSAttackStat }.baseStat
-      )
-      initProgress(
-        binding.progressSpDefense,
-        baseStats.first { it.statId.isSDefenseStat }.baseStat
-      )
-      initProgress(binding.progressSpd, baseStats.first { it.statId.isSPeedStat }.baseStat)
-    }
+    initProgress(binding.progressSumBaseStatus, pokemon.totalBaseStat)
+    initProgress(binding.progressHp, pokemon.hp)
+    initProgress(binding.progressAttach, pokemon.atk)
+    initProgress(binding.progressDefense, pokemon.def)
+    initProgress(binding.progressSpAttack, pokemon.spAtk)
+    initProgress(binding.progressSpDefense, pokemon.spDef)
+    initProgress(binding.progressSpd, pokemon.speed)
 
     detailViewModel.getPokemonAbilitiesLiveData(pokemon.id).observe(activity) { abilities ->
       abilities.forEachIndexed { index, ability ->

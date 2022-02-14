@@ -7,8 +7,9 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Pokemon(
-  @Json(name = "a")
   val id: Int,
+  @Json(name = "a")
+  val globalId: Int,
   @Json(name = "b")
   val speciesId: Int,
   @Json(name = "c")
@@ -16,31 +17,33 @@ data class Pokemon(
   @Json(name = "d")
   val types: List<Int>,
   @Json(name = "e")
-  val totalBaseStat: Int,
+  var totalBaseStat: Int = -1,
   @Json(name = "f")
-  val hp: Int,
+  var hp: Int = -1,
   @Json(name = "g")
-  val atk: Int,
+  var atk: Int = -1,
   @Json(name = "h")
-  val def: Int,
+  var def: Int = -1,
   @Json(name = "i")
-  val spAtk: Int,
+  var spAtk: Int = -1,
   @Json(name = "j")
-  val spDef: Int,
+  var spDef: Int = -1,
   @Json(name = "k")
-  val speed: Int,
+  var speed: Int = -1,
   @Json(name = "l")
-  val generationId: Int,
+  var generationId: Int = -1,
   @Json(name = "m")
-  val weight: Int,
+  var weight: Int = -1,
   @Json(name = "n")
-  val height: Int,
+  var height: Int = -1,
   @Json(name = "o")
-  val isBaby: Boolean,
-  @Json(name = "p")
-  val isLegendary: Boolean,
-  @Json(name = "q")
-  val isMythical: Boolean,
+  val form : Int,
+  @Json(ignore = true)
+  var isBaby: Boolean = false,
+  @Json(ignore = true)
+  var isLegendary: Boolean = false,
+  @Json(ignore = true)
+  var isMythical: Boolean = false,
   @Json(ignore = true)
   var isFavorite: Boolean = false
 ) {
@@ -50,7 +53,7 @@ data class Pokemon(
 //    return "https://pokeres.bastionbot.org/images/pokemon/$index.png"
 //  }
 
-  fun getImageUrl(): String = getPokemonImageUrl(id, name)
+  fun getImageUrl(): String = getPokemonImageUrl(globalId, name)
 
   fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id, name)
 

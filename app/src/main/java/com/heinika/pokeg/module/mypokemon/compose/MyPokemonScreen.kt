@@ -126,7 +126,7 @@ private fun TeamNumberCard(
         verticalAlignment = Alignment.CenterVertically
       ) {
         Text(
-          text = ResUtils.getNameById(id, "", LocalContext.current), color = Color.Black,
+          text = ResUtils.getNameById(id, "", context = LocalContext.current), color = Color.Black,
           style = TextStyle(fontSize = 8.sp),
           modifier = Modifier
             .weight(1f)

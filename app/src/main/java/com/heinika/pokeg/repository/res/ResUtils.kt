@@ -2,6 +2,7 @@ package com.heinika.pokeg.repository.res
 
 import android.content.Context
 import com.heinika.pokeg.R
+import com.heinika.pokeg.utils.toFormString
 
 import timber.log.Timber
 
@@ -9,8 +10,8 @@ object ResUtils {
 
   fun getTypeColor(type: Int, context: Context): Int = com.heinika.pokeg.info.getTypeColor(context, type)
 
-  fun getNameById(id: Int, name: String = "", context: Context): String =
-    getResString("pokemon_name_$id", name, context)
+  fun getNameById(id: Int, name: String = "", form: Int = 0, context: Context): String =
+    getResString("pokemon_name_$id", name, context) + form.toFormString
 
   fun getItemById(id: Int, context: Context): String = getResString("item_$id", context = context)
 

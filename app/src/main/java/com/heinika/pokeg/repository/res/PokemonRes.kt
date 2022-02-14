@@ -12,7 +12,7 @@ class PokemonRes @Inject constructor(
   private val context: Application,
   private val jsonRes: PokemonJsonRes
 ) {
-  fun getTypeColor(type: Int): Int = ResUtils.getTypeColor(type,context)
+  fun getTypeColor(type: Int): Int = ResUtils.getTypeColor(type, context)
 
   fun getVersionName(id: Int) = ResUtils.getVersionName(id, context)
 
@@ -34,7 +34,8 @@ class PokemonRes @Inject constructor(
 
   fun getDamageClassName(id: Int) = ResUtils.getDamageClassName(id, context)
 
-  fun getNameById(id: Int, name: String): String = ResUtils.getNameById(id, name, context)
+  fun getNameById(id: Int, name: String, form: Int = 0): String =
+    ResUtils.getNameById(id, name, form,context)
 
   fun getItemById(id: Int): String = ResUtils.getItemById(id, context)
 
