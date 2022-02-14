@@ -68,8 +68,9 @@ class DetailRepository @Inject constructor(
     emit(pokemonRes.fetchPokemon().first { it.id == id })
   }.flowOn(Dispatchers.IO)
 
-  fun speciesAllOtherFormsFlow(specieId: Int, id: Int) = flow {
-    emit(pokemonRes.fetchPokemon().filter { it.speciesId == specieId && it.id != id })
+  fun speciesAllOtherFormsFlow(specieId: Int, globalId: Int) = flow {
+    Timber.i("speciesId ${specieId},globalId ${globalId}")
+    emit(pokemonRes.fetchPokemon().filter { it.speciesId == specieId && it.globalId != globalId })
   }.flowOn(Dispatchers.IO)
 
   fun pokemonAbilitiesFlow(id: Int) = flow {

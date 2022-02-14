@@ -50,6 +50,7 @@ import com.skydoves.progressview.ProgressView
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
+import timber.log.Timber
 import java.util.*
 
 
@@ -74,7 +75,8 @@ class DetailPage(
   override fun showPage() {
     super.showPage()
 
-    (binding.arrow.layoutParams as ConstraintLayout.LayoutParams).topMargin = SystemBar.statusBarHeight
+    (binding.arrow.layoutParams as ConstraintLayout.LayoutParams).topMargin =
+      SystemBar.statusBarHeight
 
     Glide.with(binding.image)
       .load(pokemon.getImageUrl())
@@ -164,7 +166,7 @@ class DetailPage(
     initProgress(binding.progressSpDefense, pokemon.spDef)
     initProgress(binding.progressSpd, pokemon.speed)
 
-    detailViewModel.getPokemonAbilitiesLiveData(pokemon.id).observe(activity) { abilities ->
+    detailViewModel.getPokemonAbilitiesLiveData(pokemon.globalId).observe(activity) { abilities ->
       abilities.forEachIndexed { index, ability ->
         when (index) {
           0 -> setAbility(binding.ability1, binding.ability1Desc, ability)
@@ -174,15 +176,14 @@ class DetailPage(
       }
     }
 
-    detailViewModel.getPokemonTypeLiveData(pokemon.id).observe(activity) { types ->
-      val type1Id = types[0].typeId
-      binding.type1Text.text = pokemonRes.getTypeString(type1Id)
-      binding.type1Text.background.let {
-        it.setTint(pokemonRes.getTypeColor(type1Id))
-        it.alpha = 155
-      }
-      if (types.size == 2) {
-        val typeId = types[1].typeId
+    pokemon.types.forEachIndexed { index, typeId ->
+      if (index == 0) {
+        binding.type1Text.text = pokemonRes.getTypeString(typeId)
+        binding.type1Text.background.let {
+          it.setTint(pokemonRes.getTypeColor(typeId))
+          it.alpha = 155
+        }
+      } else {
         binding.type2Text.isVisible = true
         binding.type2Text.text = pokemonRes.getTypeString(typeId)
         binding.type2Text.background.let {
@@ -192,121 +193,120 @@ class DetailPage(
       }
     }
 
-    detailViewModel.getPokemonNewLiveData(pokemon.id).observe(activity) { pokemon ->
-      binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
-      binding.index.text = pokemon.getFormatId()
-      binding.weight.text = pokemon.getFormatWeight()
-      binding.height.text = pokemon.getFormatHeight()
+    binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
+    binding.index.text = pokemon.getFormatId()
+    binding.weight.text = pokemon.getFormatWeight()
+    binding.height.text = pokemon.getFormatHeight()
 
-      detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId)
-        .observe(activity) { names ->
-          binding.eNameText.text = names.first { it.localLanguageId.isEnId }.name
-          binding.jNameText.text = names.first { it.localLanguageId.isJaId }.name
-          binding.race.text = names.first { it.localLanguageId.isCnId }.genus
-        }
-
-      detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId)
-        .observe(activity) { species ->
-          binding.eggStepsText.text = species.getEggSteps()
-          binding.generationText.text = pokemonRes.getGeneration(species.generationId)
-          binding.shapeText.text = pokemonRes.getShape(species.shapeId)
-          if (species.habitatId.isNotEmpty()) {
-            binding.habitatText.isVisible = true
-            binding.habitatText.text = pokemonRes.getHabitat(species.habitatId.toInt())
-          }
-          binding.growSpeedText.text = pokemonRes.getGrowRate(species.growthRateId)
-          binding.babyText.isVisible = species.isBaby.toBoolean
-          binding.legendaryText.isVisible = species.isLegendary.toBoolean
-          binding.mythicalText.isVisible = species.isMythical.toBoolean
-        }
-
-
-      detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) { list ->
-        binding.eggGroupText.text =
-          list.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
-            .replace(",", " ")
+    detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId)
+      .observe(activity) { names ->
+        binding.eNameText.text = names.first { it.localLanguageId.isEnId }.name
+        binding.jNameText.text = names.first { it.localLanguageId.isJaId }.name
+        binding.race.text = names.first { it.localLanguageId.isCnId }.genus
       }
 
-      detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.id)
-        .observe(activity) { forms ->
-          if (forms.isNotEmpty()) {
-            binding.formsRecyclerView.isVisible = true
-            binding.formsRecyclerView.layoutManager = LinearLayoutManager(activity)
-            binding.formsRecyclerView.adapter = MultiTypeAdapter().apply {
-              register(
-                PokemonItemDelegate(
-                  pokemonRes,
-                  onItemClick = { imageView, pokemon ->
-                    DetailPage(
-                      pokemonRes,
-                      activity,
-                      pokemon,
-                      imageView,
-                      pageStack
-                    ).also {
-                      it.showPage()
-                    }
-                  },
-                  onFavoriteClick = { pokemon, isChecked ->
-                    favoritePokemons = if (isChecked) {
-                      favoritePokemons + pokemon.id.toString()
-                    } else {
-                      favoritePokemons - pokemon.id.toString()
-                    }
-                  }
-                )
-              )
-              items = forms
-            }
-            adapter.notifyDataSetChanged()
-          }
+    detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId)
+      .observe(activity) { species ->
+        binding.eggStepsText.text = species.getEggSteps()
+        binding.generationText.text = pokemonRes.getGeneration(species.generationId)
+        binding.shapeText.text = pokemonRes.getShape(species.shapeId)
+        if (species.habitatId.isNotEmpty()) {
+          binding.habitatText.isVisible = true
+          binding.habitatText.text = pokemonRes.getHabitat(species.habitatId.toInt())
         }
-
-      detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId)
-        .observe(activity) { chainList ->
-          if (chainList.isNotEmpty()) {
-            binding.evolutionCard.isVisible = true
-            chainList.forEach { chain ->
-              binding.evolutionLinear.addView(
-                LayoutInflater.from(activity)
-                  .inflate(
-                    R.layout.item_evolution,
-                    binding.evolutionLinear,
-                    false
-                  ).also { view ->
-                    val fromImage =
-                      view.findViewById<AppCompatImageView>(R.id.fromImageView).apply {
-                        if (pokemon.id != chain.evolvedFromSpeciesId) {
-                          toTargetDetailPage(chain.evolvedFromSpeciesId)
-                        }
-                      }
-                    val toImage =
-                      view.findViewById<AppCompatImageView>(R.id.toImageView).apply {
-                        if (pokemon.id != chain.evolvedToSpeciesId) {
-                          toTargetDetailPage(chain.evolvedToSpeciesId)
-                        }
-                      }
-                    val descText =
-                      view.findViewById<AppCompatTextView>(R.id.descText)
-
-                    descText.text = chain.getDescText(pokemonRes)
-
-                    Glide.with(fromImage)
-                      .load(chain.getSpeciesFromImageUrl())
-                      .into(fromImage)
-
-                    Glide.with(toImage)
-                      .load(chain.getSpeciesToImageUrl())
-                      .into(toImage)
-                  })
-            }
-          }
-        }
-
-      detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observe(activity) {
-        binding.description.text = it
+        binding.growSpeedText.text = pokemonRes.getGrowRate(species.growthRateId)
+        binding.babyText.isVisible = species.isBaby.toBoolean
+        binding.legendaryText.isVisible = species.isLegendary.toBoolean
+        binding.mythicalText.isVisible = species.isMythical.toBoolean
       }
+
+
+    detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observe(activity) { list ->
+      binding.eggGroupText.text =
+        list.joinToString { pokemonRes.getEggGroupName(it.eggGroupId) }
+          .replace(",", " ")
     }
+
+    detailViewModel.speciesAllOtherFormsLiveData(this.pokemon.speciesId, this.pokemon.globalId)
+      .observe(activity) { forms ->
+        if (forms.isNotEmpty()) {
+          binding.formsRecyclerView.isVisible = true
+          binding.formsRecyclerView.layoutManager = LinearLayoutManager(activity)
+          binding.formsRecyclerView.adapter = MultiTypeAdapter().apply {
+            register(
+              PokemonItemDelegate(
+                pokemonRes,
+                onItemClick = { imageView, pokemon ->
+                  DetailPage(
+                    pokemonRes,
+                    activity,
+                    pokemon,
+                    imageView,
+                    pageStack
+                  ).also {
+                    it.showPage()
+                  }
+                },
+                onFavoriteClick = { pokemon, isChecked ->
+                  favoritePokemons = if (isChecked) {
+                    favoritePokemons + pokemon.id.toString()
+                  } else {
+                    favoritePokemons - pokemon.id.toString()
+                  }
+                }
+              )
+            )
+            items = forms
+          }
+          adapter.notifyDataSetChanged()
+        }
+      }
+
+    detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId)
+      .observe(activity) { chainList ->
+        if (chainList.isNotEmpty()) {
+          binding.evolutionCard.isVisible = true
+          chainList.forEach { chain ->
+            binding.evolutionLinear.addView(
+              LayoutInflater.from(activity)
+                .inflate(
+                  R.layout.item_evolution,
+                  binding.evolutionLinear,
+                  false
+                ).also { view ->
+                  val fromImage =
+                    view.findViewById<AppCompatImageView>(R.id.fromImageView).apply {
+                      if (pokemon.id != chain.evolvedFromSpeciesId) {
+                        toTargetDetailPage(chain.evolvedFromSpeciesId)
+                      }
+                    }
+                  val toImage =
+                    view.findViewById<AppCompatImageView>(R.id.toImageView).apply {
+                      if (pokemon.id != chain.evolvedToSpeciesId) {
+                        toTargetDetailPage(chain.evolvedToSpeciesId)
+                      }
+                    }
+                  val descText =
+                    view.findViewById<AppCompatTextView>(R.id.descText)
+
+                  descText.text = chain.getDescText(pokemonRes)
+
+                  Glide.with(fromImage)
+                    .load(chain.getSpeciesFromImageUrl())
+                    .into(fromImage)
+
+                  Glide.with(toImage)
+                    .load(chain.getSpeciesToImageUrl())
+                    .into(toImage)
+                })
+          }
+        }
+      }
+
+    detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observe(activity) {
+      binding.description.text = it
+    }
+
 
     binding.arrow.setOnClickListener {
       onBackPressed()
