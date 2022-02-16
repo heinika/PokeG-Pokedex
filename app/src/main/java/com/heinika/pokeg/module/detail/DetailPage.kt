@@ -198,6 +198,7 @@ class DetailPage(
     binding.index.text = pokemon.getFormatId()
     binding.weight.text = pokemon.getFormatWeight()
     binding.height.text = pokemon.getFormatHeight()
+    binding.generationText.text = pokemonRes.getGeneration(pokemon.generationId)
 
     detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId)
       .observe(activity) { names ->
@@ -209,7 +210,6 @@ class DetailPage(
     detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId)
       .observe(activity) { species ->
         binding.eggStepsText.text = species.getEggSteps()
-        binding.generationText.text = pokemonRes.getGeneration(species.generationId)
         binding.shapeText.text = pokemonRes.getShape(species.shapeId)
         if (species.habitatId.isNotEmpty()) {
           binding.habitatText.isVisible = true

@@ -7,7 +7,7 @@ enum class DexType{
   fun toDescString() : String{
     return when(this){
       Global -> "全国图鉴"
-      HiSui -> "阿尔宙斯(洗翠)图鉴"
+      HiSui -> "阿尔宙斯图鉴"
     }
   }
 
