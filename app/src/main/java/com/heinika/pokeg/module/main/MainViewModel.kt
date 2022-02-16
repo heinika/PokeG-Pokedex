@@ -35,7 +35,9 @@ class MainViewModel @Inject constructor(
   private val _pokemonSortListLiveData = MutableLiveData<List<Pokemon>>(listOf())
   val pokemonSortListLiveData: LiveData<List<Pokemon>> = _pokemonSortListLiveData
 
-  private var basePokemonList: MutableLiveData<List<Pokemon>?> = MutableLiveData()
+  private lateinit var allPokemonList: List<Pokemon>
+  private lateinit var hiSuiPokemonList: List<Pokemon>
+  private lateinit var basePokemonList: List<Pokemon>
 
   var filterTypeList: List<Int> = emptyList()
     set(value) {
@@ -71,11 +73,20 @@ class MainViewModel @Inject constructor(
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
       ).collect { pokemonList ->
-//        val hisuiList = RegionNumber.HiSuiMap.entries.map { hisuiNumber -> pokemonList.first { it.id == hisuiNumber.value }}
-        basePokemonList.value = pokemonList
+        allPokemonList= pokemonList
+        hiSuiPokemonList = RegionNumber.HiSuiMap.keys.map { hisuiNumber -> pokemonList.first { it.globalId == hisuiNumber }}
+        basePokemonList = pokemonList
         _pokemonSortListLiveData.value = pokemonList
       }
     }
+  }
+
+  fun changDexType(dexType: DexType) {
+    basePokemonList = when (dexType) {
+      DexType.Global -> allPokemonList
+      DexType.HiSui -> hiSuiPokemonList
+    }
+    _pokemonSortListLiveData.value = basePokemonList
   }
 
   fun changeBasePokemonListFavorite(pokemon: Pokemon, isFavorite: Boolean) {
@@ -102,21 +113,20 @@ class MainViewModel @Inject constructor(
   }
 
   fun startSortAndFilter() {
-    basePokemonList.value?.let { baseList ->
-      _pokemonSortListLiveData.value =
-        baseList.filterType().filterGenerations().filterTags().sortBaseStatus().sortBodyStatus()
-    }
+    _pokemonSortListLiveData.value =
+      this.basePokemonList.filterType().filterGenerations().filterTags().sortBaseStatus()
+        .sortBodyStatus()
   }
 
   fun setSearchText(searchText: CharSequence?) {
     _searchText.value = searchText
     if (searchText.isNullOrEmpty()) {
-      basePokemonList.value?.let { _pokemonSortListLiveData.value = it }
+      _pokemonSortListLiveData.value = this.basePokemonList
     } else {
-      basePokemonList.value?.filter {
+      this.basePokemonList.filter {
         it.getCName(pokemonRes).contains(searchText, true) || it.id.toString()
           .contains(searchText, true)
-      }?.let {
+      }.let {
         _pokemonSortListLiveData.value = it
       }
     }

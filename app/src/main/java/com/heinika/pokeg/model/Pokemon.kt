@@ -1,5 +1,8 @@
 package com.heinika.pokeg.model
 
+import com.heinika.pokeg.curDexType
+import com.heinika.pokeg.info.DexType
+import com.heinika.pokeg.info.RegionNumber.HiSuiMap
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.squareup.moshi.Json
@@ -57,7 +60,12 @@ data class Pokemon(
 
   fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id, name)
 
-  fun getFormatId(): String = String.format("#%03d", id)
+  fun getFormatId(): String {
+    return when(curDexType){
+      DexType.Global -> String.format("#%03d", id)
+      DexType.HiSui -> String.format("#%03d", HiSuiMap[globalId])
+    }
+  }
 
   fun getFormatWeight(): String = String.format("%.1f KG", weight.toFloat() / 10)
 

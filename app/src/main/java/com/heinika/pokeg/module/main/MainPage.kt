@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.ConfigMMKV.favoritePokemons
+import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.base.BasePage
+import com.heinika.pokeg.info.DexType
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.module.detail.DetailPage
 import com.heinika.pokeg.module.main.itemdelegate.BottomItemDelegate
@@ -79,9 +81,11 @@ class MainPage(
 //      ViewTreeLifecycleOwner.set(this, activity)
 //    })
 
-    adapter.register(HeaderItemDelegate {
+    adapter.register(HeaderItemDelegate(onSettingClick = {
       drawerLayout.openDrawer(GravityCompat.START, true)
-    })
+    }, onLoopClick = {dexType ->
+      mainViewModel.changDexType(dexType)
+    }))
     adapter.register(BottomItemDelegate())
     adapter.register(PokemonItemDelegate(pokemonRes, onItemClick = { imageView, pokemon ->
       DetailPage(pokemonRes, activity, pokemon, imageView, pageStack).also {
@@ -159,7 +163,7 @@ class MainPage(
       mainViewModel.changeSortOrder()
     }
 
-    val header = Header("图鉴")
+    val header = Header("全国图鉴")
 
     mainViewModel.pokemonSortListLiveData.observe(activity) { pokemonList ->
       Timber.i("pokemonList size : ${pokemonList.size}")
