@@ -30,10 +30,10 @@ class PokemonJsonRes @Inject constructor(
     if (pokemonMoveVersionList.isEmpty()) {
       pokemonMoveVersionList.addAll(fetchListByJson("pokemon_move_version_group_list.json"))
     }
-    if (pokemonMoveVersionList.any { it.id == id }) {
-      return pokemonMoveVersionList.first { it.id == id }.versionList
+    return if (pokemonMoveVersionList.any { it.id == id }) {
+      pokemonMoveVersionList.first { it.id == id }.versionList
     } else {
-      return pokemonMoveVersionList.first { it.id == speciesId }.versionList
+      pokemonMoveVersionList.first { it.id == speciesId }.versionList
     }
   }
 
