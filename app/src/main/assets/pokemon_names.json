@@ -16162,5 +16162,131 @@
     "local_language_id": 9,
     "name": "Calyrex",
     "genus": "King Pokémon"
+  },
+  {
+    "pokemon_species_id": 899,
+    "local_language_id": 12,
+    "name": "诡角鹿",
+    "genus": "大角宝可梦"
+  },
+  {
+    "pokemon_species_id": 899,
+    "local_language_id": 1,
+    "name": "アヤシシ",
+    "genus": "大角宝可梦"
+  },
+  {
+    "pokemon_species_id": 899,
+    "local_language_id": 9,
+    "name": "Wyrdeer",
+    "genus": "大角宝可梦"
+  },
+  {
+    "pokemon_species_id": 900,
+    "local_language_id": 12,
+    "name": "劈斧螳螂",
+    "genus": "斧钺宝可梦"
+  },
+  {
+    "pokemon_species_id": 900,
+    "local_language_id": 1,
+    "name": "バサギリ",
+    "genus": "斧钺宝可梦"
+  },
+  {
+    "pokemon_species_id": 900,
+    "local_language_id": 9,
+    "name": "Kleavor",
+    "genus": "斧钺宝可梦"
+  },
+  {
+    "pokemon_species_id": 901,
+    "local_language_id": 12,
+    "name": "月月熊",
+    "genus": "泥炭宝可梦"
+  },
+  {
+    "pokemon_species_id": 901,
+    "local_language_id": 1,
+    "name": "ガチグマ",
+    "genus": "泥炭宝可梦"
+  },
+  {
+    "pokemon_species_id": 901,
+    "local_language_id": 9,
+    "name": "Ursaluna",
+    "genus": "泥炭宝可梦"
+  },
+  {
+    "pokemon_species_id": 902,
+    "local_language_id": 12,
+    "name": "幽尾玄鱼",
+    "genus": "大鱼宝可梦"
+  },
+  {
+    "pokemon_species_id": 902,
+    "local_language_id": 1,
+    "name": "イダイトウ",
+    "genus": "大鱼宝可梦"
+  },
+  {
+    "pokemon_species_id": 902,
+    "local_language_id": 9,
+    "name": "Basculegion",
+    "genus": "大鱼宝可梦"
+  },
+  {
+    "pokemon_species_id": 903,
+    "local_language_id": 12,
+    "name": "大狃拉",
+    "genus": "攀崖宝可梦"
+  },
+  {
+    "pokemon_species_id": 903,
+    "local_language_id": 1,
+    "name": "オオニューラ",
+    "genus": "攀崖宝可梦"
+  },
+  {
+    "pokemon_species_id": 903,
+    "local_language_id": 9,
+    "name": "Sneasler",
+    "genus": "攀崖宝可梦"
+  },
+  {
+    "pokemon_species_id": 904,
+    "local_language_id": 12,
+    "name": "万针鱼",
+    "genus": "剑山宝可梦"
+  },
+  {
+    "pokemon_species_id": 904,
+    "local_language_id": 1,
+    "name": "ハリーマン",
+    "genus": "剑山宝可梦"
+  },
+  {
+    "pokemon_species_id": 904,
+    "local_language_id": 9,
+    "name": "Overqwil",
+    "genus": "剑山宝可梦"
+  },
+  {
+    "pokemon_species_id": 905,
+    "local_language_id": 12,
+    "name": "眷恋云",
+    "genus": "爱憎宝可梦"
+  },
+  {
+    "pokemon_species_id": 905,
+    "local_language_id": 1,
+    "name": "ラブトロス",
+    "genus": "爱憎宝可梦"
+  },
+  {
+    "pokemon_species_id": 905,
+    "local_language_id": 9,
+    "name": "Enamorus",
+    "genus": "爱憎宝可梦"
   }
 ]
