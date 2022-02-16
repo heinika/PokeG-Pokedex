@@ -35,22 +35,23 @@ import com.heinika.pokeg.ConfigMMKV.isFavoritePokemon
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
+import com.heinika.pokeg.curDexType
 import com.heinika.pokeg.databinding.PageDetailBinding
+import com.heinika.pokeg.info.DexType
 import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
-import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.module.detail.itemdelegate.MoveItemDelegate
 import com.heinika.pokeg.module.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.main.itemdelegate.PokemonItemDelegate
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.*
 import com.heinika.pokeg.view.MoveMethodRadioButton
 import com.skydoves.progressview.ProgressView
 import com.skydoves.rainbow.Rainbow
 import com.skydoves.rainbow.RainbowOrientation
 import com.skydoves.rainbow.color
-import timber.log.Timber
 import java.util.*
 
 
@@ -193,7 +194,7 @@ class DetailPage(
       }
     }
 
-    binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.name)
+    binding.name.text = pokemonRes.getNameById(pokemon.id, pokemon.name, pokemon.form)
     binding.index.text = pokemon.getFormatId()
     binding.weight.text = pokemon.getFormatWeight()
     binding.height.text = pokemon.getFormatHeight()
@@ -346,29 +347,33 @@ class DetailPage(
         }
         doOnEnd {
           binding.root.background.alpha = 255
-          detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
-            .observe(activity) { versions ->
-              val defaultVersion = ConfigMMKV.defaultVersion
-              val version =
-                if (versions.contains(defaultVersion)) defaultVersion else versions.last()
-              binding.moveVersionText.text =
-                pokemonRes.getVersionName(version)
 
-              val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
-                .setItems(
-                  versions.map { pokemonRes.getVersionName(it) }.toTypedArray()
-                ) { dialog, index ->
-                  binding.moveVersionText.text =
-                    pokemonRes.getVersionName(versions[index])
-                  refreshMoveTable(versions[index])
-                  dialog.dismiss()
-                }.create()
-              binding.moveVersionText.setOnClickListener {
-                selectVersionDialog.show()
+          if (curDexType == DexType.Global) {
+            detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId)
+              .observe(activity) { versions ->
+                val defaultVersion = ConfigMMKV.defaultVersion
+                val version =
+                  if (versions.contains(defaultVersion)) defaultVersion else versions.last()
+                binding.moveTable.isVisible = true
+                binding.moveVersionText.text =
+                  pokemonRes.getVersionName(version)
+
+                val selectVersionDialog = AlertDialog.Builder(activity).setTitle("选择版本")
+                  .setItems(
+                    versions.map { pokemonRes.getVersionName(it) }.toTypedArray()
+                  ) { dialog, index ->
+                    binding.moveVersionText.text =
+                      pokemonRes.getVersionName(versions[index])
+                    refreshMoveTable(versions[index])
+                    dialog.dismiss()
+                  }.create()
+                binding.moveVersionText.setOnClickListener {
+                  selectVersionDialog.show()
+                }
+
+                refreshMoveTable(version)
               }
-
-              refreshMoveTable(version)
-            }
+          }
         }
 
         addUpdateListener { valueAnimator ->

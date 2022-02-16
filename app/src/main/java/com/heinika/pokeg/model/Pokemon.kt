@@ -40,7 +40,7 @@ data class Pokemon(
   @Json(name = "n")
   var height: Int = -1,
   @Json(name = "o")
-  val form : Int,
+  val form: Int,
   @Json(ignore = true)
   var isBaby: Boolean = false,
   @Json(ignore = true)
@@ -61,9 +61,9 @@ data class Pokemon(
   fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id, name)
 
   fun getFormatId(): String {
-    return when(curDexType){
+    return when (curDexType) {
       DexType.Global -> String.format("#%03d", id)
-      DexType.HiSui -> String.format("#%03d", HiSuiMap[globalId])
+      DexType.HiSui -> String.format("#%03d", HiSuiMap[globalId] ?: globalId)
     }
   }
 
