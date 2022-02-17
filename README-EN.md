@@ -29,26 +29,3 @@ Data binding replace by view binding.(I hate it!)
 ## Download
 Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
 Download from market: https://www.coolapk.com/apk/283809
-
-## Fork from
-It's fork from https://github.com/skydoves/Pokedex.
-
-Pokedex is a small demo application based on modern Android application tech-stacks and MVVM architecture.<br>This project is for focusing especially on the new library Hilt of implementing dependency injection.<br>
-Also fetching data from the network and integrating persisted data in the database via repository pattern.
-
-# License
-```
-Designed and developed by 2021 heinika (Lijing Chen)
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```

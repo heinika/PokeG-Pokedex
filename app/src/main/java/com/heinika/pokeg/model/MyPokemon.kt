@@ -7,17 +7,19 @@ import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.utils.findCarryByCName
+import com.squareup.moshi.Json
 
 @Entity
 data class MyPokemon(
-  @PrimaryKey val name: String,
+  @PrimaryKey var name: String,
   val id: Int,
-  val genId: Int,
+  val genId: Int = 8,
   val typeIdList: List<Int>,
   val carry: String,
   val natureId: Int,
   val abilityId: Int,
-  val moveIdList: List<Int>
+  val moveIdList: List<Int>,
+  var teamName: String = ""
 ) {
   fun toMyPokemonInfo(
     allAbilityList: List<Ability>
@@ -31,6 +33,7 @@ data class MyPokemon(
       nature = Nature.values()[natureId],
       ability = allAbilityList.first { abilityId == it.num },
       moveList = moveIdList.map { moveId -> Move.values().first { it.id == moveId } },
+      teamNameList = teamName.split(";")
     )
   }
 }

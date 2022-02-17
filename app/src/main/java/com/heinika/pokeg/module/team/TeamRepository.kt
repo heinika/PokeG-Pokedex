@@ -1,6 +1,6 @@
 package com.heinika.pokeg.module.team
 
-import com.heinika.pokeg.info.Move
+import com.heinika.pokeg.database.MyPokemonDao
 import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.repository.Repository
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -11,16 +11,23 @@ import javax.inject.Inject
 
 class TeamRepository @Inject constructor(
   private val pokemonRes: PokemonRes,
+  private val myPokemonDao: MyPokemonDao
 ) : Repository {
 
-  fun teamListMap(moveList: List<Move>) = flow {
-    val map = linkedMapOf<String,List<MyPokemonInfo>>()
+  fun teamListMap() = flow {
+
     val allAbilityList = pokemonRes.fetchAbilities()
-    pokemonRes.fetchTeamList().forEach { team ->
-      map[team.teamName] = team.teamNumbers.map {
-        it.toMyPokemonInfo(allAbilityList)
+
+    val teamPokemonInfoList = mutableListOf<MyPokemonInfo>()
+    myPokemonDao.getAlMyPokemon().forEach {myPokemon ->
+      if (myPokemon.teamName.isNotEmpty()){
+        myPokemon.teamName.split(";").forEach {
+          val myPokemonInfo = myPokemon.toMyPokemonInfo(allAbilityList).apply { teamName = it }
+          teamPokemonInfoList.add(myPokemonInfo)
+        }
       }
     }
-    emit(map.toMap())
+
+    emit(teamPokemonInfoList.groupBy { it.teamName })
   }.flowOn(Dispatchers.IO)
 }

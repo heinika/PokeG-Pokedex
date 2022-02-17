@@ -57,7 +57,8 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
           moveList = moves.filter { it.methodId == 4 }.takeLast(4).map { it.moveId }
             .map { moveId ->
               Move.values().first { it.id == moveId }
-            }
+            },
+          teamNameList = emptyList()
         )
         _myDetailPokemonInfo.value = myPokemonInfo
       }

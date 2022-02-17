@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.navOptions
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R

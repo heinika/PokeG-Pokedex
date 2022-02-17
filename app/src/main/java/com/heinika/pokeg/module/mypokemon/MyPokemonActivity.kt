@@ -54,7 +54,7 @@ class MyPokemonActivity : ComponentActivity() {
               }
               MyPokemonScreen(viewModel, navController)
             }
-            composable("MyPokemonDetailPage/{pokemonName}") {
+            composable("MyPokemonDetailPage") {
               val name = it.arguments?.getString("pokemonName")
               val context = LocalContext.current
               LaunchedEffect(true) {

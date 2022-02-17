@@ -10,13 +10,14 @@ import com.heinika.pokeg.module.gameprops.props.CarryProps
 data class MyPokemonInfo(
   val name: String,
   val id: Int,
-  val gen:Generation,
+  val gen: Generation,
   val typeIdList: List<Type>,
   val carry: CarryProps,
   val nature: Nature,
   val ability: Ability,
-  val moveList: List<Move>
-){
+  val moveList: List<Move>,
+  var teamNameList: List<String>
+) {
   fun toMyPokemon() = MyPokemon(
     name,
     id,
@@ -25,8 +26,11 @@ data class MyPokemonInfo(
     carry = carry.cname,
     natureId = nature.ordinal,
     abilityId = ability.num,
-    moveIdList = moveList.map { it.id }
+    moveIdList = moveList.map { it.id },
+    teamName = teamNameList.joinToString(";")
   )
 
   val formatId: String = String.format("%03d", id)
+
+  var teamName:String = ""
 }

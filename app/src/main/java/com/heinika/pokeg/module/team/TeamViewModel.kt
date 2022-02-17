@@ -19,7 +19,7 @@ class TeamViewModel @Inject constructor(teamRepository: TeamRepository) : ViewMo
 
   init {
     viewModelScope.launch {
-      teamRepository.teamListMap(Move.values().toList()).collect {
+      teamRepository.teamListMap().collect {
         _teamNumberMap.value = it
       }
     }
