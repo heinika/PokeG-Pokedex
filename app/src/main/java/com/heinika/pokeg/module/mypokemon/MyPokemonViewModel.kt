@@ -12,7 +12,6 @@ import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.MyPokemon
 import com.heinika.pokeg.model.MyPokemonInfo
-import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.gameprops.props.carryIIIPropsList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -32,8 +31,12 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
 
   fun refreshAllPokemonList() {
     viewModelScope.launch {
-      withContext(Dispatchers.IO){
-        Timber.i("viewModelScope ${myPokemonRepository.fetchAllMyPokemonList().joinToString { it.name }}")
+      withContext(Dispatchers.IO) {
+        Timber.i(
+          "viewModelScope ${
+            myPokemonRepository.fetchAllMyPokemonList().joinToString { it.name }
+          }"
+        )
         _myPokemonList.value = myPokemonRepository.fetchAllMyPokemonList()
       }
     }
@@ -63,6 +66,17 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
         _myDetailPokemonInfo.value = myPokemonInfo
       }
     }
+  }
+
+  fun requestExistMyPokemon(name: String) {
+    viewModelScope.launch {
+      withContext(Dispatchers.IO) {
+        val myPokemon = myPokemonList.value.first { it.name == name }
+        val abilities = myPokemonRepository.fetchPokemonAbilities(myPokemon.id)
+        _myDetailPokemonInfo.value = myPokemon.toMyPokemonInfo(abilities)
+      }
+    }
+
   }
 
   fun saveMyPokemonToDataBase() {

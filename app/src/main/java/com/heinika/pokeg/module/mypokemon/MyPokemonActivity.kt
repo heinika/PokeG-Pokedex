@@ -48,27 +48,28 @@ class MyPokemonActivity : ComponentActivity() {
           val navController = rememberNavController()
 
           NavHost(navController = navController, startDestination = "MyPokemonHome") {
-            composable("MyPokemonHome") {
-              LaunchedEffect(true) {
-                viewModel.refreshAllPokemonList()
-              }
-              MyPokemonScreen(viewModel, navController)
-            }
-            composable("MyPokemonDetailPage") {
-              val name = it.arguments?.getString("pokemonName")
+            composable("MyPokemonDetailPage/{pokemonName}") {
+              val name = it.arguments?.getString("pokemonName")!!
               val context = LocalContext.current
               LaunchedEffect(true) {
-                if (name.isNullOrEmpty()) {
+                if (name == "newRandom") {
                   val randomInt = Random.nextInt(0, 890)
                   viewModel.requestInitDetailPokemon(
                     randomInt,
                     ResUtils.getNameById(randomInt, context = context)
                   )
                 } else {
-
+                  viewModel.requestExistMyPokemon(name)
                 }
               }
               MyPokemonDetailScreen(viewModel, navController)
+            }
+
+            composable("MyPokemonHome") {
+              LaunchedEffect(true) {
+                viewModel.refreshAllPokemonList()
+              }
+              MyPokemonScreen(viewModel, navController)
             }
           }
         }

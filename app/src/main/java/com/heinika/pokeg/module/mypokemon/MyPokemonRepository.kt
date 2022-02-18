@@ -7,7 +7,10 @@ import com.heinika.pokeg.repository.Repository
 import com.heinika.pokeg.repository.res.PokemonRes
 import javax.inject.Inject
 
-class MyPokemonRepository @Inject constructor(val pokemonRes: PokemonRes,val myPokemonDao: MyPokemonDao) : Repository {
+class MyPokemonRepository @Inject constructor(
+  val pokemonRes: PokemonRes,
+  val myPokemonDao: MyPokemonDao
+) : Repository {
 
   fun fetchPokemonAbilities(id: Int) = arrayListOf<Ability>().apply {
     pokemonRes.fetchPokemonAbilities().filter { it.pokemonId == id }.forEach { pokemonAbility ->
@@ -15,13 +18,16 @@ class MyPokemonRepository @Inject constructor(val pokemonRes: PokemonRes,val myP
     }
   }.toList()
 
-  fun fetchMoveList(id: Int, speciesId: Int, version: Int)  = pokemonRes.fetchPokemonMoveList(id, speciesId, version)
+  fun fetchMoveList(id: Int, speciesId: Int, version: Int) =
+    pokemonRes.fetchPokemonMoveList(id, speciesId, version)
 
-  fun fetchPokemonMoveVersionList(id: Int, speciesId: Int) = pokemonRes.fetchPokemonMoveVersionList(id, speciesId)
+  fun fetchPokemonMoveVersionList(id: Int, speciesId: Int) =
+    pokemonRes.fetchPokemonMoveVersionList(id, speciesId)
 
-  fun insertMyPokemon(myPokemon: MyPokemon){
+  fun insertMyPokemon(myPokemon: MyPokemon) {
     myPokemonDao.insertMyPokemon(myPokemon)
   }
 
   fun fetchAllMyPokemonList() = myPokemonDao.getAlMyPokemon()
+
 }
