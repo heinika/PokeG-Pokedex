@@ -145,9 +145,9 @@ class DetailPage(
     binding.favoriteCheckBox.isChecked = isFavoritePokemon(pokemon.id)
     binding.favoriteCheckBox.setOnClickListener {
       favoritePokemons = if (binding.favoriteCheckBox.isChecked) {
-        favoritePokemons + pokemon.id.toString()
+        favoritePokemons + pokemon.globalId.toString()
       } else {
-        favoritePokemons - pokemon.id.toString()
+        favoritePokemons - pokemon.globalId.toString()
       }
       mainViewModel.changeBasePokemonListFavorite(pokemon, binding.favoriteCheckBox.isChecked)
     }

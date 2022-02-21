@@ -73,8 +73,9 @@ class MainViewModel @Inject constructor(
         onSuccess = { _isLoading.postValue(false) },
         onError = { _toastMessage.postValue(it) }
       ).collect { pokemonList ->
-        allPokemonList= pokemonList
-        hiSuiPokemonList = RegionNumber.HiSuiMap.keys.map { hisuiNumber -> pokemonList.first { it.globalId == hisuiNumber }}
+        allPokemonList = pokemonList
+        hiSuiPokemonList =
+          RegionNumber.HiSuiMap.keys.map { hisuiNumber -> pokemonList.first { it.globalId == hisuiNumber } }
         basePokemonList = pokemonList
         _pokemonSortListLiveData.value = pokemonList
       }
@@ -172,22 +173,23 @@ class MainViewModel @Inject constructor(
         filterTags.value!!.forEach { tag ->
           when (tag) {
             Tag.Favorite -> {
-              if (favoritePokemons.contains(pokemon.id.toString())) {
+              if (favoritePokemons.contains(pokemon.globalId.toString())) {
                 return@filter true
               }
             }
             Tag.Legendary -> {
-              if (pokemon.isLegendary) {
+              if (legendaryIdList.contains(pokemon.globalId)) {
                 return@filter true
               }
+              legendaryIdList.contains(pokemon.globalId)
             }
             Tag.Mythical -> {
-              if (pokemon.isMythical) {
+              if (mythicalIdList.contains(pokemon.globalId)) {
                 return@filter true
               }
             }
             Tag.BABY -> {
-              if (pokemon.isBaby) {
+              if (babyIdList.contains(pokemon.globalId)) {
                 return@filter true
               }
             }

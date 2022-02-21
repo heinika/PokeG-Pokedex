@@ -93,9 +93,9 @@ class MainPage(
       }
     }, onFavoriteClick = { pokemon, isChecked ->
       favoritePokemons = if (isChecked) {
-        favoritePokemons + pokemon.id.toString()
+        favoritePokemons + pokemon.globalId.toString()
       } else {
-        favoritePokemons - pokemon.id.toString()
+        favoritePokemons - pokemon.globalId.toString()
       }
     }))
 

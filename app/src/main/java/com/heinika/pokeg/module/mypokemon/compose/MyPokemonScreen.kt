@@ -29,11 +29,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.navOptions
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
-import com.heinika.pokeg.model.MyPokemon
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
@@ -60,6 +58,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
             contentDescription = "",
             colorFilter = ColorFilter.tint(Color.White),
             modifier = Modifier.clickable {
+
               navController.navigate("MyPokemonDetailPage/newRandom")
             }
           )
@@ -76,7 +75,6 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
     }
   }
 }
-
 
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
