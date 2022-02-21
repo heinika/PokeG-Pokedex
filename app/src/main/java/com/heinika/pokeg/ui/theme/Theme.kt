@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
-  primary = Purple200,
+  primary = Red200,
   primaryVariant = Purple700,
   secondary = Red200,
   background = Color(0xff214252),
@@ -18,7 +18,7 @@ private val DarkColorPalette = darkColors(
 )
 
 private val LightColorPalette = lightColors(
-  primary = Purple500,
+  primary = Red200,
   primaryVariant = Purple700,
   secondary = Red200,
   background = Color(0xff214252),
@@ -42,6 +42,22 @@ fun PokeGTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable 
     DarkColorPalette
   } else {
     LightColorPalette
+  }
+
+  MaterialTheme(
+    colors = colors,
+    typography = Typography,
+    shapes = Shapes,
+    content = content
+  )
+}
+
+@Composable
+fun TeamTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+  val colors = if (darkTheme) {
+    DarkColorPalette.copy(background = BlackBackgroundColor)
+  } else {
+    LightColorPalette.copy(background = BlackBackgroundColor)
   }
 
   MaterialTheme(

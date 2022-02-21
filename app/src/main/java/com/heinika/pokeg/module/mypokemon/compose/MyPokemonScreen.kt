@@ -62,8 +62,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
             }
           )
         })
-    },
-    backgroundColor = BlackBackgroundColor
+    }
   ) {
     LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
       items(myPokemonList) {

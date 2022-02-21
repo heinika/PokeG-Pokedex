@@ -1,5 +1,6 @@
 package com.heinika.pokeg.module.mypokemon.compose
 
+import android.widget.Toast
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -40,6 +41,12 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @ExperimentalCoilApi
 @Composable
 fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
+  val context = LocalContext.current
+  if (viewModel.myDetailPokemon.value == null){
+    Box(modifier = Modifier
+      .fillMaxSize()
+      .background(BlackBackgroundColor))
+  }
   viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
     val scrollState = rememberScrollState()
     Column(
@@ -76,6 +83,9 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
             modifier = Modifier
               .padding(end = 8.dp)
               .clickable {
+                Toast
+                  .makeText(context, "以保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
+                  .show()
                 viewModel.saveMyPokemonToDataBase()
               }
           )

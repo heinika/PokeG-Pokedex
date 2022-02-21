@@ -4,7 +4,6 @@ import androidx.compose.ui.graphics.Color
 
 val BlackColor = Color(0xff000000)
 val DisableColor = Color(0xff3a434b)
-val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
 val Purple700 = Color(0xFF3700B3)
 val Red200 = Color(0xFFF05454)
