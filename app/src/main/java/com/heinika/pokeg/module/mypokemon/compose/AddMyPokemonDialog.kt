@@ -2,37 +2,41 @@ package com.heinika.pokeg.module.mypokemon.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
-import com.heinika.pokeg.R
+import coil.annotation.ExperimentalCoilApi
+import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.repository.res.ResUtils
 
+@ExperimentalCoilApi
 @Composable
 fun AppDialog(
   modifier: Modifier = Modifier,
   dialogState: Boolean = false,
-  onDialogPositiveButtonClicked: (() -> Unit)? = null,
   onDialogStateChange: ((Boolean) -> Unit)? = null,
   onDismissRequest: (() -> Unit)? = null,
-  pokemonList: List<Pokemon>
+  pokemonList: List<Pokemon> = PokemonDataCache.pokemonList,
+  onPokemonItemClick:(Pokemon) -> Unit
 ) {
-  val textPaddingAll = 24.dp
-  val buttonPaddingAll = 8.dp
   val dialogShape = RoundedCornerShape(16.dp)
+
+  var searchText by remember { mutableStateOf("") }
+  val context = LocalContext.current
 
   if (dialogState) {
     AlertDialog(
@@ -40,52 +44,34 @@ fun AppDialog(
         onDialogStateChange?.invoke(false)
         onDismissRequest?.invoke()
       },
+      backgroundColor = Color.DarkGray,
       title = null,
       text = null,
       buttons = {
-
         Column {
           TextField(modifier = Modifier
             .background(
               Color.White
             )
-            .fillMaxWidth(),leadingIcon = {
+            .fillMaxWidth(), leadingIcon = {
             Image(imageVector = Icons.Default.Search, contentDescription = "")
-          }, value = "梦幻",
+          }, value = searchText,
             colors = TextFieldDefaults.textFieldColors(backgroundColor = Color.White),
-            onValueChange = {})
+            onValueChange = {
+              searchText = it
+            })
 
-          LazyColumn{
-            items(pokemonList) {
-
-            }
-          }
-
-          Image(
-            painter = painterResource(R.drawable.meotwo),
-            contentDescription = "",
-            contentScale = ContentScale.FillWidth,
-            modifier = Modifier.fillMaxWidth()
-          )
-
-          Divider(color = MaterialTheme.colors.onSurface, thickness = 1.dp)
-
-          Row(
-            modifier = Modifier.padding(all = buttonPaddingAll),
-            horizontalArrangement = Arrangement.Center
-          ) {
-            TextButton(
-              modifier = Modifier.fillMaxWidth(),
-              onClick = {
-                onDialogStateChange?.invoke(false)
-                onDialogPositiveButtonClicked?.invoke()
-              }
-            ) {
-              Text(text = stringResource(R.string.ok), color = MaterialTheme.colors.onSurface)
+          LazyColumn {
+            items(pokemonList.filter {
+              it.globalId.toString().contains(searchText) ||
+                ResUtils.getNameById(it.id, context = context).contains(searchText)
+            }) { pokemon ->
+              PokemonCard(pokemon = pokemon, onclick = {
+                onPokemonItemClick(it)
+              })
             }
           }
         }
-
       },
       properties = DialogProperties(dismissOnBackPress = true, dismissOnClickOutside = false),
       modifier = modifier,
@@ -94,8 +80,4 @@ fun AppDialog(
   }
 }
 
-@Preview
-@Composable
-fun AppDialogPreview() {
-//  AppDialog(dialogState = true)
-}
+

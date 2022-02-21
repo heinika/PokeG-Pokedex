@@ -13,8 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -46,6 +45,7 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @ExperimentalMaterialApi
 fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
   val myPokemonList by viewModel.myPokemonList
+  var isShowDialog by remember { mutableStateOf(false) }
   Scaffold(
     topBar = {
       TopAppBar(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)),
@@ -58,8 +58,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
             contentDescription = "",
             colorFilter = ColorFilter.tint(Color.White),
             modifier = Modifier.clickable {
-
-              navController.navigate("MyPokemonDetailPage/newRandom")
+              isShowDialog = true
             }
           )
         })
@@ -72,6 +71,10 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
           navController.navigate("MyPokemonDetailPage/${it.name}")
         }
       }
+    }
+
+    AppDialog(dialogState = isShowDialog, onDismissRequest = { isShowDialog = false }){
+      navController.navigate("MyPokemonDetailPage/newRandom${it.globalId}")
     }
   }
 }

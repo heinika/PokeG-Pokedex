@@ -42,16 +42,16 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
     }
   }
 
-  fun requestInitDetailPokemon(id: Int, name: String) {
+  fun requestInitDetailPokemon(globalId: Int, name: String) {
     viewModelScope.launch {
       withContext(Dispatchers.IO) {
-        val pokemon = PokemonDataCache.pokemonList.first { it.id == id }
-        val abilities = myPokemonRepository.fetchPokemonAbilities(id)
-        val versions = myPokemonRepository.fetchPokemonMoveVersionList(id, pokemon.speciesId)
-        val moves = myPokemonRepository.fetchMoveList(id, pokemon.speciesId, versions.last())
+        val pokemon = PokemonDataCache.pokemonList.first { it.globalId == globalId }
+        val abilities = myPokemonRepository.fetchPokemonAbilities(globalId)
+        val versions = myPokemonRepository.fetchPokemonMoveVersionList(globalId, pokemon.speciesId)
+        val moves = myPokemonRepository.fetchMoveList(globalId, pokemon.speciesId, versions.last())
         val myPokemonInfo = MyPokemonInfo(
           name,
-          id,
+          globalId,
           Generation.values()[pokemon.generationId - 1],
           typeIdList = pokemon.types.map { Type.values()[it - 1] },
           carry = carryIIIPropsList.first(),

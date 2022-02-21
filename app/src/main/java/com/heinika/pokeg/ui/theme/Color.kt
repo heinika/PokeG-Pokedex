@@ -1,8 +1,6 @@
 package com.heinika.pokeg.ui.theme
 
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.LinearGradient
 
 val BlackColor = Color(0xff000000)
 val DisableColor = Color(0xff3a434b)
@@ -16,7 +14,7 @@ val DarkBlue = Color(0xFF162544)
 //typeColor
 val poisonColor = Color(0xffd28cd2)
 val grassColor = Color(0xffa0d702)
-val  fireColor = Color(0xffff6900)
+val fireColor = Color(0xffff6900)
 val flyingColor = Color(0xff78dcff)
 val ghostColor = Color(0xffa08cff)
 val iceColor = Color(0xff14f5ff)

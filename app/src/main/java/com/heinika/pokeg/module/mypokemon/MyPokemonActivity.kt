@@ -11,7 +11,6 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -24,7 +23,6 @@ import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.random.Random
 
 @ExperimentalFoundationApi
 @ExperimentalAnimationApi
@@ -52,11 +50,11 @@ class MyPokemonActivity : ComponentActivity() {
               val name = it.arguments?.getString("pokemonName")!!
               val context = LocalContext.current
               LaunchedEffect(true) {
-                if (name == "newRandom") {
-                  val randomInt = Random.nextInt(0, 890)
+                if (name.contains("newRandom")) {
+                  val id = name.replace("newRandom","").toInt()
                   viewModel.requestInitDetailPokemon(
-                    randomInt,
-                    ResUtils.getNameById(randomInt, context = context)
+                    id,
+                    ResUtils.getNameById(id, context = context)
                   )
                 } else {
                   viewModel.requestExistMyPokemon(name)
