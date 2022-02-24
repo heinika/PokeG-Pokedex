@@ -14,6 +14,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -51,18 +53,30 @@ import kotlin.random.Random
 @ExperimentalCoilApi
 @Composable
 fun TeamScreen(teamViewModel: TeamViewModel) {
-  val teamNumberMap by remember { teamViewModel.teamNumberMap }
-  if (teamNumberMap.isNotEmpty()) {
-    LazyColumn(
-      Modifier.fillMaxSize()
-    ) {
-      item {
-        Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
+  Scaffold(floatingActionButton = {
+    FloatingActionButton(onClick = { /*TODO*/ }) {
+      Image(Icons.Default.Add,"")
+    }
+  }) {
+    Box(modifier = Modifier.fillMaxSize()){
+      val teamNumberMap by remember { teamViewModel.teamNumberMap }
+      if (teamNumberMap.isNotEmpty()) {
+        LazyColumn(
+          Modifier.fillMaxSize()
+        ) {
+          item {
+            Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
+          }
+
+          items(teamNumberMap.entries.toList()) {
+            TeamItemCard(it.key, it.value)
+          }
+        }
       }
 
-      items(teamNumberMap.entries.toList()) {
-        TeamItemCard(it.key, it.value)
-      }
+      AlertDialog(onDismissRequest = { /*TODO*/ }, buttons = {
+        Text(text = "hello")
+      })
     }
   }
 }
