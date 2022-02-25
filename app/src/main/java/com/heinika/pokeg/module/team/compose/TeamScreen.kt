@@ -41,7 +41,6 @@ import com.heinika.pokeg.ui.theme.waterColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.toTypeColor
-import timber.log.Timber
 import kotlin.random.Random
 
 
@@ -55,7 +54,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 
   Scaffold(floatingActionButton = {
     FloatingActionButton(onClick = {
-      isAddTeamDialogVisible = true
+
     }) {
       Image(Icons.Default.Add, "")
     }
@@ -73,7 +72,14 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 
         if (teamNumberMap.isNotEmpty()) {
           items(teamNumberMap.entries.toList()) {
-            TeamItemCard(it.key, it.value, onAddClick = {
+            TeamItemCard(it.key, mutableListOf<MyPokemonInfo?>().apply {
+              addAll(it.value)
+              if (it.value.size <6){
+                repeat(6 - it.value.size){
+                  add(null)
+                }
+              }
+            }, onAddClick = {
               isAddTeamDialogVisible = true
             })
           }
