@@ -1,6 +1,6 @@
 package com.heinika.pokeg.module.mypokemon.compose
 
-import androidx.compose.animation.ExperimentalAnimationApi
+
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -40,7 +40,6 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 
 @ExperimentalFoundationApi
 @Composable
-@ExperimentalAnimationApi
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
@@ -66,7 +65,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
   ) {
     LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
       items(myPokemonList) {
-        TeamNumberCard(it.id, Modifier) {
+        MyPokemonCard(it.id, Modifier) {
           navController.navigate("MyPokemonDetailPage/${it.name}")
         }
       }
@@ -79,7 +78,6 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
 }
 
 @ExperimentalFoundationApi
-@ExperimentalAnimationApi
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Preview
@@ -88,17 +86,17 @@ private fun TeamNumberCardPreview() {
 
   LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
     items(600) {
-      TeamNumberCard(it + 1, Modifier) {}
+      MyPokemonCard(it + 1, Modifier) {}
     }
   }
 }
 
 
-@ExperimentalAnimationApi
+
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Composable
-private fun TeamNumberCard(
+private fun MyPokemonCard(
   id: Int,
   modifier: Modifier = Modifier,
   onClick: () -> Unit

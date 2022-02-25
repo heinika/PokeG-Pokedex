@@ -5,7 +5,7 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
-import androidx.compose.animation.ExperimentalAnimationApi
+
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
@@ -35,7 +35,7 @@ import java.util.*
 
 @Suppress("UNCHECKED_CAST")
 @ExperimentalMaterialApi
-@ExperimentalAnimationApi
+
 class MainPage(
   private val activity: ComponentActivity,
   pageStack: Stack<BasePage>,

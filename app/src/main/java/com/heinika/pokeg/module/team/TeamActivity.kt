@@ -5,7 +5,8 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
@@ -14,12 +15,14 @@ import androidx.compose.ui.graphics.Color
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.heinika.pokeg.ui.theme.PokeGTheme
+import com.heinika.pokeg.module.team.compose.TeamScreen
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
+import com.heinika.pokeg.ui.theme.TeamTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 
-@ExperimentalAnimationApi
+
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @AndroidEntryPoint
@@ -32,7 +35,7 @@ class TeamActivity : ComponentActivity() {
     SystemBar.initStatusBarHeight(this)
 
     setContent {
-      PokeGTheme {
+      TeamTheme {
         ProvideWindowInsets {
           // A surface container using the 'background' color from the theme
           val systemUiController = rememberSystemUiController()

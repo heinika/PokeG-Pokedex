@@ -24,10 +24,14 @@ class MyPokemonRepository @Inject constructor(
   fun fetchPokemonMoveVersionList(id: Int, speciesId: Int) =
     pokemonRes.fetchPokemonMoveVersionList(id, speciesId)
 
-  fun insertMyPokemon(myPokemon: MyPokemon) {
+  suspend fun insertMyPokemon(myPokemon: MyPokemon) {
     myPokemonDao.insertMyPokemon(myPokemon)
   }
 
-  fun fetchAllMyPokemonList() = myPokemonDao.getAlMyPokemon()
+  suspend fun updateMyPokemon(myPokemon: MyPokemon) {
+    myPokemonDao.updateMyPokemon(myPokemon)
+  }
+
+  suspend fun fetchAllMyPokemonList() = myPokemonDao.fetchMyPokemonList()
 
 }

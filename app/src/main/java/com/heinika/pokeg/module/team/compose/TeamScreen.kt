@@ -1,16 +1,12 @@
-package com.heinika.pokeg.module.team
+package com.heinika.pokeg.module.team.compose
 
 import android.widget.Toast
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -21,15 +17,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
@@ -39,6 +33,7 @@ import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.module.gameprops.props.CarryProps
+import com.heinika.pokeg.module.team.TeamViewModel
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.ui.theme.grassColor
@@ -46,70 +41,128 @@ import com.heinika.pokeg.ui.theme.waterColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.toTypeColor
+import timber.log.Timber
 import kotlin.random.Random
 
-@ExperimentalAnimationApi
+
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 fun TeamScreen(teamViewModel: TeamViewModel) {
+  var isAddTeamDialogVisible by remember { mutableStateOf(false) }
+  var selectedTeamName by remember { mutableStateOf("") }
+
   Scaffold(floatingActionButton = {
-    FloatingActionButton(onClick = { /*TODO*/ }) {
-      Image(Icons.Default.Add,"")
+    FloatingActionButton(onClick = {
+      isAddTeamDialogVisible = true
+    }) {
+      Image(Icons.Default.Add, "")
     }
   }) {
-    Box(modifier = Modifier.fillMaxSize()){
+    Box(modifier = Modifier.fillMaxSize()) {
+      val context = LocalContext.current
       val teamNumberMap by remember { teamViewModel.teamNumberMap }
-      if (teamNumberMap.isNotEmpty()) {
-        LazyColumn(
-          Modifier.fillMaxSize()
-        ) {
-          item {
-            Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
-          }
 
+      LazyColumn(
+        Modifier.fillMaxSize()
+      ) {
+        item {
+          Spacer(modifier = Modifier.height(Dp(SystemBar.statusBarHeightDp)))
+        }
+
+        if (teamNumberMap.isNotEmpty()) {
           items(teamNumberMap.entries.toList()) {
-            TeamItemCard(it.key, it.value)
+            TeamItemCard(it.key, it.value, onAddClick = {
+              isAddTeamDialogVisible = true
+            })
+          }
+        } else {
+          item {
+            TeamItemCard(
+              null,
+              teamList = listOf(null, null, null, null, null, null),
+              onAddClick = { teamName: String? ->
+                if (teamName == null) {
+                  Toast.makeText(context, "请先添加队名", Toast.LENGTH_SHORT).show()
+                } else {
+                  isAddTeamDialogVisible = true
+                  selectedTeamName = teamName
+                }
+              })
           }
         }
       }
 
-      AlertDialog(onDismissRequest = { /*TODO*/ }, buttons = {
-        Text(text = "hello")
-      })
+      if (isAddTeamDialogVisible) {
+        AlertDialog(onDismissRequest = {
+          isAddTeamDialogVisible = false
+        }, buttons = {
+          Text(text = "我的宝可梦")
+          LazyVerticalGrid(cells = GridCells.Fixed(3)) {
+            items(teamViewModel.allMyPokemonList.value) {
+              TeamNumberCard(id = it.id, name = it.name) {
+                if (it.teamName.isEmpty() || it.teamName == selectedTeamName){
+                  teamViewModel.updateMyPokemon(it.copy(teamName = selectedTeamName))
+                }else{
+                  teamViewModel.updateMyPokemon(it.copy(teamName = it.teamName + ";" + selectedTeamName))
+                }
+              }
+            }
+          }
+        })
+      }
+
     }
   }
 }
 
-@ExperimentalAnimationApi
+
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
-private fun TeamItemCard(teamName: String, teamList: List<MyPokemonInfo>) {
+private fun TeamItemCard(
+  teamName: String?,
+  teamList: List<MyPokemonInfo?>,
+  onAddClick: (teamName: String?) -> Unit
+) {
   var selectedIndex by remember { mutableStateOf(0) }
+  val teamNameState = remember { mutableStateOf(teamName) }
+  var editable by remember { mutableStateOf(teamName == null) }
+
   Row(Modifier.padding(12.dp, 0.dp), verticalAlignment = Alignment.CenterVertically) {
-    Text(text = teamName, Modifier.weight(1f), style = MaterialTheme.typography.h5)
-    val context = LocalContext.current
-    Image(painter = painterResource(id = R.drawable.baseline_edit_24), contentDescription = "", Modifier.clickable {
-      Toast.makeText(context.applicationContext,"暂时只有展示，编辑功能开发中...信息错误请忽略",Toast.LENGTH_SHORT).show()
-    })
+    TextField(
+      value = teamNameState.value ?: "未命名",
+      enabled = editable,
+      onValueChange = { teamNameState.value = it },
+      textStyle = MaterialTheme.typography.h5,
+      trailingIcon = {
+        Image(
+          painter = painterResource(id = R.drawable.baseline_edit_24),
+          contentDescription = "",
+          Modifier.clickable {
+            editable = true
+          })
+      },
+      colors = TextFieldDefaults.textFieldColors(backgroundColor = BlackBackgroundColor),
+      modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
+    )
   }
-  Divider(
-    Modifier
-      .padding(12.dp, 4.dp)
-      .height(2.dp)
-  )
 
   TeamNumberDetail(
     Modifier
       .fillMaxWidth()
-      .height(180.dp), teamList[selectedIndex]
+      .height(180.dp), teamList[selectedIndex],
+    onAddClick = {
+      onAddClick(teamNameState.value)
+    }
   )
 
   TeamRow(modifier = Modifier
     .height(110.dp)
-    .padding(6.dp), teamList.map { it.id },
+    .padding(6.dp), teamList.map { it?.id ?: -1 },
     initSelectedIndex = selectedIndex,
+    nameList = teamList.map { it?.name ?: "" },
     onSelectChange = {
       selectedIndex = it
     })
@@ -117,73 +170,90 @@ private fun TeamItemCard(teamName: String, teamList: List<MyPokemonInfo>) {
 
 @ExperimentalCoilApi
 @Composable
-fun TeamNumberDetail(modifier: Modifier = Modifier, teamNumberInfo: MyPokemonInfo) {
-  ConstraintLayout(modifier) {
-    val (image, nameLabel, typeRow, carryTag, natureTag, abilityTag, moveRow) = createRefs()
-    Image(
-      painter = rememberImagePainter(getPokemonImageUrl(teamNumberInfo.id)),
-      contentDescription = "",
-      modifier = Modifier
-        .constrainAs(image) {
+fun TeamNumberDetail(
+  modifier: Modifier = Modifier,
+  teamNumberInfo: MyPokemonInfo?,
+  onAddClick: () -> Unit
+) {
+  if (teamNumberInfo != null) {
+    ConstraintLayout(modifier) {
+      val (image, nameLabel, typeRow, carryTag, natureTag, abilityTag, moveRow) = createRefs()
+      Image(
+        painter = rememberImagePainter(getPokemonImageUrl(teamNumberInfo.id)),
+        contentDescription = "",
+        modifier = Modifier
+          .constrainAs(image) {
+            top.linkTo(parent.top)
+            start.linkTo(parent.start)
+            bottom.linkTo(parent.bottom)
+          }
+          .fillMaxWidth(0.45f)
+          .padding(12.dp)
+      )
+
+      Text(text = ResUtils.getNameById(teamNumberInfo.id, context = LocalContext.current),
+        style = MaterialTheme.typography.h4, modifier = Modifier.constrainAs(nameLabel) {
           top.linkTo(parent.top)
-          start.linkTo(parent.start)
-          bottom.linkTo(parent.bottom)
-        }
-        .fillMaxWidth(0.45f)
-        .padding(12.dp)
-    )
+          start.linkTo(image.end)
+        })
 
-    Text(text = ResUtils.getNameById(teamNumberInfo.id, context = LocalContext.current),
-      style = MaterialTheme.typography.h4, modifier = Modifier.constrainAs(nameLabel) {
-        top.linkTo(parent.top)
-        start.linkTo(image.end)
-      })
+      TypeColumn(
+        Modifier
+          .constrainAs(typeRow) {
+            top.linkTo(nameLabel.top)
+            bottom.linkTo(nameLabel.bottom)
+            start.linkTo(nameLabel.end, 4.dp)
+          }, teamNumberInfo.typeIdList
+      )
 
-    TypeColumn(
-      Modifier
-        .constrainAs(typeRow) {
-          top.linkTo(nameLabel.top)
-          bottom.linkTo(nameLabel.bottom)
-          start.linkTo(nameLabel.end, 4.dp)
-        }, teamNumberInfo.typeIdList
-    )
-
-    TagCard(
-      modifier = Modifier.constrainAs(natureTag) {
-        top.linkTo(nameLabel.bottom, 4.dp)
-        start.linkTo(nameLabel.start)
-      },
-      typeName = stringResource(id = teamNumberInfo.nature.stringId),
-      color = teamNumberInfo.nature.color
-    )
-
-    val randomColor = Color(Random.nextInt(0,255),Random.nextInt(0,255),Random.nextInt(0,255),255)
-    TagCard(
-      modifier = Modifier.constrainAs(abilityTag) {
-        top.linkTo(nameLabel.bottom, 4.dp)
-        start.linkTo(natureTag.end, 4.dp)
-      },
-      typeName = teamNumberInfo.ability.cname,
-      color = randomColor
-    )
-
-    CarryCard(
-      modifier = Modifier.constrainAs(carryTag) {
-        top.linkTo(natureTag.bottom, 4.dp)
-        start.linkTo(nameLabel.start)
-      },
-      teamNumberInfo.carry
-    )
-
-    FlowRow(
-      Modifier
-        .fillMaxWidth(0.55f)
-        .constrainAs(moveRow) {
-          top.linkTo(carryTag.bottom)
+      TagCard(
+        modifier = Modifier.constrainAs(natureTag) {
+          top.linkTo(nameLabel.bottom, 4.dp)
           start.linkTo(nameLabel.start)
-        }) {
-      for (move in teamNumberInfo.moveList) {
-        MoveCard(Modifier.padding(top = 4.dp, end = 4.dp), move = move)
+        },
+        typeName = stringResource(id = teamNumberInfo.nature.stringId),
+        color = teamNumberInfo.nature.color
+      )
+
+      val randomColor =
+        Color(Random.nextInt(0, 255), Random.nextInt(0, 255), Random.nextInt(0, 255), 255)
+      TagCard(
+        modifier = Modifier.constrainAs(abilityTag) {
+          top.linkTo(nameLabel.bottom, 4.dp)
+          start.linkTo(natureTag.end, 4.dp)
+        },
+        typeName = teamNumberInfo.ability.cname,
+        color = randomColor
+      )
+
+      CarryCard(
+        modifier = Modifier.constrainAs(carryTag) {
+          top.linkTo(natureTag.bottom, 4.dp)
+          start.linkTo(nameLabel.start)
+        },
+        teamNumberInfo.carry
+      )
+
+      FlowRow(
+        Modifier
+          .fillMaxWidth(0.55f)
+          .constrainAs(moveRow) {
+            top.linkTo(carryTag.bottom)
+            start.linkTo(nameLabel.start)
+          }) {
+        for (move in teamNumberInfo.moveList) {
+          MoveCard(Modifier.padding(top = 4.dp, end = 4.dp), move = move)
+        }
+      }
+    }
+  } else {
+    Box(modifier) {
+      Button(onClick = { onAddClick() }, modifier = Modifier.align(Alignment.Center)) {
+        Image(
+          imageVector = Icons.Default.Add,
+          contentDescription = "",
+          colorFilter = ColorFilter.tint(Color.White)
+        )
       }
     }
   }
@@ -208,7 +278,11 @@ fun CarryCard(modifier: Modifier = Modifier, carry: CarryProps?, color: Color = 
       .background(color.copy(alpha = 0.2f)),
     verticalAlignment = Alignment.CenterVertically
   ) {
-    Image(painter = painterResource(carry?.imageResId ?: R.drawable.ic_search), "", modifier = Modifier.size(32.dp))
+    Image(
+      painter = painterResource(carry?.imageResId ?: R.drawable.ic_search),
+      "",
+      modifier = Modifier.size(32.dp)
+    )
     Text(
       text = stringResource(carry?.nameResId ?: R.string.type_unknown),
       color = Color.White,
@@ -273,21 +347,25 @@ fun MoveCard(modifier: Modifier = Modifier, move: Move) {
 }
 
 
-@ExperimentalAnimationApi
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Preview
 @Composable
 fun TeamNumberCardPreview() {
-  TeamRow(modifier = Modifier.padding(6.dp), listOf(151, 1, 150, 9, 250, 149), onSelectChange = {})
+  TeamRow(
+    modifier = Modifier.padding(6.dp),
+    listOf(151, 1, 150, 9, 250, 149),
+    nameList = listOf("1", "1", "1", "1", "1", "1"),
+    onSelectChange = {})
 }
 
-@ExperimentalAnimationApi
+
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 fun TeamRow(
   modifier: Modifier = Modifier, idList: List<Int>,
+  nameList: List<String>,
   initSelectedIndex: Int = 0, onSelectChange: (index: Int) -> Unit
 ) {
   var selectedIndex by remember { mutableStateOf(initSelectedIndex) }
@@ -296,6 +374,7 @@ fun TeamRow(
       if (index < idList.size) {
         TeamNumberCard(
           id = idList[index],
+          name = nameList[index],
           Modifier
             .weight(1f)
             .padding(3.dp),
@@ -314,76 +393,5 @@ fun TeamRow(
       }
     }
 
-  }
-}
-
-@ExperimentalAnimationApi
-@ExperimentalCoilApi
-@ExperimentalMaterialApi
-@Composable
-private fun TeamNumberCard(
-  id: Int,
-  modifier: Modifier = Modifier,
-  isSelected: Boolean = false,
-  onClick: () -> Unit
-) {
-  Box(
-    modifier = modifier.fillMaxHeight()
-  ) {
-    Card(modifier = Modifier
-      .fillMaxWidth(0.95f)
-      .align(Alignment.TopEnd)
-      .padding(top = 2.dp),
-      shape = RoundedCornerShape(4.dp),
-      onClick = { onClick() }) {
-      Image(
-        painter = painterResource(id = R.drawable.team_card_bg),
-        contentDescription = "",
-        modifier = Modifier
-          .fillMaxWidth(),
-        contentScale = ContentScale.FillWidth
-      )
-
-      Row(
-        Modifier
-          .fillMaxWidth()
-          .fillMaxHeight(0.12f)
-          .align(Alignment.BottomCenter)
-          .clip(RoundedCornerShape(4.dp))
-          .background(Color.White),
-        verticalAlignment = Alignment.CenterVertically
-      ) {
-        Text(
-          text = ResUtils.getNameById(id, "", context = LocalContext.current), color = Color.Black,
-          style = TextStyle(fontSize = 8.sp),
-          modifier = Modifier
-            .weight(1f)
-            .padding(start = 2.dp),
-          maxLines = 1
-        )
-
-        Image(
-          painter = painterResource(id = R.drawable.golden_pokeball),
-          contentDescription = "",
-          Modifier
-            .size(12.dp)
-            .padding(end = 2.dp)
-        )
-      }
-    }
-
-    Image(
-      painter = rememberImagePainter(data = getPokemonImageUrl(id, "")),
-      contentDescription = "",
-      modifier = Modifier
-        .align(Alignment.TopStart)
-        .fillMaxWidth(0.98f)
-    )
-
-    AnimatedVisibility(visible = !isSelected, enter = fadeIn(), exit = fadeOut()) {
-      Canvas(modifier = Modifier.fillMaxSize()) {
-        drawRect(BlackBackgroundColor, alpha = 0.5f)
-      }
-    }
   }
 }
