@@ -5,7 +5,6 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
-
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
@@ -14,10 +13,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.drakeet.drawer.FullDraggableContainer
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.ConfigMMKV.favoritePokemons
-import com.heinika.pokeg.PokemonDataCache.pokemonList
+import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
-import com.heinika.pokeg.info.DexType
-import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.curDexType
 import com.heinika.pokeg.module.detail.DetailPage
 import com.heinika.pokeg.module.main.itemdelegate.BottomItemDelegate
 import com.heinika.pokeg.module.main.itemdelegate.HeaderItemDelegate
@@ -27,6 +25,7 @@ import com.heinika.pokeg.module.main.itemdelegate.model.Header
 import com.heinika.pokeg.module.main.layout.LeftDrawerView
 import com.heinika.pokeg.module.main.layout.MainPageView
 import com.heinika.pokeg.module.main.layout.RightDrawerView
+import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.AdapterDiffUtils
 import com.heinika.pokeg.utils.dp
 import timber.log.Timber
@@ -163,7 +162,7 @@ class MainPage(
       mainViewModel.changeSortOrder()
     }
 
-    val header = Header("全国图鉴")
+    val header = Header(curDexType.toDescString(activity))
 
     mainViewModel.pokemonSortListLiveData.observe(activity) { pokemonList ->
       Timber.i("pokemonList size : ${pokemonList.size}")

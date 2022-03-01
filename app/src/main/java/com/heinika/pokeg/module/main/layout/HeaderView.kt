@@ -18,7 +18,7 @@ class HeaderView(context: Context, onSettingClick: () -> Unit, onLoopClick: (typ
   CustomLayout(context) {
 
   private val titleLabel = AppCompatTextView(context).apply {
-    text = curDexType.toDescString()
+    text = curDexType.toDescString(context)
     textSize = 10.dp.toFloat()
     setPadding(0, SystemBar.statusBarHeight + 16.dp, 0, 0)
     layoutParams = ViewGroup.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
@@ -42,7 +42,7 @@ class HeaderView(context: Context, onSettingClick: () -> Unit, onLoopClick: (typ
     background = null
     setOnClickListener {
       curDexType = curDexType.next()
-      titleLabel.text = curDexType.toDescString()
+      titleLabel.text = curDexType.toDescString(context)
       onLoopClick(curDexType)
     }
     this@HeaderView.addView(this)

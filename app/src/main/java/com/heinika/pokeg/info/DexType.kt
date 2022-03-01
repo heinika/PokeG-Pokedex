@@ -1,13 +1,16 @@
 package com.heinika.pokeg.info
 
+import android.content.Context
+import com.heinika.pokeg.R
+
 enum class DexType{
   Global,
   HiSui;
 
-  fun toDescString() : String{
+  fun toDescString(context: Context) : String{
     return when(this){
-      Global -> "全国图鉴"
-      HiSui -> "阿尔宙斯图鉴"
+      Global -> context.getString(R.string.global_pokedex)
+      HiSui -> context.getString(R.string.hisui_pokedex)
     }
   }
 

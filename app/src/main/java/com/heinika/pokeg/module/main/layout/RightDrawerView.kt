@@ -131,7 +131,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   private val generationsTitle = TextView(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-    text = "世代：未选择"
+    text = context.getString(R.string.base_status_unselected,sortPriority(true))
     setTextColor(Color.WHITE)
     textSize = 20f
     setOnClickListener {
@@ -142,7 +142,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
 
   private val tagTitle = TextView(context).apply {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-    text = "含有标签"
+    text = resources.getString(R.string.contains_tags)
     setTextColor(Color.WHITE)
     textSize = 20f
     setOnClickListener {
