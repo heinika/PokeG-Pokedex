@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="save_image">画像を保存する</string>
+  <string name="save_image_fail">保存に失敗しました</string>
+</resources>

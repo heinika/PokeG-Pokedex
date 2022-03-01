@@ -11,7 +11,6 @@
     <string name="sp_def">特防</string>
     <string name="spd">速度</string>
 
-    <string name="save_image">保存图片</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
 
@@ -19,6 +18,7 @@
     <string name="hisui_pokedex">阿尔宙斯图鉴</string>
 
     <string name="contains_tags">含有标签</string>
+    <string name="level_text">%d级</string>
 
     <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
 

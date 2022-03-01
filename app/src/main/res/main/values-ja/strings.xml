@@ -11,7 +11,6 @@
     <string name="sp_def">SDEF</string>
     <string name="spd">SPD</string>
 
-    <string name="save_image">Save Image</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 
@@ -21,6 +20,7 @@
     <string name="contains_tags">タグが含まれています</string>
 
     <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
+    <string name="level_text">Lv%d</string>
 
     <string-array name="versions">
         <item>红/绿/蓝</item>

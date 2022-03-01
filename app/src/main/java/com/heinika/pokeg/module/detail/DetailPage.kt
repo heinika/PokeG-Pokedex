@@ -102,7 +102,7 @@ class DetailPage(
     binding.image.setOnLongClickListener {
       val dialog =
         AlertDialog.Builder(activity)
-          .setTitle("保存图片")
+          .setTitle(activity.getString(R.string.save_image))
           .setNegativeButton(R.string.cancel) { dialog, _ ->
             dialog.dismiss()
           }
@@ -132,7 +132,7 @@ class DetailPage(
                 }
 
                 override fun onLoadCleared(@Nullable placeholder: Drawable?) {
-                  Toast.makeText(activity.applicationContext, "保存失败", Toast.LENGTH_SHORT).show()
+                  Toast.makeText(activity.applicationContext, activity.applicationContext.getString(R.string.save_image_fail), Toast.LENGTH_SHORT).show()
                 }
               })
             dialog.dismiss()

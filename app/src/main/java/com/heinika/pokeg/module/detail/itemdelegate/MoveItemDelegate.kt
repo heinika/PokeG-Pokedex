@@ -35,7 +35,7 @@ class MoveItemDelegate(private val pokemonRes: PokemonRes) :
       binding.moveAccuracyText.text = if (item.accuracy == 0) "--" else item.accuracy.toString()
       binding.movePowerText.text = if (item.power == 0) "--" else item.power.toString()
       binding.movePPText.text = item.pp.toString()
-      binding.moveLevelText.text = "${item.level}级"
+      binding.moveLevelText.text = binding.moveLevelText.resources.getString(R.string.level_text,item.level)
     }
   }
 }

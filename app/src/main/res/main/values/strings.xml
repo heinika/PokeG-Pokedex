@@ -11,7 +11,6 @@
     <string name="sp_def">SDEF</string>
     <string name="spd">SPD</string>
 
-    <string name="save_image">Save Image</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 
@@ -191,6 +190,7 @@
     <string name="urban">urban</string>
     <string name="waters_edge">waters_edge</string>
 
+    <string name="level_text">Lv%d</string>
     <string name="base_status_unselected">%s:unselected</string>
     <string name="all_base_status_selected">%s:all base status</string>
     <string name="genneration_unselected">genneration:unselected</string>
