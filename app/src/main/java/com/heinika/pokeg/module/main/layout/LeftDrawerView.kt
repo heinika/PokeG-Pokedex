@@ -37,7 +37,10 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   @SuppressLint("SetTextI18n")
   private val selectVersionButton = AppCompatButton(context).apply {
     text =
-      "默认版本：${context.resources.getStringArray(R.array.versions)[ConfigMMKV.defaultVersion - 1]}"
+      context.resources.getString(
+        R.string.default_version,
+        context.resources.getStringArray(R.array.versions)[ConfigMMKV.defaultVersion - 1]
+      )
     addView(this)
     (layoutParams as LayoutParams).topMargin = SystemBar.statusBarHeight
     background.setTint(context.getColor(R.color.md_amber_700))
@@ -48,8 +51,10 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
         context.resources.getStringArray(R.array.versions)
       ) { dialog, index ->
         ConfigMMKV.defaultVersion = index + 1
-        text =
-          "默认版本：${context.resources.getStringArray(R.array.versions)[ConfigMMKV.defaultVersion - 1]}"
+        text = context.resources.getString(
+          R.string.default_version,
+          context.resources.getStringArray(R.array.versions)[ConfigMMKV.defaultVersion - 1]
+        )
         dialog.dismiss()
       }.create()
 
@@ -61,7 +66,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   @ExperimentalFoundationApi
   @SuppressLint("SetTextI18n")
   private val versionsButton = AppCompatButton(context).apply {
-    text = "版本列表"
+    text = context.resources.getString(R.string.version_list)
     background.setTint(context.getColor(R.color.generation_2))
     setTextColor(Color.WHITE)
 
@@ -71,7 +76,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
 
   @ExperimentalMaterialApi
   private val movesButton = AppCompatButton(context).apply {
-    text = "技能列表（试用版）"
+    text = context.resources.getString(R.string.move_list)
     background.setTint(context.getColor(R.color.md_blue_200))
     setTextColor(Color.WHITE)
 
@@ -83,7 +88,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val myPokemonButton = AppCompatButton(context).apply {
-    text = "我的宝可梦（开发中）"
+    text = context.resources.getString(R.string.my_pokemon)
     background.setTint(context.getColor(R.color.base_status_sdef))
     setTextColor(Color.WHITE)
 
@@ -95,7 +100,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val teamsButton = AppCompatButton(context).apply {
-    text = "我的队伍（开发中）"
+    text = context.resources.getString(R.string.team)
     background.setTint(context.getColor(R.color.base_status_sdef))
     setTextColor(Color.WHITE)
 
@@ -106,7 +111,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   @ExperimentalPagerApi
   @ExperimentalMaterialApi
   private val gamePropsButton = AppCompatButton(context).apply {
-    text = "道具列表"
+    text = context.resources.getString(R.string.props_list)
     background.setTint(context.getColor(R.color.base_status_sum))
     setTextColor(Color.WHITE)
 
@@ -116,7 +121,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
 
   @ExperimentalMaterialApi
   private val natureButton = AppCompatButton(context).apply {
-    text = "性格列表"
+    text = context.resources.getString(R.string.nature_list)
     background.setTint(context.getColor(R.color.fighting))
     setTextColor(Color.WHITE)
 
@@ -126,7 +131,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
 
   @ExperimentalMaterialApi
   private val eggButton = AppCompatButton(context).apply {
-    text = "宝可梦培育（蛋）教学"
+    text = context.resources.getString(R.string.egg_tutorial)
     background.setTint(context.getColor(R.color.md_green_100))
     setTextColor(Color.WHITE)
 
@@ -135,7 +140,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   }
 
   private val aboutButton = AppCompatButton(context).apply {
-    text = "关于"
+    text = context.resources.getString(R.string.about)
     addView(this)
     background.setTint(context.getColor(R.color.colorPrimary))
     setTextColor(Color.WHITE)
@@ -144,7 +149,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
   }
 
   private val donationButton = AppCompatButton(context).apply {
-    text = "捐赠"
+    text = context.resources.getString(R.string.donation)
     background.setTint(context.getColor(R.color.md_green_200))
     setTextColor(Color.WHITE)
 

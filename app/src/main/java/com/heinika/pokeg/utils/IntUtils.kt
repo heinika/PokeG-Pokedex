@@ -1,10 +1,12 @@
 package com.heinika.pokeg.utils
 
-val Int.toFormString: String
-  get() = when(this){
-    2 -> " 阿罗拉"
-    3 -> " 伽勒尔"
-    4 -> " 洗翠"
-    5 -> " 白条纹"
+import android.content.Context
+import com.heinika.pokeg.R
+
+fun Int.toFormString(context: Context): String  = when(this){
+    2 -> context.getString(R.string.alola)
+    3 -> context.getString(R.string.galar)
+    4 -> context.getString(R.string.hisui)
+    5 -> context.getString(R.string.white_stripes)
     else -> ""
   }

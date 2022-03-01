@@ -37,8 +37,8 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.base.BasePage
 import com.heinika.pokeg.curDexType
 import com.heinika.pokeg.databinding.PageDetailBinding
+import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.DexType
-import com.heinika.pokeg.model.Ability
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonInfo
 import com.heinika.pokeg.module.detail.itemdelegate.MoveItemDelegate
@@ -476,8 +476,8 @@ class DetailPage(
     ability: Ability
   ) {
     abilityText.isVisible = true
-    abilityText.text = ability.cname
-    descText.text = ability.synopsis
+    abilityText.text = activity.getString(ability.nameResId)
+    descText.text = activity.getString(ability.flavorResId)
     abilityText.setOnClickListener {
       descText.isVisible = !descText.isVisible
     }

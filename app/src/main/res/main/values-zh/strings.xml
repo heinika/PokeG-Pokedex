@@ -21,6 +21,22 @@
     <string name="level_text">%d级</string>
 
     <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
+    <string name="default_version">默认版本：%s</string>
+    <string name="version_list">版本列表</string>
+    <string name="move_list">技能列表(试用)</string>
+    <string name="my_pokemon">我的宝可梦(开发中)</string>
+    <string name="team">队伍(开发中)</string>
+    <string name="props_list">道具列表</string>
+    <string name="nature_list">性格列表</string>
+    <string name="egg_tutorial">蛋教程</string>
+    <string name="about">关于</string>
+    <string name="donation">捐赠</string>
+    <string name="select_default_move_version">选择默认版本</string>
+
+    <string name="alola">阿罗拉</string>
+    <string name="galar">伽勒尔</string>
+    <string name="hisui">洗翠</string>
+    <string name="white_stripes">白条纹</string>
 
     <string-array name="versions">
         <item>红/绿/蓝</item>

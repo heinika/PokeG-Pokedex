@@ -2,7 +2,7 @@ package com.heinika.pokeg.info
 
 import com.heinika.pokeg.R
 
-enum class Ability(id:Int,nameResId:Int,flavorResId:Int,effectResId:Int) {
+enum class Ability(val id:Int,val nameResId:Int,val flavorResId:Int,val effectResId:Int) {
     Ability1(1, R.string.ability_1_name,R.string.ability_1_flavor,R.string.ability_1_effect),
     Ability2(2,R.string.ability_2_name,R.string.ability_2_flavor,R.string.ability_2_effect),
     Ability3(3,R.string.ability_3_name,R.string.ability_3_flavor,R.string.ability_3_effect),

@@ -21,27 +21,44 @@
 
     <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
 
+    <string name="default_version">Version：%s</string>
+    <string name="version_list">Version List</string>
+    <string name="move_list">Move List(Alpha)</string>
+    <string name="my_pokemon">My Pokemon(Alpha)</string>
+    <string name="team">Team(Alpha)</string>
+    <string name="props_list">Props List</string>
+    <string name="nature_list">Nature List</string>
+    <string name="egg_tutorial">Egg Tutorial</string>
+    <string name="about">about</string>
+    <string name="donation">donation</string>
+    <string name="select_default_move_version">Select Default Move Version</string>
+
+    <string name="alola">alola</string>
+    <string name="galar">galar</string>
+    <string name="hisui">hisui</string>
+    <string name="white_stripes">白条纹</string>
+
     <string-array name="versions">
-        <item>红/绿/蓝</item>
-        <item>黄</item>
-        <item>金/银</item>
-        <item>水晶</item>
-        <item>红宝石/蓝宝石</item>
-        <item>绿宝石</item>
-        <item>火红/叶绿</item>
-        <item>珍珠/钻石</item>
-        <item>白金</item>
-        <item>心金/魂银</item>
-        <item>黑/白</item>
-        <item>圆形竞技场</item>
-        <item>XD暗之旋风黑暗洛奇亚</item>
-        <item>黑2/白2</item>
+        <item>red/green/blue</item>
+        <item>yellow</item>
+        <item>gold/silver</item>
+        <item>crystal</item>
+        <item>ruby/sapphire</item>
+        <item>emerald</item>
+        <item>firered/leafgreen</item>
+        <item>diamond/pearl</item>
+        <item>platinum</item>
+        <item>heartgold/soulsilver</item>
+        <item>black/white</item>
+        <item>colosseum</item>
+        <item>xd</item>
+        <item>black2/white2</item>
         <item>x/y</item>
-        <item>Ω红宝石/α蓝宝石</item>
-        <item>日/月</item>
-        <item>究极之日/究极之月</item>
+        <item>Ω ruby/α sapphire</item>
+        <item>sun/moon</item>
+        <item>ultra sun/ultra moon</item>
         <item>Let\'s Go</item>
-        <item>剑/盾</item>
+        <item>sword/shield</item>
     </string-array>
 
     <string name="version_red">红</string>

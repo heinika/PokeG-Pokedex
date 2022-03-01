@@ -22,6 +22,18 @@
     <string name="app_desc">开发这款软件的初衷是：随手查看图鉴，找到喜欢的宝可梦。愿它能如我所愿，也能如你所愿。</string>
     <string name="level_text">Lv%d</string>
 
+    <string name="default_version">默认版本：%s</string>
+    <string name="version_list">Version List</string>
+    <string name="move_list">Move List(Alpha)</string>
+    <string name="my_pokemon">My Pokemon(Alpha)</string>
+    <string name="team">Team(Alpha)</string>
+    <string name="props_list">Props List</string>
+    <string name="nature_list">Nature List</string>
+    <string name="egg_tutorial">Egg Tutorial</string>
+    <string name="about">about</string>
+    <string name="donation">donation</string>
+    <string name="select_default_move_version">选择默认版本</string>
+
     <string-array name="versions">
         <item>红/绿/蓝</item>
         <item>黄</item>
@@ -99,6 +111,11 @@
     <string name="damage_class_1">status</string>
     <string name="damage_class_2">physical</string>
     <string name="damage_class_3">special</string>
+
+    <string name="alola">阿罗拉</string>
+    <string name="galar">伽勒尔</string>
+    <string name="hisui">洗翠</string>
+    <string name="white_stripes">白条纹</string>
 
 
     <string name="type_fighting">fighting</string>
