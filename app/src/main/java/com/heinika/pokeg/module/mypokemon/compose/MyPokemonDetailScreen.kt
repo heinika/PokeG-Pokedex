@@ -244,7 +244,8 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
     onClick = { onClick() }, modifier = Modifier
       .padding(start = 12.dp, end = 12.dp, top = 15.dp)
       .fillMaxWidth()
-      .height(130.dp)
+      .height(130.dp),
+    backgroundColor = Color.White
   ) {
     val context = LocalContext.current
 
@@ -302,7 +303,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
 
       Text(
         text = "威力:${move.power}",
-        color = move.powerColor,
+        color = move.darkPowerColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(powerLabel) {
           top.linkTo(nameLabel.bottom)
@@ -312,7 +313,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
 
       Text(
         text = "命中率:${move.accuracy}",
-        color = move.accuracyColor,
+        color = move.darkAccuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
           top.linkTo(nameLabel.bottom)
@@ -323,7 +324,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
 
       Text(
         text = "PP:${move.pp}",
-        color = move.ppColor,
+        color = move.darkPPColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
           top.linkTo(nameLabel.bottom)

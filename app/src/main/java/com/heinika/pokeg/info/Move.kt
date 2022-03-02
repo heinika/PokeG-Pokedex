@@ -4,9 +4,7 @@ import android.content.Context
 import androidx.compose.ui.graphics.Color
 import com.heinika.pokeg.R
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.PhysicalMoveColor
-import com.heinika.pokeg.ui.theme.SpecialMoveColor
-import com.heinika.pokeg.ui.theme.StatusMoveColor
+import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.toTypeColor
 
 enum class Move(
@@ -876,6 +874,16 @@ enum class Move(
     Color.Gray
   }
 
+  val darkPowerColor: Color = try {
+    when (power) {
+      in 0..50 -> Red200
+      in 51..100 -> RashColor
+      else -> RelaxedColor
+    }
+  } catch (e: Exception) {
+    Color.Gray
+  }
+
 
   val accuracyColor: Color = try {
     when (accuracy) {
@@ -887,12 +895,31 @@ enum class Move(
     Color.Gray
   }
 
+  val darkAccuracyColor: Color = try {
+    when (accuracy) {
+      100 -> RelaxedColor
+      in 80..100 -> RashColor
+      else -> Red200
+    }
+  } catch (e: Exception) {
+    Color.Gray
+  }
 
   val ppColor: Color = try {
     when (pp) {
       in 0..5 -> Color.Red
       in 6..10 -> Color.Yellow
       else -> Color.Green
+    }
+  } catch (e: Exception) {
+    Color.Gray
+  }
+
+  val darkPPColor: Color = try {
+    when (pp) {
+      in 0..5  -> Red200
+      in 6..10 -> RashColor
+      else -> RelaxedColor
     }
   } catch (e: Exception) {
     Color.Gray
