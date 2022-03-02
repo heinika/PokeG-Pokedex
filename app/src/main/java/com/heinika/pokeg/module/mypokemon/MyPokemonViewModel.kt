@@ -69,14 +69,8 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
   }
 
   fun requestExistMyPokemon(name: String) {
-    viewModelScope.launch {
-      withContext(Dispatchers.IO) {
-        val myPokemon = myPokemonList.value.first { it.name == name }
-        val abilities = myPokemonRepository.fetchPokemonAbilities(myPokemon.id)
-        _myDetailPokemonInfo.value = myPokemon.toMyPokemonInfo(abilities)
-      }
-    }
-
+    val myPokemon = myPokemonList.value.first { it.name == name }
+    _myDetailPokemonInfo.value = myPokemon.toMyPokemonInfo()
   }
 
   fun saveMyPokemonToDataBase() {

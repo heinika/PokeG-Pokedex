@@ -183,9 +183,9 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
             backgroundColor = Color.White
           ) {
             Column(modifier = Modifier.padding(15.dp, 10.dp)) {
-              Text(text = myPokemonInfo.ability.cname, style = MaterialTheme.typography.h6)
+              Text(text = stringResource(myPokemonInfo.ability.nameResId), style = MaterialTheme.typography.h6)
               Text(
-                text = myPokemonInfo.ability.effect,
+                text = stringResource(myPokemonInfo.ability.flavorResId),
                 style = MaterialTheme.typography.body2,
                 modifier = Modifier.padding(top = 8.dp)
               )

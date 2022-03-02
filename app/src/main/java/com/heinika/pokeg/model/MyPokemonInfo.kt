@@ -1,5 +1,6 @@
 package com.heinika.pokeg.model
 
+import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Nature
@@ -25,7 +26,7 @@ data class MyPokemonInfo(
     typeIdList.map { it.typeId },
     carry = carry.cname,
     natureId = nature.ordinal,
-    abilityId = ability.num,
+    abilityId = ability.id,
     moveIdList = moveList.map { it.id },
     teamName = teamNameList.joinToString(";")
   )

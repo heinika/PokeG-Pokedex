@@ -151,7 +151,9 @@ private fun TeamItemCard(
           })
       },
       colors = TextFieldDefaults.textFieldColors(backgroundColor = BlackBackgroundColor),
-      modifier = Modifier.fillMaxWidth().padding(bottom = 12.dp)
+      modifier = Modifier
+        .fillMaxWidth()
+        .padding(bottom = 12.dp)
     )
   }
 
@@ -228,7 +230,7 @@ fun TeamNumberDetail(
           top.linkTo(nameLabel.bottom, 4.dp)
           start.linkTo(natureTag.end, 4.dp)
         },
-        typeName = teamNumberInfo.ability.cname,
+        typeName = stringResource(teamNumberInfo.ability.nameResId),
         color = randomColor
       )
 

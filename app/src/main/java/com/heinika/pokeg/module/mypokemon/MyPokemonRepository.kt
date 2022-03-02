@@ -1,7 +1,7 @@
 package com.heinika.pokeg.module.mypokemon
 
 import com.heinika.pokeg.database.MyPokemonDao
-import com.heinika.pokeg.model.Ability
+import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.model.MyPokemon
 import com.heinika.pokeg.repository.Repository
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -14,7 +14,7 @@ class MyPokemonRepository @Inject constructor(
 
   fun fetchPokemonAbilities(id: Int) = arrayListOf<Ability>().apply {
     pokemonRes.fetchPokemonAbilities().filter { it.pokemonId == id }.forEach { pokemonAbility ->
-      add(pokemonRes.fetchAbilities().first { it.num == pokemonAbility.abilityId })
+      add(Ability.values().first { it.id == pokemonAbility.abilityId })
     }
   }.toList()
 

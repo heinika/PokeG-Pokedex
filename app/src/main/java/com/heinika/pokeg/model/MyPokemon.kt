@@ -2,12 +2,12 @@ package com.heinika.pokeg.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.utils.findCarryByCName
-import com.squareup.moshi.Json
 
 @Entity
 data class MyPokemon(
@@ -21,9 +21,7 @@ data class MyPokemon(
   val moveIdList: List<Int>,
   var teamName: String = ""
 ) {
-  fun toMyPokemonInfo(
-    allAbilityList: List<Ability>
-  ): MyPokemonInfo {
+  fun toMyPokemonInfo(): MyPokemonInfo {
     return MyPokemonInfo(
       name,
       id,
@@ -31,7 +29,7 @@ data class MyPokemon(
       typeIdList = typeIdList.map { Type.values()[it - 1] },
       carry = findCarryByCName(carry),
       nature = Nature.values()[natureId],
-      ability = allAbilityList.first { abilityId == it.num },
+      ability = Ability.values().first { abilityId == it.id },
       moveList = moveIdList.map { moveId -> Move.values().first { it.id == moveId } },
       teamNameList = teamName.split(";")
     )

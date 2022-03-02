@@ -48,9 +48,6 @@ class PokemonRes @Inject constructor(
     jsonRes.fetchPokemonMoveList(pokemonId, speciesId, version)
 
   @WorkerThread
-  fun fetchTeamList(): List<Team> = jsonRes.fetchTeamList()
-
-  @WorkerThread
   fun fetchSpeciesEggGroup(specieId: Int): List<SpeciesEggGroup> =
     jsonRes.fetchSpeciesEggGroup(specieId)
 
@@ -84,6 +81,4 @@ class PokemonRes @Inject constructor(
   @WorkerThread
   fun fetchPokemonAbilities(): List<PokemonAbility> = jsonRes.fetchPokemonAbility()
 
-  @WorkerThread
-  fun fetchAbilities(): List<Ability> = jsonRes.fetchAbilities()
 }
