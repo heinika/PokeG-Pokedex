@@ -31,6 +31,7 @@ import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
+import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.module.moves.compose.DamageClassImage
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
 import com.heinika.pokeg.ui.theme.*
@@ -239,7 +240,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
 
 @ExperimentalMaterialApi
 @Composable
-fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
+private fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
   Card(
     onClick = { onClick() }, modifier = Modifier
       .padding(start = 12.dp, end = 12.dp, top = 15.dp)
@@ -302,7 +303,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
       )
 
       Text(
-        text = "威力:${move.power}",
+        text = stringResource(R.string.power) + ":${move.power}",
         color = move.darkPowerColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(powerLabel) {
@@ -312,7 +313,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
         })
 
       Text(
-        text = "命中率:${move.accuracy}",
+        text = stringResource(R.string.accuracy) + ":${move.accuracy}",
         color = move.darkAccuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
@@ -323,7 +324,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
         })
 
       Text(
-        text = "PP:${move.pp}",
+        text = stringResource(R.string.pp) + ":${move.pp}",
         color = move.darkPPColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
@@ -334,7 +335,7 @@ fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
         })
 
       Text(
-        text = "世代:${move.generationId}",
+        text = Generation.values()[move.generationId -1].filterString,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(generationLabel) {
           top.linkTo(nameLabel.bottom)

@@ -173,14 +173,14 @@
     <string name="slow_then_very_fast">slow_then_very_fast</string>
     <string name="fast_then_very_slow">fast_then_very_slow</string>
 
-    <string name="generation_i">generation_i</string>
-    <string name="generation_ii">generation_ii</string>
-    <string name="generation_iii">generation_iii</string>
-    <string name="generation_iv">generation_iv</string>
-    <string name="generation_v">generation_v</string>
-    <string name="generation_vi">generation_vi</string>
-    <string name="generation_vii">generation_vii</string>
-    <string name="generation_viii">generation_viii</string>
+    <string name="generation_i">Generation I</string>
+    <string name="generation_ii">Generation II</string>
+    <string name="generation_iii">Generation III</string>
+    <string name="generation_iv">Generation IV</string>
+    <string name="generation_v">Generation V</string>
+    <string name="generation_vi">Generation VI</string>
+    <string name="generation_vii">Generation VII</string>
+    <string name="generation_viii">Generation VIII</string>
 
     <string name="ball">ball</string>
     <string name="squiggle">squiggle</string>
