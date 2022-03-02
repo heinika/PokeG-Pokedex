@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.heinika.pokeg.R
+import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.ui.theme.grassColor
@@ -81,7 +82,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier
           .fillMaxWidth()
-          .padding(16.dp, 0.dp)
+          .padding(16.dp, 0.dp, 16.dp, 12.dp)
           .constrainAs(flavorLabel) {
             top.linkTo(powerLabel.bottom)
             bottom.linkTo(parent.bottom)
@@ -90,7 +91,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
 
       val powerTextColor = move.powerColor
       Text(
-        text = "威力:${move.power}",
+        text = stringResource(R.string.power) + ":${move.power}",
         color = powerTextColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(powerLabel) {
@@ -101,7 +102,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
 
 
       Text(
-        text = "命中率:${move.accuracy}",
+        text = stringResource(R.string.accuracy) + ":${move.accuracy}",
         color = move.accuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {
@@ -113,7 +114,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
 
 
       Text(
-        text = "PP:${move.pp}",
+        text = stringResource(R.string.pp) + ":${move.pp}",
         color = move.ppColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(ppLabel) {
@@ -124,7 +125,7 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
         })
 
       Text(
-        text = "世代:${move.generationId}",
+        text = Generation.values()[move.generationId - 1].filterString,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(generationLabel) {
           top.linkTo(nameLabel.bottom)

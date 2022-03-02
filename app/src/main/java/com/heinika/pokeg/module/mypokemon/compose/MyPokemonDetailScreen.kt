@@ -43,10 +43,12 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @Composable
 fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
   val context = LocalContext.current
-  if (viewModel.myDetailPokemon.value == null){
-    Box(modifier = Modifier
-      .fillMaxSize()
-      .background(BlackBackgroundColor))
+  if (viewModel.myDetailPokemon.value == null) {
+    Box(
+      modifier = Modifier
+        .fillMaxSize()
+        .background(BlackBackgroundColor)
+    )
   }
   viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
     val scrollState = rememberScrollState()
@@ -151,7 +153,11 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
               modifier = Modifier.padding(15.dp),
               verticalAlignment = Alignment.CenterVertically
             ) {
-              Text(text = stringResource(myPokemonInfo.nature.stringId), style = MaterialTheme.typography.h6, modifier = Modifier.weight(1f))
+              Text(
+                text = stringResource(myPokemonInfo.nature.stringId),
+                style = MaterialTheme.typography.h6,
+                modifier = Modifier.weight(1f)
+              )
               Text(text = stringResource(myPokemonInfo.nature.growEasyStringId))
               Image(
                 painter = painterResource(id = R.drawable.up), "",
@@ -184,7 +190,10 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
             backgroundColor = Color.White
           ) {
             Column(modifier = Modifier.padding(15.dp, 10.dp)) {
-              Text(text = stringResource(myPokemonInfo.ability.nameResId), style = MaterialTheme.typography.h6)
+              Text(
+                text = stringResource(myPokemonInfo.ability.nameResId),
+                style = MaterialTheme.typography.h6
+              )
               Text(
                 text = stringResource(myPokemonInfo.ability.flavorResId),
                 style = MaterialTheme.typography.body2,
@@ -206,7 +215,10 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
                   contentDescription = "",
                   Modifier.size(32.dp)
                 )
-                Text(text = stringResource(myPokemonInfo.carry.nameResId), style = MaterialTheme.typography.h6)
+                Text(
+                  text = stringResource(myPokemonInfo.carry.nameResId),
+                  style = MaterialTheme.typography.h6
+                )
               }
 
               Text(
@@ -219,7 +231,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
 
           Column(Modifier.padding(bottom = 15.dp)) {
             myPokemonInfo.moveList.forEach {
-              MoveCard(move = it, onClick = {})
+              WhiteMoveCard(move = it, onClick = {})
             }
           }
         }
@@ -240,7 +252,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
 
 @ExperimentalMaterialApi
 @Composable
-private fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
+private fun WhiteMoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
   Card(
     onClick = { onClick() }, modifier = Modifier
       .padding(start = 12.dp, end = 12.dp, top = 15.dp)
@@ -295,7 +307,7 @@ private fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier
           .fillMaxWidth()
-          .padding(16.dp, 0.dp)
+          .padding(16.dp, 0.dp, 16.dp, 12.dp)
           .constrainAs(flavorLabel) {
             top.linkTo(powerLabel.bottom)
             bottom.linkTo(parent.bottom)
@@ -335,7 +347,7 @@ private fun MoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit) {
         })
 
       Text(
-        text = Generation.values()[move.generationId -1].filterString,
+        text = Generation.values()[move.generationId - 1].filterString,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(generationLabel) {
           top.linkTo(nameLabel.bottom)

@@ -138,8 +138,8 @@
     <string name="type_unknown">\???</string>
 
     <string name="pp">PP</string>
-    <string name="accuracy">accuracy</string>
-    <string name="power">power</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="power">Power</string>
 
     <string name="move_table">move table</string>
     <string name="favorite">favorite❤</string>
