@@ -20,7 +20,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,7 +31,6 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
-import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
@@ -65,13 +63,13 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
   ) {
     LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
       items(myPokemonList) {
-        MyPokemonCard(it.id, Modifier) {
+        MyPokemonCard(it.id, it.name, Modifier) {
           navController.navigate("MyPokemonDetailPage/${it.name}")
         }
       }
     }
 
-    addMyPokemonDialog(dialogState = isShowDialog, onDismissRequest = { isShowDialog = false }){
+    addMyPokemonDialog(dialogState = isShowDialog, onDismissRequest = { isShowDialog = false }) {
       navController.navigate("MyPokemonDetailPage/newRandom${it.globalId}")
     }
   }
@@ -86,11 +84,10 @@ private fun TeamNumberCardPreview() {
 
   LazyVerticalGrid(cells = GridCells.Adaptive(90.dp)) {
     items(600) {
-      MyPokemonCard(it + 1, Modifier) {}
+      MyPokemonCard(it + 1, "?", Modifier) {}
     }
   }
 }
-
 
 
 @ExperimentalCoilApi
@@ -98,6 +95,7 @@ private fun TeamNumberCardPreview() {
 @Composable
 private fun MyPokemonCard(
   id: Int,
+  name: String,
   modifier: Modifier = Modifier,
   onClick: () -> Unit
 ) {
@@ -128,7 +126,7 @@ private fun MyPokemonCard(
         verticalAlignment = Alignment.CenterVertically
       ) {
         Text(
-          text = ResUtils.getNameById(id, "", context = LocalContext.current), color = Color.Black,
+          text = name, color = Color.Black,
           style = TextStyle(fontSize = 8.sp),
           modifier = Modifier
             .weight(1f)

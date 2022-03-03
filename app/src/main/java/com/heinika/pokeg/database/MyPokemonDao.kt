@@ -19,4 +19,7 @@ interface MyPokemonDao {
 
   @Update
   suspend fun updateMyPokemon(myPokemon: MyPokemon)
+
+  @Delete
+  suspend fun deleteMyPokemon(myPokemon: MyPokemon)
 }

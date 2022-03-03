@@ -28,8 +28,8 @@ class MyPokemonRepository @Inject constructor(
     myPokemonDao.insertMyPokemon(myPokemon)
   }
 
-  suspend fun updateMyPokemon(myPokemon: MyPokemon) {
-    myPokemonDao.updateMyPokemon(myPokemon)
+  suspend fun deleteMyPokemon(myPokemon: MyPokemon) {
+    myPokemonDao.deleteMyPokemon(myPokemon)
   }
 
   suspend fun fetchAllMyPokemonList() = myPokemonDao.fetchMyPokemonList()

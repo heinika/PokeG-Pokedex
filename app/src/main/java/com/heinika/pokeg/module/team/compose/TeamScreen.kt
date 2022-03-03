@@ -1,8 +1,10 @@
 package com.heinika.pokeg.module.team.compose
 
 import android.widget.Toast
-
-import androidx.compose.foundation.*
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
@@ -34,7 +36,6 @@ import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.module.team.TeamViewModel
-import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.ui.theme.waterColor
@@ -199,7 +200,7 @@ fun TeamNumberDetail(
           .padding(12.dp)
       )
 
-      Text(text = ResUtils.getNameById(teamNumberInfo.id, context = LocalContext.current),
+      Text(teamNumberInfo.name,
         style = MaterialTheme.typography.h4, modifier = Modifier.constrainAs(nameLabel) {
           top.linkTo(parent.top)
           start.linkTo(image.end)

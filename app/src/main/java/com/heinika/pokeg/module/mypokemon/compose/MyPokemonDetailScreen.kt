@@ -8,8 +8,9 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -51,6 +52,8 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
     )
   }
   viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
+    var editable by remember { mutableStateOf(false) }
+    var name by mutableStateOf(myPokemonInfo.name)
     val scrollState = rememberScrollState()
     Column(
       Modifier
@@ -65,41 +68,54 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
           )
         )
     ) {
-      TopAppBar(modifier = Modifier.padding(
-        top = Dp(SystemBar.statusBarHeightDp),
-        start = 8.dp,
-        end = 8.dp
-      ),
+      TopAppBar(
+        modifier = Modifier.padding(
+          top = Dp(SystemBar.statusBarHeightDp),
+          start = 8.dp,
+          end = 8.dp
+        ),
         backgroundColor = Color.Transparent,
-        contentColor = Color.White,
-        title = { Text(text = myPokemonInfo.name) },
-        navigationIcon = {
-          Image(
-            imageVector = Icons.Default.ArrowBack,
-            contentDescription = "",
-            colorFilter = ColorFilter.tint(Color.White),
-            modifier = Modifier
-              .padding(start = 8.dp)
-              .clickable {
-                navController.popBackStack()
-              }
+        contentColor = Color.White
+      ) {
+        Image(
+          imageVector = Icons.Default.ArrowBack,
+          contentDescription = "",
+          colorFilter = ColorFilter.tint(Color.White),
+          modifier = Modifier
+            .clickable {
+              navController.popBackStack()
+            }
+            .padding(8.dp)
+        )
+
+        if (editable) {
+          OutlinedTextField(
+            value = name,
+            onValueChange = { name = it },
+            modifier = Modifier.weight(1f)
           )
-        },
-        actions = {
-          Image(
-            imageVector = Icons.Default.Edit,
-            contentDescription = "",
-            colorFilter = ColorFilter.tint(Color.White),
-            modifier = Modifier
-              .padding(end = 8.dp)
-              .clickable {
-                Toast
-                  .makeText(context, "以保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
-                  .show()
-                viewModel.saveMyPokemonToDataBase()
+        } else {
+          Text(text = name, modifier = Modifier.weight(1f))
+        }
+
+        Image(
+          imageVector = if (editable) Icons.Default.Done else Icons.Default.Edit,
+          contentDescription = "",
+          colorFilter = ColorFilter.tint(Color.White),
+          modifier = Modifier
+            .clickable {
+              editable = !editable
+              Toast
+                .makeText(context, "已保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
+                .show()
+              viewModel.saveMyPokemonToDataBase(myPokemonInfo,myPokemonInfo.copy(name = name)){
+                viewModel.refreshAllPokemonList()
               }
-          )
-        })
+            }
+            .padding(8.dp)
+        )
+      }
+
 
       Box(modifier = Modifier.fillMaxSize()) {
         Column(

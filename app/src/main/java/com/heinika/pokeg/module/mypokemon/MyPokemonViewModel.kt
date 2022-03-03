@@ -73,14 +73,18 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
     _myDetailPokemonInfo.value = myPokemon.toMyPokemonInfo()
   }
 
-  fun saveMyPokemonToDataBase() {
-    myDetailPokemon.value?.let {
+  fun saveMyPokemonToDataBase(oldMyPokemonInfo: MyPokemonInfo, newMyPokemonInfo: MyPokemonInfo,onFinish:() -> Unit) {
       viewModelScope.launch {
         withContext(Dispatchers.IO) {
-          myPokemonRepository.insertMyPokemon(it.toMyPokemon())
+          if (oldMyPokemonInfo.name == newMyPokemonInfo.name){
+            myPokemonRepository.insertMyPokemon(newMyPokemonInfo.toMyPokemon())
+          }else{
+            myPokemonRepository.deleteMyPokemon(oldMyPokemonInfo.toMyPokemon())
+            myPokemonRepository.insertMyPokemon(newMyPokemonInfo.toMyPokemon())
+          }
         }
+        onFinish()
       }
-    }
   }
 
 }
