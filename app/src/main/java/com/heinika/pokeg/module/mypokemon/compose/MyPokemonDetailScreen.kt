@@ -118,17 +118,12 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
                   Toast
                     .makeText(context, "已保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
                     .show()
-                  myPokemonInfo.name = name
-                  myPokemonInfo.nature = nature
                   viewModel.saveMyPokemonToDataBase(
                     myPokemonInfo,
-                    myPokemonInfo.copy(name = name, nature = nature)
+                    myPokemonInfo.copy(name = name,nature = nature)
                   ) {
-                    viewModel.refreshAllPokemonList(onFinish = {
-                      Toast
-                        .makeText(context, "已保存.", Toast.LENGTH_SHORT)
-                        .show()
-                    })
+                    myPokemonInfo.name = name
+                    myPokemonInfo.nature = nature
                   }
                 }
                 .padding(8.dp)
