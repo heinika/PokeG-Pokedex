@@ -67,7 +67,7 @@ class MyPokemonActivity : ComponentActivity() {
 
             composable("MyPokemonHome") {
               LaunchedEffect(true) {
-                viewModel.refreshAllPokemonList()
+                viewModel.refreshAllPokemonList(onFinish = {})
               }
               MyPokemonScreen(viewModel, navController)
             }

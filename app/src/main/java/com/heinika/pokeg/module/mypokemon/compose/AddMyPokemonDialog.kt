@@ -25,7 +25,7 @@ import com.heinika.pokeg.repository.res.ResUtils
 
 @ExperimentalCoilApi
 @Composable
-fun addMyPokemonDialog(
+fun AddMyPokemonDialog(
   modifier: Modifier = Modifier,
   dialogState: Boolean = false,
   onDialogStateChange: ((Boolean) -> Unit)? = null,

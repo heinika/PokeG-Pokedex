@@ -29,7 +29,7 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
   private val _myPokemonList: MutableState<List<MyPokemon>> = mutableStateOf(emptyList())
   val myPokemonList: State<List<MyPokemon>> = _myPokemonList
 
-  fun refreshAllPokemonList() {
+  fun refreshAllPokemonList(onFinish: () -> Unit) {
     viewModelScope.launch {
       withContext(Dispatchers.IO) {
         Timber.i(
@@ -39,6 +39,7 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
         )
         _myPokemonList.value = myPokemonRepository.fetchAllMyPokemonList()
       }
+      onFinish()
     }
   }
 

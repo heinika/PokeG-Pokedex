@@ -9,12 +9,12 @@ import com.heinika.pokeg.module.gameprops.props.CarryProps
 
 
 data class MyPokemonInfo(
-  val name: String,
+  var name: String,
   val id: Int,
   val gen: Generation,
   val typeIdList: List<Type>,
   val carry: CarryProps,
-  val nature: Nature,
+  var nature: Nature,
   val ability: Ability,
   val moveList: List<Move>,
   var teamNameList: List<String>

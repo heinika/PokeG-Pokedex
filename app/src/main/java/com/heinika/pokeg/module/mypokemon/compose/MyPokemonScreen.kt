@@ -69,7 +69,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
       }
     }
 
-    addMyPokemonDialog(dialogState = isShowDialog, onDismissRequest = { isShowDialog = false }) {
+    AddMyPokemonDialog(dialogState = isShowDialog, onDismissRequest = { isShowDialog = false }) {
       navController.navigate("MyPokemonDetailPage/newRandom${it.globalId}")
     }
   }

@@ -24,7 +24,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -35,7 +34,10 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.module.moves.compose.DamageClassImage
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
-import com.heinika.pokeg.ui.theme.*
+import com.heinika.pokeg.ui.theme.BlackBackgroundColor
+import com.heinika.pokeg.ui.theme.Red200
+import com.heinika.pokeg.ui.theme.YellowLight
+import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
 
@@ -43,234 +45,266 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @ExperimentalCoilApi
 @Composable
 fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
-  val context = LocalContext.current
-  if (viewModel.myDetailPokemon.value == null) {
-    Box(
-      modifier = Modifier
-        .fillMaxSize()
-        .background(BlackBackgroundColor)
-    )
-  }
-  viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
-    var editable by remember { mutableStateOf(false) }
-    var name by mutableStateOf(myPokemonInfo.name)
-    val scrollState = rememberScrollState()
-    Column(
-      Modifier
-        .fillMaxSize()
-        .verticalScroll(scrollState)
-        .background(
-          Brush.horizontalGradient(
-            listOf(
-              myPokemonInfo.typeIdList.first().endColor,
-              myPokemonInfo.typeIdList.last().startColor
-            )
-          )
-        )
-    ) {
-      TopAppBar(
-        modifier = Modifier.padding(
-          top = Dp(SystemBar.statusBarHeightDp),
-          start = 8.dp,
-          end = 8.dp
-        ),
-        backgroundColor = Color.Transparent,
-        contentColor = Color.White
-      ) {
-        Image(
-          imageVector = Icons.Default.ArrowBack,
-          contentDescription = "",
-          colorFilter = ColorFilter.tint(Color.White),
-          modifier = Modifier
-            .clickable {
-              navController.popBackStack()
-            }
-            .padding(8.dp)
-        )
 
-        if (editable) {
-          OutlinedTextField(
-            value = name,
-            onValueChange = { name = it },
-            modifier = Modifier.weight(1f)
-          )
-        } else {
-          Text(text = name, modifier = Modifier.weight(1f))
-        }
 
-        Image(
-          imageVector = if (editable) Icons.Default.Done else Icons.Default.Edit,
-          contentDescription = "",
-          colorFilter = ColorFilter.tint(Color.White),
-          modifier = Modifier
-            .clickable {
-              editable = !editable
-              Toast
-                .makeText(context, "已保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
-                .show()
-              viewModel.saveMyPokemonToDataBase(myPokemonInfo,myPokemonInfo.copy(name = name)){
-                viewModel.refreshAllPokemonList()
-              }
-            }
-            .padding(8.dp)
-        )
+  Box(
+    modifier = Modifier
+      .fillMaxSize()
+      .background(BlackBackgroundColor)
+  ) {
+    viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
+      val context = LocalContext.current
+      var name by remember {mutableStateOf(myPokemonInfo.name)}
+      var showSelectNatureDialog by remember { mutableStateOf(false) }
+      var nature by remember { mutableStateOf(myPokemonInfo.nature) }
+      val scrollState = rememberScrollState()
+      var editable by remember {
+        mutableStateOf(false)
       }
 
-
-      Box(modifier = Modifier.fillMaxSize()) {
+      Box {
         Column(
-          modifier = Modifier
-            .padding(top = 165.dp)
+          Modifier
             .fillMaxSize()
-            .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+            .verticalScroll(scrollState)
             .background(
-              Brush.verticalGradient(
+              Brush.horizontalGradient(
                 listOf(
-                  myPokemonInfo.typeIdList.first().darkStartColor,
-                  myPokemonInfo.typeIdList.last().darkEndColor
+                  myPokemonInfo.typeIdList.first().endColor,
+                  myPokemonInfo.typeIdList.last().startColor
                 )
               )
             )
         ) {
-          Row(
-            Modifier
-              .fillMaxWidth()
-              .padding(top = 60.dp),
-            verticalAlignment = Alignment.CenterVertically
+          TopAppBar(
+            modifier = Modifier.padding(
+              top = Dp(SystemBar.statusBarHeightDp),
+              start = 8.dp,
+              end = 8.dp
+            ),
+            backgroundColor = Color.Transparent,
+            contentColor = Color.White
           ) {
-            Box(
-              Modifier
-                .padding(start = 12.dp, end = 8.dp)
-                .size(41.dp)
-                .background(color = YellowLight, shape = CircleShape),
-              contentAlignment = Alignment.Center
-            ) {
-              Text(
-                text = myPokemonInfo.formatId,
-                textAlign = TextAlign.Center,
-                color = Color.Black
-              )
-            }
-            Text(
-              text = stringResource(myPokemonInfo.gen.resId),
-              textAlign = TextAlign.Start,
-              color = Color.White,
-              modifier = Modifier.weight(1f)
+            Image(
+              imageVector = Icons.Default.ArrowBack,
+              contentDescription = "",
+              colorFilter = ColorFilter.tint(Color.White),
+              modifier = Modifier
+                .clickable {
+                  navController.popBackStack()
+                }
+                .padding(8.dp)
             )
 
-            myPokemonInfo.typeIdList.forEachIndexed { index, type ->
-              TypeCard(
-                modifier = Modifier.padding(end = if (index == 0) 8.dp else 12.dp),
-                stringResource(id = type.typeNameResId),
-                colorResource(id = type.typeColorResId)
-              )
-            }
-          }
-
-          Card(
-            modifier = Modifier
-              .fillMaxWidth()
-              .padding(start = 12.dp, end = 12.dp, top = 15.dp),
-            backgroundColor = Color.White
-          ) {
-            Row(
-              modifier = Modifier.padding(15.dp),
-              verticalAlignment = Alignment.CenterVertically
-            ) {
-              Text(
-                text = stringResource(myPokemonInfo.nature.stringId),
-                style = MaterialTheme.typography.h6,
+            if (editable) {
+              OutlinedTextField(
+                value = name,
+                onValueChange = {
+                  name = it
+                },
                 modifier = Modifier.weight(1f)
               )
-              Text(text = stringResource(myPokemonInfo.nature.growEasyStringId))
-              Image(
-                painter = painterResource(id = R.drawable.up), "",
-                Modifier
-                  .padding(8.dp)
-                  .size(18.dp)
-              )
-              Text(text = stringResource(myPokemonInfo.nature.growHardStringId))
-              Image(
-                painter = painterResource(id = R.drawable.up),
-                colorFilter = ColorFilter.tint(
-                  Red200
-                ),
-                contentDescription = "",
-                modifier = Modifier
-                  .graphicsLayer {
-                    rotationZ = 180f
-                    rotationY = 180f
+            } else {
+              Text(text = name, modifier = Modifier.weight(1f))
+            }
+
+            Image(
+              imageVector = if (editable) Icons.Default.Done else Icons.Default.Edit,
+              contentDescription = "",
+              colorFilter = ColorFilter.tint(Color.White),
+              modifier = Modifier
+                .clickable {
+                  editable = !editable
+                  Toast
+                    .makeText(context, "已保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
+                    .show()
+                  myPokemonInfo.name = name
+                  myPokemonInfo.nature = nature
+                  viewModel.saveMyPokemonToDataBase(
+                    myPokemonInfo,
+                    myPokemonInfo.copy(name = name, nature = nature)
+                  ) {
+                    viewModel.refreshAllPokemonList(onFinish = {
+                      Toast
+                        .makeText(context, "已保存.", Toast.LENGTH_SHORT)
+                        .show()
+                    })
                   }
-                  .padding(start = 8.dp)
-                  .size(18.dp)
-              )
-            }
+                }
+                .padding(8.dp)
+            )
           }
 
-          Card(
-            modifier = Modifier
-              .fillMaxWidth()
-              .padding(start = 12.dp, end = 12.dp, top = 15.dp),
-            backgroundColor = Color.White
-          ) {
-            Column(modifier = Modifier.padding(15.dp, 10.dp)) {
-              Text(
-                text = stringResource(myPokemonInfo.ability.nameResId),
-                style = MaterialTheme.typography.h6
-              )
-              Text(
-                text = stringResource(myPokemonInfo.ability.flavorResId),
-                style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(top = 8.dp)
-              )
-            }
-          }
 
-          Card(
-            modifier = Modifier
-              .fillMaxWidth()
-              .padding(start = 12.dp, end = 12.dp, top = 15.dp),
-            backgroundColor = Color.White
-          ) {
-            Column(modifier = Modifier.padding(15.dp, 10.dp)) {
-              Row(verticalAlignment = Alignment.CenterVertically) {
-                Image(
-                  painter = painterResource(id = myPokemonInfo.carry.imageResId),
-                  contentDescription = "",
-                  Modifier.size(32.dp)
+          Box(modifier = Modifier.fillMaxSize()) {
+            Column(
+              modifier = Modifier
+                .padding(top = 165.dp)
+                .fillMaxSize()
+                .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
+                .background(
+                  Brush.verticalGradient(
+                    listOf(
+                      myPokemonInfo.typeIdList.first().darkStartColor,
+                      myPokemonInfo.typeIdList.last().darkEndColor
+                    )
+                  )
                 )
+            ) {
+              Row(
+                Modifier
+                  .fillMaxWidth()
+                  .padding(top = 60.dp),
+                verticalAlignment = Alignment.CenterVertically
+              ) {
+                Box(
+                  Modifier
+                    .padding(start = 12.dp, end = 8.dp)
+                    .size(41.dp)
+                    .background(color = YellowLight, shape = CircleShape),
+                  contentAlignment = Alignment.Center
+                ) {
+                  Text(
+                    text = myPokemonInfo.formatId,
+                    textAlign = TextAlign.Center,
+                    color = Color.Black
+                  )
+                }
                 Text(
-                  text = stringResource(myPokemonInfo.carry.nameResId),
-                  style = MaterialTheme.typography.h6
+                  text = stringResource(myPokemonInfo.gen.resId),
+                  textAlign = TextAlign.Start,
+                  color = Color.White,
+                  modifier = Modifier.weight(1f)
                 )
+
+                myPokemonInfo.typeIdList.forEachIndexed { index, type ->
+                  TypeCard(
+                    modifier = Modifier.padding(end = if (index == 0) 8.dp else 12.dp),
+                    stringResource(id = type.typeNameResId),
+                    colorResource(id = type.typeColorResId)
+                  )
+                }
               }
 
-              Text(
-                text = stringResource(myPokemonInfo.carry.flavorResId),
-                style = MaterialTheme.typography.body2,
-                modifier = Modifier.padding(8.dp)
-              )
-            }
-          }
+              Card(
+                modifier = Modifier
+                  .fillMaxWidth()
+                  .padding(start = 12.dp, end = 12.dp, top = 15.dp),
+                backgroundColor = Color.White,
+                onClick = {
+                  if (editable) {
+                    showSelectNatureDialog = true
+                  }
+                }
+              ) {
+                Row(
+                  modifier = Modifier.padding(15.dp),
+                  verticalAlignment = Alignment.CenterVertically
+                ) {
+                  Text(
+                    text = stringResource(nature.stringId),
+                    style = MaterialTheme.typography.h6,
+                    modifier = Modifier.weight(1f)
+                  )
+                  Text(text = stringResource(nature.growEasyStringId))
+                  Image(
+                    painter = painterResource(id = R.drawable.up), "",
+                    Modifier
+                      .padding(8.dp)
+                      .size(18.dp)
+                  )
+                  Text(text = stringResource(nature.growHardStringId))
+                  Image(
+                    painter = painterResource(id = R.drawable.up),
+                    colorFilter = ColorFilter.tint(
+                      Red200
+                    ),
+                    contentDescription = "",
+                    modifier = Modifier
+                      .graphicsLayer {
+                        rotationZ = 180f
+                        rotationY = 180f
+                      }
+                      .padding(start = 8.dp)
+                      .size(18.dp)
+                  )
+                }
+              }
 
-          Column(Modifier.padding(bottom = 15.dp)) {
-            myPokemonInfo.moveList.forEach {
-              WhiteMoveCard(move = it, onClick = {})
+              Card(
+                modifier = Modifier
+                  .fillMaxWidth()
+                  .padding(start = 12.dp, end = 12.dp, top = 15.dp),
+                backgroundColor = Color.White
+              ) {
+                Column(modifier = Modifier.padding(15.dp, 10.dp)) {
+                  Text(
+                    text = stringResource(myPokemonInfo.ability.nameResId),
+                    style = MaterialTheme.typography.h6
+                  )
+                  Text(
+                    text = stringResource(myPokemonInfo.ability.flavorResId),
+                    style = MaterialTheme.typography.body2,
+                    modifier = Modifier.padding(top = 8.dp)
+                  )
+                }
+              }
+
+              Card(
+                modifier = Modifier
+                  .fillMaxWidth()
+                  .padding(start = 12.dp, end = 12.dp, top = 15.dp),
+                backgroundColor = Color.White
+              ) {
+                Column(modifier = Modifier.padding(15.dp, 10.dp)) {
+                  Row(verticalAlignment = Alignment.CenterVertically) {
+                    Image(
+                      painter = painterResource(id = myPokemonInfo.carry.imageResId),
+                      contentDescription = "",
+                      Modifier.size(32.dp)
+                    )
+                    Text(
+                      text = stringResource(myPokemonInfo.carry.nameResId),
+                      style = MaterialTheme.typography.h6
+                    )
+                  }
+
+                  Text(
+                    text = stringResource(myPokemonInfo.carry.flavorResId),
+                    style = MaterialTheme.typography.body2,
+                    modifier = Modifier.padding(8.dp)
+                  )
+                }
+              }
+
+              Column(Modifier.padding(bottom = 15.dp)) {
+                myPokemonInfo.moveList.forEach {
+                  WhiteMoveCard(move = it, onClick = {})
+                }
+              }
             }
+
+            Image(
+              painter = rememberImagePainter(getPokemonImageUrl(myPokemonInfo.id)),
+              contentDescription = "",
+              Modifier
+                .size(250.dp)
+                .align(Alignment.TopCenter),
+              contentScale = ContentScale.FillWidth
+            )
           }
         }
 
-        Image(
-          painter = rememberImagePainter(getPokemonImageUrl(myPokemonInfo.id)),
-          contentDescription = "",
-          Modifier
-            .size(250.dp)
-            .align(Alignment.TopCenter),
-          contentScale = ContentScale.FillWidth
-        )
+
+        SelectNatureDialog(
+          dialogState = showSelectNatureDialog,
+          onDismissRequest = { showSelectNatureDialog = false },
+          onNatureItemClick = {
+            nature = it
+            showSelectNatureDialog = false
+          })
       }
     }
-
   }
 }
 
@@ -398,14 +432,5 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
       color = Color.Black,
       style = MaterialTheme.typography.body2
     )
-  }
-}
-
-
-@Preview
-@Composable
-fun MyPokemonDetailScreenPreview() {
-  PokeGTheme {
-//    MyPokemonDetailScreen()
   }
 }
