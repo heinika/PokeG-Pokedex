@@ -101,8 +101,9 @@ fun MoveCard(move: Move, onClick: () -> Unit) {
         })
 
 
+      val accuracy = if (move.accuracy != 0) move.accuracy.toString() else "--"
       Text(
-        text = stringResource(R.string.accuracy) + ":${move.accuracy}",
+        text = stringResource(R.string.accuracy) + ":$accuracy",
         color = move.accuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {

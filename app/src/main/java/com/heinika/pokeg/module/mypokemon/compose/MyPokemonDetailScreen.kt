@@ -56,7 +56,14 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
       Modifier
         .fillMaxSize()
         .verticalScroll(scrollState)
-        .background(Brush.horizontalGradient(listOf(RedLinearEndColor, RedLinearStartColor)))
+        .background(
+          Brush.horizontalGradient(
+            listOf(
+              myPokemonInfo.typeIdList.first().endColor,
+              myPokemonInfo.typeIdList.last().startColor
+            )
+          )
+        )
     ) {
       TopAppBar(modifier = Modifier.padding(
         top = Dp(SystemBar.statusBarHeightDp),
@@ -103,7 +110,8 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
             .background(
               Brush.verticalGradient(
                 listOf(
-                  DarkRedLinearStartColor, DarkRedLinearEndColor
+                  myPokemonInfo.typeIdList.first().darkStartColor,
+                  myPokemonInfo.typeIdList.last().darkEndColor
                 )
               )
             )
@@ -324,8 +332,9 @@ private fun WhiteMoveCard(move: com.heinika.pokeg.info.Move, onClick: () -> Unit
           start.linkTo(nameLabel.start)
         })
 
+      val accuracy = if (move.accuracy != 0) move.accuracy.toString() else "--"
       Text(
-        text = stringResource(R.string.accuracy) + ":${move.accuracy}",
+        text = stringResource(R.string.accuracy) + ":$accuracy",
         color = move.darkAccuracyColor,
         style = MaterialTheme.typography.subtitle1,
         modifier = Modifier.constrainAs(accuracyLabel) {

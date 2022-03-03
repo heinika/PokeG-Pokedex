@@ -1,7 +1,9 @@
 package com.heinika.pokeg.info
 
 import android.content.Context
+import androidx.compose.ui.graphics.Color
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.theme.*
 
 enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int) {
   NORMAL(1, R.string.type_normal, R.color.gray_21),
@@ -31,6 +33,99 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
   fun getColor(context: Context): Int {
     return context.getColor(this.typeColorResId)
   }
+
+  val startColor: Color
+    get() = when (this) {
+      NORMAL -> startNormalColor
+      FIGHTING -> startFightingColor
+      FLYING -> startFlyingColor
+      POISON -> startPoisonColor
+      GROUND -> startGroundColor
+      ROCK -> startRockColor
+      BUG -> startBugColor
+      GHOST -> startGhostColor
+      STEEL -> startSteelColor
+      FIRE -> startFireColor
+      WATER -> startWaterColor
+      GRASS -> startGrassColor
+      ELECTRIC -> startElectricColor
+      PSYCHIC -> startPsychicColor
+      ICE -> startIceColor
+      DRAGON -> startDragonColor
+      DARK -> startDarkColor
+      FAIRY -> startFairyColor
+      else -> startGrassColor
+    }
+
+  val endColor: Color
+    get() = when (this) {
+      NORMAL -> normalColor
+      FIGHTING -> fightingColor
+      FLYING -> flyingColor
+      POISON -> poisonColor
+      GROUND -> groundColor
+      ROCK -> rockColor
+      BUG -> bugColor
+      GHOST -> ghostColor
+      STEEL -> steelColor
+      FIRE -> fireColor
+      WATER -> waterColor
+      GRASS -> grassColor
+      ELECTRIC -> electricColor
+      PSYCHIC -> psychicColor
+      ICE -> iceColor
+      DRAGON -> dragonColor
+      DARK -> darkColor
+      FAIRY -> fairyColor
+      else -> grassColor
+    }
+
+  val darkStartColor: Color
+    get() = when (this) {
+      NORMAL -> darkStartNormalColor
+      FIGHTING -> darkStartFightingColor
+      FLYING -> darkStartFlyingColor
+      POISON -> darkStartPoisonColor
+      GROUND -> darkStartGroundColor
+      ROCK -> darkStartRockColor
+      BUG -> darkStartBugColor
+      GHOST -> darkStartGhostColor
+      STEEL -> darkStartSteelColor
+      FIRE -> darkStartFireColor
+      WATER -> darkStartWaterColor
+      GRASS -> darkStartGrassColor
+      ELECTRIC -> darkStartElectricColor
+      PSYCHIC -> darkStartPsychicColor
+      ICE -> darkStartIceColor
+      DRAGON -> darkStartDragonColor
+      DARK -> darkStartDarkColor
+      FAIRY -> darkStartFairyColor
+      else -> darkStartGrassColor
+    }
+
+  val darkEndColor: Color
+    get() = when (this) {
+      NORMAL -> darkEndNormalColor
+      FIGHTING -> darkEndFightingColor
+      FLYING -> darkEndFlyingColor
+      POISON -> darkEndPoisonColor
+      GROUND -> darkEndGroundColor
+      ROCK -> darkEndRockColor
+      BUG -> darkEndBugColor
+      GHOST -> darkEndGhostColor
+      STEEL -> darkEndSteelColor
+      FIRE -> darkEndFireColor
+      WATER -> darkEndWaterColor
+      GRASS -> darkEndGrassColor
+      ELECTRIC -> darkEndElectricColor
+      PSYCHIC -> darkEndPsychicColor
+      ICE -> darkEndIceColor
+      DRAGON -> darkEndDragonColor
+      DARK -> darkEndDarkColor
+      FAIRY -> darkEndFairyColor
+      else -> darkEndGrassColor
+    }
+
 }
 
 fun getTypeString(context: Context, id: Int): String {
