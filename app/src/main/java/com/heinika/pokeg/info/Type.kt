@@ -34,6 +34,75 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
     return context.getColor(this.typeColorResId)
   }
 
+  val attackHalfList:List<Type>
+    get() = when(this){
+      NORMAL -> listOf(GROUND,STEEL)
+      FIGHTING -> listOf(FLYING,POISON,BUG,PSYCHIC,FAIRY)
+      FLYING -> listOf(ROCK,STEEL,ELECTRIC)
+      POISON -> listOf(POISON,GROUND,ROCK,GHOST)
+      GROUND -> listOf(BUG,GRASS)
+      ROCK -> listOf(FIGHTING,GROUND,STEEL)
+      BUG -> listOf(FIGHTING,STEEL,POISON,GHOST,STEEL,FIRE,FAIRY)
+      GHOST -> listOf(DARK)
+      STEEL -> listOf(STEEL,FIRE,WATER,ELECTRIC)
+      FIRE -> listOf(ROCK,FIRE,WATER,DRAGON)
+      WATER -> listOf(WATER,GRASS,DRAGON)
+      GRASS -> listOf(FLYING,POISON,BUG,STEEL,FIRE,GRASS,DRAGON)
+      ELECTRIC -> listOf(GRASS,ELECTRIC,DRAGON)
+      PSYCHIC -> listOf(STEEL,PSYCHIC)
+      ICE -> listOf(STEEL,FIRE,WATER,ICE)
+      DRAGON -> listOf(STEEL)
+      DARK -> listOf(FIGHTING,DARK,FAIRY)
+      FAIRY -> listOf(POISON,STEEL,FIRE)
+      UNKNOWN -> emptyList()
+    }
+
+  val attackZeroList:List<Type>
+    get() = when(this){
+      NORMAL -> listOf(GHOST)
+      FIGHTING -> listOf(GHOST)
+      FLYING -> emptyList()
+      POISON -> listOf(STEEL)
+      GROUND -> listOf(GROUND)
+      ROCK -> emptyList()
+      BUG -> emptyList()
+      GHOST -> listOf(NORMAL)
+      STEEL -> emptyList()
+      FIRE -> emptyList()
+      WATER -> emptyList()
+      GRASS -> emptyList()
+      ELECTRIC -> listOf(GROUND)
+      PSYCHIC -> listOf(DARK)
+      ICE -> emptyList()
+      DRAGON -> listOf(FAIRY)
+      DARK -> emptyList()
+      FAIRY -> emptyList()
+      UNKNOWN -> emptyList()
+    }
+
+  val attackDoubleList:List<Type>
+    get() = when(this){
+      NORMAL -> emptyList()
+      FIGHTING -> listOf(NORMAL,ROCK,STEEL,ICE,DARK)
+      FLYING -> listOf(FIGHTING,BUG,GRASS)
+      POISON -> listOf(GRASS,FAIRY)
+      GROUND -> listOf(POISON,ROCK)
+      ROCK -> listOf(FIGHTING,BUG,FIRE,ICE)
+      BUG -> listOf(GRASS,PSYCHIC,DARK)
+      GHOST -> listOf(GHOST,PSYCHIC)
+      STEEL -> listOf(ROCK,ICE,FAIRY)
+      FIRE -> listOf(BUG,STEEL,GRASS,ICE)
+      WATER -> listOf(GROUND,ROCK,FIRE)
+      GRASS -> listOf(GROUND,ROCK,WATER)
+      ELECTRIC -> listOf(FLYING,WATER)
+      PSYCHIC -> listOf(FIGHTING,POISON)
+      ICE -> listOf(FIGHTING,GROUND,GRASS,DRAGON)
+      DRAGON -> listOf(DRAGON)
+      DARK -> listOf(GHOST,PSYCHIC)
+      FAIRY -> listOf(FIGHTING,DRAGON,DARK)
+      UNKNOWN -> emptyList()
+    }
+
   val startColor: Color
     get() = when (this) {
       NORMAL -> startNormalColor

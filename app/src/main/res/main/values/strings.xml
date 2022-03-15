@@ -238,5 +238,6 @@
     <string name="game_props_mail">邮件</string>
     <string name="game_props_roto">洛托姆之力</string>
     <string name="game_props_other">其他</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>
