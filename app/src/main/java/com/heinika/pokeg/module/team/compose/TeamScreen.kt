@@ -33,7 +33,7 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Type
-import com.heinika.pokeg.model.MyPokemonInfo
+import com.heinika.pokeg.model.MyPokemon
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.module.team.TeamViewModel
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
@@ -73,7 +73,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 
         if (teamNumberMap.isNotEmpty()) {
           items(teamNumberMap.entries.toList()) {
-            TeamItemCard(it.key, mutableListOf<MyPokemonInfo?>().apply {
+            TeamItemCard(it.key, mutableListOf<MyPokemon?>().apply {
               addAll(it.value)
               if (it.value.size <6){
                 repeat(6 - it.value.size){
@@ -130,7 +130,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 @Composable
 private fun TeamItemCard(
   teamName: String?,
-  teamList: List<MyPokemonInfo?>,
+  teamList: List<MyPokemon?>,
   onAddClick: (teamName: String?) -> Unit
 ) {
   var selectedIndex by remember { mutableStateOf(0) }
@@ -181,7 +181,7 @@ private fun TeamItemCard(
 @Composable
 fun TeamNumberDetail(
   modifier: Modifier = Modifier,
-  teamNumberInfo: MyPokemonInfo?,
+  teamNumberInfo: MyPokemon?,
   onAddClick: () -> Unit
 ) {
   if (teamNumberInfo != null) {
@@ -212,7 +212,7 @@ fun TeamNumberDetail(
             top.linkTo(nameLabel.top)
             bottom.linkTo(nameLabel.bottom)
             start.linkTo(nameLabel.end, 4.dp)
-          }, teamNumberInfo.typeIdList
+          }, teamNumberInfo.typeList
       )
 
       TagCard(
@@ -240,7 +240,7 @@ fun TeamNumberDetail(
           top.linkTo(natureTag.bottom, 4.dp)
           start.linkTo(nameLabel.start)
         },
-        teamNumberInfo.carry
+        teamNumberInfo.carryProps
       )
 
       FlowRow(

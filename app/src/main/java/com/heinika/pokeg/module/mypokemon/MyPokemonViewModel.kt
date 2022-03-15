@@ -7,11 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Nature
-import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.MyPokemon
-import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.module.gameprops.props.carryIIIPropsList
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -23,8 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: MyPokemonRepository) :
   ViewModel() {
-  private val _myDetailPokemonInfo: MutableState<MyPokemonInfo?> = mutableStateOf(null)
-  val myDetailPokemon: State<MyPokemonInfo?> = _myDetailPokemonInfo
+  private val _myDetailPokemonInfo: MutableState<MyPokemon?> = mutableStateOf(null)
+  val myDetailPokemon: State<MyPokemon?> = _myDetailPokemonInfo
 
   private val _myPokemonList: MutableState<List<MyPokemon>> = mutableStateOf(emptyList())
   val myPokemonList: State<List<MyPokemon>> = _myPokemonList
@@ -50,42 +47,37 @@ class MyPokemonViewModel @Inject constructor(private val myPokemonRepository: My
         val abilities = myPokemonRepository.fetchPokemonAbilities(globalId)
         val versions = myPokemonRepository.fetchPokemonMoveVersionList(globalId, pokemon.speciesId)
         val moves = myPokemonRepository.fetchMoveList(globalId, pokemon.speciesId, versions.last())
-        val myPokemonInfo = MyPokemonInfo(
+        val myPokemon = MyPokemon(
           name,
           globalId,
-          Generation.values()[pokemon.generationId - 1],
-          typeIdList = pokemon.types.map { Type.values()[it - 1] },
-          carry = carryIIIPropsList.first(),
-          nature = Nature.Brave,
-          ability = abilities.first(),
-          moveList = moves.filter { it.methodId == 4 }.takeLast(4).map { it.moveId }
-            .map { moveId ->
-              Move.values().first { it.id == moveId }
-            },
-          teamNameList = emptyList()
+          Generation.values()[pokemon.generationId - 1].id,
+          typeIdList = pokemon.types,
+          carry = carryIIIPropsList.first().cname,
+          natureId = Nature.Brave.ordinal,
+          abilityId = abilities.first().id,
+          moveIdList = moves.filter { it.methodId == 4 }.takeLast(4).map { it.moveId }
         )
-        _myDetailPokemonInfo.value = myPokemonInfo
+        _myDetailPokemonInfo.value = myPokemon
       }
     }
   }
 
   fun requestExistMyPokemon(name: String) {
     val myPokemon = myPokemonList.value.first { it.name == name }
-    _myDetailPokemonInfo.value = myPokemon.toMyPokemonInfo()
+    _myDetailPokemonInfo.value = myPokemon
   }
 
-  fun saveMyPokemonToDataBase(oldMyPokemonInfo: MyPokemonInfo, newMyPokemonInfo: MyPokemonInfo,onFinish:() -> Unit) {
-      viewModelScope.launch {
-        withContext(Dispatchers.IO) {
-          if (oldMyPokemonInfo.name == newMyPokemonInfo.name){
-            myPokemonRepository.insertMyPokemon(newMyPokemonInfo.toMyPokemon())
-          }else{
-            myPokemonRepository.deleteMyPokemon(oldMyPokemonInfo.toMyPokemon())
-            myPokemonRepository.insertMyPokemon(newMyPokemonInfo.toMyPokemon())
-          }
+  fun saveMyPokemonToDataBase(myPokemon: MyPokemon, onFinish: () -> Unit) {
+    viewModelScope.launch {
+      withContext(Dispatchers.IO) {
+        if (myPokemonList.value.any { it.myPokemonId == myPokemon.myPokemonId }) {
+          myPokemonRepository.updateMyPokemon(myPokemon)
+        } else {
+          myPokemonRepository.insertMyPokemon(myPokemon)
         }
-        onFinish()
       }
+      onFinish()
+    }
   }
 
 }

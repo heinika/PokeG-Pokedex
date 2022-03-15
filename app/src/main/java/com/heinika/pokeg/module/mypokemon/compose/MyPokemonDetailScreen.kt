@@ -32,6 +32,7 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.info.Nature
 import com.heinika.pokeg.module.moves.compose.DamageClassImage
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
@@ -45,18 +46,17 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 @ExperimentalCoilApi
 @Composable
 fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
-
-
   Box(
     modifier = Modifier
       .fillMaxSize()
       .background(BlackBackgroundColor)
   ) {
-    viewModel.myDetailPokemon.value?.let { myPokemonInfo ->
+    viewModel.myDetailPokemon.value?.let { myPokemon->
       val context = LocalContext.current
-      var name by remember {mutableStateOf(myPokemonInfo.name)}
+      var name by mutableStateOf(myPokemon.name)
+      val natureList = remember{ Nature.values() }
+      var natureId by mutableStateOf(myPokemon.natureId)
       var showSelectNatureDialog by remember { mutableStateOf(false) }
-      var nature by remember { mutableStateOf(myPokemonInfo.nature) }
       val scrollState = rememberScrollState()
       var editable by remember {
         mutableStateOf(false)
@@ -70,8 +70,8 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
             .background(
               Brush.horizontalGradient(
                 listOf(
-                  myPokemonInfo.typeIdList.first().endColor,
-                  myPokemonInfo.typeIdList.last().startColor
+                  myPokemon.typeList.first().endColor,
+                  myPokemon.typeList.last().startColor
                 )
               )
             )
@@ -100,6 +100,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
               OutlinedTextField(
                 value = name,
                 onValueChange = {
+                  myPokemon.name = name
                   name = it
                 },
                 modifier = Modifier.weight(1f)
@@ -115,15 +116,11 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
               modifier = Modifier
                 .clickable {
                   editable = !editable
-                  Toast
-                    .makeText(context, "已保存，编辑功能正在开发中...", Toast.LENGTH_SHORT)
-                    .show()
-                  viewModel.saveMyPokemonToDataBase(
-                    myPokemonInfo,
-                    myPokemonInfo.copy(name = name,nature = nature)
-                  ) {
-                    myPokemonInfo.name = name
-                    myPokemonInfo.nature = nature
+
+                  if (!editable){
+                    viewModel.saveMyPokemonToDataBase(myPokemon) {
+                      Toast.makeText(context, "已保存", Toast.LENGTH_SHORT).show()
+                    }
                   }
                 }
                 .padding(8.dp)
@@ -140,8 +137,8 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
                 .background(
                   Brush.verticalGradient(
                     listOf(
-                      myPokemonInfo.typeIdList.first().darkStartColor,
-                      myPokemonInfo.typeIdList.last().darkEndColor
+                      myPokemon.typeList.first().darkStartColor,
+                      myPokemon.typeList.last().darkEndColor
                     )
                   )
                 )
@@ -160,19 +157,19 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
                   contentAlignment = Alignment.Center
                 ) {
                   Text(
-                    text = myPokemonInfo.formatId,
+                    text = myPokemon.formatId,
                     textAlign = TextAlign.Center,
                     color = Color.Black
                   )
                 }
                 Text(
-                  text = stringResource(myPokemonInfo.gen.resId),
+                  text = stringResource(myPokemon.gen.resId),
                   textAlign = TextAlign.Start,
                   color = Color.White,
                   modifier = Modifier.weight(1f)
                 )
 
-                myPokemonInfo.typeIdList.forEachIndexed { index, type ->
+                myPokemon.typeList.forEachIndexed { index, type ->
                   TypeCard(
                     modifier = Modifier.padding(end = if (index == 0) 8.dp else 12.dp),
                     stringResource(id = type.typeNameResId),
@@ -197,18 +194,18 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
                   verticalAlignment = Alignment.CenterVertically
                 ) {
                   Text(
-                    text = stringResource(nature.stringId),
+                    text = stringResource(natureList[natureId].stringId),
                     style = MaterialTheme.typography.h6,
                     modifier = Modifier.weight(1f)
                   )
-                  Text(text = stringResource(nature.growEasyStringId))
+                  Text(text = stringResource(natureList[natureId].growEasyStringId))
                   Image(
                     painter = painterResource(id = R.drawable.up), "",
                     Modifier
                       .padding(8.dp)
                       .size(18.dp)
                   )
-                  Text(text = stringResource(nature.growHardStringId))
+                  Text(text = stringResource(natureList[natureId].growHardStringId))
                   Image(
                     painter = painterResource(id = R.drawable.up),
                     colorFilter = ColorFilter.tint(
@@ -234,11 +231,11 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
               ) {
                 Column(modifier = Modifier.padding(15.dp, 10.dp)) {
                   Text(
-                    text = stringResource(myPokemonInfo.ability.nameResId),
+                    text = stringResource(myPokemon.ability.nameResId),
                     style = MaterialTheme.typography.h6
                   )
                   Text(
-                    text = stringResource(myPokemonInfo.ability.flavorResId),
+                    text = stringResource(myPokemon.ability.flavorResId),
                     style = MaterialTheme.typography.body2,
                     modifier = Modifier.padding(top = 8.dp)
                   )
@@ -254,18 +251,18 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
                 Column(modifier = Modifier.padding(15.dp, 10.dp)) {
                   Row(verticalAlignment = Alignment.CenterVertically) {
                     Image(
-                      painter = painterResource(id = myPokemonInfo.carry.imageResId),
+                      painter = painterResource(id = myPokemon.carryProps.imageResId),
                       contentDescription = "",
                       Modifier.size(32.dp)
                     )
                     Text(
-                      text = stringResource(myPokemonInfo.carry.nameResId),
+                      text = stringResource(myPokemon.carryProps.nameResId),
                       style = MaterialTheme.typography.h6
                     )
                   }
 
                   Text(
-                    text = stringResource(myPokemonInfo.carry.flavorResId),
+                    text = stringResource(myPokemon.carryProps.flavorResId),
                     style = MaterialTheme.typography.body2,
                     modifier = Modifier.padding(8.dp)
                   )
@@ -273,14 +270,14 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
               }
 
               Column(Modifier.padding(bottom = 15.dp)) {
-                myPokemonInfo.moveList.forEach {
+                myPokemon.moveList.forEach {
                   WhiteMoveCard(move = it, onClick = {})
                 }
               }
             }
 
             Image(
-              painter = rememberImagePainter(getPokemonImageUrl(myPokemonInfo.id)),
+              painter = rememberImagePainter(getPokemonImageUrl(myPokemon.id)),
               contentDescription = "",
               Modifier
                 .size(250.dp)
@@ -295,7 +292,8 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
           dialogState = showSelectNatureDialog,
           onDismissRequest = { showSelectNatureDialog = false },
           onNatureItemClick = {
-            nature = it
+            natureId = it.ordinal
+            myPokemon.natureId = it.ordinal
             showSelectNatureDialog = false
           })
       }

@@ -2,9 +2,7 @@ package com.heinika.pokeg.module.team
 
 import com.heinika.pokeg.database.MyPokemonDao
 import com.heinika.pokeg.model.MyPokemon
-import com.heinika.pokeg.model.MyPokemonInfo
 import com.heinika.pokeg.repository.Repository
-import com.heinika.pokeg.repository.res.PokemonRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
@@ -21,12 +19,12 @@ class TeamRepository @Inject constructor(
 
     allMyPokemonList = it
 
-    val teamPokemonInfoList = mutableListOf<MyPokemonInfo>()
+    val teamPokemonInfoList = mutableListOf<MyPokemon>()
 
     it.forEach { myPokemon ->
       if (myPokemon.teamName.isNotEmpty()){
         myPokemon.teamName.split(";").forEach {
-          val myPokemonInfo = myPokemon.toMyPokemonInfo().apply { teamName = it }
+          val myPokemonInfo = myPokemon.apply { teamName = it }
           teamPokemonInfoList.add(myPokemonInfo)
         }
       }
