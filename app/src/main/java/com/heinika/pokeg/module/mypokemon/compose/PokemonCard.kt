@@ -22,12 +22,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
 import com.heinika.pokeg.info.getTypeString
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.ui.theme.grassColor
+import com.heinika.pokeg.utils.rememberFlavorPainter
 import com.heinika.pokeg.utils.toTypeColor
 
 
@@ -169,12 +169,7 @@ fun PokemonAvatar(pokemon: Pokemon) {
   ) {
     if (pokemon.types.size == 2) {
       Image(
-        painter = rememberImagePainter(
-          data = pokemon.getImageUrl(),
-          builder = {
-            crossfade(true)
-          }
-        ),
+        painter = rememberFlavorPainter(data = pokemon.getImageUrl()),
         contentDescription = "Picture of Pokemon",
         modifier = Modifier
           .background(
@@ -189,12 +184,7 @@ fun PokemonAvatar(pokemon: Pokemon) {
       )
     } else {
       Image(
-        painter = rememberImagePainter(
-          data = pokemon.getImageUrl(),
-          builder = {
-            crossfade(true)
-          }
-        ),
+        painter = rememberFlavorPainter(data = pokemon.getImageUrl()),
         contentDescription = "Picture of Pokemon",
         modifier = Modifier
           .background(

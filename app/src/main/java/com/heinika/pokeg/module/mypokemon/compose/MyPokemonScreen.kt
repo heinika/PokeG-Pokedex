@@ -20,6 +20,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,11 +30,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import coil.transform.BlurTransformation
+import coil.transform.CircleCropTransformation
 import com.heinika.pokeg.R
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
+import com.heinika.pokeg.utils.rememberFlavorPainter
 
 
 @ExperimentalFoundationApi
@@ -145,7 +149,7 @@ private fun MyPokemonCard(
     }
 
     Image(
-      painter = rememberImagePainter(data = getPokemonImageUrl(id, "")),
+      painter = rememberFlavorPainter(data = getPokemonImageUrl(id, "")),
       contentDescription = "",
       modifier = Modifier
         .align(Alignment.TopStart)

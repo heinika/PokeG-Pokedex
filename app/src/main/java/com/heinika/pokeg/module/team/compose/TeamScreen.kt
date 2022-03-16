@@ -41,6 +41,7 @@ import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.ui.theme.waterColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
+import com.heinika.pokeg.utils.rememberFlavorPainter
 import com.heinika.pokeg.utils.toTypeColor
 import kotlin.random.Random
 
@@ -188,7 +189,7 @@ fun TeamNumberDetail(
     ConstraintLayout(modifier) {
       val (image, nameLabel, typeRow, carryTag, natureTag, abilityTag, moveRow) = createRefs()
       Image(
-        painter = rememberImagePainter(getPokemonImageUrl(teamNumberInfo.id)),
+        painter = rememberFlavorPainter(getPokemonImageUrl(teamNumberInfo.id)),
         contentDescription = "",
         modifier = Modifier
           .constrainAs(image) {

@@ -8,6 +8,11 @@ import android.graphics.Bitmap
 import android.os.Build
 import android.provider.MediaStore
 import android.widget.ImageView
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalContext
+import coil.annotation.ExperimentalCoilApi
+import coil.compose.rememberImagePainter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.github.florent37.glidepalette.BitmapPalette
@@ -69,4 +74,16 @@ object ImageUtils {
     return true
   }
 
+}
+
+@ExperimentalCoilApi
+@Composable
+fun rememberFlavorPainter(data: String): Painter {
+  return rememberImagePainter(data = data, builder = {
+    crossfade(true)
+    if (com.heinika.pokeg.BuildConfig.FLAVOR == "google") {
+      transformations(coil.transform.BlurTransformation(LocalContext.current, 7f, 1f))
+    }
+  }
+  )
 }

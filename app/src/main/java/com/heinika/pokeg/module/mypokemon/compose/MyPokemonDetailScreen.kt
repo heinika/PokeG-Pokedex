@@ -41,6 +41,7 @@ import com.heinika.pokeg.ui.theme.YellowLight
 import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
+import com.heinika.pokeg.utils.rememberFlavorPainter
 
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
@@ -277,7 +278,7 @@ fun MyPokemonDetailScreen(viewModel: MyPokemonViewModel, navController: NavHostC
             }
 
             Image(
-              painter = rememberImagePainter(getPokemonImageUrl(myPokemon.id)),
+              painter = rememberFlavorPainter(getPokemonImageUrl(myPokemon.id)),
               contentDescription = "",
               Modifier
                 .size(250.dp)

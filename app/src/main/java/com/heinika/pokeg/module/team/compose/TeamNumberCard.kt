@@ -22,12 +22,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
 import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.utils.getPokemonImageUrl
+import com.heinika.pokeg.utils.rememberFlavorPainter
 import timber.log.Timber
 
+@Suppress("KotlinConstantConditions")
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Composable
@@ -85,7 +86,8 @@ fun TeamNumberCard(
     }
 
     val painter = if (id == -1) painterResource(id = R.drawable.golden_pokeball) else
-      rememberImagePainter(data = getPokemonImageUrl(id, ""))
+      rememberFlavorPainter(getPokemonImageUrl(id, ""))
+
     Image(
       painter = painter,
       contentDescription = "",
