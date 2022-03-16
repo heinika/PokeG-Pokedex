@@ -22,6 +22,7 @@ import com.heinika.pokeg.module.moves.MoveListActivity
 import com.heinika.pokeg.module.mypokemon.MyPokemonActivity
 import com.heinika.pokeg.module.nature.NatureListActivity
 import com.heinika.pokeg.module.team.TeamActivity
+import com.heinika.pokeg.module.typedetail.TypeDetailActivity
 import com.heinika.pokeg.module.versions.VersionsActivity
 import com.heinika.pokeg.utils.SystemBar
 
@@ -71,6 +72,17 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, VersionsActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalCoilApi
+  @ExperimentalMaterialApi
+  private val typeDetailButton = AppCompatButton(context).apply {
+    text = context.resources.getString(R.string.type_detail)
+    background.setTint(context.getColor(R.color.yellow))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, TypeDetailActivity::class.java)) }
     addView(this)
   }
 

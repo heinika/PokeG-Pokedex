@@ -82,15 +82,8 @@ fun TypeClipList(modifier: Modifier = Modifier,onSelectedChange: (List<Type>) ->
 
 @ExperimentalMaterialApi
 @Composable
-fun SelectTwoTypeClipList() {
-
-  val typeChipsStatus = remember {
-    mutableListOf<ChipStatus>().apply {
-      repeat(Type.values().size) {
-        add(ChipStatus.UnSelected)
-      }
-    }.toMutableStateList()
-  }
+fun SelectTwoTypeClipList(typeChipsStatus: MutableList<ChipStatus>,onSelectedChange: (List<Type>) -> Unit) {
+  val typeArray = remember { Type.values()}
 
   FlowRow(
     Modifier
@@ -101,7 +94,7 @@ fun SelectTwoTypeClipList() {
     mainAxisSpacing = 8.dp,
     crossAxisSpacing = 8.dp
   ) {
-    Type.values().forEachIndexed { index, it ->
+    typeArray.forEachIndexed { index, it ->
       TypeChip(typeChipStatus = typeChipsStatus[index], typeId = it.typeId, onClick = {
         when (typeChipsStatus[index]) {
           ChipStatus.Selected -> {
@@ -127,6 +120,13 @@ fun SelectTwoTypeClipList() {
           ChipStatus.Disable -> {
           }
         }
+        onSelectedChange(mutableListOf<Type>().apply {
+          typeChipsStatus.forEachIndexed { index, chipStatus ->
+            if (chipStatus == ChipStatus.Selected) {
+              add(typeArray[index])
+            }
+          }
+        })
       })
     }
   }

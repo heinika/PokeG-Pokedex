@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="as_the_defensed">作为防御方</string>
+  <string name="as_the_attack">作为攻击方</string>
+</resources>

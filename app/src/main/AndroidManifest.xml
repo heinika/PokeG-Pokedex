@@ -15,11 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeG"
         tools:ignore="AllowBackup">
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.PokeG" />
+
         <activity
             android:name=".PokeGActivity"
             android:exported="true"
@@ -45,8 +41,11 @@
         <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
         <activity android:name="com.heinika.pokeg.module.mypokemon.MyPokemonActivity" />
         <activity
+          android:name=".module.typedetail.TypeDetailActivity"
+          android:exported="false"
+          android:theme="@style/Theme.PokeG" />
+        <activity
             android:name=".module.about.AboutActivity"
-            android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
 

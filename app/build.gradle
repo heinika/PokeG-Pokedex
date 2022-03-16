@@ -26,8 +26,8 @@ android {
         minSdkVersion 23
         //noinspection OldTargetApi
         targetSdkVersion 31
-        versionCode 34
-        versionName "4.3"
+        versionCode 35
+        versionName "4.4"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -47,6 +47,7 @@ android {
                     'src/main/res/egg',
                     'src/main/res/mypokemon',
                     'src/main/res/detail',
+                    'src/main/res/typedetail',
             ]
         }
     }

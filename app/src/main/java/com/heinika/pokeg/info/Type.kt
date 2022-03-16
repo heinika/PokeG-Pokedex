@@ -34,36 +34,105 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
     return context.getColor(this.typeColorResId)
   }
 
-  val attackHalfList:List<Type>
-    get() = when(this){
-      NORMAL -> listOf(GROUND,STEEL)
-      FIGHTING -> listOf(FLYING,POISON,BUG,PSYCHIC,FAIRY)
-      FLYING -> listOf(ROCK,STEEL,ELECTRIC)
-      POISON -> listOf(POISON,GROUND,ROCK,GHOST)
-      GROUND -> listOf(BUG,GRASS)
-      ROCK -> listOf(FIGHTING,GROUND,STEEL)
-      BUG -> listOf(FIGHTING,STEEL,POISON,GHOST,STEEL,FIRE,FAIRY)
-      GHOST -> listOf(DARK)
-      STEEL -> listOf(STEEL,FIRE,WATER,ELECTRIC)
-      FIRE -> listOf(ROCK,FIRE,WATER,DRAGON)
-      WATER -> listOf(WATER,GRASS,DRAGON)
-      GRASS -> listOf(FLYING,POISON,BUG,STEEL,FIRE,GRASS,DRAGON)
-      ELECTRIC -> listOf(GRASS,ELECTRIC,DRAGON)
-      PSYCHIC -> listOf(STEEL,PSYCHIC)
-      ICE -> listOf(STEEL,FIRE,WATER,ICE)
-      DRAGON -> listOf(STEEL)
-      DARK -> listOf(FIGHTING,DARK,FAIRY)
-      FAIRY -> listOf(POISON,STEEL,FIRE)
+  val defenseWeakList: List<Type>
+    get() = when (this) {
+      NORMAL -> listOf(FIGHTING)
+      FIGHTING -> listOf(FLYING, PSYCHIC, FAIRY)
+      FLYING -> listOf(ELECTRIC, ICE, ROCK)
+      POISON -> listOf(GROUND, PSYCHIC)
+      GROUND -> listOf(WATER, GRASS, ICE)
+      ROCK -> listOf(GROUND, FIGHTING, WATER, GRASS, STEEL)
+      BUG -> listOf(FLYING, FIRE, ROCK)
+      GHOST -> listOf(GHOST, DARK)
+      STEEL -> listOf(GROUND, FIGHTING, FIRE)
+      FIRE -> listOf(GROUND, WATER, ROCK)
+      WATER -> listOf(ELECTRIC, GRASS)
+      GRASS -> listOf(BUG, POISON, FLYING, FIRE, ICE)
+      ELECTRIC -> listOf(GROUND)
+      PSYCHIC -> listOf(BUG, GHOST, DARK)
+      ICE -> listOf(FIGHTING, FIRE, ROCK, STEEL)
+      DRAGON -> listOf(DRAGON, ICE, FAIRY)
+      DARK -> listOf(BUG, FIGHTING, FAIRY)
+      FAIRY -> listOf(POISON, STEEL)
       UNKNOWN -> emptyList()
     }
 
-  val attackZeroList:List<Type>
-    get() = when(this){
+  val defenseUpList: List<Type>
+    get() = when (this) {
+      NORMAL -> emptyList()
+      FIGHTING -> listOf(BUG, ROCK, DARK)
+      FLYING -> listOf(BUG, FIGHTING, GRASS)
+      POISON -> listOf(BUG, POISON, FIGHTING, GRASS, FAIRY)
+      GROUND -> listOf(POISON, GRASS, ICE)
+      ROCK -> listOf(NORMAL, POISON, FLYING, FIRE)
+      BUG -> listOf(GROUND, FIGHTING, GRASS)
+      GHOST -> listOf(BUG, POISON)
+      STEEL -> listOf(NORMAL, BUG, FLYING, BUG, ICE, ROCK, PSYCHIC, DRAGON, STEEL, FAIRY)
+      FIRE -> listOf(FIRE, GRASS, ICE, BUG, STEEL, FAIRY)
+      WATER -> listOf(FIRE, WATER, ICE, STEEL)
+      GRASS -> listOf(GROUND, WATER, ELECTRIC, GRASS)
+      ELECTRIC -> listOf(FLYING, ELECTRIC, STEEL)
+      PSYCHIC -> listOf(FIGHTING, PSYCHIC)
+      ICE -> listOf(ICE)
+      DRAGON -> listOf(FIRE, WATER, ELECTRIC, GRASS)
+      DARK -> listOf(GHOST, DARK)
+      FAIRY -> listOf(BUG, FIGHTING, DARK)
+      UNKNOWN -> emptyList()
+    }
+
+  val defenseZeroList: List<Type>
+    get() = when (this) {
+      NORMAL -> listOf(GHOST)
+      FIGHTING -> emptyList()
+      FLYING -> listOf(GROUND)
+      POISON -> emptyList()
+      GROUND -> listOf(ELECTRIC)
+      ROCK -> emptyList()
+      BUG -> emptyList()
+      GHOST -> listOf(NORMAL, FIGHTING)
+      STEEL -> listOf(POISON)
+      FIRE -> emptyList()
+      WATER -> emptyList()
+      GRASS -> emptyList()
+      ELECTRIC -> emptyList()
+      PSYCHIC -> emptyList()
+      ICE -> emptyList()
+      DRAGON -> emptyList()
+      DARK -> listOf(PSYCHIC)
+      FAIRY -> listOf(DRAGON)
+      UNKNOWN -> emptyList()
+    }
+
+  val attackHalfList: List<Type>
+    get() = when (this) {
+      NORMAL -> listOf(GROUND, STEEL)
+      FIGHTING -> listOf(FLYING, POISON, BUG, PSYCHIC, FAIRY)
+      FLYING -> listOf(ROCK, STEEL, ELECTRIC)
+      POISON -> listOf(POISON, GROUND, ROCK, GHOST)
+      GROUND -> listOf(BUG, GRASS)
+      ROCK -> listOf(FIGHTING, GROUND, STEEL)
+      BUG -> listOf(FIGHTING, STEEL, POISON, GHOST, STEEL, FIRE, FAIRY)
+      GHOST -> listOf(DARK)
+      STEEL -> listOf(STEEL, FIRE, WATER, ELECTRIC)
+      FIRE -> listOf(ROCK, FIRE, WATER, DRAGON)
+      WATER -> listOf(WATER, GRASS, DRAGON)
+      GRASS -> listOf(FLYING, POISON, BUG, STEEL, FIRE, GRASS, DRAGON)
+      ELECTRIC -> listOf(GRASS, ELECTRIC, DRAGON)
+      PSYCHIC -> listOf(STEEL, PSYCHIC)
+      ICE -> listOf(STEEL, FIRE, WATER, ICE)
+      DRAGON -> listOf(STEEL)
+      DARK -> listOf(FIGHTING, DARK, FAIRY)
+      FAIRY -> listOf(POISON, STEEL, FIRE)
+      UNKNOWN -> emptyList()
+    }
+
+  val attackZeroList: List<Type>
+    get() = when (this) {
       NORMAL -> listOf(GHOST)
       FIGHTING -> listOf(GHOST)
       FLYING -> emptyList()
       POISON -> listOf(STEEL)
-      GROUND -> listOf(GROUND)
+      GROUND -> listOf(FLYING)
       ROCK -> emptyList()
       BUG -> emptyList()
       GHOST -> listOf(NORMAL)
@@ -80,26 +149,26 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
       UNKNOWN -> emptyList()
     }
 
-  val attackDoubleList:List<Type>
-    get() = when(this){
+  val attackDoubleList: List<Type>
+    get() = when (this) {
       NORMAL -> emptyList()
-      FIGHTING -> listOf(NORMAL,ROCK,STEEL,ICE,DARK)
-      FLYING -> listOf(FIGHTING,BUG,GRASS)
-      POISON -> listOf(GRASS,FAIRY)
-      GROUND -> listOf(POISON,ROCK)
-      ROCK -> listOf(FIGHTING,BUG,FIRE,ICE)
-      BUG -> listOf(GRASS,PSYCHIC,DARK)
-      GHOST -> listOf(GHOST,PSYCHIC)
-      STEEL -> listOf(ROCK,ICE,FAIRY)
-      FIRE -> listOf(BUG,STEEL,GRASS,ICE)
-      WATER -> listOf(GROUND,ROCK,FIRE)
-      GRASS -> listOf(GROUND,ROCK,WATER)
-      ELECTRIC -> listOf(FLYING,WATER)
-      PSYCHIC -> listOf(FIGHTING,POISON)
-      ICE -> listOf(FIGHTING,GROUND,GRASS,DRAGON)
+      FIGHTING -> listOf(NORMAL, ROCK, STEEL, ICE, DARK)
+      FLYING -> listOf(FIGHTING, BUG, GRASS)
+      POISON -> listOf(GRASS, FAIRY)
+      GROUND -> listOf(POISON, ROCK)
+      ROCK -> listOf(FIGHTING, BUG, FIRE, ICE)
+      BUG -> listOf(GRASS, PSYCHIC, DARK)
+      GHOST -> listOf(GHOST, PSYCHIC)
+      STEEL -> listOf(ROCK, ICE, FAIRY)
+      FIRE -> listOf(BUG, STEEL, GRASS, ICE)
+      WATER -> listOf(GROUND, ROCK, FIRE)
+      GRASS -> listOf(GROUND, ROCK, WATER)
+      ELECTRIC -> listOf(FLYING, WATER)
+      PSYCHIC -> listOf(FIGHTING, POISON)
+      ICE -> listOf(FIGHTING, GROUND, GRASS, DRAGON)
       DRAGON -> listOf(DRAGON)
-      DARK -> listOf(GHOST,PSYCHIC)
-      FAIRY -> listOf(FIGHTING,DRAGON,DARK)
+      DARK -> listOf(GHOST, PSYCHIC)
+      FAIRY -> listOf(FIGHTING, DRAGON, DARK)
       UNKNOWN -> emptyList()
     }
 

@@ -24,6 +24,7 @@
     <string name="default_version">默认版本：%s</string>
     <string name="version_list">版本列表</string>
     <string name="move_list">技能列表(试用)</string>
+    <string name="type_detail">属性详情</string>
     <string name="my_pokemon">我的宝可梦(开发中)</string>
     <string name="team">队伍(开发中)</string>
     <string name="props_list">道具列表</string>
