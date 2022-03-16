@@ -1,3 +1,5 @@
+@file:Suppress("KotlinConstantConditions")
+
 package com.heinika.pokeg.utils
 
 import android.content.ContentValues
@@ -10,9 +12,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
-import java.io.OutputStream
-import java.net.HttpURLConnection
-import java.net.URL
 
 object ImageUtils {
 
@@ -68,28 +67,6 @@ object ImageUtils {
       contentValues.put(MediaStore.MediaColumns.IS_PENDING, false)
     }
     return true
-  }
-
-
-  private fun download(inputUrl: String, os: OutputStream): Boolean {
-    val url = URL(inputUrl)
-    (url.openConnection() as HttpURLConnection).also { conn ->
-      conn.requestMethod = "GET"
-      conn.connectTimeout = 5 * 1000
-      return if (conn.responseCode == 200) {
-        conn.inputStream.use { ins ->
-          val buf = ByteArray(2048)
-          var len: Int
-          while (ins.read(buf).also { len = it } != -1) {
-            os.write(buf, 0, len)
-          }
-          os.flush()
-        }
-        true
-      } else {
-        false
-      }
-    }
   }
 
 }
