@@ -1,6 +1,7 @@
 package com.heinika.pokeg.module.main.itemdelegate
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,14 +9,18 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.drakeet.multitype.ItemViewDelegate
 import com.github.florent37.glidepalette.BitmapPalette
+import com.github.florent37.glidepalette.BuildConfig
 import com.github.florent37.glidepalette.GlidePalette
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.R
 import com.heinika.pokeg.databinding.ItemPokemonBinding
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.utils.BlurTransformation
+import com.heinika.pokeg.utils.ImageUtils
 
 class PokemonItemDelegate(
   private val pokemonRes: PokemonRes,
@@ -55,23 +60,9 @@ class PokemonItemDelegate(
       this.item = pokemon
 
       with(binding) {
-        nameLabel.text = pokemonRes.getNameById(pokemon.id, pokemon.name,pokemon.form)
+        nameLabel.text = pokemonRes.getNameById(pokemon.id, pokemon.name, pokemon.form)
         favoriteCheckBox.isChecked = ConfigMMKV.favoritePokemons.contains(pokemon.id.toString())
-
-        val imageUrl = pokemon.getImageUrl()
-        Glide.with(imageView)
-          .load(imageUrl)
-          .listener(
-            GlidePalette.with(imageUrl)
-              .use(BitmapPalette.Profile.MUTED_LIGHT)
-              .intoCallBack { palette ->
-                val rgb = palette?.dominantSwatch?.rgb
-                if (rgb != null) {
-                  imageView.background.setTint(rgb)
-                }
-              }.crossfade(true)
-          ).into(imageView)
-
+        ImageUtils.loadImage(imageView,pokemon.getImageUrl())
         refreshInfo(pokemon)
       }
     }

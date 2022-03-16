@@ -12,7 +12,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
-import androidx.annotation.Nullable
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +23,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.drakeet.multitype.MultiTypeAdapter
@@ -98,7 +98,7 @@ class DetailPage(
               }
             }
           }.crossfade(true)
-      ).into(binding.image)
+      ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 1))).into(binding.image)
     binding.image.setOnLongClickListener {
       val dialog =
         AlertDialog.Builder(activity)
@@ -113,7 +113,7 @@ class DetailPage(
               .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(
                   resource: Bitmap,
-                  @Nullable transition: Transition<in Bitmap>?
+                  transition: Transition<in Bitmap>?
                 ) {
                   if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
                     if (checkPermission()) {
@@ -131,8 +131,12 @@ class DetailPage(
                   }
                 }
 
-                override fun onLoadCleared(@Nullable placeholder: Drawable?) {
-                  Toast.makeText(activity.applicationContext, activity.applicationContext.getString(R.string.save_image_fail), Toast.LENGTH_SHORT).show()
+                override fun onLoadCleared(placeholder: Drawable?) {
+                  Toast.makeText(
+                    activity.applicationContext,
+                    activity.applicationContext.getString(R.string.save_image_fail),
+                    Toast.LENGTH_SHORT
+                  ).show()
                 }
               })
             dialog.dismiss()
@@ -292,13 +296,8 @@ class DetailPage(
 
                   descText.text = chain.getDescText(pokemonRes)
 
-                  Glide.with(fromImage)
-                    .load(chain.getSpeciesFromImageUrl())
-                    .into(fromImage)
-
-                  Glide.with(toImage)
-                    .load(chain.getSpeciesToImageUrl())
-                    .into(toImage)
+                  ImageUtils.loadImage(fromImage, chain.getSpeciesFromImageUrl())
+                  ImageUtils.loadImage(toImage, chain.getSpeciesToImageUrl())
                 })
           }
         }
@@ -406,7 +405,7 @@ class DetailPage(
   }
 
   private fun saveImageToDCIM(resource: Bitmap) {
-    PhotoUtils.saveBitmap2Gallery2(activity, resource, pokemon.getCName(pokemonRes))
+    ImageUtils.saveBitmap2Gallery2(activity, resource, pokemon.getCName(pokemonRes))
     Toast.makeText(activity.applicationContext, "已保存到相册", Toast.LENGTH_SHORT).show()
   }
 

@@ -4,81 +4,47 @@ import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.os.Build
-import android.os.Environment
 import android.provider.MediaStore
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.github.florent37.glidepalette.BitmapPalette
+import com.github.florent37.glidepalette.GlidePalette
 import java.io.OutputStream
 import java.net.HttpURLConnection
 import java.net.URL
 
-object PhotoUtils {
+object ImageUtils {
 
-  fun saveBitmap2Gallery(context: Context, bitmap: Bitmap): Boolean {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-      //返回出一个URI
-      val insert = context.contentResolver.insert(
-        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-        /*
-        这里如果不写的话 默认是保存在 /sdCard/DCIM/Pictures
-         */
-        ContentValues()//这里可以啥也不设置 保存图片默认就好了
-      ) ?: return false //为空的话 直接失败返回了
-
-      //这个打开了输出流  直接保存图片就好了
-      context.contentResolver.openOutputStream(insert).use {
-        it ?: return false
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
-      }
-      return true
+  fun loadImage(imageView: ImageView, imageUrl: String) {
+    if (com.heinika.pokeg.BuildConfig.FLAVOR == "google") {
+      Glide.with(imageView)
+        .load(imageUrl)
+        .listener(
+          GlidePalette.with(imageUrl)
+            .use(BitmapPalette.Profile.MUTED_LIGHT)
+            .intoCallBack { palette ->
+              val rgb = palette?.dominantSwatch?.rgb
+              if (rgb != null) {
+                imageView.background.setTint(rgb)
+              }
+            }.crossfade(true)
+        ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 1))).into(imageView)
     } else {
-      MediaStore.Images.Media.insertImage(context.contentResolver, bitmap, "title", "desc")
-      return true
+      Glide.with(imageView)
+        .load(imageUrl)
+        .listener(
+          GlidePalette.with(imageUrl)
+            .use(BitmapPalette.Profile.MUTED_LIGHT)
+            .intoCallBack { palette ->
+              val rgb = palette?.dominantSwatch?.rgb
+              if (rgb != null) {
+                imageView.background.setTint(rgb)
+              }
+            }.crossfade(true)
+        ).into(imageView)
     }
   }
-
-  fun saveFile2Gallery(context: Context, url: String): Boolean {
-    //返回出一个URI
-    val insert = context.contentResolver.insert(
-      MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-      /*
-      这里可以默认不写 默认保存在
-       */
-      ContentValues()
-    ) ?: return false //为空的话 直接失败返回了
-    //这个打开了输出流  直接保存图片就好了
-    context.contentResolver.openOutputStream(insert).use { os ->
-      os ?: return false
-      return download(url, os)
-    }
-  }
-
-
-  fun saveFile2Gallery2(context: Context, url: String): Boolean {
-    val name = System.currentTimeMillis().toString()
-    val photoPath = Environment.DIRECTORY_DCIM + "/Camera"
-    val contentValues = ContentValues().apply {
-      put(MediaStore.MediaColumns.DISPLAY_NAME, name)
-      put(MediaStore.Images.Media.MIME_TYPE, "image/png")
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        put(MediaStore.MediaColumns.RELATIVE_PATH, photoPath)//保存路径
-        put(MediaStore.MediaColumns.IS_PENDING, true)
-      }
-    }
-    //返回出一个URI
-    val insert = context.contentResolver.insert(
-      MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-      contentValues
-    ) ?: return false
-    //这个打开了输出流  直接保存图片就好了
-    context.contentResolver.openOutputStream(insert).use { os ->
-      os ?: return false
-      val x = download(url, os)
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        contentValues.put(MediaStore.MediaColumns.IS_PENDING, false)
-      }
-      return x
-    }
-  }
-
 
   fun saveBitmap2Gallery2(
     context: Context,

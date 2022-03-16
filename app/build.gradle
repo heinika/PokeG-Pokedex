@@ -59,6 +59,16 @@ android {
         }
     }
 
+    flavorDimensions "kuan"
+    productFlavors {
+        google{
+            applicationId "com.heinika.pokeg"
+        }
+        kuan{
+            applicationId "com.heinika.pokeg"
+        }
+    }
+
     buildFeatures {
         dataBinding true
         compose = true
@@ -184,6 +194,9 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.12.0"
     implementation "com.github.florent37:glidepalette:2.1.2"
     kapt "com.github.bumptech.glide:compiler:4.12.0"
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
     // custom views
     implementation "com.github.skydoves:progressview:1.1.1"
