@@ -98,7 +98,7 @@ class DetailPage(
               }
             }
           }.crossfade(true)
-      ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 1))).into(binding.image)
+      ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 3))).into(binding.image)
     binding.image.setOnLongClickListener {
       val dialog =
         AlertDialog.Builder(activity)

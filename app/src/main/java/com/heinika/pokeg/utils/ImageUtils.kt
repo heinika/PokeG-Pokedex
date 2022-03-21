@@ -33,7 +33,7 @@ object ImageUtils {
                 imageView.background.setTint(rgb)
               }
             }.crossfade(true)
-        ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 1))).into(imageView)
+        ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 3))).into(imageView)
     } else {
       Glide.with(imageView)
         .load(imageUrl)
@@ -82,7 +82,7 @@ fun rememberFlavorPainter(data: String): Painter {
   return rememberImagePainter(data = data, builder = {
     crossfade(true)
     if (com.heinika.pokeg.BuildConfig.FLAVOR == "google") {
-      transformations(coil.transform.BlurTransformation(LocalContext.current, 7f, 1f))
+      transformations(coil.transform.BlurTransformation(LocalContext.current, 7f, 3f))
     }
   }
   )
