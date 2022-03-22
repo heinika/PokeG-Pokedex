@@ -166,7 +166,9 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, DonationActivity::class.java)) }
-    addView(this)
+    if (com.heinika.pokeg.BuildConfig.FLAVOR != "google") {
+      addView(this)
+    }
   }
 
 
