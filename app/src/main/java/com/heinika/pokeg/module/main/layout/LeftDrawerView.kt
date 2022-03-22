@@ -7,15 +7,14 @@ import android.content.Intent
 import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
-
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.heinika.pokeg.module.about.AboutActivity
 import com.heinika.pokeg.ConfigMMKV
-import com.heinika.pokeg.module.donation.DonationActivity
 import com.heinika.pokeg.R
+import com.heinika.pokeg.module.about.AboutActivity
+import com.heinika.pokeg.module.donation.DonationActivity
 import com.heinika.pokeg.module.egg.EggActivity
 import com.heinika.pokeg.module.gameprops.GamePropsActivity
 import com.heinika.pokeg.module.moves.MoveListActivity
@@ -25,6 +24,7 @@ import com.heinika.pokeg.module.team.TeamActivity
 import com.heinika.pokeg.module.typedetail.TypeDetailActivity
 import com.heinika.pokeg.module.versions.VersionsActivity
 import com.heinika.pokeg.utils.SystemBar
+import com.heinika.pokeg.utils.isGooglePlayFlavor
 
 
 class LeftDrawerView(context: Context) : LinearLayout(context) {
@@ -166,10 +166,9 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, DonationActivity::class.java)) }
-    if (com.heinika.pokeg.BuildConfig.FLAVOR != "google") {
+    if (!isGooglePlayFlavor()) {
       addView(this)
     }
   }
-
 
 }

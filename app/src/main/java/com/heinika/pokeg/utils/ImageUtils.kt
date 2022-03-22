@@ -17,11 +17,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
+import com.heinika.pokeg.BuildConfig
 
 object ImageUtils {
 
   fun loadImage(imageView: ImageView, imageUrl: String) {
-    if (com.heinika.pokeg.BuildConfig.FLAVOR == "google") {
+    if (isGooglePlayFlavor()) {
       Glide.with(imageView)
         .load(imageUrl)
         .listener(
@@ -81,9 +82,11 @@ object ImageUtils {
 fun rememberFlavorPainter(data: String): Painter {
   return rememberImagePainter(data = data, builder = {
     crossfade(true)
-    if (com.heinika.pokeg.BuildConfig.FLAVOR == "google") {
+    if (isGooglePlayFlavor()) {
       transformations(coil.transform.BlurTransformation(LocalContext.current, 7f, 3f))
     }
   }
   )
 }
+
+fun isGooglePlayFlavor() = BuildConfig.FLAVOR == "google"
