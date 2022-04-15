@@ -23,7 +23,6 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.drakeet.multitype.MultiTypeAdapter
@@ -98,7 +97,7 @@ class DetailPage(
               }
             }
           }.crossfade(true)
-      ).apply(RequestOptions.bitmapTransform(BlurTransformation(10, 3))).into(binding.image)
+      ).into(binding.image)
     binding.image.setOnLongClickListener {
       val dialog =
         AlertDialog.Builder(activity)
