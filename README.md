@@ -20,13 +20,11 @@
 
 <p align="center">
 <img src="/previews/team.png" align="left" width="30%"/>
-<img src="/previews/move.jpg" align="left" width="30%"/>
-<img src="/previews/types.png" align="left" width="30%"/>
+<img src="/previews/move.jpg" align="center" width="30%"/>
+<img src="/previews/types.png" align="center" width="30%"/>
 </p>
 
 <br/>
-
-<h1 align="center">Thank You To Use This Pokedex</h1>
 
 I want to use PokeG to simple glance pokemon's status with happy mood.
 
