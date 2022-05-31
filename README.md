@@ -29,5 +29,5 @@
 I want to use PokeG to simple glance pokemon's status with happy mood.
 
 ## Download
-Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK.
+Go to the [Releases](https://github.com/heinika/PokeG/releases) to download the latest APK. <br/>
 Download from market: https://www.coolapk.com/apk/283809
