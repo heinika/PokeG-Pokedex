@@ -21,7 +21,7 @@
 <p align="center">
 <img src="/previews/team.png" align="left" width="30%"/>
 <img src="/previews/move.jpg" align="center" width="30%"/>
-<img src="/previews/types.png" align="center" width="30%"/>
+<img src="/previews/types.png" align="right" width="30%"/>
 </p>
 
 <br/>
