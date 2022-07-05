@@ -63,7 +63,7 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
       FIGHTING -> listOf(BUG, ROCK, DARK)
       FLYING -> listOf(BUG, FIGHTING, GRASS)
       POISON -> listOf(BUG, POISON, FIGHTING, GRASS, FAIRY)
-      GROUND -> listOf(POISON, GRASS, ICE)
+      GROUND -> listOf(POISON, ROCK)
       ROCK -> listOf(NORMAL, POISON, FLYING, FIRE)
       BUG -> listOf(GROUND, FIGHTING, GRASS)
       GHOST -> listOf(BUG, POISON)
@@ -105,7 +105,7 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
 
   val attackHalfList: List<Type>
     get() = when (this) {
-      NORMAL -> listOf(GROUND, STEEL)
+      NORMAL -> listOf(ROCK, STEEL)
       FIGHTING -> listOf(FLYING, POISON, BUG, PSYCHIC, FAIRY)
       FLYING -> listOf(ROCK, STEEL, ELECTRIC)
       POISON -> listOf(POISON, GROUND, ROCK, GHOST)
@@ -155,7 +155,7 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
       FIGHTING -> listOf(NORMAL, ROCK, STEEL, ICE, DARK)
       FLYING -> listOf(FIGHTING, BUG, GRASS)
       POISON -> listOf(GRASS, FAIRY)
-      GROUND -> listOf(POISON, ROCK)
+      GROUND -> listOf(POISON, FIRE, ELECTRIC, ROCK, STEEL)
       ROCK -> listOf(FIGHTING, BUG, FIRE, ICE)
       BUG -> listOf(GRASS, PSYCHIC, DARK)
       GHOST -> listOf(GHOST, PSYCHIC)
