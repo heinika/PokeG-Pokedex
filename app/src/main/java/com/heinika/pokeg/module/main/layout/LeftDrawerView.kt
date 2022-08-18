@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.heinika.pokeg.module.main.layout
 
 import android.annotation.SuppressLint
@@ -7,7 +9,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -64,7 +65,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     }
   }
 
-  @ExperimentalFoundationApi
+  
   @SuppressLint("SetTextI18n")
   private val versionsButton = AppCompatButton(context).apply {
     text = context.resources.getString(R.string.version_list)
@@ -75,7 +76,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
-  @ExperimentalFoundationApi
+
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val typeDetailButton = AppCompatButton(context).apply {
@@ -97,7 +98,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
-  @ExperimentalFoundationApi
+  
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val myPokemonButton = AppCompatButton(context).apply {
@@ -109,7 +110,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
-  @ExperimentalFoundationApi
+  
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val teamsButton = AppCompatButton(context).apply {

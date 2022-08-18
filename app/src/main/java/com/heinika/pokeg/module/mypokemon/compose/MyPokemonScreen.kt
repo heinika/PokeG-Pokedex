@@ -1,7 +1,7 @@
 package com.heinika.pokeg.module.mypokemon.compose
 
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -36,7 +36,7 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.rememberFlavorPainter
 
 
-@ExperimentalFoundationApi
+
 @Composable
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
@@ -76,7 +76,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
   }
 }
 
-@ExperimentalFoundationApi
+
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Preview

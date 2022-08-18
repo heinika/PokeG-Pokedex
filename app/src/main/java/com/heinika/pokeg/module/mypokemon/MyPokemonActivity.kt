@@ -6,7 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
@@ -24,7 +24,7 @@ import com.heinika.pokeg.ui.theme.TeamTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
 
-@ExperimentalFoundationApi
+
 
 @ExperimentalCoilApi
 @ExperimentalMaterialApi

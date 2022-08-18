@@ -1,7 +1,7 @@
 package com.heinika.pokeg.module.team.compose
 
 import android.widget.Toast
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -46,7 +46,7 @@ import com.heinika.pokeg.utils.toTypeColor
 import kotlin.random.Random
 
 
-@ExperimentalFoundationApi
+
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable

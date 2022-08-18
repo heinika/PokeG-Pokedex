@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -29,7 +29,7 @@ import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.info.Version
 
-@ExperimentalFoundationApi
+
 class VersionsActivity : ComponentActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class VersionsActivity : ComponentActivity() {
   }
 }
 
-@ExperimentalFoundationApi
+
 @Preview
 @Composable
 fun VersionsScreen() {

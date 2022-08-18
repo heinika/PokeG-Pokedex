@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
@@ -18,7 +18,7 @@ import com.heinika.pokeg.module.typedetail.compose.TypeDetailScreen
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 
-@ExperimentalFoundationApi
+
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 class TypeDetailActivity : ComponentActivity() {

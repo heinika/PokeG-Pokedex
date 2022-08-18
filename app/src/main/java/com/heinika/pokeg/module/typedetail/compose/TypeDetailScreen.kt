@@ -1,6 +1,6 @@
 package com.heinika.pokeg.module.typedetail.compose
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,7 +19,7 @@ import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
-@ExperimentalFoundationApi
+
 @Composable
 fun TypeDetailScreen() {
   var curTypes by remember {
@@ -58,7 +58,7 @@ fun TypeDetailScreen() {
 }
 
 
-@ExperimentalFoundationApi
+
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Preview
