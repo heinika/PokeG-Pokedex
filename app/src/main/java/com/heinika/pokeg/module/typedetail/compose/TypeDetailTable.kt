@@ -2,9 +2,11 @@ package com.heinika.pokeg.module.typedetail.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -48,7 +50,7 @@ fun TypeDetailTable(curTypes: List<Type>) {
           modifier = Modifier.padding(4.dp),
           style = MaterialTheme.typography.h5
         )
-        TitleTypeCard(
+        TypeCard(
           typeName = it.getName(LocalContext.current),
           modifier = Modifier.padding(4.dp),
           color = it.endColor
@@ -155,7 +157,7 @@ private fun TypesTable(typesMap: LinkedHashMap<String, List<List<Type>>>) {
         TypesFilterRow(
           Modifier
             .weight(8f)
-            .height(60.dp), it.value
+            .height(if (it.value.size <= 6) 30.dp else 60.dp), it.value
         )
       }
     }
@@ -177,7 +179,7 @@ private fun TypeTable(typesMap: LinkedHashMap<String, List<Type>>) {
         TypeFilterGrid(
           Modifier
             .weight(8f)
-            .height(60.dp), it.value
+            .height(if (it.value.size <= 6) 30.dp else 60.dp), it.value
         )
       }
     }
@@ -188,18 +190,26 @@ private fun TypeTable(typesMap: LinkedHashMap<String, List<Type>>) {
 private fun TypesFilterRow(modifier: Modifier, typesList: List<List<Type>>) {
   Box(modifier) {
     if (typesList.isEmpty()) {
-      EmptyText()
+      EmptyText(modifier = Modifier.align(Alignment.CenterStart))
     } else {
-      LazyHorizontalGrid(
-        modifier = Modifier.align(Alignment.Center),
-        rows = GridCells.Fixed(2),
-        verticalArrangement = Arrangement.Center,
-        horizontalArrangement = Arrangement.Center,
-        content = {
+      if (typesList.size <= 6) {
+        LazyRow(modifier = Modifier.align(Alignment.CenterStart), verticalAlignment = Alignment.CenterVertically) {
           items(typesList) {
             TypesCard(it)
           }
-        })
+        }
+      } else {
+        LazyHorizontalGrid(
+          modifier = Modifier.align(Alignment.CenterStart),
+          rows = GridCells.Fixed(2),
+          verticalArrangement = Arrangement.Center,
+          horizontalArrangement = Arrangement.Center,
+          content = {
+            items(typesList) {
+              TypesCard(it)
+            }
+          })
+      }
     }
   }
 }
@@ -208,7 +218,7 @@ private fun TypesFilterRow(modifier: Modifier, typesList: List<List<Type>>) {
 private fun TypesCard(it: List<Type>) {
   if (it.size == 1) {
     val curType = it.first()
-    TitleTypeCard(
+    TypeCard(
       typeName = curType.getName(LocalContext.current),
       modifier = Modifier.padding(4.dp),
       color = curType.endColor
@@ -230,14 +240,10 @@ private fun TypesCard(it: List<Type>) {
 private fun TypeFilterGrid(modifier: Modifier, typeList: List<Type>) {
   Box(modifier = modifier) {
     if (typeList.isEmpty()) {
-      EmptyText(modifier = Modifier.align(Alignment.Center))
+      EmptyText(modifier = Modifier.align(Alignment.CenterStart))
     } else {
-      LazyHorizontalGrid(
-        modifier = Modifier.align(Alignment.Center),
-        rows = GridCells.Fixed(2),
-        verticalArrangement = Arrangement.Center,
-        horizontalArrangement = Arrangement.Center,
-        content = {
+      if (typeList.size <= 6) {
+        LazyRow(modifier = Modifier.align(Alignment.CenterStart)) {
           items(typeList) {
             TypeCard(
               typeName = it.getName(LocalContext.current),
@@ -245,26 +251,24 @@ private fun TypeFilterGrid(modifier: Modifier, typeList: List<Type>) {
               color = it.endColor
             )
           }
-        })
+        }
+      } else {
+        LazyHorizontalGrid(
+          modifier = Modifier.align(Alignment.CenterStart),
+          rows = GridCells.Fixed(2),
+          verticalArrangement = Arrangement.Center,
+          horizontalArrangement = Arrangement.Center,
+          content = {
+            items(typeList) {
+              TypeCard(
+                typeName = it.getName(LocalContext.current),
+                modifier = Modifier.padding(4.dp),
+                color = it.endColor
+              )
+            }
+          })
+      }
     }
-  }
-}
-
-@Composable
-private fun TitleTypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Color) {
-  Box(
-    modifier
-      .width(60.dp)
-      .height(20.dp)
-      .clip(RoundedCornerShape(12.dp))
-      .background(color)
-  ) {
-    Text(
-      text = typeName,
-      Modifier.align(Alignment.Center),
-      color = Color.White,
-      style = MaterialTheme.typography.body2
-    )
   }
 }
 
@@ -272,7 +276,7 @@ private fun TitleTypeCard(modifier: Modifier = Modifier, typeName: String = "草
 private fun TypesCard(modifier: Modifier = Modifier, typeName: String = "草", colors: List<Color>) {
   Box(
     modifier
-      .fillMaxWidth()
+      .width(60.dp)
       .clip(RoundedCornerShape(12.dp))
       .background(brush = Brush.linearGradient(colors))
   ) {
@@ -288,7 +292,7 @@ private fun TypesCard(modifier: Modifier = Modifier, typeName: String = "草", c
 @Composable
 private fun EmptyText(modifier: Modifier = Modifier) {
   TypeCard(
-    typeName = "None",
+    typeName = stringResource(id = R.string.none),
     modifier = modifier.padding(4.dp),
     color = Color.Black
   )
@@ -298,7 +302,7 @@ private fun EmptyText(modifier: Modifier = Modifier) {
 private fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Color) {
   Box(
     modifier
-      .width(64.dp)
+      .width(42.dp)
       .height(20.dp)
       .clip(RoundedCornerShape(12.dp))
       .background(color)
