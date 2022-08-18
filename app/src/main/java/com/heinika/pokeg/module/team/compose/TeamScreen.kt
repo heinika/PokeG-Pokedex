@@ -6,9 +6,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -28,7 +29,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Move
@@ -60,7 +60,8 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
     }) {
       Image(Icons.Default.Add, "")
     }
-  }) {
+  }) { paddingValues ->
+    paddingValues.calculateTopPadding()
     Box(modifier = Modifier.fillMaxSize()) {
       val context = LocalContext.current
       val teamNumberMap by remember { teamViewModel.teamNumberMap }
@@ -107,7 +108,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
           isAddTeamDialogVisible = false
         }, buttons = {
           Text(text = "我的宝可梦")
-          LazyVerticalGrid(cells = GridCells.Fixed(3)) {
+          LazyVerticalGrid(columns = GridCells.Fixed(3)) {
             items(teamViewModel.allMyPokemonList.value) {
               TeamNumberCard(id = it.id, name = it.name) {
                 if (it.teamName.isEmpty() || it.teamName == selectedTeamName){

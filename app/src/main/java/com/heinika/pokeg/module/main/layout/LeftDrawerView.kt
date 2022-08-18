@@ -75,6 +75,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
+  @ExperimentalFoundationApi
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val typeDetailButton = AppCompatButton(context).apply {
