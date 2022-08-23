@@ -9,60 +9,48 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.module.moves.compose.ChipStatus
 import com.heinika.pokeg.module.moves.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
+import com.heinika.pokeg.module.typedetail.TypeDetailScreenViewModel
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
-
 @Composable
-fun TypeDetailScreen() {
-  var curTypes by remember {
-    mutableStateOf<List<Type>>(emptyList())
-  }
+fun TypeDetailScreen(typeDetailScreenViewModel: TypeDetailScreenViewModel, navController: NavHostController? = null) {
   val typeChipsStatus = remember {
-    mutableListOf<ChipStatus>().apply {
-      repeat(Type.values().size) {
-        add(ChipStatus.UnSelected)
+    mutableStateListOf<ChipStatus>().apply {
+      Type.values().dropLast(1).forEach {
+        add(if (typeDetailScreenViewModel.curTypes.contains(it)) ChipStatus.Selected else ChipStatus.UnSelected)
       }
-    }.toMutableStateList()
+    }
   }
 
   LazyColumn(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp))) {
     item {
-      SelectTwoTypeClipList(typeChipsStatus) {
-        curTypes = it
+      SelectTwoTypeClipList(typeChipsStatus) { types ->
+        typeDetailScreenViewModel.curTypes = types
       }
     }
 
-    if (curTypes.isNotEmpty()) {
+    if (typeDetailScreenViewModel.curTypes.isNotEmpty()) {
       item {
-        TypeDetailTable(curTypes)
+        TypeDetailTable(typeDetailScreenViewModel.curTypes)
       }
 
       items(pokemonList.filter {
-        it.types.contains(curTypes.first().typeId) && it.types.contains(curTypes.last().typeId)
+        it.types.contains(typeDetailScreenViewModel.curTypes.first().typeId) && it.types.contains(typeDetailScreenViewModel.curTypes.last().typeId)
       }) { pokemon ->
         PokemonCard(pokemon = pokemon, onclick = {
-
+          navController?.navigate("PokemonDetailScreen/${it.globalId}")
         })
       }
-
     }
+
   }
-}
-
-
-
-@ExperimentalCoilApi
-@ExperimentalMaterialApi
-@Preview
-@Composable
-fun TypeDetailScreenPreView() {
-  TypeDetailScreen()
 }

@@ -9,6 +9,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.widget.LinearLayout
 import androidx.appcompat.widget.AppCompatButton
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -28,6 +29,7 @@ import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.isGooglePlayFlavor
 
 
+@ExperimentalAnimationApi
 class LeftDrawerView(context: Context) : LinearLayout(context) {
 
   init {

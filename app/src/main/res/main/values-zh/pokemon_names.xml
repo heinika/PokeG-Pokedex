@@ -912,10 +912,10 @@
     <string name="pokemon_name_10010">结冰洛托姆</string>
     <string name="pokemon_name_10011">旋转洛托姆</string>
     <string name="pokemon_name_10012">切割洛托姆</string>
-    <string name="pokemon_name_10013">漂浮泡泡太阳的样子</string>
-    <string name="pokemon_name_10014">漂浮泡泡雨水的样子</string>
-    <string name="pokemon_name_10015">漂浮泡泡雪云的样子</string>
-    <string name="pokemon_name_10016">野蛮鲈鱼蓝条纹的样子</string>
+    <string name="pokemon_name_10013">漂浮泡泡太阳</string>
+    <string name="pokemon_name_10014">漂浮泡泡雨水</string>
+    <string name="pokemon_name_10015">漂浮泡泡雪云</string>
+    <string name="pokemon_name_10016">野蛮鲈鱼蓝条纹</string>
     <string name="pokemon_name_10017">达摩狒狒达摩模式</string>
     <string name="pokemon_name_10018">美洛耶塔舞步形态</string>
     <string name="pokemon_name_10019">龙卷云灵兽形态</string>
@@ -923,8 +923,8 @@
     <string name="pokemon_name_10021">土地云灵兽形态</string>
     <string name="pokemon_name_10022">暗黑酋雷姆</string>
     <string name="pokemon_name_10023">焰白酋雷姆</string>
-    <string name="pokemon_name_10024">凯路迪欧觉悟的样子</string>
-    <string name="pokemon_name_10025">超能妙喵雌性的样子</string>
+    <string name="pokemon_name_10024">凯路迪欧觉悟</string>
+    <string name="pokemon_name_10025">超能妙喵雌性</string>
     <string name="pokemon_name_10026">坚盾剑怪剑形态</string>
 
 
@@ -972,8 +972,8 @@
     <string name="pokemon_name_10074">超级冰鬼护</string>
     <string name="pokemon_name_10075">超级蒂安希</string>
     <string name="pokemon_name_10076">超级巨金怪</string>
-    <string name="pokemon_name_10077">盖欧卡原始回归的样子</string>
-    <string name="pokemon_name_10078">固拉多原始回归的样子</string>
+    <string name="pokemon_name_10077">盖欧卡原始回归</string>
+    <string name="pokemon_name_10078">固拉多原始回归</string>
     <string name="pokemon_name_10079">超级烈空坐</string>
 
     <string name="pokemon_name_10080">硬摇滚皮卡丘</string>
@@ -989,9 +989,9 @@
     <string name="pokemon_name_10089">超级暴飞龙</string>
     <string name="pokemon_name_10090">超级大针蜂</string>
 
-    <string name="pokemon_name_10091">小拉达阿罗拉的样子</string>
-    <string name="pokemon_name_10092">拉达阿罗拉的样子</string>
-    <string name="pokemon_name_10093">拉达图腾阿罗拉的样子</string>
+    <string name="pokemon_name_10091">小拉达阿罗拉</string>
+    <string name="pokemon_name_10092">拉达阿罗拉</string>
+    <string name="pokemon_name_10093">拉达图腾阿罗拉</string>
 
     <string name="pokemon_name_10094">皮卡丘初始帽子</string>
     <string name="pokemon_name_10095">皮卡丘丰缘帽子</string>
@@ -1000,22 +1000,22 @@
     <string name="pokemon_name_10098">皮卡丘卡洛斯帽子</string>
     <string name="pokemon_name_10099">皮卡丘阿罗拉帽子</string>
 
-    <string name="pokemon_name_10100">雷丘阿罗拉的样子</string>
-    <string name="pokemon_name_10101">穿山甲阿罗拉的样子</string>
-    <string name="pokemon_name_10102">穿山王阿罗拉的样子</string>
-    <string name="pokemon_name_10103">六尾阿罗拉的样子</string>
-    <string name="pokemon_name_10104">九尾阿罗拉的样子</string>
-    <string name="pokemon_name_10105">地鼠阿罗拉的样子</string>
-    <string name="pokemon_name_10106">三地鼠阿罗拉的样子</string>
-    <string name="pokemon_name_10107">喵喵阿罗拉的样子</string>
-    <string name="pokemon_name_10108">猫老大阿罗拉的样子</string>
-    <string name="pokemon_name_10109">小拳石阿罗拉的样子</string>
-    <string name="pokemon_name_10110">隆隆石阿罗拉的样子</string>
-    <string name="pokemon_name_10111">隆隆岩阿罗拉的样子</string>
-    <string name="pokemon_name_10112">臭泥阿罗拉的样子</string>
-    <string name="pokemon_name_10113">臭臭泥阿罗拉的样子</string>
-    <string name="pokemon_name_10114">椰蛋树阿罗拉的样子</string>
-    <string name="pokemon_name_10115">格拉格拉阿罗拉的样子</string>
+    <string name="pokemon_name_10100">雷丘阿罗拉</string>
+    <string name="pokemon_name_10101">穿山甲阿罗拉</string>
+    <string name="pokemon_name_10102">穿山王阿罗拉</string>
+    <string name="pokemon_name_10103">六尾阿罗拉</string>
+    <string name="pokemon_name_10104">九尾阿罗拉</string>
+    <string name="pokemon_name_10105">地鼠阿罗拉</string>
+    <string name="pokemon_name_10106">三地鼠阿罗拉</string>
+    <string name="pokemon_name_10107">喵喵阿罗拉</string>
+    <string name="pokemon_name_10108">猫老大阿罗拉</string>
+    <string name="pokemon_name_10109">小拳石阿罗拉</string>
+    <string name="pokemon_name_10110">隆隆石阿罗拉</string>
+    <string name="pokemon_name_10111">隆隆岩阿罗拉</string>
+    <string name="pokemon_name_10112">臭泥阿罗拉</string>
+    <string name="pokemon_name_10113">臭臭泥阿罗拉</string>
+    <string name="pokemon_name_10114">椰蛋树阿罗拉</string>
+    <string name="pokemon_name_10115">格拉格拉阿罗拉</string>
     <string name="pokemon_name_10116">甲贺忍蛙战斗羁绊</string>
     <string name="pokemon_name_10117">小智版甲贺忍蛙</string>
     <string name="pokemon_name_10118">基格尔德１０％形态</string>
@@ -1025,62 +1025,62 @@
     <string name="pokemon_name_10123">花舞鸟啪滋啪滋风格</string>
     <string name="pokemon_name_10124">花舞鸟呼拉呼拉风格</string>
     <string name="pokemon_name_10125">花舞鸟轻盈轻盈风格</string>
-    <string name="pokemon_name_10126">鬃岩狼人黑夜的样子</string>
-    <string name="pokemon_name_10127">弱丁鱼鱼群的样子</string>
+    <string name="pokemon_name_10126">鬃岩狼人黑夜</string>
+    <string name="pokemon_name_10127">弱丁鱼鱼群</string>
 
-    <string name="pokemon_name_10130">小陨星流星的样子</string>
-    <string name="pokemon_name_10131">小陨星流星的样子</string>
-    <string name="pokemon_name_10132">小陨星流星的样子</string>
-    <string name="pokemon_name_10133">小陨星流星的样子</string>
-    <string name="pokemon_name_10134">小陨星流星的样子</string>
-    <string name="pokemon_name_10135">小陨星流星的样子</string>
-    <string name="pokemon_name_10136">小陨星流星的样子</string>
-    <string name="pokemon_name_10137">小陨星流星的样子</string>
-    <string name="pokemon_name_10138">小陨星流星的样子</string>
-    <string name="pokemon_name_10139">小陨星流星的样子</string>
-    <string name="pokemon_name_10140">小陨星流星的样子</string>
-    <string name="pokemon_name_10141">小陨星流星的样子</string>
-    <string name="pokemon_name_10142">小陨星流星的样子</string>
+    <string name="pokemon_name_10130">小陨星流星</string>
+    <string name="pokemon_name_10131">小陨星流星</string>
+    <string name="pokemon_name_10132">小陨星流星</string>
+    <string name="pokemon_name_10133">小陨星流星</string>
+    <string name="pokemon_name_10134">小陨星流星</string>
+    <string name="pokemon_name_10135">小陨星流星</string>
+    <string name="pokemon_name_10136">小陨星流星</string>
+    <string name="pokemon_name_10137">小陨星流星</string>
+    <string name="pokemon_name_10138">小陨星流星</string>
+    <string name="pokemon_name_10139">小陨星流星</string>
+    <string name="pokemon_name_10140">小陨星流星</string>
+    <string name="pokemon_name_10141">小陨星流星</string>
+    <string name="pokemon_name_10142">小陨星流星</string>
 
-    <string name="pokemon_name_10143">迷你Q现形的样子</string>
+    <string name="pokemon_name_10143">迷你Q现形</string>
 
     <string name="pokemon_name_10147">500年前的颜色</string>
     <string name="pokemon_name_10148">皮卡丘就决定是你了的帽子</string>
 
-    <string name="pokemon_name_10152">鬃岩狼人黄昏的样子</string>
+    <string name="pokemon_name_10152">鬃岩狼人黄昏</string>
 
     <string name="pokemon_name_10155">奈克洛兹玛黄昏之鬃</string>
     <string name="pokemon_name_10156">奈克洛兹玛拂晓之翼</string>
     <string name="pokemon_name_10157">究极奈克洛兹玛</string>
 
-    <string name="pokemon_name_10158">喵喵加勒尔的样子</string>
-    <string name="pokemon_name_10159">小火马加勒尔的样子</string>
-    <string name="pokemon_name_10160">烈焰马加勒尔的样子</string>
-    <string name="pokemon_name_10161">呆呆兽加勒尔的样子</string>
-    <string name="pokemon_name_10162">呆河马加勒尔的样子</string>
-    <string name="pokemon_name_10163">大葱鸭加勒尔的样子</string>
-    <string name="pokemon_name_10164">双弹瓦斯加勒尔的样子</string>
-    <string name="pokemon_name_10165">吸盘魔偶加勒尔的样子</string>
-    <string name="pokemon_name_10166">急冻鸟加勒尔的样子</string>
-    <string name="pokemon_name_10167">闪电鸟加勒尔的样子</string>
-    <string name="pokemon_name_10168">火焰鸟加勒尔的样子</string>
-    <string name="pokemon_name_10169">呆呆王加勒尔的样子</string>
-    <string name="pokemon_name_10170">太阳珊瑚加勒尔的样子</string>
-    <string name="pokemon_name_10171">蛇纹熊加勒尔的样子</string>
-    <string name="pokemon_name_10172">直冲熊加勒尔的样子</string>
-    <string name="pokemon_name_10173">火红不倒翁加勒尔的样子</string>
-    <string name="pokemon_name_10174">达摩狒狒加勒尔的样子</string>
-    <string name="pokemon_name_10175">达摩狒狒达摩模式加勒尔的样子</string>
-    <string name="pokemon_name_10176">哭哭面具加勒尔的样子</string>
-    <string name="pokemon_name_10177">泥巴鱼加勒尔的样子</string>
-    <string name="pokemon_name_10178">颤弦蝾螈低调的样子</string>
+    <string name="pokemon_name_10158">喵喵加勒尔</string>
+    <string name="pokemon_name_10159">小火马加勒尔</string>
+    <string name="pokemon_name_10160">烈焰马加勒尔</string>
+    <string name="pokemon_name_10161">呆呆兽加勒尔</string>
+    <string name="pokemon_name_10162">呆河马加勒尔</string>
+    <string name="pokemon_name_10163">大葱鸭加勒尔</string>
+    <string name="pokemon_name_10164">双弹瓦斯加勒尔</string>
+    <string name="pokemon_name_10165">吸盘魔偶加勒尔</string>
+    <string name="pokemon_name_10166">急冻鸟加勒尔</string>
+    <string name="pokemon_name_10167">闪电鸟加勒尔</string>
+    <string name="pokemon_name_10168">火焰鸟加勒尔</string>
+    <string name="pokemon_name_10169">呆呆王加勒尔</string>
+    <string name="pokemon_name_10170">太阳珊瑚加勒尔</string>
+    <string name="pokemon_name_10171">蛇纹熊加勒尔</string>
+    <string name="pokemon_name_10172">直冲熊加勒尔</string>
+    <string name="pokemon_name_10173">火红不倒翁加勒尔</string>
+    <string name="pokemon_name_10174">达摩狒狒加勒尔</string>
+    <string name="pokemon_name_10175">达摩狒狒达摩模式加勒尔</string>
+    <string name="pokemon_name_10176">哭哭面具加勒尔</string>
+    <string name="pokemon_name_10177">泥巴鱼加勒尔</string>
+    <string name="pokemon_name_10178">颤弦蝾螈低调</string>
     <string name="pokemon_name_10179">冰砌鹅解冻形态</string>
     <string name="pokemon_name_10180">爱管侍雌性</string>
     <string name="pokemon_name_10181">苍响剑之王</string>
     <string name="pokemon_name_10182">藏玛然特盾之王</string>
     <string name="pokemon_name_10183">武道熊师连击流</string>
-    <string name="pokemon_name_10184">蕾冠王骑白马的样子</string>
-    <string name="pokemon_name_10185">蕾冠王骑黑马的样子</string>
+    <string name="pokemon_name_10184">蕾冠王骑白马</string>
+    <string name="pokemon_name_10185">蕾冠王骑黑马</string>
 
     <string name="pokemon_name_10186">妙蛙花极巨化</string>
     <string name="pokemon_name_10187">喷火龙极巨化</string>
@@ -1106,7 +1106,7 @@
     <string name="pokemon_name_10207">苹裹龙极巨化</string>
     <string name="pokemon_name_10208">苹裹龙极巨化</string>
     <string name="pokemon_name_10209">沙螺蟒极巨化</string>
-    <string name="pokemon_name_10210">颤弦蝾螈低调的样子极巨化</string>
+    <string name="pokemon_name_10210">颤弦蝾螈低调极巨化</string>
     <string name="pokemon_name_10211">焚焰蚣极巨化</string>
     <string name="pokemon_name_10212">布莉姆温极巨化</string>
     <string name="pokemon_name_10213">长毛巨魔极巨化</string>
@@ -1116,5 +1116,5 @@
     <string name="pokemon_name_10217">无极汰那极巨化</string>
     <string name="pokemon_name_10218">武道熊师一击流极巨化</string>
     <string name="pokemon_name_10219">武道熊师连击流极巨化</string>
-    <string name="pokemon_name_10220">颤弦蝾螈低调的样子极巨化</string>
+    <string name="pokemon_name_10220">颤弦蝾螈低调极巨化</string>
 </resources>

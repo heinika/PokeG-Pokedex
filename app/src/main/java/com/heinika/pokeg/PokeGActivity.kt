@@ -3,6 +3,7 @@ package com.heinika.pokeg
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
+import androidx.compose.animation.ExperimentalAnimationApi
 
 import androidx.compose.material.ExperimentalMaterialApi
 import com.heinika.pokeg.base.BasePage
@@ -14,6 +15,7 @@ import java.util.*
 import javax.inject.Inject
 
 
+@ExperimentalAnimationApi
 @AndroidEntryPoint
 @ExperimentalMaterialApi
 class PokeGActivity : ComponentActivity() {

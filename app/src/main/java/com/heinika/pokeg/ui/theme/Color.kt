@@ -136,3 +136,17 @@ val NaiveColor = Color(0xff35858B)
 val SeriousColor = Color(0xff072227)
 
 val YellowLight = Color(0xffF2CB07)
+
+val specieNameCardColor = Color(0x3300ffff)
+val abilityCardColor = Color(0x13006AF6)
+val heightCardColor = Color(0x43ff6AF6)
+val weightCardColor = Color(0x630f0Af6)
+val tagCardColor = Color(0x43f00A06)
+val cardBackgroundColor = Color(0xff162544)
+
+val progressHpColor = Color(0xffF05454)
+val progressAttackColor = Color(0xffFFA726)
+val progressDefenseColor = Color(0xff0091EA)
+val progressSpAttackColor = Color(0xff388E3C)
+val progressSpDefenseColor = Color(0xff642785)
+val progressSpeedColor = Color(0xff7ECFF2)

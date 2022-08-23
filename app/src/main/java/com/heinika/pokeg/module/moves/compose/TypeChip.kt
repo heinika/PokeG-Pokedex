@@ -40,7 +40,7 @@ enum class ChipStatus {
 
 @ExperimentalMaterialApi
 @Composable
-fun TypeClipList(modifier: Modifier = Modifier,onSelectedChange: (List<Type>) -> Unit) {
+fun TypeClipList(modifier: Modifier = Modifier, onSelectedChange: (List<Type>) -> Unit) {
   val typeArray = Type.values().dropLast(1)
   val typeChipsStatus = remember {
     mutableListOf<ChipStatus>().apply {
@@ -82,8 +82,8 @@ fun TypeClipList(modifier: Modifier = Modifier,onSelectedChange: (List<Type>) ->
 
 @ExperimentalMaterialApi
 @Composable
-fun SelectTwoTypeClipList(typeChipsStatus: MutableList<ChipStatus>,onSelectedChange: (List<Type>) -> Unit) {
-  val typeArray = remember { Type.values()}
+fun SelectTwoTypeClipList(typeChipsStatus: MutableList<ChipStatus>, onSelectedChange: (List<Type>) -> Unit) {
+  val typeArray = remember { Type.values().dropLast(1) }
 
   FlowRow(
     Modifier

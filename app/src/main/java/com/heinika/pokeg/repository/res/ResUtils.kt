@@ -1,10 +1,13 @@
 package com.heinika.pokeg.repository.res
 
 import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import com.heinika.pokeg.R
 import com.heinika.pokeg.utils.toFormString
 
 import timber.log.Timber
+import java.util.*
 
 object ResUtils {
 
@@ -28,6 +31,14 @@ object ResUtils {
       Timber.e("no resource name $name")
       default
     }
+  }
+
+  fun getLocalizedResources(context: Context, desiredLocale: Locale): Resources {
+    var conf: Configuration = context.getResources().getConfiguration()
+    conf = Configuration(conf)
+    conf.setLocale(desiredLocale)
+    val localizedContext: Context = context.createConfigurationContext(conf)
+    return localizedContext.getResources()
   }
 
   fun getVersionName(id: Int, context: Context) = context.resources.getStringArray(R.array.versions)[id - 1] ?: "?"
