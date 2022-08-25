@@ -15,6 +15,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.R
+import com.heinika.pokeg.module.ability.AbilitiesActivity
 import com.heinika.pokeg.module.about.AboutActivity
 import com.heinika.pokeg.module.donation.DonationActivity
 import com.heinika.pokeg.module.egg.EggActivity
@@ -87,6 +88,17 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, TypeDetailActivity::class.java)) }
+    addView(this)
+  }
+
+  @ExperimentalCoilApi
+  @ExperimentalMaterialApi
+  private val abilitiesButton = AppCompatButton(context).apply {
+    text = context.resources.getString(R.string.abilities_detail)
+    background.setTint(context.getColor(R.color.ice))
+    setTextColor(Color.WHITE)
+
+    setOnClickListener { context.startActivity(Intent(context, AbilitiesActivity::class.java)) }
     addView(this)
   }
 

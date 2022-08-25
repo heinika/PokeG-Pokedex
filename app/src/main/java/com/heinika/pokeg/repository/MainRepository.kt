@@ -16,7 +16,9 @@ import timber.log.Timber
 import java.io.File
 import java.lang.reflect.Type
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MainRepository @Inject constructor(
   private val pokemonRes: PokemonRes,
   private val moshi: Moshi,

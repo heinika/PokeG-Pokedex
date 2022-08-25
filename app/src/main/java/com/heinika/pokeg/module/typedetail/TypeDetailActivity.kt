@@ -23,6 +23,10 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.heinika.pokeg.info.Ability
+import com.heinika.pokeg.module.ability.AbilityScreen
+import com.heinika.pokeg.module.ability.AbilityViewModel
+import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.detailcompose.PokemonDetailScreen
 import com.heinika.pokeg.module.typedetail.compose.TypeDetailScreen
 import com.heinika.pokeg.ui.theme.PokeGTheme
@@ -36,6 +40,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class TypeDetailActivity : ComponentActivity() {
   private val typeDetailScreenViewModel: TypeDetailScreenViewModel by viewModels()
+  private val detailViewModel: DetailViewModel by viewModels()
+  private val abilityViewModel: AbilityViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -53,15 +59,19 @@ class TypeDetailActivity : ComponentActivity() {
           val navController = rememberAnimatedNavController()
           AnimatedNavHost(navController, startDestination = "TypeDetailScreen") {
             //TypeDetailScreen
-            composable(route = "TypeDetailScreen", enterTransition = {
-              fadeIn()
-            }, exitTransition = {
-              fadeOut()
-            }, content = {
-              Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                TypeDetailScreen(typeDetailScreenViewModel,navController)
-              }
-            })
+            composable(
+              route = "TypeDetailScreen",
+              enterTransition = {
+                fadeIn()
+              },
+              exitTransition = {
+                fadeOut()
+              },
+              content = {
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+                  TypeDetailScreen(typeDetailScreenViewModel, onPokemonClick = { navController.navigate("PokemonDetailScreen/${it}") })
+                }
+              })
 
             //PokemonDetailScreen
             composable(route = "PokemonDetailScreen/{pokemonId}",
@@ -71,14 +81,43 @@ class TypeDetailActivity : ComponentActivity() {
               }, exitTransition = {
                 fadeOut()
               }, content = { navBackStackEntry ->
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background){
+                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                   navBackStackEntry.arguments?.let {
-                    PokemonDetailScreen(globalId = it.getInt("pokemonId"), onPokemonItemClick = {}, onBack = {
-                      navController.popBackStack()
-                    })
+                    PokemonDetailScreen(
+                      globalId = it.getInt("pokemonId"),
+                      detailViewModel = detailViewModel,
+                      onPokemonItemClick = {},
+                      onBack = { navController.popBackStack() },
+                      onAbilityClick = { ability -> navController.navigate("AbilityScreen/${ability.id}") }
+                    )
                   }
                 }
               })
+
+            //AbilityScreen
+            composable(
+              route = "AbilityScreen/{abilityId}",
+              arguments = listOf(navArgument("abilityId") { type = NavType.IntType }),
+              enterTransition = {
+                fadeIn()
+              },
+              exitTransition = {
+                fadeOut()
+              },
+              content = { navBackStackEntry ->
+                navBackStackEntry.arguments?.let { bundle ->
+                  val ability = Ability.values()[bundle.getInt("abilityId") - 1]
+                  Surface(modifier = Modifier.fillMaxSize()) {
+                    AbilityScreen(
+                      ability,
+                      onBack = { navController.popBackStack() },
+                      onPokemonClick = { navController.navigate("PokemonDetailScreen/${it}") },
+                      abilityViewModel
+                    )
+                  }
+                }
+              }
+            )
 
           }
         }

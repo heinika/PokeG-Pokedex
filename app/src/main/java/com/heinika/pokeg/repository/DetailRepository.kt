@@ -10,7 +10,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import timber.log.Timber
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class DetailRepository @Inject constructor(
   private val pokemonRes: PokemonRes
 ) : Repository {

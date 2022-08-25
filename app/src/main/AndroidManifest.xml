@@ -40,6 +40,7 @@
         <activity android:name="com.heinika.pokeg.module.gameprops.GamePropsActivity" />
         <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
         <activity android:name="com.heinika.pokeg.module.mypokemon.MyPokemonActivity" />
+        <activity android:name="com.heinika.pokeg.module.ability.AbilitiesActivity" />
         <activity
           android:name=".module.typedetail.TypeDetailActivity"
           android:exported="false"

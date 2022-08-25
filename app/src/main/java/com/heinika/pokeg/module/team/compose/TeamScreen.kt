@@ -48,7 +48,6 @@ import com.heinika.pokeg.utils.toTypeColor
 import kotlin.random.Random
 
 
-
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
@@ -79,8 +78,8 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
           items(teamNumberMap.entries.toList()) {
             TeamItemCard(it.key, mutableListOf<MyPokemon?>().apply {
               addAll(it.value)
-              if (it.value.size <6){
-                repeat(6 - it.value.size){
+              if (it.value.size < 6) {
+                repeat(6 - it.value.size) {
                   add(null)
                 }
               }
@@ -113,9 +112,9 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
           LazyVerticalGrid(columns = GridCells.Fixed(3)) {
             items(teamViewModel.allMyPokemonList.value) {
               TeamNumberCard(id = it.id, name = it.name) {
-                if (it.teamName.isEmpty() || it.teamName == selectedTeamName){
+                if (it.teamName.isEmpty() || it.teamName == selectedTeamName) {
                   teamViewModel.updateMyPokemon(it.copy(teamName = selectedTeamName))
-                }else{
+                } else {
                   teamViewModel.updateMyPokemon(it.copy(teamName = it.teamName + ";" + selectedTeamName))
                 }
               }
@@ -326,7 +325,7 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
 @ExperimentalMaterialApi
 @Composable
 fun TagCard(attr: String) {
-  AttributeCard(modifier = Modifier.padding(top = 16.dp), attr, tagCardColor)
+  AttributeCard(attr, tagCardColor)
 }
 
 @Composable

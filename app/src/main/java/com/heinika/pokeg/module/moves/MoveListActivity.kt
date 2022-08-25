@@ -31,7 +31,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @ExperimentalMaterialApi
-
 @AndroidEntryPoint
 class MoveListActivity : ComponentActivity() {
   private val moveListViewModel: MoveListViewModel by viewModels()

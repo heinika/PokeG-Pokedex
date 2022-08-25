@@ -25,6 +25,7 @@
     <string name="version_list">Version List</string>
     <string name="move_list">Move List(Alpha)</string>
     <string name="type_detail">Type Detail</string>
+    <string name="abilities_detail">Abilities</string>
     <string name="my_pokemon">My Pokemon(Alpha)</string>
     <string name="team">Team(Alpha)</string>
     <string name="props_list">Props List</string>

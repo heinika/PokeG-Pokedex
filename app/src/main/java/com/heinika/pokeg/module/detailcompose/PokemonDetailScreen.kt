@@ -12,26 +12,34 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.R
+import com.heinika.pokeg.info.Ability
+import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.info.getTypeString
 import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.model.PokemonName
+import com.heinika.pokeg.model.PokemonSpecie
+import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.team.compose.TagCard
+import com.heinika.pokeg.repository.res.ResUtils
+import com.heinika.pokeg.ui.theme.abilityCardColor
 import com.heinika.pokeg.ui.theme.heightCardColor
 import com.heinika.pokeg.ui.theme.specieNameCardColor
 import com.heinika.pokeg.ui.theme.weightCardColor
-import com.heinika.pokeg.utils.SystemBar
-import com.heinika.pokeg.utils.getPokemonImageUrl
-import com.heinika.pokeg.utils.toTypeColor
+import com.heinika.pokeg.utils.*
 
 
 @ExperimentalAnimationApi
@@ -40,20 +48,25 @@ import com.heinika.pokeg.utils.toTypeColor
 @Composable
 fun PokemonDetailScreen(
   globalId: Int,
+  detailViewModel: DetailViewModel,
   onPokemonItemClick: (Pokemon) -> Unit,
+  onAbilityClick: (Ability) -> Unit,
   onBack: () -> Unit
 ) {
   val pokemon = PokemonDataCache.pokemonList.first { it.globalId == globalId }
+  val specieName = detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId).observeAsState()
+  val abilities = detailViewModel.getPokemonAbilitiesLiveData(pokemon.globalId).observeAsState()
+  val species = detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observeAsState()
   Column(
     modifier = Modifier
       .fillMaxWidth()
       .fillMaxHeight()
       .verticalScroll(rememberScrollState())
-  ){
-    Card(elevation = 8.dp, shape = RoundedCornerShape(bottomEnd = 26.dp, bottomStart = 26.dp)){
+  ) {
+    Card(elevation = 8.dp, shape = RoundedCornerShape(bottomEnd = 26.dp, bottomStart = 26.dp)) {
       Box(
         Modifier
-          .height(300.dp + SystemBar.statusBarHeightDp.dp)
+          .height(330.dp + SystemBar.statusBarHeightDp.dp)
           .typeBackground(pokemon.types)
       ) {
         Column(Modifier.fillMaxWidth()) {
@@ -65,12 +78,12 @@ fun PokemonDetailScreen(
                 Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
               }
             },
-            title = { NameRow(pokemon) },
+            title = { NameRow(pokemon, specieName.value) },
             backgroundColor = Color.Transparent,
             modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)
           )
 
-          HeaderCard(pokemon)
+          HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick)
         }
       }
     }
@@ -79,11 +92,13 @@ fun PokemonDetailScreen(
 
 @ExperimentalAnimationApi
 @Composable
-private fun NameRow(pokemon: Pokemon) {
+private fun NameRow(pokemon: Pokemon, specieName: List<PokemonName>?) {
   Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Start) {
-    Text(pokemon.name)
+    Text(ResUtils.getNameById(pokemon.id, pokemon.name, pokemon.form, LocalContext.current))
     Spacer(modifier = Modifier.width(8.dp))
-    SpecieNameCard(pokemon.speciesId.toString())
+    if (!specieName.isNullOrEmpty()) {
+      SpecieNameCard(specieName[0].genus)
+    }
 
     Spacer(
       modifier = Modifier
@@ -112,24 +127,35 @@ fun SpecieNameCard(specieName: String) {
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
-private fun HeaderCard(pokemon: Pokemon) {
+private fun HeaderCard(
+  pokemon: Pokemon,
+  abilities: List<Ability>?,
+  pokemonNames: List<PokemonName>?,
+  species: PokemonSpecie?,
+  onAbilityClick: (Ability) -> Unit
+) {
   Box(Modifier.fillMaxWidth()) {
     Image(
       painter = rememberImagePainter(
-        data = getPokemonImageUrl(pokemon.globalId, ""),
+        data = getPokemonImageUrl(pokemon.globalId, pokemon.name),
         builder = { crossfade(true) }
       ),
       contentDescription = "Picture of Pokemon",
       modifier = Modifier
         .align(Alignment.Center)
-        .width(190.dp)
+        .width(220.dp)
         .fillMaxHeight()
     )
 
-    Column(Modifier.padding(start = 12.dp)) {
+    Column(
+      Modifier
+        .padding(start = 12.dp)
+        .align(Alignment.TopStart)
+    ) {
       PokemonTypesRow(pokemon.types)
-      AttributeCard(Modifier.padding(top = 16.dp), attr = pokemon.getFormatHeight(), heightCardColor)
-      AttributeCard(Modifier.padding(top = 16.dp), attr = pokemon.getFormatWeight(), weightCardColor)
+      abilities?.forEach { AbilityRow(it, onAbilityClick) }
+      AttributeCard(attr = pokemon.getFormatHeight(), heightCardColor)
+      AttributeCard(attr = pokemon.getFormatWeight(), weightCardColor)
     }
 
 
@@ -139,18 +165,18 @@ private fun HeaderCard(pokemon: Pokemon) {
         .align(Alignment.TopEnd),
       horizontalAlignment = Alignment.End
     ) {
-//      TagCard(pokemon.eName)
-//      TagCard(pokemon.jName)
-//      TagCard(pokemon.generation)
-//      TagCard(pokemon.shape)
-//      TagCard(attr = pokemon.habitat)
-      if (pokemon.isBaby) {
+      pokemonNames?.first { it.localLanguageId.isEnId }?.let { TagCard(it.name) }
+      pokemonNames?.first { it.localLanguageId.isJaId }?.let { TagCard(it.name) }
+      TagCard(stringResource(id = Generation.values()[pokemon.generationId - 1].resId))
+      species?.shapeId?.let { TagCard(ResUtils.getShape(it, LocalContext.current)) }
+      species?.habitatId?.let { if (it.isNotEmpty()) TagCard(ResUtils.getHabitat(it.toInt(), LocalContext.current)) }
+      if (species?.isBaby?.toBoolean == true) {
         TagCard(LocalContext.current.getString(R.string.baby))
       }
-      if (pokemon.isLegendary) {
+      if (species?.isLegendary?.toBoolean == true) {
         TagCard(LocalContext.current.getString(R.string.legendary))
       }
-      if (pokemon.isMythical) {
+      if (species?.isMythical?.toBoolean == true) {
         TagCard(LocalContext.current.getString(R.string.mythical))
       }
     }
@@ -160,7 +186,7 @@ private fun HeaderCard(pokemon: Pokemon) {
 @ExperimentalMaterialApi
 @Composable
 fun PokemonTypesRow(types: List<Int>) {
-  Row(Modifier.padding(top = 16.dp)) {
+  Row {
     types.forEachIndexed { index, pokemonTypeId ->
       if (index == 0) {
         PokemonTypeCard(pokemonTypeId, modifier = Modifier.padding(end = 8.dp))
@@ -175,18 +201,31 @@ fun PokemonTypesRow(types: List<Int>) {
 @Composable
 fun PokemonTypeCard(typeId: Int, modifier: Modifier = Modifier) {
   AttributeCard(
-    modifier.width(44.dp),
     getTypeString(LocalContext.current, typeId),
-    typeId.toTypeColor
+    Type.values()[typeId - 1].darkStartColor,
+    modifier.width(44.dp)
+  )
+}
+
+@ExperimentalAnimationApi
+@ExperimentalMaterialApi
+@Composable
+fun AbilityRow(ability: Ability, onAbilityClick: (Ability) -> Unit) {
+  AttributeCard(
+    attr = stringResource(id = ability.nameResId),
+    color = abilityCardColor,
+    onclick = {
+      onAbilityClick(ability)
+    }
   )
 }
 
 @ExperimentalMaterialApi
 @Composable
 fun AttributeCard(
-  modifier: Modifier = Modifier,
   attr: String,
   color: Color,
+  modifier: Modifier = Modifier,
   onclick: (() -> Unit)? = null
 ) {
   Card(

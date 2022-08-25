@@ -9,7 +9,6 @@ import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.module.moves.compose.SortChipStatus
-import com.heinika.pokeg.repository.MoveListRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,7 +17,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class MoveListViewModel @Inject constructor(moveListRepository: MoveListRepository) : ViewModel() {
+class MoveListViewModel @Inject constructor() : ViewModel() {
   private val _allMovesState = mutableStateOf<List<Move>>(emptyList())
   val allMovesState: State<List<Move>> = _allMovesState
   private var sortOrderTypes = MoveProp.SortType.values().toList()
