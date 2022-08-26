@@ -13,9 +13,7 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
-import com.heinika.pokeg.ConfigMMKV
-import com.heinika.pokeg.R
-import com.heinika.pokeg.module.ability.AbilitiesActivity
+import com.heinika.pokeg.*
 import com.heinika.pokeg.module.about.AboutActivity
 import com.heinika.pokeg.module.donation.DonationActivity
 import com.heinika.pokeg.module.egg.EggActivity
@@ -24,7 +22,6 @@ import com.heinika.pokeg.module.moves.MoveListActivity
 import com.heinika.pokeg.module.mypokemon.MyPokemonActivity
 import com.heinika.pokeg.module.nature.NatureListActivity
 import com.heinika.pokeg.module.team.TeamActivity
-import com.heinika.pokeg.module.typedetail.TypeDetailActivity
 import com.heinika.pokeg.module.versions.VersionsActivity
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.isGooglePlayFlavor
@@ -68,7 +65,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     }
   }
 
-  
+
   @SuppressLint("SetTextI18n")
   private val versionsButton = AppCompatButton(context).apply {
     text = context.resources.getString(R.string.version_list)
@@ -87,7 +84,13 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     background.setTint(context.getColor(R.color.yellow))
     setTextColor(Color.WHITE)
 
-    setOnClickListener { context.startActivity(Intent(context, TypeDetailActivity::class.java)) }
+    setOnClickListener {
+      context.startActivity(
+        Intent(context, ComposeActivity::class.java).apply {
+          putExtra(START_SCREEN, TYPE_DETAIL_SCREEN)
+        }
+      )
+    }
     addView(this)
   }
 
@@ -98,7 +101,12 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     background.setTint(context.getColor(R.color.ice))
     setTextColor(Color.WHITE)
 
-    setOnClickListener { context.startActivity(Intent(context, AbilitiesActivity::class.java)) }
+    setOnClickListener {
+      context.startActivity(
+        Intent(context, ComposeActivity::class.java).apply {
+          putExtra(START_SCREEN, ABILITIES_SCREEN)
+        })
+    }
     addView(this)
   }
 
@@ -112,7 +120,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
-  
+
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val myPokemonButton = AppCompatButton(context).apply {
@@ -124,7 +132,7 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
-  
+
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val teamsButton = AppCompatButton(context).apply {

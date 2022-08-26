@@ -51,6 +51,7 @@ fun PokemonDetailScreen(
   detailViewModel: DetailViewModel,
   onPokemonItemClick: (Pokemon) -> Unit,
   onAbilityClick: (Ability) -> Unit,
+  onTypeClick: (Type) -> Unit,
   onBack: () -> Unit
 ) {
   val pokemon = PokemonDataCache.pokemonList.first { it.globalId == globalId }
@@ -83,7 +84,7 @@ fun PokemonDetailScreen(
             modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)
           )
 
-          HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick)
+          HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick, onTypeClick)
         }
       }
     }
@@ -132,7 +133,8 @@ private fun HeaderCard(
   abilities: List<Ability>?,
   pokemonNames: List<PokemonName>?,
   species: PokemonSpecie?,
-  onAbilityClick: (Ability) -> Unit
+  onAbilityClick: (Ability) -> Unit,
+  onTypeClick: (Type) -> Unit
 ) {
   Box(Modifier.fillMaxWidth()) {
     Image(
@@ -152,7 +154,7 @@ private fun HeaderCard(
         .padding(start = 12.dp)
         .align(Alignment.TopStart)
     ) {
-      PokemonTypesRow(pokemon.types)
+      PokemonTypesRow(pokemon.types, onTypeClick)
       abilities?.forEach { AbilityRow(it, onAbilityClick) }
       AttributeCard(attr = pokemon.getFormatHeight(), heightCardColor)
       AttributeCard(attr = pokemon.getFormatWeight(), weightCardColor)
@@ -185,13 +187,13 @@ private fun HeaderCard(
 
 @ExperimentalMaterialApi
 @Composable
-fun PokemonTypesRow(types: List<Int>) {
+fun PokemonTypesRow(types: List<Int>, onTypeClick: (Type) -> Unit) {
   Row {
     types.forEachIndexed { index, pokemonTypeId ->
       if (index == 0) {
-        PokemonTypeCard(pokemonTypeId, modifier = Modifier.padding(end = 8.dp))
+        PokemonTypeCard(pokemonTypeId, modifier = Modifier.padding(end = 8.dp), onTypeClick)
       } else {
-        PokemonTypeCard(pokemonTypeId)
+        PokemonTypeCard(pokemonTypeId, onTypeClick = onTypeClick)
       }
     }
   }
@@ -199,11 +201,12 @@ fun PokemonTypesRow(types: List<Int>) {
 
 @ExperimentalMaterialApi
 @Composable
-fun PokemonTypeCard(typeId: Int, modifier: Modifier = Modifier) {
+fun PokemonTypeCard(typeId: Int, modifier: Modifier = Modifier, onTypeClick: (Type) -> Unit) {
   AttributeCard(
     getTypeString(LocalContext.current, typeId),
     Type.values()[typeId - 1].darkStartColor,
-    modifier.width(44.dp)
+    modifier.width(44.dp),
+    onclick = { onTypeClick(Type.values()[typeId - 1]) }
   )
 }
 

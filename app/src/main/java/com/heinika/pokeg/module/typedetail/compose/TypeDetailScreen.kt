@@ -16,17 +16,16 @@ import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.module.moves.compose.ChipStatus
 import com.heinika.pokeg.module.moves.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
-import com.heinika.pokeg.module.typedetail.TypeDetailScreenViewModel
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Composable
-fun TypeDetailScreen(typeDetailScreenViewModel: TypeDetailScreenViewModel, onPokemonClick: (pokemonId:Int) -> Unit) {
+fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit, onTypesChange: (List<Type>) -> Unit) {
   val typeChipsStatus = remember {
     mutableStateListOf<ChipStatus>().apply {
       Type.values().dropLast(1).forEach {
-        add(if (typeDetailScreenViewModel.curTypes.contains(it)) ChipStatus.Selected else ChipStatus.UnSelected)
+        add(if (types.contains(it)) ChipStatus.Selected else ChipStatus.UnSelected)
       }
     }
   }
@@ -34,17 +33,17 @@ fun TypeDetailScreen(typeDetailScreenViewModel: TypeDetailScreenViewModel, onPok
   LazyColumn(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp))) {
     item {
       SelectTwoTypeClipList(typeChipsStatus) { types ->
-        typeDetailScreenViewModel.curTypes = types
+        onTypesChange(types)
       }
     }
 
-    if (typeDetailScreenViewModel.curTypes.isNotEmpty()) {
+    if (types.isNotEmpty()) {
       item {
-        TypeDetailTable(typeDetailScreenViewModel.curTypes)
+        TypeDetailTable(types)
       }
 
       items(pokemonList.filter {
-        it.types.contains(typeDetailScreenViewModel.curTypes.first().typeId) && it.types.contains(typeDetailScreenViewModel.curTypes.last().typeId)
+        it.types.contains(types.first().typeId) && it.types.contains(types.last().typeId)
       }) { pokemon ->
         PokemonCard(pokemon = pokemon, onclick = {
           onPokemonClick(it.globalId)
