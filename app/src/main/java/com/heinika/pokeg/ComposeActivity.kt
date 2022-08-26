@@ -13,9 +13,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.navigation.*
 import coil.annotation.ExperimentalCoilApi
@@ -37,6 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 const val KEY_POKEMON_ID = "pokemonId"
 const val KEY_ABILITY_ID = "abilityId"
+const val KEY_TYPE_IDS = "typeIds"
 
 const val START_SCREEN = "START_SCREEN"
 
@@ -61,6 +60,8 @@ class ComposeActivity : ComponentActivity() {
       PokeGTheme {
         val navController = rememberAnimatedNavController()
         AnimatedNavHost(navController = navController, startDestination = startScreen, builder = {
+
+          //AbilitiesScreen
           animatedComposable(
             route = ABILITIES_SCREEN,
             content = {
@@ -99,14 +100,33 @@ class ComposeActivity : ComponentActivity() {
                   PokemonDetailScreen(
                     globalId = bundle.getInt(KEY_POKEMON_ID),
                     detailViewModel = detailViewModel,
-                    onPokemonItemClick = {},
+                    onPokemonItemClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it.globalId}") },
                     onBack = { navController.popBackStack() },
                     onAbilityClick = { ability -> navController.navigate("AbilityScreen/${ability.id}") },
                     onTypeClick = { type ->
-                      typeDetailScreenViewModel.curTypes = listOf(type)
-                      navController.navigate(TYPE_DETAIL_SCREEN)
+                      navController.navigate("$TYPE_DETAIL_SCREEN/${type.typeId}")
                     }
                   )
+                }
+              }
+            }
+          )
+
+          //TypeDetailScreen
+          animatedComposable(
+            route = "$TYPE_DETAIL_SCREEN/{$KEY_TYPE_IDS}",
+            arguments = listOf(navArgument(KEY_TYPE_IDS) { type = NavType.StringType }),
+            content = {
+              Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+                it.arguments?.getString(KEY_TYPE_IDS)?.let { ids ->
+                  val typeList = remember { mutableStateOf(ids.split(",").toList().map { Type.values()[it.toInt() - 1] }) }
+
+                  TypeDetailScreen(
+                    types = typeList.value.toList(),
+                    onTypesChange = {
+                      typeList.value = it
+                    },
+                    onPokemonClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it}") })
                 }
               }
             }
@@ -117,14 +137,15 @@ class ComposeActivity : ComponentActivity() {
             route = TYPE_DETAIL_SCREEN,
             content = {
               Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                val typeList = remember { mutableStateListOf<Type>().apply { addAll(typeDetailScreenViewModel.curTypes) } }
-                TypeDetailScreen(
-                  types = typeList.toList(),
-                  onTypesChange = {
-                    typeList.clear()
-                    typeList.addAll(it)
-                  },
-                  onPokemonClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it}") })
+                  val typeList = remember { mutableStateListOf<Type>().apply { addAll(typeDetailScreenViewModel.curTypes) } }
+                  TypeDetailScreen(
+                    types = typeList.toList(),
+                    onTypesChange = {
+                      typeList.clear()
+                      typeList.addAll(it)
+                      typeDetailScreenViewModel.curTypes = it
+                    },
+                    onPokemonClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it}") })
               }
             }
           )

@@ -1,7 +1,9 @@
 package com.heinika.pokeg.model
 
 
+import android.content.Context
 import com.heinika.pokeg.repository.res.PokemonRes
+import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -56,7 +58,7 @@ data class SpeciesEvolutionChain(
 
   fun getSpeciesToImageUrl() = getPokemonImageUrl(evolvedToSpeciesId, evolvedToName)
 
-  fun getDescText(pokemonRes: PokemonRes): String {
+  fun getDescText(context: Context): String {
     return when (evolutionTriggerId) {
       1 -> {
         when {
@@ -67,8 +69,8 @@ data class SpeciesEvolutionChain(
           else -> "升级进化"
         }
       }
-      2 -> if (tradeSpeciesId == -1) "交换进化" else "和${pokemonRes.getNameById(tradeSpeciesId, "")}交换进化"
-      3 -> "使用${pokemonRes.getItemById(triggerItemId)}进化"
+      2 -> if (tradeSpeciesId == -1) "交换进化" else "和${ResUtils.getNameById(tradeSpeciesId, "", 0, context)}交换进化"
+      3 -> "使用${ResUtils.getItemById(triggerItemId, context)}进化"
       4 -> "20级，包包中有精灵球，且同行宝可梦有空位"
       else -> "未知"
     }

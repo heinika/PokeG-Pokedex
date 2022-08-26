@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -32,13 +33,13 @@ import com.heinika.pokeg.info.getTypeString
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonName
 import com.heinika.pokeg.model.PokemonSpecie
+import com.heinika.pokeg.model.SpeciesEggGroup
 import com.heinika.pokeg.module.detail.DetailViewModel
+import com.heinika.pokeg.module.mypokemon.compose.PokemonAvatar
+import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
 import com.heinika.pokeg.module.team.compose.TagCard
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.abilityCardColor
-import com.heinika.pokeg.ui.theme.heightCardColor
-import com.heinika.pokeg.ui.theme.specieNameCardColor
-import com.heinika.pokeg.ui.theme.weightCardColor
+import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.*
 
 
@@ -58,6 +59,11 @@ fun PokemonDetailScreen(
   val specieName = detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId).observeAsState()
   val abilities = detailViewModel.getPokemonAbilitiesLiveData(pokemon.globalId).observeAsState()
   val species = detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observeAsState()
+  val specieFlavor = detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observeAsState()
+  val eggGroup = detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observeAsState()
+  val chainList = detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId).observeAsState()
+  val otherForms = detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.globalId).observeAsState()
+
   Column(
     modifier = Modifier
       .fillMaxWidth()
@@ -88,6 +94,185 @@ fun PokemonDetailScreen(
         }
       }
     }
+
+    specieFlavor.value?.let { PokemonDescCard(it) }
+
+    StatusCard(pokemon)
+
+    EggCard(eggGroup.value, species.value)
+
+    chainList.value?.let {
+      if(it.isNotEmpty()){
+        DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+          Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
+            it.forEach { chain ->
+              Row(
+                modifier = Modifier
+                  .fillMaxWidth()
+                  .padding(bottom = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+              ) {
+                val fromPokemon =
+                  PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
+                val toPokemon =
+                  PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
+                PokemonAvatar(fromPokemon)
+                Text(
+                  chain.getDescText(LocalContext.current),
+                  modifier = Modifier.weight(1f),
+                  textAlign = TextAlign.Center
+                )
+                PokemonAvatar(toPokemon)
+              }
+            }
+          }
+        }
+      }
+    }
+
+    otherForms.value?.run {
+      forEachIndexed {index,it ->
+        PokemonCard(pokemon = it, onclick = { onPokemonItemClick(it) }, isPaddingBottom = index == size - 1)
+      }
+    }
+  }
+}
+
+
+@Composable
+fun EggCard(eggGroups: List<SpeciesEggGroup>?, pokemonSpecie: PokemonSpecie?) {
+  val context = LocalContext.current
+  DetailCard(modifier = Modifier.padding(12.dp)) {
+    Row(
+      modifier = Modifier
+        .padding(12.dp)
+        .fillMaxWidth()
+    ) {
+      Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
+        Text(text = stringResource(R.string.egg_group))
+        Spacer(modifier = Modifier.height(8.dp))
+        eggGroups?.let { Text(text = it.joinToString(" ") { ResUtils.getEggGroupName(it.eggGroupId, context) }) }
+      }
+      Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
+        Text(text = stringResource(R.string.egg_steps))
+        Spacer(modifier = Modifier.height(8.dp))
+        pokemonSpecie?.getEggSteps()?.let { Text(text = it) }
+      }
+      Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
+        Text(text = stringResource(R.string.grow_speed))
+        Spacer(modifier = Modifier.height(8.dp))
+        pokemonSpecie?.growthRateId?.let { Text(text = ResUtils.getGrowRate(it, context)) }
+      }
+    }
+  }
+}
+
+@Composable
+private fun StatusCard(pokemon: Pokemon) {
+  DetailCard(modifier = Modifier.padding(12.dp, 0.dp)) {
+    Column {
+      StatProgress(
+        statName = stringResource(R.string.sum_base_status),
+        statValue = pokemon.totalBaseStat,
+        color = progressHpColor,
+        max = 700
+      )
+      StatProgress(
+        statName = stringResource(R.string.hp),
+        statValue = pokemon.hp,
+        color = progressHpColor
+      )
+      StatProgress(
+        statName = stringResource(R.string.atk),
+        statValue = pokemon.atk,
+        color = progressAttackColor
+      )
+      StatProgress(
+        statName = stringResource(R.string.def),
+        statValue = pokemon.def,
+        color = progressDefenseColor
+      )
+      StatProgress(
+        statName = stringResource(R.string.sp_atk),
+        statValue = pokemon.spAtk,
+        color = progressSpAttackColor
+      )
+      StatProgress(
+        statName = stringResource(R.string.sp_def),
+        statValue = pokemon.spDef,
+        color = progressSpDefenseColor
+      )
+      StatProgress(
+        Modifier.padding(bottom = 12.dp),
+        stringResource(R.string.spd),
+        pokemon.speed,
+        color = progressSpeedColor
+      )
+    }
+  }
+}
+
+@Composable
+private fun StatProgress(
+  modifier: Modifier = Modifier,
+  statName: String,
+  statValue: Int,
+  color: Color,
+  max: Int = 250,
+) {
+  Row(
+    modifier = modifier
+      .fillMaxWidth()
+      .padding(top = 12.dp, start = 24.dp, end = 24.dp),
+    verticalAlignment = Alignment.CenterVertically
+  ) {
+    Text(text = statName, modifier = Modifier.padding(end = 24.dp))
+    Box(
+      modifier = Modifier
+        .fillMaxWidth()
+        .clip(RoundedCornerShape(24.dp))
+        .background(Color.White)
+    ) {
+      Text(
+        text = "$statValue",
+        modifier = Modifier
+          .defaultMinSize(minWidth = 30.dp)
+          .fillMaxWidth(statValue / max.toFloat())
+          .clip(RoundedCornerShape(24.dp))
+          .background(color)
+          .padding(end = 8.dp),
+        textAlign = TextAlign.End,
+        style = MaterialTheme.typography.caption
+      )
+    }
+  }
+}
+
+@Composable
+private fun PokemonDescCard(desc: String) {
+  DetailCard(
+    modifier = Modifier
+      .fillMaxWidth()
+      .padding(12.dp)
+  ) {
+    Text(
+      text = desc,
+      style = MaterialTheme.typography.body1,
+      modifier = Modifier.padding(8.dp),
+      textAlign = TextAlign.Center
+    )
+  }
+}
+
+@Composable
+fun DetailCard(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+  Card(
+    modifier = modifier,
+    shape = RoundedCornerShape(16.dp),
+    elevation = 4.dp,
+    backgroundColor = Color(0xff162544)
+  ) {
+    content()
   }
 }
 

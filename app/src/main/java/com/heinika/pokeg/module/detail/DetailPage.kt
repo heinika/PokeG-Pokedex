@@ -293,7 +293,7 @@ class DetailPage(
                   val descText =
                     view.findViewById<AppCompatTextView>(R.id.descText)
 
-                  descText.text = chain.getDescText(pokemonRes)
+                  descText.text = chain.getDescText(activity)
 
                   ImageUtils.loadImage(fromImage, chain.getSpeciesFromImageUrl())
                   ImageUtils.loadImage(toImage, chain.getSpeciesToImageUrl())
