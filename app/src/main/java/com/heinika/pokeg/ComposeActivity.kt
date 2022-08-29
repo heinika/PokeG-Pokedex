@@ -20,6 +20,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.module.ability.AbilitiesColumn
@@ -27,8 +28,15 @@ import com.heinika.pokeg.module.ability.AbilityScreen
 import com.heinika.pokeg.module.ability.AbilityViewModel
 import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.detailcompose.PokemonDetailScreen
+import com.heinika.pokeg.module.gameprops.GamePropsScreen
+import com.heinika.pokeg.module.home.PokemonHomeScreen
+import com.heinika.pokeg.module.main.MainViewModel
+import com.heinika.pokeg.module.moves.MoveListScreen
+import com.heinika.pokeg.module.moves.MoveListViewModel
+import com.heinika.pokeg.module.nature.NatureColumn
 import com.heinika.pokeg.module.typedetail.TypeDetailScreenViewModel
 import com.heinika.pokeg.module.typedetail.compose.TypeDetailScreen
+import com.heinika.pokeg.module.versions.VersionsScreen
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,27 +47,79 @@ const val KEY_TYPE_IDS = "typeIds"
 
 const val START_SCREEN = "START_SCREEN"
 
+const val POKEMON_HOME_SCREEN = "PokemonHomeScreen"
+const val POKEMON_DETAIL_SCREEN = "PokemonDetailScreen"
 const val ABILITIES_SCREEN = "AbilitiesScreen"
 const val ABILITY_SCREEN = "AbilityScreen"
 const val TYPE_DETAIL_SCREEN = "TypeDetailScreen"
-const val POKEMON_DETAIL_SCREEN = "PokemonDetailScreen"
+const val MOVES_SCREEN = "MovesScreen"
+const val VERSION_LIST_SCREEN = "VersionListScreen"
+const val NATURE_SCREEN = "NatureScreen"
+const val GAME_PROPS_SCREEN = "GamePropsScreen"
+
 
 @AndroidEntryPoint
 class ComposeActivity : ComponentActivity() {
+  private val mainViewModel: MainViewModel by viewModels()
   private val abilityViewModel: AbilityViewModel by viewModels()
   private val detailViewModel: DetailViewModel by viewModels()
   private val typeDetailScreenViewModel: TypeDetailScreenViewModel by viewModels()
+  private val moveListViewModel: MoveListViewModel by viewModels()
 
-  @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialApi::class, ExperimentalCoilApi::class)
+  @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialApi::class, ExperimentalCoilApi::class, ExperimentalPagerApi::class)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     SystemBar.initStatusBarHeight(this)
-    val startScreen = intent.getStringExtra(START_SCREEN) ?: ABILITIES_SCREEN
+    val startScreen = intent.getStringExtra(START_SCREEN) ?: POKEMON_HOME_SCREEN
     setContent {
       PokeGTheme {
         val navController = rememberAnimatedNavController()
         AnimatedNavHost(navController = navController, startDestination = startScreen, builder = {
+          //HomeScreen
+          animatedComposable(
+            route = POKEMON_HOME_SCREEN,
+            content = {
+              PokemonHomeScreen(
+                mainViewModel,
+                onDrawerItemClick = { navController.navigate(it) },
+                onPokemonItemClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it.globalId}") })
+            }
+          )
+
+          //VersionListScreen
+          animatedComposable(
+            route = VERSION_LIST_SCREEN,
+            content = {
+              VersionsScreen()
+            }
+          )
+
+          //NatureScreen
+          animatedComposable(
+            route = NATURE_SCREEN,
+            content = {
+              Surface(color = MaterialTheme.colors.background) {
+                NatureColumn()
+              }
+            }
+          )
+
+          //VersionListScreen
+          animatedComposable(
+            route = GAME_PROPS_SCREEN,
+            content = {
+              GamePropsScreen()
+            }
+          )
+
+          //MovesScreen
+          animatedComposable(
+            route = MOVES_SCREEN,
+            content = {
+              MoveListScreen(moveListViewModel)
+            }
+          )
 
           //AbilitiesScreen
           animatedComposable(
@@ -136,15 +196,15 @@ class ComposeActivity : ComponentActivity() {
             route = TYPE_DETAIL_SCREEN,
             content = {
               Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                  val typeList = remember { mutableStateListOf<Type>().apply { addAll(typeDetailScreenViewModel.curTypes) } }
-                  TypeDetailScreen(
-                    types = typeList.toList(),
-                    onTypesChange = {
-                      typeList.clear()
-                      typeList.addAll(it)
-                      typeDetailScreenViewModel.curTypes = it
-                    },
-                    onPokemonClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it}") })
+                val typeList = remember { mutableStateListOf<Type>().apply { addAll(typeDetailScreenViewModel.curTypes) } }
+                TypeDetailScreen(
+                  types = typeList.toList(),
+                  onTypesChange = {
+                    typeList.clear()
+                    typeList.addAll(it)
+                    typeDetailScreenViewModel.curTypes = it
+                  },
+                  onPokemonClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it}") })
               }
             }
           )

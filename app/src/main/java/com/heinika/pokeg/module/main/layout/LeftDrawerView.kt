@@ -12,15 +12,11 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import coil.annotation.ExperimentalCoilApi
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.*
 import com.heinika.pokeg.module.about.AboutActivity
 import com.heinika.pokeg.module.donation.DonationActivity
 import com.heinika.pokeg.module.egg.EggActivity
-import com.heinika.pokeg.module.gameprops.GamePropsActivity
-import com.heinika.pokeg.module.moves.MoveListActivity
 import com.heinika.pokeg.module.mypokemon.MyPokemonActivity
-import com.heinika.pokeg.module.nature.NatureListActivity
 import com.heinika.pokeg.module.team.TeamActivity
 import com.heinika.pokeg.module.versions.VersionsActivity
 import com.heinika.pokeg.utils.SystemBar
@@ -110,17 +106,6 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     addView(this)
   }
 
-  @ExperimentalMaterialApi
-  private val movesButton = AppCompatButton(context).apply {
-    text = context.resources.getString(R.string.move_list)
-    background.setTint(context.getColor(R.color.md_blue_200))
-    setTextColor(Color.WHITE)
-
-    setOnClickListener { context.startActivity(Intent(context, MoveListActivity::class.java)) }
-    addView(this)
-  }
-
-
   @ExperimentalCoilApi
   @ExperimentalMaterialApi
   private val myPokemonButton = AppCompatButton(context).apply {
@@ -141,27 +126,6 @@ class LeftDrawerView(context: Context) : LinearLayout(context) {
     setTextColor(Color.WHITE)
 
     setOnClickListener { context.startActivity(Intent(context, TeamActivity::class.java)) }
-    addView(this)
-  }
-
-  @ExperimentalPagerApi
-  @ExperimentalMaterialApi
-  private val gamePropsButton = AppCompatButton(context).apply {
-    text = context.resources.getString(R.string.props_list)
-    background.setTint(context.getColor(R.color.base_status_sum))
-    setTextColor(Color.WHITE)
-
-    setOnClickListener { context.startActivity(Intent(context, GamePropsActivity::class.java)) }
-    addView(this)
-  }
-
-  @ExperimentalMaterialApi
-  private val natureButton = AppCompatButton(context).apply {
-    text = context.resources.getString(R.string.nature_list)
-    background.setTint(context.getColor(R.color.fighting))
-    setTextColor(Color.WHITE)
-
-    setOnClickListener { context.startActivity(Intent(context, NatureListActivity::class.java)) }
     addView(this)
   }
 

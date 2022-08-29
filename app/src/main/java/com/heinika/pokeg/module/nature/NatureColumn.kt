@@ -1,4 +1,4 @@
-package com.heinika.pokeg.module.nature.compose
+package com.heinika.pokeg.module.nature
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

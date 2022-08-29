@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.info.Nature
-import com.heinika.pokeg.module.nature.compose.NatureCard
+import com.heinika.pokeg.module.nature.NatureCard
 
 @ExperimentalMaterialApi
 @ExperimentalCoilApi

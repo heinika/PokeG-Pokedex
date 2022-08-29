@@ -21,26 +21,26 @@
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
+
+        </activity>
+
+        <activity android:name="com.heinika.pokeg.module.versions.VersionsActivity" />
+        <activity
+            android:name="com.heinika.pokeg.module.donation.DonationActivity"
+            android:exported="false" />
+        <activity android:name="com.heinika.pokeg.module.egg.EggActivity" />
+        <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
+        <activity android:name="com.heinika.pokeg.module.mypokemon.MyPokemonActivity" />
+        <activity
+            android:name="com.heinika.pokeg.ComposeActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.heinika.pokeg.module.moves.MoveListActivity"
-            android:label="@string/title_activity_move_List"
-            android:theme="@style/Theme.PokeG" />
-        <activity android:name="com.heinika.pokeg.module.versions.VersionsActivity" />
-        <activity
-            android:name="com.heinika.pokeg.module.donation.DonationActivity"
-            android:exported="false" />
-        <activity android:name="com.heinika.pokeg.module.egg.EggActivity" />
-        <activity android:name="com.heinika.pokeg.module.nature.NatureListActivity" />
-        <activity android:name="com.heinika.pokeg.module.gameprops.GamePropsActivity" />
-        <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
-        <activity android:name="com.heinika.pokeg.module.mypokemon.MyPokemonActivity" />
-        <activity android:name="com.heinika.pokeg.ComposeActivity" />
 
         <activity
             android:name=".module.about.AboutActivity"
