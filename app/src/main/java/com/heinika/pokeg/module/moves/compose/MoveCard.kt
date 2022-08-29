@@ -1,5 +1,6 @@
 package com.heinika.pokeg.module.moves.compose
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -28,24 +29,23 @@ import com.heinika.pokeg.ui.theme.grassColor
 
 @ExperimentalMaterialApi
 @Composable
-fun MoveCard(move: Move, onClick: () -> Unit) {
+fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
+  val context = LocalContext.current
   Card(
     onClick = { onClick() }, modifier = Modifier
-      .padding(12.dp)
+      .padding(12.dp, 6.dp)
       .fillMaxWidth()
-      .height(130.dp)
+      .height(130.dp),
+    border = BorderStroke(2.dp,move.getDarkTypeColor())
   ) {
-    val context = LocalContext.current
 
     ConstraintLayout {
-      // Create references for the composables to constrain
       val (nameLabel, formatIdLabel, typeLabel, damageClassLabel,
         powerLabel, accuracyLabel, ppLabel, generationLabel, flavorLabel) = createRefs()
 
-      // Assign reference "text" to the Text composable
-      // and constrain it to the bottom of the Button composable
+      val name = if (level == null) move.getName(context) else "${move.getName(context)} ${stringResource(id = R.string.level)}:$level"
       Text(
-        move.getName(context),
+        name,
         style = MaterialTheme.typography.h6,
         modifier = Modifier.constrainAs(nameLabel) {
           start.linkTo(parent.start, 16.dp)
@@ -178,6 +178,7 @@ fun DefaultPreview() {
   PokeGTheme {
     MoveCard(
       Move.Move1,
+      level = 1,
       onClick = {}
     )
   }

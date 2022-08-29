@@ -5,9 +5,9 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -24,17 +24,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.R
-import com.heinika.pokeg.info.Ability
-import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.info.Type
-import com.heinika.pokeg.info.getTypeString
+import com.heinika.pokeg.info.*
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonName
 import com.heinika.pokeg.model.PokemonSpecie
 import com.heinika.pokeg.model.SpeciesEggGroup
 import com.heinika.pokeg.module.detail.DetailViewModel
+import com.heinika.pokeg.module.moves.compose.MoveCard
 import com.heinika.pokeg.module.mypokemon.compose.PokemonAvatar
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
 import com.heinika.pokeg.module.team.compose.TagCard
@@ -63,78 +62,129 @@ fun PokemonDetailScreen(
   val eggGroup = detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observeAsState()
   val chainList = detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId).observeAsState()
   val otherForms = detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.globalId).observeAsState()
+  val versions = detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId).observeAsState()
 
-  Column(
+  val defaultVersionId = ConfigMMKV.defaultVersion
+  val versionId: Int? = when {
+    versions.value == null -> null
+    versions.value!!.contains(defaultVersionId) -> defaultVersionId
+    else -> versions.value!!.last()
+  }
+  val pokemonMoveMap = when (versionId) {
+    null -> null
+    else -> detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, versionId).observeAsState()
+  }
+
+  LazyColumn(
     modifier = Modifier
-      .fillMaxWidth()
-      .fillMaxHeight()
-      .verticalScroll(rememberScrollState())
+      .fillMaxSize()
   ) {
-    Card(elevation = 8.dp, shape = RoundedCornerShape(bottomEnd = 26.dp, bottomStart = 26.dp)) {
-      Box(
-        Modifier
-          .height(330.dp + SystemBar.statusBarHeightDp.dp)
-          .typeBackground(pokemon.types)
-      ) {
-        Column(Modifier.fillMaxWidth()) {
-          TopAppBar(
-            navigationIcon = {
-              IconButton(onClick = {
-                onBack()
-              }) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
-              }
-            },
-            title = { NameRow(pokemon, specieName.value) },
-            backgroundColor = Color.Transparent,
-            modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)
-          )
+    item {
+      Card(elevation = 8.dp, shape = RoundedCornerShape(bottomEnd = 26.dp, bottomStart = 26.dp)) {
+        Box(
+          Modifier
+            .height(330.dp + SystemBar.statusBarHeightDp.dp)
+            .typeBackground(pokemon.types)
+        ) {
+          Column(Modifier.fillMaxWidth()) {
+            TopAppBar(
+              navigationIcon = {
+                IconButton(onClick = {
+                  onBack()
+                }) {
+                  Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
+                }
+              },
+              title = { NameRow(pokemon, specieName.value) },
+              backgroundColor = Color.Transparent,
+              modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)
+            )
 
-          HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick, onTypeClick)
+            HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick, onTypeClick)
+          }
         }
       }
-    }
 
-    specieFlavor.value?.let { PokemonDescCard(it) }
+      specieFlavor.value?.let { PokemonDescCard(it) }
 
-    StatusCard(pokemon)
+      StatusCard(pokemon)
 
-    EggCard(eggGroup.value, species.value)
+      EggCard(eggGroup.value, species.value)
 
-    chainList.value?.let {
-      if(it.isNotEmpty()){
-        DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
-          Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
-            it.forEach { chain ->
-              Row(
-                modifier = Modifier
-                  .fillMaxWidth()
-                  .padding(bottom = 12.dp),
-                verticalAlignment = Alignment.CenterVertically
-              ) {
-                val fromPokemon =
-                  PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
-                val toPokemon =
-                  PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
-                PokemonAvatar(fromPokemon)
-                Text(
-                  chain.getDescText(LocalContext.current),
-                  modifier = Modifier.weight(1f),
-                  textAlign = TextAlign.Center
-                )
-                PokemonAvatar(toPokemon)
+      chainList.value?.let {
+        if (it.isNotEmpty()) {
+          DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+            Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
+              it.forEach { chain ->
+                Row(
+                  modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp),
+                  verticalAlignment = Alignment.CenterVertically
+                ) {
+                  val fromPokemon =
+                    PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
+                  val toPokemon =
+                    PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
+                  PokemonAvatar(fromPokemon)
+                  Text(
+                    chain.getDescText(LocalContext.current),
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.Center
+                  )
+                  PokemonAvatar(toPokemon)
+                }
               }
+            }
+          }
+        }
+      }
+
+      otherForms.value?.run {
+        forEachIndexed { index, it ->
+          PokemonCard(pokemon = it, onclick = { onPokemonItemClick(it) }, isPaddingBottom = index == size - 1)
+        }
+      }
+
+
+      versionId?.let {
+        DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+          Text(ResUtils.getVersionName(versionId, LocalContext.current), modifier = Modifier.padding(12.dp))
+        }
+      }
+
+      pokemonMoveMap?.value?.let { movesMap ->
+        DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+          Row(Modifier.fillMaxWidth()) {
+            movesMap.keys.sortedBy {
+              when (it) {
+                2 -> 3
+                3 -> 4
+                4 -> 2
+                else -> it
+              }
+            }.forEach { methodId ->
+              Text(
+                text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
+                Modifier
+                  .weight(1f)
+                  .padding(0.dp, 12.dp),
+                style = MaterialTheme.typography.subtitle1,
+                textAlign = TextAlign.Center
+              )
             }
           }
         }
       }
     }
 
-    otherForms.value?.run {
-      forEachIndexed {index,it ->
-        PokemonCard(pokemon = it, onclick = { onPokemonItemClick(it) }, isPaddingBottom = index == size - 1)
+
+    pokemonMoveMap?.value?.let { movesMap ->
+      items(movesMap[1]!!) { moveItem ->
+        MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
       }
     }
+
   }
 }
 

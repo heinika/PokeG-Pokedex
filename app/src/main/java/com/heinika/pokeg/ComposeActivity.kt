@@ -120,7 +120,6 @@ class ComposeActivity : ComponentActivity() {
               Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                 it.arguments?.getString(KEY_TYPE_IDS)?.let { ids ->
                   val typeList = remember { mutableStateOf(ids.split(",").toList().map { Type.values()[it.toInt() - 1] }) }
-
                   TypeDetailScreen(
                     types = typeList.value.toList(),
                     onTypesChange = {

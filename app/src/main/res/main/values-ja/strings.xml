@@ -10,6 +10,7 @@
     <string name="sp_atk">SATK</string>
     <string name="sp_def">SDEF</string>
     <string name="spd">SPD</string>
+    <string name="level">Level</string>
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>

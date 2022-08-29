@@ -10,6 +10,7 @@
     <string name="sp_atk">特攻</string>
     <string name="sp_def">特防</string>
     <string name="spd">速度</string>
+    <string name="level">等级</string>
 
     <string name="ok">确定</string>
     <string name="cancel">取消</string>

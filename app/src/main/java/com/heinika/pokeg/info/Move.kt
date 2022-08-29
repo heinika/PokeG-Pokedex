@@ -852,6 +852,7 @@ enum class Move(
 
   fun getTypeName(context: Context) = ResUtils.getTypeString(typeId, context)
   fun getTypeColor(context: Context) = Color(ResUtils.getTypeColor(typeId, context))
+  fun getDarkTypeColor() = Type.values().first { typeId == it.typeId }.darkStartColor
 
   fun getDamageClassName(context: Context) = ResUtils.getDamageClassName(damageClassId, context)
 
@@ -866,9 +867,9 @@ enum class Move(
 
   val powerColor: Color = try {
     when (power) {
-      in 0..50 -> Color.Red
-      in 51..100 -> Color.Yellow
-      else -> Color.Green
+      in 0..50 -> Red200
+      in 51..100 -> RashColor
+      else -> RelaxedColor
     }
   } catch (e: Exception) {
     Color.Gray
@@ -887,9 +888,9 @@ enum class Move(
 
   val accuracyColor: Color = try {
     when (accuracy) {
-      100 -> Color.Green
-      in 80..100 -> Color.Yellow
-      else -> Color.Red
+      100 -> RelaxedColor
+      in 80..100 -> RashColor
+      else -> Red200
     }
   } catch (e: Exception) {
     Color.Gray
@@ -907,9 +908,9 @@ enum class Move(
 
   val ppColor: Color = try {
     when (pp) {
-      in 0..5 -> Color.Red
-      in 6..10 -> Color.Yellow
-      else -> Color.Green
+      in 0..5 -> Red200
+      in 6..10 -> RashColor
+      else -> RelaxedColor
     }
   } catch (e: Exception) {
     Color.Gray
