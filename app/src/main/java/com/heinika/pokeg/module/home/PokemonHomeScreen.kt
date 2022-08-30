@@ -27,6 +27,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.*
 import com.heinika.pokeg.R
+import com.heinika.pokeg.info.DexType
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.main.MainViewModel
@@ -100,6 +101,8 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
           val (pokemonColumn, actionsRow) = createRefs()
 
           val pokemonColumnState = rememberLazyListState()
+          var dexType by remember { mutableStateOf(DexType.Global) }
+
           LazyColumn(
             modifier = Modifier.constrainAs(pokemonColumn) {
               top.linkTo(parent.top)
@@ -111,11 +114,13 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               TopAppBar(
                 modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp),
                 backgroundColor = Color.Transparent,
-                title = { Text(text = "全国图鉴") },
+                title = { Text(stringResource(id = dexType.stringId)) },
                 actions = {
                   Icon(imageVector = Icons.Default.LocationOn, contentDescription = "", modifier = Modifier
                     .clickable {
-
+                      dexType = dexType.next()
+                      mainViewModel.changDexType(dexType)
+                      mainViewModel.startSortAndFilter()
                     }
                     .padding(12.dp))
 

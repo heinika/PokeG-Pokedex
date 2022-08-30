@@ -1,11 +1,12 @@
 package com.heinika.pokeg.info
 
 import android.content.Context
+import androidx.annotation.StringRes
 import com.heinika.pokeg.R
 
-enum class DexType{
-  Global,
-  HiSui;
+enum class DexType(@StringRes val stringId:Int){
+  Global(R.string.global_pokedex),
+  HiSui(R.string.hisui_pokedex);
 
   fun toDescString(context: Context) : String{
     return when(this){
