@@ -79,7 +79,10 @@ class DetailRepository @Inject constructor(
     emit(
       arrayListOf<Ability>().apply {
         pokemonRes.fetchPokemonAbilities().filter { it.pokemonId == id }.forEach { pokemonAbility ->
-          add(Ability.values().first { it.id == pokemonAbility.abilityId })
+          val ability = Ability.values().first { it.id == pokemonAbility.abilityId }
+          if (!contains(ability)) {
+            add(ability)
+          }
         }
       }.toList()
     )

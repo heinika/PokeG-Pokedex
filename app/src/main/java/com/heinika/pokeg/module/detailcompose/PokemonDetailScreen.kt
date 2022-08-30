@@ -97,7 +97,7 @@ fun PokemonDetailScreen(
               },
               title = { NameRow(pokemon, specieName.value) },
               backgroundColor = Color.Transparent,
-              modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)
+              modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
             )
 
             HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick, onTypeClick)

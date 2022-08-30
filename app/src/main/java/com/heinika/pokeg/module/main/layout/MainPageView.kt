@@ -54,7 +54,7 @@ class MainPageView(context: Context) : CustomLayout(context) {
     layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
       bottomMargin = bottomViewsMargin
     }
-    setImageResource(R.drawable.ic_arror_top)
+    setImageResource(R.drawable.ic_arrow_top)
     setColorFilter(Color.WHITE)
     addView(this)
   }

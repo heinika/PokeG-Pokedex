@@ -11,6 +11,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -117,6 +118,12 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
 
                     }
                     .padding(12.dp))
+
+                  Icon(imageVector = Icons.Default.Search, contentDescription = "", modifier = Modifier
+                    .clickable {
+
+                    }
+                    .padding(12.dp))
                 },
                 navigationIcon = {
                   Icon(imageVector = Icons.Default.Menu, contentDescription = "", modifier = Modifier
@@ -152,22 +159,35 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               start.linkTo(parent.start)
               end.linkTo(parent.end)
             }) {
-            FloatingActionButton(
-              onClick = {
-                scope.launch {
-                  if (bottomDrawerState.isOpen) {
-                    bottomDrawerState.close()
-                  } else {
+            Row(horizontalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxWidth()) {
+
+              FloatingActionButton(
+                onClick = {
+                  scope.launch {
+                    pokemonColumnState.scrollToItem(0)
+                  }
+                }
+              ) {
+                Image(
+                  painter = painterResource(id = R.drawable.ic_arrow_top),
+                  contentDescription = ""
+                )
+              }
+
+              FloatingActionButton(
+                onClick = {
+                  scope.launch {
                     bottomDrawerState.open()
                   }
                 }
+              ) {
+                Image(
+                  painter = painterResource(id = R.drawable.ic_filter_list),
+                  contentDescription = ""
+                )
               }
-            ) {
-              Image(
-                painter = painterResource(id = R.drawable.ic_filter_list),
-                contentDescription = ""
-              )
             }
+
           }
 
 
