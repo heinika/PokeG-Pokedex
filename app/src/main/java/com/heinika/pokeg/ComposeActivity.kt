@@ -14,6 +14,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.*
 import coil.annotation.ExperimentalCoilApi
@@ -66,7 +67,13 @@ class ComposeActivity : ComponentActivity() {
   private val typeDetailScreenViewModel: TypeDetailScreenViewModel by viewModels()
   private val moveListViewModel: MoveListViewModel by viewModels()
 
-  @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialApi::class, ExperimentalCoilApi::class, ExperimentalPagerApi::class)
+  @OptIn(
+    ExperimentalAnimationApi::class,
+    ExperimentalMaterialApi::class,
+    ExperimentalCoilApi::class,
+    ExperimentalPagerApi::class,
+    ExperimentalComposeUiApi::class
+  )
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
