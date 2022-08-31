@@ -43,7 +43,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
       val (nameLabel, formatIdLabel, typeLabel, damageClassLabel,
         powerLabel, accuracyLabel, ppLabel, generationLabel, flavorLabel) = createRefs()
 
-      val name = if (level == null) move.getName(context) else "${move.getName(context)} ${stringResource(id = R.string.level)}:$level"
+      val name = if (level == null || level == 0) move.getName(context) else "${move.getName(context)} ${stringResource(id = R.string.level)}:$level"
       Text(
         name,
         style = MaterialTheme.typography.h6,

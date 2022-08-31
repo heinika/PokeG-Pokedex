@@ -867,22 +867,24 @@ enum class Move(
 
   val powerColor: Color = try {
     when (power) {
-      in 0..50 -> Red200
+      0 -> DisableColor
+      in 1..50 -> Red200
       in 51..100 -> RashColor
       else -> RelaxedColor
     }
   } catch (e: Exception) {
-    Color.Gray
+    DisableColor
   }
 
   val darkPowerColor: Color = try {
     when (power) {
-      in 0..50 -> Red200
+      0 -> DisableColor
+      in 1..50 -> Red200
       in 51..100 -> RashColor
       else -> RelaxedColor
     }
   } catch (e: Exception) {
-    Color.Gray
+    DisableColor
   }
 
 
@@ -890,20 +892,22 @@ enum class Move(
     when (accuracy) {
       100 -> RelaxedColor
       in 80..100 -> RashColor
+      0 -> DisableColor
       else -> Red200
     }
   } catch (e: Exception) {
-    Color.Gray
+    DisableColor
   }
 
   val darkAccuracyColor: Color = try {
     when (accuracy) {
       100 -> RelaxedColor
       in 80..100 -> RashColor
+      0 -> DisableColor
       else -> Red200
     }
   } catch (e: Exception) {
-    Color.Gray
+    DisableColor
   }
 
   val ppColor: Color = try {
@@ -913,7 +917,7 @@ enum class Move(
       else -> RelaxedColor
     }
   } catch (e: Exception) {
-    Color.Gray
+    DisableColor
   }
 
   val darkPPColor: Color = try {
@@ -923,6 +927,6 @@ enum class Move(
       else -> RelaxedColor
     }
   } catch (e: Exception) {
-    Color.Gray
+    DisableColor
   }
 }

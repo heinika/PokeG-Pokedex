@@ -4,6 +4,8 @@ package com.heinika.pokeg.module.detailcompose
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -12,7 +14,11 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -74,6 +80,8 @@ fun PokemonDetailScreen(
     null -> null
     else -> detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, versionId).observeAsState()
   }
+
+  var moveMethodId by remember { mutableStateOf(1) }
 
   LazyColumn(
     modifier = Modifier
@@ -155,7 +163,11 @@ fun PokemonDetailScreen(
 
       pokemonMoveMap?.value?.let { movesMap ->
         DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
-          Row(Modifier.fillMaxWidth()) {
+          Row(
+            Modifier
+              .fillMaxWidth()
+              .height(46.dp)
+          ) {
             movesMap.keys.sortedBy {
               when (it) {
                 2 -> 3
@@ -164,14 +176,24 @@ fun PokemonDetailScreen(
                 else -> it
               }
             }.forEach { methodId ->
-              Text(
-                text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
-                Modifier
-                  .weight(1f)
-                  .padding(0.dp, 12.dp),
-                style = MaterialTheme.typography.subtitle1,
-                textAlign = TextAlign.Center
-              )
+              val isSelected = methodId == moveMethodId
+              Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .clip(MaterialTheme.shapes.medium)
+                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) YellowLight else Color.Transparent, MaterialTheme.shapes.medium)
+                .clickable {
+                  moveMethodId = methodId
+                }) {
+                Text(
+                  text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
+                  Modifier
+                    .align(Alignment.Center),
+                  style = MaterialTheme.typography.subtitle1,
+                  textAlign = TextAlign.Center,
+                  color = if (isSelected) YellowLight else Color.White
+                )
+              }
             }
           }
         }
@@ -180,7 +202,7 @@ fun PokemonDetailScreen(
 
 
     pokemonMoveMap?.value?.let { movesMap ->
-      items(movesMap[1]!!) { moveItem ->
+      items(movesMap[moveMethodId]!!) { moveItem ->
         MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
       }
     }
