@@ -1,6 +1,5 @@
 package com.heinika.pokeg.module.ability
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -24,6 +23,7 @@ import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.formatId
 
+@ExperimentalMaterialApi
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemonId: Int) -> Unit, abilityViewModel: AbilityViewModel) {
@@ -60,7 +60,7 @@ fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemon
     }
 
     itemsIndexed(pokemonList) { index, pokemon ->
-      PokemonCard(pokemon = pokemon, isPaddingBottom = pokemonList.size - 1 == index, onclick = { onPokemonClick(pokemon.id) })
+      PokemonCard(pokemon = pokemon, isPaddingBottom = pokemonList.size - 1 == index, onClick = { onPokemonClick(pokemon.id) })
     }
   }
 }

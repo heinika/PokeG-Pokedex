@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.AlertDialog
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
@@ -23,6 +24,7 @@ import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.ResUtils
 
+@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 fun AddMyPokemonDialog(
@@ -66,7 +68,7 @@ fun AddMyPokemonDialog(
               it.globalId.toString().contains(searchText) ||
                 ResUtils.getNameById(it.id, context = context).contains(searchText)
             }) { pokemon ->
-              PokemonCard(pokemon = pokemon, onclick = {
+              PokemonCard(pokemon = pokemon, onClick = {
                 onPokemonItemClick(it)
               })
             }

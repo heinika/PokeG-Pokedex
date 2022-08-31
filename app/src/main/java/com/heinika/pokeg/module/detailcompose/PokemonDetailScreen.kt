@@ -119,11 +119,11 @@ fun PokemonDetailScreen(
 
       EggCard(eggGroup.value, species.value)
 
-      chainList.value?.let {
-        if (it.isNotEmpty()) {
+      chainList.value?.let { speciesEvolutionChains ->
+        if (speciesEvolutionChains.isNotEmpty()) {
           DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
             Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
-              it.forEach { chain ->
+              speciesEvolutionChains.forEach { chain ->
                 Row(
                   modifier = Modifier
                     .fillMaxWidth()
@@ -134,13 +134,13 @@ fun PokemonDetailScreen(
                     PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
                   val toPokemon =
                     PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
-                  PokemonAvatar(fromPokemon)
+                  PokemonAvatar(fromPokemon, onClick = {onPokemonItemClick(it)})
                   Text(
                     chain.getDescText(LocalContext.current),
                     modifier = Modifier.weight(1f),
                     textAlign = TextAlign.Center
                   )
-                  PokemonAvatar(toPokemon)
+                  PokemonAvatar(toPokemon, onClick = {onPokemonItemClick(it)})
                 }
               }
             }
@@ -150,7 +150,7 @@ fun PokemonDetailScreen(
 
       otherForms.value?.run {
         forEachIndexed { index, it ->
-          PokemonCard(pokemon = it, onclick = { onPokemonItemClick(it) }, isPaddingBottom = index == size - 1)
+          PokemonCard(pokemon = it, onClick = { onPokemonItemClick(it) }, isPaddingBottom = index == size - 1)
         }
       }
 

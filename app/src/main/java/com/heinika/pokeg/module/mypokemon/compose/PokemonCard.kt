@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -31,12 +32,13 @@ import com.heinika.pokeg.utils.rememberFlavorPainter
 import com.heinika.pokeg.utils.toTypeColor
 
 
+@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 fun PokemonCard(
   pokemon: Pokemon,
   isPaddingBottom: Boolean = false,
-  onclick: (pokemon: Pokemon) -> Unit
+  onClick: (pokemon: Pokemon) -> Unit
 ) {
   Card(
     Modifier
@@ -45,7 +47,7 @@ fun PokemonCard(
       .height(120.dp)
       .clip(RoundedCornerShape(16.dp))
       .clickable {
-        onclick(pokemon)
+        onClick(pokemon)
       },
     backgroundColor = BlackBackgroundColor,
     elevation = 10.dp
@@ -56,7 +58,7 @@ fun PokemonCard(
         .padding(12.dp, 12.dp, 12.dp, 12.dp)
     ) {
 
-      PokemonAvatar(pokemon)
+      PokemonAvatar(pokemon, onClick = { onClick(pokemon) })
 
       Column(
         Modifier
@@ -131,6 +133,7 @@ fun TypeCard(typeName: String = "草", color: Color = grassColor) {
   }
 }
 
+@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Preview
 @Composable
@@ -141,7 +144,7 @@ fun PokemonCardPreview() {
       1,
       speciesId = 1,
       name = "pikaqiu",
-      listOf(12,4),
+      listOf(12, 4),
       320,
       12,
       12,
@@ -154,18 +157,20 @@ fun PokemonCardPreview() {
       12,
       1,
     ),
-    onclick = {},
+    onClick = {},
   )
 }
 
+@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
-fun PokemonAvatar(pokemon: Pokemon) {
+fun PokemonAvatar(pokemon: Pokemon, onClick: (pokemon: Pokemon) -> Unit) {
   Card(
-    Modifier
+    modifier = Modifier
       .size(96.dp)
       .padding(4.dp),
-    shape = RoundedCornerShape(16.dp)
+    shape = RoundedCornerShape(16.dp),
+    onClick = { onClick(pokemon) }
   ) {
     if (pokemon.types.size == 2) {
       Image(

@@ -45,7 +45,7 @@ fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit
       items(pokemonList.filter {
         it.types.contains(types.first().typeId) && it.types.contains(types.last().typeId)
       }) { pokemon ->
-        PokemonCard(pokemon = pokemon, onclick = {
+        PokemonCard(pokemon = pokemon, onClick = {
           onPokemonClick(it.globalId)
         })
       }

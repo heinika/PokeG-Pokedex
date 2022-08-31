@@ -204,7 +204,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
             }
 
             items(sortedPokemonList) { pokemon ->
-              PokemonCard(pokemon = pokemon, onclick = { onPokemonItemClick(pokemon) })
+              PokemonCard(pokemon = pokemon, onClick = { onPokemonItemClick(pokemon) })
             }
           }
 
