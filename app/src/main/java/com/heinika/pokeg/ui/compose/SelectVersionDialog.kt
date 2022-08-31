@@ -33,7 +33,7 @@ fun SelectVersionDialog(
         onDismissRequest?.invoke()
       },
       shape = MaterialTheme.shapes.small,
-      properties = DialogProperties(dismissOnBackPress = true, dismissOnClickOutside = false),
+      properties = DialogProperties(dismissOnBackPress = true, dismissOnClickOutside = true),
       backgroundColor = Color.DarkGray,
       modifier = modifier,
       title = null,
