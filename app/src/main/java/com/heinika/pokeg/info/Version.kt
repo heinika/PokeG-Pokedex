@@ -1,10 +1,9 @@
 package com.heinika.pokeg.info
 
 import com.heinika.pokeg.R
-import com.heinika.pokeg.info.Generation
 
 
-enum class Version(val resString: Int, val resDrawable: Int,val generation: Generation) {
+enum class Version(val stringId: Int, val resDrawable: Int, val generation: Generation) {
   Red(R.string.version_red,R.drawable.version_red, Generation.GenerationI),
   Green(R.string.version_green,R.drawable.version_green, Generation.GenerationI),
   Blue(R.string.version_blue,R.drawable.version_blue, Generation.GenerationI),

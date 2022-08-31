@@ -63,6 +63,27 @@
         <item>Let\'s Go</item>
         <item>sword/shield</item>
     </string-array>
+    
+    <string name="move_version_1">red/green/blue</string>
+    <string name="move_version_2">yellow</string>
+    <string name="move_version_3">gold/silver</string>
+    <string name="move_version_4">crystal</string>
+    <string name="move_version_5">ruby/sapphire</string>
+    <string name="move_version_6">emerald</string>
+    <string name="move_version_7">firered/leafgreen</string>
+    <string name="move_version_8">diamond/pearl</string>
+    <string name="move_version_9">platinum</string>
+    <string name="move_version_10">heartgold/soulsilver</string>
+    <string name="move_version_11">black/white</string>
+    <string name="move_version_12">colosseum</string>
+    <string name="move_version_13">xd</string>
+    <string name="move_version_14">black2/white2</string>
+    <string name="move_version_15">x/y</string>
+    <string name="move_version_16">Ω ruby/α sapphire</string>
+    <string name="move_version_17">sun/moon</string>
+    <string name="move_version_18">ultra sun/ultra moon</string>
+    <string name="move_version_19">Let\'s Go</string>
+    <string name="move_version_20">sword/shield</string>
 
     <string name="version_red">红</string>
     <string name="version_green">绿</string>
