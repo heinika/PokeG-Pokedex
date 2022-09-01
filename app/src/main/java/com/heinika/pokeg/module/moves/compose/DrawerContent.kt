@@ -15,6 +15,7 @@ import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.info.Type
+import com.heinika.pokeg.ui.compose.GenerationSelectRow
 
 import com.heinika.pokeg.utils.SystemBar
 
@@ -33,7 +34,7 @@ fun DrawerContent(
   })
 
   Spacer(modifier = Modifier.height(16.dp))
-  GenerationClipList(modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
+  GenerationSelectRow(modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
     onSelectedGenerationChange(it)
   })
 

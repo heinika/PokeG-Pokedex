@@ -37,6 +37,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.*
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.DexType
+import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.MoveVersion
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Pokemon
@@ -44,6 +45,7 @@ import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.moves.compose.ChipStatus
 import com.heinika.pokeg.module.moves.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
+import com.heinika.pokeg.ui.compose.GenerationSelectRow
 import com.heinika.pokeg.ui.compose.SelectVersionDialog
 import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
@@ -130,7 +132,12 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 types.value = typeList
                 mainViewModel.filterTypeList = typeList.map { it.typeId }
                 mainViewModel.startSortAndFilter()
-              })
+              },
+              onSelectedGenerationChange = { generationList ->
+                mainViewModel.changeGenerations(generationList)
+                mainViewModel.startSortAndFilter()
+              }
+            )
           },
         ) {
           ConstraintLayout(modifier = Modifier.fillMaxSize()) {
@@ -306,7 +313,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
 
 @ExperimentalMaterialApi
 @Composable
-fun MainBottomDrawer(types: List<Type>, onTypeSelectedChange: (List<Type>) -> Unit) {
+fun MainBottomDrawer(types: List<Type>, onTypeSelectedChange: (List<Type>) -> Unit, onSelectedGenerationChange: (List<Generation>) -> Unit) {
   val typeChipStatusList = remember {
     mutableStateListOf<ChipStatus>().apply {
       Type.values().dropLast(1).forEach {
@@ -315,4 +322,8 @@ fun MainBottomDrawer(types: List<Type>, onTypeSelectedChange: (List<Type>) -> Un
     }
   }
   SelectTwoTypeClipList(typeChipsStatus = typeChipStatusList, onSelectedChange = { onTypeSelectedChange(it) })
+
+  GenerationSelectRow(modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
+    onSelectedGenerationChange(it)
+  })
 }
