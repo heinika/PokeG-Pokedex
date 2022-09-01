@@ -11,17 +11,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.ui.compose.GenerationSelectRow
 import com.heinika.pokeg.ui.compose.TypeClipList
+import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalMaterialApi
 @Composable
-fun DrawerContent(
+fun MovesDrawerContent(
+  generations: List<Generation>,
   onSelectedTypeChange: (List<Type>) -> Unit,
   onSelectedGenerationChange: (List<Generation>) -> Unit,
   onTypeSortClick: OnTypeSortClick,
@@ -34,12 +35,12 @@ fun DrawerContent(
   })
 
   Spacer(modifier = Modifier.height(16.dp))
-  GenerationSelectRow(modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
+  GenerationSelectRow(selectedList = generations, modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
     onSelectedGenerationChange(it)
   })
 
   Spacer(modifier = Modifier.height(16.dp))
-  DamageClassClipRow(modifier = Modifier.padding(16.dp, 0.dp),onDamageClassSelectChange = {
+  DamageClassClipRow(modifier = Modifier.padding(16.dp, 0.dp), onDamageClassSelectChange = {
     onDamageClassSelectChange(it)
   })
 
@@ -61,7 +62,8 @@ fun DrawerContentPreview() {
   PokeGTheme() {
     Surface() {
       Column() {
-        DrawerContent(
+        MovesDrawerContent(
+          generations = emptyList(),
           onSelectedTypeChange = {},
           onSelectedGenerationChange = {},
           onMoveOrderChange = {},

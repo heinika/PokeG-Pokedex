@@ -122,18 +122,22 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
       val bottomDrawerState = rememberBottomDrawerState(initialValue = BottomDrawerValue.Closed)
       sortedPokemonList.value?.let { sortedPokemonList ->
 
-        val types = remember { mutableStateOf(emptyList<Type>()) }
+        val types = remember { mutableStateOf(mainViewModel.filterTypeList.map { Type.values()[it - 1] }) }
+        val generations = remember { mutableStateOf(mainViewModel.filterGenerations.value) }
         BottomDrawer(
           drawerState = bottomDrawerState,
           gesturesEnabled = bottomDrawerState.isOpen,
           drawerContent = {
-            MainBottomDrawer(types.value,
+            MainBottomDrawer(
+              types = types.value,
+              generations = generations.value ?: emptyList(),
               onTypeSelectedChange = { typeList ->
                 types.value = typeList
                 mainViewModel.filterTypeList = typeList.map { it.typeId }
                 mainViewModel.startSortAndFilter()
               },
               onSelectedGenerationChange = { generationList ->
+                generations.value = generationList
                 mainViewModel.changeGenerations(generationList)
                 mainViewModel.startSortAndFilter()
               }
@@ -313,7 +317,12 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
 
 @ExperimentalMaterialApi
 @Composable
-fun MainBottomDrawer(types: List<Type>, onTypeSelectedChange: (List<Type>) -> Unit, onSelectedGenerationChange: (List<Generation>) -> Unit) {
+fun MainBottomDrawer(
+  types: List<Type>,
+  generations: List<Generation>,
+  onTypeSelectedChange: (List<Type>) -> Unit,
+  onSelectedGenerationChange: (List<Generation>) -> Unit
+) {
   val typeChipStatusList = remember {
     mutableStateListOf<ChipStatus>().apply {
       Type.values().dropLast(1).forEach {
@@ -323,7 +332,7 @@ fun MainBottomDrawer(types: List<Type>, onTypeSelectedChange: (List<Type>) -> Un
   }
   SelectTwoTypeClipList(typeChipsStatus = typeChipStatusList, onSelectedChange = { onTypeSelectedChange(it) })
 
-  GenerationSelectRow(modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
+  GenerationSelectRow(generations, modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
     onSelectedGenerationChange(it)
   })
 }

@@ -14,12 +14,16 @@ import com.heinika.pokeg.module.moves.compose.GenerationChip
 
 @ExperimentalMaterialApi
 @Composable
-fun GenerationSelectRow(modifier: Modifier = Modifier, onSelectedChange:(List<Generation>)->Unit) {
+fun GenerationSelectRow(selectedList: List<Generation>, modifier: Modifier = Modifier, onSelectedChange: (List<Generation>) -> Unit) {
   val generationArray = Generation.values()
   val generationChipsStatus = remember {
     mutableListOf<ChipStatus>().apply {
-      repeat(generationArray.size) {
-        add(ChipStatus.UnSelected)
+      repeat(generationArray.size) { index ->
+        if (selectedList.map { it.ordinal }.contains(index)) {
+          add(ChipStatus.Selected)
+        } else {
+          add(ChipStatus.UnSelected)
+        }
       }
     }.toMutableStateList()
   }
@@ -36,13 +40,13 @@ fun GenerationSelectRow(modifier: Modifier = Modifier, onSelectedChange:(List<Ge
       GenerationChip(chipStatus = generationChipsStatus[index], generation = it, onClick = {
         when (generationChipsStatus[index]) {
           ChipStatus.Selected -> generationChipsStatus[index] = ChipStatus.UnSelected
-          ChipStatus.UnSelected ->generationChipsStatus[index] = ChipStatus.Selected
+          ChipStatus.UnSelected -> generationChipsStatus[index] = ChipStatus.Selected
           ChipStatus.Disable -> {}
         }
 
         onSelectedChange(mutableListOf<Generation>().apply {
           generationChipsStatus.forEachIndexed { index, chipStatus ->
-            if (chipStatus == ChipStatus.Selected){
+            if (chipStatus == ChipStatus.Selected) {
               add(generationArray[index])
             }
           }

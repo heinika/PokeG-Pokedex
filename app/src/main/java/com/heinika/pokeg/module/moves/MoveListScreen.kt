@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.heinika.pokeg.R
-import com.heinika.pokeg.module.moves.compose.DrawerContent
 import com.heinika.pokeg.module.moves.compose.MoveCard
+import com.heinika.pokeg.module.moves.compose.MovesDrawerContent
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
 
@@ -34,7 +34,8 @@ fun MoveListScreen(moveListViewModel: MoveListViewModel) {
 
     BottomDrawer(
       drawerContent = {
-        DrawerContent(
+        MovesDrawerContent(
+          generations = emptyList(),
           onSelectedTypeChange = {
             moveListViewModel.filterTypes(it)
           },
