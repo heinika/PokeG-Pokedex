@@ -13,9 +13,10 @@ import androidx.compose.ui.unit.Dp
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.info.Type
-import com.heinika.pokeg.module.moves.compose.ChipStatus
-import com.heinika.pokeg.module.moves.compose.SelectTwoTypeClipList
+
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
+import com.heinika.pokeg.ui.compose.ChipStatus
+import com.heinika.pokeg.ui.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalCoilApi

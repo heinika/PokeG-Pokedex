@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.ui.compose.ChipStatus
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.toGenerationColor
 

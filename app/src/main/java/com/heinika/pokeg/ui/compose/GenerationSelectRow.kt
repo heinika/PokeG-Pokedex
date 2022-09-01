@@ -10,7 +10,6 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.module.moves.compose.ChipStatus
 import com.heinika.pokeg.module.moves.compose.GenerationChip
 
 @ExperimentalMaterialApi

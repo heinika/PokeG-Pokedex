@@ -42,10 +42,10 @@ import com.heinika.pokeg.info.MoveVersion
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.main.MainViewModel
-import com.heinika.pokeg.module.moves.compose.ChipStatus
-import com.heinika.pokeg.module.moves.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
+import com.heinika.pokeg.ui.compose.ChipStatus
 import com.heinika.pokeg.ui.compose.GenerationSelectRow
+import com.heinika.pokeg.ui.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.ui.compose.SelectVersionDialog
 import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar

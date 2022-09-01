@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.heinika.pokeg.ui.compose.ChipStatus
 import com.heinika.pokeg.ui.theme.BlackColor
 import com.heinika.pokeg.ui.theme.DisableColor
 

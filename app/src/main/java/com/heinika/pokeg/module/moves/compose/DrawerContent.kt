@@ -16,7 +16,7 @@ import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.ui.compose.GenerationSelectRow
-
+import com.heinika.pokeg.ui.compose.TypeClipList
 import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalMaterialApi
