@@ -8,7 +8,7 @@ import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.info.Type
-import com.heinika.pokeg.module.moves.compose.SortChipStatus
+import com.heinika.pokeg.ui.compose.SortChipStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

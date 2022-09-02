@@ -1,4 +1,4 @@
-package com.heinika.pokeg.module.moves.compose
+package com.heinika.pokeg.ui.compose
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
@@ -9,11 +9,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,11 +19,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.heinika.pokeg.info.MoveProp
 import com.heinika.pokeg.ui.theme.BlackColor
 import com.heinika.pokeg.ui.theme.DisableColor
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.ui.theme.grassColor
-import com.heinika.pokeg.info.MoveProp
 
 @ExperimentalMaterialApi
 @Composable

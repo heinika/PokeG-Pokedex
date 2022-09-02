@@ -20,6 +20,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.heinika.pokeg.R
 import com.heinika.pokeg.module.moves.compose.MoveCard
 import com.heinika.pokeg.module.moves.compose.MovesDrawerContent
+import com.heinika.pokeg.ui.compose.SortChipStatus
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
 
@@ -45,7 +46,7 @@ fun MoveListScreen(moveListViewModel: MoveListViewModel) {
           onMoveOrderChange = {
             moveListViewModel.changeSortOrder(it)
           },
-          onTypeSortClick = { type, state ->
+          onTypeSortClick = { type, state: SortChipStatus ->
             moveListViewModel.changSortState(type, state)
           },
           onDamageClassSelectChange = {
