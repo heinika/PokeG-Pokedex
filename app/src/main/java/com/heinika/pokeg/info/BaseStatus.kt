@@ -1,21 +1,14 @@
 package com.heinika.pokeg.info
 
-import android.content.Context
+import androidx.compose.ui.graphics.Color
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.theme.*
 
-enum class BaseStatus(val resId: Int, val resColor: Int) {
-  HP(R.string.hp, R.color.colorPrimary),
-  ATK(R.string.atk, R.color.md_orange_100),
-  DEF(R.string.def, R.color.md_blue_200),
-  SP_ATK(R.string.sp_atk, R.color.flying),
-  SP_DEF(R.string.sp_def, R.color.md_green_200),
-  SPEED(R.string.spd, R.color.poison);
-
-  fun getName(context: Context): CharSequence {
-    return context.getString(resId)
-  }
-
-  fun getColor(context: Context): Int {
-    return context.getColor(resColor)
-  }
+enum class BaseStatus(val resId: Int, val color: Color) {
+  HP(R.string.hp, Red200),
+  ATK(R.string.atk, progressAttackColor),
+  DEF(R.string.def, progressDefenseColor),
+  SP_ATK(R.string.sp_atk, progressSpAttackColor),
+  SP_DEF(R.string.sp_def, progressSpDefenseColor),
+  SPEED(R.string.spd, progressSpeedColor);
 }

@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.info.MoveProp
+import com.heinika.pokeg.ui.compose.BaseImageChip
 
 
 @ExperimentalMaterialApi

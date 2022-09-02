@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.heinika.pokeg.info.Type
-import com.heinika.pokeg.module.moves.compose.BaseChip
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.PokeGTheme
 

@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.KeyboardActions
@@ -36,17 +37,11 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.*
 import com.heinika.pokeg.R
-import com.heinika.pokeg.info.DexType
-import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.info.MoveVersion
-import com.heinika.pokeg.info.Type
+import com.heinika.pokeg.info.*
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
-import com.heinika.pokeg.ui.compose.ChipStatus
-import com.heinika.pokeg.ui.compose.GenerationSelectRow
-import com.heinika.pokeg.ui.compose.SelectTwoTypeClipList
-import com.heinika.pokeg.ui.compose.SelectVersionDialog
+import com.heinika.pokeg.ui.compose.*
 import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
@@ -124,13 +119,15 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
 
         val types = remember { mutableStateOf(mainViewModel.filterTypeList.map { Type.values()[it - 1] }) }
         val generations = remember { mutableStateOf(mainViewModel.filterGenerations.value) }
+        val baseStatusList = remember { mutableStateListOf<BaseStatus>().apply { mainViewModel.sortBaseStatusList.value?.let { addAll(it) } } }
         BottomDrawer(
           drawerState = bottomDrawerState,
           gesturesEnabled = bottomDrawerState.isOpen,
           drawerContent = {
-            MainBottomDrawer(
+            HomeBottomDrawer(
               types = types.value,
               generations = generations.value ?: emptyList(),
+              baseStatusList = baseStatusList.toList(),
               onTypeSelectedChange = { typeList ->
                 types.value = typeList
                 mainViewModel.filterTypeList = typeList.map { it.typeId }
@@ -139,6 +136,25 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               onSelectedGenerationChange = { generationList ->
                 generations.value = generationList
                 mainViewModel.changeGenerations(generationList)
+                mainViewModel.startSortAndFilter()
+              },
+              onStatusChipClick = {
+                if (baseStatusList.contains(it)) {
+                  baseStatusList.remove(it)
+                } else {
+                  baseStatusList.add(it)
+                }
+                mainViewModel.changeSortBaseStatusList(baseStatusList)
+                mainViewModel.startSortAndFilter()
+              },
+              onBaseStatusSumClick = {
+                if (baseStatusList.size == 6 ){
+                  baseStatusList.clear()
+                } else {
+                  baseStatusList.clear()
+                  baseStatusList.addAll(BaseStatus.values())
+                }
+                mainViewModel.changeSortBaseStatusList(baseStatusList)
                 mainViewModel.startSortAndFilter()
               }
             )
@@ -317,11 +333,14 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
 
 @ExperimentalMaterialApi
 @Composable
-fun MainBottomDrawer(
+fun HomeBottomDrawer(
   types: List<Type>,
   generations: List<Generation>,
+  baseStatusList: List<BaseStatus>,
   onTypeSelectedChange: (List<Type>) -> Unit,
-  onSelectedGenerationChange: (List<Generation>) -> Unit
+  onSelectedGenerationChange: (List<Generation>) -> Unit,
+  onStatusChipClick: (BaseStatus) -> Unit,
+  onBaseStatusSumClick: () -> Unit
 ) {
   val typeChipStatusList = remember {
     mutableStateListOf<ChipStatus>().apply {
@@ -335,4 +354,28 @@ fun MainBottomDrawer(
   GenerationSelectRow(generations, modifier = Modifier.padding(8.dp, 0.dp), onSelectedChange = {
     onSelectedGenerationChange(it)
   })
+
+  Text(text = "排序顺序")
+  BaseStatusSelectedRow(baseStatusList, onStatusChipClick, onBaseStatusSumClick)
+}
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun BaseStatusSelectedRow(selectedList: List<BaseStatus>, onBaseStatusChipClick: (BaseStatus) -> Unit, onBaseStatusSumClick: () -> Unit) {
+  LazyRow(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
+    items(BaseStatus.values()) { baseStatus ->
+      BaseStatusChip(isSelected = selectedList.contains(baseStatus), baseStatus = baseStatus, onClick = {
+        onBaseStatusChipClick(it)
+      })
+    }
+    item {
+      BaseChip(
+        chipStatus = selectedList.size == BaseStatus.values().size,
+        color = grassColor,
+        modifier = Modifier,
+        onClick = { onBaseStatusSumClick() },
+        text = "总和"
+      )
+    }
+  }
 }

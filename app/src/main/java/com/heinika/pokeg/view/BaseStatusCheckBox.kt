@@ -30,10 +30,10 @@ class BaseStatusCheckBox constructor(context: Context) : AppCompatCheckBox(conte
   }
 
   fun setBaseStatus(baseStatus: BaseStatus){
-    text = baseStatus.getName(context)
+//    text = baseStatus.getName(context)
     buttonDrawable = null
     val drawable = resources.getDrawable(R.drawable.check_box_basestatus_normal)
-    drawable.setTint(baseStatus.getColor(context))
+//    drawable.setTint(baseStatus.getColor(context))
     drawable.setTintMode(PorterDuff.Mode.ADD)
     setBackgroundDrawable(drawable)
   }

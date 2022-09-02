@@ -1,4 +1,4 @@
-package com.heinika.pokeg.module.moves.compose
+package com.heinika.pokeg.ui.compose
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -18,9 +18,47 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.heinika.pokeg.ui.compose.ChipStatus
 import com.heinika.pokeg.ui.theme.BlackColor
 import com.heinika.pokeg.ui.theme.DisableColor
+
+@ExperimentalMaterialApi
+@Composable
+fun BaseChip(
+  chipStatus: Boolean,
+  color: Color,
+  modifier: Modifier,
+  onClick: () -> Unit,
+  text: String
+) {
+  Card(
+    backgroundColor = when (chipStatus) {
+      true -> color
+      false -> Color.Transparent
+    },
+    contentColor = when (chipStatus) {
+      true -> BlackColor
+      false -> color
+    },
+    shape = CircleShape,
+    border = BorderStroke(
+      width = 1.dp,
+      color = when (chipStatus) {
+        true -> color
+        false -> color
+      }
+    ),
+    modifier = modifier,
+    onClick = { onClick() }
+  ) {
+    Text(
+      text = text,
+      textAlign = TextAlign.Center,
+      style = MaterialTheme.typography.body2,
+      modifier = Modifier.padding(8.dp)
+    )
+
+  }
+}
 
 @ExperimentalMaterialApi
 @Composable

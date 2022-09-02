@@ -15,17 +15,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.MultiTypeAdapter
 import com.heinika.pokeg.R
 import com.heinika.pokeg.base.CustomLayout
+import com.heinika.pokeg.info.BaseStatus
+import com.heinika.pokeg.info.BodyStatus
+import com.heinika.pokeg.info.Generation
+import com.heinika.pokeg.info.Tag
 import com.heinika.pokeg.module.main.itemdelegate.BaseStatusItemDelegate
 import com.heinika.pokeg.module.main.itemdelegate.GenerationItemDelegate
 import com.heinika.pokeg.module.main.itemdelegate.TagItemDelegate
 import com.heinika.pokeg.module.main.itemdelegate.model.BaseStatusSelectItem
 import com.heinika.pokeg.module.main.itemdelegate.model.GenerationsSelectItem
 import com.heinika.pokeg.module.main.itemdelegate.model.TagSelectItem
-import com.heinika.pokeg.info.BaseStatus
-import com.heinika.pokeg.info.BodyStatus
-import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.info.Tag
-
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.view.BaseStatusCheckBox
 import com.heinika.pokeg.view.BodyRadioButton
@@ -269,8 +268,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
         baseStatusTitle.text = context.getString(R.string.all_base_status_selected,sortPriority(isDesc))
       }
       else -> {
-        baseStatusTitle.text =
-          "${sortPriority(isDesc)}:${list.joinToString("+") { it.getName(context) }}"
+//        baseStatusTitle.text = "${sortPriority(isDesc)}:${list.joinToString("+") { it.getName(context) }}"
       }
     }
   }
