@@ -28,7 +28,6 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -72,47 +71,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
     Scaffold(
       scaffoldState = scaffoldState,
       drawerContent = {
-        LazyColumn(modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)) {
-
-          item {
-            Card(modifier = Modifier
-              .padding(12.dp, 6.dp)
-              .height(42.dp)
-              .fillMaxWidth(),
-              shape = MaterialTheme.shapes.small,
-              backgroundColor = JollyColor,
-              onClick = { isShowSelectVersionDialog = true }
-            ) {
-              Box {
-                Text(
-                  text = "默认技能版本：${stringResource(moveVersion.stringId)}",
-                  modifier = Modifier.align(Alignment.Center),
-                  textAlign = TextAlign.Center,
-                  style = MaterialTheme.typography.body1
-                )
-              }
-            }
-          }
-
-          items(DrawerScreens.values()) {
-            Card(modifier = Modifier
-              .padding(12.dp, 6.dp)
-              .height(42.dp)
-              .fillMaxWidth(),
-              shape = MaterialTheme.shapes.small,
-              backgroundColor = it.color,
-              onClick = { onDrawerItemClick(it.screenName) }) {
-              Box {
-                Text(
-                  text = stringResource(id = it.nameStringId),
-                  modifier = Modifier.align(Alignment.Center),
-                  textAlign = TextAlign.Center,
-                  style = MaterialTheme.typography.body1
-                )
-              }
-            }
-          }
-        }
+        HomeLeftDrawer(moveVersion = moveVersion, onChangeVersionClick = { isShowSelectVersionDialog = true }, onDrawerItemClick = onDrawerItemClick)
       }) { paddingValues ->
       paddingValues.calculateTopPadding()
 
