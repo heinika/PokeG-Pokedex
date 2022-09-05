@@ -150,3 +150,6 @@ val progressDefenseColor = Color(0xff0091EA)
 val progressSpAttackColor = Color(0xff388E3C)
 val progressSpDefenseColor = Color(0xff642785)
 val progressSpeedColor = Color(0xff7ECFF2)
+
+val HeightColor = Color(0xFF4CAF50)
+val WeightColor = Color(0xFFFF5722)

@@ -18,10 +18,10 @@ class BodyRadioButton constructor(context: Context, bodyStatus: BodyStatus) :
     textAlignment = TEXT_ALIGNMENT_CENTER
     setTextColor(Color.WHITE)
     buttonDrawable = null
-    text = bodyStatus.getName(context)
+//    text = bodyStatus.getName(context)
     buttonDrawable = null
     val drawable = resources.getDrawable(R.drawable.check_box_basestatus_normal)
-    drawable.setTint(bodyStatus.getColor(context))
+//    drawable.setTint(bodyStatus.getColor(context))
     drawable.setTintMode(PorterDuff.Mode.ADD)
     setBackgroundDrawable(drawable)
 

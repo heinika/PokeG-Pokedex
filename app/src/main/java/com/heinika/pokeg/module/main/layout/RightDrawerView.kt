@@ -276,7 +276,7 @@ class RightDrawerView(context: Context) : CustomLayout(context) {
   @SuppressLint("SetTextI18n")
   fun setBodyStatus(bodyStatus: BodyStatus?, isDesc: Boolean) {
     bodyStatus?.let {
-      baseStatusTitle.text = "${sortPriority(isDesc)}:${bodyStatus.getName(context)}"
+//      baseStatusTitle.text = "${sortPriority(isDesc)}:${bodyStatus.getName(context)}"
     }
   }
 

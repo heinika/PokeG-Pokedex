@@ -1,9 +1,6 @@
 package com.heinika.pokeg.module.home
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
@@ -16,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.info.BaseStatus
+import com.heinika.pokeg.info.BodyStatus
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.ui.compose.*
@@ -28,13 +26,15 @@ fun HomeBottomDrawer(
   types: List<Type>,
   generations: List<Generation>,
   baseStatusList: List<BaseStatus>,
-  isDesc: Boolean,
+  isBaseStatusDesc: Boolean,
+  selectedBodyStatus: BodyStatus?,
   onTypeSelectedChange: (List<Type>) -> Unit,
   onSelectedGenerationChange: (List<Generation>) -> Unit,
   onStatusChipClick: (BaseStatus) -> Unit,
+  onBodyStatusChipClick: (BodyStatus) -> Unit,
   onBaseStatusSumClick: () -> Unit,
-  onAscClick: () -> Unit,
-  onDescClick: () -> Unit,
+  onBaseStatusAscClick: () -> Unit,
+  onBaseStatusDescClick: () -> Unit
 ) {
   val typeChipStatusList = remember {
     mutableStateListOf<ChipStatus>().apply {
@@ -52,8 +52,9 @@ fun HomeBottomDrawer(
   @Suppress("SimplifiableCallChain") val descText =
     if (baseStatusList.size == BaseStatus.values().size) "排序:总和" else "排序:${baseStatusList.map { stringResource(id = it.resId) }.joinToString("+")}"
 
-  SortSelectRow(descText, isDesc, onAscClick = onAscClick, onDescClick = onDescClick)
+  SortSelectRow(descText, isBaseStatusDesc, onAscClick = onBaseStatusAscClick, onDescClick = onBaseStatusDescClick)
   BaseStatusSelectedRow(baseStatusList, onStatusChipClick, onBaseStatusSumClick)
+  BodyStatusSelectedRow(selectedBodyStatus, onBodyStatusChipClick)
 }
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -73,6 +74,19 @@ fun BaseStatusSelectedRow(selectedList: List<BaseStatus>, onBaseStatusChipClick:
         onClick = { onBaseStatusSumClick() },
         text = "总和"
       )
+    }
+  }
+}
+
+@Composable
+fun BodyStatusSelectedRow(selectedBodyStatus: BodyStatus?, onBodyStatusChipClick: (BodyStatus) -> Unit) {
+  LazyRow {
+    items(BodyStatus.values()) { bodyStatus ->
+      BodyStatusChip(
+        modifier = Modifier.padding(12.dp, 0.dp).width(68.dp),
+        isSelected = selectedBodyStatus == bodyStatus,
+        bodyStatus = bodyStatus,
+        onClick = { onBodyStatusChipClick(bodyStatus) })
     }
   }
 }

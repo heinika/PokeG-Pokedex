@@ -1,17 +1,11 @@
 package com.heinika.pokeg.info
 
-import android.content.Context
+import androidx.compose.ui.graphics.Color
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.theme.HeightColor
+import com.heinika.pokeg.ui.theme.WeightColor
 
-enum class BodyStatus(private val resId: Int, private val resColor: Int) {
-  WEIGHT(R.string.weight, R.color.weight),
-  HEIGHT(R.string.height, R.color.height);
-
-  fun getName(context: Context): CharSequence {
-    return context.getString(resId)
-  }
-
-  fun getColor(context: Context): Int {
-    return context.getColor(resColor)
-  }
+enum class BodyStatus(val resId: Int,val color: Color) {
+  WEIGHT(R.string.weight, WeightColor),
+  HEIGHT(R.string.height, HeightColor);
 }

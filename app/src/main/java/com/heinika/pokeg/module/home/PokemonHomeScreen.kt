@@ -81,6 +81,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
         val types = remember { mutableStateOf(mainViewModel.filterTypeList.map { Type.values()[it - 1] }) }
         val generations = remember { mutableStateOf(mainViewModel.filterGenerations.value ?: emptyList()) }
         val baseStatusList = remember { mutableStateListOf<BaseStatus>().apply { mainViewModel.sortBaseStatusList.value?.let { addAll(it) } } }
+        val selectedBodyStatus = remember { mutableStateOf(mainViewModel.selectedBodyStatus.value) }
         var isDesc by remember { mutableStateOf(mainViewModel.isSortDesc.value ?: true) }
         BottomDrawer(
           drawerState = bottomDrawerState,
@@ -90,7 +91,8 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               types = types.value,
               generations = generations.value,
               baseStatusList = baseStatusList.toList(),
-              isDesc = isDesc,
+              isBaseStatusDesc = isDesc,
+              selectedBodyStatus = selectedBodyStatus.value,
               onTypeSelectedChange = { typeList ->
                 types.value = typeList
                 mainViewModel.filterTypeList = typeList.map { it.typeId }
@@ -107,6 +109,10 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 } else {
                   baseStatusList.add(it)
                 }
+
+                selectedBodyStatus.value = null
+                mainViewModel.changeBodyStatus(null)
+
                 mainViewModel.changeSortBaseStatusList(baseStatusList)
                 mainViewModel.startSortAndFilter()
               },
@@ -117,20 +123,37 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                   baseStatusList.clear()
                   baseStatusList.addAll(BaseStatus.values())
                 }
+
+                selectedBodyStatus.value = null
+                mainViewModel.changeBodyStatus(null)
+
                 mainViewModel.changeSortBaseStatusList(baseStatusList)
                 mainViewModel.startSortAndFilter()
               },
-              onDescClick = {
+              onBaseStatusDescClick = {
                 if (!isDesc) {
                   isDesc = true
                   mainViewModel.changeSortOrder()
                 }
               },
-              onAscClick = {
+              onBaseStatusAscClick = {
                 if (isDesc) {
                   isDesc = false
                   mainViewModel.changeSortOrder()
                 }
+              },
+              onBodyStatusChipClick = {
+                if (it == selectedBodyStatus.value) {
+                  selectedBodyStatus.value = null
+                } else {
+                  selectedBodyStatus.value = it
+                }
+
+                baseStatusList.clear()
+                mainViewModel.changeSortBaseStatusList(emptyList())
+
+                mainViewModel.changeBodyStatus(selectedBodyStatus.value)
+                mainViewModel.startSortAndFilter()
               }
             )
           },
