@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import coil.annotation.ExperimentalCoilApi
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.info.Type
 
@@ -30,6 +31,7 @@ fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit
       }
     }
   }
+  val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
 
   LazyColumn(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp))) {
     item {
@@ -46,11 +48,22 @@ fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit
       items(pokemonList.filter {
         it.types.contains(types.first().typeId) && it.types.contains(types.last().typeId)
       }) { pokemon ->
-        PokemonCard(pokemon = pokemon, onClick = {
-          onPokemonClick(it.globalId)
-        },
-        onFavouriteClick = {}
-          )
+        PokemonCard(
+          pokemon = pokemon,
+          onClick = {
+            onPokemonClick(it.globalId)
+          },
+          isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
+          onFavouriteClick = {
+            ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+              favouritePokemonsState.remove(it.globalId.toString())
+              ConfigMMKV.favoritePokemons - it.globalId.toString()
+            } else {
+              favouritePokemonsState.add(it.globalId.toString())
+              ConfigMMKV.favoritePokemons + it.globalId.toString()
+            }
+          }
+        )
       }
     }
 

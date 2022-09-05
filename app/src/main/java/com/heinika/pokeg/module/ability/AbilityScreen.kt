@@ -9,6 +9,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
@@ -30,6 +33,8 @@ fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemon
   val pokemonList = abilityViewModel.findPokemonListByAbilityId(ability.id).map { pokemonId ->
     PokemonDataCache.pokemonList.first { it.globalId == pokemonId }
   }
+  val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
+
   LazyColumn {
     item {
       Column {
@@ -60,7 +65,20 @@ fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemon
     }
 
     itemsIndexed(pokemonList) { index, pokemon ->
-      PokemonCard(pokemon = pokemon, isPaddingBottom = pokemonList.size - 1 == index, onClick = { onPokemonClick(pokemon.id) }, onFavouriteClick = {})
+      PokemonCard(
+        pokemon = pokemon,
+        isPaddingBottom = pokemonList.size - 1 == index,
+        onClick = { onPokemonClick(pokemon.id) },
+        isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
+        onFavouriteClick = {
+          ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+            favouritePokemonsState.remove(it.globalId.toString())
+            ConfigMMKV.favoritePokemons - it.globalId.toString()
+          } else {
+            favouritePokemonsState.add(it.globalId.toString())
+            ConfigMMKV.favoritePokemons + it.globalId.toString()
+          }
+        })
     }
   }
 }

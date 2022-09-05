@@ -63,6 +63,7 @@ fun PokemonDetailScreen(
   val chainList = detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId).observeAsState()
   val otherForms = detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.globalId).observeAsState()
   val versions = detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId).observeAsState()
+  val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
 
   val defaultVersionId = ConfigMMKV.defaultVersion
   var selectedMoveVersionId by remember { mutableStateOf(-1) }
@@ -82,7 +83,7 @@ fun PokemonDetailScreen(
     else -> detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, versionId).observeAsState()
   }
 
-  val selectedMoveVersionMap = if(selectedMoveVersionId != -1){
+  val selectedMoveVersionMap = if (selectedMoveVersionId != -1) {
     detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, selectedMoveVersionId).observeAsState()
   } else {
     null
@@ -156,7 +157,20 @@ fun PokemonDetailScreen(
 
         otherForms.value?.run {
           forEachIndexed { index, it ->
-            PokemonCard(pokemon = it, onClick = { onPokemonItemClick(it) }, isPaddingBottom = index == size - 1, onFavouriteClick = {})
+            PokemonCard(
+              pokemon = it,
+              onClick = { onPokemonItemClick(it) },
+              isPaddingBottom = index == size - 1,
+              isFavourite = favouritePokemonsState.contains(it.globalId.toString()),
+              onFavouriteClick = {
+                ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+                  favouritePokemonsState.remove(it.globalId.toString())
+                  ConfigMMKV.favoritePokemons - it.globalId.toString()
+                } else {
+                  favouritePokemonsState.add(it.globalId.toString())
+                  ConfigMMKV.favoritePokemons + it.globalId.toString()
+                }
+              })
           }
         }
 
@@ -206,7 +220,7 @@ fun PokemonDetailScreen(
         }
       }
 
-      if(selectedMoveVersionId == -1){
+      if (selectedMoveVersionId == -1) {
         pokemonMoveMap?.value?.let { movesMap ->
           items(movesMap[moveMethodId]!!) { moveItem ->
             MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
