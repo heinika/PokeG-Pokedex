@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -110,7 +112,18 @@ fun PokemonDetailScreen(
                     Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                   }
                 },
-                title = { NameRow(pokemon, specieName.value) },
+                title = {
+                  NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), specieName.value,
+                    onFavouriteClick = {
+                      ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+                        favouritePokemonsState.remove(it.globalId.toString())
+                        ConfigMMKV.favoritePokemons - it.globalId.toString()
+                      } else {
+                        favouritePokemonsState.add(it.globalId.toString())
+                        ConfigMMKV.favoritePokemons + it.globalId.toString()
+                      }
+                    })
+                },
                 backgroundColor = Color.Transparent,
                 modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
               )
@@ -409,7 +422,7 @@ fun VersionCard(modifier: Modifier = Modifier, versionId: Int, onClick: () -> Un
 
 @ExperimentalAnimationApi
 @Composable
-private fun NameRow(pokemon: Pokemon, specieName: List<PokemonName>?) {
+private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<PokemonName>?, onFavouriteClick: (Pokemon) -> Unit) {
   Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Start) {
     Text(ResUtils.getNameById(pokemon.id, pokemon.name, pokemon.form, LocalContext.current))
     Spacer(modifier = Modifier.width(8.dp))
@@ -422,6 +435,11 @@ private fun NameRow(pokemon: Pokemon, specieName: List<PokemonName>?) {
         .width(0.dp)
         .weight(1f)
     )
+
+    IconButton(onClick = { onFavouriteClick(pokemon) }) {
+      Icon(imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder, contentDescription = "")
+    }
+
     Text(pokemon.getFormatId(), Modifier.padding(end = 16.dp))
   }
 }

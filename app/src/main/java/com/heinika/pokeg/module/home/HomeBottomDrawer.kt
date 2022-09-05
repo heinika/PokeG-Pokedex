@@ -60,7 +60,7 @@ fun HomeBottomDrawer(
   BaseStatusSelectedRow(baseStatusList, onStatusChipClick, onBaseStatusSumClick)
   BodyStatusSelectedRow(selectedBodyStatus, onBodyStatusChipClick)
 
-  Text("标签", Modifier.padding(12.dp, 0.dp))
+  Text("标签", Modifier.padding(16.dp, 0.dp))
   TagSelectedRow(selectedTags, onTagClick = onTagClick)
 }
 
