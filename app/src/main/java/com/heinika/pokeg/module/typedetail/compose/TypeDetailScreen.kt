@@ -48,7 +48,9 @@ fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit
       }) { pokemon ->
         PokemonCard(pokemon = pokemon, onClick = {
           onPokemonClick(it.globalId)
-        })
+        },
+        onFavouriteClick = {}
+          )
       }
     }
 

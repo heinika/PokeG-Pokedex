@@ -33,7 +33,7 @@ fun AddMyPokemonDialog(
   onDialogStateChange: ((Boolean) -> Unit)? = null,
   onDismissRequest: (() -> Unit)? = null,
   pokemonList: List<Pokemon> = PokemonDataCache.pokemonList,
-  onPokemonItemClick:(Pokemon) -> Unit
+  onPokemonItemClick: (Pokemon) -> Unit
 ) {
   val dialogShape = RoundedCornerShape(16.dp)
 
@@ -66,11 +66,13 @@ fun AddMyPokemonDialog(
           LazyColumn {
             items(pokemonList.filter {
               it.globalId.toString().contains(searchText) ||
-                ResUtils.getNameById(it.id, context = context).contains(searchText)
+                  ResUtils.getNameById(it.id, context = context).contains(searchText)
             }) { pokemon ->
               PokemonCard(pokemon = pokemon, onClick = {
                 onPokemonItemClick(it)
-              })
+              },
+                onFavouriteClick = {}
+              )
             }
           }
         }

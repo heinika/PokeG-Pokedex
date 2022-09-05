@@ -7,7 +7,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -37,8 +42,10 @@ import com.heinika.pokeg.utils.toTypeColor
 @Composable
 fun PokemonCard(
   pokemon: Pokemon,
+  isFavourite: Boolean = false,
   isPaddingBottom: Boolean = false,
-  onClick: (pokemon: Pokemon) -> Unit
+  onClick: (pokemon: Pokemon) -> Unit,
+  onFavouriteClick: (pokemon: Pokemon) -> Unit,
 ) {
   Card(
     Modifier
@@ -100,17 +107,25 @@ fun PokemonCard(
         }
       }
       Column(
-        Modifier.padding(end = 8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        Modifier
+          .padding(end = 8.dp, top = 6.dp, bottom = 6.dp)
+          .fillMaxHeight(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
       ) {
         NumberText(
-          String.format("#%03d", pokemon.id),
-          Modifier
-            .height(0.dp)
-            .weight(1f)
-            .padding(top = 12.dp)
+          String.format("#%03d", pokemon.id)
         )
-        NumberText("${pokemon.totalBaseStat}", modifier = Modifier.padding(bottom = 12.dp))
+
+        IconButton(onClick = { onFavouriteClick(pokemon) }) {
+          Image(
+            imageVector = if (isFavourite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
+            colorFilter = ColorFilter.tint(Color.White),
+            contentDescription = ""
+          )
+        }
+
+        NumberText("${pokemon.totalBaseStat}")
       }
     }
   }
@@ -158,6 +173,7 @@ fun PokemonCardPreview() {
       1,
     ),
     onClick = {},
+    onFavouriteClick = {}
   )
 }
 

@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.*
+import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.*
 import com.heinika.pokeg.model.Pokemon
@@ -80,6 +81,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
         val baseStatusList = remember { mutableStateListOf<BaseStatus>().apply { mainViewModel.sortBaseStatusList.value?.let { addAll(it) } } }
         val selectedBodyStatus = remember { mutableStateOf(mainViewModel.selectedBodyStatus.value) }
         val tags = remember { mutableStateListOf<Tag>().apply { mainViewModel.filterTags.value?.let { addAll(it) } } }
+        val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(favoritePokemons) } }
         var isDesc by remember { mutableStateOf(mainViewModel.isSortDesc.value ?: true) }
 
         BottomDrawer(
@@ -264,7 +266,17 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               }
 
               items(sortedPokemonList) { pokemon ->
-                PokemonCard(pokemon = pokemon, onClick = { onPokemonItemClick(pokemon) })
+                PokemonCard(pokemon = pokemon, onClick = { onPokemonItemClick(pokemon) },
+                  isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
+                  onFavouriteClick = {
+                    favoritePokemons = if (favoritePokemons.contains(it.globalId.toString())) {
+                      favouritePokemonsState.remove(it.globalId.toString())
+                      favoritePokemons - it.globalId.toString()
+                    } else {
+                      favouritePokemonsState.add(it.globalId.toString())
+                      favoritePokemons + it.globalId.toString()
+                    }
+                  })
               }
             }
 

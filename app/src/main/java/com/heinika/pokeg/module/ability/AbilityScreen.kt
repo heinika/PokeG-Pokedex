@@ -60,7 +60,7 @@ fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemon
     }
 
     itemsIndexed(pokemonList) { index, pokemon ->
-      PokemonCard(pokemon = pokemon, isPaddingBottom = pokemonList.size - 1 == index, onClick = { onPokemonClick(pokemon.id) })
+      PokemonCard(pokemon = pokemon, isPaddingBottom = pokemonList.size - 1 == index, onClick = { onPokemonClick(pokemon.id) }, onFavouriteClick = {})
     }
   }
 }
