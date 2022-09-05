@@ -31,10 +31,10 @@ class TagCheckBox constructor(context: Context) : AppCompatCheckBox(context) {
   }
 
   fun setBaseStatus(tag: Tag){
-    text = tag.getName(context)
+//    text = tag.getName(context)
     buttonDrawable = null
     val drawable = resources.getDrawable(R.drawable.check_box_basestatus_normal)
-    drawable.setTint(tag.getColor(context))
+//    drawable.setTint(tag.getColor(context))
     drawable.setTintMode(PorterDuff.Mode.ADD)
     setBackgroundDrawable(drawable)
   }

@@ -35,10 +35,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.*
 import com.heinika.pokeg.R
-import com.heinika.pokeg.info.BaseStatus
-import com.heinika.pokeg.info.DexType
-import com.heinika.pokeg.info.MoveVersion
-import com.heinika.pokeg.info.Type
+import com.heinika.pokeg.info.*
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
@@ -82,7 +79,9 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
         val generations = remember { mutableStateOf(mainViewModel.filterGenerations.value ?: emptyList()) }
         val baseStatusList = remember { mutableStateListOf<BaseStatus>().apply { mainViewModel.sortBaseStatusList.value?.let { addAll(it) } } }
         val selectedBodyStatus = remember { mutableStateOf(mainViewModel.selectedBodyStatus.value) }
+        val tags = remember { mutableStateListOf<Tag>().apply { mainViewModel.filterTags.value?.let { addAll(it) } } }
         var isDesc by remember { mutableStateOf(mainViewModel.isSortDesc.value ?: true) }
+
         BottomDrawer(
           drawerState = bottomDrawerState,
           gesturesEnabled = bottomDrawerState.isOpen,
@@ -93,6 +92,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               baseStatusList = baseStatusList.toList(),
               isBaseStatusDesc = isDesc,
               selectedBodyStatus = selectedBodyStatus.value,
+              selectedTags = tags,
               onTypeSelectedChange = { typeList ->
                 types.value = typeList
                 mainViewModel.filterTypeList = typeList.map { it.typeId }
@@ -154,6 +154,14 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
 
                 mainViewModel.changeBodyStatus(selectedBodyStatus.value)
                 mainViewModel.startSortAndFilter()
+              },
+              onTagClick = {
+                if (tags.contains(it)) {
+                  tags.remove(it)
+                } else {
+                  tags.add(it)
+                }
+                mainViewModel.changeTags(tags.toList())
               }
             )
           },
@@ -309,8 +317,6 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               }
 
             }
-
-
           }
         }
       }

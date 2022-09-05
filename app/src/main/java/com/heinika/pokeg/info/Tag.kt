@@ -1,24 +1,17 @@
 package com.heinika.pokeg.info
 
-import android.content.Context
+import androidx.compose.ui.graphics.Color
 import com.heinika.pokeg.R
+import com.heinika.pokeg.ui.theme.BabyColor
+import com.heinika.pokeg.ui.theme.FavoriteColor
+import com.heinika.pokeg.ui.theme.LegendaryColor
+import com.heinika.pokeg.ui.theme.MythicalColor
 
-enum class Tag(
-  private val resId: Int,
-  private val resColor: Int
-) {
-  Favorite(R.string.favorite, R.color.favorite),
-  Legendary(R.string.legendary, R.color.legendary),
-  Mythical(R.string.mythical, R.color.mythical),
-  BABY(R.string.baby, R.color.baby);
-
-  fun getName(context: Context): CharSequence {
-    return context.getString(resId)
-  }
-
-  fun getColor(context: Context): Int {
-    return context.getColor(resColor)
-  }
+enum class Tag(val resId: Int, val color: Color) {
+  Favorite(R.string.favorite, FavoriteColor),
+  Legendary(R.string.legendary, LegendaryColor),
+  Mythical(R.string.mythical, MythicalColor),
+  BABY(R.string.baby, BabyColor);
 }
 
 val babyIdList = listOf(298,172,173,174,175,236,238,239,240,360,406,433,438,439,440,446,447,458,848)

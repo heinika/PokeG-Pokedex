@@ -12,13 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.heinika.pokeg.info.BaseStatus
-import com.heinika.pokeg.info.BodyStatus
-import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.info.Type
+import com.heinika.pokeg.info.*
 import com.heinika.pokeg.ui.compose.*
 import com.heinika.pokeg.ui.theme.Red200
 import com.heinika.pokeg.ui.theme.grassColor
+import com.heinika.pokeg.utils.SystemBar
 
 @ExperimentalMaterialApi
 @Composable
@@ -28,10 +26,12 @@ fun HomeBottomDrawer(
   baseStatusList: List<BaseStatus>,
   isBaseStatusDesc: Boolean,
   selectedBodyStatus: BodyStatus?,
+  selectedTags: List<Tag>,
   onTypeSelectedChange: (List<Type>) -> Unit,
   onSelectedGenerationChange: (List<Generation>) -> Unit,
   onStatusChipClick: (BaseStatus) -> Unit,
   onBodyStatusChipClick: (BodyStatus) -> Unit,
+  onTagClick: (Tag) -> Unit,
   onBaseStatusSumClick: () -> Unit,
   onBaseStatusAscClick: () -> Unit,
   onBaseStatusDescClick: () -> Unit
@@ -59,6 +59,9 @@ fun HomeBottomDrawer(
   SortSelectRow(descText, isBaseStatusDesc, onAscClick = onBaseStatusAscClick, onDescClick = onBaseStatusDescClick)
   BaseStatusSelectedRow(baseStatusList, onStatusChipClick, onBaseStatusSumClick)
   BodyStatusSelectedRow(selectedBodyStatus, onBodyStatusChipClick)
+
+  Text("标签", Modifier.padding(12.dp, 0.dp))
+  TagSelectedRow(selectedTags, onTagClick = onTagClick)
 }
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -78,6 +81,19 @@ fun BaseStatusSelectedRow(selectedList: List<BaseStatus>, onBaseStatusChipClick:
         onClick = { onBaseStatusSumClick() },
         text = "总和"
       )
+    }
+  }
+}
+
+@Composable
+fun TagSelectedRow(selectedTagList: List<Tag>, onTagClick: (Tag) -> Unit) {
+  LazyRow(modifier = Modifier
+    .fillMaxWidth()
+    .padding(bottom = SystemBar.navigationBarHeightDp.dp), horizontalArrangement = Arrangement.SpaceEvenly) {
+    items(Tag.values()) { tag ->
+      TagChip(isSelected = selectedTagList.contains(tag), tag = tag, onClick = {
+        onTagClick(it)
+      })
     }
   }
 }

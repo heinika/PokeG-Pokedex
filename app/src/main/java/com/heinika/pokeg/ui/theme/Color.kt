@@ -153,3 +153,8 @@ val progressSpeedColor = Color(0xff7ECFF2)
 
 val HeightColor = Color(0xFF4CAF50)
 val WeightColor = Color(0xFFFF5722)
+
+val FavoriteColor = TimidColor
+val LegendaryColor = HastyColor
+val MythicalColor = MildColor
+val BabyColor = BashfulColor

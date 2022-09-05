@@ -7,7 +7,6 @@ import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.MainRepository
 import com.heinika.pokeg.repository.res.PokemonRes
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -51,7 +50,7 @@ class MainViewModel @Inject constructor(
 
   private val _filterTags: MutableLiveData<List<Tag>> =
     MutableLiveData(emptyList())
-  private val filterTags: LiveData<List<Tag>> = _filterTags
+  val filterTags: LiveData<List<Tag>> = _filterTags
 
   private val _sortBaseStatusList: MutableLiveData<List<BaseStatus>> =
     MutableLiveData(emptyList())
