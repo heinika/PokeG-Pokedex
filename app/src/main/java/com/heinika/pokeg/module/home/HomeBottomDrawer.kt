@@ -50,7 +50,11 @@ fun HomeBottomDrawer(
   })
 
   @Suppress("SimplifiableCallChain") val descText =
-    if (baseStatusList.size == BaseStatus.values().size) "排序:总和" else "排序:${baseStatusList.map { stringResource(id = it.resId) }.joinToString("+")}"
+    when {
+      BaseStatus.values().size == baseStatusList.size -> "排序:总和"
+      selectedBodyStatus != null -> "排序:${stringResource(id = selectedBodyStatus.resId)}"
+      else -> "排序:${baseStatusList.map { stringResource(id = it.resId) }.joinToString("+")}"
+    }
 
   SortSelectRow(descText, isBaseStatusDesc, onAscClick = onBaseStatusAscClick, onDescClick = onBaseStatusDescClick)
   BaseStatusSelectedRow(baseStatusList, onStatusChipClick, onBaseStatusSumClick)
@@ -83,7 +87,9 @@ fun BodyStatusSelectedRow(selectedBodyStatus: BodyStatus?, onBodyStatusChipClick
   LazyRow {
     items(BodyStatus.values()) { bodyStatus ->
       BodyStatusChip(
-        modifier = Modifier.padding(12.dp, 0.dp).width(68.dp),
+        modifier = Modifier
+          .padding(12.dp, 0.dp)
+          .width(68.dp),
         isSelected = selectedBodyStatus == bodyStatus,
         bodyStatus = bodyStatus,
         onClick = { onBodyStatusChipClick(bodyStatus) })
