@@ -13,12 +13,24 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.heinika.pokeg.*
 import com.heinika.pokeg.info.MoveVersion
-import com.heinika.pokeg.ui.theme.JollyColor
+import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
+
+enum class DrawerScreens(val nameStringId: Int, val screenName: String, val color: Color) {
+  VersionsScreen(R.string.version_list, VERSION_LIST_SCREEN, RelaxedColor),
+  TypesDetailScreen(R.string.type_detail, TYPE_DETAIL_SCREEN, MildColor),
+  AbilitiesScreen(R.string.abilities_detail, ABILITIES_SCREEN, HardyColor),
+  MovesScreen(R.string.move_list, MOVES_SCREEN, BraveColor),
+  GamePropsScreen(R.string.props_list, GAME_PROPS_SCREEN, QuietColor),
+  NaturesScreen(R.string.nature_list, NATURE_SCREEN, CalmColor),
+  DonationScreen(R.string.donation, DONATION_SCREEN, ModestColor),
+}
 
 @ExperimentalMaterialApi
 @Composable

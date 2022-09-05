@@ -105,14 +105,12 @@ fun PokemonDetailScreen(
           ) {
             Column(Modifier.fillMaxWidth()) {
               TopAppBar(
-                navigationIcon = {
+                content = {
                   IconButton(onClick = {
                     onBack()
                   }) {
                     Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                   }
-                },
-                title = {
                   NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), specieName.value,
                     onFavouriteClick = {
                       ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {

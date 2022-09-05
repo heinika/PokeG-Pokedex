@@ -13,7 +13,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.*
@@ -29,6 +32,7 @@ import com.heinika.pokeg.module.ability.AbilityScreen
 import com.heinika.pokeg.module.ability.AbilityViewModel
 import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.detailcompose.PokemonDetailScreen
+import com.heinika.pokeg.module.donation.DonationScreen
 import com.heinika.pokeg.module.gameprops.GamePropsScreen
 import com.heinika.pokeg.module.home.PokemonHomeScreen
 import com.heinika.pokeg.module.main.MainViewModel
@@ -57,6 +61,7 @@ const val MOVES_SCREEN = "MovesScreen"
 const val VERSION_LIST_SCREEN = "VersionListScreen"
 const val NATURE_SCREEN = "NatureScreen"
 const val GAME_PROPS_SCREEN = "GamePropsScreen"
+const val DONATION_SCREEN = "DonationScreen"
 
 
 @AndroidEntryPoint
@@ -108,6 +113,18 @@ class ComposeActivity : ComponentActivity() {
             content = {
               Surface(color = MaterialTheme.colors.background) {
                 NatureColumn()
+              }
+            }
+          )
+
+          //DonationScreen
+          animatedComposable(
+            route = DONATION_SCREEN,
+            content = {
+              Surface(color = MaterialTheme.colors.background) {
+                DonationScreen(onBack = {
+                  navController.popBackStack()
+                })
               }
             }
           )

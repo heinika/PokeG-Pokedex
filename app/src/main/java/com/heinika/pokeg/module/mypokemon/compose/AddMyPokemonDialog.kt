@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import coil.annotation.ExperimentalCoilApi
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.ResUtils
@@ -38,6 +39,7 @@ fun AddMyPokemonDialog(
   val dialogShape = RoundedCornerShape(16.dp)
 
   var searchText by remember { mutableStateOf("") }
+  val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
   val context = LocalContext.current
 
   if (dialogState) {
@@ -68,10 +70,21 @@ fun AddMyPokemonDialog(
               it.globalId.toString().contains(searchText) ||
                   ResUtils.getNameById(it.id, context = context).contains(searchText)
             }) { pokemon ->
-              PokemonCard(pokemon = pokemon, onClick = {
-                onPokemonItemClick(it)
-              },
-                onFavouriteClick = {}
+              PokemonCard(
+                pokemon = pokemon,
+                onClick = {
+                  onPokemonItemClick(it)
+                },
+                isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
+                onFavouriteClick = {
+                  ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+                    favouritePokemonsState.remove(it.globalId.toString())
+                    ConfigMMKV.favoritePokemons - it.globalId.toString()
+                  } else {
+                    favouritePokemonsState.add(it.globalId.toString())
+                    ConfigMMKV.favoritePokemons + it.globalId.toString()
+                  }
+                }
               )
             }
           }

@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.annotation.ExperimentalCoilApi
-import com.heinika.pokeg.*
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.R
 import com.heinika.pokeg.info.*
@@ -41,18 +41,8 @@ import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
 import com.heinika.pokeg.ui.compose.SelectVersionDialog
-import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
-
-enum class DrawerScreens(val nameStringId: Int, val screenName: String, val color: Color) {
-  VersionsScreen(R.string.version_list, VERSION_LIST_SCREEN, RelaxedColor),
-  TypesDetailScreen(R.string.type_detail, TYPE_DETAIL_SCREEN, MildColor),
-  AbilitiesScreen(R.string.abilities_detail, ABILITIES_SCREEN, HardyColor),
-  MovesScreen(R.string.move_list, MOVES_SCREEN, BraveColor),
-  GamePropsScreen(R.string.props_list, GAME_PROPS_SCREEN, QuietColor),
-  NaturesScreen(R.string.nature_list, NATURE_SCREEN, CalmColor),
-}
 
 @ExperimentalComposeUiApi
 @ExperimentalCoilApi
@@ -68,6 +58,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
   Box {
     Scaffold(
       scaffoldState = scaffoldState,
+      drawerShape = MaterialTheme.shapes.small,
       drawerContent = {
         HomeLeftDrawer(moveVersion = moveVersion, onChangeVersionClick = { isShowSelectVersionDialog = true }, onDrawerItemClick = onDrawerItemClick)
       }) { paddingValues ->
@@ -87,6 +78,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
         BottomDrawer(
           drawerState = bottomDrawerState,
           gesturesEnabled = bottomDrawerState.isOpen,
+          drawerShape = MaterialTheme.shapes.small,
           drawerContent = {
             HomeBottomDrawer(
               types = types.value,
@@ -317,6 +309,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 FloatingActionButton(
                   onClick = {
                     scope.launch {
+                      isSearchMode = false
                       bottomDrawerState.open()
                     }
                   }
