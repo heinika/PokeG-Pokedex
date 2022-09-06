@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.base.LiveCoroutinesViewModel
+import com.heinika.pokeg.model.PokemonName
 import com.heinika.pokeg.module.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,6 +27,8 @@ class DetailViewModel @Inject constructor(
 
   private val _moveMethodId = mutableStateOf(1)
   val moveMethodId: State<Int> = _moveMethodId
+
+  val pokemonNameList = mutableStateListOf<PokemonName>()
 
   fun refreshPokemonMoveVersion(id: Int, speciesId: Int) {
     viewModelScope.launch {
@@ -64,8 +67,15 @@ class DetailViewModel @Inject constructor(
   }
 
 
-  fun getPokemonSpecieNameLiveData(id: Int) =
-    detailRepository.pokemonNameFlow(id).asLiveDataOnViewModelScope()
+  fun refreshPokemonNameList(id: Int) {
+    viewModelScope.launch {
+      detailRepository.pokemonNameFlow(id).collect{
+        pokemonNameList.clear()
+        pokemonNameList.addAll(it)
+      }
+    }
+  }
+
 
   fun getPokemonSpecieLiveData(id: Int) =
     detailRepository.pokemonSpecieFlow(id).asLiveDataOnViewModelScope()

@@ -60,8 +60,9 @@ fun PokemonDetailScreen(
 
   LaunchedEffect(key1 = null, block = {
     detailViewModel.refreshPokemonMoveVersion(globalId, pokemon.speciesId)
+    detailViewModel.refreshPokemonNameList(pokemon.speciesId)
   })
-  val specieName = detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId).observeAsState()
+  val specieName = remember { detailViewModel.pokemonNameList }
   val abilities = detailViewModel.getPokemonAbilitiesLiveData(pokemon.globalId).observeAsState()
   val species = detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observeAsState()
   val specieFlavor = detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observeAsState()
@@ -98,7 +99,7 @@ fun PokemonDetailScreen(
                   }) {
                     Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                   }
-                  NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), specieName.value,
+                  NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), specieName.toList(),
                     onFavouriteClick = {
                       ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
                         favouritePokemonsState.remove(it.globalId.toString())
@@ -113,7 +114,7 @@ fun PokemonDetailScreen(
                 modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
               )
 
-              HeaderCard(pokemon, abilities.value, specieName.value, species.value, onAbilityClick, onTypeClick)
+              HeaderCard(pokemon, abilities.value, specieName.toList(), species.value, onAbilityClick, onTypeClick)
             }
           }
         }
@@ -398,11 +399,11 @@ fun VersionCard(modifier: Modifier = Modifier, versionId: Int, onClick: () -> Un
 
 @ExperimentalAnimationApi
 @Composable
-private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<PokemonName>?, onFavouriteClick: (Pokemon) -> Unit) {
+private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<PokemonName>, onFavouriteClick: (Pokemon) -> Unit) {
   Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Start) {
     Text(ResUtils.getNameById(pokemon.id, pokemon.name, pokemon.form, LocalContext.current))
     Spacer(modifier = Modifier.width(8.dp))
-    if (!specieName.isNullOrEmpty()) {
+    if (specieName.isNotEmpty()) {
       SpecieNameCard(specieName[0].genus)
     }
 
@@ -441,7 +442,7 @@ fun SpecieNameCard(specieName: String) {
 private fun HeaderCard(
   pokemon: Pokemon,
   abilities: List<Ability>?,
-  pokemonNames: List<PokemonName>?,
+  pokemonNames: List<PokemonName>,
   species: PokemonSpecie?,
   onAbilityClick: (Ability) -> Unit,
   onTypeClick: (Type) -> Unit
@@ -477,8 +478,10 @@ private fun HeaderCard(
         .align(Alignment.TopEnd),
       horizontalAlignment = Alignment.End
     ) {
-      pokemonNames?.first { it.localLanguageId.isEnId }?.let { TagCard(it.name) }
-      pokemonNames?.first { it.localLanguageId.isJaId }?.let { TagCard(it.name) }
+      if (pokemonNames.isNotEmpty()){
+        TagCard(pokemonNames.first { it.localLanguageId.isEnId }.name)
+        TagCard(pokemonNames.first { it.localLanguageId.isJaId }.name)
+      }
       TagCard(stringResource(id = Generation.values()[pokemon.generationId - 1].resId))
       species?.shapeId?.let { TagCard(ResUtils.getShape(it, LocalContext.current)) }
       species?.habitatId?.let { if (it.isNotEmpty()) TagCard(ResUtils.getHabitat(it.toInt(), LocalContext.current)) }
