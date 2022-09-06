@@ -29,7 +29,7 @@ class MainRepository @Inject constructor(
   fun fetchPokemonList(
     onStart: () -> Unit,
     onSuccess: () -> Unit,
-    onError: (String?) -> Unit
+    onError: (String) -> Unit
   ) = flow {
     try {
       val pokemonList = pokemonRes.fetchPokemon()
@@ -41,7 +41,7 @@ class MainRepository @Inject constructor(
       onSuccess()
       emit(pokemonList)
     } catch (e: Exception) {
-      onError(e.message)
+      onError(e.message ?: "Unknown Error")
       Timber.i(e)
     }
 

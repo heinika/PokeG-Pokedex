@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -36,7 +35,10 @@ import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.R
-import com.heinika.pokeg.info.*
+import com.heinika.pokeg.info.BaseStatus
+import com.heinika.pokeg.info.DexType
+import com.heinika.pokeg.info.MoveVersion
+import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
@@ -49,7 +51,7 @@ import kotlinx.coroutines.launch
 @ExperimentalMaterialApi
 @Composable
 fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenName: String) -> Unit, onPokemonItemClick: (Pokemon) -> Unit) {
-  val sortedPokemonList = mainViewModel.pokemonSortListLiveData.observeAsState()
+  val sortedPokemonList = mainViewModel.pokemonSortStateList
   val scaffoldState = rememberScaffoldState()
   val scope = rememberCoroutineScope()
   var moveVersion by remember { mutableStateOf(MoveVersion.values()[ConfigMMKV.defaultVersion - 1]) }
@@ -65,15 +67,14 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
       paddingValues.calculateTopPadding()
 
       val bottomDrawerState = rememberBottomDrawerState(initialValue = BottomDrawerValue.Closed)
-      sortedPokemonList.value?.let { sortedPokemonList ->
-
+      if (!mainViewModel.isLoading.value) {
         val types = remember { mutableStateOf(mainViewModel.filterTypeList.map { Type.values()[it - 1] }) }
-        val generations = remember { mutableStateOf(mainViewModel.filterGenerations.value ?: emptyList()) }
-        val baseStatusList = remember { mutableStateListOf<BaseStatus>().apply { mainViewModel.sortBaseStatusList.value?.let { addAll(it) } } }
-        val selectedBodyStatus = remember { mutableStateOf(mainViewModel.selectedBodyStatus.value) }
-        val tags = remember { mutableStateListOf<Tag>().apply { mainViewModel.filterTags.value?.let { addAll(it) } } }
+        val generations = remember { mainViewModel.filterGenerations }
+        val baseStatusList = remember { mainViewModel.sortBaseStatusList }
+        val selectedBodyStatus = remember { mainViewModel.selectedBodyStatus }
+        val tags = remember { mainViewModel.filterTags }
         val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(favoritePokemons) } }
-        var isDesc by remember { mutableStateOf(mainViewModel.isSortDesc.value ?: true) }
+        val isDesc = remember { mainViewModel._isSortDesc }
 
         BottomDrawer(
           drawerState = bottomDrawerState,
@@ -84,7 +85,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               types = types.value,
               generations = generations.value,
               baseStatusList = baseStatusList.toList(),
-              isBaseStatusDesc = isDesc,
+              isBaseStatusDesc = isDesc.value,
               selectedBodyStatus = selectedBodyStatus.value,
               selectedTags = tags,
               onTypeSelectedChange = { typeList ->
@@ -93,7 +94,6 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 mainViewModel.startSortAndFilter()
               },
               onSelectedGenerationChange = { generationList ->
-                generations.value = generationList
                 mainViewModel.changeGenerations(generationList)
                 mainViewModel.startSortAndFilter()
               },
@@ -103,11 +103,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 } else {
                   baseStatusList.add(it)
                 }
-
-                selectedBodyStatus.value = null
                 mainViewModel.changeBodyStatus(null)
-
-                mainViewModel.changeSortBaseStatusList(baseStatusList)
                 mainViewModel.startSortAndFilter()
               },
               onBaseStatusSumClick = {
@@ -117,36 +113,23 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                   baseStatusList.clear()
                   baseStatusList.addAll(BaseStatus.values())
                 }
-
-                selectedBodyStatus.value = null
                 mainViewModel.changeBodyStatus(null)
-
-                mainViewModel.changeSortBaseStatusList(baseStatusList)
                 mainViewModel.startSortAndFilter()
               },
               onBaseStatusDescClick = {
-                if (!isDesc) {
-                  isDesc = true
+                if (!isDesc.value) {
                   mainViewModel.changeSortOrder()
                 }
               },
               onBaseStatusAscClick = {
-                if (isDesc) {
-                  isDesc = false
+                if (isDesc.value) {
                   mainViewModel.changeSortOrder()
                 }
               },
               onBodyStatusChipClick = {
-                if (it == selectedBodyStatus.value) {
-                  selectedBodyStatus.value = null
-                } else {
-                  selectedBodyStatus.value = it
-                }
-
+                val selectedResult = if (it == selectedBodyStatus.value) null else it
                 baseStatusList.clear()
-                mainViewModel.changeSortBaseStatusList(emptyList())
-
-                mainViewModel.changeBodyStatus(selectedBodyStatus.value)
+                mainViewModel.changeBodyStatus(selectedResult)
                 mainViewModel.startSortAndFilter()
               },
               onTagClick = {
@@ -155,7 +138,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 } else {
                   tags.add(it)
                 }
-                mainViewModel.changeTags(tags.toList())
+                mainViewModel.startSortAndFilter()
               }
             )
           },

@@ -1,6 +1,12 @@
 package com.heinika.pokeg.module.main
 
-import androidx.lifecycle.*
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.ConfigMMKV.favoritePokemons
 import com.heinika.pokeg.info.*
 import com.heinika.pokeg.model.Pokemon
@@ -19,20 +25,19 @@ class MainViewModel @Inject constructor(
   private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-  private val _toastMessage = MutableLiveData<String?>()
-  val toastMessage: LiveData<String?> = _toastMessage
+  private val _toastMessage = mutableStateOf("")
+  val toastMessage: State<String> = _toastMessage
 
-  private val _searchText = MutableLiveData<CharSequence?>()
-  val searchText: LiveData<CharSequence?> = _searchText
+  private val _searchText = mutableStateOf("")
+  val searchText: State<String> = _searchText
 
-  private val _isLoading = MutableLiveData<Boolean>().apply { value = true }
-  val isLoading: LiveData<Boolean> = _isLoading
+  private val _isLoading = mutableStateOf(true)
+  val isLoading: State<Boolean> = _isLoading
 
-  private val _isSortDesc = MutableLiveData<Boolean>().apply { value = true }
-  val isSortDesc: LiveData<Boolean> = _isSortDesc
+  var _isSortDesc = mutableStateOf(true)
+  val isSortDesc: State<Boolean> = _isSortDesc
 
-  private val _pokemonSortListLiveData = MutableLiveData<List<Pokemon>>(listOf())
-  val pokemonSortListLiveData: LiveData<List<Pokemon>> = _pokemonSortListLiveData
+  val pokemonSortStateList = mutableStateListOf<Pokemon>()
 
   private lateinit var allPokemonList: List<Pokemon>
   private lateinit var hiSuiPokemonList: List<Pokemon>
@@ -44,39 +49,29 @@ class MainViewModel @Inject constructor(
       startSortAndFilter()
     }
 
-  private val _filterGenerations: MutableLiveData<List<Generation>> =
-    MutableLiveData(emptyList())
-  val filterGenerations: LiveData<List<Generation>> = _filterGenerations
+  private val _filterGenerations: MutableState<List<Generation>> = mutableStateOf(emptyList())
+  val filterGenerations: State<List<Generation>> = _filterGenerations
 
-  private val _filterTags: MutableLiveData<List<Tag>> =
-    MutableLiveData(emptyList())
-  val filterTags: LiveData<List<Tag>> = _filterTags
+  val filterTags = mutableStateListOf<Tag>()
 
-  private val _sortBaseStatusList: MutableLiveData<List<BaseStatus>> =
-    MutableLiveData(emptyList())
+  val sortBaseStatusList = mutableStateListOf<BaseStatus>()
 
-  private val _selectedBodyStatus: MutableLiveData<BodyStatus?> =
-    MutableLiveData(null)
-  val selectedBodyStatus: LiveData<BodyStatus?> = _selectedBodyStatus
-
-  val sortBaseStatusList: LiveData<List<BaseStatus>> = _sortBaseStatusList
-
-  var onRefreshFavorite: ((Pokemon) -> Unit)? = null
+  private val _selectedBodyStatus: MutableState<BodyStatus?> = mutableStateOf(null)
+  val selectedBodyStatus: State<BodyStatus?> = _selectedBodyStatus
 
   init {
     Timber.d("init MainViewModel")
 
     viewModelScope.launch {
       mainRepository.fetchPokemonList(
-        onStart = { _isLoading.postValue(true) },
-        onSuccess = { _isLoading.postValue(false) },
-        onError = { _toastMessage.postValue(it) }
+        onStart = { },
+        onSuccess = { _isLoading.value = false },
+        onError = { _toastMessage.value = it }
       ).collect { pokemonList ->
         allPokemonList = pokemonList
-        hiSuiPokemonList =
-          RegionNumber.HiSuiMap.keys.map { hisuiNumber -> pokemonList.first { it.globalId == hisuiNumber } }
+        hiSuiPokemonList = RegionNumber.HiSuiMap.keys.map { hisuiNumber -> pokemonList.first { it.globalId == hisuiNumber } }
         basePokemonList = pokemonList
-        _pokemonSortListLiveData.value = pokemonList
+        clearAndAddAll(basePokemonList)
       }
     }
   }
@@ -86,16 +81,7 @@ class MainViewModel @Inject constructor(
       DexType.Global -> allPokemonList
       DexType.HiSui -> hiSuiPokemonList
     }
-    _pokemonSortListLiveData.value = basePokemonList
-  }
-
-  fun changeBasePokemonListFavorite(pokemon: Pokemon, isFavorite: Boolean) {
-    pokemon.isFavorite = isFavorite
-    onRefreshFavorite?.invoke(pokemon)
-  }
-
-  fun changeSortBaseStatusList(list: List<BaseStatus>) {
-    _sortBaseStatusList.value = list
+    clearAndAddAll(basePokemonList)
   }
 
   fun changeBodyStatus(bodyStatus: BodyStatus?) {
@@ -107,27 +93,25 @@ class MainViewModel @Inject constructor(
     startSortAndFilter()
   }
 
-  fun changeTags(list: List<Tag>) {
-    _filterTags.value = list
-    startSortAndFilter()
-  }
-
   fun startSortAndFilter() {
-    _pokemonSortListLiveData.value =
-      this.basePokemonList.filterType().filterGenerations().filterTags().sortBaseStatus()
-        .sortBodyStatus()
+    clearAndAddAll(basePokemonList.filterType().filterGenerations().filterTags().sortBaseStatus().sortBodyStatus())
   }
 
-  fun setSearchText(searchText: CharSequence?) {
+  private fun clearAndAddAll(pokemonList: List<Pokemon>) {
+    pokemonSortStateList.clear()
+    pokemonSortStateList.addAll(pokemonList)
+  }
+
+  fun setSearchText(searchText: String) {
     _searchText.value = searchText
-    if (searchText.isNullOrEmpty()) {
-      _pokemonSortListLiveData.value = this.basePokemonList
+    if (searchText.isEmpty()) {
+      clearAndAddAll(basePokemonList)
     } else {
       this.basePokemonList.filter {
         it.getCName(pokemonRes).contains(searchText, true) || it.id.toString()
           .contains(searchText, true)
       }.let {
-        _pokemonSortListLiveData.value = it
+        clearAndAddAll(it)
       }
     }
   }
@@ -150,11 +134,11 @@ class MainViewModel @Inject constructor(
 
   private fun List<Pokemon>.filterGenerations(): List<Pokemon> {
     return filter { pokemon ->
-      if (filterGenerations.value!!.isEmpty()) {
+      if (filterGenerations.value.isEmpty()) {
         true
       } else {
         var result = false
-        filterGenerations.value!!.forEach { generation ->
+        filterGenerations.value.forEach { generation ->
           if (pokemon.generationId == generation.id) {
             result = true
           }
@@ -166,10 +150,10 @@ class MainViewModel @Inject constructor(
 
   private fun List<Pokemon>.filterTags(): List<Pokemon> {
     return filter { pokemon ->
-      if (filterTags.value!!.isEmpty()) {
+      if (filterTags.isEmpty()) {
         true
       } else {
-        filterTags.value!!.forEach { tag ->
+        filterTags.forEach { tag ->
           when (tag) {
             Tag.Favorite -> {
               if (favoritePokemons.contains(pokemon.globalId.toString())) {
@@ -201,11 +185,11 @@ class MainViewModel @Inject constructor(
 
   private fun List<Pokemon>.sortBaseStatus(): List<Pokemon> {
     return sortedBy { pokemon ->
-      if (sortBaseStatusList.value.isNullOrEmpty()) {
+      if (sortBaseStatusList.isEmpty()) {
         0
       } else {
         var sortPriority = 0
-        sortBaseStatusList.value?.forEach {
+        sortBaseStatusList.forEach {
           sortPriority += when (it) {
             BaseStatus.HP -> pokemon.hp
             BaseStatus.ATK -> pokemon.atk
@@ -215,7 +199,7 @@ class MainViewModel @Inject constructor(
             BaseStatus.SPEED -> pokemon.speed
           }
         }
-        if (isSortDesc.value!!) {
+        if (_isSortDesc.value) {
           -sortPriority
         } else {
           sortPriority
@@ -237,7 +221,7 @@ class MainViewModel @Inject constructor(
           }
           else -> {}
         }
-        if (isSortDesc.value!!) {
+        if (_isSortDesc.value) {
           -sortPriority
         } else {
           sortPriority
@@ -249,7 +233,7 @@ class MainViewModel @Inject constructor(
   }
 
   fun changeSortOrder() {
-    _isSortDesc.value = !_isSortDesc.value!!
+    _isSortDesc.value = !_isSortDesc.value
     startSortAndFilter()
   }
 

@@ -16,14 +16,6 @@
         android:theme="@style/Theme.PokeG"
         tools:ignore="AllowBackup">
 
-        <activity
-            android:name=".PokeGActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
-
-        </activity>
-
         <activity android:name="com.heinika.pokeg.module.versions.VersionsActivity" />
         <activity
             android:name="com.heinika.pokeg.module.donation.DonationActivity"
