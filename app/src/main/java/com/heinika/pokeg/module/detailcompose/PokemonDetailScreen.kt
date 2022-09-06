@@ -13,7 +13,6 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -61,14 +60,20 @@ fun PokemonDetailScreen(
   LaunchedEffect(key1 = null, block = {
     detailViewModel.refreshPokemonMoveVersion(globalId, pokemon.speciesId)
     detailViewModel.refreshPokemonNameList(pokemon.speciesId)
+    detailViewModel.refreshPokemonAbilityList(pokemon.globalId)
+    detailViewModel.refreshPokemonSpecie(pokemon.speciesId)
+    detailViewModel.refreshSpeciesAllOtherForms(pokemon.speciesId, pokemon.globalId)
+    detailViewModel.refreshSpecieEggGroupList(pokemon.speciesId)
+    detailViewModel.refreshSpecieFlavorText(pokemon.speciesId)
+    detailViewModel.refreshSpecieEvolutionChainList(pokemon.speciesId)
   })
-  val specieName = remember { detailViewModel.pokemonNameList }
-  val abilities = detailViewModel.getPokemonAbilitiesLiveData(pokemon.globalId).observeAsState()
-  val species = detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observeAsState()
-  val specieFlavor = detailViewModel.getSpecieFlavorTextsLiveData(pokemon.speciesId).observeAsState()
-  val eggGroup = detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observeAsState()
-  val chainList = detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId).observeAsState()
-  val otherForms = detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.globalId).observeAsState()
+  val pokemonNameList = remember { detailViewModel.pokemonNameList }
+  val abilityList = remember { detailViewModel.abilityList }
+  val species = remember { detailViewModel.pokemonSpecie }
+  val specieFlavorText = remember { detailViewModel.specieFlavorText }
+  val speciesEggGroupList = remember { detailViewModel.speciesEggGroupList }
+  val chainList = remember { detailViewModel.speciesEvolutionChainList }
+  val otherForms = remember { detailViewModel.allOtherFormList }
   val versions = remember { detailViewModel.versionIdList }
   val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
 
@@ -99,7 +104,7 @@ fun PokemonDetailScreen(
                   }) {
                     Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                   }
-                  NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), specieName.toList(),
+                  NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), pokemonNameList.toList(),
                     onFavouriteClick = {
                       ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
                         favouritePokemonsState.remove(it.globalId.toString())
@@ -114,63 +119,61 @@ fun PokemonDetailScreen(
                 modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
               )
 
-              HeaderCard(pokemon, abilities.value, specieName.toList(), species.value, onAbilityClick, onTypeClick)
+              HeaderCard(pokemon, abilityList.toList(), pokemonNameList.toList(), species.value, onAbilityClick, onTypeClick)
             }
           }
         }
 
-        specieFlavor.value?.let { PokemonDescCard(it) }
+        PokemonDescCard(specieFlavorText.value)
 
         StatusCard(pokemon)
 
-        EggCard(eggGroup.value, species.value)
+        EggCard(speciesEggGroupList.toList(), species.value)
 
-        chainList.value?.let { speciesEvolutionChains ->
-          if (speciesEvolutionChains.isNotEmpty()) {
-            DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
-              Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
-                speciesEvolutionChains.forEach { chain ->
-                  Row(
-                    modifier = Modifier
-                      .fillMaxWidth()
-                      .padding(bottom = 12.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                  ) {
-                    val fromPokemon =
-                      PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
-                    val toPokemon =
-                      PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
-                    PokemonAvatar(fromPokemon, onClick = { onPokemonItemClick(it) })
-                    Text(
-                      chain.getDescText(LocalContext.current),
-                      modifier = Modifier.weight(1f),
-                      textAlign = TextAlign.Center
-                    )
-                    PokemonAvatar(toPokemon, onClick = { onPokemonItemClick(it) })
-                  }
+
+        if (chainList.isNotEmpty()) {
+          DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+            Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
+              chainList.forEach { chain ->
+                Row(
+                  modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 12.dp),
+                  verticalAlignment = Alignment.CenterVertically
+                ) {
+                  val fromPokemon =
+                    PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
+                  val toPokemon =
+                    PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
+                  PokemonAvatar(fromPokemon, onClick = { onPokemonItemClick(it) })
+                  Text(
+                    chain.getDescText(LocalContext.current),
+                    modifier = Modifier.weight(1f),
+                    textAlign = TextAlign.Center
+                  )
+                  PokemonAvatar(toPokemon, onClick = { onPokemonItemClick(it) })
                 }
               }
             }
           }
         }
 
-        otherForms.value?.run {
-          forEachIndexed { index, it ->
-            PokemonCard(
-              pokemon = it,
-              onClick = { onPokemonItemClick(it) },
-              isPaddingBottom = index == size - 1,
-              isFavourite = favouritePokemonsState.contains(it.globalId.toString()),
-              onFavouriteClick = {
-                ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
-                  favouritePokemonsState.remove(it.globalId.toString())
-                  ConfigMMKV.favoritePokemons - it.globalId.toString()
-                } else {
-                  favouritePokemonsState.add(it.globalId.toString())
-                  ConfigMMKV.favoritePokemons + it.globalId.toString()
-                }
-              })
-          }
+        otherForms.toList().forEachIndexed { index, it ->
+          PokemonCard(
+            pokemon = it,
+            onClick = { onPokemonItemClick(it) },
+            isPaddingBottom = index == otherForms.size - 1,
+            isFavourite = favouritePokemonsState.contains(it.globalId.toString()),
+            onFavouriteClick = {
+              ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+                favouritePokemonsState.remove(it.globalId.toString())
+                ConfigMMKV.favoritePokemons - it.globalId.toString()
+              } else {
+                favouritePokemonsState.add(it.globalId.toString())
+                ConfigMMKV.favoritePokemons + it.globalId.toString()
+              }
+            })
+
         }
 
 
@@ -244,7 +247,7 @@ fun PokemonDetailScreen(
 
 
 @Composable
-fun EggCard(eggGroups: List<SpeciesEggGroup>?, pokemonSpecie: PokemonSpecie?) {
+fun EggCard(eggGroups: List<SpeciesEggGroup>, pokemonSpecie: PokemonSpecie?) {
   val context = LocalContext.current
   DetailCard(modifier = Modifier.padding(12.dp)) {
     Row(
@@ -255,7 +258,7 @@ fun EggCard(eggGroups: List<SpeciesEggGroup>?, pokemonSpecie: PokemonSpecie?) {
       Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
         Text(text = stringResource(R.string.egg_group))
         Spacer(modifier = Modifier.height(8.dp))
-        eggGroups?.let { speciesEggGroups -> Text(text = speciesEggGroups.joinToString(" ") { ResUtils.getEggGroupName(it.eggGroupId, context) }) }
+        Text(text = eggGroups.joinToString(" ") { ResUtils.getEggGroupName(it.eggGroupId, context) })
       }
       Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
         Text(text = stringResource(R.string.egg_steps))
@@ -441,7 +444,7 @@ fun SpecieNameCard(specieName: String) {
 @Composable
 private fun HeaderCard(
   pokemon: Pokemon,
-  abilities: List<Ability>?,
+  abilities: List<Ability>,
   pokemonNames: List<PokemonName>,
   species: PokemonSpecie?,
   onAbilityClick: (Ability) -> Unit,
@@ -466,7 +469,7 @@ private fun HeaderCard(
         .align(Alignment.TopStart)
     ) {
       PokemonTypesRow(pokemon.types, onTypeClick)
-      abilities?.forEach { AbilityRow(it, onAbilityClick) }
+      abilities.forEach { AbilityRow(it, onAbilityClick) }
       AttributeCard(attr = pokemon.getFormatHeight(), heightCardColor)
       AttributeCard(attr = pokemon.getFormatWeight(), weightCardColor)
     }
@@ -478,7 +481,7 @@ private fun HeaderCard(
         .align(Alignment.TopEnd),
       horizontalAlignment = Alignment.End
     ) {
-      if (pokemonNames.isNotEmpty()){
+      if (pokemonNames.isNotEmpty()) {
         TagCard(pokemonNames.first { it.localLanguageId.isEnId }.name)
         TagCard(pokemonNames.first { it.localLanguageId.isJaId }.name)
       }

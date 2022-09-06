@@ -3,10 +3,11 @@ package com.heinika.pokeg.module.detail
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.ConfigMMKV
-import com.heinika.pokeg.base.LiveCoroutinesViewModel
-import com.heinika.pokeg.model.PokemonName
+import com.heinika.pokeg.info.Ability
+import com.heinika.pokeg.model.*
 import com.heinika.pokeg.module.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
   private val detailRepository: DetailRepository
-) : LiveCoroutinesViewModel() {
+) : ViewModel() {
   val versionIdList = mutableStateListOf<Int>()
 
   private val _pokemonMoveMap = mutableStateOf(emptyMap<Int, List<MoveItem>>())
@@ -29,6 +30,16 @@ class DetailViewModel @Inject constructor(
   val moveMethodId: State<Int> = _moveMethodId
 
   val pokemonNameList = mutableStateListOf<PokemonName>()
+  val abilityList = mutableStateListOf<Ability>()
+  val allOtherFormList = mutableStateListOf<Pokemon>()
+  val speciesEggGroupList = mutableStateListOf<SpeciesEggGroup>()
+  val speciesEvolutionChainList = mutableStateListOf<SpeciesEvolutionChain>()
+
+  private val _pokemonSpecie = mutableStateOf<PokemonSpecie?>(null)
+  val pokemonSpecie: State<PokemonSpecie?> = _pokemonSpecie
+
+  private val _specieFlavorText = mutableStateOf("")
+  val specieFlavorText: State<String> = _specieFlavorText
 
   fun refreshPokemonMoveVersion(id: Int, speciesId: Int) {
     viewModelScope.launch {
@@ -77,24 +88,62 @@ class DetailViewModel @Inject constructor(
   }
 
 
-  fun getPokemonSpecieLiveData(id: Int) =
-    detailRepository.pokemonSpecieFlow(id).asLiveDataOnViewModelScope()
+  fun refreshPokemonSpecie(id: Int) {
+    viewModelScope.launch {
+      detailRepository.pokemonSpecieFlow(id).collect{
+        _pokemonSpecie.value = it
+      }
+    }
+  }
 
-  fun speciesAllOtherFormsLiveData(specieId: Int, globalId: Int) =
-    detailRepository.speciesAllOtherFormsFlow(specieId, globalId).asLiveDataOnViewModelScope()
 
-  fun getPokemonAbilitiesLiveData(id: Int) =
-    detailRepository.pokemonAbilitiesFlow(id).asLiveDataOnViewModelScope()
+  fun refreshSpeciesAllOtherForms(specieId: Int, globalId: Int) {
+    viewModelScope.launch {
+      detailRepository.speciesAllOtherFormsFlow(specieId, globalId).collect{
+        allOtherFormList.clear()
+        allOtherFormList.addAll(it)
+      }
+    }
+  }
 
-  fun getSpecieEggGroupLiveData(id: Int) =
-    detailRepository.specieEggGroupFlow(id).asLiveDataOnViewModelScope()
 
-  fun getSpecieEvolutionChainLiveData(id: Int) =
-    detailRepository.specieEvolutionChainFlow(id).asLiveDataOnViewModelScope()
+  fun refreshPokemonAbilityList(id: Int) {
+    viewModelScope.launch {
+      detailRepository.pokemonAbilitiesFlow(id).collect{
+        abilityList.clear()
+        abilityList.addAll(it)
+      }
+    }
+  }
 
-  fun getSpecieFlavorTextsLiveData(id: Int) =
-    detailRepository.specieFlavorTextsFlow(id).asLiveDataOnViewModelScope()
 
+  fun refreshSpecieEggGroupList(id: Int) {
+    viewModelScope.launch {
+      detailRepository.specieEggGroupFlow(id).collect{
+        speciesEggGroupList.clear()
+        speciesEggGroupList.addAll(it)
+      }
+    }
+  }
+
+
+  fun refreshSpecieEvolutionChainList(id: Int) {
+    viewModelScope.launch {
+      detailRepository.specieEvolutionChainFlow(id).collect{
+        speciesEvolutionChainList.clear()
+        speciesEvolutionChainList.addAll(it)
+      }
+    }
+  }
+
+
+  fun refreshSpecieFlavorText(id: Int) {
+    viewModelScope.launch {
+      detailRepository.specieFlavorTextsFlow(id).collect{
+        _specieFlavorText.value = it
+      }
+    }
+  }
 
 }
 
