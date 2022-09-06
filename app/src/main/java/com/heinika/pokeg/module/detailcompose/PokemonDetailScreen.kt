@@ -57,6 +57,10 @@ fun PokemonDetailScreen(
   onBack: () -> Unit
 ) {
   val pokemon = PokemonDataCache.pokemonList.first { it.globalId == globalId }
+
+  LaunchedEffect(key1 = null, block = {
+    detailViewModel.refreshPokemonMoveVersion(globalId, pokemon.speciesId)
+  })
   val specieName = detailViewModel.getPokemonSpecieNameLiveData(pokemon.speciesId).observeAsState()
   val abilities = detailViewModel.getPokemonAbilitiesLiveData(pokemon.globalId).observeAsState()
   val species = detailViewModel.getPokemonSpecieLiveData(pokemon.speciesId).observeAsState()
@@ -64,32 +68,15 @@ fun PokemonDetailScreen(
   val eggGroup = detailViewModel.getSpecieEggGroupLiveData(pokemon.speciesId).observeAsState()
   val chainList = detailViewModel.getSpecieEvolutionChainLiveData(pokemon.speciesId).observeAsState()
   val otherForms = detailViewModel.speciesAllOtherFormsLiveData(pokemon.speciesId, pokemon.globalId).observeAsState()
-  val versions = detailViewModel.getPokemonMoveVersionLiveData(pokemon.id, pokemon.speciesId).observeAsState()
+  val versions = remember { detailViewModel.versionIdList }
   val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
 
-  val defaultVersionId = ConfigMMKV.defaultVersion
-  var selectedMoveVersionId by remember { mutableStateOf(-1) }
-  val versionId: Int? = when {
-    selectedMoveVersionId != -1 -> selectedMoveVersionId
-    versions.value == null -> null
-    versions.value!!.contains(defaultVersionId) -> defaultVersionId
-    else -> versions.value!!.last()
-  }
-
-  var moveMethodId by remember { mutableStateOf(1) }
+  val versionId = remember { detailViewModel.versionId }
+  val moveMethodId = remember { detailViewModel.moveMethodId }
+  val pokemonMoveMap = remember { detailViewModel.pokemonMoveMap }
 
   var isShowSelectedDialog by remember { mutableStateOf(false) }
 
-  val pokemonMoveMap = when (versionId) {
-    null -> null
-    else -> detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, versionId).observeAsState()
-  }
-
-  val selectedMoveVersionMap = if (selectedMoveVersionId != -1) {
-    detailViewModel.getPokemonMoveLiveData(pokemon.id, pokemon.speciesId, selectedMoveVersionId).observeAsState()
-  } else {
-    null
-  }
 
   Box {
     LazyColumn(
@@ -186,79 +173,70 @@ fun PokemonDetailScreen(
         }
 
 
-        versionId?.let {
+        versionId.value?.let {
           VersionCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp), it, onClick = {
             isShowSelectedDialog = true
           })
         }
 
-        pokemonMoveMap?.value?.let { movesMap ->
-          DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
-            Row(
-              Modifier
-                .fillMaxWidth()
-                .height(46.dp)
-            ) {
-              movesMap.keys.sortedBy {
-                when (it) {
-                  2 -> 3
-                  3 -> 4
-                  4 -> 2
-                  else -> it
-                }
-              }.forEach { methodId ->
-                val isSelected = methodId == moveMethodId
-                Box(modifier = Modifier
-                  .weight(1f)
-                  .fillMaxHeight()
-                  .clip(MaterialTheme.shapes.medium)
-                  .border(if (isSelected) 2.dp else 0.dp, if (isSelected) YellowLight else Color.Transparent, MaterialTheme.shapes.medium)
-                  .clickable {
-                    moveMethodId = methodId
-                  }) {
-                  Text(
-                    text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
-                    Modifier
-                      .align(Alignment.Center),
-                    style = MaterialTheme.typography.subtitle1,
-                    textAlign = TextAlign.Center,
-                    color = if (isSelected) YellowLight else Color.White
-                  )
-                }
+
+        DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+          Row(
+            Modifier
+              .fillMaxWidth()
+              .height(46.dp)
+          ) {
+            pokemonMoveMap.value.keys.sortedBy {
+              when (it) {
+                2 -> 3
+                3 -> 4
+                4 -> 2
+                else -> it
+              }
+            }.forEach { methodId ->
+              val isSelected = methodId == moveMethodId.value
+              Box(modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .clip(MaterialTheme.shapes.medium)
+                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) YellowLight else Color.Transparent, MaterialTheme.shapes.medium)
+                .clickable {
+                  detailViewModel.changeMethodId(methodId)
+                }) {
+                Text(
+                  text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
+                  Modifier
+                    .align(Alignment.Center),
+                  style = MaterialTheme.typography.subtitle1,
+                  textAlign = TextAlign.Center,
+                  color = if (isSelected) YellowLight else Color.White
+                )
               }
             }
+
           }
         }
       }
 
-      if (selectedMoveVersionId == -1) {
-        pokemonMoveMap?.value?.let { movesMap ->
-          items(movesMap[moveMethodId]!!) { moveItem ->
-            MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
-          }
-        }
-      } else {
-        selectedMoveVersionMap?.value?.let { movesMap ->
-          items(movesMap[moveMethodId]!!) { moveItem ->
-            MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
-          }
+      pokemonMoveMap.value[moveMethodId.value]?.let { moveItemList ->
+        items(moveItemList) { moveItem ->
+          MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
         }
       }
     }
 
 
-    versions.value?.let { versions ->
-      SelectVersionDialog(
-        moveVersionList = versions.map { moveVersionId -> MoveVersion.values().first { it.ordinal == moveVersionId - 1 } },
-        dialogState = isShowSelectedDialog,
-        onDialogStateChange = { isShowSelectedDialog = it },
-        onDismissRequest = { isShowSelectedDialog = false },
-        onVersionItemClick = {
-          moveMethodId = 1
-          selectedMoveVersionId = it.id
-          isShowSelectedDialog = false
-        })
-    }
+
+    SelectVersionDialog(
+      moveVersionList = versions.map { moveVersionId -> MoveVersion.values().first { it.ordinal == moveVersionId - 1 } },
+      dialogState = isShowSelectedDialog,
+      onDialogStateChange = { isShowSelectedDialog = it },
+      onDismissRequest = { isShowSelectedDialog = false },
+      onVersionItemClick = {
+        detailViewModel.refreshPokemonMoveMap(globalId, pokemon.speciesId, it.id)
+        isShowSelectedDialog = false
+      })
+
   }
 
 }

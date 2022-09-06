@@ -1,22 +1,68 @@
 package com.heinika.pokeg.module.detail
 
-import androidx.lifecycle.LiveData
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.viewModelScope
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.module.detail.itemdelegate.model.MoveItem
 import com.heinika.pokeg.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
   private val detailRepository: DetailRepository
 ) : LiveCoroutinesViewModel() {
+  val versionIdList = mutableStateListOf<Int>()
 
-  fun getPokemonMoveVersionLiveData(id: Int, speciesId: Int): LiveData<List<Int>> =
-    detailRepository.pokemonMoveVersionsFlow(id, speciesId).asLiveDataOnViewModelScope()
+  private val _pokemonMoveMap = mutableStateOf(emptyMap<Int, List<MoveItem>>())
+  val pokemonMoveMap: State<Map<Int, List<MoveItem>>> = _pokemonMoveMap
 
-  fun getPokemonMoveLiveData(id: Int, speciesId: Int,version: Int): LiveData<Map<Int, List<MoveItem>>> =
-    detailRepository.pokemonMovesFlow(id, speciesId,version).asLiveDataOnViewModelScope()
+  private val _versionId = mutableStateOf<Int?>(null)
+  val versionId: State<Int?> = _versionId
+
+  private val _moveMethodId = mutableStateOf(1)
+  val moveMethodId: State<Int> = _moveMethodId
+
+  fun refreshPokemonMoveVersion(id: Int, speciesId: Int) {
+    viewModelScope.launch {
+      detailRepository.pokemonMoveVersionsFlow(id, speciesId).collect { versionIds ->
+        versionIdList.clear()
+        versionIdList.addAll(versionIds)
+
+        _versionId.value = when {
+          versionIdList.contains(ConfigMMKV.defaultVersion) -> ConfigMMKV.defaultVersion
+          else -> versionIds.last()
+        }
+
+        _versionId.value?.let { version ->
+          detailRepository.pokemonMovesFlow(id, speciesId, version).collect {
+            _moveMethodId.value = 1
+            _pokemonMoveMap.value = it
+          }
+        }
+      }
+    }
+  }
+
+
+  fun refreshPokemonMoveMap(id: Int, speciesId: Int, version: Int) {
+    viewModelScope.launch {
+      detailRepository.pokemonMovesFlow(id, speciesId, version).collect {
+        _moveMethodId.value = 1
+        _versionId.value = version
+        _pokemonMoveMap.value = it
+      }
+    }
+  }
+
+  fun changeMethodId(methodId: Int) {
+    _moveMethodId.value = methodId
+  }
+
 
   fun getPokemonSpecieNameLiveData(id: Int) =
     detailRepository.pokemonNameFlow(id).asLiveDataOnViewModelScope()
@@ -38,4 +84,9 @@ class DetailViewModel @Inject constructor(
 
   fun getSpecieFlavorTextsLiveData(id: Int) =
     detailRepository.specieFlavorTextsFlow(id).asLiveDataOnViewModelScope()
+
+
 }
+
+
+
