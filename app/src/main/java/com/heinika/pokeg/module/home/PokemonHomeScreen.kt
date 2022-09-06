@@ -51,7 +51,7 @@ import kotlinx.coroutines.launch
 @ExperimentalMaterialApi
 @Composable
 fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenName: String) -> Unit, onPokemonItemClick: (Pokemon) -> Unit) {
-  val sortedPokemonList = mainViewModel.pokemonSortStateList
+  val sortedPokemonList = remember { mainViewModel.pokemonSortStateList }
   val scaffoldState = rememberScaffoldState()
   val scope = rememberCoroutineScope()
   var moveVersion by remember { mutableStateOf(MoveVersion.values()[ConfigMMKV.defaultVersion - 1]) }
