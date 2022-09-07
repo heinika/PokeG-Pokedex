@@ -29,6 +29,7 @@ enum class DrawerScreens(val nameStringId: Int, val screenName: String, val colo
   MovesScreen(R.string.move_list, MOVES_SCREEN, BraveColor),
   GamePropsScreen(R.string.props_list, GAME_PROPS_SCREEN, QuietColor),
   NaturesScreen(R.string.nature_list, NATURE_SCREEN, CalmColor),
+  AboutScreen(R.string.about, ABOUT_SCREEN, LonelyColor),
   DonationScreen(R.string.donation, DONATION_SCREEN, ModestColor),
 }
 

@@ -30,6 +30,7 @@ import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.module.ability.AbilitiesColumn
 import com.heinika.pokeg.module.ability.AbilityScreen
 import com.heinika.pokeg.module.ability.AbilityViewModel
+import com.heinika.pokeg.module.about.AboutScreen
 import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.detailcompose.PokemonDetailScreen
 import com.heinika.pokeg.module.donation.DonationScreen
@@ -62,6 +63,7 @@ const val VERSION_LIST_SCREEN = "VersionListScreen"
 const val NATURE_SCREEN = "NatureScreen"
 const val GAME_PROPS_SCREEN = "GamePropsScreen"
 const val DONATION_SCREEN = "DonationScreen"
+const val ABOUT_SCREEN = "AboutScreen"
 
 
 @AndroidEntryPoint
@@ -113,6 +115,18 @@ class ComposeActivity : ComponentActivity() {
             content = {
               Surface(color = MaterialTheme.colors.background) {
                 NatureColumn()
+              }
+            }
+          )
+
+          //AboutScreen
+          animatedComposable(
+            route = ABOUT_SCREEN,
+            content = {
+              Surface(color = MaterialTheme.colors.background) {
+                AboutScreen(onBack = {
+                  navController.popBackStack()
+                })
               }
             }
           )

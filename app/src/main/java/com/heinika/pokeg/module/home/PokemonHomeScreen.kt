@@ -15,6 +15,13 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -46,6 +53,7 @@ import com.heinika.pokeg.ui.compose.SelectVersionDialog
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
@@ -185,7 +193,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                         colors = TextFieldDefaults.outlinedTextFieldColors(
                           unfocusedBorderColor = Color.Transparent,
                           focusedBorderColor = Color.Transparent,
-                          cursorColor = MaterialTheme.colors.primary
+                          cursorColor = MaterialTheme.colorScheme.primary
                         )
                       )
 

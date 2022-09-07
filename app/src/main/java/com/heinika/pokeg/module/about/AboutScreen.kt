@@ -16,14 +16,15 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.R
+import com.heinika.pokeg.utils.SystemBar
 
-@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AboutScreen() {
+fun AboutScreen(onBack: () -> Unit) {
   Scaffold(
     topBar = {
       CenterAlignedTopAppBar(
+        modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp),
         title = {
           Text(
             stringResource(id = R.string.app_name),
@@ -32,7 +33,7 @@ fun AboutScreen() {
           )
         },
         navigationIcon = {
-          IconButton(onClick = { /* doSomething() */ }) {
+          IconButton(onClick = { onBack() }) {
             Icon(
               imageVector = Icons.Filled.ArrowBack,
               contentDescription = "Localized description"
@@ -67,4 +68,10 @@ fun AboutScreen() {
       }
     }
   )
+}
+
+@Preview
+@Composable
+fun AboutPreview() {
+  AboutScreen(onBack = {})
 }
