@@ -2,16 +2,18 @@ package com.heinika.pokeg.module.mypokemon.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,11 +34,11 @@ import coil.compose.rememberImagePainter
 import com.heinika.pokeg.info.getTypeString
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.utils.toTypeColor
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
@@ -48,16 +50,15 @@ fun PokemonCard(
   onFavouriteClick: (pokemon: Pokemon) -> Unit,
 ) {
   Card(
-    Modifier
+    modifier = Modifier
       .padding(12.dp, 12.dp, 12.dp, if (isPaddingBottom) 12.dp else 0.dp)
       .fillMaxWidth()
-      .height(120.dp)
-      .clip(RoundedCornerShape(16.dp))
-      .clickable {
-        onClick(pokemon)
-      },
-    backgroundColor = BlackBackgroundColor,
-    elevation = 10.dp
+      .height(120.dp),
+    colors = CardDefaults.cardColors(
+      contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+      containerColor = MaterialTheme.colorScheme.secondaryContainer
+    ),
+    onClick = { onClick(pokemon) }
   ) {
     Row(
       Modifier
@@ -177,6 +178,7 @@ fun PokemonCardPreview() {
   )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
@@ -193,6 +195,7 @@ fun PokemonAvatar(pokemon: Pokemon, onClick: (pokemon: Pokemon) -> Unit) {
         painter = rememberImagePainter(data = pokemon.getImageUrl()),
         contentDescription = "Picture of Pokemon",
         modifier = Modifier
+          .size(88.dp)
           .background(
             brush = Brush.linearGradient(
               pokemon.types.map { it.toTypeColor },
@@ -211,6 +214,7 @@ fun PokemonAvatar(pokemon: Pokemon, onClick: (pokemon: Pokemon) -> Unit) {
           .background(
             color = pokemon.types[0].toTypeColor
           )
+          .size(88.dp)
           .padding(4.dp)
       )
     }

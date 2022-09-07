@@ -15,11 +15,10 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.*
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.*
@@ -69,6 +68,8 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
     Scaffold(
       scaffoldState = scaffoldState,
       drawerShape = MaterialTheme.shapes.small,
+      backgroundColor = MaterialTheme.colorScheme.background,
+      contentColor = MaterialTheme.colorScheme.onBackground,
       drawerContent = {
         HomeLeftDrawer(moveVersion = moveVersion, onChangeVersionClick = { isShowSelectVersionDialog = true }, onDrawerItemClick = onDrawerItemClick)
       }) { paddingValues ->
@@ -170,9 +171,8 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               state = pokemonColumnState
             ) {
               item {
-                TopAppBar(
+                CenterAlignedTopAppBar(
                   modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp),
-                  backgroundColor = Color.Transparent,
                   title = {
                     Box {
                       OutlinedTextField(
@@ -201,8 +201,9 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                         Row(
                           modifier = Modifier
                             .fillMaxSize()
-                            .padding(0.dp, 8.dp)
-                            .clickable { }, verticalAlignment = Alignment.CenterVertically
+                            .clickable { }
+                            .padding(0.dp,12.dp)
+                            .align(Alignment.CenterStart), verticalAlignment = Alignment.CenterVertically
                         ) {
                           Text(stringResource(id = dexType.stringId))
                         }
