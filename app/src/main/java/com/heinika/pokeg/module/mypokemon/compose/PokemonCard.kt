@@ -11,9 +11,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -54,10 +52,6 @@ fun PokemonCard(
       .padding(12.dp, 12.dp, 12.dp, if (isPaddingBottom) 12.dp else 0.dp)
       .fillMaxWidth()
       .height(120.dp),
-    colors = CardDefaults.cardColors(
-      contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
-      containerColor = MaterialTheme.colorScheme.secondaryContainer
-    ),
     onClick = { onClick(pokemon) }
   ) {
     Row(

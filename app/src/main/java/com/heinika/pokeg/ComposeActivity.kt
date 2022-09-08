@@ -11,8 +11,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -113,7 +112,7 @@ class ComposeActivity : ComponentActivity() {
           animatedComposable(
             route = NATURE_SCREEN,
             content = {
-              Surface(color = MaterialTheme.colors.background) {
+              Surface {
                 NatureColumn()
               }
             }
@@ -123,7 +122,7 @@ class ComposeActivity : ComponentActivity() {
           animatedComposable(
             route = ABOUT_SCREEN,
             content = {
-              Surface(color = MaterialTheme.colors.background) {
+              Surface {
                 AboutScreen(onBack = {
                   navController.popBackStack()
                 })
@@ -135,7 +134,7 @@ class ComposeActivity : ComponentActivity() {
           animatedComposable(
             route = DONATION_SCREEN,
             content = {
-              Surface(color = MaterialTheme.colors.background) {
+              Surface {
                 DonationScreen(onBack = {
                   navController.popBackStack()
                 })
@@ -193,7 +192,7 @@ class ComposeActivity : ComponentActivity() {
             route = "${POKEMON_DETAIL_SCREEN}/{$KEY_POKEMON_ID}",
             arguments = listOf(navArgument(KEY_POKEMON_ID) { type = NavType.IntType }),
             content = { navBackStackEntry ->
-              Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+              Surface(modifier = Modifier.fillMaxSize()) {
                 navBackStackEntry.arguments?.let { bundle ->
                   PokemonDetailScreen(
                     globalId = bundle.getInt(KEY_POKEMON_ID),
@@ -215,7 +214,7 @@ class ComposeActivity : ComponentActivity() {
             route = "$TYPE_DETAIL_SCREEN/{$KEY_TYPE_IDS}",
             arguments = listOf(navArgument(KEY_TYPE_IDS) { type = NavType.StringType }),
             content = {
-              Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+              Surface(modifier = Modifier.fillMaxSize()) {
                 it.arguments?.getString(KEY_TYPE_IDS)?.let { ids ->
                   val typeList = remember { mutableStateOf(ids.split(",").toList().map { Type.values()[it.toInt() - 1] }) }
                   TypeDetailScreen(
@@ -233,7 +232,7 @@ class ComposeActivity : ComponentActivity() {
           animatedComposable(
             route = TYPE_DETAIL_SCREEN,
             content = {
-              Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+              Surface(modifier = Modifier.fillMaxSize()) {
                 val typeList = remember { mutableStateListOf<Type>().apply { addAll(typeDetailScreenViewModel.curTypes) } }
                 TypeDetailScreen(
                   types = typeList.toList(),

@@ -8,8 +8,8 @@ import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +33,7 @@ fun TypeDetailTable(curTypes: List<Type>) {
       Text(
         text = stringResource(id = R.string.as_the_defensed),
         modifier = Modifier.padding(4.dp),
-        style = MaterialTheme.typography.h5
+        style = MaterialTheme.typography.titleSmall
       )
       TypesCard(curTypes)
     }
@@ -48,7 +48,7 @@ fun TypeDetailTable(curTypes: List<Type>) {
         Text(
           text = stringResource(id = R.string.as_the_attack),
           modifier = Modifier.padding(4.dp),
-          style = MaterialTheme.typography.h5
+          style = MaterialTheme.typography.titleSmall
         )
         TypeCard(
           typeName = it.getName(LocalContext.current),
@@ -151,7 +151,7 @@ private fun TypesTable(typesMap: LinkedHashMap<String, List<List<Type>>>) {
           it.key,
           Modifier.weight(2f),
           textAlign = TextAlign.Center,
-          style = MaterialTheme.typography.h5
+          style = MaterialTheme.typography.titleSmall
         )
 
         TypesFilterRow(
@@ -173,7 +173,7 @@ private fun TypeTable(typesMap: LinkedHashMap<String, List<Type>>) {
           it.key,
           Modifier.weight(2f),
           textAlign = TextAlign.Center,
-          style = MaterialTheme.typography.h5
+          style = MaterialTheme.typography.titleSmall
         )
 
         TypeFilterGrid(
@@ -284,7 +284,7 @@ private fun TypesCard(modifier: Modifier = Modifier, typeName: String = "草", c
       text = typeName,
       Modifier.align(Alignment.Center),
       color = Color.White,
-      style = MaterialTheme.typography.body2
+      style = MaterialTheme.typography.bodyMedium
     )
   }
 }
@@ -311,7 +311,7 @@ private fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", co
       text = typeName,
       Modifier.align(Alignment.Center),
       color = Color.White,
-      style = MaterialTheme.typography.body2
+      style = MaterialTheme.typography.bodyMedium
     )
   }
 }

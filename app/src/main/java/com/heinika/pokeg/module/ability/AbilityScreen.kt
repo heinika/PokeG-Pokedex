@@ -5,14 +5,16 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -27,7 +29,7 @@ import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.formatId
 
 @ExperimentalMaterialApi
-@OptIn(ExperimentalCoilApi::class)
+@OptIn(ExperimentalCoilApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemonId: Int) -> Unit, abilityViewModel: AbilityViewModel) {
   val pokemonList = abilityViewModel.findPokemonListByAbilityId(ability.id).map { pokemonId ->
@@ -38,7 +40,7 @@ fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemon
   LazyColumn {
     item {
       Column {
-        TopAppBar(
+        SmallTopAppBar(
           navigationIcon = {
             IconButton(onClick = {
               onBack()
@@ -48,18 +50,24 @@ fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemon
           },
           title = {
             Row(verticalAlignment = Alignment.CenterVertically) {
-              Text(text = stringResource(id = ability.nameResId), style = MaterialTheme.typography.h5, modifier = Modifier.weight(1f))
-              Text(text = ability.id.formatId, style = MaterialTheme.typography.subtitle1, modifier = Modifier.padding(end = 24.dp))
+              Text(text = stringResource(id = ability.nameResId), style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
+              Text(text = ability.id.formatId, style = MaterialTheme.typography.titleSmall, modifier = Modifier.padding(end = 24.dp))
             }
           },
-          backgroundColor = Color.Transparent,
-          modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)
+          colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent),
+          modifier = Modifier
+            .padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
+            .shadow(4.dp, MaterialTheme.shapes.small)
         )
-        Text(text = stringResource(id = ability.flavorResId), style = MaterialTheme.typography.body1, modifier = Modifier.padding(12.dp))
+        Text(
+          text = stringResource(id = ability.flavorResId),
+          style = MaterialTheme.typography.bodyMedium,
+          modifier = Modifier.padding(24.dp, 12.dp)
+        )
         Text(
           text = stringResource(id = ability.effectResId),
-          style = MaterialTheme.typography.body1,
-          modifier = Modifier.padding(12.dp, 0.dp)
+          style = MaterialTheme.typography.bodyMedium,
+          modifier = Modifier.padding(24.dp, 0.dp)
         )
       }
     }

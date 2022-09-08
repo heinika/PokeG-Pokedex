@@ -8,7 +8,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.*
+import androidx.compose.material.BottomDrawer
+import androidx.compose.material.BottomDrawerValue
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.rememberBottomDrawerState
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -29,7 +35,7 @@ import kotlinx.coroutines.launch
 fun MoveListScreen(moveListViewModel: MoveListViewModel) {
   Surface(
     modifier = Modifier.fillMaxSize(),
-    color = MaterialTheme.colors.background
+    color = MaterialTheme.colorScheme.background
   ) {
     val drawerState = rememberBottomDrawerState(BottomDrawerValue.Closed)
 
@@ -55,7 +61,8 @@ fun MoveListScreen(moveListViewModel: MoveListViewModel) {
         )
       },
       gesturesEnabled = drawerState.isOpen,
-      drawerState = drawerState
+      drawerState = drawerState,
+      drawerBackgroundColor = MaterialTheme.colorScheme.surface,
     ) {
       val moves = remember { moveListViewModel.allMovesState }
       ConstraintLayout(modifier = Modifier.fillMaxSize()) {
@@ -106,7 +113,8 @@ fun MoveListScreen(moveListViewModel: MoveListViewModel) {
                   drawerState.open()
                 }
               }
-            }
+            },
+            containerColor = MaterialTheme.colorScheme.tertiary
           ) {
             Image(
               painter = painterResource(id = R.drawable.ic_filter_list),
