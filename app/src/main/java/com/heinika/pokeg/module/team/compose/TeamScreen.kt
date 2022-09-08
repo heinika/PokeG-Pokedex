@@ -34,7 +34,7 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.MyPokemon
-import com.heinika.pokeg.module.detailcompose.AttributeCard
+import com.heinika.pokeg.module.detail.AttributeCard
 import com.heinika.pokeg.module.gameprops.props.CarryProps
 import com.heinika.pokeg.module.team.TeamViewModel
 import com.heinika.pokeg.ui.theme.BlackBackgroundColor
@@ -322,7 +322,6 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
   }
 }
 
-@ExperimentalMaterialApi
 @Composable
 fun TagCard(attr: String) {
   AttributeCard(attr, tagCardColor)

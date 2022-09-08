@@ -16,7 +16,6 @@ import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -70,6 +69,8 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
       drawerShape = MaterialTheme.shapes.small,
       backgroundColor = MaterialTheme.colorScheme.background,
       contentColor = MaterialTheme.colorScheme.onBackground,
+      drawerBackgroundColor = MaterialTheme.colorScheme.surface,
+      drawerContentColor = MaterialTheme.colorScheme.onSurface,
       drawerContent = {
         HomeLeftDrawer(moveVersion = moveVersion, onChangeVersionClick = { isShowSelectVersionDialog = true }, onDrawerItemClick = onDrawerItemClick)
       }) { paddingValues ->
@@ -88,6 +89,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
         BottomDrawer(
           drawerState = bottomDrawerState,
           gesturesEnabled = bottomDrawerState.isOpen,
+          drawerBackgroundColor = MaterialTheme.colorScheme.surface,
           drawerShape = MaterialTheme.shapes.small,
           drawerContent = {
             HomeBottomDrawer(
@@ -171,7 +173,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               state = pokemonColumnState
             ) {
               item {
-                CenterAlignedTopAppBar(
+                SmallTopAppBar(
                   modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp),
                   title = {
                     Box {
@@ -202,7 +204,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                           modifier = Modifier
                             .fillMaxSize()
                             .clickable { }
-                            .padding(0.dp,12.dp)
+                            .padding(0.dp, 12.dp)
                             .align(Alignment.CenterStart), verticalAlignment = Alignment.CenterVertically
                         ) {
                           Text(stringResource(id = dexType.stringId))
@@ -286,6 +288,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
               Row(horizontalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxWidth()) {
 
                 FloatingActionButton(
+                  containerColor = MaterialTheme.colorScheme.tertiary,
                   onClick = {
                     scope.launch {
                       pokemonColumnState.scrollToItem(0)
@@ -299,6 +302,7 @@ fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenNa
                 }
 
                 FloatingActionButton(
+                  containerColor = MaterialTheme.colorScheme.tertiary,
                   onClick = {
                     scope.launch {
                       isSearchMode = false

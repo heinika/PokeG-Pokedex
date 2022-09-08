@@ -8,8 +8,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,7 +30,7 @@ enum class DrawerScreens(val nameStringId: Int, val screenName: String, val colo
   GamePropsScreen(R.string.props_list, GAME_PROPS_SCREEN, QuietColor),
   NaturesScreen(R.string.nature_list, NATURE_SCREEN, CalmColor),
   AboutScreen(R.string.about, ABOUT_SCREEN, LonelyColor),
-  DonationScreen(R.string.donation, DONATION_SCREEN, ModestColor),
+  DonationScreen(R.string.donation, DONATION_SCREEN, SassyColor),
 }
 
 @ExperimentalMaterialApi
@@ -52,7 +52,7 @@ fun HomeLeftDrawer(moveVersion: MoveVersion, onChangeVersionClick: () -> Unit, o
             text = "默认技能版本：${stringResource(moveVersion.stringId)}",
             modifier = Modifier.align(Alignment.Center),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.bodyMedium
           )
         }
       }
@@ -71,7 +71,7 @@ fun HomeLeftDrawer(moveVersion: MoveVersion, onChangeVersionClick: () -> Unit, o
             text = stringResource(id = it.nameStringId),
             modifier = Modifier.align(Alignment.Center),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.bodyMedium
           )
         }
       }

@@ -1,4 +1,4 @@
-package com.heinika.pokeg.module.detailcompose
+package com.heinika.pokeg.module.detail
 
 
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -7,15 +7,17 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -32,7 +34,6 @@ import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.model.PokemonName
 import com.heinika.pokeg.model.PokemonSpecie
 import com.heinika.pokeg.model.SpeciesEggGroup
-import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.moves.compose.MoveCard
 import com.heinika.pokeg.module.mypokemon.compose.PokemonAvatar
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
@@ -43,8 +44,8 @@ import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.*
 
 
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 fun PokemonDetailScreen(
@@ -84,26 +85,28 @@ fun PokemonDetailScreen(
   var isShowSelectedDialog by remember { mutableStateOf(false) }
 
 
-  Box {
+  Box(modifier = Modifier.background(MaterialTheme.colorScheme.background)) {
     LazyColumn(
       modifier = Modifier
         .fillMaxSize()
     ) {
       item {
-        Card(elevation = 8.dp, shape = RoundedCornerShape(bottomEnd = 26.dp, bottomStart = 26.dp)) {
+        Card(shape = RoundedCornerShape(bottomEnd = 26.dp, bottomStart = 26.dp)) {
           Box(
             Modifier
               .height(330.dp + SystemBar.statusBarHeightDp.dp)
               .typeBackground(pokemon.types)
           ) {
             Column(Modifier.fillMaxWidth()) {
-              TopAppBar(
-                content = {
+              SmallTopAppBar(
+                navigationIcon = {
                   IconButton(onClick = {
                     onBack()
                   }) {
                     Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = null)
                   }
+                },
+                title = {
                   NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), pokemonNameList.toList(),
                     onFavouriteClick = {
                       ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
@@ -115,8 +118,8 @@ fun PokemonDetailScreen(
                       }
                     })
                 },
-                backgroundColor = Color.Transparent,
-                modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
+                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent),
+                modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp).shadow(4.dp,MaterialTheme.shapes.small)
               )
 
               HeaderCard(pokemon, abilityList.toList(), pokemonNameList.toList(), species.value, onAbilityClick, onTypeClick)
@@ -211,7 +214,7 @@ fun PokemonDetailScreen(
                   text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
                   Modifier
                     .align(Alignment.Center),
-                  style = MaterialTheme.typography.subtitle1,
+                  style = MaterialTheme.typography.titleMedium,
                   textAlign = TextAlign.Center,
                   color = if (isSelected) YellowLight else Color.White
                 )
@@ -349,7 +352,7 @@ private fun StatProgress(
           .background(color)
           .padding(end = 8.dp),
         textAlign = TextAlign.End,
-        style = MaterialTheme.typography.caption
+        style = MaterialTheme.typography.titleSmall
       )
     }
   }
@@ -364,7 +367,7 @@ private fun PokemonDescCard(desc: String) {
   ) {
     Text(
       text = desc,
-      style = MaterialTheme.typography.body1,
+      style = MaterialTheme.typography.bodyMedium,
       modifier = Modifier.padding(8.dp),
       textAlign = TextAlign.Center
     )
@@ -375,23 +378,20 @@ private fun PokemonDescCard(desc: String) {
 fun DetailCard(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
   Card(
     modifier = modifier,
-    shape = RoundedCornerShape(16.dp),
-    elevation = 4.dp,
-    backgroundColor = Color(0xff162544)
+    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+    shape = MaterialTheme.shapes.small
   ) {
     content()
   }
 }
 
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun VersionCard(modifier: Modifier = Modifier, versionId: Int, onClick: () -> Unit) {
   Card(
     modifier = modifier,
     shape = MaterialTheme.shapes.medium,
     border = BorderStroke(2.dp, RashColor),
-    backgroundColor = CarefulColor,
-    elevation = 4.dp,
     onClick = { onClick() }
   ) {
     Row(modifier = Modifier.padding(12.dp)) {
@@ -428,18 +428,15 @@ private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<Poke
 fun SpecieNameCard(specieName: String) {
   Card(
     shape = RoundedCornerShape(16.dp),
-    backgroundColor = specieNameCardColor,
-    elevation = 4.dp
   ) {
     Text(
-      specieName, style = MaterialTheme.typography.caption,
+      specieName, style = MaterialTheme.typography.titleSmall,
       modifier = Modifier.padding(6.dp, 3.dp)
     )
   }
 }
 
 @ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 private fun HeaderCard(
@@ -501,7 +498,6 @@ private fun HeaderCard(
   }
 }
 
-@ExperimentalMaterialApi
 @Composable
 fun PokemonTypesRow(types: List<Int>, onTypeClick: (Type) -> Unit) {
   Row {
@@ -515,19 +511,24 @@ fun PokemonTypesRow(types: List<Int>, onTypeClick: (Type) -> Unit) {
   }
 }
 
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokemonTypeCard(typeId: Int, modifier: Modifier = Modifier, onTypeClick: (Type) -> Unit) {
-  AttributeCard(
-    getTypeString(LocalContext.current, typeId),
-    Type.values()[typeId - 1].darkStartColor,
-    modifier.width(44.dp),
-    onclick = { onTypeClick(Type.values()[typeId - 1]) }
-  )
+  Card(
+    modifier = modifier.width(44.dp),
+    shape = MaterialTheme.shapes.medium,
+    colors = CardDefaults.cardColors(containerColor = Type.values()[typeId - 1].darkStartColor),
+    onClick = { onTypeClick(Type.values()[typeId - 1])  }
+  ) {
+    Text(
+      getTypeString(LocalContext.current, typeId), style = MaterialTheme.typography.titleSmall,
+      modifier = Modifier.fillMaxWidth().padding(6.dp, 3.dp),
+      textAlign = TextAlign.Center
+    )
+  }
 }
 
 @ExperimentalAnimationApi
-@ExperimentalMaterialApi
 @Composable
 fun AbilityRow(ability: Ability, onAbilityClick: (Ability) -> Unit) {
   AttributeCard(
@@ -539,7 +540,7 @@ fun AbilityRow(ability: Ability, onAbilityClick: (Ability) -> Unit) {
   )
 }
 
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AttributeCard(
   attr: String,
@@ -549,12 +550,12 @@ fun AttributeCard(
 ) {
   Card(
     modifier = modifier,
-    backgroundColor = color,
-    shape = RoundedCornerShape(16.dp),
+    shape = MaterialTheme.shapes.medium,
+    colors = CardDefaults.cardColors(containerColor = color),
     onClick = { onclick?.invoke() }
   ) {
     Text(
-      attr, style = MaterialTheme.typography.caption,
+      attr, style = MaterialTheme.typography.titleSmall,
       modifier = Modifier.padding(6.dp, 3.dp),
       textAlign = TextAlign.Center
     )

@@ -1,4 +1,4 @@
-package com.heinika.pokeg.module.detail.itemdelegate.model
+package com.heinika.pokeg.module.detail
 
 data class MoveItem(
   val id: Int,

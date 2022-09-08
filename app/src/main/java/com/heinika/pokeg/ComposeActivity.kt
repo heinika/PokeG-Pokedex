@@ -32,7 +32,7 @@ import com.heinika.pokeg.module.ability.AbilityScreen
 import com.heinika.pokeg.module.ability.AbilityViewModel
 import com.heinika.pokeg.module.about.AboutScreen
 import com.heinika.pokeg.module.detail.DetailViewModel
-import com.heinika.pokeg.module.detailcompose.PokemonDetailScreen
+import com.heinika.pokeg.module.detail.PokemonDetailScreen
 import com.heinika.pokeg.module.donation.DonationScreen
 import com.heinika.pokeg.module.gameprops.GamePropsScreen
 import com.heinika.pokeg.module.home.PokemonHomeScreen

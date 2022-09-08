@@ -5,10 +5,8 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,7 +25,7 @@ import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.ui.theme.grassColor
 
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
   val context = LocalContext.current
@@ -36,6 +34,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
       .padding(12.dp, 6.dp)
       .fillMaxWidth()
       .height(130.dp),
+    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
     border = BorderStroke(2.dp,move.getDarkTypeColor())
   ) {
 
@@ -46,7 +45,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
       val name = if (level == null || level == 0) move.getName(context) else "${move.getName(context)} ${stringResource(id = R.string.level)}:$level"
       Text(
         name,
-        style = MaterialTheme.typography.h6,
+        style = MaterialTheme.typography.titleMedium,
         modifier = Modifier.constrainAs(nameLabel) {
           start.linkTo(parent.start, 16.dp)
           top.linkTo(parent.top, 16.dp)
@@ -54,7 +53,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
 
       Text(
         text = move.formatId,
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.titleSmall,
         modifier = Modifier.constrainAs(formatIdLabel) {
           top.linkTo(nameLabel.top, 0.dp)
           bottom.linkTo(nameLabel.bottom, 0.dp)
@@ -79,7 +78,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
 
       Text(
         text = stringResource(id = move.flavorResId),
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.titleMedium,
         modifier = Modifier
           .fillMaxWidth()
           .padding(16.dp, 0.dp, 16.dp, 12.dp)
@@ -93,7 +92,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
       Text(
         text = stringResource(R.string.power) + ":${move.power}",
         color = powerTextColor,
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.titleMedium,
         modifier = Modifier.constrainAs(powerLabel) {
           top.linkTo(nameLabel.bottom)
           bottom.linkTo(flavorLabel.top)
@@ -105,7 +104,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
       Text(
         text = stringResource(R.string.accuracy) + ":$accuracy",
         color = move.accuracyColor,
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.titleMedium,
         modifier = Modifier.constrainAs(accuracyLabel) {
           top.linkTo(nameLabel.bottom)
           bottom.linkTo(flavorLabel.top)
@@ -117,7 +116,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
       Text(
         text = stringResource(R.string.pp) + ":${move.pp}",
         color = move.ppColor,
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.titleMedium,
         modifier = Modifier.constrainAs(ppLabel) {
           top.linkTo(nameLabel.bottom)
           bottom.linkTo(flavorLabel.top)
@@ -127,7 +126,7 @@ fun MoveCard(move: Move, level: Int? = null, onClick: () -> Unit) {
 
       Text(
         text = Generation.values()[move.generationId - 1].filterString,
-        style = MaterialTheme.typography.subtitle1,
+        style = MaterialTheme.typography.titleMedium,
         modifier = Modifier.constrainAs(generationLabel) {
           top.linkTo(nameLabel.bottom)
           bottom.linkTo(flavorLabel.top)
@@ -150,7 +149,7 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
       text = typeName,
       Modifier.align(Alignment.Center),
       color = Color.White,
-      style = MaterialTheme.typography.body2
+      style = MaterialTheme.typography.bodyMedium
     )
   }
 }
