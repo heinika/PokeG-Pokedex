@@ -205,8 +205,8 @@ fun PokemonDetailScreen(
               Box(modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
-                .clip(MaterialTheme.shapes.medium)
-                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) YellowLight else Color.Transparent, MaterialTheme.shapes.medium)
+                .clip(MaterialTheme.shapes.small)
+                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) YellowLight else Color.Transparent, MaterialTheme.shapes.small)
                 .clickable {
                   detailViewModel.changeMethodId(methodId)
                 }) {
