@@ -5,24 +5,21 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.navigation.*
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import coil.annotation.ExperimentalCoilApi
-import com.google.accompanist.navigation.animation.AnimatedNavHost
-import com.google.accompanist.navigation.animation.composable
-import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.Type
@@ -34,8 +31,8 @@ import com.heinika.pokeg.module.detail.DetailViewModel
 import com.heinika.pokeg.module.detail.PokemonDetailScreen
 import com.heinika.pokeg.module.donation.DonationScreen
 import com.heinika.pokeg.module.gameprops.GamePropsScreen
-import com.heinika.pokeg.module.home.PokemonHomeScreen
 import com.heinika.pokeg.module.home.HomeViewModel
+import com.heinika.pokeg.module.home.PokemonHomeScreen
 import com.heinika.pokeg.module.moves.MoveListScreen
 import com.heinika.pokeg.module.moves.MoveListViewModel
 import com.heinika.pokeg.module.nature.NatureColumn
@@ -87,10 +84,10 @@ class ComposeActivity : ComponentActivity() {
     val startScreen = intent.getStringExtra(START_SCREEN) ?: POKEMON_HOME_SCREEN
     setContent {
       PokeGTheme {
-        val navController = rememberAnimatedNavController()
-        AnimatedNavHost(navController = navController, startDestination = startScreen, builder = {
+        val navController = rememberNavController()
+        NavHost(navController = navController, startDestination = startScreen, builder = {
           //HomeScreen
-          animatedComposable(
+          composable(
             route = POKEMON_HOME_SCREEN,
             content = {
               PokemonHomeScreen(
@@ -101,7 +98,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //VersionListScreen
-          animatedComposable(
+          composable(
             route = VERSION_LIST_SCREEN,
             content = {
               VersionsScreen()
@@ -109,7 +106,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //NatureScreen
-          animatedComposable(
+          composable(
             route = NATURE_SCREEN,
             content = {
               Surface {
@@ -119,7 +116,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //AboutScreen
-          animatedComposable(
+          composable(
             route = ABOUT_SCREEN,
             content = {
               Surface {
@@ -131,7 +128,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //DonationScreen
-          animatedComposable(
+          composable(
             route = DONATION_SCREEN,
             content = {
               DonationScreen(onBack = {
@@ -141,7 +138,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //VersionListScreen
-          animatedComposable(
+          composable(
             route = GAME_PROPS_SCREEN,
             content = {
               GamePropsScreen()
@@ -149,7 +146,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //MovesScreen
-          animatedComposable(
+          composable(
             route = MOVES_SCREEN,
             content = {
               MoveListScreen(moveListViewModel)
@@ -157,7 +154,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //AbilitiesScreen
-          animatedComposable(
+          composable(
             route = ABILITIES_SCREEN,
             content = {
               AbilitiesColumn(onItemClick = { abilityId ->
@@ -167,7 +164,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //AbilityScreen
-          animatedComposable(
+          composable(
             route = "$ABILITY_SCREEN/{$KEY_ABILITY_ID}",
             arguments = listOf(navArgument(KEY_ABILITY_ID) { type = NavType.IntType }),
             content = { navBackStackEntry ->
@@ -186,7 +183,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //PokemonDetailScreen
-          animatedComposable(
+          composable(
             route = "${POKEMON_DETAIL_SCREEN}/{$KEY_POKEMON_ID}",
             arguments = listOf(navArgument(KEY_POKEMON_ID) { type = NavType.IntType }),
             content = { navBackStackEntry ->
@@ -208,7 +205,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //TypeDetailScreen
-          animatedComposable(
+          composable(
             route = "$TYPE_DETAIL_SCREEN/{$KEY_TYPE_IDS}",
             arguments = listOf(navArgument(KEY_TYPE_IDS) { type = NavType.StringType }),
             content = {
@@ -227,7 +224,7 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //TypeDetailScreen
-          animatedComposable(
+          composable(
             route = TYPE_DETAIL_SCREEN,
             content = {
               Surface(modifier = Modifier.fillMaxSize()) {
@@ -250,21 +247,21 @@ class ComposeActivity : ComponentActivity() {
   }
 }
 
-@ExperimentalAnimationApi
-fun NavGraphBuilder.animatedComposable(
-  route: String,
-  arguments: List<NamedNavArgument> = emptyList(),
-  content: @Composable AnimatedVisibilityScope.(NavBackStackEntry) -> Unit
-) {
-  composable(
-    route = route,
-    arguments = arguments,
-    enterTransition = {
-      fadeIn()
-    },
-    exitTransition = {
-      fadeOut()
-    },
-    content = content
-  )
-}
+//@ExperimentalAnimationApi
+//fun NavGraphBuilder.animatedComposable(
+//  route: String,
+//  arguments: List<NamedNavArgument> = emptyList(),
+//  content: @Composable AnimatedVisibilityScope.(NavBackStackEntry) -> Unit
+//) {
+//  composable(
+//    route = route,
+//    arguments = arguments,
+//    enterTransition = {
+//      fadeIn()
+//    },
+//    exitTransition = {
+//      fadeOut()
+//    },
+//    content = content
+//  )
+//}

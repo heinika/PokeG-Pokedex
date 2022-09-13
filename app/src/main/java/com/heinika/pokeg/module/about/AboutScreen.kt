@@ -5,6 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
@@ -60,8 +62,10 @@ fun AboutScreen(onBack: () -> Unit) {
       Column(
         Modifier
           .fillMaxWidth()
-          .padding(innerPadding),
-        horizontalAlignment = Alignment.CenterHorizontally
+          .padding(innerPadding)
+          .verticalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally,
+
       ) {
         Image(
           painter = painterResource(id = R.drawable.ic_launcher_foreground),
@@ -87,7 +91,7 @@ fun AboutScreen(onBack: () -> Unit) {
           modifier = Modifier
             .fillMaxWidth()
             .height(108.dp)
-            .padding(12.dp),
+            .padding(start = 12.dp, end = 12.dp, bottom = 12.dp),
           onClick = {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("http://weibo.com/u/6222257860")
@@ -115,7 +119,7 @@ fun AboutScreen(onBack: () -> Unit) {
           modifier = Modifier
             .fillMaxWidth()
             .height(108.dp)
-            .padding(12.dp),
+            .padding(start = 12.dp, end = 12.dp, bottom = 12.dp),
           onClick = {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://heinika.github.io")
@@ -143,7 +147,7 @@ fun AboutScreen(onBack: () -> Unit) {
           modifier = Modifier
             .fillMaxWidth()
             .height(108.dp)
-            .padding(12.dp)
+            .padding(start = 12.dp, end = 12.dp, bottom = 12.dp)
         ) {
           Row {
             Image(painter = painterResource(id = R.drawable.kabi), contentDescription = "")
