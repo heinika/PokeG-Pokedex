@@ -16,13 +16,6 @@
         android:theme="@style/Theme.PokeG"
         tools:ignore="AllowBackup">
 
-        <activity android:name="com.heinika.pokeg.module.versions.VersionsActivity" />
-        <activity
-            android:name="com.heinika.pokeg.module.donation.DonationActivity"
-            android:exported="false" />
-        <activity android:name="com.heinika.pokeg.module.egg.EggActivity" />
-        <activity android:name="com.heinika.pokeg.module.team.TeamActivity" />
-        <activity android:name="com.heinika.pokeg.module.mypokemon.MyPokemonActivity" />
         <activity
             android:name="com.heinika.pokeg.ComposeActivity"
             android:exported="true"
@@ -34,11 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".module.about.AboutActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

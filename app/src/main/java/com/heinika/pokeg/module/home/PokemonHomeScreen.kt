@@ -45,7 +45,6 @@ import com.heinika.pokeg.info.DexType
 import com.heinika.pokeg.info.MoveVersion
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Pokemon
-import com.heinika.pokeg.module.main.MainViewModel
 import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
 import com.heinika.pokeg.ui.compose.SelectVersionDialog
 import com.heinika.pokeg.utils.SystemBar
@@ -56,7 +55,7 @@ import kotlinx.coroutines.launch
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Composable
-fun PokemonHomeScreen(mainViewModel: MainViewModel, onDrawerItemClick: (screenName: String) -> Unit, onPokemonItemClick: (Pokemon) -> Unit) {
+fun PokemonHomeScreen(mainViewModel: HomeViewModel, onDrawerItemClick: (screenName: String) -> Unit, onPokemonItemClick: (Pokemon) -> Unit) {
   val sortedPokemonList = remember { mainViewModel.pokemonSortStateList }
   val scaffoldState = rememberScaffoldState()
   val scope = rememberCoroutineScope()

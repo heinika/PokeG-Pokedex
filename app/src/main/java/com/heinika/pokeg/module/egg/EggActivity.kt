@@ -24,25 +24,9 @@ import com.heinika.pokeg.R
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 
-class EggActivity : ComponentActivity() {
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-    SystemBar.initStatusBarHeight(this)
-
-    setContent {
-      PokeGTheme {
-        Surface {
-          EggPreview()
-        }
-      }
-    }
-  }
-}
-
 @Preview
 @Composable
-fun EggPreview() {
+fun EggScreen() {
   PokeGTheme {
     Surface(
       Modifier

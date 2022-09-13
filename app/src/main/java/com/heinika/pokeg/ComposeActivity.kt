@@ -35,7 +35,7 @@ import com.heinika.pokeg.module.detail.PokemonDetailScreen
 import com.heinika.pokeg.module.donation.DonationScreen
 import com.heinika.pokeg.module.gameprops.GamePropsScreen
 import com.heinika.pokeg.module.home.PokemonHomeScreen
-import com.heinika.pokeg.module.main.MainViewModel
+import com.heinika.pokeg.module.home.HomeViewModel
 import com.heinika.pokeg.module.moves.MoveListScreen
 import com.heinika.pokeg.module.moves.MoveListViewModel
 import com.heinika.pokeg.module.nature.NatureColumn
@@ -67,7 +67,7 @@ const val ABOUT_SCREEN = "AboutScreen"
 
 @AndroidEntryPoint
 class ComposeActivity : ComponentActivity() {
-  private val mainViewModel: MainViewModel by viewModels()
+  private val homeViewModel: HomeViewModel by viewModels()
   private val abilityViewModel: AbilityViewModel by viewModels()
   private val detailViewModel: DetailViewModel by viewModels()
   private val typeDetailScreenViewModel: TypeDetailScreenViewModel by viewModels()
@@ -94,7 +94,7 @@ class ComposeActivity : ComponentActivity() {
             route = POKEMON_HOME_SCREEN,
             content = {
               PokemonHomeScreen(
-                mainViewModel,
+                homeViewModel,
                 onDrawerItemClick = { navController.navigate(it) },
                 onPokemonItemClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it.globalId}") })
             }

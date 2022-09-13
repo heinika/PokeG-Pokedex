@@ -1,4 +1,4 @@
-package com.heinika.pokeg.module.main
+package com.heinika.pokeg.module.home
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
@@ -19,7 +19,7 @@ import javax.inject.Inject
 
 @Suppress("unused")
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
   private val mainRepository: MainRepository,
   private val pokemonRes: PokemonRes,
   private val savedStateHandle: SavedStateHandle

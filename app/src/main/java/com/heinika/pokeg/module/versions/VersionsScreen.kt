@@ -1,16 +1,10 @@
 package com.heinika.pokeg.module.versions
 
-import android.os.Bundle
-import android.view.WindowManager
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,27 +18,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
-import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.info.Generation
-import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.info.Version
-
-
-class VersionsActivity : ComponentActivity() {
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
-
-    setContent {
-      PokeGTheme {
-        Surface {
-          VersionsScreen()
-        }
-      }
-    }
-  }
-}
+import com.heinika.pokeg.utils.SystemBar
 
 
 @Preview
