@@ -11,14 +11,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.module.gameprops.props.*
 
-@ExperimentalMaterialApi
+
 @Composable
 fun CarryPropsPage() {
   CarryPropsColumn()
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun CarryPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {

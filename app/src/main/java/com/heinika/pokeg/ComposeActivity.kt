@@ -134,11 +134,9 @@ class ComposeActivity : ComponentActivity() {
           animatedComposable(
             route = DONATION_SCREEN,
             content = {
-              Surface {
-                DonationScreen(onBack = {
-                  navController.popBackStack()
-                })
-              }
+              DonationScreen(onBack = {
+                navController.popBackStack()
+              })
             }
           )
 

@@ -2,7 +2,6 @@ package com.heinika.pokeg.module.gameprops.compose
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -15,7 +14,6 @@ import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.ui.theme.groundColor
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun PreciousPropsPage() {
   LazyColumn() {

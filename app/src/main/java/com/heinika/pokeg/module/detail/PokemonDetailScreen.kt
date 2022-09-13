@@ -404,7 +404,7 @@ fun VersionCard(modifier: Modifier = Modifier, versionId: Int, onClick: () -> Un
 @Composable
 private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<PokemonName>, onFavouriteClick: (Pokemon) -> Unit) {
   Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Start) {
-    Text(ResUtils.getNameById(pokemon.id, pokemon.name, pokemon.form, LocalContext.current))
+    Text(ResUtils.getNameById(pokemon.id, pokemon.name, pokemon.form, LocalContext.current),style = MaterialTheme.typography.titleMedium)
     Spacer(modifier = Modifier.width(8.dp))
     if (specieName.isNotEmpty()) {
       SpecieNameCard(specieName[0].genus)
@@ -420,7 +420,7 @@ private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<Poke
       Icon(imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder, contentDescription = "")
     }
 
-    Text(pokemon.getFormatId(), Modifier.padding(end = 16.dp))
+    Text(pokemon.getFormatId(), Modifier.padding(end = 16.dp), style = MaterialTheme.typography.titleMedium)
   }
 }
 

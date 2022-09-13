@@ -2,7 +2,6 @@ package com.heinika.pokeg.module.gameprops.compose
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -10,11 +9,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.heinika.pokeg.R
-import com.heinika.pokeg.ui.theme.fireColor
 import com.heinika.pokeg.module.gameprops.props.EvolutionProp
 import com.heinika.pokeg.module.gameprops.props.evolutionPropList
+import com.heinika.pokeg.ui.theme.fireColor
 
-@ExperimentalMaterialApi
 @Preview
 @Composable
 fun EvolutionPropsCard(props: EvolutionProp =  EvolutionProp(
@@ -31,7 +29,6 @@ fun EvolutionPropsCard(props: EvolutionProp =  EvolutionProp(
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun EvolutionPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {

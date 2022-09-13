@@ -2,7 +2,6 @@ package com.heinika.pokeg.module.gameprops.compose
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -12,14 +11,12 @@ import com.heinika.pokeg.info.Generation
 import com.heinika.pokeg.module.gameprops.props.*
 import com.heinika.pokeg.ui.theme.Red200
 
-@ExperimentalMaterialApi
 @Composable
 fun BerryPropsPage() {
   BerryPropsColumn()
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun BerryPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {

@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -21,11 +21,10 @@ import com.heinika.pokeg.module.gameprops.compose.*
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
 
-@ExperimentalMaterialApi
 @ExperimentalPagerApi
 @Composable
 fun GamePropsScreen() {
-  Surface(color = MaterialTheme.colors.background, modifier = Modifier.fillMaxHeight()) {
+  Surface(color = MaterialTheme.colorScheme.background, modifier = Modifier.fillMaxHeight()) {
     val carry = 0
     val evolution = 1
     val pokeball = 2
@@ -65,10 +64,7 @@ fun GamePropsScreen() {
       val coroutineScope = rememberCoroutineScope()
       val pagerState = rememberPagerState()
 
-      ScrollableTabRow(
-        selectedTabIndex = pagerState.currentPage,
-        backgroundColor = MaterialTheme.colors.background
-      ) {
+      ScrollableTabRow(selectedTabIndex = pagerState.currentPage) {
         tabTitles.forEachIndexed { index, title ->
           Tab(
             text = { Text(title, fontSize = 16.sp, textAlign = TextAlign.Start, maxLines = 1, overflow = TextOverflow.Ellipsis) },

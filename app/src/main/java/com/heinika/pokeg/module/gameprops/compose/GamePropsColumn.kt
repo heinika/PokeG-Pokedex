@@ -3,7 +3,6 @@ package com.heinika.pokeg.module.gameprops.compose
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -13,7 +12,6 @@ import com.heinika.pokeg.module.gameprops.props.*
 
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun PokeballPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -25,7 +23,6 @@ fun PokeballPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun SwapPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -37,7 +34,6 @@ fun SwapPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun ApricornPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -49,7 +45,6 @@ fun ApricornPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun BattlePropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -62,7 +57,6 @@ fun BattlePropsColumn(modifier: Modifier = Modifier) {
 
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun RecoveryPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -75,7 +69,6 @@ fun RecoveryPropsColumn(modifier: Modifier = Modifier) {
 
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun RotoPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -87,7 +80,6 @@ fun RotoPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun CandyPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -99,7 +91,6 @@ fun CandyPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun TCGPropsColumn(modifier: Modifier = Modifier) {
     LazyColumn(modifier.fillMaxHeight()) {
@@ -111,7 +102,6 @@ fun TCGPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun FoodPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
@@ -123,7 +113,6 @@ fun FoodPropsColumn(modifier: Modifier = Modifier) {
 }
 
 @Preview
-@ExperimentalMaterialApi
 @Composable
 fun FieldPropsColumn(modifier: Modifier = Modifier) {
   LazyColumn(modifier) {
