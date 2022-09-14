@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.ConfigMMKV
+import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.model.*
 import com.heinika.pokeg.repository.DetailRepository
@@ -52,7 +53,9 @@ class DetailViewModel @Inject constructor(
         }
 
         _versionId.value?.let { version ->
-          detailRepository.pokemonMovesFlow(id, speciesId, version).collect {
+          val pokemon = PokemonDataCache.pokemonList.first { it.globalId == id }
+          val requestId = if(pokemon.form == 3) pokemon.speciesId else pokemon.globalId
+          detailRepository.pokemonMovesFlow(requestId, speciesId, version).collect {
             _moveMethodId.value = 1
             _pokemonMoveMap.value = it
           }

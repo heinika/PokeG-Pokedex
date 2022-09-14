@@ -214,7 +214,12 @@ val progressSpeedColor = Color(0xff7ECFF2)
 val HeightColor = Color(0xFF4CAF50)
 val WeightColor = Color(0xFFFF5722)
 
-val FavoriteColor = TimidColor
-val LegendaryColor = HastyColor
-val MythicalColor = MildColor
-val BabyColor = BashfulColor
+val FavoriteColor = Color(0xFFD50000)
+val LegendaryColor = Color(0xFFC51162)
+val MythicalColor = Color(0xFFAA00FF)
+val BabyColor = Color(0xFF6200EA)
+val AlolaColor = Color(0xFF304FFE)
+val GalarColor = Color(0xFF2962FF)
+val HisuiColor = Color(0xFF0091EA)
+val MegaColor = Color(0xFF00B8D4)
+val GmaxColor = Color(0xFF00BFA5)

@@ -203,5 +203,6 @@
     <string name="Ascending">升序</string>
     <string name="title_activity_move_List">技能列表</string>
     <string name="none">无</string>
+    <string name="gmax">极巨化</string>
 
 </resources>

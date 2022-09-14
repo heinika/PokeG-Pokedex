@@ -88,11 +88,11 @@ fun SelectTwoTypeClipList(typeChipsStatus: MutableList<ChipStatus>, onSelectedCh
   FlowRow(
     Modifier
       .fillMaxWidth()
-      .padding(8.dp),
+      .padding(4.dp),
     mainAxisAlignment = FlowMainAxisAlignment.SpaceBetween,
     lastLineMainAxisAlignment = FlowMainAxisAlignment.SpaceEvenly,
-    mainAxisSpacing = 8.dp,
-    crossAxisSpacing = 8.dp
+    mainAxisSpacing = 4.dp,
+    crossAxisSpacing = 4.dp
   ) {
     typeArray.forEachIndexed { index, it ->
       TypeChip(typeChipStatus = typeChipsStatus[index], typeId = it.typeId, onClick = {

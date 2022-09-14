@@ -2,6 +2,9 @@ package com.heinika.pokeg.module.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
@@ -87,13 +90,20 @@ fun BaseStatusSelectedRow(selectedList: List<BaseStatus>, onBaseStatusChipClick:
 
 @Composable
 fun TagSelectedRow(selectedTagList: List<Tag>, onTagClick: (Tag) -> Unit) {
-  LazyRow(modifier = Modifier
-    .fillMaxWidth()
-    .padding(bottom = SystemBar.navigationBarHeightDp.dp), horizontalArrangement = Arrangement.SpaceEvenly) {
+  LazyVerticalGrid(
+    columns = GridCells.Adaptive(86.dp),
+    modifier = Modifier
+      .fillMaxSize()
+      .padding(bottom = SystemBar.navigationBarHeightDp.dp),
+    horizontalArrangement = Arrangement.SpaceEvenly
+  ) {
     items(Tag.values()) { tag ->
-      TagChip(isSelected = selectedTagList.contains(tag), tag = tag, onClick = {
-        onTagClick(it)
-      })
+      TagChip(isSelected = selectedTagList.contains(tag),
+        modifier = Modifier.padding(3.dp, 0.dp),
+        tag = tag,
+        onClick = {
+          onTagClick(it)
+        })
     }
   }
 }

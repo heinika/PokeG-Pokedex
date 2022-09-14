@@ -263,5 +263,7 @@
     <string name="game_props_roto">洛托姆之力</string>
     <string name="game_props_other">其他</string>
     <string name="none">None</string>
+    <string name="gmax">gmax</string>
+    <string name="mega">mega</string>
 
 </resources>

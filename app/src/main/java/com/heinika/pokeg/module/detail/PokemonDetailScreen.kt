@@ -420,7 +420,7 @@ private fun NameRow(pokemon: Pokemon, isFavorite: Boolean, specieName: List<Poke
       Icon(imageVector = if (isFavorite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder, contentDescription = "")
     }
 
-    Text(pokemon.getFormatId(), Modifier.padding(end = 16.dp), style = MaterialTheme.typography.titleMedium)
+    Text(pokemon.getFormatId(), Modifier.padding(end = 16.dp), style = MaterialTheme.typography.labelSmall)
   }
 }
 
@@ -430,7 +430,7 @@ fun SpecieNameCard(specieName: String) {
     shape = RoundedCornerShape(16.dp),
   ) {
     Text(
-      specieName, style = MaterialTheme.typography.titleSmall,
+      specieName, style = MaterialTheme.typography.labelSmall,
       modifier = Modifier.padding(6.dp, 3.dp)
     )
   }

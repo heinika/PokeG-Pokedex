@@ -1,11 +1,9 @@
 package com.heinika.pokeg.ui.compose
 
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.info.Tag
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -19,7 +17,7 @@ fun TagChip(
   BaseChip(
     chipStatus = isSelected,
     color = tag.color,
-    modifier = modifier.width(80.dp),
+    modifier = modifier,
     onClick = { onClick(tag) },
     text = stringResource(id = tag.resId)
   )

@@ -176,6 +176,21 @@ class HomeViewModel @Inject constructor(
                 return@filter true
               }
             }
+            Tag.GMAX -> if (gmaxIdRange.contains(pokemon.globalId)) {
+              return@filter true
+            }
+            Tag.ALOLA -> if (alolaIdList.contains(pokemon.globalId)) {
+              return@filter true
+            }
+            Tag.GALAR -> if (galarIdList.contains(pokemon.globalId)) {
+              return@filter true
+            }
+            Tag.HISUI -> if (hisuiIdList.contains(pokemon.globalId)) {
+              return@filter true
+            }
+            Tag.MEGA -> if (megaIdList.contains(pokemon.globalId)) {
+              return@filter true
+            }
           }
         }
         false

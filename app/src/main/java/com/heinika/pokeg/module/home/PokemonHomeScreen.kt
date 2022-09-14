@@ -5,7 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -250,8 +250,10 @@ fun PokemonHomeScreen(mainViewModel: HomeViewModel, onDrawerItemClick: (screenNa
                   })
               }
 
-              items(sortedPokemonList) { pokemon ->
-                PokemonCard(pokemon = pokemon, onClick = { onPokemonItemClick(pokemon) },
+              itemsIndexed(sortedPokemonList) { index, pokemon ->
+                PokemonCard(pokemon = pokemon,
+                  isPaddingBottom = index == sortedPokemonList.size - 1,
+                  onClick = { onPokemonItemClick(pokemon) },
                   isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
                   onFavouriteClick = {
                     favoritePokemons = if (favoritePokemons.contains(it.globalId.toString())) {

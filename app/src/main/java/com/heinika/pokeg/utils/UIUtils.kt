@@ -979,7 +979,7 @@ fun getPokemonImageUrl(globalId: Int, name: String = "") = when {
   globalId == 10013 -> "https://s1.52poke.wiki/wiki/7/7a/351Castform_Sunny_Form_Dream.png"
   globalId == 10014 -> "https://s1.52poke.wiki/wiki/b/b2/351Castform_Rainy_Form_Dream.png"
   globalId == 10015 -> "https://s1.52poke.wiki/wiki/3/3d/351Castform_Snowy_Form_Dream.png"
-  globalId == 10016 -> "https://s1.52poke.wiki/wiki/d/d3/550Basculin_Dream.png"
+  globalId == 10016 -> "https://s1.52poke.wiki/wiki/f/fa/550Basculin-Blue.png"
   globalId == 10017 -> "https://s1.52poke.wiki/wiki/6/6b/555Darmanitan_Zen_Mode_Dream.png"
   globalId == 10018 -> "https://s1.52poke.wiki/wiki/d/df/648Meloetta-Pirouette_Dream.png"
   globalId == 10019 -> "https://s1.52poke.wiki/wiki/9/9e/641Tornadus-Therian_Dream.png"
@@ -1051,9 +1051,25 @@ fun getPokemonImageUrl(globalId: Int, name: String = "") = when {
   globalId == 10156 -> "https://s1.52poke.wiki/wiki/e/e4/800Necrozma-Dawn_Wing_Dream.png"
   globalId == 10157 -> "https://s1.52poke.wiki/wiki/9/90/800Necrozma-Ultra_Dream.png"
   globalId == 10158 -> "https://s1.52poke.wiki/wiki/c/c8/052Meowth-Galar_Dream.png"
+  globalId == 10159 -> "https://s1.52poke.wiki/wiki/9/95/077Ponyta-Galar_Dream.png"
+  globalId == 10160 -> "https://s1.52poke.wiki/wiki/3/36/078Rapidash-Galar_Dream.png"
+  globalId == 10161 -> "https://s1.52poke.wiki/wiki/d/d6/079Slowpoke-Galar_Dream.png"
+  globalId == 10162 -> "https://s1.52poke.wiki/wiki/6/61/080Slowbro-Galar_Dream.png"
   globalId == 10163 -> "https://s1.52poke.wiki/wiki/thumb/7/7d/083Farfetch%27d-Galar.png/450px-083Farfetch%27d-Galar.png"
   globalId == 10164 -> "https://s1.52poke.wiki/wiki/b/b9/110Weezing-Galar_Dream.png"
-  globalId == 10175 -> "https://media.52poke.com/wiki/0/08/555Darmanitan-Galar_Zen_Mode.png"
+  globalId == 10165 -> "https://s1.52poke.wiki/wiki/1/1e/866Mr._Rime_Dream.png"
+  globalId == 10166 -> "https://s1.52poke.wiki/wiki/d/df/144Articuno-Galar.png"
+  globalId == 10167 -> "https://s1.52poke.wiki/wiki/a/ab/145Zapdos-Galar_Dream.png"
+  globalId == 10168 -> "https://s1.52poke.wiki/wiki/f/f7/146Moltres-Galar.png"
+  globalId == 10169 -> "https://s1.52poke.wiki/wiki/c/ca/199Slowking-Galar.png"
+  globalId == 10170 -> "https://s1.52poke.wiki/wiki/c/ce/222Corsola-Galar.png"
+  globalId == 10171 -> "https://s1.52poke.wiki/wiki/b/b0/263Zigzagoon-Galar.png"
+  globalId == 10172 -> "https://s1.52poke.wiki/wiki/8/8e/264Linoone-Galar.png"
+  globalId == 10173 -> "https://s1.52poke.wiki/wiki/c/c9/554Darumaka-Galar.png"
+  globalId == 10174 -> "https://s1.52poke.wiki/wiki/6/60/555Darmanitan-Galar.png"
+  globalId == 10175 -> "https://s1.52poke.wiki/wiki/0/08/555Darmanitan-Galar_Zen_Mode.png"
+  globalId == 10176 -> "https://s1.52poke.wiki/wiki/4/46/562Yamask-Galar.png"
+  globalId == 10177 -> "https://s1.52poke.wiki/wiki/1/11/618Stunfisk-Galar.png"
   globalId == 10183 -> "https://s1.52poke.wiki/wiki/e/eb/892Urshifu-Rapid_Strike_Dream.png"
   globalId == 10208 -> "https://s1.52poke.wiki/wiki/a/a2/841Flapple-Gigantamax.png"
   globalId == 10218 -> "https://s1.52poke.wiki/wiki/thumb/e/ef/892Urshifu-Single_StrikeGigantamax.png/600px-892Urshifu-Single_StrikeGigantamax.png"
@@ -1118,6 +1134,7 @@ fun getPokemonImageUrl(globalId: Int, name: String = "") = when {
   globalId == 40706 ->"https://s1.52poke.wiki/wiki/a/a4/Sprite_706H_LA.png"
   globalId == 40713 ->"https://s1.52poke.wiki/wiki/4/4b/Sprite_713H_LA.png"
   globalId == 40724 ->"https://s1.52poke.wiki/wiki/4/48/Sprite_724H_LA.png"
+  globalId == 70550 ->"https://s1.52poke.wiki/wiki/7/73/550Basculin-White.png"
 
 
   name.contains("gmax") -> {
@@ -1127,13 +1144,7 @@ fun getPokemonImageUrl(globalId: Int, name: String = "") = when {
       ""
     }
   }
-  name.contains("galar") -> {
-    if (galarImageUrls.any { it.contains(name.split("-")[0], true) }) {
-      galarImageUrls.first { it.contains(name.split("-")[0], true) }
-    } else {
-      ""
-    }
-  }
+
   name.contains("totem") -> "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
   name.contains("mega") || name.contains("primal") -> "https://img.pokemondb.net/artwork/vector/${name}.png"
 //  else -> "https://img.pokemondb.net/artwork/large/${name}.jpg"
@@ -1172,26 +1183,4 @@ private val gMaxImageUrls = setOf(
   "https://s1.52poke.wiki/wiki/thumb/4/40/869Alcremie-Gigantamax.png/450px-869Alcremie-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/1/16/879Copperajah-Gigantamax.png/450px-879Copperajah-Gigantamax.png",
   "https://s1.52poke.wiki/wiki/thumb/1/1b/884Duraludon-Gigantamax.png/450px-884Duraludon-Gigantamax.png",
-)
-
-private val galarImageUrls = listOf(
-  "https://s1.52poke.wiki/wiki/thumb/9/92/077Ponyta-Galar.png/450px-077Ponyta-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/e/e0/078Rapidash-Galar.png/450px-078Rapidash-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/9/9f/079Slowpoke-Galar.png/450px-079Slowpoke-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/8/8b/080Slowbro-Galar.png/450px-080Slowbro-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/7/7d/083Farfetch%27d-Galar.png/450px-083Farfetch%27d-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/3/38/110Weezing-Galar.png/450px-110Weezing-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/d/d1/122Mr._Mime-Galar.png/450px-122Mr._Mime-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/d/df/144Articuno-Galar.png/450px-144Articuno-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/1/13/145Zapdos-Galar.png/450px-145Zapdos-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/f/f7/146Moltres-Galar.png/450px-146Moltres-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/c/ca/199Slowking-Galar.png/450px-199Slowking-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/c/ce/222Corsola-Galar.png/450px-222Corsola-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/8/8e/264Linoone-Galar.png/450px-264Linoone-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/b/b0/263Zigzagoon-Galar.png/450px-263Zigzagoon-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/c/c9/554Darumaka-Galar.png/450px-554Darumaka-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/6/60/555Darmanitan-Galar.png/450px-555Darmanitan-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/0/08/555Darmanitan-Galar_Zen_Mode.png/450px-555Darmanitan-Galar_Zen_Mode.png",
-  "https://s1.52poke.wiki/wiki/thumb/4/46/562Yamask-Galar.png/450px-562Yamask-Galar.png",
-  "https://s1.52poke.wiki/wiki/thumb/1/11/618Stunfisk-Galar.png/450px-618Stunfisk-Galar.png"
 )
