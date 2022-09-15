@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Ability
+import com.heinika.pokeg.info.gmaxIdRange
 import com.heinika.pokeg.model.*
 import com.heinika.pokeg.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,7 +55,7 @@ class DetailViewModel @Inject constructor(
 
         _versionId.value?.let { version ->
           val pokemon = PokemonDataCache.pokemonList.first { it.globalId == id }
-          val requestId = if(pokemon.form == 3) pokemon.speciesId else pokemon.globalId
+          val requestId = if(gmaxIdRange.contains(pokemon.globalId)) pokemon.speciesId else pokemon.globalId
           detailRepository.pokemonMovesFlow(requestId, speciesId, version).collect {
             _moveMethodId.value = 1
             _pokemonMoveMap.value = it
