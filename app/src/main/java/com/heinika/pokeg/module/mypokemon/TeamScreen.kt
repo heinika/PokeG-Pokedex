@@ -15,12 +15,12 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.heinika.pokeg.module.mypokemon.compose.MyPokemonDetailScreen
 import com.heinika.pokeg.module.mypokemon.compose.MyPokemonScreen
 import com.heinika.pokeg.repository.res.ResUtils
-import com.heinika.pokeg.ui.theme.TeamTheme
+import com.heinika.pokeg.ui.theme.PokeGTheme
 
 @OptIn(ExperimentalMaterialApi::class, ExperimentalCoilApi::class)
 @Composable
 fun TeamScreen(viewModel: MyPokemonViewModel) {
-  TeamTheme {
+  PokeGTheme {
     ProvideWindowInsets {
       val systemUiController = rememberSystemUiController()
       systemUiController.setSystemBarsColor(Color.Transparent)

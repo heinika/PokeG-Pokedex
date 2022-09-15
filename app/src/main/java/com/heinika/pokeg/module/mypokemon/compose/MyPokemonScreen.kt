@@ -1,7 +1,6 @@
 package com.heinika.pokeg.module.mypokemon.compose
 
 
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -10,9 +9,10 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,24 +30,20 @@ import androidx.navigation.NavHostController
 import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.R
 import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
-import com.heinika.pokeg.ui.theme.BlackBackgroundColor
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.rememberFlavorPainter
 
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @ExperimentalCoilApi
-@ExperimentalMaterialApi
 fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostController) {
   val myPokemonList by viewModel.myPokemonList
   var isShowDialog by remember { mutableStateOf(false) }
   Scaffold(
     topBar = {
-      TopAppBar(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)),
-        backgroundColor = BlackBackgroundColor,
-        contentColor = Color.White,
+      SmallTopAppBar(modifier = Modifier.padding(top = Dp(SystemBar.statusBarHeightDp)),
         title = { Text(text = "My Pokemon") },
         actions = {
           Image(
@@ -61,8 +57,7 @@ fun MyPokemonScreen(viewModel: MyPokemonViewModel, navController: NavHostControl
         })
     }
   ) { paddingValues ->
-    paddingValues.calculateTopPadding()
-    LazyVerticalGrid(columns = GridCells.Adaptive(90.dp)) {
+    LazyVerticalGrid(columns = GridCells.Adaptive(90.dp), Modifier.padding(paddingValues)) {
       items(myPokemonList) {
         MyPokemonCard(it.id, it.name, Modifier) {
           navController.navigate("MyPokemonDetailPage/${it.name}")
@@ -90,8 +85,8 @@ private fun TeamNumberCardPreview() {
 }
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalCoilApi
-@ExperimentalMaterialApi
 @Composable
 private fun MyPokemonCard(
   id: Int,
@@ -120,7 +115,6 @@ private fun MyPokemonCard(
         Modifier
           .fillMaxWidth()
           .fillMaxHeight(0.15f)
-          .align(Alignment.BottomCenter)
           .clip(RoundedCornerShape(4.dp))
           .background(Color.White),
         verticalAlignment = Alignment.CenterVertically

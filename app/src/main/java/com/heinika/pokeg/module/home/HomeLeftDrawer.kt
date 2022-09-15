@@ -27,6 +27,8 @@ enum class DrawerScreens(val nameStringId: Int, val screenName: String, val colo
   TypesDetailScreen(R.string.type_detail, TYPE_DETAIL_SCREEN, MildColor),
   AbilitiesScreen(R.string.abilities_detail, ABILITIES_SCREEN, HardyColor),
   MovesScreen(R.string.move_list, MOVES_SCREEN, BraveColor),
+  MyPokemonScreen(R.string.my_pokemon, MY_POKEMON_SCREEN, DocileColor),
+  TeamScreen(R.string.team, TEAM_SCREEN, ImpishColor),
   GamePropsScreen(R.string.props_list, GAME_PROPS_SCREEN, QuietColor),
   NaturesScreen(R.string.nature_list, NATURE_SCREEN, CalmColor),
   AboutScreen(R.string.about, ABOUT_SCREEN, LonelyColor),

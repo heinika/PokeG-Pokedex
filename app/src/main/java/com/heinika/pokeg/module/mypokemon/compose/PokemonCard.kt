@@ -36,8 +36,7 @@ import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.utils.toTypeColor
 
 
-@OptIn(ExperimentalMaterial3Api::class)
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @ExperimentalCoilApi
 @Composable
 fun PokemonCard(
@@ -173,7 +172,6 @@ fun PokemonCardPreview() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @Composable
 fun PokemonAvatar(pokemon: Pokemon, onClick: (pokemon: Pokemon) -> Unit) {

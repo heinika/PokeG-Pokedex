@@ -8,9 +8,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -28,9 +28,8 @@ import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.heinika.pokeg.utils.rememberFlavorPainter
 import timber.log.Timber
 
-@Suppress("KotlinConstantConditions")
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalCoilApi
-@ExperimentalMaterialApi
 @Composable
 fun TeamNumberCard(
   id: Int,
@@ -61,7 +60,6 @@ fun TeamNumberCard(
         Modifier
           .fillMaxWidth()
           .fillMaxHeight(0.12f)
-          .align(Alignment.BottomCenter)
           .clip(RoundedCornerShape(4.dp))
           .background(Color.White),
         verticalAlignment = Alignment.CenterVertically

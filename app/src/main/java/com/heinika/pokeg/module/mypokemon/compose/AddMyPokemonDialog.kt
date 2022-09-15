@@ -7,12 +7,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.AlertDialog
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,7 +24,7 @@ import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.ResUtils
 
-@ExperimentalMaterialApi
+
 @ExperimentalCoilApi
 @Composable
 fun AddMyPokemonDialog(
@@ -48,10 +47,9 @@ fun AddMyPokemonDialog(
         onDialogStateChange?.invoke(false)
         onDismissRequest?.invoke()
       },
-      backgroundColor = Color.DarkGray,
       title = null,
       text = null,
-      buttons = {
+      confirmButton = {
         Column {
           TextField(modifier = Modifier
             .background(

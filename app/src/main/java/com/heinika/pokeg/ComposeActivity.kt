@@ -35,7 +35,11 @@ import com.heinika.pokeg.module.home.HomeViewModel
 import com.heinika.pokeg.module.home.PokemonHomeScreen
 import com.heinika.pokeg.module.moves.MoveListScreen
 import com.heinika.pokeg.module.moves.MoveListViewModel
+import com.heinika.pokeg.module.mypokemon.MyPokemonViewModel
+import com.heinika.pokeg.module.mypokemon.TeamScreen
 import com.heinika.pokeg.module.nature.NatureColumn
+import com.heinika.pokeg.module.team.TeamViewModel
+import com.heinika.pokeg.module.team.compose.TeamsScreen
 import com.heinika.pokeg.module.typedetail.TypeDetailScreenViewModel
 import com.heinika.pokeg.module.typedetail.compose.TypeDetailScreen
 import com.heinika.pokeg.module.versions.VersionsScreen
@@ -55,6 +59,8 @@ const val ABILITIES_SCREEN = "AbilitiesScreen"
 const val ABILITY_SCREEN = "AbilityScreen"
 const val TYPE_DETAIL_SCREEN = "TypeDetailScreen"
 const val MOVES_SCREEN = "MovesScreen"
+const val MY_POKEMON_SCREEN = "MyPokemonScreen"
+const val TEAM_SCREEN = "TeamScreen"
 const val VERSION_LIST_SCREEN = "VersionListScreen"
 const val NATURE_SCREEN = "NatureScreen"
 const val GAME_PROPS_SCREEN = "GamePropsScreen"
@@ -69,6 +75,8 @@ class ComposeActivity : ComponentActivity() {
   private val detailViewModel: DetailViewModel by viewModels()
   private val typeDetailScreenViewModel: TypeDetailScreenViewModel by viewModels()
   private val moveListViewModel: MoveListViewModel by viewModels()
+  private val myPokemonViewModel: MyPokemonViewModel by viewModels()
+  private val teamViewModel: TeamViewModel by viewModels()
 
   @OptIn(
     ExperimentalAnimationApi::class,
@@ -240,6 +248,16 @@ class ComposeActivity : ComponentActivity() {
               }
             }
           )
+
+          //MyPokemonScreen
+          composable(MY_POKEMON_SCREEN){
+            TeamScreen(viewModel = myPokemonViewModel)
+          }
+
+          //MyPokemonScreen
+          composable(TEAM_SCREEN){
+            TeamsScreen(teamViewModel = teamViewModel)
+          }
 
         })
       }

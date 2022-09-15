@@ -1,7 +1,6 @@
 package com.heinika.pokeg.module.team.compose
 
 import android.widget.Toast
-
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -12,9 +11,10 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,10 +48,11 @@ import com.heinika.pokeg.utils.toTypeColor
 import kotlin.random.Random
 
 
-@ExperimentalMaterialApi
+
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalCoilApi
 @Composable
-fun TeamScreen(teamViewModel: TeamViewModel) {
+fun TeamsScreen(teamViewModel: TeamViewModel) {
   var isAddTeamDialogVisible by remember { mutableStateOf(false) }
   var selectedTeamName by remember { mutableStateOf("") }
 
@@ -107,7 +108,7 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
       if (isAddTeamDialogVisible) {
         AlertDialog(onDismissRequest = {
           isAddTeamDialogVisible = false
-        }, buttons = {
+        }, confirmButton = {
           Text(text = "我的宝可梦")
           LazyVerticalGrid(columns = GridCells.Fixed(3)) {
             items(teamViewModel.allMyPokemonList.value) {
@@ -128,7 +129,8 @@ fun TeamScreen(teamViewModel: TeamViewModel) {
 }
 
 
-@ExperimentalMaterialApi
+
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalCoilApi
 @Composable
 private fun TeamItemCard(
@@ -145,7 +147,7 @@ private fun TeamItemCard(
       value = teamNameState.value ?: "未命名",
       enabled = editable,
       onValueChange = { teamNameState.value = it },
-      textStyle = MaterialTheme.typography.h5,
+      textStyle = MaterialTheme.typography.titleSmall,
       trailingIcon = {
         Image(
           painter = painterResource(id = R.drawable.baseline_edit_24),
@@ -154,7 +156,7 @@ private fun TeamItemCard(
             editable = true
           })
       },
-      colors = TextFieldDefaults.textFieldColors(backgroundColor = BlackBackgroundColor),
+      colors = TextFieldDefaults.textFieldColors(containerColor = BlackBackgroundColor),
       modifier = Modifier
         .fillMaxWidth()
         .padding(bottom = 12.dp)
@@ -204,7 +206,7 @@ fun TeamNumberDetail(
       )
 
       Text(teamNumberInfo.name,
-        style = MaterialTheme.typography.h4, modifier = Modifier.constrainAs(nameLabel) {
+        style = MaterialTheme.typography.titleMedium, modifier = Modifier.constrainAs(nameLabel) {
           top.linkTo(parent.top)
           start.linkTo(image.end)
         })
@@ -298,7 +300,7 @@ fun CarryCard(modifier: Modifier = Modifier, carry: CarryProps?, color: Color = 
     Text(
       text = stringResource(carry?.nameResId ?: R.string.type_unknown),
       color = Color.White,
-      style = MaterialTheme.typography.body2,
+      style = MaterialTheme.typography.bodyMedium,
       modifier = Modifier.padding(end = 12.dp)
     )
   }
@@ -317,7 +319,7 @@ fun TypeCard(modifier: Modifier = Modifier, typeName: String = "草", color: Col
       text = typeName,
       Modifier.align(Alignment.Center),
       color = Color.White,
-      style = MaterialTheme.typography.body2
+      style = MaterialTheme.typography.bodyMedium
     )
   }
 }
@@ -340,7 +342,7 @@ fun TagCard(modifier: Modifier = Modifier, typeName: String = "慢吞吞", color
       text = typeName,
       Modifier.align(Alignment.Center),
       color = Color.White,
-      style = MaterialTheme.typography.body2
+      style = MaterialTheme.typography.bodyMedium
     )
   }
 }
@@ -358,7 +360,7 @@ fun MoveCard(modifier: Modifier = Modifier, move: Move) {
       text = "${move.getName(LocalContext.current)} ${move.power}",
       Modifier.align(Alignment.Center),
       color = Color.White,
-      style = MaterialTheme.typography.body2
+      style = MaterialTheme.typography.bodyMedium
     )
   }
 }
@@ -377,7 +379,7 @@ fun TeamNumberCardPreview() {
 }
 
 
-@ExperimentalMaterialApi
+
 @ExperimentalCoilApi
 @Composable
 fun TeamRow(
