@@ -48,38 +48,41 @@ fun TeamNumberCard(
       .padding(top = 2.dp),
       shape = RoundedCornerShape(4.dp),
       onClick = { onClick() }) {
-      Image(
-        painter = painterResource(id = R.drawable.team_card_bg),
-        contentDescription = "",
-        modifier = Modifier
-          .fillMaxWidth(),
-        contentScale = ContentScale.FillWidth
-      )
-
-      Row(
-        Modifier
-          .fillMaxWidth()
-          .fillMaxHeight(0.12f)
-          .clip(RoundedCornerShape(4.dp))
-          .background(Color.White),
-        verticalAlignment = Alignment.CenterVertically
-      ) {
-        Text(
-          text = name, color = Color.Black,
-          style = TextStyle(fontSize = 8.sp),
-          modifier = Modifier
-            .weight(1f)
-            .padding(start = 2.dp),
-          maxLines = 1
-        )
-
+      Box {
         Image(
-          painter = painterResource(id = R.drawable.golden_pokeball),
+          painter = painterResource(id = R.drawable.team_card_bg),
           contentDescription = "",
-          Modifier
-            .size(12.dp)
-            .padding(end = 2.dp)
+          modifier = Modifier
+            .fillMaxWidth(),
+          contentScale = ContentScale.FillWidth
         )
+
+        Row(
+          Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(0.12f)
+            .align(Alignment.BottomCenter)
+            .clip(RoundedCornerShape(4.dp))
+            .background(Color.White),
+          verticalAlignment = Alignment.CenterVertically
+        ) {
+          Text(
+            text = name, color = Color.Black,
+            style = TextStyle(fontSize = 8.sp),
+            modifier = Modifier
+              .weight(1f)
+              .padding(start = 2.dp),
+            maxLines = 1
+          )
+
+          Image(
+            painter = painterResource(id = R.drawable.golden_pokeball),
+            contentDescription = "",
+            Modifier
+              .size(12.dp)
+              .padding(end = 2.dp)
+          )
+        }
       }
     }
 
