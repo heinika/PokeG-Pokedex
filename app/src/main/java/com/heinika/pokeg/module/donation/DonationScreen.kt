@@ -1,6 +1,7 @@
 package com.heinika.pokeg.module.donation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -19,7 +20,7 @@ import com.heinika.pokeg.utils.SystemBar
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DonationScreen(onBack: () -> Unit) {
-  Column {
+  Column(Modifier.background(MaterialTheme.colorScheme.background)) {
     SmallTopAppBar(
       navigationIcon = {
         IconButton(onClick = {

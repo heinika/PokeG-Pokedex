@@ -35,10 +35,10 @@ import com.heinika.pokeg.model.PokemonName
 import com.heinika.pokeg.model.PokemonSpecie
 import com.heinika.pokeg.model.SpeciesEggGroup
 import com.heinika.pokeg.module.moves.compose.MoveCard
-import com.heinika.pokeg.module.mypokemon.compose.PokemonAvatar
-import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
 import com.heinika.pokeg.module.team.compose.TagCard
 import com.heinika.pokeg.repository.res.ResUtils
+import com.heinika.pokeg.ui.compose.PokemonAvatar
+import com.heinika.pokeg.ui.compose.PokemonCard
 import com.heinika.pokeg.ui.compose.SelectVersionDialog
 import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.*
@@ -206,7 +206,7 @@ fun PokemonDetailScreen(
                 .weight(1f)
                 .fillMaxHeight()
                 .clip(MaterialTheme.shapes.small)
-                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) YellowLight else Color.Transparent, MaterialTheme.shapes.small)
+                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent, MaterialTheme.shapes.small)
                 .clickable {
                   detailViewModel.changeMethodId(methodId)
                 }) {
@@ -216,7 +216,7 @@ fun PokemonDetailScreen(
                     .align(Alignment.Center),
                   style = MaterialTheme.typography.titleMedium,
                   textAlign = TextAlign.Center,
-                  color = if (isSelected) YellowLight else Color.White
+                  color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
                 )
               }
             }

@@ -1,12 +1,12 @@
-package com.heinika.pokeg.module.mypokemon.compose
+package com.heinika.pokeg.ui.compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -19,7 +19,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -36,7 +35,7 @@ import com.heinika.pokeg.ui.theme.grassColor
 import com.heinika.pokeg.utils.toTypeColor
 
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalCoilApi
 @Composable
 fun PokemonCard(
@@ -82,7 +81,6 @@ fun PokemonCard(
                 form = pokemon.form,
                 context = LocalContext.current,
               ),
-              color = Color.White,
               fontSize = 16.sp,
               textAlign = TextAlign.Center,
               fontWeight = FontWeight.Bold,
@@ -114,7 +112,6 @@ fun PokemonCard(
         IconButton(onClick = { onFavouriteClick(pokemon) }) {
           Image(
             imageVector = if (isFavourite) Icons.Filled.Favorite else Icons.Filled.FavoriteBorder,
-            colorFilter = ColorFilter.tint(Color.White),
             contentDescription = ""
           )
         }
@@ -127,7 +124,7 @@ fun PokemonCard(
 
 @Composable
 fun NumberText(content: String, modifier: Modifier = Modifier) =
-  Text(modifier = modifier, text = content, fontSize = 12.sp, color = Color.White)
+  Text(modifier = modifier, text = content, fontSize = 12.sp)
 
 @Composable
 fun TypeCard(typeName: String = "草", color: Color = grassColor) {
@@ -138,7 +135,7 @@ fun TypeCard(typeName: String = "草", color: Color = grassColor) {
       .clip(RoundedCornerShape(12.dp))
       .background(color)
   ) {
-    Text(text = typeName, Modifier.align(Alignment.Center), color = Color.White)
+    Text(text = typeName, Modifier.align(Alignment.Center))
   }
 }
 

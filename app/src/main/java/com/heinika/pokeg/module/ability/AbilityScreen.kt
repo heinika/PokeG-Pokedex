@@ -23,7 +23,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Ability
-import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
+import com.heinika.pokeg.ui.compose.PokemonCard
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.formatId

@@ -1,5 +1,6 @@
 package com.heinika.pokeg.ui.compose
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -16,8 +17,6 @@ import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.ui.theme.PokeGTheme
 
-import com.heinika.pokeg.utils.toTypeColor
-
 
 @ExperimentalMaterialApi
 @Composable
@@ -27,7 +26,8 @@ fun TypeChip(
   typeId: Int,
   onClick: () -> Unit
 ) {
-  val typeColor = typeId.toTypeColor
+  val type = Type.values()[typeId - 1]
+  val typeColor = if(isSystemInDarkTheme()) type.endColor else type.darkEndColor
   val text = ResUtils.getTypeString(typeId, LocalContext.current)
   BaseChip(typeChipStatus, typeColor, modifier.width(68.dp), onClick, text)
 }

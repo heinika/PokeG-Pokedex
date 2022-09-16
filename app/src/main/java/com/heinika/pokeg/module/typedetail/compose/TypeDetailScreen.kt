@@ -3,7 +3,7 @@ package com.heinika.pokeg.module.typedetail.compose
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -14,9 +14,8 @@ import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache.pokemonList
 import com.heinika.pokeg.info.Type
-
-import com.heinika.pokeg.module.mypokemon.compose.PokemonCard
 import com.heinika.pokeg.ui.compose.ChipStatus
+import com.heinika.pokeg.ui.compose.PokemonCard
 import com.heinika.pokeg.ui.compose.SelectTwoTypeClipList
 import com.heinika.pokeg.utils.SystemBar
 
@@ -45,14 +44,16 @@ fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit
         TypeDetailTable(types)
       }
 
-      items(pokemonList.filter {
+      val filterList = pokemonList.filter {
         it.types.contains(types.first().typeId) && it.types.contains(types.last().typeId)
-      }) { pokemon ->
+      }
+      itemsIndexed(filterList) { index,pokemon ->
         PokemonCard(
           pokemon = pokemon,
           onClick = {
             onPokemonClick(it.globalId)
           },
+          isPaddingBottom = index == filterList.size - 1,
           isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
           onFavouriteClick = {
             ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {

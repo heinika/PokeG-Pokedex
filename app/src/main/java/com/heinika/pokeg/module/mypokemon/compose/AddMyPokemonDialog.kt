@@ -23,6 +23,7 @@ import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.repository.res.ResUtils
+import com.heinika.pokeg.ui.compose.PokemonCard
 
 
 @ExperimentalCoilApi

@@ -72,7 +72,7 @@ fun PokeGTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable 
   val colors = if (darkTheme) {
     DarkColors
   } else {
-    DarkColors
+    LightColors
   }
 
   MaterialTheme(

@@ -131,14 +131,14 @@ fun SortSelectRow(text: String, isDesc: Boolean, onDescClick: () -> Unit, onAscC
     BaseChip(
       chipStatus = isDesc,
       color = grassColor,
-      modifier = Modifier.padding(end = 8.dp),
+      modifier = Modifier.padding(end = 8.dp).width(80.dp),
       onClick = { onDescClick() },
       text = "降序"
     )
     BaseChip(
       chipStatus = !isDesc,
       color = Red200,
-      modifier = Modifier,
+      modifier = Modifier.width(80.dp),
       onClick = { onAscClick() },
       text = "升序"
     )
