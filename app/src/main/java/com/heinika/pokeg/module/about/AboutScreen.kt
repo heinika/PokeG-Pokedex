@@ -14,6 +14,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -66,7 +67,7 @@ fun AboutScreen(onBack: () -> Unit) {
           .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
 
-      ) {
+        ) {
         Image(
           painter = painterResource(id = R.drawable.ic_launcher_foreground),
           contentDescription = "",
@@ -103,7 +104,12 @@ fun AboutScreen(onBack: () -> Unit) {
           }
         ) {
           Row {
-            Image(painter = painterResource(id = R.drawable.about_avatar), contentDescription = "")
+            Image(
+              painter = painterResource(id = R.drawable.about_avatar),
+              contentDescription = "",
+              modifier = Modifier.size(108.dp),
+              contentScale = ContentScale.Crop
+            )
             Column(Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
               Text(text = "乌班图说", modifier = Modifier.padding(12.dp), style = MaterialTheme.typography.titleMedium)
               Text(
@@ -131,7 +137,12 @@ fun AboutScreen(onBack: () -> Unit) {
           }
         ) {
           Row {
-            Image(painter = painterResource(id = R.drawable.chenlijin), contentDescription = "")
+            Image(
+              painter = painterResource(id = R.drawable.chenlijin),
+              contentDescription = "",
+              modifier = Modifier.size(108.dp),
+              contentScale = ContentScale.Crop
+            )
             Column(Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
               Text(text = "Developer", modifier = Modifier.padding(12.dp), style = MaterialTheme.typography.titleMedium)
               Text(
@@ -150,7 +161,12 @@ fun AboutScreen(onBack: () -> Unit) {
             .padding(start = 12.dp, end = 12.dp, bottom = 12.dp)
         ) {
           Row {
-            Image(painter = painterResource(id = R.drawable.kabi), contentDescription = "")
+            Image(
+              painter = painterResource(id = R.drawable.kabi),
+              contentDescription = "",
+              modifier = Modifier.size(108.dp),
+              contentScale = ContentScale.Crop
+            )
             Column(Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Center) {
               Text(text = "卡比兽", modifier = Modifier.padding(12.dp), style = MaterialTheme.typography.titleMedium)
               Text(
