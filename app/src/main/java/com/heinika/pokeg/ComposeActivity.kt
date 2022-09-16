@@ -90,8 +90,10 @@ class ComposeActivity : ComponentActivity() {
     window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
     SystemBar.initStatusBarHeight(this)
     val startScreen = intent.getStringExtra(START_SCREEN) ?: POKEMON_HOME_SCREEN
+
     setContent {
-      PokeGTheme {
+      val colorTheme = remember { mutableStateOf(ConfigMMKV.colorTheme) }
+      PokeGTheme(colorTheme.value) {
         val navController = rememberNavController()
         NavHost(navController = navController, startDestination = startScreen, builder = {
           //HomeScreen
@@ -100,8 +102,14 @@ class ComposeActivity : ComponentActivity() {
             content = {
               PokemonHomeScreen(
                 homeViewModel,
+                colorTheme.value,
                 onDrawerItemClick = { navController.navigate(it) },
-                onPokemonItemClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it.globalId}") })
+                onPokemonItemClick = { navController.navigate("$POKEMON_DETAIL_SCREEN/${it.globalId}") },
+                onColorThemeChange = {
+                  colorTheme.value = it
+                  ConfigMMKV.colorTheme = it
+                }
+              )
             }
           )
 
@@ -250,12 +258,12 @@ class ComposeActivity : ComponentActivity() {
           )
 
           //MyPokemonScreen
-          composable(MY_POKEMON_SCREEN){
+          composable(MY_POKEMON_SCREEN) {
             TeamScreen(viewModel = myPokemonViewModel)
           }
 
           //MyPokemonScreen
-          composable(TEAM_SCREEN){
+          composable(TEAM_SCREEN) {
             TeamsScreen(teamViewModel = teamViewModel)
           }
 

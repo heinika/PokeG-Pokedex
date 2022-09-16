@@ -1,10 +1,12 @@
 package com.heinika.pokeg.ui.theme
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import com.heinika.pokeg.R
 
 private val LightColors = lightColorScheme(
   primary = md_theme_light_primary,
@@ -67,13 +69,25 @@ private val DarkColors = darkColorScheme(
   surfaceTint = md_theme_dark_surfaceTint
 )
 
+enum class ColorTheme(@StringRes val stringId: Int) {
+  AUTO(R.string.auto),
+  LIGHT(R.string.light),
+  DARK(R.string.dark)
+}
+
 @Composable
-fun PokeGTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-  val colors = if (darkTheme) {
-    DarkColors
-  } else {
-    LightColors
+fun PokeGTheme(colorTheme: ColorTheme = ColorTheme.DARK, content: @Composable () -> Unit) {
+  val colors = when (colorTheme) {
+    ColorTheme.AUTO -> if (isSystemInDarkTheme()) {
+      DarkColors
+    } else {
+      LightColors
+    }
+    ColorTheme.LIGHT -> LightColors
+    ColorTheme.DARK -> DarkColors
   }
+
+
 
   MaterialTheme(
     colorScheme = colors,

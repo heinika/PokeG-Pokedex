@@ -12,6 +12,10 @@
     <string name="spd">速度</string>
     <string name="level">等级</string>
 
+    <string name="auto">系统</string>
+    <string name="light">亮色</string>
+    <string name="dark">暗色</string>
+
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
 

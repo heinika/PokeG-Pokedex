@@ -56,7 +56,7 @@ fun TypeDetailScreen(types: List<Type>, onPokemonClick: (pokemonId: Int) -> Unit
           isPaddingBottom = index == filterList.size - 1,
           isFavourite = favouritePokemonsState.contains(pokemon.globalId.toString()),
           onFavouriteClick = {
-            ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+            ConfigMMKV.favoritePokemons = if (ConfigMMKV.isFavoritePokemon(it.globalId)) {
               favouritePokemonsState.remove(it.globalId.toString())
               ConfigMMKV.favoritePokemons - it.globalId.toString()
             } else {

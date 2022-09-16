@@ -1,15 +1,12 @@
 package com.heinika.pokeg.module.home
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Card
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,6 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.heinika.pokeg.*
+import com.heinika.pokeg.R
 import com.heinika.pokeg.info.MoveVersion
 import com.heinika.pokeg.ui.theme.*
 import com.heinika.pokeg.utils.SystemBar
@@ -35,10 +33,43 @@ enum class DrawerScreens(val nameStringId: Int, val screenName: String, val colo
   DonationScreen(R.string.donation, DONATION_SCREEN, SassyColor),
 }
 
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeLeftDrawer(moveVersion: MoveVersion, onChangeVersionClick: () -> Unit, onDrawerItemClick: (screen: String) -> Unit) {
+fun HomeLeftDrawer(
+  moveVersion: MoveVersion,
+  onChangeVersionClick: () -> Unit,
+  onDrawerItemClick: (screen: String) -> Unit,
+  selectedColorTheme: ColorTheme,
+  onColorThemeChange: (ColorTheme) -> Unit
+) {
   LazyColumn(modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp)) {
+    item {
+      Card(
+        modifier = Modifier
+          .padding(12.dp, 6.dp)
+          .height(42.dp)
+          .fillMaxWidth(),
+        shape = MaterialTheme.shapes.small
+      ) {
+        Row(Modifier.fillMaxWidth()) {
+          ColorTheme.values().forEach {
+            val isSelected = it == selectedColorTheme
+            val border = BorderStroke(if (isSelected) 2.dp else 0.dp, if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent)
+            Box(
+              modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .border(border)
+                .clickable {
+                  onColorThemeChange(it)
+                }
+            ) {
+              Text(text = stringResource(id = it.stringId), modifier = Modifier.align(Alignment.Center))
+            }
+          }
+        }
+      }
+    }
 
     item {
       Card(modifier = Modifier
@@ -46,10 +77,10 @@ fun HomeLeftDrawer(moveVersion: MoveVersion, onChangeVersionClick: () -> Unit, o
         .height(42.dp)
         .fillMaxWidth(),
         shape = MaterialTheme.shapes.small,
-        backgroundColor = JollyColor,
+        colors = CardDefaults.cardColors(containerColor = JollyColor),
         onClick = { onChangeVersionClick() }
       ) {
-        Box {
+        Box(Modifier.fillMaxSize()) {
           Text(
             text = "默认技能版本：${stringResource(moveVersion.stringId)}",
             modifier = Modifier.align(Alignment.Center),
@@ -66,9 +97,9 @@ fun HomeLeftDrawer(moveVersion: MoveVersion, onChangeVersionClick: () -> Unit, o
         .height(42.dp)
         .fillMaxWidth(),
         shape = MaterialTheme.shapes.small,
-        backgroundColor = it.color,
+        colors = CardDefaults.cardColors(containerColor = it.color),
         onClick = { onDrawerItemClick(it.screenName) }) {
-        Box {
+        Box(Modifier.fillMaxSize()) {
           Text(
             text = stringResource(id = it.nameStringId),
             modifier = Modifier.align(Alignment.Center),

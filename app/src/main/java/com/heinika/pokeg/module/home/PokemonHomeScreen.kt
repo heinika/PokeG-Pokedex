@@ -47,6 +47,7 @@ import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.ui.compose.PokemonCard
 import com.heinika.pokeg.ui.compose.SelectVersionDialog
+import com.heinika.pokeg.ui.theme.ColorTheme
 import com.heinika.pokeg.utils.SystemBar
 import kotlinx.coroutines.launch
 
@@ -55,7 +56,13 @@ import kotlinx.coroutines.launch
 @ExperimentalCoilApi
 @ExperimentalMaterialApi
 @Composable
-fun PokemonHomeScreen(mainViewModel: HomeViewModel, onDrawerItemClick: (screenName: String) -> Unit, onPokemonItemClick: (Pokemon) -> Unit) {
+fun PokemonHomeScreen(
+  mainViewModel: HomeViewModel,
+  colorTheme: ColorTheme,
+  onDrawerItemClick: (screenName: String) -> Unit,
+  onPokemonItemClick: (Pokemon) -> Unit,
+  onColorThemeChange: (ColorTheme) -> Unit
+) {
   val sortedPokemonList = remember { mainViewModel.pokemonSortStateList }
   val scaffoldState = rememberScaffoldState()
   val scope = rememberCoroutineScope()
@@ -71,7 +78,13 @@ fun PokemonHomeScreen(mainViewModel: HomeViewModel, onDrawerItemClick: (screenNa
       drawerBackgroundColor = MaterialTheme.colorScheme.surface,
       drawerContentColor = MaterialTheme.colorScheme.onSurface,
       drawerContent = {
-        HomeLeftDrawer(moveVersion = moveVersion, onChangeVersionClick = { isShowSelectVersionDialog = true }, onDrawerItemClick = onDrawerItemClick)
+        HomeLeftDrawer(
+          moveVersion = moveVersion,
+          selectedColorTheme = colorTheme,
+          onChangeVersionClick = { isShowSelectVersionDialog = true },
+          onDrawerItemClick = onDrawerItemClick,
+          onColorThemeChange = onColorThemeChange
+        )
       }) { paddingValues ->
       paddingValues.calculateTopPadding()
 

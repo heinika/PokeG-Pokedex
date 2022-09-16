@@ -109,7 +109,7 @@ fun PokemonDetailScreen(
                 title = {
                   NameRow(pokemon, favouritePokemonsState.contains(pokemon.globalId.toString()), pokemonNameList.toList(),
                     onFavouriteClick = {
-                      ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+                      ConfigMMKV.favoritePokemons = if (ConfigMMKV.isFavoritePokemon(it.globalId)) {
                         favouritePokemonsState.remove(it.globalId.toString())
                         ConfigMMKV.favoritePokemons - it.globalId.toString()
                       } else {
@@ -168,7 +168,7 @@ fun PokemonDetailScreen(
             isPaddingBottom = index == otherForms.size - 1,
             isFavourite = favouritePokemonsState.contains(it.globalId.toString()),
             onFavouriteClick = {
-              ConfigMMKV.favoritePokemons = if (ConfigMMKV.favoritePokemons.contains(it.globalId.toString())) {
+              ConfigMMKV.favoritePokemons = if (ConfigMMKV.isFavoritePokemon(it.globalId)) {
                 favouritePokemonsState.remove(it.globalId.toString())
                 ConfigMMKV.favoritePokemons - it.globalId.toString()
               } else {

@@ -12,6 +12,10 @@
     <string name="spd">SPD</string>
     <string name="level">Level</string>
 
+    <string name="auto">auto</string>
+    <string name="light">light</string>
+    <string name="dark">dark</string>
+
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 
