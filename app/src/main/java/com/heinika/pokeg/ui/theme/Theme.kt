@@ -72,7 +72,7 @@ private val DarkColors = darkColorScheme(
 enum class ColorTheme(@StringRes val stringId: Int) {
   AUTO(R.string.auto),
   LIGHT(R.string.light),
-  DARK(R.string.dark)
+  DARK(R.string.dark);
 }
 
 @Composable

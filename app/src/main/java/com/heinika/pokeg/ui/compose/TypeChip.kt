@@ -13,8 +13,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
+import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.info.Type
 import com.heinika.pokeg.repository.res.ResUtils
+import com.heinika.pokeg.ui.theme.ColorTheme
 import com.heinika.pokeg.ui.theme.PokeGTheme
 
 
@@ -27,7 +29,11 @@ fun TypeChip(
   onClick: () -> Unit
 ) {
   val type = Type.values()[typeId - 1]
-  val typeColor = if(isSystemInDarkTheme()) type.endColor else type.darkEndColor
+  val typeColor = when(ConfigMMKV.colorTheme){
+    ColorTheme.AUTO -> if(isSystemInDarkTheme()) type.endColor else type.darkEndColor
+    ColorTheme.LIGHT -> type.darkEndColor
+    ColorTheme.DARK -> type.endColor
+  }
   val text = ResUtils.getTypeString(typeId, LocalContext.current)
   BaseChip(typeChipStatus, typeColor, modifier.width(68.dp), onClick, text)
 }
