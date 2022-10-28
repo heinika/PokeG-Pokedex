@@ -2,7 +2,6 @@ package com.heinika.pokeg.model
 
 
 import android.content.Context
-import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.repository.res.ResUtils
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.squareup.moshi.Json
@@ -54,9 +53,9 @@ data class SpeciesEvolutionChain(
   @Json(name = "turn_upside_down")
   val turnUpsideDown: Int
 ) {
-  fun getSpeciesFromImageUrl() = getPokemonImageUrl(evolvedFromSpeciesId, evolvedFromName)
+  fun getSpeciesFromImageUrl() = getPokemonImageUrl(evolvedFromSpeciesId)
 
-  fun getSpeciesToImageUrl() = getPokemonImageUrl(evolvedToSpeciesId, evolvedToName)
+  fun getSpeciesToImageUrl() = getPokemonImageUrl(evolvedToSpeciesId)
 
   fun getDescText(context: Context): String {
     return when (evolutionTriggerId) {

@@ -87,7 +87,7 @@ fun TeamNumberCard(
     }
 
     val painter = if (id == -1) painterResource(id = R.drawable.golden_pokeball) else
-      rememberFlavorPainter(getPokemonImageUrl(id, ""))
+      rememberFlavorPainter(getPokemonImageUrl(id))
 
     Image(
       painter = painter,

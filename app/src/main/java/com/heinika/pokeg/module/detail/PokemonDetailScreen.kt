@@ -450,7 +450,7 @@ private fun HeaderCard(
   Box(Modifier.fillMaxWidth()) {
     Image(
       painter = rememberImagePainter(
-        data = getPokemonImageUrl(pokemon.globalId, pokemon.name),
+        data = pokemon.getImageUrl(),
         builder = { crossfade(true) }
       ),
       contentDescription = "Picture of Pokemon",

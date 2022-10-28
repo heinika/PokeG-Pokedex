@@ -76,6 +76,7 @@ fun PokemonCard(
             Text(
               text = ResUtils.getNameById(
                 pokemon.id,
+                name = pokemon.name,
                 form = pokemon.form,
                 context = LocalContext.current,
               ),

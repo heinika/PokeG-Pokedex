@@ -1044,7 +1044,7 @@
 
     <string name="pokemon_name_10143">迷你Q现形</string>
 
-    <string name="pokemon_name_10147">500年前的颜色</string>
+    <string name="pokemon_name_10147">玛机雅娜 500年前的颜色</string>
     <string name="pokemon_name_10148">皮卡丘就决定是你了的帽子</string>
 
     <string name="pokemon_name_10152">鬃岩狼人黄昏</string>
@@ -1053,68 +1053,60 @@
     <string name="pokemon_name_10156">奈克洛兹玛拂晓之翼</string>
     <string name="pokemon_name_10157">究极奈克洛兹玛</string>
 
-    <string name="pokemon_name_10158">喵喵加勒尔</string>
-    <string name="pokemon_name_10159">小火马加勒尔</string>
-    <string name="pokemon_name_10160">烈焰马加勒尔</string>
-    <string name="pokemon_name_10161">呆呆兽加勒尔</string>
-    <string name="pokemon_name_10162">呆河马加勒尔</string>
-    <string name="pokemon_name_10163">大葱鸭加勒尔</string>
-    <string name="pokemon_name_10164">双弹瓦斯加勒尔</string>
-    <string name="pokemon_name_10165">吸盘魔偶加勒尔</string>
-    <string name="pokemon_name_10166">急冻鸟加勒尔</string>
-    <string name="pokemon_name_10167">闪电鸟加勒尔</string>
-    <string name="pokemon_name_10168">火焰鸟加勒尔</string>
-    <string name="pokemon_name_10169">呆呆王加勒尔</string>
-    <string name="pokemon_name_10170">太阳珊瑚加勒尔</string>
-    <string name="pokemon_name_10171">蛇纹熊加勒尔</string>
-    <string name="pokemon_name_10172">直冲熊加勒尔</string>
-    <string name="pokemon_name_10173">火红不倒翁加勒尔</string>
-    <string name="pokemon_name_10174">达摩狒狒加勒尔</string>
-    <string name="pokemon_name_10175">达摩狒狒达摩模式加勒尔</string>
-    <string name="pokemon_name_10176">哭哭面具加勒尔</string>
-    <string name="pokemon_name_10177">泥巴鱼加勒尔</string>
-    <string name="pokemon_name_10178">颤弦蝾螈低调</string>
-    <string name="pokemon_name_10179">冰砌鹅解冻形态</string>
-    <string name="pokemon_name_10180">爱管侍雌性</string>
-    <string name="pokemon_name_10181">苍响剑之王</string>
-    <string name="pokemon_name_10182">藏玛然特盾之王</string>
-    <string name="pokemon_name_10183">武道熊师连击流</string>
-    <string name="pokemon_name_10184">蕾冠王骑白马</string>
-    <string name="pokemon_name_10185">蕾冠王骑黑马</string>
 
-    <string name="pokemon_name_10186">妙蛙花极巨化</string>
-    <string name="pokemon_name_10187">喷火龙极巨化</string>
-    <string name="pokemon_name_10188">水箭龟极巨化</string>
-    <string name="pokemon_name_10189">巴大蝶极巨化</string>
-    <string name="pokemon_name_10190">皮卡丘极巨化</string>
-    <string name="pokemon_name_10191">喵喵极巨化</string>
-    <string name="pokemon_name_10192">怪力极巨化</string>
-    <string name="pokemon_name_10193">耿鬼极巨化</string>
-    <string name="pokemon_name_10194">巨钳蟹极巨化</string>
-    <string name="pokemon_name_10195">拉普拉斯极巨化</string>
-    <string name="pokemon_name_10196">伊布极巨化</string>
-    <string name="pokemon_name_10197">卡比兽极巨化</string>
-    <string name="pokemon_name_10198">灰尘山极巨化</string>
-    <string name="pokemon_name_10199">美录美塔极巨化</string>
-    <string name="pokemon_name_10200">轰擂金刚猩极巨化</string>
-    <string name="pokemon_name_10201">闪焰王牌极巨化</string>
-    <string name="pokemon_name_10202">千面避役极巨化</string>
-    <string name="pokemon_name_10203">钢盔鸦极巨化</string>
-    <string name="pokemon_name_10204">以欧路普极巨化</string>
-    <string name="pokemon_name_10205">暴噬龟极巨化</string>
-    <string name="pokemon_name_10206">巨碳山极巨化</string>
-    <string name="pokemon_name_10207">苹裹龙极巨化</string>
-    <string name="pokemon_name_10208">苹裹龙极巨化</string>
-    <string name="pokemon_name_10209">沙螺蟒极巨化</string>
-    <string name="pokemon_name_10210">颤弦蝾螈低调极巨化</string>
-    <string name="pokemon_name_10211">焚焰蚣极巨化</string>
-    <string name="pokemon_name_10212">布莉姆温极巨化</string>
-    <string name="pokemon_name_10213">长毛巨魔极巨化</string>
-    <string name="pokemon_name_10214">霜奶仙极巨化</string>
-    <string name="pokemon_name_10215">大王铜象极巨化</string>
-    <string name="pokemon_name_10216">铝钢龙极巨化</string>
-    <string name="pokemon_name_10217">无极汰那极巨化</string>
-    <string name="pokemon_name_10218">武道熊师一击流极巨化</string>
-    <string name="pokemon_name_10219">武道熊师连击流极巨化</string>
-    <string name="pokemon_name_10220">颤弦蝾螈低调极巨化</string>
+    <string name="pokemon_name_10159">eevee-starter</string>
+    <string name="pokemon_name_10160">pikachu-world-cap</string>
+    <string name="pokemon_name_10181">zygarde-10</string>
+    <string name="pokemon_name_10182">cramorant-gulping</string>
+    <string name="pokemon_name_10183">cramorant-gorging</string>
+    <string name="pokemon_name_10184">颤弦蝾螈 低调的样子</string>
+    <string name="pokemon_name_10185">冰砌鹅 解冻头</string>
+
+
+
+    <!--此处省略加勒尔形态宝可梦-->
+    <string name="pokemon_name_10186">爱管侍 雌性</string>
+    <string name="pokemon_name_10187">莫鲁贝可 空腹花纹</string>
+    <string name="pokemon_name_10188">苍响 剑之王</string>
+    <string name="pokemon_name_10189">藏玛然特 盾之王</string>
+    <string name="pokemon_name_10190">无极汰那 极巨团体战</string>
+    <string name="pokemon_name_10191">武道熊师连击流</string>
+    <string name="pokemon_name_10192">萨戮德 阿爸</string>
+    <string name="pokemon_name_10193">蕾冠王骑白马</string>
+    <string name="pokemon_name_10194">蕾冠王骑黑马</string>
+
+    <string name="pokemon_name_10195">妙蛙花极巨化</string>
+    <string name="pokemon_name_10196">喷火龙极巨化</string>
+    <string name="pokemon_name_10197">水箭龟极巨化</string>
+    <string name="pokemon_name_10198">巴大蝶极巨化</string>
+    <string name="pokemon_name_10199">皮卡丘极巨化</string>
+    <string name="pokemon_name_10200">喵喵极巨化</string>
+    <string name="pokemon_name_10201">怪力极巨化</string>
+    <string name="pokemon_name_10202">耿鬼极巨化</string>
+    <string name="pokemon_name_10203">巨钳蟹极巨化</string>
+    <string name="pokemon_name_10204">拉普拉斯极巨化</string>
+    <string name="pokemon_name_10205">伊布极巨化</string>
+    <string name="pokemon_name_10206">卡比兽极巨化</string>
+    <string name="pokemon_name_10207">灰尘山极巨化</string>
+    <string name="pokemon_name_10208">美录美塔极巨化</string>
+    <string name="pokemon_name_10209">轰擂金刚猩极巨化</string>
+    <string name="pokemon_name_10210">闪焰王牌极巨化</string>
+    <string name="pokemon_name_10211">千面避役极巨化</string>
+    <string name="pokemon_name_10212">钢盔鸦极巨化</string>
+    <string name="pokemon_name_10213">以欧路普极巨化</string>
+    <string name="pokemon_name_10214">暴噬龟极巨化</string>
+    <string name="pokemon_name_10215">巨碳山极巨化</string>
+    <string name="pokemon_name_10216">苹裹龙极巨化</string>
+    <string name="pokemon_name_10217">苹裹龙极巨化</string>
+    <string name="pokemon_name_10218">沙螺蟒极巨化</string>
+    <string name="pokemon_name_10219">颤弦蝾螈低调极巨化</string>
+    <string name="pokemon_name_10220">焚焰蚣极巨化</string>
+    <string name="pokemon_name_10221">布莉姆温极巨化</string>
+    <string name="pokemon_name_10222">长毛巨魔极巨化</string>
+    <string name="pokemon_name_10223">霜奶仙极巨化</string>
+    <string name="pokemon_name_10224">大王铜象极巨化</string>
+    <string name="pokemon_name_10225">铝钢龙极巨化</string>
+    <string name="pokemon_name_10226">武道熊师一击流极巨化</string>
+    <string name="pokemon_name_10227">武道熊师连击流极巨化</string>
+    <string name="pokemon_name_10228">颤弦蝾螈低调极巨化</string>
 </resources>

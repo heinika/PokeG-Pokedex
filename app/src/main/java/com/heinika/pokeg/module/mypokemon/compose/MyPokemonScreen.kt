@@ -142,7 +142,7 @@ private fun MyPokemonCard(
     }
 
     Image(
-      painter = rememberFlavorPainter(data = getPokemonImageUrl(id, "")),
+      painter = rememberFlavorPainter(data = getPokemonImageUrl(id)),
       contentDescription = "",
       modifier = Modifier
         .align(Alignment.TopStart)

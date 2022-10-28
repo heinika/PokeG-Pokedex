@@ -56,7 +56,29 @@ data class Pokemon(
 //    return "https://pokeres.bastionbot.org/images/pokemon/$index.png"
 //  }
 
-  fun getImageUrl(): String = getPokemonImageUrl(globalId, name)
+
+  //  name.contains("gmax") -> {
+//    if (gMaxImageUrls.any { it.contains(name.split("-")[0], true) }) {
+//      gMaxImageUrls.first { it.contains(name.split("-")[0], true) }
+//    } else {
+//      ""
+//    }
+//  }
+  fun getImageUrl(): String {
+    return when (form) {
+      2 -> getPokemonImageUrl(id + 20000)
+      3 -> if (globalId != 10177) getPokemonImageUrl(id + 30000) else getPokemonImageUrl(31555)
+      4 -> getPokemonImageUrl(id + 40000)
+      else ->
+        if (name.contains("mega") || name.contains("primal")) {
+          "https://img.pokemondb.net/artwork/vector/${name}.png"
+        } else if (name.contains("totem")) {
+          "https://img.pokemondb.net/artwork/vector/${name.dropLast(6)}.png"
+        } else {
+          getPokemonImageUrl(globalId)
+        }
+    }
+  }
 
   fun getCName(pokemonRes: PokemonRes): String = pokemonRes.getNameById(id, name)
 
