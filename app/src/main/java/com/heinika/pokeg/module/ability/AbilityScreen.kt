@@ -8,7 +8,13 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -23,6 +29,7 @@ import coil.annotation.ExperimentalCoilApi
 import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Ability
+import com.heinika.pokeg.model.Pokemon
 import com.heinika.pokeg.ui.compose.PokemonCard
 import com.heinika.pokeg.ui.theme.PokeGTheme
 import com.heinika.pokeg.utils.SystemBar
@@ -32,15 +39,18 @@ import com.heinika.pokeg.utils.formatId
 @OptIn(ExperimentalCoilApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun AbilityScreen(ability: Ability, onBack: () -> Unit, onPokemonClick: (pokemonId: Int) -> Unit, abilityViewModel: AbilityViewModel) {
-  val pokemonList = abilityViewModel.findPokemonListByAbilityId(ability.id).map { pokemonId ->
-    PokemonDataCache.pokemonList.first { it.globalId == pokemonId }
+  val pokemonList = ArrayList<Pokemon>()
+  abilityViewModel.findPokemonListByAbilityId(ability.id).forEach { pokemonId ->
+    if (PokemonDataCache.pokemonList.any { it.globalId == pokemonId }) {
+      pokemonList.add(PokemonDataCache.pokemonList.first { it.globalId == pokemonId })
+    }
   }
   val favouritePokemonsState = remember { mutableStateListOf<String>().apply { addAll(ConfigMMKV.favoritePokemons) } }
 
   LazyColumn {
     item {
       Column {
-        SmallTopAppBar(
+        TopAppBar(
           navigationIcon = {
             IconButton(onClick = {
               onBack()
