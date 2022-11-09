@@ -3,8 +3,8 @@ package com.heinika.pokeg.repository
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.Move
 import com.heinika.pokeg.model.SpeciesEvolutionChain
-import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.module.detail.MoveItem
+import com.heinika.pokeg.repository.res.PokemonRes
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -54,20 +54,8 @@ class DetailRepository @Inject constructor(
     emit(pokemonRes.fetchPokemonName().filter { it.pokemonSpeciesId == id })
   }.flowOn(Dispatchers.IO)
 
-  fun pokemonTypeFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonType().filter { it.pokemonId == id })
-  }.flowOn(Dispatchers.IO)
-
-  fun pokemonBaseStatFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonBaseStat().filter { it.pokemonId == id })
-  }.flowOn(Dispatchers.IO)
-
   fun pokemonSpecieFlow(id: Int) = flow {
     emit(pokemonRes.fetchPokemonSpecies().first { it.id == id })
-  }.flowOn(Dispatchers.IO)
-
-  fun pokemonNewFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemon().first { it.id == id })
   }.flowOn(Dispatchers.IO)
 
   fun speciesAllOtherFormsFlow(specieId: Int, globalId: Int) = flow {

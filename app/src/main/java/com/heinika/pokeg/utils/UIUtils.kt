@@ -37,8 +37,8 @@ val Number.dp: Int
 val Int.toBoolean: Boolean
   get() = this == 1
 
-val Int.isCnId: Boolean
-  get() = this == 12
+//val Int.isCnId: Boolean
+//  get() = this == 12
 
 val Int.isEnId: Boolean
   get() = this == 9

@@ -2,7 +2,17 @@ package com.heinika.pokeg.repository.res
 
 import android.app.Application
 import androidx.annotation.WorkerThread
-import com.heinika.pokeg.model.*
+import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.model.PokemonAbility
+import com.heinika.pokeg.model.PokemonMove
+import com.heinika.pokeg.model.PokemonMoveResult
+import com.heinika.pokeg.model.PokemonMoveVersion
+import com.heinika.pokeg.model.PokemonName
+import com.heinika.pokeg.model.PokemonSpecie
+import com.heinika.pokeg.model.SpecieFlavorBaseText
+import com.heinika.pokeg.model.SpecieFlavorText
+import com.heinika.pokeg.model.SpeciesEggGroup
+import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -10,7 +20,6 @@ import java.util.concurrent.CopyOnWriteArrayList
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Suppress("BlockingMethodInNonBlockingContext")
 @Singleton
 class PokemonJsonRes @Inject constructor(
   private val context: Application,
@@ -19,10 +28,8 @@ class PokemonJsonRes @Inject constructor(
   private val pokemonMoveVersionList: MutableList<PokemonMoveVersion> = mutableListOf()
   private val pokemonSpecieList: CopyOnWriteArrayList<PokemonSpecie> = CopyOnWriteArrayList()
   private val pokemonNameList: MutableList<PokemonName> = mutableListOf()
-  private val pokemonTypeList: MutableList<PokemonType> = mutableListOf()
   private val pokemonList: MutableList<Pokemon> = mutableListOf()
   private val pokemonAbilityList: MutableList<PokemonAbility> = mutableListOf()
-  private val pokemonBaseStatList: MutableList<PokemonBaseStat> = mutableListOf()
 
 
   fun fetchPokemonMoveVersionList(id: Int, speciesId: Int): List<Int> {
@@ -40,7 +47,7 @@ class PokemonJsonRes @Inject constructor(
   @WorkerThread
   fun fetchPokemonMoveList(pokemonId: Int,speciesId: Int, version: Int): List<PokemonMove> {
     return if (fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
-        .any() { it.id == pokemonId }){
+        .any { it.id == pokemonId }){
       fetchListByJson<PokemonMoveResult>("pokemon_move_$version.json")
         .first { it.id == pokemonId }.moves.toList()
     }else {
@@ -102,22 +109,6 @@ class PokemonJsonRes @Inject constructor(
       pokemonNameList.addAll(fetchListByJson("pokemon_names.json"))
     }
     return pokemonNameList
-  }
-
-  @WorkerThread
-  fun fetchPokemonType(): List<PokemonType> {
-    if (pokemonTypeList.isEmpty()) {
-      pokemonTypeList.addAll(fetchListByJson("pokemon_types.json"))
-    }
-    return pokemonTypeList
-  }
-
-  @WorkerThread
-  fun fetchPokemonBaseStat(): List<PokemonBaseStat> {
-    if (pokemonBaseStatList.isEmpty()) {
-      pokemonBaseStatList.addAll(fetchListByJson("pokemon_base_stats.json"))
-    }
-    return pokemonBaseStatList
   }
 
   @WorkerThread

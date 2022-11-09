@@ -1,7 +1,7 @@
 package com.heinika.pokeg.module.ability
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.heinika.pokeg.base.LiveCoroutinesViewModel
 import com.heinika.pokeg.model.PokemonAbility
 import com.heinika.pokeg.repository.AbilityRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AbilityViewModel @Inject constructor(private val abilityRepository: AbilityRepository) : LiveCoroutinesViewModel() {
+class AbilityViewModel @Inject constructor(private val abilityRepository: AbilityRepository) : ViewModel() {
   private var allPokemonAbilities: List<PokemonAbility>? = null
 
   init {

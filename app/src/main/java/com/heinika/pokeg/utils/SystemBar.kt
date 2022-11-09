@@ -1,5 +1,6 @@
 package com.heinika.pokeg.utils
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.Resources
 
@@ -16,6 +17,7 @@ object SystemBar {
     get() = navigationBarHeight.toFloat() / Resources.getSystem().displayMetrics.density
 
 
+  @SuppressLint("InternalInsetResource", "DiscouragedApi")
   fun initStatusBarHeight(activity: Activity) {
     val statusBarResourceId: Int =
       activity.resources.getIdentifier("status_bar_height", "dimen", "android")

@@ -1,11 +1,9 @@
 package com.heinika.pokeg.repository.res
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Configuration
-import android.content.res.Resources
 import com.heinika.pokeg.R
 import com.heinika.pokeg.utils.toFormString
-
 import timber.log.Timber
 import java.util.*
 
@@ -18,6 +16,7 @@ object ResUtils {
 
   fun getItemById(id: Int, context: Context): String = getResString("item_$id", context = context)
 
+  @SuppressLint("DiscouragedApi")
   private fun getResString(name: String, default: String = "", context: Context): String {
     return try {
       context.resources.getString(
@@ -31,14 +30,6 @@ object ResUtils {
       Timber.e("no resource name $name")
       default
     }
-  }
-
-  fun getLocalizedResources(context: Context, desiredLocale: Locale): Resources {
-    var conf: Configuration = context.getResources().getConfiguration()
-    conf = Configuration(conf)
-    conf.setLocale(desiredLocale)
-    val localizedContext: Context = context.createConfigurationContext(conf)
-    return localizedContext.getResources()
   }
 
   fun getVersionName(id: Int, context: Context) = context.resources.getStringArray(R.array.versions)[id - 1] ?: "?"
@@ -84,18 +75,6 @@ object ResUtils {
     4 -> context.resources.getString(R.string.medium_slow)
     5 -> context.resources.getString(R.string.slow_then_very_fast)
     6 -> context.resources.getString(R.string.fast_then_very_slow)
-    else -> "?"
-  }
-
-  fun getGeneration(id: Int, context: Context) = when (id) {
-    1 -> context.resources.getString(R.string.generation_i)
-    2 -> context.resources.getString(R.string.generation_ii)
-    3 -> context.resources.getString(R.string.generation_iii)
-    4 -> context.resources.getString(R.string.generation_iv)
-    5 -> context.resources.getString(R.string.generation_v)
-    6 -> context.resources.getString(R.string.generation_vi)
-    7 -> context.resources.getString(R.string.generation_vii)
-    8 -> context.resources.getString(R.string.generation_viii)
     else -> "?"
   }
 

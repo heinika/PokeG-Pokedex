@@ -3,7 +3,6 @@ package com.heinika.pokeg.module.ability
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -20,7 +19,6 @@ import com.heinika.pokeg.utils.SystemBar
 import com.heinika.pokeg.utils.formatId
 
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AbilitiesColumn(onItemClick: (abilityId: Int) -> Unit) {
   LazyColumn {
@@ -53,7 +51,6 @@ fun AbilityCard(ability: Ability, onItemClick: (abilityId: Int) -> Unit) {
   }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
 @Preview(locale = "zh")
 @Composable
 fun AbilityCardPreView() {
