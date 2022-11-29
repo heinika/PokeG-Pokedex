@@ -1,5 +1,6 @@
 package com.heinika.pokeg.module.home
 
+import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateListOf
@@ -40,6 +41,7 @@ class HomeViewModel @Inject constructor(
   val pokemonSortStateList = mutableStateListOf<Pokemon>()
 
   private lateinit var allPokemonList: List<Pokemon>
+  private lateinit var zhuziPokemonList: List<Pokemon>
   private lateinit var hiSuiPokemonList: List<Pokemon>
   private lateinit var basePokemonList: List<Pokemon>
 
@@ -69,6 +71,10 @@ class HomeViewModel @Inject constructor(
         onError = { _toastMessage.value = it }
       ).collect { pokemonList ->
         allPokemonList = pokemonList
+        zhuziPokemonList = RegionNumber.ZhuZiMap.keys.map { zhuziNumber ->
+          Log.i("TAG", ": zhuziPokemonList $zhuziNumber")
+          pokemonList.first { it.globalId == zhuziNumber }
+         }
         hiSuiPokemonList = RegionNumber.HiSuiMap.keys.map { hisuiNumber -> pokemonList.first { it.globalId == hisuiNumber } }
         basePokemonList = pokemonList
         clearAndAddAll(basePokemonList)
@@ -79,6 +85,7 @@ class HomeViewModel @Inject constructor(
   fun changDexType(dexType: DexType) {
     basePokemonList = when (dexType) {
       DexType.Global -> allPokemonList
+      DexType.ZhuZi -> zhuziPokemonList
       DexType.HiSui -> hiSuiPokemonList
     }
     clearAndAddAll(basePokemonList)

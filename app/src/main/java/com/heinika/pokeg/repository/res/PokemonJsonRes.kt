@@ -38,8 +38,10 @@ class PokemonJsonRes @Inject constructor(
     }
     return if (pokemonMoveVersionList.any { it.id == id }) {
       pokemonMoveVersionList.first { it.id == id }.versionList
-    } else {
+    } else if (pokemonMoveVersionList.any { it.id == speciesId }) {
       pokemonMoveVersionList.first { it.id == speciesId }.versionList
+    } else{
+      emptyList()
     }
   }
 
@@ -73,7 +75,12 @@ class PokemonJsonRes @Inject constructor(
 
   @WorkerThread
   fun fetchSpecieFlavorBaseText(id: Int): SpecieFlavorBaseText {
-    return fetchListByJson<SpecieFlavorBaseText>("species_flavor_base_text.json").first() { it.id == id }
+    val list = fetchListByJson<SpecieFlavorBaseText>("species_flavor_base_text.json")
+    return if (list.any{it.id == id }){
+      list.first { it.id == id }
+    } else{
+      SpecieFlavorBaseText("Unknown",-1)
+    }
   }
 
   @WorkerThread

@@ -20,6 +20,7 @@
     <string name="cancel">取消</string>
 
     <string name="global_pokedex">全国图鉴</string>
+    <string name="global_zhuzi">朱紫图鉴</string>
     <string name="hisui_pokedex">阿尔宙斯图鉴</string>
 
     <string name="contains_tags">含有标签</string>
@@ -171,6 +172,7 @@
     <string name="generation_vi">第六世代</string>
     <string name="generation_vii">第七世代</string>
     <string name="generation_viii">第八世代</string>
+    <string name="generation_ix">第九世代</string>
 
     <string name="ball">球型</string>
     <string name="squiggle">蛇形</string>

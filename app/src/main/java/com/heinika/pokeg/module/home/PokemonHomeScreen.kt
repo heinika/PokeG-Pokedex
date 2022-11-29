@@ -185,7 +185,7 @@ fun PokemonHomeScreen(
               state = pokemonColumnState
             ) {
               item {
-                SmallTopAppBar(
+                TopAppBar(
                   modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp),
                   title = {
                     Box {

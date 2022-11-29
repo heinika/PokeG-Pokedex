@@ -3,6 +3,7 @@ package com.heinika.pokeg.model
 import com.heinika.pokeg.curDexType
 import com.heinika.pokeg.info.DexType
 import com.heinika.pokeg.info.RegionNumber.HiSuiMap
+import com.heinika.pokeg.info.RegionNumber.ZhuZiMap
 import com.heinika.pokeg.repository.res.PokemonRes
 import com.heinika.pokeg.utils.getPokemonImageUrl
 import com.squareup.moshi.Json
@@ -86,6 +87,7 @@ data class Pokemon(
     return when (curDexType) {
       DexType.Global -> String.format("#%03d", id)
       DexType.HiSui -> String.format("#%03d", HiSuiMap[globalId] ?: globalId)
+      DexType.ZhuZi -> String.format("#%03d", ZhuZiMap[globalId] ?: globalId)
     }
   }
 

@@ -20,6 +20,7 @@
     <string name="cancel">Cancel</string>
 
     <string name="global_pokedex">Global PokeDex</string>
+    <string name="global_zhuzi">ZhuZi PokeDex</string>
     <string name="hisui_pokedex">HiSui PokeDex</string>
 
     <string name="contains_tags">contains tags</string>
@@ -209,6 +210,7 @@
     <string name="generation_vi">Generation VI</string>
     <string name="generation_vii">Generation VII</string>
     <string name="generation_viii">Generation VIII</string>
+    <string name="generation_ix">Generation IX</string>
 
     <string name="ball">ball</string>
     <string name="squiggle">squiggle</string>

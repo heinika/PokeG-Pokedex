@@ -2,6 +2,7 @@ package com.heinika.pokeg.repository
 
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.Move
+import com.heinika.pokeg.model.PokemonSpecie
 import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.heinika.pokeg.module.detail.MoveItem
 import com.heinika.pokeg.repository.res.PokemonRes
@@ -55,7 +56,35 @@ class DetailRepository @Inject constructor(
   }.flowOn(Dispatchers.IO)
 
   fun pokemonSpecieFlow(id: Int) = flow {
-    emit(pokemonRes.fetchPokemonSpecies().first { it.id == id })
+    val list = pokemonRes.fetchPokemonSpecies()
+    if (list.any { it.id == id }) {
+      emit(list.first { it.id == id })
+    } else {
+      emit(
+        PokemonSpecie(
+          baseHappiness = 0,
+          captureRate = 1,
+          colorId = 1,
+          conquestOrder = "",
+          evolutionChainId = 0,
+          evolvesFromSpeciesId = 0,
+          formsSwitchable = 1,
+          genderRate = 1,
+          generationId = 1,
+          growthRateId = 1,
+          habitatId = "",
+          hasGenderDifferences = 1,
+          hatchCounter = 1,
+          id = 1,
+          identifier = "",
+          isBaby = 0,
+          isLegendary = 0,
+          isMythical = 0,
+          order = 0,
+          shapeId = 0,
+        )
+      )
+    }
   }.flowOn(Dispatchers.IO)
 
   fun speciesAllOtherFormsFlow(specieId: Int, globalId: Int) = flow {

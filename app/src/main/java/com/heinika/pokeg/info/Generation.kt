@@ -16,7 +16,8 @@ enum class Generation(
   GenerationV(5, R.string.generation_v, R.color.generation_5, "V"),
   GenerationVI(6, R.string.generation_vi, R.color.generation_6, "VI"),
   GenerationVII(7, R.string.generation_vii, R.color.generation_7, "VII"),
-  GenerationVIII(8, R.string.generation_viii, R.color.generation_8, "VIII");
+  GenerationVIII(8, R.string.generation_viii, R.color.generation_8, "VIII"),
+  GenerationIX(9, R.string.generation_ix, R.color.generation_9, "IX");
 
   fun getName(context: Context): CharSequence {
     return context.getString(resId)

@@ -59,7 +59,11 @@ fun PokemonDetailScreen(
   val pokemon = PokemonDataCache.pokemonList.first { it.globalId == globalId }
 
   LaunchedEffect(key1 = null, block = {
-    detailViewModel.refreshPokemonMoveVersion(globalId, pokemon.speciesId)
+    if (globalId <= 898 || globalId > 10000){
+      detailViewModel.refreshPokemonMoveVersion(globalId, pokemon.speciesId)
+    }else{
+      detailViewModel.versionIdList.clear()
+    }
     detailViewModel.refreshPokemonNameList(pokemon.speciesId)
     detailViewModel.refreshPokemonAbilityList(pokemon.globalId)
     detailViewModel.refreshPokemonSpecie(pokemon.speciesId)
@@ -98,7 +102,7 @@ fun PokemonDetailScreen(
               .typeBackground(pokemon.types)
           ) {
             Column(Modifier.fillMaxWidth()) {
-              SmallTopAppBar(
+              TopAppBar(
                 navigationIcon = {
                   IconButton(onClick = {
                     onBack()
@@ -119,7 +123,9 @@ fun PokemonDetailScreen(
                     })
                 },
                 colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Transparent),
-                modifier = Modifier.padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp).shadow(4.dp,MaterialTheme.shapes.small)
+                modifier = Modifier
+                  .padding(top = SystemBar.statusBarHeightDp.dp, start = 12.dp, end = 12.dp)
+                  .shadow(4.dp, MaterialTheme.shapes.small)
               )
 
               HeaderCard(pokemon, abilityList.toList(), pokemonNameList.toList(), species.value, onAbilityClick, onTypeClick)
@@ -127,107 +133,120 @@ fun PokemonDetailScreen(
           }
         }
 
-        PokemonDescCard(specieFlavorText.value)
+        if (globalId <= 898 || globalId > 10000){
+          PokemonDescCard(specieFlavorText.value)
+        } else {
+          Spacer(modifier = Modifier.height(12.dp))
+        }
 
         StatusCard(pokemon)
 
-        EggCard(speciesEggGroupList.toList(), species.value)
 
 
-        if (chainList.isNotEmpty()) {
-          DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
-            Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
-              chainList.forEach { chain ->
-                Row(
-                  modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 12.dp),
-                  verticalAlignment = Alignment.CenterVertically
-                ) {
-                  val fromPokemon =
-                    PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
-                  val toPokemon =
-                    PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
-                  PokemonAvatar(fromPokemon, onClick = { onPokemonItemClick(it) })
-                  Text(
-                    chain.getDescText(LocalContext.current),
-                    modifier = Modifier.weight(1f),
-                    textAlign = TextAlign.Center
-                  )
-                  PokemonAvatar(toPokemon, onClick = { onPokemonItemClick(it) })
+        if (globalId <= 898 || globalId > 10000){
+          EggCard(speciesEggGroupList.toList(), species.value)
+
+          if (chainList.isNotEmpty()) {
+            DetailCard(modifier = Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+              Column(modifier = Modifier.padding(12.dp, 12.dp, 12.dp, 0.dp)) {
+                chainList.forEach { chain ->
+                  Row(
+                    modifier = Modifier
+                      .fillMaxWidth()
+                      .padding(bottom = 12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                  ) {
+                    val fromPokemon =
+                      PokemonDataCache.pokemonList.first { it.id == chain.evolvedFromSpeciesId }
+                    val toPokemon =
+                      PokemonDataCache.pokemonList.first { it.id == chain.evolvedToSpeciesId }
+                    PokemonAvatar(fromPokemon, onClick = { onPokemonItemClick(it) })
+                    Text(
+                      chain.getDescText(LocalContext.current),
+                      modifier = Modifier.weight(1f),
+                      textAlign = TextAlign.Center
+                    )
+                    PokemonAvatar(toPokemon, onClick = { onPokemonItemClick(it) })
+                  }
                 }
               }
             }
           }
-        }
 
-        otherForms.toList().forEachIndexed { index, it ->
-          PokemonCard(
-            pokemon = it,
-            onClick = { onPokemonItemClick(it) },
-            isPaddingBottom = index == otherForms.size - 1,
-            isFavourite = favouritePokemonsState.contains(it.globalId.toString()),
-            onFavouriteClick = {
-              ConfigMMKV.favoritePokemons = if (ConfigMMKV.isFavoritePokemon(it.globalId)) {
-                favouritePokemonsState.remove(it.globalId.toString())
-                ConfigMMKV.favoritePokemons - it.globalId.toString()
-              } else {
-                favouritePokemonsState.add(it.globalId.toString())
-                ConfigMMKV.favoritePokemons + it.globalId.toString()
-              }
+
+          otherForms.toList().forEachIndexed { index, it ->
+            PokemonCard(
+              pokemon = it,
+              onClick = { onPokemonItemClick(it) },
+              isPaddingBottom = index == otherForms.size - 1,
+              isFavourite = favouritePokemonsState.contains(it.globalId.toString()),
+              onFavouriteClick = {
+                ConfigMMKV.favoritePokemons = if (ConfigMMKV.isFavoritePokemon(it.globalId)) {
+                  favouritePokemonsState.remove(it.globalId.toString())
+                  ConfigMMKV.favoritePokemons - it.globalId.toString()
+                } else {
+                  favouritePokemonsState.add(it.globalId.toString())
+                  ConfigMMKV.favoritePokemons + it.globalId.toString()
+                }
+              })
+
+          }
+
+
+          versionId.value?.let {
+            VersionCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp), it, onClick = {
+              isShowSelectedDialog = true
             })
+          }
 
-        }
-
-
-        versionId.value?.let {
-          VersionCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp), it, onClick = {
-            isShowSelectedDialog = true
-          })
-        }
-
-
-        DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
-          Row(
-            Modifier
-              .fillMaxWidth()
-              .height(46.dp)
-          ) {
-            pokemonMoveMap.value.keys.sortedBy {
-              when (it) {
-                2 -> 3
-                3 -> 4
-                4 -> 2
-                else -> it
+          DetailCard(Modifier.padding(12.dp, 0.dp, 12.dp, 12.dp)) {
+            Row(
+              Modifier
+                .fillMaxWidth()
+                .height(46.dp)
+            ) {
+              pokemonMoveMap.value.keys.sortedBy {
+                when (it) {
+                  2 -> 3
+                  3 -> 4
+                  4 -> 2
+                  else -> it
+                }
+              }.forEach { methodId ->
+                val isSelected = methodId == moveMethodId.value
+                Box(modifier = Modifier
+                  .weight(1f)
+                  .fillMaxHeight()
+                  .clip(MaterialTheme.shapes.small)
+                  .border(
+                    if (isSelected) 2.dp else 0.dp,
+                    if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent,
+                    MaterialTheme.shapes.small
+                  )
+                  .clickable {
+                    detailViewModel.changeMethodId(methodId)
+                  }) {
+                  Text(
+                    text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
+                    Modifier
+                      .align(Alignment.Center),
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Center,
+                    color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
+                  )
+                }
               }
-            }.forEach { methodId ->
-              val isSelected = methodId == moveMethodId.value
-              Box(modifier = Modifier
-                .weight(1f)
-                .fillMaxHeight()
-                .clip(MaterialTheme.shapes.small)
-                .border(if (isSelected) 2.dp else 0.dp, if (isSelected) MaterialTheme.colorScheme.primary else Color.Transparent, MaterialTheme.shapes.small)
-                .clickable {
-                  detailViewModel.changeMethodId(methodId)
-                }) {
-                Text(
-                  text = ResUtils.getMoveMethodName(methodId, LocalContext.current),
-                  Modifier
-                    .align(Alignment.Center),
-                  style = MaterialTheme.typography.titleMedium,
-                  textAlign = TextAlign.Center,
-                  color = if (isSelected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
-                )
-              }
+
             }
-
           }
         }
       }
 
-      pokemonMoveMap.value[moveMethodId.value]?.let { moveItemList ->
-        items(moveItemList) { moveItem ->
-          MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
+      if (globalId <= 898 || globalId > 10000){
+        pokemonMoveMap.value[moveMethodId.value]?.let { moveItemList ->
+          items(moveItemList) { moveItem ->
+            MoveCard(move = Move.values().first { moveItem.id == it.id }, level = moveItem.level, onClick = {})
+          }
         }
       }
     }
@@ -395,7 +414,9 @@ fun VersionCard(modifier: Modifier = Modifier, versionId: Int, onClick: () -> Un
     onClick = { onClick() }
   ) {
     Row(modifier = Modifier.padding(12.dp)) {
-      Text("当前技能版本：${ResUtils.getVersionName(versionId, LocalContext.current)}", color = RashColor)
+      if (versionId > 0){
+        Text("当前技能版本：${ResUtils.getVersionName(versionId, LocalContext.current)}", color = RashColor)
+      }
     }
   }
 }
@@ -522,7 +543,9 @@ fun PokemonTypeCard(typeId: Int, modifier: Modifier = Modifier, onTypeClick: (Ty
   ) {
     Text(
       getTypeString(LocalContext.current, typeId), style = MaterialTheme.typography.titleSmall,
-      modifier = Modifier.fillMaxWidth().padding(6.dp, 3.dp),
+      modifier = Modifier
+        .fillMaxWidth()
+        .padding(6.dp, 3.dp),
       textAlign = TextAlign.Center
     )
   }

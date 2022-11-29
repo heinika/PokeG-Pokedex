@@ -9,7 +9,11 @@ import com.heinika.pokeg.ConfigMMKV
 import com.heinika.pokeg.PokemonDataCache
 import com.heinika.pokeg.info.Ability
 import com.heinika.pokeg.info.gmaxIdRange
-import com.heinika.pokeg.model.*
+import com.heinika.pokeg.model.Pokemon
+import com.heinika.pokeg.model.PokemonName
+import com.heinika.pokeg.model.PokemonSpecie
+import com.heinika.pokeg.model.SpeciesEggGroup
+import com.heinika.pokeg.model.SpeciesEvolutionChain
 import com.heinika.pokeg.repository.DetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -50,7 +54,8 @@ class DetailViewModel @Inject constructor(
 
         _versionId.value = when {
           versionIdList.contains(ConfigMMKV.defaultVersion) -> ConfigMMKV.defaultVersion
-          else -> versionIds.last()
+          versionIds.isNotEmpty() -> versionIds.last()
+          else -> null
         }
 
         _versionId.value?.let { version ->
