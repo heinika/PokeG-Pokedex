@@ -30,10 +30,6 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
     return context.getString(this.typeNameResId)
   }
 
-  fun getColor(context: Context): Int {
-    return context.getColor(this.typeColorResId)
-  }
-
   val defenseWeakList: List<Type>
     get() = when (this) {
       NORMAL -> listOf(FIGHTING)
@@ -41,7 +37,7 @@ enum class Type(val typeId: Int, val typeNameResId: Int, val typeColorResId: Int
       FLYING -> listOf(ELECTRIC, ICE, ROCK)
       POISON -> listOf(GROUND, PSYCHIC)
       GROUND -> listOf(WATER, GRASS, ICE)
-      ROCK -> listOf(GROUND, FIGHTING, WATER, GRASS, STEEL)
+      ROCK -> listOf(GROUND, WATER, GRASS, STEEL)
       BUG -> listOf(FLYING, FIRE, ROCK)
       GHOST -> listOf(GHOST, DARK)
       STEEL -> listOf(GROUND, FIGHTING, FIRE)
